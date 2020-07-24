@@ -17,5 +17,8 @@
     </nav>
 
     <p>&copy; {{ now.Format "2006"}} {{.Site.Params.copyright}}. </p>
+    {{with .Site.Params.caseNo }}
+    <p><a href="http://beian.miit.gov.cn">{{.}}</a></p>
+    {{end}}
   </div>
 </aside>
