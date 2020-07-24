@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring cloud on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/spring-cloud/</link>
+    <description>Recent content in spring cloud on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 12 Oct 2019 14:12:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/spring-cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>认识 Spring Cloud Alibaba</title>
+      <link>https://ichochy.com/post/20191012/</link>
+      <pubDate>Sat, 12 Oct 2019 14:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20191012/</guid>
+      <description>个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件</description>
+    </item>
+    
+  </channel>
+</rss>

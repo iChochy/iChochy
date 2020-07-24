@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shell 脚本重启项目 &middot; 回忆中的明天</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Shell 脚本重启项目</h1>
+  <time datetime=2019/10/16&#32;16:10:45 class="post-date">2019/10/16 16:10:45</time>
+  <p>每次发打包好项目后都需要手动重启项目，写个<code>Shell</code>脚本一键重启项目</p>
+<h3 id="shell-脚本">Shell 脚本</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>  
+<span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;n:p:&#34;</span> arg
+<span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">case</span> $arg in
+        n<span style="color:#f92672">)</span>
+                echo <span style="color:#e6db74">&#34;NAME&#39;s arg:</span>$OPTARG<span style="color:#e6db74">&#34;</span>
+                NAME<span style="color:#f92672">=</span>$OPTARG
+            ;;
+        p<span style="color:#f92672">)</span>
+                echo <span style="color:#e6db74">&#34;PORT&#39;s arg:</span>$OPTARG<span style="color:#e6db74">&#34;</span>
+                PORT<span style="color:#f92672">=</span>$OPTARG
+            ;;
+    <span style="color:#66d9ef">esac</span>
+<span style="color:#66d9ef">done</span>
+
+PROCESS<span style="color:#f92672">=</span>echo | lsof  -i TCP:$PORT | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $PROCESS <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+kill -9 $PROCESS
+echo kill $NAME:$PROCESS, restart
+<span style="color:#66d9ef">fi</span>
+cd jenkins
+cp jar/.tmp/$NAME-0.0.1-SNAPSHOT.jar jar/
+nohup java -jar -Xms128m -Xmx256m jar/$NAME-0.0.1-SNAPSHOT.jar --eureka.url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;127.0.0.1:9100/eureka/&#34;</span> --profile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dev&#34;</span>  &gt;logs/$NAME.log 2&gt;&amp;<span style="color:#ae81ff">1</span> &amp;
+echo $NAME starting
+</code></pre></div><h3 id="shell-说明">Shell 说明</h3>
+<p><code>lsof</code>：通过端口获取进程<br>
+<code>getopts</code>：实现<code>Shell</code>脚本多参数<br>
+<code>nohup</code>：后台启动项目</p>
+<h3 id="shell-运行">Shell 运行</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh -n project -p <span style="color:#ae81ff">8080</span>
+</code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

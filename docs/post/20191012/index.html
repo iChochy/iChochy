@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>认识 Spring Cloud Alibaba &middot; 回忆中的明天</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>认识 Spring Cloud Alibaba</h1>
+  <time datetime=2019/10/12&#32;14:12:45 class="post-date">2019/10/12 14:12:45</time>
+  <p>个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件</p>
+<h3 id="spring-cloud-是什么">Spring Cloud 是什么</h3>
+<p>Spring Cloud 为开发人员提供一些分布式组件，使其快速构建分布式系统（例如，配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁，领导选举，分布式会话，群集状态）。<br>
+开发人员使用 Spring Cloud 的组件，实现分布式服务系统，让服务可以在任何分布式环境中正常工作。</p>
+<h3 id="spring-cloud-alibaba-是什么">Spring Cloud Alibaba 是什么</h3>
+<p>官方介绍：Spring Cloud Alibaba 致力于提供微服务开发的一站式解决方案。此项目包含开发分布式应用服务的必需组件，方便开发者通过 Spring Cloud 编程模型轻松使用这些组件来开发分布式应用服务。<br>
+依托 Spring Cloud Alibaba，您只需要添加一些注解和少量配置，就可以将 Spring Cloud 应用接入阿里分布式应用解决方案，通过阿里中间件来迅速搭建分布式应用系统。</p>
+<h3 id="组件说明">组件说明：</h3>
+<ul>
+<li>开源组件</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nacos Config</td>
+<td>分布式配置管理</td>
+</tr>
+<tr>
+<td>Nacos Discovery</td>
+<td>服务注册和发现管理</td>
+</tr>
+<tr>
+<td>Sentinel</td>
+<td>流量控制和服务降级</td>
+</tr>
+<tr>
+<td>RocketMQ</td>
+<td>消息事件驱动</td>
+</tr>
+<tr>
+<td>Seata</td>
+<td>分布式事务解决方案</td>
+</tr>
+<tr>
+<td>Dubbo Spring Cloud</td>
+<td>服务远程调用</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>商业化组件</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACM</td>
+<td>Nacos Config的商业云服务</td>
+</tr>
+<tr>
+<td>ANS</td>
+<td>Nacos Discovery的商业云服务</td>
+</tr>
+<tr>
+<td>SMS</td>
+<td>阿里云短信服务</td>
+</tr>
+<tr>
+<td>OSS</td>
+<td>阿里云对象存储服务</td>
+</tr>
+<tr>
+<td>SchedulerX</td>
+<td>阿里分布式任务调度服务</td>
+</tr>
+</tbody>
+</table>
+<p><strong>有段很好的文字总结，分享给大家：</strong></p>
+<blockquote>
+</blockquote>
+<p>Spring 通常指 Spring IOC<br>
+Spring Framework 包含了 Spring IOC，同时包含了 Spring AOP，并实现与其它 J2EE 框架的整合<br>
+Spring Boot 是对 Spring Framework 的补充，让框架的集成变得更简单，致力于快速开发 独立的 Spring 应用<br>
+Spring Cloud 是基于 Spring Boot 设计的一套微服务规范，并增强了应用上下文<br>
+Spring Cloud Alibaba 采用阿里中间件作为原料，实现了 Spring Cloud 的微服务规范</p>
+<p><strong>Spring Cloud Alibaba的官方GitHub仓库地址：</strong><br>
+<a href="https://github.com/alibaba/spring-cloud-alibaba">https://github.com/alibaba/spring-cloud-alibaba</a></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

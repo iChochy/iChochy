@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jar on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/jar/</link>
+    <description>Recent content in jar on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 16 Oct 2019 16:10:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/jar/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shell 脚本重启项目</title>
+      <link>https://ichochy.com/post/20191016/</link>
+      <pubDate>Wed, 16 Oct 2019 16:10:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20191016/</guid>
+      <description>每次发打包好项目后都需要手动重启项目，写个Shell脚本一键重启项目</description>
+    </item>
+    
+  </channel>
+</rss>

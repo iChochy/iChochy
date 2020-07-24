@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slmgr on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/slmgr/</link>
+    <description>Recent content in slmgr on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 05 Jun 2020 19:22:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/slmgr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Office 批量激活的命令工具 slmgr</title>
+      <link>https://ichochy.com/post/20200605/</link>
+      <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20200605/</guid>
+      <description>软件许可证管理器 (slmgr.</description>
+    </item>
+    
+    <item>
+      <title>Office 批量激活的命令工具 ospp</title>
+      <link>https://ichochy.com/post/20200602/</link>
+      <pubDate>Tue, 02 Jun 2020 19:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20200602/</guid>
+      <description>Office 软件保护平台脚本 (ospp.</description>
+    </item>
+    
+  </channel>
+</rss>

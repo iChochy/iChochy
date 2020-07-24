@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elastic Stack（ElasticSearch 、 Kibana 和 Logstash） 实现日志的自动采集、搜索和分析 &middot; 回忆中的明天</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Elastic Stack（ElasticSearch 、 Kibana 和 Logstash） 实现日志的自动采集、搜索和分析</h1>
+  <time datetime=2020/07/10&#32;15:28:45 class="post-date">2020/07/10 15:28:45</time>
+  <p>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化</p>
+<p><code>Elasticsearch</code> 是一个分布式、RESTful 风格的搜索和数据分析引擎</p>
+<p><code>Kibana</code> 是一个免费且开放的用户界面，能够让您对 Elasticsearch 数据进行可视化管理和展示</p>
+<p><code>Beats</code> 是一个免费且开放的平台，集合了多种单一用途数据采集器，将数据发送给 Logstash 或 Elasticsearch</p>
+<p><code>Logstash</code> 是一个免费且开放的服务器端数据处理管道，能够从多个来源采集数据，转换数据，然后将数据发送到您最喜欢的“存储库”中</p>
+<h3 id="一下载镱像image">一、下载镱像(image)</h3>
+<p><strong>搜索镱像(image)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search elasticsearch
+docker search kibana 
+docker search logstash 
+</code></pre></div><p><strong>获取镱像(image)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elasticsearch:7.6.0     <span style="color:#75715e">#镜像名称:Tag</span>
+docker pull kibana:7.6.0            <span style="color:#75715e">#镜像名称:Tag</span>
+docker pull logstash:7.6.0            <span style="color:#75715e">#镜像名称:Tag</span>
+</code></pre></div><p><strong>注：版本要统一</strong></p>
+<h3 id="二创建-elkyml">二、创建 ELK.yml</h3>
+<p><strong>ELK.yml</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">version:</span> <span style="color:#e6db74">&#34;3.5&#34;</span>
+  
+<span style="color:#960050;background-color:#1e0010">services:</span>
+  <span style="color:#960050;background-color:#1e0010">elasticsearch:</span>
+     <span style="color:#960050;background-color:#1e0010">container_name:</span> <span style="color:#960050;background-color:#1e0010">elasticsearch</span>
+     <span style="color:#960050;background-color:#1e0010">image:</span> <span style="color:#960050;background-color:#1e0010">elasticsearch:</span><span style="color:#ae81ff">7.6</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#ae81ff">0</span>             <span style="color:#960050;background-color:#1e0010">#镱像(image)</span>
+     <span style="color:#960050;background-color:#1e0010">restart:</span> <span style="color:#960050;background-color:#1e0010">always</span>                        <span style="color:#960050;background-color:#1e0010">#重启方式</span>
+     <span style="color:#960050;background-color:#1e0010">environment:</span>
+       <span style="color:#960050;background-color:#1e0010">discovery.type:</span> <span style="color:#960050;background-color:#1e0010">single-node</span>          <span style="color:#960050;background-color:#1e0010">#环境变量：运行模式</span> <span style="color:#960050;background-color:#1e0010">单例</span>
+     <span style="color:#960050;background-color:#1e0010">ports:</span>
+       <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;9200:9200&#34;</span>                        <span style="color:#960050;background-color:#1e0010">#端口映射</span>
+       <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;9300:9300&#34;</span>
+  <span style="color:#960050;background-color:#1e0010">kibana:</span>
+    <span style="color:#960050;background-color:#1e0010">container_name:</span> <span style="color:#960050;background-color:#1e0010">kibana</span>
+    <span style="color:#960050;background-color:#1e0010">image:</span> <span style="color:#960050;background-color:#1e0010">kibana:</span><span style="color:#ae81ff">7.6</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#ae81ff">0</span>                     <span style="color:#960050;background-color:#1e0010">#镱像(image)</span>
+    <span style="color:#960050;background-color:#1e0010">restart:</span> <span style="color:#960050;background-color:#1e0010">always</span>                         <span style="color:#960050;background-color:#1e0010">#重启方式</span>
+    <span style="color:#960050;background-color:#1e0010">environment:</span>
+      <span style="color:#960050;background-color:#1e0010">I</span><span style="color:#ae81ff">18</span><span style="color:#960050;background-color:#1e0010">N_LOCALE:</span> <span style="color:#e6db74">&#34;zh-CN&#34;</span>                  <span style="color:#960050;background-color:#1e0010">#指定中文</span>
+    <span style="color:#960050;background-color:#1e0010">ports:</span>
+       <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;5601:5601&#34;</span>                        <span style="color:#960050;background-color:#1e0010">#端口映射</span>
+  <span style="color:#960050;background-color:#1e0010">logstash:</span>
+    <span style="color:#960050;background-color:#1e0010">container_name:</span> <span style="color:#960050;background-color:#1e0010">logstash</span>
+    <span style="color:#960050;background-color:#1e0010">image:</span> <span style="color:#960050;background-color:#1e0010">logstash:</span><span style="color:#ae81ff">7.6</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#ae81ff">0</span>
+    <span style="color:#960050;background-color:#1e0010">restart:</span> <span style="color:#960050;background-color:#1e0010">always</span>
+    <span style="color:#960050;background-color:#1e0010">volumes:</span>                                <span style="color:#960050;background-color:#1e0010">#文件夹映射，本地:容器</span>
+      <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;/Users/iChochy/logs:/usr/share/logstash/logs&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">ports:</span> 
+      <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;5044:5044&#34;</span>
+      <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#e6db74">&#34;9600:9600&#34;</span>
+</code></pre></div><blockquote>
+<p><code>volumes</code>自定义监控的文件夹<br>
+**注：**注意YML文件编写，不要出现 Tab 制表符，否则导致文件解析错误，启动容器(container)失败</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 错误信息</span>
+yaml.scanner.ScannerError: mapping values are not allowed here
+</code></pre></div><h3 id="三运行容器">三、运行容器</h3>
+<p>宿主机<code>hosts</code>中添加</p>
+<pre><code>127.0.0.1      elasticsearch
+</code></pre><p><strong>命令启动</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose -f ELK.yml up -d
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose 
+                -f  <span style="color:#75715e">#指定构建文件</span>
+                up  <span style="color:#75715e">#创建并启动容器</span>
+                -d  <span style="color:#75715e">#后台运行容器(container)，打印容器(container)ID</span>
+</code></pre></div><h3 id="四检查容器的运行状态">四、检查容器的运行状态</h3>
+<p>elasticsearch
+访问：<a href="http://127.0.0.1:9200">http://127.0.0.1:9200</a><br>
+<img src="https://images.ichochy.com/15943942032407731.png" alt="15943942032407731"></p>
+<p>logstash
+访问：<a href="http://127.0.0.1:9600">http://127.0.0.1:9600</a><br>
+<img src="https://images.ichochy.com/15943942392245702.png" alt="15943942392245702"></p>
+<p>Kibana
+访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana<br>
+<img src="https://images.ichochy.com/15731085378080282.png" alt="15731085378080282"></p>
+<p>运行<code>docker ps</code>查询容器运行状态，可以查看到容器的ID</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mleo$ docker ps
+CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+1b8cb2effede        logstash:7.6.0        <span style="color:#e6db74">&#34;/usr/local/bin/dock…&#34;</span>   <span style="color:#ae81ff">2</span> hours ago         Up About an hour    0.0.0.0:5044-&gt;5044/tcp, 0.0.0.0:9600-&gt;9600/tcp   logstash
+69b8bc678e4e        kibana:7.6.0          <span style="color:#e6db74">&#34;/usr/local/bin/dumb…&#34;</span>   <span style="color:#ae81ff">3</span> weeks ago         Up <span style="color:#ae81ff">2</span> hours          0.0.0.0:5601-&gt;5601/tcp                           kibana
+8c655f5b7493        elasticsearch:7.6.0   <span style="color:#e6db74">&#34;/usr/local/bin/dock…&#34;</span>   <span style="color:#ae81ff">3</span> weeks ago         Up <span style="color:#ae81ff">2</span> hours          0.0.0.0:9200-&gt;9200/tcp, 0.0.0.0:9300-&gt;9300/tcp   elasticsearch
+</code></pre></div><p>运行<code>docker logs id</code>查看容器运行日志</p>
+<pre><code>例：持续查看logstash日志
+docker logs 1b8cb2effede -f
+</code></pre><h3 id="五修改logstash配置监控日志文件">五、修改logstash配置，监控日志文件</h3>
+<ul>
+<li>运行<code>docker exec -it 1b8cb2effede bash</code>进入logstash</li>
+<li>运行<code>vi pipeline/logstash.conf</code>修改logstash默认配置</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">input</span> {
+  <span style="color:#960050;background-color:#1e0010">beats</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    <span style="color:#960050;background-color:#1e0010">port</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#960050;background-color:#1e0010">5044</span>
+  }
+  <span style="color:#960050;background-color:#1e0010">file</span> {
+    <span style="color:#960050;background-color:#1e0010">path</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#f92672">&#34;/usr/share/logstash/logs/*&#34;</span>   <span style="color:#960050;background-color:#1e0010">#监控的文件路径</span>
+  }
+<span style="color:#960050;background-color:#1e0010">}</span>
+
+<span style="color:#960050;background-color:#1e0010">output</span> {
+  <span style="color:#960050;background-color:#1e0010">stdout</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    <span style="color:#960050;background-color:#1e0010">codec</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#960050;background-color:#1e0010">rubydebug</span>
+  }
+  <span style="color:#960050;background-color:#1e0010">elasticsearch</span> {
+    <span style="color:#960050;background-color:#1e0010">hosts</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#f92672">&#34;http://elasticsearch:9200&#34;</span><span style="color:#960050;background-color:#1e0010">]</span>  <span style="color:#960050;background-color:#1e0010">#elasticsearch请求地址</span>
+    <span style="color:#960050;background-color:#1e0010">index</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#e6db74">&#34;ichochy&#34;</span>                      <span style="color:#960050;background-color:#1e0010">#索引名称</span>
+  }
+<span style="color:#960050;background-color:#1e0010">}</span>
+
+</code></pre></div><ul>
+<li>运行<code>docker restart 1b8cb2effede</code>重启 logstash</li>
+</ul>
+<h3 id="六采集日志">六、采集日志</h3>
+<p>在logstash的监控的文件路径下动态添加日志文件，日志就可以自动采集到 elasticsearch</p>
+<pre><code>touch web.log   #创建日志文件
+echo &quot;www.ichochy.com&quot; &gt; web.log  #添加日志信息
+</code></pre><p>查看 logstash 日志信息可以看到打印的日志</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+      <span style="color:#f92672">&#34;@version&#34;</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#e6db74">&#34;1&#34;</span>,
+          <span style="color:#f92672">&#34;path&#34;</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#e6db74">&#34;/usr/share/logstash/logs/web.log&#34;</span>,
+          <span style="color:#f92672">&#34;host&#34;</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#e6db74">&#34;1b8cb2effede&#34;</span>,
+    <span style="color:#f92672">&#34;@timestamp&#34;</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#ae81ff">2020-07-10</span><span style="color:#960050;background-color:#1e0010">T</span><span style="color:#ae81ff">14</span>:<span style="color:#ae81ff">07</span>:<span style="color:#ae81ff">16.633</span><span style="color:#960050;background-color:#1e0010">Z</span>,
+       <span style="color:#f92672">&#34;message&#34;</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#e6db74">&#34;www.ichochy.com&#34;</span>
+}
+</code></pre></div><h3 id="七搜索分析日志">七、搜索、分析日志</h3>
+<p>访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana</p>
+<p>在<code>Discover</code>可以看到刚刚添加进来的日志数据，开始表演…………</p>
+<p><img src="https://images.ichochy.com/15943959651825033.png" alt="15943959651825033"></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

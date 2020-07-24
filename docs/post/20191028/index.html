@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mac 无密码 SSH 登录服务器 &middot; 回忆中的明天</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Mac 无密码 SSH 登录服务器</h1>
+  <time datetime=2019/10/28&#32;15:10:45 class="post-date">2019/10/28 15:10:45</time>
+  <p>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</p>
+<h3 id="第一步生成密钥对">第一步，生成密钥对</h3>
+<p>在当前用户下创建<code>.ssh</code>目录</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/.ssh
+</code></pre></div><p>使用命令<code>ssh-keygen</code>生成密钥对,会在<code>~/.ssh</code>目录下生成公/私钥</p>
+<pre><code>id_rsa      //私钥
+id_rsa.pub  //公钥
+</code></pre><h3 id="第二步上传公钥">第二步，上传公钥</h3>
+<p>使用命令<code>ssh-copy-id user@hostname</code></p>
+<pre><code>如：ssh-copy-id  admin@192.168.1.55
+</code></pre><p>输入密码，操作成功<br>
+查看服务器<code>～/.ssh/authorized_keys</code>，可以看到本地的公钥已经写入到<code>authorized_keys</code>文件中</p>
+<p>运行命令<code>ssh user@hostname</code>就可以直接无密码 SSH 登录服务器</p>
+<h3 id="第三步config-配置">第三步，config 配置</h3>
+<p>在当前用户<code>.ssh</code>目录下创建<code>config</code>文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">touch  ~/.ssh/config
+</code></pre></div><p>通过<code>vim</code>编辑<code>config</code>，添加服务器配置信息</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Host iChochy                        //服务器别名
+    Hostname 192.168.1.55           //服务器地址
+    User admin                      //服务器用户
+    Identityfile ~/.ssh/id_rsa      //服务器公钥对应的本地私钥
+</code></pre></div><p>直接运行命令<code>ssh iChochy</code>就可以直接无密码 SSH 登录服务器</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

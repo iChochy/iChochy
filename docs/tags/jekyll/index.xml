@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jekyll on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/jekyll/</link>
+    <description>Recent content in jekyll on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 25 Sep 2019 15:22:38 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jekyll-admin的搭建和使用</title>
+      <link>https://ichochy.com/post/20190925/</link>
+      <pubDate>Wed, 25 Sep 2019 15:22:38 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190925/</guid>
+      <description>通过jekyll搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现jekyll-admin是个好东西，它是博客的后台管理系统，可以方便的管理和编写自己的博客</description>
+    </item>
+    
+    <item>
+      <title>Jekyll&#43;GitHub Pages部署自己的静态Blog</title>
+      <link>https://ichochy.com/post/20190213/</link>
+      <pubDate>Wed, 13 Feb 2019 11:45:00 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190213/</guid>
+      <description>混了这么久，一直想拥有自己的博客，通过jekyll和GitHub Pages捣腾出了自己的博客(https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

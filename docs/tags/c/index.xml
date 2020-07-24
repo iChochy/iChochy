@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/c/</link>
+    <description>Recent content in c on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 12 Aug 2019 12:25:36 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>libminipng 压缩png的swift-framework</title>
+      <link>https://ichochy.com/post/20190812/</link>
+      <pubDate>Mon, 12 Aug 2019 12:25:36 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190812/</guid>
+      <description>通过lodepng解析png图片，使用pngquant算法进行压缩的swift-framework，可实现PNG图片的压缩，并很好的保持图片的质量，完美实现其透明效果，支持Cocoapods安装使用</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>code on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/code/</link>
+    <description>Recent content in code on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 22 Sep 2019 18:12:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>神奇的不可见空格&lt;200b&gt;导致代码异常</title>
+      <link>https://ichochy.com/post/20190922/</link>
+      <pubDate>Sun, 22 Sep 2019 18:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190922/</guid>
+      <description>故事是这样发生的，在做一个JSON对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格&amp;lt;200b&amp;gt;导致的解析异常</description>
+    </item>
+    
+  </channel>
+</rss>

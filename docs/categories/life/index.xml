@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>life on 回忆中的明天</title>
+    <link>https://ichochy.com/categories/life/</link>
+    <description>Recent content in life on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 02 Dec 2018 18:32:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/categories/life/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>开篇</title>
+      <link>https://ichochy.com/post/20181202/</link>
+      <pubDate>Sun, 02 Dec 2018 18:32:03 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20181202/</guid>
+      <description>说说生活 生活总是有太多的磨炼，让你一步步的成长，可传奇的背后都是些艰辛的故事。</description>
+    </item>
+    
+  </channel>
+</rss>

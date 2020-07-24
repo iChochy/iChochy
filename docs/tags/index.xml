@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/</link>
+    <description>Recent content in Tags on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 10 Jul 2020 15:28:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>docker</title>
+      <link>https://ichochy.com/tags/docker/</link>
+      <pubDate>Fri, 10 Jul 2020 15:28:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>elasticsearch</title>
+      <link>https://ichochy.com/tags/elasticsearch/</link>
+      <pubDate>Fri, 10 Jul 2020 15:28:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kibana</title>
+      <link>https://ichochy.com/tags/kibana/</link>
+      <pubDate>Fri, 10 Jul 2020 15:28:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/kibana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logstash</title>
+      <link>https://ichochy.com/tags/logstash/</link>
+      <pubDate>Fri, 10 Jul 2020 15:28:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/logstash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cdn</title>
+      <link>https://ichochy.com/tags/cdn/</link>
+      <pubDate>Mon, 22 Jun 2020 12:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/cdn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>https</title>
+      <link>https://ichochy.com/tags/https/</link>
+      <pubDate>Mon, 22 Jun 2020 12:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/https/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>key</title>
+      <link>https://ichochy.com/tags/key/</link>
+      <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/key/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kms</title>
+      <link>https://ichochy.com/tags/kms/</link>
+      <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/kms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>office</title>
+      <link>https://ichochy.com/tags/office/</link>
+      <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/office/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ospp</title>
+      <link>https://ichochy.com/tags/ospp/</link>
+      <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/ospp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slmgr</title>
+      <link>https://ichochy.com/tags/slmgr/</link>
+      <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/slmgr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gvlk</title>
+      <link>https://ichochy.com/tags/gvlk/</link>
+      <pubDate>Thu, 28 May 2020 12:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/gvlk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aml</title>
+      <link>https://ichochy.com/tags/aml/</link>
+      <pubDate>Wed, 06 May 2020 22:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/aml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cml</title>
+      <link>https://ichochy.com/tags/cml/</link>
+      <pubDate>Wed, 06 May 2020 22:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/cml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cmml</title>
+      <link>https://ichochy.com/tags/cmml/</link>
+      <pubDate>Wed, 06 May 2020 22:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/cmml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mds</title>
+      <link>https://ichochy.com/tags/mds/</link>
+      <pubDate>Wed, 06 May 2020 22:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/mds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://ichochy.com/tags/linux/</link>
+      <pubDate>Sat, 22 Feb 2020 22:16:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://ichochy.com/tags/mysql/</link>
+      <pubDate>Sat, 22 Feb 2020 22:16:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://ichochy.com/tags/shell/</link>
+      <pubDate>Sat, 22 Feb 2020 22:16:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://ichochy.com/tags/ssh/</link>
+      <pubDate>Wed, 06 Nov 2019 15:24:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://ichochy.com/tags/bash/</link>
+      <pubDate>Mon, 28 Oct 2019 15:10:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nacos</title>
+      <link>https://ichochy.com/tags/nacos/</link>
+      <pubDate>Fri, 18 Oct 2019 16:35:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/nacos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring cloud alibaba</title>
+      <link>https://ichochy.com/tags/spring-cloud-alibaba/</link>
+      <pubDate>Fri, 18 Oct 2019 16:35:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/spring-cloud-alibaba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jar</title>
+      <link>https://ichochy.com/tags/jar/</link>
+      <pubDate>Wed, 16 Oct 2019 16:10:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/jar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring</title>
+      <link>https://ichochy.com/tags/spring/</link>
+      <pubDate>Sat, 12 Oct 2019 14:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring cloud</title>
+      <link>https://ichochy.com/tags/spring-cloud/</link>
+      <pubDate>Sat, 12 Oct 2019 14:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/spring-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloudfrare</title>
+      <link>https://ichochy.com/tags/cloudfrare/</link>
+      <pubDate>Tue, 08 Oct 2019 14:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/cloudfrare/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dns</title>
+      <link>https://ichochy.com/tags/dns/</link>
+      <pubDate>Tue, 08 Oct 2019 14:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://ichochy.com/tags/blog/</link>
+      <pubDate>Wed, 25 Sep 2019 15:22:38 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jekyll</title>
+      <link>https://ichochy.com/tags/jekyll/</link>
+      <pubDate>Wed, 25 Sep 2019 15:22:38 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code</title>
+      <link>https://ichochy.com/tags/code/</link>
+      <pubDate>Sun, 22 Sep 2019 18:12:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>framework</title>
+      <link>https://ichochy.com/tags/framework/</link>
+      <pubDate>Wed, 04 Sep 2019 10:22:33 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pod</title>
+      <link>https://ichochy.com/tags/pod/</link>
+      <pubDate>Wed, 04 Sep 2019 10:22:33 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/pod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swift</title>
+      <link>https://ichochy.com/tags/swift/</link>
+      <pubDate>Wed, 04 Sep 2019 10:22:33 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>app</title>
+      <link>https://ichochy.com/tags/app/</link>
+      <pubDate>Fri, 23 Aug 2019 08:32:36 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dmg</title>
+      <link>https://ichochy.com/tags/dmg/</link>
+      <pubDate>Fri, 23 Aug 2019 08:32:36 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/dmg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>https://ichochy.com/tags/mac/</link>
+      <pubDate>Fri, 23 Aug 2019 08:32:36 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qiniu</title>
+      <link>https://ichochy.com/tags/qiniu/</link>
+      <pubDate>Thu, 22 Aug 2019 15:22:36 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/qiniu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://ichochy.com/tags/c/</link>
+      <pubDate>Mon, 12 Aug 2019 12:25:36 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jenkins</title>
+      <link>https://ichochy.com/tags/jenkins/</link>
+      <pubDate>Wed, 10 Apr 2019 12:20:32 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://ichochy.com/tags/github/</link>
+      <pubDate>Wed, 13 Feb 2019 11:45:00 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>life</title>
+      <link>https://ichochy.com/tags/life/</link>
+      <pubDate>Sun, 02 Dec 2018 18:32:03 +0800</pubDate>
+      
+      <guid>https://ichochy.com/tags/life/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

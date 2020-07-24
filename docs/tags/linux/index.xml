@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/linux/</link>
+    <description>Recent content in linux on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 22 Feb 2020 22:16:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mysql 使用 source/mysqldump 命令导入/导出文件信息</title>
+      <link>https://ichochy.com/post/20200222/</link>
+      <pubDate>Sat, 22 Feb 2020 22:16:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20200222/</guid>
+      <description>要导入/导出数据库信息，使用 mysql 的source命令可以方便快速的处理</description>
+    </item>
+    
+    <item>
+      <title>初识 Docker</title>
+      <link>https://ichochy.com/post/20191106/</link>
+      <pubDate>Wed, 06 Nov 2019 15:24:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20191106/</guid>
+      <description>Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配制系统环境。</description>
+    </item>
+    
+    <item>
+      <title>Mac 无密码 SSH 登录服务器</title>
+      <link>https://ichochy.com/post/20191028/</link>
+      <pubDate>Mon, 28 Oct 2019 15:10:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20191028/</guid>
+      <description>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</description>
+    </item>
+    
+    <item>
+      <title>通过端口号关闭当前进程</title>
+      <link>https://ichochy.com/post/20190412/</link>
+      <pubDate>Fri, 12 Apr 2019 12:25:36 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190412/</guid>
+      <description>使用Shell脚本的方式，通过端口号来关闭当前进程</description>
+    </item>
+    
+  </channel>
+</rss>

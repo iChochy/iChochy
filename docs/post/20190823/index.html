@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mac 将 App 程序打包成为 dmg &middot; 回忆中的明天</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Mac 将 App 程序打包成为 dmg</h1>
+  <time datetime=2019/08/23&#32;08:32:36 class="post-date">2019/08/23 08:32:36</time>
+  <p>用最简单的打包方式，将自己开发的<code>App</code>打包成为<code>DMG</code>，实现共享分发，快速安装</p>
+<h3 id="1-新建dmg">1. 新建DMG</h3>
+<p><strong>打开磁盘工具，新建DMG</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">File-&gt;New Image-&gt;Blank Image
+</code></pre></div><p><img src="https://images.ichochy.com/15665433118042444.png" alt="15665433118042444"></p>
+<p><strong>创建DMG</strong><br>
+<img src="https://images.ichochy.com/15665435757953755.png" alt="15665435757953755"></p>
+<h3 id="2-添加文件">2. 添加文件</h3>
+<p><strong><code>在磁盘工上右键打开</code></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">右键-&gt;Show in Finder
+</code></pre></div><p><img src="https://images.ichochy.com/15665436347971226.png" alt="15665436347971226"></p>
+<p><strong>创建快捷键</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln -s /Applications Applications
+</code></pre></div><p><strong>完成文件添加</strong><br>
+<img src="https://images.ichochy.com/15665449057641887.png" alt="15665449057641887"></p>
+<h3 id="3-排版添加背景">3. 排版，添加背景</h3>
+<p><strong>修改排版</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">右键-&gt;Show View Options
+</code></pre></div><p><img src="https://images.ichochy.com/156654596473115412.png" alt="156654596473115412"></p>
+<p><strong>自定义背景</strong><br>
+<img src="https://images.ichochy.com/15665451417533438.png" alt="15665451417533438"></p>
+<h3 id="4-压缩dmg">4. 压缩DMG</h3>
+<p><strong>推出DMG</strong><br>
+<img src="https://images.ichochy.com/15665454417422579.png" alt="15665454417422579"></p>
+<p><strong>转换DMG</strong><br>
+<img src="https://images.ichochy.com/156654547374332110.png" alt="156654547374332110"></p>
+<p><strong>压缩DMG</strong><br>
+<img src="https://images.ichochy.com/156654560673824711.png" alt="156654560673824711"><br>
+<strong>压缩后的文件明显小于原文件，也不可再进行编辑</strong></p>
+<h3 id="5-完成打包">5. 完成打包</h3>
+<p><strong>至此，完成了App打包DMG，可以进行共享发布了</strong></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

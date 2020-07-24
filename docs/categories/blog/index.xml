@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on 回忆中的明天</title>
+    <link>https://ichochy.com/categories/blog/</link>
+    <description>Recent content in blog on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 22 Jun 2020 12:22:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>个人站长的加速器 - 百度云加速</title>
+      <link>https://ichochy.com/post/20200622/</link>
+      <pubDate>Mon, 22 Jun 2020 12:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20200622/</guid>
+      <description>免费申请20个SSL证书，支持HTTPS；多CDN节点，国内外加速，每天10G流量；3条特定页面规则；等</description>
+    </item>
+    
+    <item>
+      <title>通过Cloudflare开启全站https</title>
+      <link>https://ichochy.com/post/20191008/</link>
+      <pubDate>Tue, 08 Oct 2019 14:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20191008/</guid>
+      <description>Cloudflare 添加域名后，会自动生成通用证书，快速开启全站HTTPS，服务端不用做任何修改，还可以选择多种开启模式</description>
+    </item>
+    
+    <item>
+      <title>jekyll-admin的搭建和使用</title>
+      <link>https://ichochy.com/post/20190925/</link>
+      <pubDate>Wed, 25 Sep 2019 15:22:38 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190925/</guid>
+      <description>通过jekyll搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现jekyll-admin是个好东西，它是博客的后台管理系统，可以方便的管理和编写自己的博客</description>
+    </item>
+    
+    <item>
+      <title>iUploader 2.0 七牛云上传工具</title>
+      <link>https://ichochy.com/post/20190822/</link>
+      <pubDate>Thu, 22 Aug 2019 15:22:36 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190822/</guid>
+      <description>iUploader 是一个免费开源的七牛云上传工具，可直接返回上传文件的地址；可以用作图床工具，进行图片的分享，当然不仅仅是图片</description>
+    </item>
+    
+    <item>
+      <title>七牛云图床上传工具-iUploader</title>
+      <link>https://ichochy.com/post/20190403/</link>
+      <pubDate>Wed, 03 Apr 2019 08:20:05 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190403/</guid>
+      <description>iUploader主要功能将图片上传至七牛云，返回 Markdown 格式的链接到剪贴板</description>
+    </item>
+    
+    <item>
+      <title>加速你的博客永无止境-七牛云存储</title>
+      <link>https://ichochy.com/post/20190309/</link>
+      <pubDate>Fri, 08 Mar 2019 16:10:00 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190309/</guid>
+      <description>将自己的静态博客直接部署到七牛云存储，由七牛云托管运行，你说快不快，还没有注册七牛云的看这里，七牛云注册邀请：https://portal.qiniu.com/signup?code=3l7cpouzlru4y，哈哈！</description>
+    </item>
+    
+    <item>
+      <title>加速你的博客永无止境-七牛云CDN</title>
+      <link>https://ichochy.com/post/20190306/</link>
+      <pubDate>Wed, 06 Mar 2019 15:25:00 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190306/</guid>
+      <description>个人的博客是通过jekyll构建，通过GitHub Pages搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通CDN来加速博客。于是开始了折腾………………</description>
+    </item>
+    
+    <item>
+      <title>Jekyll&#43;GitHub Pages部署自己的静态Blog</title>
+      <link>https://ichochy.com/post/20190213/</link>
+      <pubDate>Wed, 13 Feb 2019 11:45:00 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190213/</guid>
+      <description>混了这么久，一直想拥有自己的博客，通过jekyll和GitHub Pages捣腾出了自己的博客(https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

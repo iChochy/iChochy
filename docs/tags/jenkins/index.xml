@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jenkins on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/jenkins/</link>
+    <description>Recent content in jenkins on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 10 Apr 2019 12:20:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>持续集成和持续交付工具-jenkins</title>
+      <link>https://ichochy.com/post/20190410/</link>
+      <pubDate>Wed, 10 Apr 2019 12:20:32 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20190410/</guid>
+      <description>打破原有的手动部署方式，实现程序自动化；通过jenkins来解放你的双手</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nacos on 回忆中的明天</title>
+    <link>https://ichochy.com/tags/nacos/</link>
+    <description>Recent content in nacos on 回忆中的明天</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 18 Oct 2019 16:35:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://ichochy.com/tags/nacos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring Cloud Alibaba Nacos Discovery 实战</title>
+      <link>https://ichochy.com/post/20191018/</link>
+      <pubDate>Fri, 18 Oct 2019 16:35:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20191018/</guid>
+      <description>Nacos 作为服务注册中心，可以快速简单的将服务自动注册到 Nacos 服务端，并且能够动态无感知的刷新某个服务实例的服务列表，为分布式系统提供服务注册与发现功能</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Alibaba Nacos Config 实战</title>
+      <link>https://ichochy.com/post/20191017/</link>
+      <pubDate>Thu, 17 Oct 2019 14:10:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/post/20191017/</guid>
+      <description>Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你 Spring Cloud 应用的外部属性配置</description>
+    </item>
+    
+  </channel>
+</rss>

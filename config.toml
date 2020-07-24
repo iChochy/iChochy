@@ -1,0 +1,20 @@
+baseURL = "https://ichochy.com/"
+languageCode = "zh-cn"
+title = "回忆中的明天"
+uglyurls = false
+theme = "hyde"
+summaryLength = 1
+publishDir = "docs"
+
+[params]
+  layoutReverse = false
+  copyright = "iChochy"
+  description = "码农小站，写点Java、Swift和感悟"
+
+[Menus]
+  main = [
+#      {Name = "Categories", weight = 1, URL = "/categories/"},
+#      {Name = "Tags", weight = 2, URL = "/tags/"},
+      {Name = "Links", weight = 3, URL = "/links/"},
+      {Name = "About", weight = 4, URL = "/about/"}
+  ]
