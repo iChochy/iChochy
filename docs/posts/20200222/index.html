@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>mysql 使用 source/mysqldump 命令导入/导出文件信息 &middot; 回忆中的明天</title>
+  <meta name="description" content="要导入/导出数据库信息，使用 mysql 的source命令可以方便快速的处理" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>mysql 使用 source/mysqldump 命令导入/导出文件信息</h1>
+  <time datetime=2020/02/22&#32;22:16:45 class="post-date">2020/02/22 22:16:45</time>
+  <p>要导入/导出数据库信息，使用 mysql 的<code>source</code>命令可以方便快速的处理</p>
+<p>以MAC为例：</p>
+<hr>
+<h3 id="一mysqldump命令导出sql文件">一、<code>mysqldump</code>命令导出SQL文件</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span><span style="color:#66d9ef">local</span><span style="color:#f92672">/</span>mysql<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>mysqldump <span style="color:#f92672">-</span>u root <span style="color:#f92672">-</span>p test <span style="color:#f92672">&gt;</span> <span style="color:#f92672">~/</span>test.<span style="color:#66d9ef">sql</span>
+</code></pre></div><p>输入密码导出SQL文件，其中test为数据库名称</p>
+<h3 id="二source命令导入slq文件">二、<code>source</code>命令导入SLQ文件</h3>
+<p><strong>登录数据库</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/local/mysql/bin/mysql -u root -p
+</code></pre></div><p>输入密码登录数据库</p>
+<p><strong>导入SQL文件</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">show</span> databases;       <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">查看数据库</span>
+<span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> test; <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">创建数据库</span> test
+use test;             <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">使用数据库</span> test
+<span style="color:#66d9ef">source</span> <span style="color:#f92672">~/</span>test.<span style="color:#66d9ef">sql</span>;    <span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">快速导入超大</span>SQL文件
+</code></pre></div><p>通过<code>source</code>命令可以快速导入超大SQL文件</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

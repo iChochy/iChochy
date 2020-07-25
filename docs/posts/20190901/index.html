@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CocoaPods 构建自己的 Pod 库 &middot; 回忆中的明天</title>
+  <meta name="description" content="构建一个自己的库供其它人使用是不是一件很酷(苦)的事情，通过CocoaPods 可以快捷的构建自己库，并向全世界分享你的成果" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>CocoaPods 构建自己的 Pod 库</h1>
+  <time datetime=2019/09/01&#32;12:32:55 class="post-date">2019/09/01 12:32:55</time>
+  <p>构建一个自己的库供其它人使用是不是一件很酷(苦)的事情，通过<a href="https://cocoapods.org/">CocoaPods</a> 可以快捷的构建自己库，并向全世界分享你的成果</p>
+<h3 id="一创建-podspec">一、创建 <code>Podspec</code></h3>
+<p>有两种方式：</p>
+<ol>
+<li>使用命令 <code>pod lib create mylib</code> 创建一套完整的 Pod 库模版</li>
+<li>使用命令 <code>pod spec create mylib</code> 创建 <code>Podspec</code> 的配置文件</li>
+</ol>
+<h3 id="二配置-podspec">二、配置 <code>Podspec</code></h3>
+<p>官网说明：<a href="https://guides.cocoapods.org/syntax/podspec.html#specification">https://guides.cocoapods.org/syntax/podspec.html#specification</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
+  spec.name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;libminipng&#39;</span>
+  spec.version      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0.0.5&#39;</span>
+  spec.license      <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :type <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;MIT&#39;</span> <span style="color:#f92672">}</span>
+  spec.homepage     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.ichochy.com&#39;</span>
+  spec.authors      <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#39;iChochy&#39;</span> <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;iChochy@qq.com&#39;</span> <span style="color:#f92672">}</span>
+  spec.summary      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Swift library that compresses PNG&#39;</span>
+  spec.source       <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :git <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;https://github.com/iChochy/libminipng.git&#39;</span>, :tag <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;v3.1.0&#39;</span> <span style="color:#f92672">}</span>
+  spec.source_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;libminipng/Classes/**/*&#39;</span>
+  spec.public_header_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;libminipng/Classes/libminipng.h&#34;</span>,<span style="color:#e6db74">&#34;libminipng/Classes/minipng.h&#34;</span>
+end
+</code></pre></div><p><code>spec.source</code>：检索库的远程地址</p>
+<p>支持指定方式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">:git <span style="color:#f92672">=</span>&gt; :tag, :branch, :commit, :submodules
+:svn <span style="color:#f92672">=</span>&gt; :folder, :tag, :revision
+:hg <span style="color:#f92672">=</span>&gt; :revision
+:http <span style="color:#f92672">=</span>&gt; :flatten, :type, :sha256, :sha1, :headers
+</code></pre></div><p><code>spec.source_files</code>: 库的源代码</p>
+<p>通过正则方式匹配，如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#e6db74">&#34;JSONKit.?&#34;</span>    <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>
+<span style="color:#e6db74">&#34;*.[a-z][a-z]&#34;</span> <span style="color:#75715e">#=&gt; [&#34;CHANGELOG.md&#34;, &#34;README.md&#34;]</span>
+<span style="color:#e6db74">&#34;*.[^m]*&#34;</span>      <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;]</span>
+<span style="color:#e6db74">&#34;*.{h,m}&#34;</span>      <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>
+<span style="color:#e6db74">&#34;*&#34;</span>            <span style="color:#75715e">#=&gt; [&#34;CHANGELOG.md&#34;, &#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;, &#34;README.md&#34;]</span>
+</code></pre></div><p><code>spec.public_header_files</code>: 公共头文件</p>
+<p><em><strong>如果OC混编，可以在公共头文件中引入OC文件，如同桥接文件</strong></em></p>
+<p><em>注：如果未指定公共头文件，那么<code>source_files</code>中的所有文件将被视为公共头文件</em></p>
+<h3 id="三验证-podspec">三、验证 <code>Podspec</code></h3>
+<pre><code>pod lib lint  	//本地验证
+pod spec lint 	//在线验证，检查外部仓库和相关标签
+</code></pre><p>如果出现警告(<code>WARN</code>) ，可以添加<code>--allow-warnings</code>忽略警告<br>
+如果出现错误(<code>ERROR</code>)，可以添加 <code>--verbose</code>，查看详情</p>
+<h3 id="四创建账号">四、创建账号</h3>
+<ol>
+<li>注册账号：<br>
+<code>pod trunk register iChochy@qq.com 'iChochy' --description='macbook'</code></li>
+<li>激活账号：<br>
+完成注册后进入邮件点击激活链接进行激活操作</li>
+<li>查看账号：<br>
+<code>pod trunk me</code></li>
+</ol>
+<h3 id="五发布-podspec">五、发布 <code>Podspec</code></h3>
+<p><code>pod trunk push [NAME.podspec]</code> 将您的Podspec部署到Trunk，并公开发布<br>
+<code>pod repo push REPO [NAME.podspec]</code>  将您的Podspec部署到私有仓库</p>
+<p><em>注：如果出现警告(<code>WARN</code>) ，可以添加<code>--allow-warnings</code>忽略警告</em></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

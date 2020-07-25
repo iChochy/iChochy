@@ -1,18 +1,42 @@
 {{ define "main" -}}
+
+
 <div class="posts">
-{{ range where .Site.RegularPages "Section" "post" -}}
-<article class="post">
-  <h1 class="post-title">
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-  </h1>
-  <time datetime="{{ .Date.Format "2006/01/02 15:04:05" }}" class="post-date">{{ .Date.Format "2006/01/02" }}</time>
-  {{ .Summary }}
-  {{ if .Truncated }}
-  <div class="read-more-link">
-    <a href="{{ .RelPermalink }}">阅读更多…</a>
-  </div>
+  {{ $paginator := .Paginate (where .Site.RegularPages "Type" .Site.Params.PostDir) }}
+  {{ range $paginator.Pages }}
+  <article class="post">
+    <h1 class="post-title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h1>
+    <time datetime="{{ .Date.Format "2006/01/02 15:04:05" }}" class="post-date">{{ .Date.Format "2006/01/02" }}</time>
+    {{ .Summary }}
+    {{ if .Truncated }}
+    <div class="read-more-link">
+      <a href="{{ .RelPermalink }}">阅读更多…</a>
+    </div>
+    {{ end }}
+  </article>
   {{ end }}
-</article>
-{{- end }}
+
 </div>
+
+<div class="pagination">
+
+  <span class="pagination-item older">
+    {{ if .Paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="pag-link">上一页</a>
+    {{else}}
+    上一页
+    {{ end }}
+  </span>
+
+  <span class="pagination-item newer">
+    {{ if .Paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="pag-link">下一页</a>
+    {{else}}
+    下一页
+    {{end}}
+  </span>
+</div>
+
 {{- end }}

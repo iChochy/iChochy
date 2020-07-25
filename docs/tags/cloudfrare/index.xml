@@ -13,10 +13,10 @@
     
     <item>
       <title>通过Cloudflare开启全站https</title>
-      <link>https://ichochy.com/post/20191008/</link>
+      <link>https://ichochy.com/posts/20191008/</link>
       <pubDate>Tue, 08 Oct 2019 14:22:45 +0800</pubDate>
       
-      <guid>https://ichochy.com/post/20191008/</guid>
+      <guid>https://ichochy.com/posts/20191008/</guid>
       <description>Cloudflare 添加域名后，会自动生成通用证书，快速开启全站HTTPS，服务端不用做任何修改，还可以选择多种开启模式</description>
     </item>
     

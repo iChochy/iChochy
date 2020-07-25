@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Office 批量激活的命令工具 slmgr &middot; 回忆中的明天</title>
+  <meta name="description" content="软件许可证管理器 (slmgr." />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Office 批量激活的命令工具 slmgr</h1>
+  <time datetime=2020/06/05&#32;19:22:45 class="post-date">2020/06/05 19:22:45</time>
+  <p>软件许可证管理器 (slmgr.vbs) 脚本用于配置和检索 Office KMS 主机和 Windows 主机的批量激活信息。</p>
+<p><strong>适用于：</strong> Office 2019 和 Office 2016（包括 Project 和 Visio）的批量许可版本</p>
+<h3 id="slmgrvbs-脚本">slmgr.vbs 脚本</h3>
+<p>您可以在目标计算机上以本地方式运行脚本，或从另一台计算机中以远程方式运行。您必须是管理员才能使用此脚本。如果标准用户运行 slmgr.vbs，则某些许可证数据可能缺失或不正确，并且许多操作将被禁止。</p>
+<p>slmgr.vbs 脚本可以使用基于 Windows 的脚本主机 wscript.exe 或基于命令的脚本主机 cscript.exe，管理员可以指定要使用的脚本引擎。如果未指定脚本引擎，slmgr.vbs 将使用默认脚本引擎 wscript.exe 运行。我们建议使用 cscript.exe 脚本引擎。</p>
+<p>您必须重新启动软件授权服务才能使任何更改生效。若要重新启动软件授权服务，请使用 Microsoft 管理控制台 (MMC) 服务管理单元或运行以下命令：</p>
+<pre><code>net stop sppsvc &amp;&amp; net start sppsvc
+</code></pre><p>slmgr.vbs 脚本需要至少一个参数。如果您运行不带任何参数的脚本，则会显示帮助信息。下表列出了 slmgr.vbs 的命令行选项以及每个选项的说明。该表中的大多数参数都用于配置 KMS 主计算机。不过，参数 /sai 和 /sri 是在 KMS 客户端与 KMS 主计算机联系后才传递给 KMS 客户端。</p>
+<h4 id="slmgrvbs-的常规语法如下所示假定所使用的脚本引擎为-cscriptexe">slmgr.vbs 的常规语法如下所示（假定所使用的脚本引擎为 cscript.exe）：</h4>
+<pre><code>cscript slmgr.vbs /parameter
+</code></pre><pre><code>cscript slmgr.vbs [ComputerName] [User] [Password] [Option]
+</code></pre><p><code>ComputerName </code>：远程计算机的名称。如果您不提供计算机名称，则使用本地计算机。<br>
+<code>User</code>：远程计算机上具有所需权限的帐户。<br>
+<code>Password</code> ：帐户的密码。如果您不提供用户帐户和密码，则使用当前凭据。<br>
+<code>Option</code>：选项显示在下表中。</p>
+<h3 id="slmgrvbs-命令选项">Slmgr.vbs 命令选项</h3>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/ ipk [ProductKey]</td>
+<td>为 Windows（默认设置）或由产品密钥标识的其他应用程序安装产品密钥。</td>
+</tr>
+<tr>
+<td>/ ato [ActivationID]</td>
+<td>激活 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主机。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
+</tr>
+<tr>
+<td>/ dti [ActivationID]</td>
+<td>显示用于 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主计算机的电话激活的安装 ID。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。 在电话中输入安装 ID 以接收确认 ID，该 ID 用于使用 /atp 参数激活 KMS 主机。</td>
+</tr>
+<tr>
+<td>/ atp [ConfirmationID][ActivationID]</td>
+<td>收到确认 ID 后，激活 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主机。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
+</tr>
+<tr>
+<td>/ dlv [ActivationID]</td>
+<td>显示有关 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的详细许可证信息。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。例如，在提升的命令符处运行以下命令，在 C:\windows\system32 文件夹中获取 Office KMS 主机的状态：cscript slmgr.vbs /dlv 70512334-47B4-44DB-A233-BE5EA33B914C</td>
+</tr>
+<tr>
+<td>/ dli [ActivationID]</td>
+<td>显示有关 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的许可证信息。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
+</tr>
+<tr>
+<td>/ upk [ActivationID]</td>
+<td>卸载 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的产品密钥。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。  <strong>警告：</strong> 如果打算卸载 Office 产品密钥，并且忘记要输入激活 ID，则所有已安装的产品密钥将被卸载。 这包括 Windows 产品密钥。</td>
+</tr>
+<tr>
+<td>/ xpr [ActivationID]</td>
+<td>显示当前许可证状态的到期日期。</td>
+</tr>
+<tr>
+<td>/ sprt [PortNumber]</td>
+<td>在 KMS 主计算机上设置 TCP 通信端口。此操作会将 PortNumber 替换为要使用的 TCP 端口号。默认设置为 1688 。</td>
+</tr>
+<tr>
+<td>/ cdns</td>
+<td>禁止通过 KMS 主计算机自动发布 DNS。</td>
+</tr>
+<tr>
+<td>/ sdns</td>
+<td>启用通过 KMS 主计算机自动发布 DNS。</td>
+</tr>
+<tr>
+<td>/ cpri</td>
+<td>降低 KMS 主计算机进程的优先级。</td>
+</tr>
+<tr>
+<td>/ sai [ActivationInterval]</td>
+<td>更改当 KMS 客户端找不到 KMS 主计算机时尝试激活其自身的频率。此操作会将 ActivationInterval 替换为一个分钟数。默认设置为 120 分钟。</td>
+</tr>
+<tr>
+<td>/ sri [RenewalInterval]</td>
+<td>更改 KMS 客户端尝试通过联系 KMS 主计算机来续订其激活状态的频率。此操作会将 RenewalInterval 替换为一个分钟数。默认设置为 10080 分钟（7 天）。此设置将替代本地 KMS 客户端设置。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="slmgrvbs-命令选项-基于-active-directory-的激活">Slmgr.vbs 命令选项 基于 Active Directory 的激活</h3>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/ ad-activation-online [ProductKey]</td>
+<td>通过用户提供的产品密钥激活 AD DS 林。</td>
+</tr>
+<tr>
+<td>/ ad-activation-apply-get-iid [ProductKey]</td>
+<td>显示用于 AD DS 林的安装 ID。</td>
+</tr>
+<tr>
+<td>/ ad-activation-apply-cid [ProductKey][ConfirmationID]</td>
+<td>通过用户提供的产品密钥以及确认 ID 激活 AD DS 林。</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

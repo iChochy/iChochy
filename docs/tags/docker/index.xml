@@ -13,28 +13,28 @@
     
     <item>
       <title>Elastic Stack（ElasticSearch 、 Kibana 和 Logstash） 实现日志的自动采集、搜索和分析</title>
-      <link>https://ichochy.com/post/20200710/</link>
+      <link>https://ichochy.com/posts/20200710/</link>
       <pubDate>Fri, 10 Jul 2020 15:28:45 +0800</pubDate>
       
-      <guid>https://ichochy.com/post/20200710/</guid>
+      <guid>https://ichochy.com/posts/20200710/</guid>
       <description>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化</description>
     </item>
     
     <item>
       <title>Docker 中运行 ElasticSearch 和 Kibana</title>
-      <link>https://ichochy.com/post/20191107/</link>
+      <link>https://ichochy.com/posts/20191107/</link>
       <pubDate>Thu, 07 Nov 2019 13:24:45 +0800</pubDate>
       
-      <guid>https://ichochy.com/post/20191107/</guid>
+      <guid>https://ichochy.com/posts/20191107/</guid>
       <description>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据</description>
     </item>
     
     <item>
       <title>初识 Docker</title>
-      <link>https://ichochy.com/post/20191106/</link>
+      <link>https://ichochy.com/posts/20191106/</link>
       <pubDate>Wed, 06 Nov 2019 15:24:45 +0800</pubDate>
       
-      <guid>https://ichochy.com/post/20191106/</guid>
+      <guid>https://ichochy.com/posts/20191106/</guid>
       <description>Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配制系统环境。</description>
     </item>
     

@@ -10,10 +10,10 @@ publishDir = "docs"
   layoutReverse = false
   copyright = "iChochy"
   description = "码农小站，写点Java、Swift和感悟"
+  postDir = "posts"
   adsense = "3691661241035911"
   baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"
   caseNo = "沪ICP备19030221号"
-case_url = "http://beian.miit.gov.cn"
 
 [Menus]
   main = [

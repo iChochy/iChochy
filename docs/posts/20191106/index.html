@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>初识 Docker &middot; 回忆中的明天</title>
+  <meta name="description" content="Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配制系统环境。" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>初识 Docker</h1>
+  <time datetime=2019/11/06&#32;15:24:45 class="post-date">2019/11/06 15:24:45</time>
+  <p>Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配制系统环境。</p>
+<h3 id="一安装-docker">一、安装 Docker</h3>
+<p>Docker 分为企业版和社区版，还有桌面版，可以在 <a href="https://hub.docker.com/">Docker Hub</a> 去下载合适的版本
+桌面版就是一个应用，直接安装就可以，很便捷，其它版本官方也有详细的说明</p>
+<p><img src="https://images.ichochy.com/15730220107285401.png" alt="15730220107285401"></p>
+<h3 id="二使用-docker">二、使用 Docker</h3>
+<h4 id="1获取容器">1、获取容器</h4>
+<p>容器(container)是通过镱像(image)构建的，在 <a href="https://hub.docker.com/">Docker Hub</a> 中获取镱像(image)<br>
+<strong>搜索</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search nginx                         //在 Docker Hub 搜索镱像<span style="color:#f92672">(</span>image<span style="color:#f92672">)</span>
+</code></pre></div><p><strong>获取</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull nginx                           //在 Docker Hub 获取镱像<span style="color:#f92672">(</span>image<span style="color:#f92672">)</span>
+</code></pre></div><h4 id="2运行容器">2、运行容器</h4>
+<p><strong>运行</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name ichochy-nginx -d -p 80:80 nginx
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run                                  //在新容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>中运行命令
+    --name string                           //分配一个容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>名称
+    -d, --detach                            //后台运行容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>，打印容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>ID
+    -p, --publish list                      //端口映射，宿主机端口:容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>端口
+</code></pre></div><h4 id="3操作容器">3、操作容器</h4>
+<p><strong>执行 shell</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it 74282d01a2fc bash //在运行容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>中运行命令
+</code></pre></div><p><strong>复制文件</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker cp 74282d01a2fc:/usr/share/nginx/html/index.html ~/ichochy.html
+</code></pre></div><p><strong>查看镱像(image)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker image ls -a          //查看所有 -a
+</code></pre></div><p><strong>查看容器(container)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker container ls -a      //查看所有 -a
+</code></pre></div><p><strong>查看容器(container)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker start/stop/restart   74282d01a2fc      //启动/停止/重启 容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>
+</code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

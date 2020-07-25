@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OC与Swift混编，三种场景的实现方式 &middot; 回忆中的明天</title>
+  <meta name="description" content="多语言并存时期，混编成为一种必须的方式 ，在多场影中实现OC和Swift语言的并存原来是如此简单" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>OC与Swift混编，三种场景的实现方式</h1>
+  <time datetime=2019/09/04&#32;10:22:33 class="post-date">2019/09/04 10:22:33</time>
+  <p>多语言并存时期，混编成为一种必须的方式 ，在多场影中实现OC和Swift语言的并存原来是如此简单</p>
+<h2 id="第一种场景app中实现混编">第一种场景，App中实现混编</h2>
+<ol>
+<li>创建桥接文件<code>*.h</code><br>
+新建一个桥接文件，<code>New File</code> 选择 <code>Header File</code> 创建</li>
+<li>指定桥接文件<br>
+<code>project-&gt;targets-&gt;Build Setting-&gt;All-&gt;Swift Compilter General-&gt;Objective-C-Bridging-Header</code> 指定刚刚的新建的桥接文件<br>
+<img src="https://images.ichochy.com/15675840517343041.png" alt="15675840517343041"></li>
+<li>导入OC头文件(<code>*.h</code>)到桥接文件<br>
+如：<code>#import &quot;Log.h&quot;</code><br>
+<img src="https://images.ichochy.com/15675868286636003.png" alt="15675868286636003"></li>
+<li>完成调用<br>
+在<code>Swift</code>文件中直接调用</li>
+</ol>
+<p><em>注：在Swift项目中第一次创建OC文件，<code>Xcode</code>会自动提示创建桥接文件</em><br>
+<img src="https://images.ichochy.com/15675668261700973.png" alt="15675668261700973"></p>
+<h2 id="第二种场景framework-中实现混编">第二种场景，Framework 中实现混编</h2>
+<ol>
+<li>创建<code>Famework</code><br>
+创建完成后会生成一个同名头文件<code>*.h</code></li>
+<li>将OC头文件(<code>*.h</code>)设置为公开头文件<br>
+<code>project-&gt;targets-&gt;Build Phases-&gt;Headers-&gt;Public</code>,直接拖入<br>
+<img src="https://images.ichochy.com/15675857436917952.png" alt="15675857436917952"></li>
+<li>导入OC头文件(<code>*.h</code>)到同名头文件<br>
+如：<code>#import &quot;Log.h&quot;</code><br>
+<img src="https://images.ichochy.com/15675870536575205.png" alt="15675870536575205"></li>
+<li>完成调用<br>
+在对外的<code>Swift</code>文件中直接调用<br>
+<img src="https://images.ichochy.com/15675871376567946.png" alt="15675871376567946"><br>
+<em>注：对外的类和方法必须 <code>public</code> 标示才可访问</em></li>
+</ol>
+<h2 id="第三种场景pod-包中实现混编">第三种场景，<code>Pod</code> 包中实现混编</h2>
+<p><em><strong>在完成第二种场景后，添加<code>*.podspec</code>文件实现 <code>Pod</code> 包</strong></em></p>
+<ol>
+<li>
+<p>生成 <code>*.podspec</code><br>
+运行命令 <code>pod spec create [name]</code> 生成 <code>*.podspec</code> 文件</p>
+</li>
+<li>
+<p>编辑 <code>*.podspec</code><br>
+<em><strong>在 <code>*.podspec</code> 中将OC头文件(<code>*.h</code>)设置为公开头文件</strong></em><br>
+如：<code>spec.public_header_files = &quot;Log.h&quot;</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#完整的文件信息</span>
+Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
+    spec.name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;OCSwiftFramework&#34;</span>
+    spec.version      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.0.1&#34;</span>
+    spec.summary      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;OCSwiftFramework&#34;</span>
+    spec.description  <span style="color:#f92672">=</span> <span style="color:#e6db74">&lt;&lt;-DESC
+</span><span style="color:#e6db74">                    OCSWiftFramework
+</span><span style="color:#e6db74">                    DESC</span>
+    spec.homepage     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://www.ichochy.com&#34;</span>
+
+    spec.license      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MIT&#34;</span>
+    <span style="color:#75715e"># spec.license      = { :type =&gt; &#34;MIT&#34;, :file =&gt; &#34;FILE_LICENSE&#34; }</span>
+    spec.author             <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;MLeo&#34;</span> <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;iChochy@qq.com&#34;</span> <span style="color:#f92672">}</span>
+
+    spec.platform <span style="color:#f92672">=</span> :osx
+    spec.osx.deployment_target <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;10.10&#34;</span>
+
+    spec.source       <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :git <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;https://github.com/iChochy/HelloWorld.git&#34;</span>, :tag <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;#{spec.version}&#34;</span> <span style="color:#f92672">}</span>
+
+    spec.source_files  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;**/*.{h,m,swift}&#34;</span>
+    spec.exclude_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Info.plist&#34;</span>
+    spec.public_header_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Flog.h&#34;</span>
+
+    spec.swift_version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;4.2&#34;</span>
+end
+</code></pre></div></li>
+<li>
+<p>验证  <code>*.podspec</code><br>
+运行命令 <code>pod lib lint</code> 完成验证</p>
+</li>
+<li>
+<p>完成调用<br>
+a. 运行命令 <code>pod trunk push [NAME.podspec]</code> 完成发布<br>
+b. <code>Podfile</code> 中添加 <code>pod &quot;[name]&quot;</code><br>
+c. 运行命令 <code>pod install</code> 完成 <code>pod</code> 安装<br>
+d. 安装完成后直接调用<br>
+<em>注：可用 <code>pod &quot;[name]&quot;, :path =&gt; &quot;[path]&quot;</code> 本地指定</em></p>
+</li>
+</ol>
+<h3 id="github">GitHub：</h3>
+<p><strong>HelloWorld：<a href="https://github.com/iChochy/HelloWorld.git">https://github.com/iChochy/HelloWorld.git</a></strong></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

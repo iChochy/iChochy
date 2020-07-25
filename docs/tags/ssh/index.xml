@@ -13,19 +13,19 @@
     
     <item>
       <title>初识 Docker</title>
-      <link>https://ichochy.com/post/20191106/</link>
+      <link>https://ichochy.com/posts/20191106/</link>
       <pubDate>Wed, 06 Nov 2019 15:24:45 +0800</pubDate>
       
-      <guid>https://ichochy.com/post/20191106/</guid>
+      <guid>https://ichochy.com/posts/20191106/</guid>
       <description>Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配制系统环境。</description>
     </item>
     
     <item>
       <title>Mac 无密码 SSH 登录服务器</title>
-      <link>https://ichochy.com/post/20191028/</link>
+      <link>https://ichochy.com/posts/20191028/</link>
       <pubDate>Mon, 28 Oct 2019 15:10:45 +0800</pubDate>
       
-      <guid>https://ichochy.com/post/20191028/</guid>
+      <guid>https://ichochy.com/posts/20191028/</guid>
       <description>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</description>
     </item>
     

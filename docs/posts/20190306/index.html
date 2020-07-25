@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>加速你的博客永无止境-七牛云CDN &middot; 回忆中的明天</title>
+  <meta name="description" content="个人的博客是通过jekyll构建，通过GitHub Pages搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通CDN来加速博客。于是开始了折腾………………" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>加速你的博客永无止境-七牛云CDN</h1>
+  <time datetime=2019/03/06&#32;15:25:00 class="post-date">2019/03/06 15:25:00</time>
+  <p>个人的博客是通过<a href="https://jekyllrb.com/">jekyll</a>构建，通过<a href="https://pages.github.com">GitHub Pages</a>搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通<code>CDN</code>来加速博客。于是开始了折腾………………</p>
+<p><strong>先了解下什么是<code>CDN</code></strong>：</p>
+<blockquote>
+<p>CDN的全称是Content Delivery Network，即<a href="https://baike.baidu.com/item/%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C/4034265">内容分发网络</a>。CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。</p>
+<p><strong>CDN的关键技术主要有内容存储和分发技术</strong></p>
+<p>个人的简单理解：将源站的内容分散缓存，形成多个接点，当用户访问，将最快的接点返回给用户，达到想要的提速效果</p>
+</blockquote>
+<h1 id="1开启cdn">1.开启CDN</h1>
+<p>使用<a href="https://portal.qiniu.com/signup?code=3l7cpouzlru4y">七牛云CDN</a>，个人用户可以免费使用10G的流量；使用<a href="https://portal.qiniu.com/signup?code=3l7cpouzlru4y">七牛云CDN</a>加速有个必要条件，有自己的域名，并通过国家的域名备案，七牛云注册邀请：<a href="https://portal.qiniu.com/signup?code=3l7cpouzlru4y">https://portal.qiniu.com/signup?code=3l7cpouzlru4y</a></p>
+<p>直接开干，先注册个人用户，并实名(<code>国家的优待</code>)</p>
+<p>菜单进入：<code>融合 CDN =&gt;域名管理=&gt;添加域名</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">标题</th>
+<th align="center">填写的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">加速域名</td>
+<td align="center">自己的域名，如：<a href="https://www.ichochy.com">www.ichochy.com</a></td>
+</tr>
+<tr>
+<td align="center">通信协议</td>
+<td align="center">http/https，注：<code>https</code>没有免费的流量</td>
+</tr>
+<tr>
+<td align="center">源站配置</td>
+<td align="center">选择<code>源站域名</code>,写下github pages的地址，如：<a href="https://ichochy.github.io">ichochy.github.io</a></td>
+</tr>
+<tr>
+<td align="center">源站配置</td>
+<td align="center"><code>源站测试</code>：添加一个源站能访问的地址，如：<code>index.html</code>，完成源站测试</td>
+</tr>
+</tbody>
+</table>
+<p>填写完相关信息后可以直接创建了，创建好后需要等待几分钟，让七牛云完成实例化，七牛云会为每个域名分配一个<code>CNAME</code>，如：<code>www.ichochy.com.qiniudns.com</code>。</p>
+<h1 id="2修改域名解析">2.修改域名解析</h1>
+<p>现在还差最后一步，也是最关键的，登录域名商的管理系统，修改域名解析，将域名指向七牛云生成的<code>CNAME</code>，完成解析</p>
+<table>
+<thead>
+<tr>
+<th align="center">标题</th>
+<th align="center">填写的内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">记录类型</td>
+<td align="center">选择<code>CNAME</code></td>
+</tr>
+<tr>
+<td align="center">主机记录</td>
+<td align="center">如：<code>www</code></td>
+</tr>
+<tr>
+<td align="center">记录值</td>
+<td align="center">如：<code>www.ichochy.com.qiniudns.com</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://images.ichochy.com/WX20190306-165049.png" alt=""></p>
+<p>所有的操作完成后，可以看到七牛云上域名状态是<code>成功</code></p>
+<p><img src="https://images.ichochy.com/WX20190306-165813.png" alt=""></p>
+<h1 id="3测试成果">3.测试成果</h1>
+<p>通过<code>dig</code>命令可以查看到域名解析的过程：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:_posts mleo$ dig www.ichochy.com
+
+; &lt;&lt;&gt;&gt; DiG 9.10.6 &lt;&lt;&gt;&gt; www.ichochy.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER<span style="color:#e6db74">&lt;&lt;- opco</span>de: QUERY, status: NOERROR, id: <span style="color:#ae81ff">24019</span>
+;; flags: qr rd ra; QUERY: 1, ANSWER: 11, AUTHORITY: 0, ADDITIONAL: <span style="color:#ae81ff">0</span>
+
+;; QUESTION SECTION:
+;www.ichochy.com.			IN	A
+
+;; ANSWER SECTION:
+www.ichochy.com.		600	IN	CNAME	www.ichochy.com.qiniudns.com.
+www.ichochy.com.qiniudns.com. 600	IN	CNAME	daliupnew.china.qiniudns.com.
+daliupnew.china.qiniudns.com. <span style="color:#ae81ff">456</span> IN	CNAME	tinychinacdndownload.qiniu.com.w.kunlunea.com.
+
+</code></pre></div><p>直此，完成了<code>CDN</code>的加速</p>
+<h1 id="4问题">4.问题</h1>
+<p>快也缓存，慢也缓存，因为有缓存的存在，导致新更新的内容不能及时推送给用户，这里就要手动去刷新</p>
+<p>菜单进入：<code>融合 CDN =&gt;刷新预取=&gt;刷新文件</code>根据自己的情况进行提交，如图：</p>
+<p><img src="https://images.ichochy.com/WX20190306-181917.png" alt=""></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Spring Cloud Alibaba Nacos Config 实战 &middot; 回忆中的明天</title>
+  <meta name="description" content="Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你 Spring Cloud 应用的外部属性配置" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Spring Cloud Alibaba Nacos Config 实战</h1>
+  <time datetime=2019/10/17&#32;14:10:45 class="post-date">2019/10/17 14:10:45</time>
+  <p>Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你 Spring Cloud 应用的外部属性配置</p>
+<h3 id="一安装-nacos">一、安装 Nacos</h3>
+<h4 id="1下载-nacos">1、下载 Nacos</h4>
+<p>最新稳定版下载：<a href="https://github.com/alibaba/nacos/releases">https://github.com/alibaba/nacos/releases</a></p>
+<h4 id="2启动-nacos">2、启动 Nacos</h4>
+<p>启动 Nacos (单机模式)</p>
+<pre><code>sh startup.sh -m standalone
+</code></pre><p>关闭 Nacos</p>
+<pre><code>sh shutdown.sh
+</code></pre><h3 id="二配置-nacos">二、配置 Nacos</h3>
+<h4 id="1打开-nacos">1、打开 Nacos</h4>
+<p>默认地址：<a href="http://127.0.0.1:8848/nacos/#/login">http://127.0.0.1:8848/nacos/#/login</a><br>
+默认账号：账号密码相同，都为<code>nacos</code></p>
+<p><img src="https://images.ichochy.com/15712948300913941.png" alt="15712948300913941"></p>
+<h4 id="2添加配置">2、添加配置</h4>
+<p>配置数据：</p>
+<pre><code>Data ID:    nacos-dev.properties
+Group  :    DEFAULT_GROUP
+配置格式:    Properties
+配置内容：   useLocalCache=true
+</code></pre><p><img src="https://images.ichochy.com/15712954000685392.png" alt="15712954000685392"></p>
+<p><strong>Data ID 的格式说明：</strong></p>
+<pre><code>${prefix}-${spring.profile.active}.${file-extension}
+</code></pre><p><code>prefix</code>:<br>
+默认为 spring.application.name 的值，也可以通过配置项 spring.cloud.nacos.config.prefix 来配置<br>
+<code>spring.profile.active</code>:<br>
+即为当前环境对应的 profile， 注意：当 spring.profile.active 为空时，对应的连接符 - 也将不存在，dataId 的拼接格式变成 ${prefix}.${file-extension}<br>
+<code>file-exetension</code>:<br>
+为配置内容的数据格式，可以通过配置项 spring.cloud.nacos.config.file-extension 来配置。目前只支持 properties 和 yaml 类型</p>
+<blockquote>
+<p><strong>实例：</strong></p>
+</blockquote>
+<pre><code>spring.application.name=nacos
+spring.profiles.active=dev
+spring.cloud.nacos.config.file-extension=properties
+</code></pre><p><code>Data ID</code> 为：<code>nacos-dev.properties</code></p>
+<h3 id="三使用-nacos">三、使用 Nacos</h3>
+<p><code>pom.xml</code>中添加<code>nacos</code>支持</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;
+    &lt;version&gt;0.9.0.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><p><code>bootstrap.properties</code>加入<code>nacos</code>参数</p>
+<pre><code>server.port=8080
+spring.profiles.active=dev
+spring.application.name=nacos
+spring.cloud.nacos.config.server-addr=127.0.0.1:8848
+spring.cloud.nacos.config.file-extension=properties
+</code></pre><p><code>spring.cloud.nacos.config.server-addr</code>：为<code>nacos</code>的服务器地址<code>:</code>端口，80端口不可省略<br>
+<code>spring.cloud.nacos.config.file-extension</code>：为<code>nacos</code>的支持的文件类型，如：yaml和properties</p>
+<h3 id="四调用-nacos">四、调用 Nacos</h3>
+<p><code>@Value</code> SpEL调用<br>
+<code>@RefreshScope</code>打开自动刷新</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy.nacos.controller<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Value<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.cloud.context.config.annotation.RefreshScope<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RequestMapping<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestController<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@RestController</span>
+<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/config&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@RefreshScope</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConfigController</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Value</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${useLocalCache:false}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> useLocalCache<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;get&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">getConfig</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>useLocalCache<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> useLocalCache<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

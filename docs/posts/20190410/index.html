@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>持续集成和持续交付工具-jenkins &middot; 回忆中的明天</title>
+  <meta name="description" content="打破原有的手动部署方式，实现程序自动化；通过jenkins来解放你的双手" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/"><h1>回忆中的明天</h1></a>
+      <p class="lead">
+       码农小站，写点Java、Swift和感悟 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="/links/"> Links </a></li><li><a href="/about/"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>持续集成和持续交付工具-jenkins</h1>
+  <time datetime=2019/04/10&#32;12:20:32 class="post-date">2019/04/10 12:20:32</time>
+  <p>打破原有的手动部署方式，实现程序自动化；通过<a href="https://jenkins.io/zh/">jenkins</a>来解放你的双手</p>
+<h1 id="jenkins说明">jenkins说明</h1>
+<p>jenkins是一款由Java编写的开源的持续集成工具，它运行在Servlet容器中（例如Apache Tomcat）。它支持软件配置管理（SCM）工具（包括AccuRev SCM、CVS、Subversion、Git、Perforce、Clearcase和RTC），可以执行基于Apache Ant和Apache Maven的项目，以及任意的Shell脚本和Windows批处理命令，可以通过各种手段触发构建，例如提交给版本控制系统时被触发，也可以通过类似Cron的机制调度，也可以在其他的构建已经完成时，还可以通过一个特定的URL进行请求。</p>
+<h1 id="jenkins安装">jenkins安装</h1>
+<p>官方下载：<a href="https://jenkins.io/zh/download/">https://jenkins.io/zh/download/</a></p>
+<p>有相应系统的安装包和通用包(.war），通过Servlet容器运行</p>
+<h4 id="1war包安装">1､WAR包安装</h4>
+<blockquote>
+<p>将最新的稳定Jenkins WAR包 下载到您计算机上的相应目录。</p>
+<p>在下载的目录内打开一个终端/命令提示符窗口。</p>
+<p>运行命令<code>java -jar jenkins.war</code></p>
+<p>浏览 <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a> ，并等到<em>Unlock Jenkins</em>页面出现。</p>
+</blockquote>
+<h4 id="2brew安装">2､<code>brew</code>安装</h4>
+<p>Mac下执行<code>brew install jenkins-lts</code> 命令安装</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:~ mleo$ brew install jenkins-lts
+Updating Homebrew...
+<span style="color:#f92672">==</span>&gt; Auto-updated Homebrew!
+Updated <span style="color:#ae81ff">2</span> taps <span style="color:#f92672">(</span>homebrew/core and homebrew/cask<span style="color:#f92672">)</span>.
+<span style="color:#f92672">==</span>&gt; New Formulae
+zabbix-cli
+
+<span style="color:#f92672">==</span>&gt; Downloading http://mirrors.jenkins.io/war-stable/2.164.1/jenkins.war
+<span style="color:#f92672">==</span>&gt; Downloading from http://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.164.1/jenkins.war
+<span style="color:#75715e">######################################################################## 100.0%</span>
+<span style="color:#f92672">==</span>&gt; jar xvf jenkins.war
+<span style="color:#f92672">==</span>&gt; Caveats
+Note: When using launchctl the port will be 8080.
+
+To have launchd start jenkins-lts now and restart at login:
+  brew services start jenkins-lts
+Or, <span style="color:#66d9ef">if</span> you don<span style="color:#960050;background-color:#1e0010">&#39;</span>t want/need a background service you can just run:
+  jenkins-lts
+<span style="color:#f92672">==</span>&gt; Summary
+🍺  /usr/local/Cellar/jenkins-lts/2.164.1: <span style="color:#ae81ff">7</span> files, 77.3MB, built in <span style="color:#ae81ff">26</span> seconds
+<span style="color:#f92672">==</span>&gt; <span style="color:#e6db74">`</span>brew cleanup<span style="color:#e6db74">`</span> has not been run in <span style="color:#ae81ff">30</span> days, running now...
+Removing: /Users/mleo/Library/Caches/Homebrew/java_cache... <span style="color:#f92672">(</span>275B<span style="color:#f92672">)</span>
+Removing: /Users/mleo/Library/Logs/Homebrew/cocoapods... <span style="color:#f92672">(</span>64B<span style="color:#f92672">)</span>
+</code></pre></div><p>安装完成后可以执行<code>brew services list</code>查看安装服务</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:~ mleo$ brew services list
+Name        Status  User Plist
+jenkins-lts stopped
+</code></pre></div><p>启动<code>jenkins</code>，执行<code>brew services start jenkins-lts</code>
+关闭<code>jenkins</code>，执行<code>brew services stop jenkins-lts</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:~ mleo$ brew services start jenkins-lts
+<span style="color:#f92672">==</span>&gt; Successfully started <span style="color:#e6db74">`</span>jenkins-lts<span style="color:#e6db74">`</span> <span style="color:#f92672">(</span>label: homebrew.mxcl.jenkins-lts<span style="color:#f92672">)</span>
+</code></pre></div><p>直接访问：<a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></p>
+<p>第一次进行需解锁</p>
+<p><img src="https://images.ichochy.com/%E5%85%A5%E9%97%A8.png" alt="入门"></p>
+<p>通过<code>cat /Users/mleo/.jenkins/secrets/initialAdminPassword</code> 查看密码</p>
+<p>推荐插件安装中</p>
+<p><img src="https://images.ichochy.com/%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%AD.png" alt="插件安装中"></p>
+<p>创建第一个管理员</p>
+<p><img src="https://images.ichochy.com/%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7.png" alt="创建用户"></p>
+<p>实例配置</p>
+<p><img src="https://images.ichochy.com/%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE.png" alt="实例配置"></p>
+<p>进入系统</p>
+<p><img src="https://images.ichochy.com/%E7%B3%BB%E7%BB%9F%E9%A6%96%E9%A1%B5.png" alt="系统首页"></p>
+<h1 id="jenkins使用">jenkins使用</h1>
+<h2 id="部署项目">部署项目</h2>
+<h3 id="一创建任务">一、创建任务</h3>
+<p>左上角点击<code>新建任务</code></p>
+<p><img src="https://images.ichochy.com/%E6%96%B0%E5%BB%BA%E4%BB%BB%E5%8A%A1.png" alt="新建任务"></p>
+<p>选择<code>自由风格</code>项目进入配置</p>
+<p><img src="https://images.ichochy.com/%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1.png" alt="配置任务"></p>
+<p>配置任务主要分下面几步：</p>
+<blockquote>
+<p>1､项目说明
+2､源代码管理
+3､构建触发
+4､构建准备
+5､构建操作
+6､构建完后操作</p>
+</blockquote>
+<h3 id="二执行任务">二、执行任务</h3>
+<p>进入任务，点击<code>立即构建</code></p>
+<p><img src="https://images.ichochy.com/%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1.png" alt="执行任务"></p>
+<h3 id="三查看日志">三、查看日志</h3>
+<p>进入构建进程，查看<code>控制台输出</code> 可以查看构建日志</p>
+<p><img src="https://images.ichochy.com/%E6%9E%84%E5%BB%BA%E6%97%A5%E5%BF%97.png" alt="构建日志"></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
