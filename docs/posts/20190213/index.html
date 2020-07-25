@@ -68,7 +68,8 @@
     <main class="content container">
     <div class="post">
   <h1>Jekyll&#43;GitHub Pages部署自己的静态Blog</h1>
-  <time datetime=2019/02/13&#32;11:45:00 class="post-date">2019/02/13 11:45:00</time>
+  <time datetime=2019/02/13&#32;11:45:00
+    class="post-date">2019/02/13 11:45:00</time>
   <p>混了这么久，一直想拥有自己的博客，通过<a href="https://jekyllrb.com">jekyll</a>和<a href="https://pages.github.com">GitHub Pages</a>捣腾出了自己的博客(<a href="https://www.ichochy.com">https://www.ichochy.com</a>)</p>
 <h3 id="一安装jekyll">一、安装jekyll</h3>
 <ol>
@@ -315,6 +316,31 @@ tags: blog                   --分类
 </div>
 
 
+
+
+
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </main>
 
     

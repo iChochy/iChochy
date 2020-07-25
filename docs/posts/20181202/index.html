@@ -68,7 +68,8 @@
     <main class="content container">
     <div class="post">
   <h1>开篇</h1>
-  <time datetime=2018/12/02&#32;18:32:03 class="post-date">2018/12/02 18:32:03</time>
+  <time datetime=2018/12/02&#32;18:32:03
+    class="post-date">2018/12/02 18:32:03</time>
   <h1 id="说说生活">说说生活</h1>
 <p>生活总是有太多的磨炼，让你一步步的成长，可传奇的背后都是些艰辛的故事。<br>
 我坚信，每个人都有自己的生活方式，但只要认真一点点，再坚持一点点，就会有不一样的生活。<br>
@@ -78,6 +79,31 @@
 </div>
 
 
+
+
+
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </main>
 
     

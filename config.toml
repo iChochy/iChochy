@@ -1,10 +1,11 @@
 baseURL = "https://ichochy.com/"
 languageCode = "zh-cn"
-title = "回忆中的明天"
-uglyurls = false
-theme = "hyde"
-summaryLength = 1
 publishDir = "docs"
+title = "回忆中的明天"
+summaryLength = 1
+theme = "hyde"
+DisqusShortname = "ichochy"
+uglyurls = false
 
 [params]
   layoutReverse = false
