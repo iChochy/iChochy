@@ -45,9 +45,13 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/"><h1>回忆中的明天</h1></a>
+      <a href="/">
+        <h1>回忆中的明天</h1>
+      </a>
       <p class="lead">
-       码农小站，写点Java、Swift和感悟 
+         
+          码农小站，写点Java、Swift和感悟 
+        
       </p>
     </div>
 
@@ -63,13 +67,14 @@
     <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
     
   </div>
+  
 </aside>
-
     <main class="content container">
     <div class="post">
   <h1>通过shell查看SVN的版本信息</h1>
-  <time datetime=2019/02/12&#32;08:20:05
-    class="post-date">2019/02/12 08:20:05</time>
+  <time datetime=2019/02/12&#32;08:20:05 class="post-date">
+    2019/02/12 08:20:05
+  </time>
   <p>实现原理：通过<code>svn info</code>查看svn信息，使用<code>grep</code>获取版本信息，用<code>awk</code>获取版本号，然后对比版本号是否需要更新</p>
 <pre><code>#!/bin/sh
 revision=`svn info |grep &quot;Last Changed Rev:&quot; |awk '{print $4}'`
@@ -93,6 +98,7 @@ fi
 
 
 
+<hr>
 <h2>Comments</h2>
 <div id="disqus_thread"></div>
 <script type="application/javascript">

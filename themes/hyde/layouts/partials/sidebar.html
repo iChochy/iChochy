@@ -1,9 +1,15 @@
 <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/"><h1>{{ .Site.Title }}</h1></a>
+      <a href="/">
+        <h1>{{ .Site.Title }}</h1>
+      </a>
       <p class="lead">
-      {{ with .Site.Params.description }} {{.}} {{ else }}An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.{{end}}
+        {{ with .Site.Params.description }} 
+          {{.}} 
+        {{ else }}
+          An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+        {{end}}
       </p>
     </div>
 
@@ -11,7 +17,7 @@
       <ul class="sidebar-nav">
         <li><a href="/">Home</a> </li>
         {{ range .Site.Menus.main -}}
-          <li><a href="{{.URL}}"> {{ .Name }} </a></li>
+        <li><a href="{{.URL}}"> {{ .Name }} </a></li>
         {{- end }}
       </ul>
     </nav>
@@ -21,4 +27,5 @@
     <p><a href="http://beian.miit.gov.cn">{{.}}</a></p>
     {{end}}
   </div>
+  <!-- {{ .TableOfContents }} -->
 </aside>

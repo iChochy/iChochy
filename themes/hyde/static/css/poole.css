@@ -219,6 +219,7 @@ td,
 th {
   padding: .25rem .5rem;
   border: 1px solid #e5e5e5;
+  word-break:break-word;
 }
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {

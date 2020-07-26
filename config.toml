@@ -6,6 +6,7 @@ summaryLength = 1
 theme = "hyde"
 DisqusShortname = "ichochy"
 uglyurls = false
+hasCJKLanguage = false
 
 [params]
   layoutReverse = false

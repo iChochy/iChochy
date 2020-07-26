@@ -45,9 +45,13 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/"><h1>回忆中的明天</h1></a>
+      <a href="/">
+        <h1>回忆中的明天</h1>
+      </a>
       <p class="lead">
-       码农小站，写点Java、Swift和感悟 
+         
+          码农小站，写点Java、Swift和感悟 
+        
       </p>
     </div>
 
@@ -63,13 +67,14 @@
     <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
     
   </div>
+  
 </aside>
-
     <main class="content container">
     <div class="post">
   <h1>通过端口号关闭当前进程</h1>
-  <time datetime=2019/04/12&#32;12:25:36
-    class="post-date">2019/04/12 12:25:36</time>
+  <time datetime=2019/04/12&#32;12:25:36 class="post-date">
+    2019/04/12 12:25:36
+  </time>
   <p>使用<code>Shell</code>脚本的方式，通过端口号来关闭当前进程</p>
 <h3 id="查看脚本">查看脚本：</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
@@ -94,7 +99,7 @@ echo kill $PROCESS
 
 
 <div class="related">
-  <h2>推荐列表</h2>
+  <h2>相关文章</h2>
   <ul class="related-posts">
     
     <li>
@@ -109,6 +114,7 @@ echo kill $PROCESS
 
 
 
+<hr>
 <h2>Comments</h2>
 <div id="disqus_thread"></div>
 <script type="application/javascript">
