@@ -8,7 +8,12 @@
     <h1 class="post-title">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </h1>
-    <time datetime="{{ .Date.Format "2006/01/02 15:04:05" }}" class="post-date">{{ .Date.Format "2006/01/02" }}</time>
+    <time datetime="{{ .Date.Format "2006/01/02 15:04:05" }}" class="post-date">
+      {{ .Date.Format "2006/01/02" }} 
+      {{range .Params.categories}}
+        <a href="/categories/{{.}}">#{{.}}</a>
+      {{end}}
+    </time>
     {{ .Summary }}
     {{ if .Truncated }}
     <div class="read-more-link">
@@ -17,11 +22,9 @@
     {{ end }}
   </article>
   {{ end }}
-
 </div>
 
 <div class="pagination">
-
   <span class="pagination-item older">
     {{ if .Paginator.HasPrev }}
     <a href="{{ $paginator.Prev.URL }}" class="pag-link">上一页</a>
