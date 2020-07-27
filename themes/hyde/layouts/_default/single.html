@@ -5,27 +5,9 @@
     {{ .Date.Format "2006/01/02 15:04:05" }}
   </time>
   {{ .Content }}
+  {{ partial "links.html" . }}
 </div>
-
-
-{{ $related := .Site.RegularPages.Related . | first 5 }}
-{{ with $related }}
-<div class="related">
-  <h2>相关文章</h2>
-  <ul class="related-posts">
-    {{ range . }}
-    <li>
-      <h3><a href="{{ .RelPermalink }}">
-          {{ .Title }}
-          <small>{{ .Date.Format "2006/01/02" }}</small>
-        </a></h3>
-    </li>
-    {{ end }}
-  </ul>
-</div>
-{{ end }}
-
-
+{{ partial "related.html" . }}
 {{ if .Site.DisqusShortname -}}
 <hr>
 <h2>Comments</h2>
