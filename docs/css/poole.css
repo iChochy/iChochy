@@ -45,6 +45,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  word-wrap: break-word;
 }
 
 html {
@@ -74,7 +75,8 @@ a {
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
-  text-decoration: underline;
+  text-decoration: none;
+  text-shadow: 0px 0px 5px #227bb9;
 }
 
 /* Headings */
@@ -219,7 +221,6 @@ td,
 th {
   padding: .25rem .5rem;
   border: 1px solid #e5e5e5;
-  word-break:break-word;
 }
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
@@ -350,6 +351,22 @@ tbody tr:nth-child(odd) th {
 }
 .related-posts li a:hover small {
   color: inherit;
+}
+
+.related-tags {
+  padding-left: 0;
+  list-style: none;
+}
+.related-tags h3 {
+  margin-top: 0;
+}
+.related-tags li {
+  display: inline;
+  padding: 2px;
+}
+.related-tags li a:hover {
+  color: #227bb9;
+  text-decoration: none;
 }
 
 

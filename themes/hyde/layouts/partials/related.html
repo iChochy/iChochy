@@ -16,13 +16,13 @@
   {{ end }}
 
   <h2>Tags</h2>
-  <ul>
+  <ul class="related-tags">
     {{range .Params.tags}}
     <li>
       <a href="/tags/{{.}}">#{{ . }}</a>
     </li>
     {{ end }}
   </ul>
-  
+
 </div>
 {{end}}
