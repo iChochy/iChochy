@@ -11,11 +11,5 @@
   {{ partial "links.html" . }}
 </div>
 {{ partial "related.html" . }}
-{{ if not .Site.IsServer }}
-{{ if .Site.DisqusShortname -}}
-<hr>
-<h2>Comments</h2>
-{{ template "_internal/disqus.html" . }}
-{{- end }}
-{{- end }}
+{{ partial "form.html" . }}
 {{end}}

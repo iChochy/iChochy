@@ -93,28 +93,72 @@ V2方圆：<a href="https://www.v2fy.com/">https://www.v2fy.com/</a></p>
 </div>
 
 
+
 <hr>
-<h2>Comments</h2>
-<div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
+<h3 id="申请友链">申请友链</h3>
+<form id="my-form" action="https://formspree.io/mlepakbn" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title" placeholder="回忆中明天" required="required" />
+    <label>Email:</label>
+    <input type="email" name="email" placeholder="ichochy@qq.com" required="required" />
+    <label>URL:</label>
+    <input type="text" name="url" placeholder="https://ichochy.com" required="required" />
+    <label>Message:</label>
+    <textarea type="text" name="message" placeholder="message" required="required"></textarea>
+    <button id="my-form-button">Submit</button>
+    <p id="my-form-status"></p>
+</form>
+
+
+
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+
+        
+
+        var form = document.getElementById("my-form");
+        var button = document.getElementById("my-form-button");
+        var status = document.getElementById("my-form-status");
+
+        
+
+        function success() {
+            form.reset();
+            button.style = "display: none ";
+            status.innerHTML = "Thanks!";
         }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+
+        function error() {
+            status.innerHTML = "糟糕！ 出现问题了。";
+        }
+
+        
+
+        form.addEventListener("submit", function (ev) {
+            ev.preventDefault();
+            var data = new FormData(form);
+            ajax(form.method, form.action, data, success, error);
+        });
+    });
+
+    
+
+    function ajax(method, url, data, success, error) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+                success(xhr.response, xhr.responseType);
+            } else {
+                error(xhr.status, xhr.response, xhr.responseType);
+            }
+        };
+        xhr.send(data);
+    }
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
     </main>
   </body>
