@@ -420,3 +420,26 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: .5rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: #e9ecef;
+  border-radius: .25rem;
+}
+.breadcrumb>li+li::before {
+  display: inline-block;
+  padding-right: .5rem;
+  color: #6c757d;
+  content: "/";
+}
+.breadcrumb>li+li.active>a{
+  color: #6c757d;
+}
+
+.breadcrumb>li+li {
+  padding-left: .5rem;
+}

@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+{{ if not .Site.IsServer }}
 <!-- baidu analytics -->
 {{ with  .Site.Params.baiduAnalytics }}
 <script>
@@ -13,4 +15,6 @@
 {{end}}
 {{ with  .Site.Params.adsense }}
 <script data-ad-client="ca-pub-{{.}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{{end}}
+{{ template "_internal/google_analytics_async.html" . }}
 {{end}}

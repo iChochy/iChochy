@@ -6,7 +6,7 @@
   <ul class="related-posts">
     {{ range . }}
     <li>
-      <h3><a href="{{ .RelPermalink }}">
+      <h3><a href="{{ .Permalink }}">
           {{ .Title }}
           <small>{{ .Date.Format "2006/01/02" }}</small>
         </a></h3>
@@ -19,7 +19,7 @@
   <ul class="related-tags">
     {{range .Params.tags}}
     <li>
-      <a href="/tags/{{.}}">#{{ . }}</a>
+      <a href="{{ "tags" | absURL }}/{{ . | urlize }}/">#{{ . }}</a>
     </li>
     {{ end }}
   </ul>

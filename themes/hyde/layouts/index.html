@@ -11,7 +11,7 @@
     <time datetime="{{ .Date.Format "2006/01/02 15:04:05" }}" class="post-date">
       {{ .Date.Format "2006/01/02" }} 
       {{range .Params.categories}}
-        <a href="/categories/{{.}}">#{{.}}</a>
+        <a href="{{ "categories" | absURL }}/{{ . | urlize }}/">#{{.}}</a>
       {{end}}
     </time>
     {{ .Summary }}
