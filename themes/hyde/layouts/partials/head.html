@@ -13,8 +13,10 @@
   {{- else -}}
   <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
   {{- end }}
+  {{with .Params.tags}}
+  <meta name="keywords" content="{{delimit . ", "}}" />
+  {{end}}
   <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.Description }}{{else}}{{.Summary}}{{end}}" />
-
   <!-- CSS -->
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/print.css" media="print">
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/poole.css">

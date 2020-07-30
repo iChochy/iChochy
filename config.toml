@@ -6,13 +6,14 @@ summaryLength = 1
 theme = "hyde"
 uglyurls = false
 hasCJKLanguage = false
-DisqusShortname = "ichochy"
+disqusShortname = "ichochy"
 
 [params]
   postDir = "posts"
   layoutReverse = false
   copyright = "iChochy"
   description = "码农小站，写点Java、Swift和感悟"
+  datetimeFormat = "2006/01/02 15:04:05"
   caseNo = "沪ICP备19030221号"
   adsense = "3691661241035911"
   baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"

@@ -8,7 +8,7 @@
     <h1 class="post-title">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </h1>
-    <time datetime="{{ .Date.Format "2006/01/02 15:04:05" }}" class="post-date">
+    <time datetime="{{ .Date.Format "2006/01/02" }}" class="post-date">
       {{ .Date.Format "2006/01/02" }} 
       {{range .Params.categories}}
         <a href="{{ "categories" | absURL }}/{{ . | urlize }}/">#{{.}}</a>
