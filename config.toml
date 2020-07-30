@@ -7,6 +7,7 @@ theme = "hyde"
 uglyurls = false
 hasCJKLanguage = false
 disqusShortname = "ichochy"
+enableRobotsTXT = false
 
 [params]
   postDir = "posts"
