@@ -22,5 +22,6 @@ DisqusShortname = "ichochy"
 #      {Name = "Categories", weight = 1, URL = "/categories/"},
 #      {Name = "Tags", weight = 2, URL = "/tags/"},
       {Name = "Links", weight = 3, URL = "/links/"},
-      {Name = "About", weight = 4, URL = "/about/"}
+      {Name = "About", weight = 4, URL = "/about/"},
+      {Name = "Feedback", weight = 5, URL = "/feedback/"}
   ]
