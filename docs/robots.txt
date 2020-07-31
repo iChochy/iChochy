@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /page/*
 Disallow: /tags/*
 Disallow: /categories/*
 Disallow: /cdn-cgi/*

@@ -52,7 +52,9 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="/">
-        <h1>回忆中的明天</h1>
+        
+        <p class="title">回忆中的明天</p>
+        
       </a>
       <p class="lead">
          
@@ -77,7 +79,7 @@
 </aside>
     <main class="content container">
     <div class="post">
-  <h2>加速你的博客永无止境-七牛云CDN</h2>
+  <h1>加速你的博客永无止境-七牛云CDN</h1>
   <time datetime=2019/03/06 class="post-date">
     2019/03/06 
     
@@ -93,7 +95,7 @@
 <p><strong>CDN的关键技术主要有内容存储和分发技术</strong></p>
 <p>个人的简单理解：将源站的内容分散缓存，形成多个接点，当用户访问，将最快的接点返回给用户，达到想要的提速效果</p>
 </blockquote>
-<h1 id="1开启cdn">1.开启CDN</h1>
+<h2 id="1开启cdn">1.开启CDN</h2>
 <p>使用<a href="https://portal.qiniu.com/signup?code=3l7cpouzlru4y">七牛云CDN</a>，个人用户可以免费使用10G的流量；使用<a href="https://portal.qiniu.com/signup?code=3l7cpouzlru4y">七牛云CDN</a>加速有个必要条件，有自己的域名，并通过国家的域名备案，七牛云注册邀请：<a href="https://portal.qiniu.com/signup?code=3l7cpouzlru4y">https://portal.qiniu.com/signup?code=3l7cpouzlru4y</a></p>
 <p>直接开干，先注册个人用户，并实名(<code>国家的优待</code>)</p>
 <p>菜单进入：<code>融合 CDN =&gt;域名管理=&gt;添加域名</code></p>
@@ -124,7 +126,7 @@
 </tbody>
 </table>
 <p>填写完相关信息后可以直接创建了，创建好后需要等待几分钟，让七牛云完成实例化，七牛云会为每个域名分配一个<code>CNAME</code>，如：<code>www.ichochy.com.qiniudns.com</code>。</p>
-<h1 id="2修改域名解析">2.修改域名解析</h1>
+<h2 id="2修改域名解析">2.修改域名解析</h2>
 <p>现在还差最后一步，也是最关键的，登录域名商的管理系统，修改域名解析，将域名指向七牛云生成的<code>CNAME</code>，完成解析</p>
 <table>
 <thead>
@@ -151,7 +153,7 @@
 <p><img src="https://images.ichochy.com/WX20190306-165049.png" alt=""></p>
 <p>所有的操作完成后，可以看到七牛云上域名状态是<code>成功</code></p>
 <p><img src="https://images.ichochy.com/WX20190306-165813.png" alt=""></p>
-<h1 id="3测试成果">3.测试成果</h1>
+<h2 id="3测试成果">3.测试成果</h2>
 <p>通过<code>dig</code>命令可以查看到域名解析的过程：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:_posts mleo$ dig www.ichochy.com
 
@@ -170,7 +172,7 @@ www.ichochy.com.qiniudns.com. 600	IN	CNAME	daliupnew.china.qiniudns.com.
 daliupnew.china.qiniudns.com. <span style="color:#ae81ff">456</span> IN	CNAME	tinychinacdndownload.qiniu.com.w.kunlunea.com.
 
 </code></pre></div><p>直此，完成了<code>CDN</code>的加速</p>
-<h1 id="4问题">4.问题</h1>
+<h2 id="4问题">4.问题</h2>
 <p>快也缓存，慢也缓存，因为有缓存的存在，导致新更新的内容不能及时推送给用户，这里就要手动去刷新</p>
 <p>菜单进入：<code>融合 CDN =&gt;刷新预取=&gt;刷新文件</code>根据自己的情况进行提交，如图：</p>
 <p><img src="https://images.ichochy.com/WX20190306-181917.png" alt=""></p>
