@@ -1,0 +1,3 @@
+{{range .Site.RegularPages -}}
+{{.Permalink}}
+{{end}}

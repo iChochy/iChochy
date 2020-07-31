@@ -1,13 +1,12 @@
 {{ define "main" -}}
 
-
 <div class="posts">
   {{ $paginator := .Paginate (where .Site.RegularPages "Type" .Site.Params.PostDir) }}
   {{ range $paginator.Pages }}
   <article class="post">
-    <h1 class="post-title">
+    <h2 class="post-title">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </h1>
+    </h2>
     <time datetime="{{ .Date.Format "2006/01/02" }}" class="post-date">
       {{ .Date.Format "2006/01/02" }} 
       {{range .Params.categories}}

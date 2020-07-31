@@ -1,5 +1,5 @@
 baseURL = "https://ichochy.com/"
-languageCode = "zh-cn"
+languageCode = "zh"
 publishDir = "docs"
 title = "回忆中的明天"
 summaryLength = 1
@@ -8,6 +8,19 @@ uglyurls = false
 hasCJKLanguage = false
 disqusShortname = "ichochy"
 enableRobotsTXT = false
+
+
+[outputs]
+  home = ["HTML","RSS","TXT"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[outputFormats.TXT]
+  mediatype = "text/plain"
+  isPlainText = true
+  baseName = "urls"
+
 
 [params]
   postDir = "posts"
