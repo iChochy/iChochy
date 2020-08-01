@@ -1,457 +1,162 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://ichochy.com/about/</loc>
     <lastmod>2020-07-22T12:07:59+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/feedback/</loc>
     <lastmod>2020-07-22T12:07:59+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/links/</loc>
     <lastmod>2020-07-22T12:07:59+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/categories/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/categories/code/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/docker/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200710/</loc>
     <lastmod>2020-07-10T15:28:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/elasticsearch/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/kibana/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/logstash/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/posts/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/</loc>
-    <lastmod>2020-07-10T15:28:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/categories/blog/</loc>
-    <lastmod>2020-06-22T12:22:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/cdn/</loc>
-    <lastmod>2020-06-22T12:22:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/https/</loc>
-    <lastmod>2020-06-22T12:22:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200622/</loc>
     <lastmod>2020-06-22T12:22:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/key/</loc>
-    <lastmod>2020-06-05T19:22:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/kms/</loc>
-    <lastmod>2020-06-05T19:22:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/office/</loc>
-    <lastmod>2020-06-05T19:22:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200605/</loc>
     <lastmod>2020-06-05T19:22:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/ospp/</loc>
-    <lastmod>2020-06-05T19:22:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/slmgr/</loc>
-    <lastmod>2020-06-05T19:22:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200602/</loc>
     <lastmod>2020-06-02T19:22:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/gvlk/</loc>
-    <lastmod>2020-05-28T12:12:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200528/</loc>
     <lastmod>2020-05-28T12:12:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/aml/</loc>
-    <lastmod>2020-05-06T22:12:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/categories/aml/</loc>
-    <lastmod>2020-05-06T22:12:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/cml/</loc>
-    <lastmod>2020-05-06T22:12:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/cmml/</loc>
-    <lastmod>2020-05-06T22:12:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/mds/</loc>
-    <lastmod>2020-05-06T22:12:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200506/</loc>
     <lastmod>2020-05-06T22:12:45+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200526/</loc>
     <lastmod>2020-05-06T22:12:45+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200504/</loc>
     <lastmod>2020-05-04T16:12:45+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200502/</loc>
     <lastmod>2020-05-02T14:18:45+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200430/</loc>
     <lastmod>2020-04-30T16:12:45+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200425/</loc>
     <lastmod>2020-04-25T14:16:45+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200422/</loc>
     <lastmod>2020-04-22T16:18:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/linux/</loc>
-    <lastmod>2020-02-22T22:16:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/mysql/</loc>
-    <lastmod>2020-02-22T22:16:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20200222/</loc>
     <lastmod>2020-02-22T22:16:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/shell/</loc>
-    <lastmod>2020-02-22T22:16:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20191107/</loc>
     <lastmod>2019-11-07T13:24:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/ssh/</loc>
-    <lastmod>2019-11-06T15:24:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20191106/</loc>
     <lastmod>2019-11-06T15:24:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/bash/</loc>
-    <lastmod>2019-10-28T15:10:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20191028/</loc>
     <lastmod>2019-10-28T15:10:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/nacos/</loc>
-    <lastmod>2019-10-18T16:35:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/spring-cloud-alibaba/</loc>
-    <lastmod>2019-10-18T16:35:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20191018/</loc>
     <lastmod>2019-10-18T16:35:45+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20191017/</loc>
     <lastmod>2019-10-17T14:10:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/jar/</loc>
-    <lastmod>2019-10-16T16:10:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20191016/</loc>
     <lastmod>2019-10-16T16:10:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/spring/</loc>
-    <lastmod>2019-10-12T14:12:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/spring-cloud/</loc>
-    <lastmod>2019-10-12T14:12:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20191012/</loc>
     <lastmod>2019-10-12T14:12:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/cloudfrare/</loc>
-    <lastmod>2019-10-08T14:22:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/dns/</loc>
-    <lastmod>2019-10-08T14:22:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20191008/</loc>
     <lastmod>2019-10-08T14:22:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/blog/</loc>
-    <lastmod>2019-09-25T15:22:38+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/jekyll/</loc>
-    <lastmod>2019-09-25T15:22:38+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190925/</loc>
     <lastmod>2019-09-25T15:22:38+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/code/</loc>
-    <lastmod>2019-09-22T18:12:45+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190922/</loc>
     <lastmod>2019-09-22T18:12:45+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/framework/</loc>
-    <lastmod>2019-09-04T10:22:33+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190904/</loc>
     <lastmod>2019-09-04T10:22:33+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/pod/</loc>
-    <lastmod>2019-09-04T10:22:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/swift/</loc>
-    <lastmod>2019-09-04T10:22:33+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190901/</loc>
     <lastmod>2019-09-01T12:32:55+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/app/</loc>
-    <lastmod>2019-08-23T08:32:36+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/dmg/</loc>
-    <lastmod>2019-08-23T08:32:36+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/mac/</loc>
-    <lastmod>2019-08-23T08:32:36+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190823/</loc>
     <lastmod>2019-08-23T08:32:36+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/categories/app/</loc>
-    <lastmod>2019-08-22T15:22:36+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190822/</loc>
     <lastmod>2019-08-22T15:22:36+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/qiniu/</loc>
-    <lastmod>2019-08-22T15:22:36+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/c/</loc>
-    <lastmod>2019-08-12T12:25:36+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190812/</loc>
     <lastmod>2019-08-12T12:25:36+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190412/</loc>
     <lastmod>2019-04-12T12:25:36+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/jenkins/</loc>
-    <lastmod>2019-04-10T12:20:32+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190410/</loc>
     <lastmod>2019-04-10T12:20:32+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190403/</loc>
     <lastmod>2019-04-03T08:20:05+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190309/</loc>
     <lastmod>2019-03-08T16:10:00+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190306/</loc>
     <lastmod>2019-03-06T15:25:00+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/github/</loc>
-    <lastmod>2019-02-13T11:45:00+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190213/</loc>
     <lastmod>2019-02-13T11:45:00+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20190212/</loc>
     <lastmod>2019-02-12T08:20:05+08:00</lastmod>
   </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20181212/</loc>
     <lastmod>2018-12-12T18:30:00+08:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://ichochy.com/tags/life/</loc>
-    <lastmod>2018-12-02T18:32:03+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ichochy.com/categories/life/</loc>
-    <lastmod>2018-12-02T18:32:03+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://ichochy.com/posts/20181202/</loc>
     <lastmod>2018-12-02T18:32:03+08:00</lastmod>
