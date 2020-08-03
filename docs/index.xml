@@ -6,10 +6,19 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Fri, 10 Jul 2020 15:28:45 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 13:13:25 +0800</lastBuildDate>
     
 	<atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HUGO 创建属于自己的博客</title>
+      <link>https://ichochy.com/posts/20200802/</link>
+      <pubDate>Sun, 02 Aug 2020 13:13:25 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20200802/</guid>
+      <description>Hugo 拥有超快的速度，强大的内容管理和强大的模板语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用LiveReload可即时渲染更改</description>
+    </item>
     
     <item>
       <title>About</title>

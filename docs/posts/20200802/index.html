@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.74.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HUGO 创建属于自己的博客 &middot; 回忆中的明天</title>
+  
+  <meta name="keywords" content="hugo, blog" />
+  
+  <meta name="description" content="Hugo 拥有超快的速度，强大的内容管理和强大的模板语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用LiveReload可即时渲染更改" />
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+<script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Home</a> </li>
+        <li><a href="https://ichochy.com/links/"> Links </a></li><li><a href="https://ichochy.com/about/"> About </a></li><li><a href="https://ichochy.com/feedback/"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1>HUGO 创建属于自己的博客</h1>
+  <time datetime=2020/08/02 class="post-date">
+    2020/08/02 
+    
+      <a href="https://ichochy.com/categories/blog/">#blog</a>
+    
+  </time>
+  <p>Hugo 拥有超快的速度，强大的内容管理和强大的模板语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用<code>LiveReload</code>可即时渲染更改</p>
+<h2 id="一安装-hugo">一、安装 Hugo</h2>
+<p>Mac 上安装 <a href="https://gohugo.io/"><code>HUGO</code></a>，很简单，通过 <a href="https://brew.sh/"><code>brew</code></a> 可以快速安装</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo
+</code></pre></div><p>检查安装版本信息</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo version
+</code></pre></div><h2 id="二使用-hugo">二、使用 Hugo</h2>
+<h3 id="1创建网站">1、创建网站</h3>
+<p><code>hugo new site iChochy</code> 创建</p>
+<blockquote>
+<p>其中 <code>iChochy</code> 为你的博客目录</p>
+</blockquote>
+<p>目录结构</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">iChochy
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
+</code></pre></div><h3 id="2添加主题">2、添加主题</h3>
+<h4 id="a下载主题">a、下载主题</h4>
+<p>以 <a href="https://github.com/spf13/hyde"><code>hyde</code></a>主题为例 <a href="https://github.com/spf13/hyde">https://github.com/spf13/hyde</a><br>
+直接下载主题，放到<code>themes</code>目录中，或通过 <code>git</code> 方式添加主题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git submodule add https://github.com/spf13/hyde.git themes/hyde
+</code></pre></div><h4 id="b修改配置">b、修改配置</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;theme = &#34;hyde&#34;&#39;</span> &gt;&gt; config.toml
+</code></pre></div><p><code>config.toml</code> 文件内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://ichochy.com/&#34;</span>
+<span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;en-us&#34;</span>
+<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;My New Hugo Site&#34;</span>
+<span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;hyde&#34;</span>  
+</code></pre></div><p>目录结构</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">iChochy
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
+    └── hyde
+        ├── CHANGELOG.md
+        ├── LICENSE.md
+        ├── README.md
+        ├── archetypes
+        │   └── default.md
+        ├── go.mod
+        ├── images
+        │   ├── screenshot.png
+        │   └── tn.png
+        ├── layouts
+        │   ├── 404.html
+        │   ├── _default
+        │   │   ├── baseof.html
+        │   │   ├── list.html
+        │   │   └── single.html
+        │   ├── index.html
+        │   └── partials
+        │       ├── head.html
+        │       ├── head_fonts.html
+        │       ├── hook_head_end.html
+        │       └── sidebar.html
+        ├── static
+        │   ├── apple-touch-icon-144-precomposed.png
+        │   ├── css
+        │   │   ├── hyde.css
+        │   │   ├── poole.css
+        │   │   ├── print.css
+        │   │   └── syntax.css
+        │   └── favicon.png
+        └── theme.toml
+</code></pre></div><h3 id="3编写内容">3、编写内容</h3>
+<h4 id="新建文章">新建文章</h4>
+<p><code>hugo new posts/HelloWorld.md</code> 新建<br>
+<em>注：以 <code>archetypes/default.md</code>为模版创建</em></p>
+<h4 id="编写文章">编写文章</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim content/posts/HelloWorld.md 
+</code></pre></div><p><code>HelloWorld.md</code> 文件内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
+title: &#34;HelloWorld&#34;
+date: 2020-08-02T21:47:48+08:00
+draft: true
+---
+
+<span style="color:#75715e">### HelloWorld  
+</span><span style="color:#75715e"></span>
+https://ichochy.com
+</code></pre></div><h4 id="预览文章">预览文章</h4>
+<p><code>hugo server -D</code> 启动服务，访问 <a href="http://localhost:1313">http://localhost:1313</a><br>
+<img src="https://images.ichochy.com/15963791621740451.png" alt="15963791621740451"></p>
+<p>目录结构</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">iChochy
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+│   └── posts
+│       └── HelloWorld.md
+├── data
+├── layouts
+├── resources
+│   └── _gen
+│       ├── assets
+│       └── images
+├── static
+└── themes
+    └── hyde
+        ├── CHANGELOG.md
+        ├── LICENSE.md
+        ├── README.md
+        ├── archetypes
+        │   └── default.md
+        ├── go.mod
+        ├── images
+        │   ├── screenshot.png
+        │   └── tn.png
+        ├── layouts
+        │   ├── 404.html
+        │   ├── _default
+        │   │   ├── baseof.html
+        │   │   ├── list.html
+        │   │   └── single.html
+        │   ├── index.html
+        │   └── partials
+        │       ├── head.html
+        │       ├── head_fonts.html
+        │       ├── hook_head_end.html
+        │       └── sidebar.html
+        ├── static
+        │   ├── apple-touch-icon-144-precomposed.png
+        │   ├── css
+        │   │   ├── hyde.css
+        │   │   ├── poole.css
+        │   │   ├── print.css
+        │   │   └── syntax.css
+        │   └── favicon.png
+        └── theme.toml
+</code></pre></div><h2 id="部署">部署</h2>
+<h3 id="修改部署目录">修改部署目录</h3>
+<p>修改 <code>config.toml</code> 文件<br>
+1、修改 <code>bashURL</code> 的部署域名<br>
+2、添加 <code>publishDir = &quot;docs&quot;</code>，指定部署目录为 <code>docs</code></p>
+<p><code>config.toml</code> 文件内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://ichochy.com/&#34;</span>
+<span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;en-us&#34;</span>
+<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;My New Hugo Site&#34;</span>
+<span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;hyde&#34;</span>
+<span style="color:#a6e22e">publishDir</span> = <span style="color:#e6db74">&#34;docs&#34;</span>
+</code></pre></div><h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hugo -D</code> 生成静态文件</p>
+<p>目录结构</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">iChochy
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+│   └── posts
+│       └── HelloWorld.md
+├── data
+├── docs
+│   ├── 404.html
+│   ├── apple-touch-icon-144-precomposed.png
+│   ├── categories
+│   │   ├── index.html
+│   │   └── index.xml
+│   ├── css
+│   │   ├── hyde.css
+│   │   ├── poole.css
+│   │   ├── print.css
+│   │   └── syntax.css
+│   ├── favicon.png
+│   ├── index.html
+│   ├── index.xml
+│   ├── posts
+│   │   ├── helloworld
+│   │   │   └── index.html
+│   │   ├── index.html
+│   │   └── index.xml
+│   ├── sitemap.xml
+│   └── tags
+│       ├── index.html
+│       └── index.xml
+├── layouts
+├── resources
+│   └── _gen
+│       ├── assets
+│       └── images
+├── static
+└── themes
+    └── hyde
+        ├── CHANGELOG.md
+        ├── LICENSE.md
+        ├── README.md
+        ├── archetypes
+        │   └── default.md
+        ├── go.mod
+        ├── images
+        │   ├── screenshot.png
+        │   └── tn.png
+        ├── layouts
+        │   ├── 404.html
+        │   ├── _default
+        │   │   ├── baseof.html
+        │   │   ├── list.html
+        │   │   └── single.html
+        │   ├── index.html
+        │   └── partials
+        │       ├── head.html
+        │       ├── head_fonts.html
+        │       ├── hook_head_end.html
+        │       └── sidebar.html
+        ├── static
+        │   ├── apple-touch-icon-144-precomposed.png
+        │   ├── css
+        │   │   ├── hyde.css
+        │   │   ├── poole.css
+        │   │   ├── print.css
+        │   │   └── syntax.css
+        │   └── favicon.png
+        └── theme.toml
+</code></pre></div><h3 id="部署-github-pages">部署 GitHub Pages</h3>
+<p>将整个项目推送到 <code>GitHub</code>，然后在项目的 <code>Settings</code> 中开启的 <code>GitHub Pages</code>，并指定分支和目录 <code>docs</code>
+<img src="https://images.ichochy.com/15964375806436022.png" alt="15964375806436022"></p>
+<p>就是可以直接在线访问了，如：<a href="https://ichochy.github.io">https://ichochy.github.io</a></p>
+<h2 id="总结">总结</h2>
+<p>Hugo 简单、易用、<strong>快速</strong><br>
+模版化强大，只需要关心文章的编写<br>
+默认开启 <code>LiveReload</code>，修改后可以实时预览，免去手去刷新操作<br>
+还有很多强大的功能，如：摘要(Summary)、文章目录(TableOfContents)、相关推荐(Related)、多语言支持(i18n)、列表分页(Pagination)、简码(Shortcodes)等。</p>
+
+  
+<h3 id="联系方式">联系方式</h3>
+<blockquote>
+<p>
+  网站：<a href="https://ichochy.com/">https://ichochy.com/</a><br>
+  源文：<a href="https://ichochy.com/posts/20200802/">https://ichochy.com/posts/20200802/</a>
+</p>
+</blockquote>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20200710/" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+<div class="related">
+  <h2>Tags</h2>
+  <ul class="related-tags">
+    
+    <li>
+      <a href="https://ichochy.com/tags/hugo/">#hugo</a>
+    </li>
+    
+    <li>
+      <a href="https://ichochy.com/tags/blog/">#blog</a>
+    </li>
+    
+  </ul>
+  
+  
+  <h2>相关文章</h2>
+  <ul class="related-posts">
+    
+    <li>
+      <h3><a href="https://ichochy.com/posts/20190925/">
+          jekyll-admin的搭建和使用
+          <small>2019/09/25</small>
+        </a></h3>
+    </li>
+    
+    <li>
+      <h3><a href="https://ichochy.com/posts/20190309/">
+          加速你的博客永无止境-七牛云存储
+          <small>2019/03/08</small>
+        </a></h3>
+    </li>
+    
+    <li>
+      <h3><a href="https://ichochy.com/posts/20190306/">
+          加速你的博客永无止境-七牛云CDN
+          <small>2019/03/06</small>
+        </a></h3>
+    </li>
+    
+  </ul>
+  
+</div>
+
+  <hr>
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
