@@ -2,7 +2,7 @@
 本人是一个80后的码农，为人比较低调，会点Java和Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！
 
 ### 联系方式：  
-> 邮箱：[iChochy@qq.com](mailto:iChochy@qq.com)  
+> 邮箱：[ichochy@qq.com](mailto:ichochy@qq.com)  
 > 网站：[https://ichochy.com](https://ichochy.com)  
 > GitHub： [https://github.com/iChochy]( https://github.com/iChochy)
 
