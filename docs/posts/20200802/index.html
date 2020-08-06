@@ -18,8 +18,10 @@
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  
+  <script defer = "defer" src="https://ichochy.com/js/toc.js"></script>
+  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
-
 
 
 
@@ -27,6 +29,7 @@
   var _hmt = _hmt || [];
   (function () {
     var hm = document.createElement("script");
+    hm.setAttribute("defer","defer");
     hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
@@ -49,7 +52,7 @@
 
   <body class=" ">
   <aside class="sidebar">
-  <div class="container sidebar-sticky">
+  <div id = "title" class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="/">
         
@@ -74,6 +77,29 @@
     
     <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
     
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一安装-hugo">一、安装 Hugo</a></li>
+    <li><a href="#二使用-hugo">二、使用 Hugo</a>
+      <ul>
+        <li><a href="#1创建网站">1、创建网站</a></li>
+        <li><a href="#2添加主题">2、添加主题</a></li>
+        <li><a href="#3编写内容">3、编写内容</a></li>
+      </ul>
+    </li>
+    <li><a href="#部署">部署</a>
+      <ul>
+        <li><a href="#修改部署目录">修改部署目录</a></li>
+        <li><a href="#生成静态文件">生成静态文件</a></li>
+        <li><a href="#部署-github-pages">部署 GitHub Pages</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
   </div>
   
 </aside>
@@ -389,7 +415,6 @@ https://ichochy.com
 </div>
 
 
-  <hr>
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">

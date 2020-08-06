@@ -18,8 +18,10 @@
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  
+  <script defer = "defer" src="https://ichochy.com/js/toc.js"></script>
+  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
-
 
 
 
@@ -27,6 +29,7 @@
   var _hmt = _hmt || [];
   (function () {
     var hm = document.createElement("script");
+    hm.setAttribute("defer","defer");
     hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
@@ -49,7 +52,7 @@
 
   <body class=" ">
   <aside class="sidebar">
-  <div class="container sidebar-sticky">
+  <div id = "title" class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="/">
         
@@ -74,6 +77,24 @@
     
     <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
     
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一下载镱像image">一、下载镱像(image)</a></li>
+        <li><a href="#二创建-elkyml">二、创建 ELK.yml</a></li>
+        <li><a href="#三运行容器">三、运行容器</a></li>
+        <li><a href="#四检查容器的运行状态">四、检查容器的运行状态</a></li>
+        <li><a href="#五修改logstash配置监控日志文件">五、修改logstash配置，监控日志文件</a></li>
+        <li><a href="#六采集日志">六、采集日志</a></li>
+        <li><a href="#七搜索分析日志">七、搜索、分析日志</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
   
 </aside>
@@ -280,7 +301,6 @@ echo &quot;www.ichochy.com&quot; &gt; web.log  #添加日志信息
 </div>
 
 
-  <hr>
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">

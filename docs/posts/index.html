@@ -16,8 +16,10 @@
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  
+  <script defer = "defer" src="https://ichochy.com/js/toc.js"></script>
+  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
-
 
 
 
@@ -25,6 +27,7 @@
   var _hmt = _hmt || [];
   (function () {
     var hm = document.createElement("script");
+    hm.setAttribute("defer","defer");
     hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
@@ -47,7 +50,7 @@
 
   <body class=" ">
   <aside class="sidebar">
-  <div class="container sidebar-sticky">
+  <div id = "title" class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="/">
         
@@ -72,6 +75,10 @@
     
     <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
     
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  
   </div>
   
 </aside>

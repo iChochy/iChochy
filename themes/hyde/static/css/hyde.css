@@ -32,6 +32,7 @@
  */
 
 html {
+  scroll-behavior: smooth;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 48em) {
@@ -114,9 +115,22 @@ a.sidebar-nav-item:focus {
     right:  1rem;
     bottom: 1rem;
     left:   1rem;
+    transition: bottom 0.5s;
   }
 }
 
+.sidebar-toc {
+  display: none;
+}
+
+@media (min-width: 48em) {
+  .sidebar-toc {
+    display: block;
+    position: absolute;
+    top: 100%;
+    transition: top 0.5s;
+  }
+}
 
 /* Container
  *

@@ -22,6 +22,9 @@
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/poole.css">
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/hyde.css">
+  {{if eq .Section .Site.Params.PostDir}}
+  <script defer = "defer" src="{{ .Site.BaseURL }}js/toc.js"></script>
+  {{end}}
   {{ partial "head_fonts.html" . }}
 
   <!-- Icons -->

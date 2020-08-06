@@ -18,8 +18,10 @@
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  
+  <script defer = "defer" src="https://ichochy.com/js/toc.js"></script>
+  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
-
 
 
 
@@ -27,6 +29,7 @@
   var _hmt = _hmt || [];
   (function () {
     var hm = document.createElement("script");
+    hm.setAttribute("defer","defer");
     hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
@@ -49,7 +52,7 @@
 
   <body class=" ">
   <aside class="sidebar">
-  <div class="container sidebar-sticky">
+  <div id = "title" class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="/">
         
@@ -74,6 +77,25 @@
     
     <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
     
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一安装jekyll">一、安装jekyll</a></li>
+        <li><a href="#二了解jekyll">二、了解jekyll</a></li>
+        <li><a href="#三书写blog">三、书写Blog</a></li>
+        <li><a href="#四创建github-pages项目">四、创建GitHub Pages项目</a></li>
+        <li><a href="#五将blog接交到github">五、将Blog接交到GitHub</a></li>
+        <li><a href="#六运行blog">六、运行Blog</a></li>
+        <li><a href="#七自定义域名">七、自定义域名</a></li>
+        <li><a href="#八开启https">八、开启HTTPS</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
   
 </aside>
@@ -374,7 +396,6 @@ tags: blog                   --分类
 </div>
 
 
-  <hr>
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
