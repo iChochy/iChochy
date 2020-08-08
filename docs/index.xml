@@ -6,10 +6,19 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Sun, 02 Aug 2020 13:13:25 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 16:13:25 +0800</lastBuildDate>
     
 	<atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>了解 JS 的加载顺序和方式，实现 Ready 方法</title>
+      <link>https://ichochy.com/posts/20200807/</link>
+      <pubDate>Fri, 07 Aug 2020 16:13:25 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20200807/</guid>
+      <description>页面加载 JS 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。</description>
+    </item>
     
     <item>
       <title>HUGO 创建属于自己的博客</title>
