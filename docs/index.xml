@@ -6,10 +6,19 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Fri, 07 Aug 2020 16:13:25 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2020 18:13:25 +0800</lastBuildDate>
     
 	<atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HUGO 目录详解，创建自己的网站系统</title>
+      <link>https://ichochy.com/posts/20200810/</link>
+      <pubDate>Mon, 10 Aug 2020 18:13:25 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20200810/</guid>
+      <description>HUGO 是一套模版静态化的系统，了解其目录结构有助于创建我们的网站系统</description>
+    </item>
     
     <item>
       <title>了解 JS 的加载顺序和方式，实现 Ready 方法</title>
@@ -26,7 +35,7 @@
       <pubDate>Sun, 02 Aug 2020 13:13:25 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200802/</guid>
-      <description>Hugo 拥有超快的速度，强大的内容管理和强大的模板语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用LiveReload可即时渲染更改</description>
+      <description>Hugo 拥有超快的速度，强大的内容管理和强大的模版语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用LiveReload可即时渲染更改</description>
     </item>
     
     <item>
