@@ -84,7 +84,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#一下载镱像image">一、下载镱像(image)</a></li>
+        <li><a href="#一下载镜像image">一、下载镜像(image)</a></li>
         <li><a href="#二创建-docker-composeyml">二、创建 docker-compose.yml</a></li>
         <li><a href="#三运行">三、运行</a></li>
       </ul>
@@ -104,11 +104,11 @@
     
   </time>
   <p>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据</p>
-<h3 id="一下载镱像image">一、下载镱像(image)</h3>
-<p><strong>搜索镱像(image)</strong></p>
+<h3 id="一下载镜像image">一、下载镜像(image)</h3>
+<p><strong>搜索镜像(image)</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search elasticsearch
 docker search kibana 
-</code></pre></div><p><strong>获取镱像(image)</strong></p>
+</code></pre></div><p><strong>获取镜像(image)</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elasticsearch:7.4.1     <span style="color:#75715e">#镜像名称:Tag</span>
 docker pull kibana:7.4.1            <span style="color:#75715e">#镜像名称:Tag</span>
 </code></pre></div><h3 id="二创建-docker-composeyml">二、创建 docker-compose.yml</h3>
@@ -118,7 +118,7 @@ docker pull kibana:7.4.1            <span style="color:#75715e">#镜像名称:Ta
 services:
   elasticsearch:
     container_name: elasticsearch           <span style="color:#75715e">#容器名称</span>
-    image: elasticsearch:7.4.1              <span style="color:#75715e">#镱像(image)</span>
+    image: elasticsearch:7.4.1              <span style="color:#75715e">#镜像(image)</span>
     restart: always                         <span style="color:#75715e">#重启方式</span>
     environment:
       discovery.type: single-node           <span style="color:#75715e">#环境变量：运行模式 单例</span>
@@ -127,7 +127,7 @@ services:
       - <span style="color:#e6db74">&#34;9300:9300&#34;</span>
   kibana:
     container_name: kibana                  <span style="color:#75715e">#容器名称</span>
-    image: kibana:7.4.1                     <span style="color:#75715e">#镱像(image)</span>
+    image: kibana:7.4.1                     <span style="color:#75715e">#镜像(image)</span>
     restart: always                         <span style="color:#75715e">#重启方式</span>
     environment:
       ELASTICSEARCH_URL: <span style="color:#e6db74">&#34;127.0.0.1:9200&#34;</span>   <span style="color:#75715e">#环境变量：elasticsearch 请求地址</span>

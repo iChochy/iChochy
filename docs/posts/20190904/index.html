@@ -12,7 +12,7 @@
   
   <meta name="keywords" content="swift, pod, framework" />
   
-  <meta name="description" content="多语言并存时期，混编成为一种必须的方式 ，在多场影中实现OC和Swift语言的并存原来是如此简单" />
+  <meta name="description" content="多语言并存时期，混编成为一种必须的方式 ，在多场景中实现OC和Swift语言的并存原来是如此简单" />
   
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
   <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -82,10 +82,28 @@
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#第一种场景app中实现混编">第一种场景，App中实现混编</a></li>
-    <li><a href="#第二种场景framework-中实现混编">第二种场景，Framework 中实现混编</a></li>
+    <li><a href="#第一种场景app中实现混编">第一种场景，App中实现混编</a>
+      <ul>
+        <li><a href="#1-创建桥接文件h">1. 创建桥接文件<code>*.h</code></a></li>
+        <li><a href="#2-指定桥接文件">2. 指定桥接文件</a></li>
+        <li><a href="#3-导入oc头文件h到桥接文件">3. 导入OC头文件(<code>*.h</code>)到桥接文件</a></li>
+        <li><a href="#4-完成调用在swift文件中直接调用">4. 完成调用，在<code>Swift</code>文件中直接调用</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二种场景framework-中实现混编">第二种场景，Framework 中实现混编</a>
+      <ul>
+        <li><a href="#1-创建famework">1. 创建<code>Famework</code></a></li>
+        <li><a href="#2-将oc头文件h设置为公开头文件">2. 将OC头文件(<code>*.h</code>)设置为公开头文件</a></li>
+        <li><a href="#3-导入oc头文件h到同名头文件">3. 导入OC头文件(<code>*.h</code>)到同名头文件</a></li>
+        <li><a href="#4-完成调用">4. 完成调用</a></li>
+      </ul>
+    </li>
     <li><a href="#第三种场景pod-包中实现混编">第三种场景，<code>Pod</code> 包中实现混编</a>
       <ul>
+        <li><a href="#1-生成-podspec">1. 生成 <code>*.podspec</code></a></li>
+        <li><a href="#2-编辑-podspec">2. 编辑 <code>*.podspec</code></a></li>
+        <li><a href="#3-验证--podspec">3. 验证  <code>*.podspec</code></a></li>
+        <li><a href="#4-完成调用-1">4. 完成调用</a></li>
         <li><a href="#github">GitHub：</a></li>
       </ul>
     </li>
@@ -103,47 +121,40 @@
       <a href="https://ichochy.com/categories/code/">#code</a>
     
   </time>
-  <p>多语言并存时期，混编成为一种必须的方式 ，在多场影中实现OC和Swift语言的并存原来是如此简单</p>
+  <p>多语言并存时期，混编成为一种必须的方式 ，在多场景中实现OC和Swift语言的并存原来是如此简单</p>
 <h2 id="第一种场景app中实现混编">第一种场景，App中实现混编</h2>
-<ol>
-<li>创建桥接文件<code>*.h</code><br>
-新建一个桥接文件，<code>New File</code> 选择 <code>Header File</code> 创建</li>
-<li>指定桥接文件<br>
-<code>project-&gt;targets-&gt;Build Setting-&gt;All-&gt;Swift Compilter General-&gt;Objective-C-Bridging-Header</code> 指定刚刚的新建的桥接文件<br>
-<img src="https://images.ichochy.com/15675840517343041.png" alt="15675840517343041"></li>
-<li>导入OC头文件(<code>*.h</code>)到桥接文件<br>
-如：<code>#import &quot;Log.h&quot;</code><br>
-<img src="https://images.ichochy.com/15675868286636003.png" alt="15675868286636003"></li>
-<li>完成调用<br>
-在<code>Swift</code>文件中直接调用</li>
-</ol>
-<p><em>注：在Swift项目中第一次创建OC文件，<code>Xcode</code>会自动提示创建桥接文件</em><br>
-<img src="https://images.ichochy.com/15675668261700973.png" alt="15675668261700973"></p>
+<h3 id="1-创建桥接文件h">1. 创建桥接文件<code>*.h</code></h3>
+<p>新建一个桥接文件，<code>New File</code> 选择 <code>Header File</code> 创建</p>
+<h3 id="2-指定桥接文件">2. 指定桥接文件</h3>
+<pre><code>指定刚刚的新建的桥接文件  
+project-&gt;targets-&gt;Build Setting-&gt;All-&gt;Swift Compilter General-&gt;Objective-C-Bridging-Header
+</code></pre><p><img src="https://images.ichochy.com/15675840517343041.png" alt="15675840517343041"></p>
+<h3 id="3-导入oc头文件h到桥接文件">3. 导入OC头文件(<code>*.h</code>)到桥接文件</h3>
+<p>如：<code>#import &quot;Log.h&quot;</code><br>
+<img src="https://images.ichochy.com/15675868286636003.png" alt="15675868286636003"></p>
+<h3 id="4-完成调用在swift文件中直接调用">4. 完成调用，在<code>Swift</code>文件中直接调用</h3>
+<p><img src="https://images.ichochy.com/15675668261700973.png" alt="15675668261700973">
+<strong>注：在Swift项目中第一次创建OC文件，<code>Xcode</code>会自动提示创建桥接文件</strong></p>
 <h2 id="第二种场景framework-中实现混编">第二种场景，Framework 中实现混编</h2>
-<ol>
-<li>创建<code>Famework</code><br>
-创建完成后会生成一个同名头文件<code>*.h</code></li>
-<li>将OC头文件(<code>*.h</code>)设置为公开头文件<br>
-<code>project-&gt;targets-&gt;Build Phases-&gt;Headers-&gt;Public</code>,直接拖入<br>
-<img src="https://images.ichochy.com/15675857436917952.png" alt="15675857436917952"></li>
-<li>导入OC头文件(<code>*.h</code>)到同名头文件<br>
-如：<code>#import &quot;Log.h&quot;</code><br>
-<img src="https://images.ichochy.com/15675870536575205.png" alt="15675870536575205"></li>
-<li>完成调用<br>
-在对外的<code>Swift</code>文件中直接调用<br>
+<h3 id="1-创建famework">1. 创建<code>Famework</code></h3>
+<p>创建完成后会生成一个同名头文件<code>*.h</code></p>
+<h3 id="2-将oc头文件h设置为公开头文件">2. 将OC头文件(<code>*.h</code>)设置为公开头文件</h3>
+<pre><code>直接拖入
+project-&gt;targets-&gt;Build Phases-&gt;Headers-&gt;Public
+</code></pre><p><img src="https://images.ichochy.com/15675857436917952.png" alt="15675857436917952"></p>
+<h3 id="3-导入oc头文件h到同名头文件">3. 导入OC头文件(<code>*.h</code>)到同名头文件</h3>
+<p>如：<code>#import &quot;Log.h&quot;</code><br>
+<img src="https://images.ichochy.com/15675870536575205.png" alt="15675870536575205"></p>
+<h3 id="4-完成调用">4. 完成调用</h3>
+<p>在对外的<code>Swift</code>文件中直接调用<br>
 <img src="https://images.ichochy.com/15675871376567946.png" alt="15675871376567946"><br>
-<em>注：对外的类和方法必须 <code>public</code> 标示才可访问</em></li>
-</ol>
+<strong>注：对外的类和方法必须 <code>public</code> 标示才可访问</strong></p>
 <h2 id="第三种场景pod-包中实现混编">第三种场景，<code>Pod</code> 包中实现混编</h2>
-<p><em><strong>在完成第二种场景后，添加<code>*.podspec</code>文件实现 <code>Pod</code> 包</strong></em></p>
-<ol>
-<li>
-<p>生成 <code>*.podspec</code><br>
-运行命令 <code>pod spec create [name]</code> 生成 <code>*.podspec</code> 文件</p>
-</li>
-<li>
-<p>编辑 <code>*.podspec</code><br>
-<em><strong>在 <code>*.podspec</code> 中将OC头文件(<code>*.h</code>)设置为公开头文件</strong></em><br>
+<p><strong>在完成第二种场景后，添加<code>*.podspec</code>文件实现 <code>Pod</code> 包</strong></p>
+<h3 id="1-生成-podspec">1. 生成 <code>*.podspec</code></h3>
+<p>运行命令 <code>pod spec create [name]</code> 生成 <code>*.podspec</code> 文件</p>
+<h3 id="2-编辑-podspec">2. 编辑 <code>*.podspec</code></h3>
+<p><strong>在 <code>*.podspec</code> 中将OC头文件(<code>*.h</code>)设置为公开头文件</strong><br>
 如：<code>spec.public_header_files = &quot;Log.h&quot;</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#完整的文件信息</span>
 Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
@@ -170,20 +181,14 @@ Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
 
     spec.swift_version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;4.2&#34;</span>
 end
-</code></pre></div></li>
-<li>
-<p>验证  <code>*.podspec</code><br>
-运行命令 <code>pod lib lint</code> 完成验证</p>
-</li>
-<li>
-<p>完成调用<br>
-a. 运行命令 <code>pod trunk push [NAME.podspec]</code> 完成发布<br>
+</code></pre></div><h3 id="3-验证--podspec">3. 验证  <code>*.podspec</code></h3>
+<p>运行命令 <code>pod lib lint</code> 完成验证</p>
+<h3 id="4-完成调用-1">4. 完成调用</h3>
+<p>a. 运行命令 <code>pod trunk push [NAME.podspec]</code> 完成发布<br>
 b. <code>Podfile</code> 中添加 <code>pod &quot;[name]&quot;</code><br>
 c. 运行命令 <code>pod install</code> 完成 <code>pod</code> 安装<br>
 d. 安装完成后直接调用<br>
-<em>注：可用 <code>pod &quot;[name]&quot;, :path =&gt; &quot;[path]&quot;</code> 本地指定</em></p>
-</li>
-</ol>
+<strong>注：可用 <code>pod &quot;[name]&quot;, :path =&gt; &quot;[path]&quot;</code> 本地指定</strong></p>
 <h3 id="github">GitHub：</h3>
 <p><strong>HelloWorld：<a href="https://github.com/iChochy/HelloWorld.git">https://github.com/iChochy/HelloWorld.git</a></strong></p>
 
