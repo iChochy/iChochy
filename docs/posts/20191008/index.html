@@ -114,9 +114,9 @@
 <p>免费套餐只能通过<code>DNS</code>方式配置 Cloudflare，收费套餐或 <a href="https://www.cloudflare.com/partners/">Partner</a>，可以通过<code>CNAME</code>配置</p>
 <p>查看 Cloudflare 给自己分配的<code>DNS</code><br>
 <img src="https://images.ichochy.com/15706939624014173.png" alt="15706939624014173"></p>
-<p>以<code>aliyun</code>为例，打开自己的域名商网站修改<code>DNS</code><br>
-<code>控制台=&gt;域名=&gt;管理=&gt;修改DNS</code><br>
-<img src="https://images.ichochy.com/15706944703828844.png" alt="15706944703828844"></p>
+<p>打开自己的域名商网站修改<code>DNS</code>，以<code>aliyun</code>为例：</p>
+<pre><code>控制台=&gt;域名=&gt;管理=&gt;修改DNS
+</code></pre><p><img src="https://images.ichochy.com/15706944703828844.png" alt="15706944703828844"></p>
 <p>修改为 Cloudflare 分配的<code>DNS</code>后，等待生效……………………<br>
 <img src="https://images.ichochy.com/15706945283803295.png" alt="15706945283803295"></p>
 <h3 id="三配置域名解析">三、配置域名解析</h3>
@@ -126,22 +126,18 @@
 <img src="https://images.ichochy.com/15706948823735797.png" alt="15706948823735797"></p>
 <h3 id="四开启-https">四、开启 HTTPS</h3>
 <p>有四种模式可以选择，分别是</p>
-<blockquote>
-</blockquote>
-<ol>
-<li>Off (not secure)<br>
-不开启</li>
-<li>Flexible<br>
-开启 浏览器到&lt;-&gt;Cloudflare</li>
-<li>Full<br>
-开启 浏览器&lt;-&gt;Cloudflare&lt;-&gt;服务器</li>
-<li>Full (strict)<br>
-开启 浏览器&lt;-&gt;Cloudflare&lt;-&gt;服务器 信任证书，更加严格</li>
-</ol>
-<p><img src="https://images.ichochy.com/15706951243700568.png" alt="15706951243700568"></p>
+<pre><code>1. Off (not secure)  
+   不开启
+2. Flexible  
+    开启 浏览器到&lt;-&gt;Cloudflare
+3. Full  
+    开启 浏览器&lt;-&gt;Cloudflare&lt;-&gt;服务器
+4. Full (strict)  
+    开启 浏览器&lt;-&gt;Cloudflare&lt;-&gt;服务器 信任证书，更加严格  
+</code></pre><p><img src="https://images.ichochy.com/15706951243700568.png" alt="15706951243700568"></p>
 <p><strong>至此，已经通过 Cloudflare 开启了 DNS、CDN、HTTPS</strong></p>
-<p>***但：**免费套餐在国内是没有快速的 CDN 节点，CDN 也就没有加速的效果了<br>
-*如果需要国内快速的 CDN ，可以使用企业版，但要不差钱，或使用国内合作商<a href="https://su.baidu.com/?ic=1dR4jc">百度云加速</a></p>
+<p><strong>但：</strong> 免费套餐在国内是没有快速的 CDN 节点，CDN 也就没有加速的效果了<br>
+如果需要国内快速的 CDN ，可以使用企业版，但要不差钱，或使用国内合作商<a href="https://su.baidu.com/?ic=1dR4jc">百度云加速</a></p>
 
   
 <h3 id="联系方式">联系方式</h3>
