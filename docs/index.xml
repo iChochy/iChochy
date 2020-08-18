@@ -6,10 +6,19 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Mon, 10 Aug 2020 18:13:25 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2020 11:13:25 +0800</lastBuildDate>
     
 	<atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java 开发环境的搭建，开启你的编程之旅</title>
+      <link>https://ichochy.com/posts/20200815/</link>
+      <pubDate>Sat, 15 Aug 2020 11:13:25 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20200815/</guid>
+      <description>Java 是一门跨平台的高级程序设计语言，可运行在linux、Windows、Mac OS及其他多种UNIX版本的系统。Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等</description>
+    </item>
     
     <item>
       <title>HUGO 目录详解，创建自己的网站系统</title>
