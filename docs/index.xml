@@ -6,10 +6,19 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Sat, 15 Aug 2020 11:13:25 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 12:22:25 +0800</lastBuildDate>
     
 	<atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>重疾保险理赔的亲身经历，分享下流程和套路</title>
+      <link>https://ichochy.com/posts/20200818/</link>
+      <pubDate>Tue, 18 Aug 2020 12:22:25 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20200818/</guid>
+      <description>相信很多人都为自己和家人购买过保险，特别是重疾险。常说保险就是一种保障，可以让你的家庭不会因为高昂的医药费而操心，有病没钱治。</description>
+    </item>
     
     <item>
       <title>Java 开发环境的搭建，开启你的编程之旅</title>
@@ -39,7 +48,7 @@
     </item>
     
     <item>
-      <title>HUGO 创建属于自己的博客</title>
+      <title>免费创建属于自己的博客，Hugo&#43;Github Pages</title>
       <link>https://ichochy.com/posts/20200802/</link>
       <pubDate>Sun, 02 Aug 2020 13:13:25 +0800</pubDate>
       
