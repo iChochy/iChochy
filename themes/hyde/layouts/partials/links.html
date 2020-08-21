@@ -1,10 +1,6 @@
 {{if eq .Section  .Site.Params.PostDir}}
-<h3 id="联系方式">联系方式</h3>
-<blockquote>
 <p>
-  网站：<a href="{{.Site.BaseURL}}">{{.Site.BaseURL}}</a><br>
   源文：<a href="{{.Permalink}}">{{.Permalink}}</a>
 </p>
-</blockquote>
 {{ partial "related.html" . }}
 {{end}}
