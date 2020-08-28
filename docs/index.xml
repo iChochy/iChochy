@@ -6,10 +6,19 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Thu, 20 Aug 2020 11:22:35 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2020 13:22:35 +0800</lastBuildDate>
     
 	<atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vercel 上自动部署你的个人博客 Hugo</title>
+      <link>https://ichochy.com/posts/20200822/</link>
+      <pubDate>Sat, 22 Aug 2020 13:22:35 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20200822/</guid>
+      <description>Vercel 可以依托 Git仓库 ，在线自动构建和发布Web静态项目，支持自定义域名，可以自动签发SSL证书，开启HTTPS，还有一个特点，拥有全球CDN，国内速度不错。</description>
+    </item>
     
     <item>
       <title>Java 中的重写(Override)与重载(Overload)</title>
