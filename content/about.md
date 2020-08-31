@@ -16,8 +16,8 @@ date: 2020-07-22T12:07:59+08:00
 
 ### 感谢  
 [七牛云](https://www.qiniu.com/) 提供 [云存储](https://portal.qiniu.com/signup?code=3l7cpouzlru4y)  
-[Vercel](hhttps://vercel.com/) 提供 [Deployment](https://vercel.com/)  
 [百度云加速](https://su.baidu.com/) 提供 [CDN](https://su.baidu.com/?ic=1dR4jc)  
+[Vercel](hhttps://vercel.com/) 提供 [Deployment](https://vercel.com/)  
 [JetBrains](https://www.jetbrains.com/) 提供 [Open Source License](https://www.jetbrains.com/shop/eform/opensource)  
 
 ---

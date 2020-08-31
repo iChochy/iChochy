@@ -1,3 +1,5 @@
-{{range .Site.RegularPages -}}
+{{- range .Sections -}}
+{{- range .Pages -}}
 {{.Permalink}}
 {{end}}
+{{- end -}}
