@@ -6,10 +6,19 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Mon, 24 Aug 2020 16:45:35 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2020 11:25:35 +0800</lastBuildDate>
     
 	<atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>简述 Cookie、Token、JWT、Session</title>
+      <link>https://ichochy.com/posts/20200825/</link>
+      <pubDate>Tue, 25 Aug 2020 11:25:35 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20200825/</guid>
+      <description>早期互联网只是用来访问查看，不需要关心谁在访问查看。HTTP是一种无状态的协议，每个请求都是完全独立的，服务端无法确认当前访问者的身份信息，为了标示用户，就出现了Cookie，而Cookie、Token、JWT 都是用来标示用户的。</description>
+    </item>
     
     <item>
       <title>Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理</title>
