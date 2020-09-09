@@ -6,469 +6,363 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Tue, 25 Aug 2020 11:25:35 +0800</lastBuildDate>
-    
-	<atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 25 Aug 2020 11:25:35 +0800</lastBuildDate><atom:link href="https://ichochy.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>简述 Cookie、Token、JWT、Session</title>
       <link>https://ichochy.com/posts/20200825/</link>
       <pubDate>Tue, 25 Aug 2020 11:25:35 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200825/</guid>
       <description>早期互联网只是用来访问查看，不需要关心谁在访问查看。HTTP是一种无状态的协议，每个请求都是完全独立的，服务端无法确认当前访问者的身份信息，为了标示用户，就出现了Cookie，而Cookie、Token、JWT 都是用来标示用户的。</description>
     </item>
-    
     <item>
       <title>Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理</title>
       <link>https://ichochy.com/posts/20200824/</link>
       <pubDate>Mon, 24 Aug 2020 16:45:35 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200824/</guid>
       <description>方法的代理可以在调用方法时进行其它的相关操作，并减少代码的入侵和偶合。很多框架都用到了动态代理，并提供了减化代理操作，如：Spring 的 AOP。</description>
     </item>
-    
     <item>
       <title>Java 反射实例操作</title>
       <link>https://ichochy.com/posts/20200823/</link>
       <pubDate>Sun, 23 Aug 2020 16:45:35 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200823/</guid>
       <description>反射可以在代码运行时，动态的获取对象、调用方法、设置属性。动态操作，降低代码偶合性，提高灵活度。其JDBC库就是通过反射加载。</description>
     </item>
-    
     <item>
       <title>Vercel 上自动部署你的个人博客 Hugo</title>
       <link>https://ichochy.com/posts/20200822/</link>
       <pubDate>Sat, 22 Aug 2020 13:22:35 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200822/</guid>
       <description>Vercel 可以依托 Git仓库 ，在线自动构建和发布Web静态项目，支持自定义域名，可以自动签发SSL证书，开启HTTPS，还有一个特点，拥有全球CDN，国内速度不错。</description>
     </item>
-    
     <item>
       <title>Java 中的重写(Override)与重载(Overload)</title>
       <link>https://ichochy.com/posts/20200820/</link>
       <pubDate>Thu, 20 Aug 2020 11:22:35 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200820/</guid>
       <description>Java 是一个面向对象编程的语言，我们就以面向对象的方式来解释下重写(Override)与重载(Overload)。子类存在父类名字相同的方法，而参数的个数与类型一样，返回值也一样的方法，就称为方法的重写（Override）。同类中定义了多个名字相同的方法，但他们的参数数量不同或数量相同而类型和次序不同，则称为方法的重载(Overload)。</description>
     </item>
-    
     <item>
       <title>免费申请 JetBrains 开源开发许可证，包含 IDEA</title>
       <link>https://ichochy.com/posts/20200819/</link>
       <pubDate>Wed, 19 Aug 2020 22:22:25 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200819/</guid>
       <description>如果您是开源项目的负责人或核心贡献者，就可以申请 JetBrains 所有产品的License，用于您的项目开发。</description>
     </item>
-    
     <item>
       <title>重疾保险理赔的亲身经历，分享下流程和套路</title>
       <link>https://ichochy.com/posts/20200818/</link>
       <pubDate>Tue, 18 Aug 2020 12:22:25 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200818/</guid>
       <description>相信很多人都为自己和家人购买过保险，特别是重疾险。常说保险就是一种保障，可以让你的家庭不会因为高昂的医药费而操心，有病没钱治。</description>
     </item>
-    
     <item>
       <title>Java 开发环境的搭建，开启你的编程之旅</title>
       <link>https://ichochy.com/posts/20200815/</link>
       <pubDate>Sat, 15 Aug 2020 11:13:25 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200815/</guid>
       <description>Java 是一门跨平台的高级程序设计语言，可运行在linux、Windows、Mac OS及其他多种UNIX版本的系统。Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等</description>
     </item>
-    
     <item>
       <title>HUGO 目录详解，创建自己的网站系统</title>
       <link>https://ichochy.com/posts/20200810/</link>
       <pubDate>Mon, 10 Aug 2020 18:13:25 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200810/</guid>
       <description>HUGO 是一套模版静态化的系统，了解其目录结构有助于创建我们的网站系统</description>
     </item>
-    
     <item>
       <title>了解 JS 的加载顺序和方式，实现 Ready 方法</title>
       <link>https://ichochy.com/posts/20200807/</link>
       <pubDate>Fri, 07 Aug 2020 16:13:25 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200807/</guid>
       <description>页面加载 JS 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。</description>
     </item>
-    
     <item>
-      <title>免费创建属于自己的博客，Hugo&#43;Github Pages</title>
+      <title>免费创建属于自己的博客，Hugo+Github Pages</title>
       <link>https://ichochy.com/posts/20200802/</link>
       <pubDate>Sun, 02 Aug 2020 13:13:25 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200802/</guid>
       <description>Hugo 拥有超快的速度，强大的内容管理和强大的模版语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用LiveReload可即时渲染更改</description>
     </item>
-    
     <item>
       <title>About</title>
       <link>https://ichochy.com/about/</link>
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
-      
       <guid>https://ichochy.com/about/</guid>
       <description>简介 本人是一个80后的码农，会点Java和Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！</description>
     </item>
-    
     <item>
       <title>Feedback</title>
       <link>https://ichochy.com/feedback/</link>
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
-      
       <guid>https://ichochy.com/feedback/</guid>
       <description>反馈 Email: Title: Message:  Submit   window.</description>
     </item>
-    
     <item>
       <title>Links</title>
       <link>https://ichochy.com/links/</link>
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
-      
       <guid>https://ichochy.com/links/</guid>
       <description>友情链接 回忆中的明天：https://www.</description>
     </item>
-    
     <item>
       <title>Elastic Stack 实现日志的自动采集、搜索和分析</title>
       <link>https://ichochy.com/posts/20200710/</link>
       <pubDate>Fri, 10 Jul 2020 15:28:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200710/</guid>
       <description>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化</description>
     </item>
-    
     <item>
       <title>个人站长的加速器 - 百度云加速</title>
       <link>https://ichochy.com/posts/20200622/</link>
       <pubDate>Mon, 22 Jun 2020 12:22:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200622/</guid>
       <description>免费申请20个SSL证书，支持HTTPS；多CDN节点，国内外加速，每天10G流量；3条特定页面规则；等</description>
     </item>
-    
     <item>
       <title>Office 批量激活的命令工具 slmgr</title>
       <link>https://ichochy.com/posts/20200605/</link>
       <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200605/</guid>
       <description>软件许可证管理器脚本用于配置和检索 Office KMS 主机和 Windows 主机的批量激活信息。</description>
     </item>
-    
     <item>
       <title>Office 批量激活的命令工具 ospp</title>
       <link>https://ichochy.com/posts/20200602/</link>
       <pubDate>Tue, 02 Jun 2020 19:22:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200602/</guid>
       <description>Office 软件保护平台脚本使你能够配置 Office 产品（包括 Project 和 Visio）的批量许可版本。</description>
     </item>
-    
     <item>
       <title>KMS 激活 Office 批量许可证密钥 KEY</title>
       <link>https://ichochy.com/posts/20200528/</link>
       <pubDate>Thu, 28 May 2020 12:12:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200528/</guid>
       <description>在配置为支持 Office 批量激活的 KMS 主计算机上，你只需安装和启用一个 KMS 主机密钥，即可激活 Office 的所有批量许可版本。</description>
     </item>
-    
     <item>
       <title>慢性髓系白血病（CML）的临床分期</title>
       <link>https://ichochy.com/posts/20200506/</link>
       <pubDate>Wed, 06 May 2020 22:12:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200506/</guid>
       <description>慢性髓细胞白血病的分期是目前指导治疗的主要依据，也是预后判断的参考标准。CML可分为慢性期、加速期、急变期。</description>
     </item>
-    
     <item>
       <title>移植物抗宿主病详解</title>
       <link>https://ichochy.com/posts/20200526/</link>
       <pubDate>Wed, 06 May 2020 22:12:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200526/</guid>
       <description>移植物抗宿主病（graft versus host disease，GVHD）是allo- HSCT最常见的并发症，分为急性和慢性2种类型。</description>
     </item>
-    
     <item>
       <title>急性髓系白血病（AML）的治疗</title>
       <link>https://ichochy.com/posts/20200504/</link>
       <pubDate>Mon, 04 May 2020 16:12:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200504/</guid>
       <description>白血病患者骨髓中存在着正常的多克隆造血和白血病性单克隆造血两类细胞群，急性白血病治疗目的是杀灭白血病克隆恢复持久的正常多克隆造血。</description>
     </item>
-    
     <item>
       <title>骨髓增生异常综合征（MDS）的病程与预后</title>
       <link>https://ichochy.com/posts/20200502/</link>
       <pubDate>Sat, 02 May 2020 14:18:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200502/</guid>
       <description>骨髓增生异常综合征（MDS）的病程大致有以下三种主要演变模式： 第一种模式，患者病情稳定，骨髓中原始细胞不增多或轻微增多，而不超过5%，随诊中迄未发生白血病转变，仅靠一般支持治疗可活存数年甚至十多年。</description>
     </item>
-    
     <item>
       <title>急性白血病的临床表现</title>
       <link>https://ichochy.com/posts/20200430/</link>
       <pubDate>Thu, 30 Apr 2020 16:12:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200430/</guid>
       <description>急性白血病的临床表现主要与白血病细胞无控性增殖引起骨髓正常造血受抑制和髓外组织器官浸润有关。某些独特的临床表现对急性白血病的诊断和分型有重要提示作用。</description>
     </item>
-    
     <item>
       <title>慢性粒单核细胞白血病（CMML）</title>
       <link>https://ichochy.com/posts/20200425/</link>
       <pubDate>Sat, 25 Apr 2020 14:16:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200425/</guid>
       <description>慢性粒单核细胞白血病（chronic myelomonocytic leukemia，CMML）是一种骨髓造血干细胞的克隆性疾病</description>
     </item>
-    
     <item>
       <title>白血病的分类：髓系肿瘤和淋系肿瘤</title>
       <link>https://ichochy.com/posts/20200422/</link>
       <pubDate>Wed, 22 Apr 2020 16:18:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200422/</guid>
       <description>真正的白血病分型是始于1887年德国人Ehrlich发明细胞染色方法之后。基于对白血病细胞形态和疾病进程的观察，不断发现新的白血病类型。</description>
     </item>
-    
     <item>
       <title>mysql 使用 source/mysqldump 命令导入/导出文件信息</title>
       <link>https://ichochy.com/posts/20200222/</link>
       <pubDate>Sat, 22 Feb 2020 22:16:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20200222/</guid>
       <description>要导入/导出数据库信息，使用 mysql 的source命令可以方便快速的处理</description>
     </item>
-    
     <item>
       <title>Docker 中运行 ElasticSearch 和 Kibana</title>
       <link>https://ichochy.com/posts/20191107/</link>
       <pubDate>Thu, 07 Nov 2019 13:24:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20191107/</guid>
       <description>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据</description>
     </item>
-    
     <item>
       <title>初识 Docker</title>
       <link>https://ichochy.com/posts/20191106/</link>
       <pubDate>Wed, 06 Nov 2019 15:24:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20191106/</guid>
       <description>Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配制系统环境。</description>
     </item>
-    
     <item>
       <title>Mac 无密码 SSH 登录服务器</title>
       <link>https://ichochy.com/posts/20191028/</link>
       <pubDate>Mon, 28 Oct 2019 15:10:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20191028/</guid>
       <description>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</description>
     </item>
-    
     <item>
       <title>Spring Cloud Alibaba Nacos Discovery 实战</title>
       <link>https://ichochy.com/posts/20191018/</link>
       <pubDate>Fri, 18 Oct 2019 16:35:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20191018/</guid>
       <description>Nacos 作为服务注册中心，可以快速简单的将服务自动注册到 Nacos 服务端，并且能够动态无感知的刷新某个服务实例的服务列表，为分布式系统提供服务注册与发现功能</description>
     </item>
-    
     <item>
       <title>Spring Cloud Alibaba Nacos Config 实战</title>
       <link>https://ichochy.com/posts/20191017/</link>
       <pubDate>Thu, 17 Oct 2019 14:10:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20191017/</guid>
       <description>Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你 Spring Cloud 应用的外部属性配置</description>
     </item>
-    
     <item>
       <title>Shell 脚本重启项目</title>
       <link>https://ichochy.com/posts/20191016/</link>
       <pubDate>Wed, 16 Oct 2019 16:10:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20191016/</guid>
       <description>每次发打包好项目后都需要手动重启项目，写个Shell脚本一键重启项目</description>
     </item>
-    
     <item>
       <title>认识 Spring Cloud Alibaba</title>
       <link>https://ichochy.com/posts/20191012/</link>
       <pubDate>Sat, 12 Oct 2019 14:12:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20191012/</guid>
       <description>个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件</description>
     </item>
-    
     <item>
       <title>通过Cloudflare开启全站https</title>
       <link>https://ichochy.com/posts/20191008/</link>
       <pubDate>Tue, 08 Oct 2019 14:22:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20191008/</guid>
       <description>Cloudflare 添加域名后，会自动生成通用证书，快速开启全站HTTPS，服务端不用做任何修改，还可以选择多种开启模式</description>
     </item>
-    
     <item>
       <title>jekyll-admin的搭建和使用</title>
       <link>https://ichochy.com/posts/20190925/</link>
       <pubDate>Wed, 25 Sep 2019 15:22:38 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190925/</guid>
       <description>通过jekyll搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现jekyll-admin是个好东西，它是博客的后台管理系统，可以方便的管理和编写自己的博客</description>
     </item>
-    
     <item>
       <title>神奇的不可见空格&lt;200b&gt;导致代码异常</title>
       <link>https://ichochy.com/posts/20190922/</link>
       <pubDate>Sun, 22 Sep 2019 18:12:45 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190922/</guid>
       <description>故事是这样发生的，在做一个JSON对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格&amp;lt;200b&amp;gt;导致的解析异常</description>
     </item>
-    
     <item>
       <title>OC与Swift混编，三种场景的实现方式</title>
       <link>https://ichochy.com/posts/20190904/</link>
       <pubDate>Wed, 04 Sep 2019 10:22:33 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190904/</guid>
       <description>多语言并存时期，混编成为一种必须的方式 ，在多场景中实现OC和Swift语言的并存原来是如此简单</description>
     </item>
-    
     <item>
       <title>CocoaPods 构建自己的 Pod 库</title>
       <link>https://ichochy.com/posts/20190901/</link>
       <pubDate>Sun, 01 Sep 2019 12:32:55 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190901/</guid>
       <description>构建一个自己的库供其它人使用是不是一件很酷(苦)的事情，通过CocoaPods 可以快捷的构建自己库，并向全世界分享你的成果</description>
     </item>
-    
     <item>
       <title>Mac 将 App 程序打包成为 dmg</title>
       <link>https://ichochy.com/posts/20190823/</link>
       <pubDate>Fri, 23 Aug 2019 08:32:36 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190823/</guid>
       <description>用最简单的打包方式，将自己开发的App打包成为DMG，实现共享分发，快速安装</description>
     </item>
-    
     <item>
       <title>iUploader 2.0 七牛云上传工具</title>
       <link>https://ichochy.com/posts/20190822/</link>
       <pubDate>Thu, 22 Aug 2019 15:22:36 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190822/</guid>
       <description>iUploader 是一个免费开源的七牛云上传工具，可直接返回上传文件的地址；可以用作图床工具，进行图片的分享，当然不仅仅是图片</description>
     </item>
-    
     <item>
       <title>libminipng 压缩png的swift-framework</title>
       <link>https://ichochy.com/posts/20190812/</link>
       <pubDate>Mon, 12 Aug 2019 12:25:36 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190812/</guid>
       <description>通过lodepng解析png图片，使用pngquant算法进行压缩的swift-framework，可实现PNG图片的压缩，并很好的保持图片的质量，完美实现其透明效果，支持Cocoapods安装使用</description>
     </item>
-    
     <item>
       <title>通过端口号关闭当前进程</title>
       <link>https://ichochy.com/posts/20190412/</link>
       <pubDate>Fri, 12 Apr 2019 12:25:36 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190412/</guid>
       <description>使用Shell脚本的方式，通过端口号来关闭当前进程</description>
     </item>
-    
     <item>
       <title>持续集成和持续交付工具-jenkins</title>
       <link>https://ichochy.com/posts/20190410/</link>
       <pubDate>Wed, 10 Apr 2019 12:20:32 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190410/</guid>
       <description>打破原有的手动部署方式，实现程序自动化；通过jenkins来解放你的双手</description>
     </item>
-    
     <item>
       <title>七牛云图床上传工具-iUploader</title>
       <link>https://ichochy.com/posts/20190403/</link>
       <pubDate>Wed, 03 Apr 2019 08:20:05 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190403/</guid>
       <description>iUploader主要功能将图片上传至七牛云，返回 Markdown 格式的链接到剪贴板</description>
     </item>
-    
     <item>
       <title>加速你的博客永无止境-七牛云存储</title>
       <link>https://ichochy.com/posts/20190309/</link>
       <pubDate>Fri, 08 Mar 2019 16:10:00 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190309/</guid>
       <description>将自己的静态博客直接部署到七牛云存储，由七牛云托管运行，你说快不快，还没有注册七牛云的看这里，七牛云注册邀请：https://portal.qiniu.com/signup?code=3l7cpouzlru4y，哈哈！</description>
     </item>
-    
     <item>
       <title>加速你的博客永无止境-七牛云CDN</title>
       <link>https://ichochy.com/posts/20190306/</link>
       <pubDate>Wed, 06 Mar 2019 15:25:00 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190306/</guid>
       <description>个人的博客是通过jekyll构建，通过GitHub Pages搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通CDN来加速博客。于是开始了折腾………………</description>
     </item>
-    
     <item>
-      <title>Jekyll&#43;GitHub Pages部署自己的静态Blog</title>
+      <title>Jekyll+GitHub Pages部署自己的静态Blog</title>
       <link>https://ichochy.com/posts/20190213/</link>
       <pubDate>Wed, 13 Feb 2019 11:45:00 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190213/</guid>
       <description>混了这么久，一直想拥有自己的博客，通过jekyll和GitHub Pages捣腾出了自己的博客(https://www.</description>
     </item>
-    
     <item>
       <title>通过shell查看SVN的版本信息</title>
       <link>https://ichochy.com/posts/20190212/</link>
       <pubDate>Tue, 12 Feb 2019 08:20:05 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20190212/</guid>
       <description>实现原理：通过svn info查看svn信息，使用grep获取版本信息，用awk获取版本号，然后对比版本号是否需要更新</description>
     </item>
-    
     <item>
       <title>倍速音乐</title>
       <link>https://ichochy.com/posts/20181212/</link>
       <pubDate>Wed, 12 Dec 2018 18:30:00 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20181212/</guid>
       <description>学习需要，有太多的音频文件要听，可是常用的播放器只能常速播放。所以有了后面的想法，自己开发一款App，来实现倍速播放的需求，加快学习进度，提高效率，节省时间。</description>
     </item>
-    
     <item>
       <title>开篇</title>
       <link>https://ichochy.com/posts/20181202/</link>
       <pubDate>Sun, 02 Dec 2018 18:32:03 +0800</pubDate>
-      
       <guid>https://ichochy.com/posts/20181202/</guid>
       <description>说说生活 生活总是有太多的磨炼，让你一步步的成长，可传奇的背后都是些艰辛的故事。</description>
     </item>
-    
   </channel>
 </rss>

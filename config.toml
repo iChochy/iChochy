@@ -11,7 +11,7 @@ enableRobotsTXT = false
 
 
 [outputs]
-  home = ["HTML","RSS","TXT"]
+  home = ["HTML","RSS","TXT","XML"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
@@ -21,6 +21,10 @@ enableRobotsTXT = false
   isPlainText = true
   baseName = "urls"
 
+[outputFormats.XML]
+  mediatype = "application/xml"
+  isPlainText = true
+  baseName = "map"
 
 [params]
   postDir = "posts"
