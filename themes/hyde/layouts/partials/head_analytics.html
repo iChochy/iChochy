@@ -1,19 +1,19 @@
-{{if not .Site.IsServer}}
+{{- if not .Site.IsServer}}
 <!-- baidu analytics -->
-{{with .Site.Params.baiduAnalytics}}
-<script>
-  var _hmt = _hmt || [];
-  (function () {
-    var hm = document.createElement("script");
-    hm.setAttribute("defer","defer");
-    hm.src = "https://hm.baidu.com/hm.js?{{.}}";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
-{{end}}
-{{ with  .Site.Params.adsense }}
-<script data-ad-client="ca-pub-{{.}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{{end}}
-{{ template "_internal/google_analytics_async.html" . }}
-{{end}}
+{{- with .Site.Params.baiduAnalytics}}
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?{{.}}";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+{{- end}}
+{{- with  .Site.Params.adsense }}
+  <script data-ad-client="ca-pub-{{.}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{{- end}}
+{{- template "_internal/google_analytics_async.html" . }}
+{{- end}}
