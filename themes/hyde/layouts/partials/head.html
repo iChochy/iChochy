@@ -10,9 +10,9 @@
   {{- if and (not .IsHome) .IsNode}}
   <meta name="robots" content="noindex, nofollow" />
   {{- end}}
-  {{- if .IsHome -}}
+  {{- if .IsHome}}
   <title>{{ .Site.Title }}</title>
-  {{- else -}}
+  {{- else}}
   <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
   {{- end }}
   {{- with .Params.tags}}

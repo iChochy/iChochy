@@ -6,10 +6,19 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Tue, 25 Aug 2020 11:25:35 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2020 15:25:35 +0800</lastBuildDate>
     
 	<atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
     
+    
+    <item>
+      <title>Java 正则表达式实例操作</title>
+      <link>https://ichochy.com/posts/20200828/</link>
+      <pubDate>Fri, 28 Aug 2020 15:25:35 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20200828/</guid>
+      <description>Regular Expression正则表达式，简称RegExp，常规通用的表达式，在多个开发语言中都有它的实现，可以通过正则表达式来快速的检索、匹配、查找、替换字符串中的文本。</description>
+    </item>
     
     <item>
       <title>简述 Cookie、Token、JWT、Session</title>
