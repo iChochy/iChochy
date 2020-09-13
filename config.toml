@@ -24,7 +24,7 @@ enableRobotsTXT = false
 [outputFormats.RSS]
   mediatype = "application/xml"
   isPlainText = true
-  baseName = "rss"
+  baseName = "feed"
 
 [params]
   postDir = "posts"
