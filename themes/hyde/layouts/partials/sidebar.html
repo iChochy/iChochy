@@ -19,7 +19,7 @@
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="/">Home</a> </li>
+        <li><a href="/">Index</a> </li>
         {{ range .Site.Menus.main -}}
         <li><a href="{{.URL | absURL }}"> {{ .Name }} </a></li>
         {{- end }}

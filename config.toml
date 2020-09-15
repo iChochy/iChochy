@@ -24,7 +24,7 @@ enableRobotsTXT = false
 [outputFormats.RSS]
   mediatype = "application/xml"
   isPlainText = true
-  baseName = "feed"
+  baseName = "rss"
 
 [params]
   postDir = "posts"
@@ -42,5 +42,6 @@ enableRobotsTXT = false
 #      {Name = "Tags", weight = 2, URL = "/tags/"},
       {Name = "Links", weight = 3, URL = "/links/"},
       {Name = "About", weight = 4, URL = "/about/"},
-      {Name = "Feedback", weight = 5, URL = "/feedback/"}
+      {Name = "Feedback", weight = 5, URL = "/feedback/"},
+      {Name = "RSS", weight = 6, URL = "/rss.xml"}
   ]
