@@ -78,13 +78,15 @@
 </aside>
     <main class="content container">
     <div class="post">
-  <h1>通过端口号关闭当前进程</h1>
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20190412/">通过端口号关闭当前进程</a></h1>
+  <i>
   <time datetime=2019/04/12 class="post-date">
     2019/04/12 
-    
-      <a href="https://ichochy.com/categories/code/">#code</a>
-    
   </time>
+  
+      <a href="https://ichochy.com/categories/code/">#code</a>
+  
+  </i>
   <p>使用<code>Shell</code>脚本的方式，通过端口号来关闭当前进程</p>
 <h3 id="查看脚本">查看脚本：</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>

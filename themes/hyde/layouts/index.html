@@ -1,5 +1,4 @@
 {{ define "main" -}}
-
 <div class="posts">
   {{ $paginator := .Paginate (where .Site.RegularPages "Type" .Site.Params.PostDir) }}
   {{ range $paginator.Pages }}
@@ -7,13 +6,7 @@
     <h2 class="post-title">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </h2>
-    <time datetime="{{ .Date.Format "2006/01/02" }}" class="post-date">
-      {{ .Date.Format "2006/01/02" }} 
-      {{range .Params.categories}}
-        <a href="{{ "categories" | absURL }}/{{ . | urlize }}/">#{{.}}</a>
-      {{end}}
-    </time>
-    {{ .Summary }}
+    {{ .Summary | html }}
     {{ if .Truncated }}
     <div class="read-more-link">
       <a href="{{ .RelPermalink }}">阅读更多…</a>
@@ -22,7 +15,6 @@
   </article>
   {{ end }}
 </div>
-
 <div class="pagination">
   <span class="pagination-item older">
     {{ if .Paginator.HasPrev }}

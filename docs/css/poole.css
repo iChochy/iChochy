@@ -103,6 +103,8 @@ h1 {
 h2 {
   margin-top: 1rem;
   font-size: 1.5rem;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
 }
 
 h3 {
@@ -353,9 +355,9 @@ tbody tr:nth-child(odd) th {
 
 /* Meta data line below post title */
 .post-date {
-  display: block;
+  /* display: block;
   margin-top: -.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; */
   color: #757575;
 }
 

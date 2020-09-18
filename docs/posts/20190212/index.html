@@ -69,13 +69,15 @@
 </aside>
     <main class="content container">
     <div class="post">
-  <h1>通过shell查看SVN的版本信息</h1>
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20190212/">通过shell查看SVN的版本信息</a></h1>
+  <i>
   <time datetime=2019/02/12 class="post-date">
     2019/02/12 
-    
-      <a href="https://ichochy.com/categories/code/">#code</a>
-    
   </time>
+  
+      <a href="https://ichochy.com/categories/code/">#code</a>
+  
+  </i>
   <p>实现原理：通过<code>svn info</code>查看svn信息，使用<code>grep</code>获取版本信息，用<code>awk</code>获取版本号，然后对比版本号是否需要更新</p>
 <pre><code>#!/bin/sh
 revision=`svn info |grep &quot;Last Changed Rev:&quot; |awk '{print $4}'`
