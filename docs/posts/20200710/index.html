@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.74.2" />
+  <meta name="generator" content="Hugo 0.75.1" />
   <meta name="baidu-site-verification" content="UKLCWEOq0J" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,33 +107,33 @@ docker pull logstash:7.6.0            <span style="color:#75715e">#镜像名称:
 </code></pre></div><p><strong>注：版本要统一</strong></p>
 <h3 id="二创建-elkyml">二、创建 ELK.yml</h3>
 <p><strong>ELK.yml</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;3.5&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.5&#34;</span>
   
-<span style="color:#66d9ef">services</span>:
-  <span style="color:#66d9ef">elasticsearch</span>:
-     <span style="color:#66d9ef">container_name</span>: elasticsearch
-     <span style="color:#66d9ef">image</span>: elasticsearch:<span style="color:#ae81ff">7.6.0</span>             <span style="color:#75715e">#镱像(image)</span>
-     <span style="color:#66d9ef">restart</span>: always                        <span style="color:#75715e">#重启方式</span>
-     <span style="color:#66d9ef">environment</span>:
-       <span style="color:#66d9ef">discovery.type</span>: single-node          <span style="color:#75715e">#环境变量：运行模式 单例</span>
-     <span style="color:#66d9ef">ports</span>:
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">elasticsearch</span>:
+     <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">elasticsearch</span>
+     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">elasticsearch:7.6.0             #镱像(image)</span>
+     <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always                        #重启方式</span>
+     <span style="color:#f92672">environment</span>:
+       <span style="color:#f92672">discovery.type</span>: <span style="color:#ae81ff">single-node          #环境变量：运行模式 单例</span>
+     <span style="color:#f92672">ports</span>:
        - <span style="color:#e6db74">&#34;9200:9200&#34;</span>                        <span style="color:#75715e">#端口映射</span>
        - <span style="color:#e6db74">&#34;9300:9300&#34;</span>
-  <span style="color:#66d9ef">kibana</span>:
-    <span style="color:#66d9ef">container_name</span>: kibana
-    <span style="color:#66d9ef">image</span>: kibana:<span style="color:#ae81ff">7.6.0</span>                     <span style="color:#75715e">#镱像(image)</span>
-    <span style="color:#66d9ef">restart</span>: always                         <span style="color:#75715e">#重启方式</span>
-    <span style="color:#66d9ef">environment</span>:
-      <span style="color:#66d9ef">I18N_LOCALE</span>: <span style="color:#e6db74">&#34;zh-CN&#34;</span>                  <span style="color:#75715e">#指定中文</span>
-    <span style="color:#66d9ef">ports</span>:
+  <span style="color:#f92672">kibana</span>:
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">kibana</span>
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">kibana:7.6.0                     #镱像(image)</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always                         #重启方式</span>
+    <span style="color:#f92672">environment</span>:
+      <span style="color:#f92672">I18N_LOCALE</span>: <span style="color:#e6db74">&#34;zh-CN&#34;</span>                  <span style="color:#75715e">#指定中文</span>
+    <span style="color:#f92672">ports</span>:
        - <span style="color:#e6db74">&#34;5601:5601&#34;</span>                        <span style="color:#75715e">#端口映射</span>
-  <span style="color:#66d9ef">logstash</span>:
-    <span style="color:#66d9ef">container_name</span>: logstash
-    <span style="color:#66d9ef">image</span>: logstash:<span style="color:#ae81ff">7.6.0</span>
-    <span style="color:#66d9ef">restart</span>: always
-    <span style="color:#66d9ef">volumes</span>:                                <span style="color:#75715e">#文件夹映射，本地:容器</span>
+  <span style="color:#f92672">logstash</span>:
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">logstash</span>
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">logstash:7.6.0</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">volumes</span>:                                <span style="color:#75715e">#文件夹映射，本地:容器</span>
       - <span style="color:#e6db74">&#34;/Users/iChochy/logs:/usr/share/logstash/logs&#34;</span>
-    <span style="color:#66d9ef">ports</span>: 
+    <span style="color:#f92672">ports</span>: 
       - <span style="color:#e6db74">&#34;5044:5044&#34;</span>
       - <span style="color:#e6db74">&#34;9600:9600&#34;</span>
 </code></pre></div><blockquote>
@@ -175,22 +175,22 @@ docker logs 1b8cb2effede -f
 <li>运行<code>docker exec -it 1b8cb2effede bash</code>进入logstash</li>
 <li>运行<code>vi pipeline/logstash.conf</code>修改logstash默认配置</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">input {
-  beats {
-    port =&gt; <span style="color:#ae81ff">5044</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">input {</span>
+  <span style="color:#ae81ff">beats {</span>
+    <span style="color:#ae81ff">port =&gt; 5044</span>
   }
-  file {
-    path =&gt; <span style="color:#e6db74">&#34;/usr/share/logstash/logs/*&#34;</span>   <span style="color:#75715e">#监控的文件路径</span>
+  <span style="color:#ae81ff">file {</span>
+    <span style="color:#ae81ff">path =&gt; &#34;/usr/share/logstash/logs/*&#34;   #监控的文件路径</span>
   }
 }
 
-output {
-  stdout {
-    codec =&gt; rubydebug
+<span style="color:#ae81ff">output {</span>
+  <span style="color:#ae81ff">stdout {</span>
+    <span style="color:#ae81ff">codec =&gt; rubydebug</span>
   }
-  elasticsearch {
-    hosts =&gt; [<span style="color:#e6db74">&#34;http://elasticsearch:9200&#34;</span>]  <span style="color:#75715e">#elasticsearch请求地址</span>
-    index =&gt; <span style="color:#e6db74">&#34;ichochy&#34;</span>                      <span style="color:#75715e">#索引名称</span>
+  <span style="color:#ae81ff">elasticsearch {</span>
+    <span style="color:#ae81ff">hosts =&gt; [&#34;http://elasticsearch:9200&#34;]  #elasticsearch请求地址</span>
+    <span style="color:#ae81ff">index =&gt; &#34;ichochy&#34;                      #索引名称</span>
   }
 }
 
@@ -203,11 +203,11 @@ output {
 echo &quot;www.ichochy.com&quot; &gt; web.log  #添加日志信息
 </code></pre><p>查看 logstash 日志信息可以看到打印的日志</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">{
-      <span style="color:#e6db74">&#34;@version&#34;</span> =&gt; <span style="color:#e6db74">&#34;1&#34;</span>,
-          <span style="color:#e6db74">&#34;path&#34;</span> =&gt; <span style="color:#e6db74">&#34;/usr/share/logstash/logs/web.log&#34;</span>,
-          <span style="color:#e6db74">&#34;host&#34;</span> =&gt; <span style="color:#e6db74">&#34;1b8cb2effede&#34;</span>,
-    <span style="color:#e6db74">&#34;@timestamp&#34;</span> =&gt; <span style="color:#e6db74">2020-07-10T14:07:16.633Z</span>,
-       <span style="color:#e6db74">&#34;message&#34;</span> =&gt; <span style="color:#e6db74">&#34;www.ichochy.com&#34;</span>
+      <span style="color:#e6db74">&#34;@version&#34;</span> <span style="color:#ae81ff">=&gt; &#34;1&#34;,</span>
+          <span style="color:#e6db74">&#34;path&#34;</span> <span style="color:#ae81ff">=&gt; &#34;/usr/share/logstash/logs/web.log&#34;,</span>
+          <span style="color:#e6db74">&#34;host&#34;</span> <span style="color:#ae81ff">=&gt; &#34;1b8cb2effede&#34;,</span>
+    <span style="color:#e6db74">&#34;@timestamp&#34;</span> <span style="color:#ae81ff">=&gt; 2020-07-10T14:07:16.633Z,</span>
+       <span style="color:#e6db74">&#34;message&#34;</span> <span style="color:#ae81ff">=&gt; &#34;www.ichochy.com&#34;</span>
 }
 </code></pre></div><h3 id="七搜索分析日志">七、搜索、分析日志</h3>
 <p>访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana</p>
