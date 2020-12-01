@@ -522,3 +522,11 @@ form button {
   border: 1px solid #ced4da;
   border-radius: .25rem;
 }
+
+.gsc-control-cse  table{
+  margin-bottom: 0rem;
+}
+
+.gsc-control-cse .gs-web-image-box .gs-image{
+  border: 0px;
+}

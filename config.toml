@@ -42,6 +42,7 @@ enableRobotsTXT = false
 #      {Name = "Tags", weight = 2, URL = "/tags/"},
       {Name = "Links", weight = 3, URL = "/links/"},
       {Name = "About", weight = 4, URL = "/about/"},
-      {Name = "Feedback", weight = 5, URL = "/feedback/"},
-      {Name = "RSS", weight = 6, URL = "/rss.xml"}
+      {Name = "Search", weight = 5, URL = "/Search/"},
+      {Name = "RSS", weight = 6, URL = "/rss.xml"},
+      {Name = "Feedback", weight = 7, URL = "/feedback/"}
   ]
