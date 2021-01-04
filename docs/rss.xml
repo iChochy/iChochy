@@ -6,7 +6,7 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Wed, 02 Sep 2020 16:22:35 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <lastBuildDate>Sat, 10 Oct 2020 22:22:35 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
     <item>
       <title>Search</title>
       <link>https://ichochy.com/search/</link>
@@ -14,6 +14,15 @@
       
       <guid>https://ichochy.com/search/</guid>
       <description>  </description>
+    </item>
+    
+    <item>
+      <title>Java JSON数据实战操作</title>
+      <link>https://ichochy.com/posts/20201010/</link>
+      <pubDate>Sat, 10 Oct 2020 22:22:35 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20201010/</guid>
+      <description>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。 JSON 采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C++, C#, Java, JavaScript, Perl, Python等），这些特性使JSON成为理想的数据交换语言。</description>
     </item>
     
     <item>

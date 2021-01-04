@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java JSON数据实战操作 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="java, json, gson" />
+  <meta name="description" content="JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。 JSON 采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C&#43;&#43;, C#, Java, JavaScript, Perl, Python等），这些特性使JSON成为理想的数据交换语言。" />
+  
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+  <script defer = "defer" src="https://ichochy.com/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links/"> Links </a></li><li><a href="https://ichochy.com/about/"> About </a></li><li><a href="https://ichochy.com/search/"> Search </a></li><li><a href="https://ichochy.com/feedback/"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#引入gson">引入GSON</a>
+      <ul>
+        <li><a href="#maven">Maven</a></li>
+        <li><a href="#gradle">Gradle</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建-gson">创建 GSON</a>
+      <ul>
+        <li><a href="#默认创建">默认创建</a></li>
+        <li><a href="#指定创建">指定创建</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用-gson">使用 GSON</a>
+      <ul>
+        <li><a href="#对象实例">对象实例</a></li>
+        <li><a href="#集合实例">集合实例</a></li>
+        <li><a href="#泛型实例-typetoken">泛型实例 TypeToken</a></li>
+        <li><a href="#serializedname-注解重命名属性">SerializedName 注解重命名属性</a></li>
+        <li><a href="#fieldnamingpolicy-指定命名规则">FieldNamingPolicy 指定命名规则</a></li>
+        <li><a href="#时间格式">时间格式</a></li>
+        <li><a href="#expose-注解显示属性">Expose 注解显示属性</a></li>
+        <li><a href="#since-注解版本支持">Since 注解版本支持</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20201010/">Java JSON数据实战操作</a></h1>
+  <i>
+  <time datetime=2020/10/10 class="post-date">
+    2020/10/10 
+  </time>
+  
+      <a href="https://ichochy.com/categories/java/">#java</a>
+  
+  </i>
+  <p>JSON(<code>JavaScript Object Notation</code>) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。
+JSON 采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C++, C#, Java, JavaScript, Perl, Python等），这些特性使JSON成为理想的数据交换语言。</p>
+<h2 id="引入gson">引入GSON</h2>
+<p>Gson（又称Google Gson）是Google公司发布的一个开放源代码的Java库，主要用途为序列化Java对象为JSON字符串，或反序列化JSON字符串成Java对象。</p>
+<p><strong>功能</strong></p>
+<ul>
+<li>提供简单的toJson()和fromJson()方法，将Java对象到JSON，反之亦然</li>
+<li>允许将已有的不可修改的对象与JSON相互转换</li>
+<li>Java泛型的广泛支持</li>
+<li>允许对象的自定义表示</li>
+<li>支持任意复杂的对象（具有深层继承层次结构和泛型类型的广泛使用）</li>
+</ul>
+<h3 id="maven">Maven</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependencies&gt;</span>
+    <span style="color:#75715e">&lt;!--  Gson: Java to Json conversion --&gt;</span>
+    <span style="color:#f92672">&lt;dependency&gt;</span>
+      <span style="color:#f92672">&lt;groupId&gt;</span>com.google.code.gson<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId&gt;</span>gson<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version&gt;</span>2.8.6<span style="color:#f92672">&lt;/version&gt;</span>
+      <span style="color:#f92672">&lt;scope&gt;</span>compile<span style="color:#f92672">&lt;/scope&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+<span style="color:#f92672">&lt;/dependencies&gt;</span>
+</code></pre></div><h3 id="gradle">Gradle</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">dependencies</span> {
+    <span style="color:#960050;background-color:#1e0010">implementation</span> <span style="color:#960050;background-color:#1e0010">&#39;com.google.code.gson:gson:2.8.6&#39;</span>
+}
+</code></pre></div><h2 id="创建-gson">创建 GSON</h2>
+<h3 id="默认创建">默认创建</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson<span style="color:#f92672">()</span>
+</code></pre></div><h3 id="指定创建">指定创建</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GsonBuilder<span style="color:#f92672">()</span>
+    <span style="color:#75715e">//自定义序列化或反序列化
+</span><span style="color:#75715e"></span>     <span style="color:#f92672">.</span><span style="color:#a6e22e">registerTypeAdapter</span><span style="color:#f92672">(</span>Id<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> IdTypeAdapter<span style="color:#f92672">())</span>
+    <span style="color:#75715e">//启用复杂的 Map 键序列化
+</span><span style="color:#75715e"></span>     <span style="color:#f92672">.</span><span style="color:#a6e22e">enableComplexMapKeySerialization</span><span style="color:#f92672">()</span>
+     <span style="color:#75715e">//序列化空字段
+</span><span style="color:#75715e"></span>     <span style="color:#f92672">.</span><span style="color:#a6e22e">serializeNulls</span><span style="color:#f92672">()</span>
+     <span style="color:#75715e">//设定时间格式
+</span><span style="color:#75715e"></span>     <span style="color:#f92672">.</span><span style="color:#a6e22e">setDateFormat</span><span style="color:#f92672">(</span>DateFormat<span style="color:#f92672">.</span><span style="color:#a6e22e">LONG</span><span style="color:#f92672">)</span>
+     <span style="color:#75715e">//设定字段命名策略
+</span><span style="color:#75715e"></span>     <span style="color:#f92672">.</span><span style="color:#a6e22e">setFieldNamingPolicy</span><span style="color:#f92672">(</span>FieldNamingPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">UPPER_CAMEL_CASE</span><span style="color:#f92672">)</span>
+     <span style="color:#75715e">//设定打印样式
+</span><span style="color:#75715e"></span>     <span style="color:#f92672">.</span><span style="color:#a6e22e">setPrettyPrinting</span><span style="color:#f92672">()</span>
+     <span style="color:#75715e">//设定版本号
+</span><span style="color:#75715e"></span>     <span style="color:#f92672">.</span><span style="color:#a6e22e">setVersion</span><span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">)</span>
+     <span style="color:#75715e">//创建 GSON
+</span><span style="color:#75715e"></span>     <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>     <span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</code></pre></div><h2 id="使用-gson">使用 GSON</h2>
+<h3 id="对象实例">对象实例</h3>
+<h4 id="对象-user">对象 User</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:User.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/31 10:18:31
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.entity<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;iChochy&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age <span style="color:#f92672">=</span> 35<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>  
+</code></pre></div><h4 id="tojson-方法将对象转换成-json-字符串">toJson 方法将对象转换成 JSON 字符串</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Example.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/12/22 11:48:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.gson<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.Gson<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.example.User<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//创建 GSON 对象
+</span><span style="color:#75715e"></span>        Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson<span style="color:#f92672">();</span>
+        <span style="color:#75715e">//toJson 将对象转换成 JSON 字符串
+</span><span style="color:#75715e"></span>        String json <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">toJson</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">());</span>
+        <span style="color:#75715e">//{&#34;name&#34;:&#34;iChochy&#34;,&#34;age&#34;:35,&#34;url&#34;:&#34;https://ichochy.com&#34;}
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>json<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="fromjson-方法将-json-字符串转换成对象">fromJson 方法将 JSON 字符串转换成对象</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Example.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/12/22 11:48:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.gson<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.Gson<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.example.User<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//创建 GSON 对象
+</span><span style="color:#75715e"></span>        Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson<span style="color:#f92672">();</span>
+        <span style="color:#75715e">// JSON 字符串
+</span><span style="color:#75715e"></span>        String json <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{\&#34;name\&#34;:\&#34;MLeo\&#34;,\&#34;age\&#34;:35,\&#34;url\&#34;:\&#34;https://ichochy.com\&#34;}&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">//fromJson 将 JSON 字符串转换成对象
+</span><span style="color:#75715e"></span>        User user <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">fromJson</span><span style="color:#f92672">(</span>json<span style="color:#f92672">,</span>User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//Name:MLeo
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//Age:35
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//URL:https://ichochy.com
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="集合实例">集合实例</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Example.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/12/22 11:48:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.gson<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.Gson<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.google.gson.reflect.TypeToken<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.example.User<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Collection<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//创建 GSON 对象
+</span><span style="color:#75715e"></span>        Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson<span style="color:#f92672">();</span>
+        <span style="color:#75715e">//toJson 将集合转换成 JSON 字符串
+</span><span style="color:#75715e"></span>        List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> data <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">());</span>
+        data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">());</span>
+        String json <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">toJson</span><span style="color:#f92672">(</span>data<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//[{&#34;name&#34;:&#34;iChochy&#34;,&#34;age&#34;:35,&#34;url&#34;:&#34;https://ichochy.com&#34;},{&#34;name&#34;:&#34;iChochy&#34;,&#34;age&#34;:35,&#34;url&#34;:&#34;https://ichochy.com&#34;}]
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>json<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//fromJson 将 JSON 字符串转换成集合
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//通过 TypeToken 指定类型
+</span><span style="color:#75715e"></span>        List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> users <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">fromJson</span><span style="color:#f92672">(</span>json<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> TypeToken<span style="color:#f92672">&lt;</span>Collection<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;&gt;(){}.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">());</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>users<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="泛型实例-typetoken">泛型实例 TypeToken</h3>
+<h4 id="泛型对象-result">泛型对象 Result</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Result.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/12/24 10:59:24
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.entity<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Result</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String code <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0000&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;OK&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> T data<span style="color:#f92672">;</span>
+    <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>  
+</code></pre></div><h4 id="typetoken-指定泛型">TypeToken 指定泛型</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Example.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/12/22 11:48:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.gson<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.Gson<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.google.gson.reflect.TypeToken<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.entity.Result<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.entity.User<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//创建 GSON 对象
+</span><span style="color:#75715e"></span>        Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson<span style="color:#f92672">();</span>
+        <span style="color:#75715e">//toJson 将对象转换成 JSON 字符串
+</span><span style="color:#75715e"></span>        Result result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Result<span style="color:#f92672">();</span>
+        List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> data <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">());</span>
+        data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">());</span>
+        result<span style="color:#f92672">.</span><span style="color:#a6e22e">setData</span><span style="color:#f92672">(</span>data<span style="color:#f92672">);</span>
+        String json <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">toJson</span><span style="color:#f92672">(</span>result<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//{&#34;code&#34;:&#34;0000&#34;,&#34;message&#34;:&#34;OK&#34;,&#34;data&#34;:[{&#34;name&#34;:&#34;iChochy&#34;,&#34;age&#34;:35,&#34;url&#34;:&#34;https://ichochy.com&#34;},{&#34;name&#34;:&#34;iChochy&#34;,&#34;age&#34;:35,&#34;url&#34;:&#34;https://ichochy.com&#34;}]}
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>json<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//fromJson 将 JSON 字符串转换成对象
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//通过 TypeToken 指定类型
+</span><span style="color:#75715e"></span>        Result<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;&gt;</span> values <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">fromJson</span><span style="color:#f92672">(</span>json<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> TypeToken<span style="color:#f92672">&lt;</span>Result<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;&gt;&gt;(){}.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">());</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>values<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="serializedname-注解重命名属性">SerializedName 注解重命名属性</h3>
+<p>属性添加注解<code>SerializedName</code>，实现自定义属性名</p>
+<h4 id="对象-user-1">对象 User</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:User.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/12/22 12:49:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.entity<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.annotations.SerializedName<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@SerializedName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;userName&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;iChochy&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age <span style="color:#f92672">=</span> 35<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Example.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/12/22 11:48:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.gson<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.Gson<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.google.gson.GsonBuilder<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.entity.User<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//创建 GSON 对象
+</span><span style="color:#75715e"></span>        Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson<span style="color:#f92672">()</span>
+        String json <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">toJson</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">());</span>
+        <span style="color:#75715e">/**
+</span><span style="color:#75715e">         * {
+</span><span style="color:#75715e">         *  &#34;userName&#34;: &#34;iChochy&#34;,
+</span><span style="color:#75715e">         *  &#34;age&#34;: 35,
+</span><span style="color:#75715e">         *  &#34;url&#34;: &#34;https://ichochy.com&#34;
+</span><span style="color:#75715e">         * }
+</span><span style="color:#75715e">         */</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>json<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="fieldnamingpolicy-指定命名规则">FieldNamingPolicy 指定命名规则</h3>
+<h4 id="配置gsonsetfieldnamingpolicy">配置GSON（setFieldNamingPolicy）</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GsonBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">setFieldNamingPolicy</span><span style="color:#f92672">(</span>FieldNamingPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">IDENTITY</span><span style="color:#f92672">).</span><span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:center">枚举常量</th>
+<th>枚举常量和描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">IDENTITY</td>
+<td>字段名称不变</td>
+</tr>
+<tr>
+<td style="text-align:center">LOWER_CASE_WITH_DASHES</td>
+<td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用短划线（-）分隔</td>
+</tr>
+<tr>
+<td style="text-align:center">LOWER_CASE_WITH_DOTS</td>
+<td>字段名称从其驼峰大小写形式修改为小写的字段名称，其中每个单词都用点（.）分隔</td>
+</tr>
+<tr>
+<td style="text-align:center">LOWER_CASE_WITH_UNDERSCORES</td>
+<td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用下划线（_）分隔</td>
+</tr>
+<tr>
+<td style="text-align:center">UPPER_CAMEL_CASE</td>
+<td>字段名称的第一个字母在序列化为JSON格式时大写</td>
+</tr>
+<tr>
+<td style="text-align:center">UPPER_CAMEL_CASE_WITH_SPACES</td>
+<td>字段名称的第一个字母在序列化为JSON格式时大写，并且单词之间将用空格分隔</td>
+</tr>
+</tbody>
+</table>
+<h3 id="时间格式">时间格式</h3>
+<h4 id="配置gsonsetdateformat">配置GSON（setDateFormat）</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GsonBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">setDateFormat</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yyy-MM-dd HH:mm:ss&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Example.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/12/22 11:48:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.gson<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.Gson<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.google.gson.GsonBuilder<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.Date<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//创建 GSON 对象，指定时间格式
+</span><span style="color:#75715e"></span>        Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GsonBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">setDateFormat</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yyy-MM-dd HH:mm:ss&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+        String json <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">toJson</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">());</span>
+        <span style="color:#75715e">//2020-12-24 11:40:45
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>json<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//fromJson 将 JSON 字符串转换成对象
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//通过 TypeToken 指定类型
+</span><span style="color:#75715e"></span>        Date values <span style="color:#f92672">=</span> gson<span style="color:#f92672">.</span><span style="color:#a6e22e">fromJson</span><span style="color:#f92672">(</span>json<span style="color:#f92672">,</span> Date<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//Thu Dec 24 11:40:45 CST 2020
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>values<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="expose-注解显示属性">Expose 注解显示属性</h3>
+<h4 id="配置gsonexcludefieldswithoutexposeannotation">配置GSON（excludeFieldsWithoutExposeAnnotation）</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GsonBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">excludeFieldsWithoutExposeAnnotation</span><span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</code></pre></div><h4 id="属性添加注解-expose显示属性">属性添加注解 Expose，显示属性</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy.entity<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.annotations.Expose<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.google.gson.annotations.SerializedName<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Expose</span>
+    <span style="color:#66d9ef">private</span> String name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;iChochy&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age <span style="color:#f92672">=</span> 35<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><h3 id="since-注解版本支持">Since 注解版本支持</h3>
+<h4 id="配置gsonsetversion">配置GSON（setVersion）</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GsonBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">setVersion</span><span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">).</span><span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</code></pre></div><h4 id="属性添加注解-since添加版本">属性添加注解 Since，添加版本</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy.entity<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.google.gson.annotations.Expose<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.google.gson.annotations.SerializedName<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Since</span><span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;iChochy&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#a6e22e">@Since</span><span style="color:#f92672">(</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age <span style="color:#f92672">=</span> 35<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>    
+</code></pre></div><p><em>注：高版本会显示低版本信息</em></p>
+
+  
+<p>
+  源文：<a href="https://ichochy.com/posts/20201010/">https://ichochy.com/posts/20201010/</a>
+</p>
+
+<div class="related">
+  
+  
+  <h2>相关文章</h2>
+  <ul class="related-posts">
+    
+    <li>
+      <h3><a href="https://ichochy.com/posts/20200828/">
+          Java 正则表达式实例操作
+          <small>2020/08/28</small>
+        </a></h3>
+    </li>
+    
+    <li>
+      <h3><a href="https://ichochy.com/posts/20200824/">
+          Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理
+          <small>2020/08/24</small>
+        </a></h3>
+    </li>
+    
+    <li>
+      <h3><a href="https://ichochy.com/posts/20200823/">
+          Java 反射实例操作
+          <small>2020/08/23</small>
+        </a></h3>
+    </li>
+    
+    <li>
+      <h3><a href="https://ichochy.com/posts/20200820/">
+          Java 中的重写(Override)与重载(Overload)
+          <small>2020/08/20</small>
+        </a></h3>
+    </li>
+    
+    <li>
+      <h3><a href="https://ichochy.com/posts/20200819/">
+          免费申请 JetBrains 开源开发许可证，包含 IDEA
+          <small>2020/08/19</small>
+        </a></h3>
+    </li>
+    
+  </ul>
+  
+  <h2>Tags</h2>
+  <ul class="related-tags">
+    
+    <li>
+      <a href="https://ichochy.com/tags/java/">#java</a>
+    </li>
+    
+    <li>
+      <a href="https://ichochy.com/tags/json/">#json</a>
+    </li>
+    
+    <li>
+      <a href="https://ichochy.com/tags/gson/">#gson</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20200902/" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
