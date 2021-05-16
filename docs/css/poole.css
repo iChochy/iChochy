@@ -62,7 +62,7 @@ html {
 
 body {
   color: #515151;
-  background-color: #fff;
+  background-color: #fafafa;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -70,16 +70,14 @@ body {
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #227bb9;
   text-decoration: none;
-  text-shadow: 5px 5px 3px #00000050;
+  text-shadow: 1px 1px 1px #bbb, -1px -1px 1px #fff;
 }
 
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
   text-decoration: none;
-  text-shadow: 0px 0px 3px #227bb9;
 }
 
 /* Headings */

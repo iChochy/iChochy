@@ -28,7 +28,8 @@ enableRobotsTXT = false
 
 [params]
   postDir = "posts"
-  layoutReverse = false
+  layoutReverse = true
+  themeColor = "theme-base-08"
   copyright = "iChochy"
   description = "码农小站，写点Java、Swift和感悟"
   datetimeFormat = "2006/01/02 15:04:05"
