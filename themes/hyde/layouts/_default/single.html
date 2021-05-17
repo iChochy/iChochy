@@ -1,15 +1,17 @@
 {{ define "main" -}}
 <div class="post">
   <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-  <i>
+  <em>
   <time datetime={{ .Date.Format "2006/01/02" }} class="post-date">
     {{ .Date.Format "2006/01/02" }} 
   </time>
   {{range .Params.categories}}
       <a href="{{ "categories" | absURL }}/{{ . | urlize }}/">#{{.}}</a>
   {{end}}
-  </i>
+</em>
+  {{ partial "tags.html" . }}
   {{ .Content }}
+  {{ partial "related.html" . }}
   {{ partial "links.html" . }}
 </div>
 {{ partial "pagination.html" . }}

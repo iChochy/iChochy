@@ -79,14 +79,32 @@
     <main class="content container">
     <div class="post">
   <h1 class="post-title"><a href="https://ichochy.com/posts/20190412/">通过端口号关闭当前进程</a></h1>
-  <i>
+  <em>
   <time datetime=2019/04/12 class="post-date">
     2019/04/12 
   </time>
   
       <a href="https://ichochy.com/categories/code/">#code</a>
   
-  </i>
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/shell/">#shell</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/linux/">#linux</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
   <p>使用<code>Shell</code>脚本的方式，通过端口号来关闭当前进程</p>
 <h3 id="查看脚本">查看脚本：</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
@@ -106,39 +124,27 @@ echo kill $PROCESS
 <span style="color:#66d9ef">fi</span>
 </code></pre></div>
   
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190212/">
+            通过shell查看SVN的版本信息
+            <small>2019/02/12</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
 <p>
-  源文：<a href="https://ichochy.com/posts/20190412/">https://ichochy.com/posts/20190412/</a>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20190412/">https://ichochy.com/posts/20190412/</a>
 </p>
-
-<div class="related">
-  
-  
-  <h2>相关文章</h2>
-  <ul class="related-posts">
-    
-    <li>
-      <h3><a href="https://ichochy.com/posts/20190212/">
-          通过shell查看SVN的版本信息
-          <small>2019/02/12</small>
-        </a></h3>
-    </li>
-    
-  </ul>
-  
-  <h2>Tags</h2>
-  <ul class="related-tags">
-    
-    <li>
-      <a href="https://ichochy.com/tags/shell/">#shell</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/linux/">#linux</a>
-    </li>
-    
-  </ul>
-</div>
-
 
 </div>
 

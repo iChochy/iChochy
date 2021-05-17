@@ -70,14 +70,15 @@ body {
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
+  color: #227bb9;
   text-decoration: none;
-  text-shadow: 1px 1px 1px #bbb, -1px -1px 1px #fff;
+  text-shadow: 0.5px 0.5px 0.5px #999;
 }
 
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* Headings */
@@ -175,7 +176,7 @@ code {
   padding: .25em .5em;
   font-size: 85%;
   color: #b3555e;
-  background-color: #f9f9f9;
+  background-color: #fff;
   border-radius: 3px;
 }
 
@@ -190,7 +191,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 
 pre code {
@@ -360,11 +361,11 @@ tbody tr:nth-child(odd) th {
 }
 
 /* Related posts */
-.related {
+/* .related {
   padding-top: 2rem;
   padding-bottom: 2rem;
   border-top: 1px solid #eee;
-}
+} */
 
 .related-posts {
   padding-left: 0;
@@ -402,12 +403,6 @@ tbody tr:nth-child(odd) th {
   display: inline;
   padding: 2px;
 }
-
-.related-tags li a:hover {
-  color: #227bb9;
-  text-decoration: none;
-}
-
 
 /*
  * Pagination

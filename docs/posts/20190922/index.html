@@ -80,14 +80,28 @@
     <main class="content container">
     <div class="post">
   <h1 class="post-title"><a href="https://ichochy.com/posts/20190922/">神奇的不可见空格&lt;200b&gt;导致代码异常</a></h1>
-  <i>
+  <em>
   <time datetime=2019/09/22 class="post-date">
     2019/09/22 
   </time>
   
       <a href="https://ichochy.com/categories/code/">#code</a>
   
-  </i>
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/code/">#code</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
   <p>故事是这样发生的，在做一个<code>JSON</code>对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格<code>&lt;200b&gt;</code>导致的解析异常</p>
 <h3 id="出现">出现</h3>
 <p>使用<a href="https://typora.io/"><code>Typora</code></a>编写文字时，使用<code>Tab</code>会生成神奇的不可见空格</p>
@@ -98,23 +112,13 @@
 2 . 使用正则表式进行替换<code>replace(/\t+/g,&quot;&quot;)</code></p>
 
   
+
+  
+
+  
 <p>
-  源文：<a href="https://ichochy.com/posts/20190922/">https://ichochy.com/posts/20190922/</a>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20190922/">https://ichochy.com/posts/20190922/</a>
 </p>
-
-<div class="related">
-  
-  
-  <h2>Tags</h2>
-  <ul class="related-tags">
-    
-    <li>
-      <a href="https://ichochy.com/tags/code/">#code</a>
-    </li>
-    
-  </ul>
-</div>
-
 
 </div>
 

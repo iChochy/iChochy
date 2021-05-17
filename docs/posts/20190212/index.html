@@ -70,14 +70,28 @@
     <main class="content container">
     <div class="post">
   <h1 class="post-title"><a href="https://ichochy.com/posts/20190212/">通过shell查看SVN的版本信息</a></h1>
-  <i>
+  <em>
   <time datetime=2019/02/12 class="post-date">
     2019/02/12 
   </time>
   
       <a href="https://ichochy.com/categories/code/">#code</a>
   
-  </i>
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/shell/">#shell</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
   <p>实现原理：通过<code>svn info</code>查看svn信息，使用<code>grep</code>获取版本信息，用<code>awk</code>获取版本号，然后对比版本号是否需要更新</p>
 <pre><code>#!/bin/sh
 revision=`svn info |grep &quot;Last Changed Rev:&quot; |awk '{print $4}'`
@@ -95,23 +109,13 @@ else
 fi
 </code></pre>
   
+
+  
+
+  
 <p>
-  源文：<a href="https://ichochy.com/posts/20190212/">https://ichochy.com/posts/20190212/</a>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20190212/">https://ichochy.com/posts/20190212/</a>
 </p>
-
-<div class="related">
-  
-  
-  <h2>Tags</h2>
-  <ul class="related-tags">
-    
-    <li>
-      <a href="https://ichochy.com/tags/shell/">#shell</a>
-    </li>
-    
-  </ul>
-</div>
-
 
 </div>
 

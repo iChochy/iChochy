@@ -74,7 +74,7 @@
     <li><a href="#六修改-logstash-配置">六、修改 logstash 配置</a></li>
     <li><a href="#七模拟采集日志">七、模拟采集日志</a></li>
     <li><a href="#八管理搜索分析日志">八、管理、搜索、分析日志</a></li>
-    <li><a href="#引用">引用：</a></li>
+    <li><a href="#引用">引用</a></li>
   </ul>
 </nav>
   </div>
@@ -83,14 +83,44 @@
     <main class="content container">
     <div class="post">
   <h1 class="post-title"><a href="https://ichochy.com/posts/20210418/">elasticsearch, kibana, logstash, filebeat 实现日志的自动采集、搜索和分析</a></h1>
-  <i>
+  <em>
   <time datetime=2021/04/18 class="post-date">
     2021/04/18 
   </time>
   
       <a href="https://ichochy.com/categories/code/">#code</a>
   
-  </i>
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/docker/">#docker</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/elasticsearch/">#elasticsearch</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/kibana/">#kibana</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/logstash/">#logstash</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/filebeat/">#filebeat</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
   <p>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化</p>
 <p><code>Elasticsearch</code> 是一个分布式、RESTful 风格的搜索和数据分析引擎</p>
 <p><code>Kibana</code> 是一个免费且开放的用户界面，能够让您对 Elasticsearch 数据进行可视化管理和展示</p>
@@ -291,7 +321,7 @@ docker logs 1b8cb2effede -f
 <img src="https://images.ichochy.com/WX20210418-103626.png" alt="WX20210418-103626"></p>
 <p>在<code>Discover</code>可以看到刚刚添加进来的日志数据，开始你的表演…………</p>
 <p><img src="https://images.ichochy.com/15943959651825033.png" alt="15943959651825033"></p>
-<h2 id="引用">引用：</h2>
+<h2 id="引用">引用</h2>
 <ul>
 <li>
 <p><code>Beats</code>配置文件权限问题：<a href="https://www.elastic.co/guide/en/beats/libbeat/current/config-file-permissions.html">https://www.elastic.co/guide/en/beats/libbeat/current/config-file-permissions.html</a></p>
@@ -305,65 +335,41 @@ docker logs 1b8cb2effede -f
 </ul>
 
   
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200710/">
+            Elastic Stack 实现日志的自动采集、搜索和分析
+            <small>2020/07/10</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191107/">
+            Docker 中运行 ElasticSearch 和 Kibana
+            <small>2019/11/07</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191106/">
+            初识 Docker
+            <small>2019/11/06</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
 <p>
-  源文：<a href="https://ichochy.com/posts/20210418/">https://ichochy.com/posts/20210418/</a>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20210418/">https://ichochy.com/posts/20210418/</a>
 </p>
-
-<div class="related">
-  
-  
-  <h2>相关文章</h2>
-  <ul class="related-posts">
-    
-    <li>
-      <h3><a href="https://ichochy.com/posts/20200710/">
-          Elastic Stack 实现日志的自动采集、搜索和分析
-          <small>2020/07/10</small>
-        </a></h3>
-    </li>
-    
-    <li>
-      <h3><a href="https://ichochy.com/posts/20191107/">
-          Docker 中运行 ElasticSearch 和 Kibana
-          <small>2019/11/07</small>
-        </a></h3>
-    </li>
-    
-    <li>
-      <h3><a href="https://ichochy.com/posts/20191106/">
-          初识 Docker
-          <small>2019/11/06</small>
-        </a></h3>
-    </li>
-    
-  </ul>
-  
-  <h2>Tags</h2>
-  <ul class="related-tags">
-    
-    <li>
-      <a href="https://ichochy.com/tags/docker/">#docker</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/elasticsearch/">#elasticsearch</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/kibana/">#kibana</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/logstash/">#logstash</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/filebeat/">#filebeat</a>
-    </li>
-    
-  </ul>
-</div>
-
 
 </div>
 

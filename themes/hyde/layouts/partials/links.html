@@ -1,6 +1,5 @@
 {{if eq .Section  .Site.Params.PostDir}}
 <p>
-  源文：<a href="{{.Permalink}}">{{.Permalink}}</a>
+  <strong>源文</strong>：<a href="{{.Permalink}}">{{.Permalink}}</a>
 </p>
-{{ partial "related.html" . }}
 {{end}}

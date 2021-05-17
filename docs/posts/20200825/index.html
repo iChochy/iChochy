@@ -80,14 +80,44 @@
     <main class="content container">
     <div class="post">
   <h1 class="post-title"><a href="https://ichochy.com/posts/20200825/">简述 Cookie、Token、JWT、Session</a></h1>
-  <i>
+  <em>
   <time datetime=2020/08/25 class="post-date">
     2020/08/25 
   </time>
   
       <a href="https://ichochy.com/categories/java/">#java</a>
   
-  </i>
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/cookie/">#cookie</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/token/">#token</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/jwt/">#jwt</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/session/">#session</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/auth/">#auth</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
   <p>早期互联网只是用来访问查看，不需要关心谁在访问查看。<code>HTTP</code>是一种无状态的协议，每个请求都是完全独立的，服务端无法确认当前访问者的<strong>身份信息</strong>，为了标示用户，就出现了<code>Cookie</code>，而<code>Cookie</code>、<code>Token</code>、<code>JWT</code> 都是用来标示用户的。</p>
 <h2 id="cookie">Cookie</h2>
 <p>如：<code>iChochy</code>用户发起访问，<strong>服务端</strong>为了进行会话跟踪，会为当前用户的访问会话（<code>Session</code>）生成一个会话ID(<code>Session ID</code>)，并通过<code>Set Cookie</code>方式，将<code>Session ID</code>发送给用户的<strong>客户端</strong>浏览器。<strong>客户端</strong>自动识别<strong>服务端</strong>发来的<code>Cookie</code>信息，就会存储在<strong>客户端</strong>。再次请求时，都带上这个<code>Cookie</code>信息来标示当前用户，<strong>服务端</strong>自动识别到<code>Cookie</code>信息，就可以判断具体是哪个用户了。</p>
@@ -143,39 +173,13 @@
 <p>**<code>Session</code>**是用户会话的具体信息，一般就是用户信息，如ID、Role、Auth等。</p>
 
   
+
+  
+
+  
 <p>
-  源文：<a href="https://ichochy.com/posts/20200825/">https://ichochy.com/posts/20200825/</a>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20200825/">https://ichochy.com/posts/20200825/</a>
 </p>
-
-<div class="related">
-  
-  
-  <h2>Tags</h2>
-  <ul class="related-tags">
-    
-    <li>
-      <a href="https://ichochy.com/tags/cookie/">#cookie</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/token/">#token</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/jwt/">#jwt</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/session/">#session</a>
-    </li>
-    
-    <li>
-      <a href="https://ichochy.com/tags/auth/">#auth</a>
-    </li>
-    
-  </ul>
-</div>
-
 
 </div>
 

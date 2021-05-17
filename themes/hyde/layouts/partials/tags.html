@@ -1,0 +1,14 @@
+{{if eq .Section  .Site.Params.PostDir}}
+  {{with .Params.tags}}
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      {{range .}}
+      <li>
+        <a href="{{ "tags" | absURL }}/{{ . | urlize }}/">#{{ . }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{end}}
+{{end}}
