@@ -11,7 +11,7 @@ enableRobotsTXT = false
 
 
 [outputs]
-  home = ["HTML","RSS","TXT"]
+  home = ["HTML","RSS","TXT","Algolia"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
@@ -20,6 +20,11 @@ enableRobotsTXT = false
   mediatype = "text/plain"
   isPlainText = true
   baseName = "urls"
+
+[outputFormats.Algolia]
+  mediaType = "application/json"
+  baseName = "algolia"
+  isPlainText = true
 
 [outputFormats.RSS]
   mediatype = "application/xml"
