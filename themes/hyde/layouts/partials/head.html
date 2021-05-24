@@ -20,12 +20,12 @@
   {{- end}}
   <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.Description }}{{else}}{{.Summary}}{{end}}" />
   <!-- CSS -->
-  <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/poole.css">
-  <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
   {{- if eq .Section .Site.Params.PostDir}}
-  <script defer = "defer" src="{{ .Site.BaseURL }}js/toc.js"></script>
+  <script defer = "defer" src="/js/toc.js"></script>
   {{- end}}
   {{- partial "head_analytics.html" . -}}
   <!-- Icons -->

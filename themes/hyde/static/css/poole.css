@@ -486,6 +486,7 @@ a.pagination-item:hover {
 }
 
 form input {
+  -webkit-appearance:none;
   display: block;
   width: 80%;
   padding: 8px;
@@ -522,4 +523,30 @@ form button {
 
 .gsc-control-cse .gs-web-image-box .gs-image{
   border: 0px;
+}
+
+
+
+/* algolia CSS*/
+
+.ais-SearchBox-submit{
+  display: none
+}
+.ais-SearchBox-reset{
+  display: none
+}
+.ais-SearchBox-loadingIndicator{
+  display: none
+}
+
+.ais-Pagination{
+  text-align: center;
+}
+.ais-Pagination ul{
+  display: inline-block;
+}
+
+.ais-Pagination li{
+  display: inline-block;
+  padding: 0 10px;
 }
