@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="hugo, algolia, search, blog" />
+  <meta name="description" content="一直想实现博客的本地搜索，没有找到好的实现方式。尝试了好几个方案，现在使用 Algolia 实现本地搜索。实现方式简单，每月可搜索 10000 次，可以一直白票下去" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links/"> Links </a></li><li><a href="https://ichochy.com/about/"> About </a></li><li><a href="https://ichochy.com/search/"> Search </a></li><li><a href="https://ichochy.com/feedback/"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#构建数据">构建数据</a>
+      <ul>
+        <li><a href="#1-修改配置文件">1、 修改配置文件</a></li>
+        <li><a href="#2-添加模版文件">2、 添加模版文件</a></li>
+        <li><a href="#3生成数据文件">3、生成数据文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#构建索引数据">构建索引数据</a>
+      <ul>
+        <li><a href="#1创建algolia帐号">1、创建<code>Algolia</code>帐号</a></li>
+        <li><a href="#2创建应用程序">2、创建应用程序</a></li>
+        <li><a href="#3创建索引">3、创建索引</a></li>
+        <li><a href="#4导入记录">4、导入记录</a></li>
+        <li><a href="#5配置搜索属性">5、配置搜索属性</a></li>
+        <li><a href="#6配置自定义排名">6、配置自定义排名</a></li>
+      </ul>
+    </li>
+    <li><a href="#构建搜索页面">构建搜索页面</a>
+      <ul>
+        <li><a href="#1创建搜索页面">1、创建搜索页面</a></li>
+        <li><a href="#2引入主题样式">2、引入主题样式</a></li>
+        <li><a href="#3引入搜索引擎-api">3、引入搜索引擎 API</a></li>
+        <li><a href="#4编写搜索-js">4、编写搜索 JS</a></li>
+      </ul>
+    </li>
+    <li><a href="#查看成果">查看成果</a></li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20210522/">使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索</a></h1>
+  <em>
+  <time datetime=2021/05/22 class="post-date">
+    2021/05/22 
+  </time>
+  
+      <a href="https://ichochy.com/categories/blog/">#blog</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/hugo/">#hugo</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/algolia/">#algolia</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/search/">#search</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/blog/">#blog</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>一直想实现博客的本地搜索，没有找到好的实现方式。尝试了好几个方案，现在使用 <a href="https://www.algolia.com">Algolia</a> 实现本地搜索。实现方式简单，每月可搜索 10000 次，可以一直白票下去</p>
+<h2 id="构建数据">构建数据</h2>
+<h3 id="1-修改配置文件">1、 修改配置文件</h3>
+<p>修改 <code>config.toml</code>，配置生成 <code>algolia.json</code> 文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">outputs</span>]
+  <span style="color:#a6e22e">home</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>,<span style="color:#e6db74">&#34;RSS&#34;</span>,<span style="color:#e6db74">&#34;TXT&#34;</span>,<span style="color:#e6db74">&#34;Algolia&#34;</span>]
+  <span style="color:#a6e22e">section</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>]
+  <span style="color:#a6e22e">taxonomy</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>]
+  <span style="color:#a6e22e">term</span> = [<span style="color:#e6db74">&#34;HTML&#34;</span>]
+
+[<span style="color:#a6e22e">outputFormats</span>.<span style="color:#a6e22e">Algolia</span>]
+  <span style="color:#a6e22e">mediaType</span> = <span style="color:#e6db74">&#34;application/json&#34;</span>
+  <span style="color:#a6e22e">baseName</span> = <span style="color:#e6db74">&#34;algolia&#34;</span>
+  <span style="color:#a6e22e">isPlainText</span> = <span style="color:#66d9ef">true</span>
+
+</code></pre></div><h3 id="2-添加模版文件">2、 添加模版文件</h3>
+<p>创建文件<code>/layouts/_default/list.algolia.json</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[
+  {{<span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#a6e22e">range</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">index</span>, <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">entry</span> <span style="color:#960050;background-color:#1e0010">:</span>= .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">RegularPages</span> }}
+  {{<span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#a6e22e">if</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">index</span> }}, {{ <span style="color:#a6e22e">end</span> }}
+  {
+    <span style="color:#e6db74">&#34;objectID&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {{ .<span style="color:#a6e22e">File</span>.<span style="color:#a6e22e">TranslationBaseName</span> }},
+    <span style="color:#e6db74">&#34;url&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {{ .<span style="color:#a6e22e">Permalink</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">jsonify</span> }},
+    <span style="color:#e6db74">&#34;title&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {{ .<span style="color:#a6e22e">Title</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">jsonify</span> }},
+    <span style="color:#e6db74">&#34;summary&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {{ .<span style="color:#a6e22e">Summary</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">jsonify</span> }},
+    <span style="color:#e6db74">&#34;content&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {{ .<span style="color:#a6e22e">Plain</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">jsonify</span> }},
+    <span style="color:#e6db74">&#34;pubDate&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {{ .<span style="color:#a6e22e">PublishDate</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">jsonify</span> }}
+  }
+  {{<span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#a6e22e">end</span> }}
+]
+</code></pre></div><p><strong>注：</strong><code>objectID</code>为<code>algolia</code>中的数据ID，可以用此ID进行<code>CURD</code>操作</p>
+<h3 id="3生成数据文件">3、生成数据文件</h3>
+<p>运行<code>hugo</code>，生成数据文件<code>algolia.json</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  {
+    <span style="color:#f92672">&#34;objectID&#34;</span>: <span style="color:#ae81ff">20210522</span>,
+    <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://ichochy.com/posts/20210522/&#34;</span>,
+    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索&#34;</span>,
+    <span style="color:#f92672">&#34;summary&#34;</span>: <span style="color:#e6db74">&#34;现在使用 Algolia 实现本地搜索。实现方式简单，每月可搜索 10000 次，可以一直白票下去&#34;</span>,
+    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;一直想实现博客的本地搜索，没有找到好的实现方式。尝试了好几个方案，现在使用 Algolia 实现本地搜索。实现方式简单，每月可搜索 10000 次…… &#34;</span>,
+    <span style="color:#f92672">&#34;pubDate&#34;</span>: <span style="color:#e6db74">&#34;2021-05-22T10:22:45+08:00&#34;</span>
+  }, 
+  {
+    <span style="color:#f92672">&#34;objectID&#34;</span>: <span style="color:#ae81ff">20210418</span>,
+    <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://ichochy.com/posts/20210418/&#34;</span>,
+    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;Elasticsearch, Kibana, Logstash, Filebeat 实现日志的自动采集、搜索和分析&#34;</span>,
+    <span style="color:#f92672">&#34;summary&#34;</span>: <span style="color:#e6db74">&#34;实时地对数据进行搜索、分析和可视化&#34;</span>,
+    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）……  &#34;</span>,
+    <span style="color:#f92672">&#34;pubDate&#34;</span>: <span style="color:#e6db74">&#34;2021-04-18T10:22:45+08:00&#34;</span>
+  }, 
+  <span style="color:#960050;background-color:#1e0010">……</span>
+]
+</code></pre></div><h2 id="构建索引数据">构建索引数据</h2>
+<h3 id="1创建algolia帐号">1、创建<code>Algolia</code>帐号</h3>
+<p>官网注册：<a href="https://www.algolia.com/">https://www.algolia.com/</a></p>
+<h3 id="2创建应用程序">2、创建应用程序</h3>
+<p>新建<code>Application</code>，选择免费套餐
+<img src="https://images.ichochy.com/16219128774477541.png" alt="16219128774477541"></p>
+<h3 id="3创建索引">3、创建索引</h3>
+<p>新建<code>Index</code>，存储要在Algolia中进行搜索的数据
+<img src="https://images.ichochy.com/16219130104334762.png" alt="16219130104334762"></p>
+<h3 id="4导入记录">4、导入记录</h3>
+<p>可以通过API推送数据或直接上传记录
+<img src="https://images.ichochy.com/16219133464252913.png" alt="16219133464252913">
+手动上传
+<img src="https://images.ichochy.com/16219136774163445.png" alt="16219136774163445"></p>
+<h3 id="5配置搜索属性">5、配置搜索属性</h3>
+<p>配置可搜索的属性，通过属性搜索数据
+<img src="https://images.ichochy.com/16219137764131626.png" alt="16219137764131626"></p>
+<h3 id="6配置自定义排名">6、配置自定义排名</h3>
+<p>选择排序属性，对搜索结果进行排序
+<img src="https://images.ichochy.com/16219138124139937.png" alt="16219138124139937"></p>
+<h2 id="构建搜索页面">构建搜索页面</h2>
+<h3 id="1创建搜索页面">1、创建搜索页面</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h3</span>&gt;搜索&lt;/<span style="color:#f92672">h3</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;searchbox&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">hr</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hits&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pagination&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><h3 id="2引入主题样式">2、引入主题样式</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- Include only the reset 基本样式--&gt;</span>
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;
+<span style="color:#75715e">&lt;!-- or include the full Satellite theme 主题样式--&gt;</span>
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;
+</code></pre></div><h3 id="3引入搜索引擎-api">3、引入搜索引擎 API</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h3 id="4编写搜索-js">4、编写搜索 JS</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 构建搜索客户端
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">searchClient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">algoliasearch</span>(<span style="color:#e6db74">&#39;Application_ID&#39;</span>, <span style="color:#e6db74">&#39;Search-Only_API_Key&#39;</span>);
+<span style="color:#75715e">// 构建索引搜索
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">search</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">instantsearch</span>({
+  <span style="color:#a6e22e">indexName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Index_Name&#39;</span>,
+  <span style="color:#a6e22e">searchClient</span>,
+});
+
+<span style="color:#75715e">//展示数据模版
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">hitTemplate</span> <span style="color:#f92672">=</span>
+  <span style="color:#e6db74">&#39;&lt;article class=&#34;post&#34;&gt;&#39;</span> <span style="color:#f92672">+</span>
+  <span style="color:#e6db74">&#39;&lt;h2 class=&#34;post-title&#34;&gt;&lt;a href=&#34;{{url}}&#34;&gt;{{{_highlightResult.title.value}}}&lt;/a&gt;&lt;/h2&gt;&#39;</span> <span style="color:#f92672">+</span>
+  <span style="color:#e6db74">&#39;{{{_highlightResult.summary.value}}}&#39;</span> <span style="color:#f92672">+</span>
+  <span style="color:#e6db74">&#39;&lt;/article&gt;&#39;</span>;
+
+<span style="color:#75715e">//无数据模版
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">noResultsTemplate</span> <span style="color:#f92672">=</span>
+  <span style="color:#e6db74">&#39;&lt;div class=&#34;text-center&#34;&gt;没有找到 &lt;strong&gt;{{query}}&lt;/strong&gt; 相关的结果&lt;/div&gt;&#39;</span>;
+
+<span style="color:#75715e">//配置添加小部件
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">addWidgets</span>([
+  <span style="color:#a6e22e">instantsearch</span>.<span style="color:#a6e22e">widgets</span>.<span style="color:#a6e22e">searchBox</span>({
+    <span style="color:#a6e22e">container</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#searchbox&#39;</span>,
+    <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;请输入搜索内容……&#39;</span>,
+    <span style="color:#a6e22e">autofocus</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  }),
+
+  <span style="color:#a6e22e">instantsearch</span>.<span style="color:#a6e22e">widgets</span>.<span style="color:#a6e22e">hits</span>({
+    <span style="color:#a6e22e">container</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#hits&#39;</span>,
+    <span style="color:#a6e22e">templates</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">empty</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">noResultsTemplate</span>,
+      <span style="color:#a6e22e">item</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">hitTemplate</span>
+    }
+  }),
+  <span style="color:#a6e22e">instantsearch</span>.<span style="color:#a6e22e">widgets</span>.<span style="color:#a6e22e">pagination</span>({
+    <span style="color:#a6e22e">container</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#pagination&#39;</span>,
+  })
+]);
+
+<span style="color:#75715e">//启动搜索
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">start</span>();
+</code></pre></div><p><strong>API Keys</strong>
+<img src="https://images.ichochy.com/16219162613538278.png" alt="16219162613538278"></p>
+<h2 id="查看成果">查看成果</h2>
+<p><a href="https://ichochy.com/search/">https://ichochy.com/search/</a>
+<img src="https://images.ichochy.com/162191690433953810.png" alt="162191690433953810"></p>
+<h2 id="引用">引用</h2>
+<ul>
+<li>
+<p>搜索页面创建：<a href="https://www.algolia.com/doc/guides/building-search-ui/installation/js/">https://www.algolia.com/doc/guides/building-search-ui/installation/js/</a></p>
+</li>
+<li>
+<p>搜索 API：<a href="https://www.algolia.com/doc/api-client/getting-started/install/javascript/?client=javascript">https://www.algolia.com/doc/api-client/getting-started/install/javascript/?client=javascript</a></p>
+</li>
+</ul>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200810/">
+            HUGO 目录详解，创建自己的网站系统
+            <small>2020/08/10</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200802/">
+            免费创建属于自己的博客，Hugo&#43;Github Pages
+            <small>2020/08/02</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200822/">
+            Vercel 上自动部署你的个人博客 Hugo
+            <small>2020/08/22</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190925/">
+            jekyll-admin的搭建和使用
+            <small>2019/09/25</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190309/">
+            加速你的博客永无止境-七牛云存储
+            <small>2019/03/08</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20210522/">https://ichochy.com/posts/20210522/</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20210418/" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
