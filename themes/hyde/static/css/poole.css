@@ -525,7 +525,9 @@ form button {
   border: 0px;
 }
 
-
+.read-more-link{
+  text-align: right;
+}
 
 /* algolia CSS*/
 
