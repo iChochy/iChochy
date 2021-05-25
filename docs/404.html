@@ -66,9 +66,22 @@
     <h1>404: Page not found</h1>
 <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/">Head back home</a> to try finding it again.</p>
 
-<h2>Search</h2>
-<script async src="https://cse.google.com/cse.js?cx=013744940465001989307:lu43qi7kl-q"></script>
-<div class="gcse-search"></div>
+<h3>搜索</h3>
+<div id="searchbox"></div>
+<hr>
+<div id="hits"></div>
+<div id="pagination"></div>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+
+<script src="/js/search.js"></script>
     </main>
   </body>
 </html>
