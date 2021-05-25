@@ -13,15 +13,6 @@
   </script>
 {{- end}}
 
-{{- with  .Site.Params.SOSubmit }}
-  <script>
-    (function(){
-    var src = "https://s.ssl.qhres2.com/ssl/{{.}}.js";
-    document.write('<script src="' + src + '" id="sozz"><\/script>');
-    })();
-  </script>
-{{- end}}
-
 {{- with  .Site.Params.adsense }}
   <script data-ad-client="ca-pub-{{.}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 {{- end}}
