@@ -41,6 +41,7 @@ enableRobotsTXT = false
   caseNo = "沪ICP备19030221号"
   adsense = "3691661241035911"
   baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"
+  SOSubmit = "ab77b6ea7f3fbf79"
 
 [Menus]
   main = [
