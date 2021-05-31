@@ -6,8 +6,8 @@
 > 网站：[https://ichochy.com](https://ichochy.com)  
 > GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
 
-### 微信公众号(`iChochy`)：    
-![Wechat](https://images.ichochy.com/wx.jpg)
+### 赞助    
+![Sponsor](https://images.ichochy.com/sponsor.jpg)
 
 ### 感谢  
 [七牛云](https://www.qiniu.com/) 提供 [云存储](https://portal.qiniu.com/signup?code=3l7cpouzlru4y)  
