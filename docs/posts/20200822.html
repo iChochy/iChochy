@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vercel 上自动部署你的个人博客 Hugo &middot; 回忆中的明天</title>
+  <meta name="keywords" content="vercel, https, blog" />
+  <meta name="description" content="Vercel 可以依托 Git仓库 ，在线自动构建和发布Web静态项目，支持自定义域名，可以自动签发SSL证书，开启HTTPS，还有一个特点，拥有全球CDN，国内速度不错。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#注册账号">注册账号</a></li>
+    <li><a href="#导入项目">导入项目</a></li>
+    <li><a href="#部署项目">部署项目</a></li>
+    <li><a href="#自定义域名">自定义域名</a></li>
+    <li><a href="#指定-hugo-版本">指定 Hugo 版本</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20200822.html">Vercel 上自动部署你的个人博客 Hugo</a></h1>
+  <em>
+  <time datetime=2020/08/22 class="post-date">
+    2020/08/22 
+  </time>
+  
+      <a href="https://ichochy.com/categories/blog.html">#blog</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/vercel.html">#vercel</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/https.html">#https</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/blog.html">#blog</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p><a href="https://vercel.com/">Vercel</a> 可以依托 <code>Git</code>仓库 ，在线自动构建和发布<code>Web</code>静态项目，支持自定义域名，可以自动签发<code>SSL</code>证书，开启<code>HTTPS</code>，还有一个特点，拥有全球<code>CDN</code>，国内速度不错。</p>
+<p>支持多套框架和模版，如：Hugo、Jekyll、Hexo、Next、Vue&hellip;</p>
+<h2 id="注册账号">注册账号</h2>
+<p>通过<code>Git</code>仓库账号关联注册，如果注册中出现错误，检查下账号是不是<code>QQ</code>邮箱。
+<img src="https://images.ichochy.com/159851540134088415.png" alt="159851540134088415">
+<code>Vercel</code>不支持<code>QQ</code>邮箱，以<code>GitHub</code>为例，可以修改<code>GitHub</code>的默认邮箱。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GitHub -&gt; Settings -&gt; Emails -&gt; Primary email address
+</code></pre></div><p><img src="https://images.ichochy.com/159851526634473314.png" alt="159851526634473314"></p>
+<h2 id="导入项目">导入项目</h2>
+<p>输入你的项目地址
+<img src="https://images.ichochy.com/15984828280211707.png" alt="15984828280211707">
+选择你的账户
+<img src="https://images.ichochy.com/15984829290188618.png" alt="15984829290188618">
+在线安装<code>Vercel</code>
+<img src="https://images.ichochy.com/15984829670172789.png" alt="15984829670172789">
+授权<code>Vercel</code>，选择授权项目</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GitHub -&gt; Settings -&gt; Applications -&gt; Vercel -&gt; Configure
+</code></pre></div><p><img src="https://images.ichochy.com/159848371700166310.png" alt="159848371700166310">
+导入项目，选择项目框架
+<img src="https://images.ichochy.com/159851472335999113.png" alt="159851472335999113"></p>
+<h2 id="部署项目">部署项目</h2>
+<p>导入项后会自动构建、发布项目，直接访问: <a href="https://ichochy.com/">https://ichochy.com/</a><br>
+<img src="https://images.ichochy.com/159848411598767311.png" alt="159848411598767311">
+下次提交代码到<code>Git</code>仓库，<code>Vercel</code>不用任何操作，就可以直接自动构建和发布项目</p>
+<h2 id="自定义域名">自定义域名</h2>
+<p>直接添加已有的域名，<code>域名商管理系统</code>配置域名记录，等待生效。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Vercel -&gt; Project-&gt; Settings -&gt; Domains
+</code></pre></div><p><img src="https://images.ichochy.com/159851870725808016.png" alt="159851870725808016">
+生效后会自动签发<code>SSL</code>证书，开启<code>HTTPS</code>
+<img src="https://images.ichochy.com/159851893625696117.png" alt="159851893625696117"></p>
+<h2 id="指定-hugo-版本">指定 Hugo 版本</h2>
+<p>在项目的环境变量中添加<code>Hugo</code>版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Vercel -&gt; Project-&gt; Settings -&gt; Environment Variables
+</code></pre></div><pre><code>HUGO_VERSION 0.74.2
+</code></pre><p><img src="https://images.ichochy.com/159851902925060418.png" alt="159851902925060418">
+完成后重新发布</p>
+<pre><code class="language-log" data-lang="log">Build Logs
+
+12:21:18.550  	Cloning github.com/iChochy/iChochy.github.io (Branch: master, Commit: a169de0)
+12:21:19.212  	Cloning completed in 662ms
+12:21:19.213  	Analyzing source code...
+12:21:19.799  	Installing build runtime...
+12:21:20.194  	Build runtime installed: 394.753ms
+12:21:20.575  	Looking up build cache...
+12:21:20.638  	Build cache found. Downloading...
+12:21:20.647  	Build cache downloaded [206.00 B]: 8.14ms
+12:21:21.022  	Installing Hugo version 0.74.2
+12:21:23.078  	Installing dependencies...
+12:21:23.290  	yarn install v1.22.4
+12:21:23.302  	info No lockfile found.
+12:21:23.306  	[1/4] Resolving packages...
+12:21:23.306  	[2/4] Fetching packages...
+12:21:23.309  	[3/4] Linking dependencies...
+12:21:23.312  	[4/4] Building fresh packages...
+12:21:23.315  	success Saved lockfile.
+12:21:23.316  	Done in 0.03s.
+12:21:23.515  	Building sites … 
+12:21:23.515  	                   | EN   
+12:21:23.515  	-------------------+------
+12:21:23.515  	  Pages            | 109  
+12:21:23.515  	  Paginator pages  |   4  
+12:21:23.515  	  Non-page files   |   0  
+12:21:23.515  	  Static files     |  13  
+12:21:23.515  	  Processed images |   0  
+12:21:23.515  	  Aliases          |   1  
+12:21:23.515  	  Sitemaps         |   1  
+12:21:23.515  	  Cleaned          |   0  
+12:21:23.515  	Total in 162 ms
+12:21:23.776  	Uploading build outputs...
+12:21:31.360  	Build completed. Populating build cache...
+12:21:31.457  	Uploading build cache [220.00 B]...
+12:21:31.614  	Build cache uploaded: 156.776ms
+12:21:31.620  	Done with &quot;config.toml&quot;
+</code></pre>
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200810.html">
+            HUGO 目录详解，创建自己的网站系统
+            <small>2020/08/10</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200802.html">
+            免费创建属于自己的博客，Hugo&#43;Github Pages
+            <small>2020/08/02</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200622.html">
+            个人站长的加速器 - 百度云加速
+            <small>2020/06/22</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191008.html">
+            通过Cloudflare开启全站https
+            <small>2019/10/08</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190925.html">
+            jekyll-admin的搭建和使用
+            <small>2019/09/25</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20200822.html">https://ichochy.com/posts/20200822.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20200820.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/20200823.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>

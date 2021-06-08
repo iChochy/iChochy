@@ -4,7 +4,7 @@ publishDir = "docs"
 title = "回忆中的明天"
 summaryLength = 1
 theme = "hyde"
-uglyurls = false
+uglyurls = true
 hasCJKLanguage = false
 disqusShortname = "ichochy"
 enableRobotsTXT = false
@@ -44,10 +44,10 @@ enableRobotsTXT = false
 
 [Menus]
   main = [
-#      {Name = "Categories", weight = 1, URL = "/categories/"},
-#      {Name = "Tags", weight = 2, URL = "/tags/"},
-      {Name = "Links", weight = 3, URL = "/links/"},
-      {Name = "About", weight = 4, URL = "/about/"},
-      {Name = "Search", weight = 5, URL = "/search/"},
-      {Name = "Feedback", weight = 6, URL = "/feedback/"}
+#      {Name = "Categories", weight = 1, URL = "/categories.html"},
+#      {Name = "Tags", weight = 2, URL = "/tags.html"},
+      {Name = "Links", weight = 3, URL = "/links.html"},
+      {Name = "About", weight = 4, URL = "/about.html"},
+      {Name = "Search", weight = 5, URL = "/search.html"},
+      {Name = "Feedback", weight = 6, URL = "/feedback.html"}
   ]

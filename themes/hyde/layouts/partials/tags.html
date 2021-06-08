@@ -5,7 +5,7 @@
       <strong>Tags:</strong>
       {{range .}}
       <li>
-        <a href="{{ "tags" | absURL }}/{{ . | urlize }}/">#{{ . }}</a>
+        <a href="{{ "tags" | absURL }}/{{ . | urlize }}.html">#{{ . }}</a>
       </li>
       {{ end }}
     </ul>

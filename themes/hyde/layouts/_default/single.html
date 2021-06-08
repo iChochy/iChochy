@@ -6,7 +6,7 @@
     {{ .Date.Format "2006/01/02" }} 
   </time>
   {{range .Params.categories}}
-      <a href="{{ "categories" | absURL }}/{{ . | urlize }}/">#{{.}}</a>
+      <a href="{{ "categories" | absURL }}/{{ . | urlize }}.html">#{{.}}</a>
   {{end}}
 </em>
   {{ partial "tags.html" . }}

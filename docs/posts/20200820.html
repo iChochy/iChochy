@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java 中的重写(Override)与重载(Overload) &middot; 回忆中的明天</title>
+  <meta name="keywords" content="override, overload, java" />
+  <meta name="description" content="Java 是一个面向对象编程的语言，我们就以面向对象的方式来解释下重写(Override)与重载(Overload)。子类存在父类名字相同的方法，而参数的个数与类型一样，返回值也一样的方法，就称为方法的重写（Override）。同类中定义了多个名字相同的方法，但他们的参数数量不同或数量相同而类型和次序不同，则称为方法的重载(Overload)。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#重写override">重写(<code>Override</code>)</a>
+      <ul>
+        <li><a href="#重写代码实例">重写代码实例</a></li>
+      </ul>
+    </li>
+    <li><a href="#重载overload">重载(<code>Overload</code>)</a>
+      <ul>
+        <li><a href="#重载代码实例">重载代码实例</a></li>
+      </ul>
+    </li>
+    <li><a href="#对比">对比</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20200820.html">Java 中的重写(Override)与重载(Overload)</a></h1>
+  <em>
+  <time datetime=2020/08/20 class="post-date">
+    2020/08/20 
+  </time>
+  
+      <a href="https://ichochy.com/categories/code.html">#code</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/override.html">#override</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/overload.html">#overload</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/java.html">#java</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>Java 是一个面向对象编程的语言，我们就以面向对象的方式来解释下重写(<code>Override</code>)与重载(<code>Overload</code>)。子类存在父类名字相同的方法，而参数的个数与类型一样，返回值也一样的方法，就称为方法的重写（<code>Override</code>）。同类中定义了多个名字相同的方法，但他们的参数数量不同或数量相同而类型和次序不同，则称为方法的重载(Overload)。</p>
+<h2 id="重写override">重写(<code>Override</code>)</h2>
+<p>重写出现在继承中，子类重新编写父类的方法，改写父类现有的方法，<strong>方法相同而不相似</strong>。如：你继承了你爸的房子，用来装修婚房，按照自己想法去装修，完成后外表起来没有什么变化，可内部的格局已经发生了变化。</p>
+<h3 id="重写代码实例">重写代码实例</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Example.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/25 22:33:25
+</span><span style="color:#75715e"> */</span>
+<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Father</span><span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">house</span><span style="color:#f92672">(){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;father house&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> Father<span style="color:#f92672">{</span>
+        <span style="color:#75715e">/**
+</span><span style="color:#75715e">        * 重写父类方法，方法名、参数完全相同
+</span><span style="color:#75715e">        */</span>
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">house</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">house</span><span style="color:#f92672">();</span><span style="color:#75715e">//调用父类 house 方法
+</span><span style="color:#75715e"></span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;child house&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Father<span style="color:#f92672">().</span><span style="color:#a6e22e">house</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;################&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">new</span> Child<span style="color:#f92672">().</span><span style="color:#a6e22e">house</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="重载overload">重载(<code>Overload</code>)</h2>
+<p>重载出现在同类中，重新编写一个新的方法，改进现有的方法，<strong>方法相似而不相同</strong>。如：你要修建一套房子，可以借鉴别人建房子的经验来建造自己的房子，格局相似而不相同。</p>
+<h3 id="重载代码实例">重载代码实例</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Example.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/25 22:33:25
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Example</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">house</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;house&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 重载同类方法，方法名相同，而参数不相同
+</span><span style="color:#75715e">     * @param name
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">house</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">house</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34; house&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Example<span style="color:#f92672">().</span><span style="color:#a6e22e">house</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;################&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">new</span> Example<span style="color:#f92672">().</span><span style="color:#a6e22e">house</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;iChochy&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h2 id="对比">对比</h2>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>重写</th>
+<th>重载</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方法名字</td>
+<td>相同</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>方法参数</td>
+<td>相同</td>
+<td>不相同</td>
+</tr>
+<tr>
+<td>返回值</td>
+<td>相同</td>
+<td>可以不相同</td>
+</tr>
+<tr>
+<td>范围</td>
+<td>子类中</td>
+<td>同类或子类中</td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结">总结</h2>
+<p>方法的重写是有严格的定义，子类重写父类的方法，是自我型态表达，形成 Java 中多态的特性。而方法的重载没有严格的定义，就是个不同的方法，只是名字相同而已。</p>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200819.html">
+            免费申请 JetBrains 开源开发许可证，包含 IDEA
+            <small>2020/08/19</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200815.html">
+            Java 开发环境的搭建，开启你的编程之旅
+            <small>2020/08/15</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20200820.html">https://ichochy.com/posts/20200820.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20200819.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/20200822.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>

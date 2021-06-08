@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring 文件上传，Uploading Files &middot; 回忆中的明天</title>
+  <meta name="keywords" content="spring, spring boot, spring web, spring mvc" />
+  <meta name="description" content="项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#开发工具">开发工具</a></li>
+    <li><a href="#创建项目">创建项目</a>
+      <ul>
+        <li><a href="#new-project">New Project</a></li>
+        <li><a href="#添加依懒">添加依懒</a></li>
+      </ul>
+    </li>
+    <li><a href="#编写项目">编写项目</a>
+      <ul>
+        <li><a href="#文件操作接口">文件操作接口</a></li>
+        <li><a href="#文件操作接口实现">文件操作接口实现</a></li>
+        <li><a href="#创建控制器">创建控制器</a></li>
+        <li><a href="#创建上传页面">创建上传页面</a></li>
+        <li><a href="#添加项目配置">添加项目配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#项目目录">项目目录</a></li>
+    <li><a href="#注解说明">注解说明</a></li>
+    <li><a href="#运行项目">运行项目</a>
+      <ul>
+        <li><a href="#dubug-运行项目">Dubug 运行项目</a></li>
+        <li><a href="#浏览器访问">浏览器访问</a></li>
+        <li><a href="#文件上传">文件上传</a></li>
+        <li><a href="#文件下载">文件下载</a></li>
+      </ul>
+    </li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20210602.html">Spring 文件上传，Uploading Files</a></h1>
+  <em>
+  <time datetime=2021/06/02 class="post-date">
+    2021/06/02 
+  </time>
+  
+      <a href="https://ichochy.com/categories/spring.html">#spring</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring.html">#spring</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-boot.html">#spring boot</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-web.html">#spring web</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-mvc.html">#spring mvc</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。</p>
+<h2 id="开发工具">开发工具</h2>
+<ul>
+<li>IDEA: 2021.1.2</li>
+<li>Java: 1.8</li>
+<li>Spring Boot: 2.5</li>
+</ul>
+<h2 id="创建项目">创建项目</h2>
+<h3 id="new-project">New Project</h3>
+<p>打开 IDEA 创建新项目 New Project，使用 <a href="https://start.spring.io">start.spring.io</a> 快速构建
+<img src="https://images.ichochy.com/16226365527086133.png" alt="16226365527086133"></p>
+<h3 id="添加依懒">添加依懒</h3>
+<p>添加 <code>web</code>、<code>thymeleaf</code> 依懒，finish 创建项目
+<img src="https://images.ichochy.com/16231453775779659.png" alt="16231453775779659"></p>
+<p><code>pom.xml</code> 中手动管理依懒模块</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+</code></pre></div><h2 id="编写项目">编写项目</h2>
+<h3 id="文件操作接口">文件操作接口</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy.web.upload.storage<span style="color:#f92672">;</span>
+
+
+<span style="color:#f92672">import</span> org.springframework.core.io.Resource<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.multipart.MultipartFile<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.nio.file.Path<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.stream.Stream<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">StorageService</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 初始化操作
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span><span style="color:#f92672">();</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 存储文件
+</span><span style="color:#75715e">     * @param file
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">store</span><span style="color:#f92672">(</span>MultipartFile file<span style="color:#f92672">);</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 加载所有文件路径
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    Stream<span style="color:#f92672">&lt;</span>Path<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">loadAll</span><span style="color:#f92672">();</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 加载文件路径
+</span><span style="color:#75715e">     * @param filename
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    Path <span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>String filename<span style="color:#f92672">);</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 加载文件数据
+</span><span style="color:#75715e">     * @param filename
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    Resource <span style="color:#a6e22e">loadAsResource</span><span style="color:#f92672">(</span>String filename<span style="color:#f92672">);</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 初始化完全删除
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteAll</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="文件操作接口实现">文件操作接口实现</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy.web.upload.storage<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.core.io.Resource<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.core.io.UrlResource<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.util.FileSystemUtils<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.multipart.MultipartFile<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.io.InputStream<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.net.MalformedURLException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.nio.file.Files<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.nio.file.Path<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.nio.file.Paths<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.nio.file.StandardCopyOption<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.stream.Stream<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Service</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileSystemStorageService</span> <span style="color:#66d9ef">implements</span> StorageService<span style="color:#f92672">{</span>
+    <span style="color:#75715e">//文件存储路径
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> Path rootLocation <span style="color:#f92672">=</span> Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;temp&#34;</span><span style="color:#f92672">);</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">init</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//创建文件夹
+</span><span style="color:#75715e"></span>            Files<span style="color:#f92672">.</span><span style="color:#a6e22e">createDirectories</span><span style="color:#f92672">(</span>rootLocation<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Could not initialize storage&#34;</span><span style="color:#f92672">,</span> e<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">store</span><span style="color:#f92672">(</span>MultipartFile file<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>file<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Failed to store empty file.&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#75715e">//存储文件路径
+</span><span style="color:#75715e"></span>            Path destinationFile <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rootLocation</span><span style="color:#f92672">.</span><span style="color:#a6e22e">resolve</span><span style="color:#f92672">(</span>
+                    Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>file<span style="color:#f92672">.</span><span style="color:#a6e22e">getOriginalFilename</span><span style="color:#f92672">()))</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">normalize</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toAbsolutePath</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>destinationFile<span style="color:#f92672">.</span><span style="color:#a6e22e">getParent</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rootLocation</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toAbsolutePath</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+                <span style="color:#75715e">// This is a security check
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span>
+                        <span style="color:#e6db74">&#34;Cannot store file outside current directory.&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>InputStream inputStream <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getInputStream</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                <span style="color:#75715e">//复制存储文件
+</span><span style="color:#75715e"></span>                Files<span style="color:#f92672">.</span><span style="color:#a6e22e">copy</span><span style="color:#f92672">(</span>inputStream<span style="color:#f92672">,</span> destinationFile<span style="color:#f92672">,</span>
+                        StandardCopyOption<span style="color:#f92672">.</span><span style="color:#a6e22e">REPLACE_EXISTING</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Failed to store file.&#34;</span><span style="color:#f92672">,</span> e<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Stream<span style="color:#f92672">&lt;</span>Path<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">loadAll</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> Files<span style="color:#f92672">.</span><span style="color:#a6e22e">walk</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rootLocation</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">)</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>path <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">!</span>path<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rootLocation</span><span style="color:#f92672">))</span>
+                    <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">rootLocation</span><span style="color:#f92672">::</span>relativize<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Failed to read stored files&#34;</span><span style="color:#f92672">,</span> e<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Path <span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>String filename<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> rootLocation<span style="color:#f92672">.</span><span style="color:#a6e22e">resolve</span><span style="color:#f92672">(</span>filename<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Resource <span style="color:#a6e22e">loadAsResource</span><span style="color:#f92672">(</span>String filename<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            Path file <span style="color:#f92672">=</span> load<span style="color:#f92672">(</span>filename<span style="color:#f92672">);</span>
+            Resource resource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> UrlResource<span style="color:#f92672">(</span>file<span style="color:#f92672">.</span><span style="color:#a6e22e">toUri</span><span style="color:#f92672">());</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>resource<span style="color:#f92672">.</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">()</span> <span style="color:#f92672">||</span> resource<span style="color:#f92672">.</span><span style="color:#a6e22e">isReadable</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> resource<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span>
+                        <span style="color:#e6db74">&#34;Could not read file: &#34;</span> <span style="color:#f92672">+</span> filename<span style="color:#f92672">);</span>
+
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>MalformedURLException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Could not read file: &#34;</span> <span style="color:#f92672">+</span> filename<span style="color:#f92672">,</span> e<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteAll</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        FileSystemUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteRecursively</span><span style="color:#f92672">(</span>rootLocation<span style="color:#f92672">.</span><span style="color:#a6e22e">toFile</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="创建控制器">创建控制器</h3>
+<p>创建控制器 <code>FileUploadController</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy.web.upload<span style="color:#f92672">;</span>
+
+
+<span style="color:#f92672">import</span> com.ichochy.web.upload.storage.StorageService<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.CommandLineRunner<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.core.io.Resource<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.HttpHeaders<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.ResponseEntity<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.stereotype.Controller<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.ui.Model<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.multipart.MultipartFile<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.servlet.mvc.support.RedirectAttributes<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.stream.Collectors<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Controller</span>
+<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/upload&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileUploadController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> StorageService storageService<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">listFiles</span><span style="color:#f92672">(</span>Model model<span style="color:#f92672">){</span>
+        model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;files&#34;</span><span style="color:#f92672">,</span> storageService<span style="color:#f92672">.</span><span style="color:#a6e22e">loadAll</span><span style="color:#f92672">().</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>
+                path <span style="color:#f92672">-&gt;</span> MvcUriComponentsBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">fromMethodName</span><span style="color:#f92672">(</span>FileUploadController<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span>
+                        <span style="color:#e6db74">&#34;getFiles&#34;</span><span style="color:#f92672">,</span> path<span style="color:#f92672">.</span><span style="color:#a6e22e">getFileName</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">build</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toUri</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">()));</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;uploadForm&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/files/{filename}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Resource<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getFiles</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> String filename<span style="color:#f92672">){</span>
+        Resource file <span style="color:#f92672">=</span> storageService<span style="color:#f92672">.</span><span style="color:#a6e22e">loadAsResource</span><span style="color:#f92672">(</span>filename<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> ResponseEntity<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">().</span><span style="color:#a6e22e">header</span><span style="color:#f92672">(</span>HttpHeaders<span style="color:#f92672">.</span><span style="color:#a6e22e">CONTENT_DISPOSITION</span><span style="color:#f92672">,</span>
+                <span style="color:#e6db74">&#34;attachment; filename=\&#34;&#34;</span> <span style="color:#f92672">+</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getFilename</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\&#34;&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">body</span><span style="color:#f92672">(</span>file<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@PostMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">uploadFile</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;file&#34;</span><span style="color:#f92672">)</span> MultipartFile file<span style="color:#f92672">,</span>
+                             RedirectAttributes redirectAttributes<span style="color:#f92672">){</span>
+        storageService<span style="color:#f92672">.</span><span style="color:#a6e22e">store</span><span style="color:#f92672">(</span>file<span style="color:#f92672">);</span>
+        redirectAttributes<span style="color:#f92672">.</span><span style="color:#a6e22e">addFlashAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;message&#34;</span><span style="color:#f92672">,</span>
+                <span style="color:#e6db74">&#34;You successfully uploaded &#34;</span> <span style="color:#f92672">+</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getOriginalFilename</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//重定向开始页面
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;redirect:/upload&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 初始化操作
+</span><span style="color:#75715e">     * @param storageService
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Bean</span>
+    CommandLineRunner <span style="color:#a6e22e">init</span><span style="color:#f92672">(</span>StorageService storageService<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+            storageService<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteAll</span><span style="color:#f92672">();</span>
+            storageService<span style="color:#f92672">.</span><span style="color:#a6e22e">init</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="创建上传页面">创建上传页面</h3>
+<p>新建 <code>uploadForm.html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">xmlns:th</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.thymeleaf.org&#34;</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${message}&#34;</span>&gt;
+    &lt;<span style="color:#f92672">h2</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${message}&#34;</span>/&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+
+&lt;<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span> <span style="color:#a6e22e">enctype</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;multipart/form-data&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/upload&#34;</span>&gt;
+        &lt;<span style="color:#f92672">table</span>&gt;
+            &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;File to upload:&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file&#34;</span> /&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+            &lt;<span style="color:#f92672">tr</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Upload&#34;</span> /&gt;&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+        &lt;/<span style="color:#f92672">table</span>&gt;
+    &lt;/<span style="color:#f92672">form</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+
+&lt;<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">ul</span>&gt;
+        &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">th:each</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file : ${files}&#34;</span>&gt;
+            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">th:href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${file}&#34;</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${file}&#34;</span> /&gt;
+        &lt;/<span style="color:#f92672">li</span>&gt;
+    &lt;/<span style="color:#f92672">ul</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="添加项目配置">添加项目配置</h3>
+<p>修改 <code>application.properties</code></p>
+<pre><code># thymeleaf 缓存关闭
+spring.thymeleaf.cache=false
+# 最大文件数据
+spring.servlet.multipart.max-file-size=128KB
+# 最大请求数据
+spring.servlet.multipart.max-request-size=128KB
+</code></pre><h2 id="项目目录">项目目录</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├── pom.xml
+├── src
+│   └── main
+│       ├── java
+│       │   └── com
+│       │       └── ichochy
+│       │           └── web
+│       │               ├── WebApplication.java
+│       │               └── upload
+│       │                   ├── FileUploadController.java
+│       │                   └── storage
+│       │                       ├── FileSystemStorageService.java
+│       │                       └── StorageService.java
+│       └── resources
+│           ├── application.properties
+│           ├── static
+│           └── templates
+│               ├── index.html
+│               └── uploadForm.html
+└── temp
+
+</code></pre></div><h2 id="注解说明">注解说明</h2>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th style="text-align:center">位置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Controller</td>
+<td style="text-align:center">类</td>
+<td>控制器</td>
+</tr>
+<tr>
+<td>@RequestMapping</td>
+<td style="text-align:center">类</td>
+<td>控制器请求路径</td>
+</tr>
+<tr>
+<td>@Service</td>
+<td style="text-align:center">类</td>
+<td>注册服务类</td>
+</tr>
+<tr>
+<td>@GetMapping</td>
+<td style="text-align:center">方法</td>
+<td>Get 请求路径</td>
+</tr>
+<tr>
+<td>@PostMapping</td>
+<td style="text-align:center">方法</td>
+<td>Post 请求路径</td>
+</tr>
+<tr>
+<td>@Autowired</td>
+<td style="text-align:center">参数</td>
+<td>自动装配类</td>
+</tr>
+<tr>
+<td>@PathVariable</td>
+<td style="text-align:center">参数</td>
+<td>路径变量</td>
+</tr>
+<tr>
+<td>@RequestParam</td>
+<td style="text-align:center">参数</td>
+<td>请求参数</td>
+</tr>
+<tr>
+<td>@Bean</td>
+<td style="text-align:center">方法</td>
+<td>注册类</td>
+</tr>
+</tbody>
+</table>
+<h2 id="运行项目">运行项目</h2>
+<h3 id="dubug-运行项目">Dubug 运行项目</h3>
+<p>启动成功后可以看到默认端口号为<code>8080</code>
+<img src="https://images.ichochy.com/162314892348552510.png" alt="162314892348552510"></p>
+<h3 id="浏览器访问">浏览器访问</h3>
+<p>直接访问：<a href="http://localhost:8080/upload">http://localhost:8080/upload</a>
+<img src="https://images.ichochy.com/162314915247753211.png" alt="162314915247753211"></p>
+<h3 id="文件上传">文件上传</h3>
+<p>浏览文件，<code>Upload</code> 上传文件
+<img src="https://images.ichochy.com/162314921747486312.png" alt="162314921747486312"></p>
+<h3 id="文件下载">文件下载</h3>
+<p>点击文件列表可下载文件
+<img src="https://images.ichochy.com/162314930047358713.png" alt="162314930047358713"></p>
+<h2 id="引用">引用</h2>
+<ul>
+<li>快速开始：<a href="https://spring.io/quickstart">https://spring.io/quickstart</a></li>
+<li>文件上传：<a href="https://spring.io/guides/gs/uploading-files/">https://spring.io/guides/gs/uploading-files/</a></li>
+</ul>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210525.html">
+            Spring 开篇，创建第一个 Web 项目
+            <small>2021/05/25</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191018.html">
+            Spring Cloud Alibaba Nacos Discovery 实战
+            <small>2019/10/18</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191017.html">
+            Spring Cloud Alibaba Nacos Config 实战
+            <small>2019/10/17</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191012.html">
+            认识 Spring Cloud Alibaba
+            <small>2019/10/12</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20210602.html">https://ichochy.com/posts/20210602.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20210525.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>

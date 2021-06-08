@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mac 将 App 程序打包成为 dmg &middot; 回忆中的明天</title>
+  <meta name="keywords" content="app, dmg, swift, mac" />
+  <meta name="description" content="用最简单的打包方式，将自己开发的App打包成为DMG，实现共享分发，快速安装" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-新建dmg">1. 新建DMG</a></li>
+        <li><a href="#2-添加文件">2. 添加文件</a></li>
+        <li><a href="#3-排版添加背景">3. 排版，添加背景</a></li>
+        <li><a href="#4-压缩dmg">4. 压缩DMG</a></li>
+        <li><a href="#5-完成打包">5. 完成打包</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20190823.html">Mac 将 App 程序打包成为 dmg</a></h1>
+  <em>
+  <time datetime=2019/08/23 class="post-date">
+    2019/08/23 
+  </time>
+  
+      <a href="https://ichochy.com/categories/code.html">#code</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/app.html">#app</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/dmg.html">#dmg</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/swift.html">#swift</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/mac.html">#mac</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>用最简单的打包方式，将自己开发的<code>App</code>打包成为<code>DMG</code>，实现共享分发，快速安装</p>
+<h3 id="1-新建dmg">1. 新建DMG</h3>
+<p><strong>打开磁盘工具，新建DMG</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">File-&gt;New Image-&gt;Blank Image
+</code></pre></div><p><img src="https://images.ichochy.com/15665433118042444.png" alt="15665433118042444"></p>
+<p><strong>创建DMG</strong><br>
+<img src="https://images.ichochy.com/15665435757953755.png" alt="15665435757953755"></p>
+<h3 id="2-添加文件">2. 添加文件</h3>
+<p><strong><code>在磁盘工上右键打开</code></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">右键-&gt;Show in Finder
+</code></pre></div><p><img src="https://images.ichochy.com/15665436347971226.png" alt="15665436347971226"></p>
+<p><strong>创建快捷键</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln -s /Applications Applications
+</code></pre></div><p><strong>完成文件添加</strong><br>
+<img src="https://images.ichochy.com/15665449057641887.png" alt="15665449057641887"></p>
+<h3 id="3-排版添加背景">3. 排版，添加背景</h3>
+<p><strong>修改排版</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">右键-&gt;Show View Options
+</code></pre></div><p><img src="https://images.ichochy.com/156654596473115412.png" alt="156654596473115412"></p>
+<p><strong>自定义背景</strong><br>
+<img src="https://images.ichochy.com/15665451417533438.png" alt="15665451417533438"></p>
+<h3 id="4-压缩dmg">4. 压缩DMG</h3>
+<p><strong>推出DMG</strong><br>
+<img src="https://images.ichochy.com/15665454417422579.png" alt="15665454417422579"></p>
+<p><strong>转换DMG</strong><br>
+<img src="https://images.ichochy.com/156654547374332110.png" alt="156654547374332110"></p>
+<p><strong>压缩DMG</strong><br>
+<img src="https://images.ichochy.com/156654560673824711.png" alt="156654560673824711"><br>
+<strong>压缩后的文件明显小于原文件，也不可再进行编辑</strong></p>
+<h3 id="5-完成打包">5. 完成打包</h3>
+<p><strong>至此，完成了App打包DMG，可以进行共享发布了</strong></p>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190822.html">
+            iUploader 2.0 七牛云上传工具
+            <small>2019/08/22</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190812.html">
+            libminipng 压缩png的swift-framework
+            <small>2019/08/12</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190410.html">
+            持续集成和持续交付工具-jenkins
+            <small>2019/04/10</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190403.html">
+            七牛云图床上传工具-iUploader
+            <small>2019/04/03</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20181212.html">
+            倍速音乐
+            <small>2018/12/12</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20190823.html">https://ichochy.com/posts/20190823.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20190822.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/20190901.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>

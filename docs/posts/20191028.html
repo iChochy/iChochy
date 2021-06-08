@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mac 无密码 SSH 登录服务器 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="bash, linux, ssh" />
+  <meta name="description" content="Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一步生成密钥对">第一步，生成密钥对</a></li>
+    <li><a href="#第二步上传公钥">第二步，上传公钥</a></li>
+    <li><a href="#第三步config-配置">第三步，config 配置</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20191028.html">Mac 无密码 SSH 登录服务器</a></h1>
+  <em>
+  <time datetime=2019/10/28 class="post-date">
+    2019/10/28 
+  </time>
+  
+      <a href="https://ichochy.com/categories/code.html">#code</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/bash.html">#bash</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/linux.html">#linux</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/ssh.html">#ssh</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</p>
+<h2 id="第一步生成密钥对">第一步，生成密钥对</h2>
+<p>在当前用户下创建<code>.ssh</code>目录</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/.ssh
+</code></pre></div><p>使用命令<code>ssh-keygen</code>生成密钥对,会在<code>~/.ssh</code>目录下生成公/私钥</p>
+<pre><code>id_rsa      //私钥
+id_rsa.pub  //公钥
+</code></pre><h2 id="第二步上传公钥">第二步，上传公钥</h2>
+<p>使用命令<code>ssh-copy-id user@hostname</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-copy-id  admin@192.168.1.55
+</code></pre></div><p>输入密码，操作成功<br>
+查看服务器<code>～/.ssh/authorized_keys</code>，可以看到本地的公钥已经写入到<code>authorized_keys</code>文件中</p>
+<p>运行命令<code>ssh user@hostname</code>就可以直接无密码 SSH 登录服务器</p>
+<h2 id="第三步config-配置">第三步，config 配置</h2>
+<p>在当前用户<code>.ssh</code>目录下创建<code>config</code>文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">touch  ~/.ssh/config
+</code></pre></div><p>通过<code>vim</code>编辑<code>config</code>，添加服务器配置信息</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Host iChochy                        //服务器别名
+    Hostname 192.168.1.55           //服务器地址
+    User admin                      //服务器用户
+    Identityfile ~/.ssh/id_rsa      //服务器公钥对应的本地私钥
+</code></pre></div><p>直接运行命令<code>ssh iChochy</code>就可以直接无密码 SSH 登录服务器</p>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190412.html">
+            通过端口号关闭当前进程
+            <small>2019/04/12</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20191028.html">https://ichochy.com/posts/20191028.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20191018.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/20191106.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>

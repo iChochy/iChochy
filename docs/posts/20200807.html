@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>了解 JS 的加载顺序和方式，实现 Ready 方法 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="js, code" />
+  <meta name="description" content="页面加载 JS 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#了解-js-的加载顺序">了解 JS 的加载顺序</a></li>
+    <li><a href="#ready方法的实现"><code>Ready</code>方法的实现</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20200807.html">了解 JS 的加载顺序和方式，实现 Ready 方法</a></h1>
+  <em>
+  <time datetime=2020/08/07 class="post-date">
+    2020/08/07 
+  </time>
+  
+      <a href="https://ichochy.com/categories/code.html">#code</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/js.html">#js</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/code.html">#code</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>页面加载 <code>JS</code> 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。</p>
+<h2 id="了解-js-的加载顺序">了解 JS 的加载顺序</h2>
+<p>了解页面元素的加载顺序，找到 <code>JS</code> 执行失败原因。有时明明没有问的代码，可就获取不到元素值或信息，这可能是<code>JS</code>执行时间过早或过晚，而导致的 <code>JS</code> 执行失败。<br>
+我们来看一幅图，了解<code>defer</code>、<code>async</code>属性对<code>JS</code>下载、执行顺序的影响 <br>
+<img src="https://images.ichochy.com/15967549302690823.png" alt="加载顺序"></p>
+<ol>
+<li>默认情况下，浏览器解析到<code>JS</code>文件就会立即下载文件，并执行文件，<code>JS</code>提前执行，获取不到页面元素，并导致页面解析中断，拖慢整个页面的加载。</li>
+<li>添加<code>async</code>属性后，就会异步下载<code>JS</code>文件并执行，执行时间不可控，<code>JS</code>执行时间过早或过晚，而导致的 <code>JS</code> 执行错误或失败。</li>
+<li>添加<code>defer</code>属性后，就会异步下载<code>JS</code>文件，等页面解析完成后再执行<code>JS</code></li>
+</ol>
+<h2 id="ready方法的实现"><code>Ready</code>方法的实现</h2>
+<p>很多时候我们不把<code>JS</code>放在<code>head</code>中，而把<code>JS</code>放到<code>body</code>的最后面也就很好解释了？</p>
+<ul>
+<li>首先，<code>JS</code>的下载和执行会中断页面的解析，拖慢整个页面展示，</li>
+<li>然后，放在<code>head</code>中，页面元素还没有加载，<code>JS</code>方法就无法获取或处理页面上的元素，这一点很容易忽视，</li>
+<li><strong>但是</strong>，我们还有<code>ready</code>方法。</li>
+</ul>
+<p><code>jQuery</code>中的<code>ready</code>方法会在页面解析后运行，语法如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//语法 1
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>)
+<span style="color:#75715e">//语法 2
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>().<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>)
+<span style="color:#75715e">//语法 3
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">function</span>)
+</code></pre></div><p>自定义方法，通过监听<code>DOMContentLoaded</code>实现ready方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#960050;background-color:#1e0010">/**</span>
+ <span style="color:#f92672">*</span> <span style="color:#a6e22e">页面解析后执行</span> <span style="color:#a6e22e">fn</span>
+ <span style="color:#f92672">*</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//ichochy.com
+</span><span style="color:#75715e"></span> <span style="color:#f92672">*</span> <span style="color:#960050;background-color:#1e0010">/</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ready</span>(<span style="color:#a6e22e">fn</span>) {
+    <span style="color:#66d9ef">if</span> (window.<span style="color:#a6e22e">addEventListener</span>) {
+        window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span> () {
+            <span style="color:#75715e">//注销时间，避免重复触发
+</span><span style="color:#75715e"></span>            document.<span style="color:#a6e22e">removeEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">callee</span>, <span style="color:#66d9ef">false</span>);
+            <span style="color:#a6e22e">fn</span>(); <span style="color:#75715e">//运行函数
+</span><span style="color:#75715e"></span>        }, <span style="color:#66d9ef">false</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">attachEvent</span>) { <span style="color:#75715e">//IE浏览器
+</span><span style="color:#75715e"></span>        document.<span style="color:#a6e22e">attachEvent</span>(<span style="color:#e6db74">&#39;onreadystatechange&#39;</span>, <span style="color:#66d9ef">function</span> () {
+            <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;complete&#39;</span>) {
+                document.<span style="color:#a6e22e">detachEvent</span>(<span style="color:#e6db74">&#39;onreadystatechange&#39;</span>, <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">callee</span>);
+                <span style="color:#a6e22e">fn</span>(); <span style="color:#75715e">//函数运行
+</span><span style="color:#75715e"></span>            }
+        });
+    }
+}
+</code></pre></div><p>当然还有我的<code>onload</code>方法，可以在页面完成所有加载后再执行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Javascript" data-lang="Javascript"><span style="color:#75715e">//window 的 onload
+</span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
+    <span style="color:#75715e">//load https://ichochy.com
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//some things ……
+</span><span style="color:#75715e"></span>}
+<span style="color:#75715e">//body 的 onload
+</span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span> <span style="color:#a6e22e">onload</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;load()&#34;</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><h2 id="总结">总结</h2>
+<p>可以看到，<code>JS</code>的执行顺序决定着程序是否正常工作。加载过早，可能无法获取到页面元素，而太晚，页面元素无法交互。对于执行的顺序，要以当前的程序功能而定。</p>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190922.html">
+            神奇的不可见空格&lt;200b&gt;导致代码异常
+            <small>2019/09/22</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20200807.html">https://ichochy.com/posts/20200807.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20200802.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/20200810.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>

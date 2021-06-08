@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="aop, java, reflect" />
+  <meta name="description" content="方法的代理可以在调用方法时进行其它的相关操作，并减少代码的入侵和偶合。很多框架都用到了动态代理，并提供了减化代理操作，如：Spring 的 AOP。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#静态代理">静态代理</a>
+      <ul>
+        <li><a href="#接口设备device">接口设备<code>Device</code></a></li>
+        <li><a href="#设备-cpu">设备 CPU</a></li>
+        <li><a href="#设备-gpu">设备 GPU</a></li>
+        <li><a href="#电脑computer">电脑<code>Computer</code></a></li>
+        <li><a href="#运行电脑">运行电脑</a></li>
+        <li><a href="#运行情况">运行情况</a></li>
+        <li><a href="#小结">小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#jdk动态代理">JDK动态代理</a>
+      <ul>
+        <li><a href="#改进电脑computer">改进电脑<code>Computer</code></a></li>
+        <li><a href="#动态运行电脑">动态运行电脑</a></li>
+        <li><a href="#运行情况-1">运行情况</a></li>
+        <li><a href="#小结-1">小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#cglib动态代理">CGLIB动态代理</a>
+      <ul>
+        <li><a href="#引入cglib库">引入<code>CGLIB</code>库</a></li>
+        <li><a href="#改进电脑computer-1">改进电脑<code>Computer</code></a></li>
+        <li><a href="#动态运行电脑-1">动态运行电脑</a></li>
+        <li><a href="#运行情况-2">运行情况</a></li>
+        <li><a href="#小结-2">小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20200824.html">Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理</a></h1>
+  <em>
+  <time datetime=2020/08/24 class="post-date">
+    2020/08/24 
+  </time>
+  
+      <a href="https://ichochy.com/categories/java.html">#java</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/aop.html">#aop</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/java.html">#java</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/reflect.html">#reflect</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>方法的代理可以在调用方法时进行其它的相关操作，并减少代码的入侵和偶合。很多框架都用到了动态代理，并提供了减化代理操作，如：Spring 的 AOP。</p>
+<h2 id="静态代理">静态代理</h2>
+<p>以电脑为模型，我们都知道，电脑是由 CPU、GPU、DISK 多个设备组装的，它们都是通过接口相连接。现在模拟一台电脑（<code>Computer</code>）通过接口设备(<code>Device</code>)，代理（<code>Proxy</code>）组装不同的设备（<code>CPU、GPU</code>），并运行（<code>run</code>）。</p>
+<h3 id="接口设备device">接口设备<code>Device</code></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:Device.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/31 17:49:31
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.proxy<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Device</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="设备-cpu">设备 CPU</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:CPU.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/31 17:52:31
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.proxy<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CPU</span> <span style="color:#66d9ef">implements</span> Device <span style="color:#f92672">{</span>
+
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Game&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="设备-gpu">设备 GPU</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:GPU.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/31 17:52:31
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.proxy<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GPU</span> <span style="color:#66d9ef">implements</span> Device <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Display&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="电脑computer">电脑<code>Computer</code></h3>
+<p><code>Computer</code>的<code>start</code>方法代理执行接口类方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:SimpleProxy.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/31 17:54:31
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.proxy<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Computer</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> Device device<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> Device <span style="color:#a6e22e">start</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Start Computer&#34;</span><span style="color:#f92672">);</span>
+        device<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">return</span> device<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> Device <span style="color:#a6e22e">getDevice</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> device<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setDevice</span><span style="color:#f92672">(</span>Device device<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">device</span> <span style="color:#f92672">=</span> device<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="运行电脑">运行电脑</h3>
+<p>通过类<code>Computer</code>的<code>start</code>方法代理执行接口类方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.ichochy.proxy.CPU<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.proxy.Computer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.proxy.GPU<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Computer proxy <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Computer<span style="color:#f92672">();</span>
+        proxy<span style="color:#f92672">.</span><span style="color:#a6e22e">setDevice</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> CPU<span style="color:#f92672">());</span>
+        proxy<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        proxy<span style="color:#f92672">.</span><span style="color:#a6e22e">setDevice</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> GPU<span style="color:#f92672">());</span>
+        proxy<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="运行情况">运行情况</h3>
+<pre><code class="language-log" data-lang="log">Start Computer
+Game
+Start Computer
+Display
+</code></pre><h3 id="小结">小结</h3>
+<p>静态代理可以代理某个方法，实现<code>AOP</code>操作，代理需求变更只需修改代理类，实现了解偶的效果。但不同的接口多个方法就要重复的编写代理类，来实现方法代理操作。</p>
+<h2 id="jdk动态代理">JDK动态代理</h2>
+<p>实现接口<code>InvocationHandler</code>的<code>invoke</code>方法，通过<code>Proxy</code>的<code>newProxyInstance</code>方法，构建代理接口实例。相比静态代理更加灵活，动态代理不同的接口和接口中的方法。</p>
+<h3 id="改进电脑computer">改进电脑<code>Computer</code></h3>
+<p>实现接口<code>InvocationHandler</code>的<code>invoke</code>方法，运用反射，动态执行代理方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:SimpleProxy.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/31 17:54:31
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.proxy<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.lang.reflect.InvocationHandler<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.lang.reflect.Method<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Computer</span> <span style="color:#66d9ef">implements</span> InvocationHandler <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> Device device<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>Object proxy<span style="color:#f92672">,</span> Method method<span style="color:#f92672">,</span> Object<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Start...&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//运用反射，动态执行代理方法，并返回方法执行结果
+</span><span style="color:#75715e"></span>        Object result <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>device<span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;End&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> Device <span style="color:#a6e22e">getDevice</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> device<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setDevice</span><span style="color:#f92672">(</span>Device device<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">device</span> <span style="color:#f92672">=</span> device<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="动态运行电脑">动态运行电脑</h3>
+<p>通过类<code>Proxy</code>的<code>newProxyInstance</code>方法构建代理接口类，实现方法的代理执行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:App.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/09/01 12:46:01
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.ichochy.proxy.CPU<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.proxy.Computer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.proxy.Device<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.lang.reflect.Proxy<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        CPU cpu <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CPU<span style="color:#f92672">();</span>
+        Computer computer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Computer<span style="color:#f92672">();</span>
+        computer<span style="color:#f92672">.</span><span style="color:#a6e22e">setDevice</span><span style="color:#f92672">(</span>cpu<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//获取代理接口实例
+</span><span style="color:#75715e"></span>        Device device <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Device<span style="color:#f92672">)</span> Proxy<span style="color:#f92672">.</span><span style="color:#a6e22e">newProxyInstance</span><span style="color:#f92672">(</span>ClassLoader<span style="color:#f92672">.</span><span style="color:#a6e22e">getSystemClassLoader</span><span style="color:#f92672">(),</span> cpu<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getInterfaces</span><span style="color:#f92672">(),</span> computer<span style="color:#f92672">);</span>
+        device<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="运行情况-1">运行情况</h3>
+<pre><code class="language-log" data-lang="log">Start... 
+Game
+End
+</code></pre><h3 id="小结-1">小结</h3>
+<p>运用反射，动态代理可以代理不同的接口的多个方法，不必修改代码。但只能用于接口方法的代理，无法实现所有类方法。</p>
+<h2 id="cglib动态代理">CGLIB动态代理</h2>
+<p>CGLIB库是用于生成和转换Java字节码的高级API，它允许运行时对字节码进行修改和动态生成，通过继承方式实现动态代理。</p>
+<h3 id="引入cglib库">引入<code>CGLIB</code>库</h3>
+<p>通过<code>Maven</code>库管理引入第三方<code>CGLIB</code>库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- https://mvnrepository.com/artifact/cglib/cglib --&gt;</span>
+<span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>cglib<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>cglib<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version&gt;</span>3.3.0<span style="color:#f92672">&lt;/version&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><h3 id="改进电脑computer-1">改进电脑<code>Computer</code></h3>
+<p>实现接口<code>MethodInterceptor</code>的<code>intercept</code>方法，运用反射，动态执行代理方法（原父类方法）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:SimpleProxy.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/08/31 17:54:31
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.proxy<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> net.sf.cglib.proxy.MethodInterceptor<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> net.sf.cglib.proxy.MethodProxy<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.lang.reflect.Method<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Computer</span> <span style="color:#66d9ef">implements</span> MethodInterceptor <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">intercept</span><span style="color:#f92672">(</span>Object obj<span style="color:#f92672">,</span> Method method<span style="color:#f92672">,</span> Object<span style="color:#f92672">[]</span> args<span style="color:#f92672">,</span> MethodProxy methodProxy<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Start...&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//运用反射，动态执行代理方法，并返回方法执行结果
+</span><span style="color:#75715e"></span>        Object result <span style="color:#f92672">=</span> methodProxy<span style="color:#f92672">.</span><span style="color:#a6e22e">invokeSuper</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;End&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="动态运行电脑-1">动态运行电脑</h3>
+<p>通过类<code>Enhancer</code>的<code>create</code>方法构建代理类，实现方法的代理执行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * File:App.java
+</span><span style="color:#75715e"> * User:iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Copyright (c) 2020
+</span><span style="color:#75715e"> * Date:2020/09/01 12:46:01
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.ichochy.proxy.CPU<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.ichochy.proxy.Computer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> net.sf.cglib.proxy.Enhancer<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        Computer computer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Computer<span style="color:#f92672">();</span>
+        Enhancer enhancer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Enhancer<span style="color:#f92672">();</span>
+        <span style="color:#75715e">//设置要代理超类
+</span><span style="color:#75715e"></span>        enhancer<span style="color:#f92672">.</span><span style="color:#a6e22e">setSuperclass</span><span style="color:#f92672">(</span>CPU<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//设置回调处理类
+</span><span style="color:#75715e"></span>        enhancer<span style="color:#f92672">.</span><span style="color:#a6e22e">setCallback</span><span style="color:#f92672">(</span>computer<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//构建代理类
+</span><span style="color:#75715e"></span>        CPU cpu <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>CPU<span style="color:#f92672">)</span>enhancer<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+        cpu<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h3 id="运行情况-2">运行情况</h3>
+<pre><code class="language-log" data-lang="log">Start... 
+Game
+End
+</code></pre><h3 id="小结-2">小结</h3>
+<p>通过<code>CGLIB</code>库可以很方便的实现方法的动态代理，实现<code>AOP</code>操作。<code>CGLIB</code>库构建代理类的子类，并重写代理父类的方法，通过执行子类方法实现动态代理操作。</p>
+<h2 id="总结">总结</h2>
+<p>当我们要对一类方法或所有方法进行相同操作时，运用方法代理可以很好实现我们的需求，并不用去重写以前的业务方法，如：事务处理、日志监控、权限管理、异常捕捉及处理。</p>
+<p>总结：方法代理，实现<code>AOP</code>操作。</p>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200823.html">
+            Java 反射实例操作
+            <small>2020/08/23</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200820.html">
+            Java 中的重写(Override)与重载(Overload)
+            <small>2020/08/20</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200819.html">
+            免费申请 JetBrains 开源开发许可证，包含 IDEA
+            <small>2020/08/19</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200815.html">
+            Java 开发环境的搭建，开启你的编程之旅
+            <small>2020/08/15</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20200824.html">https://ichochy.com/posts/20200824.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20200823.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/20200825.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>

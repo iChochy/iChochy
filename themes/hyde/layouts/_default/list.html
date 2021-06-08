@@ -5,7 +5,7 @@
     {{if .Parent.IsHome }}
       {{ humanize .Section }}
     {{else}}
-      <a href="{{ .Section | absURL }}/">{{ humanize .Section }}</a>
+      <a href="{{ .Section | absURL }}.html">{{ humanize .Section }}</a>
     {{end}}
   </h2>
   <time datetime={{ .Date.Format "2006/01/02" }} class="post-date">

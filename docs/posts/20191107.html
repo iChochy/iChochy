@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docker 中运行 ElasticSearch 和 Kibana &middot; 回忆中的明天</title>
+  <meta name="keywords" content="docker, elasticsearch, kibana" />
+  <meta name="description" content="ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+  <script defer = "defer" src="/js/toc.js"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一下载镜像image">一、下载镜像(image)</a></li>
+        <li><a href="#二创建-docker-composeyml">二、创建 docker-compose.yml</a></li>
+        <li><a href="#三运行">三、运行</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20191107.html">Docker 中运行 ElasticSearch 和 Kibana</a></h1>
+  <em>
+  <time datetime=2019/11/07 class="post-date">
+    2019/11/07 
+  </time>
+  
+      <a href="https://ichochy.com/categories/code.html">#code</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/docker.html">#docker</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/elasticsearch.html">#elasticsearch</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/kibana.html">#kibana</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据</p>
+<h3 id="一下载镜像image">一、下载镜像(image)</h3>
+<p><strong>搜索镜像(image)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search elasticsearch
+docker search kibana 
+</code></pre></div><p><strong>获取镜像(image)</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elasticsearch:7.4.1     <span style="color:#75715e">#镜像名称:Tag</span>
+docker pull kibana:7.4.1            <span style="color:#75715e">#镜像名称:Tag</span>
+</code></pre></div><h3 id="二创建-docker-composeyml">二、创建 docker-compose.yml</h3>
+<p><strong>构建 es.yml</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">version: <span style="color:#e6db74">&#34;3.2&#34;</span>
+  
+services:
+  elasticsearch:
+    container_name: elasticsearch           <span style="color:#75715e">#容器名称</span>
+    image: elasticsearch:7.4.1              <span style="color:#75715e">#镜像(image)</span>
+    restart: always                         <span style="color:#75715e">#重启方式</span>
+    environment:
+      discovery.type: single-node           <span style="color:#75715e">#环境变量：运行模式 单例</span>
+    ports:
+      - <span style="color:#e6db74">&#34;9200:9200&#34;</span>                         <span style="color:#75715e">#端口映射</span>
+      - <span style="color:#e6db74">&#34;9300:9300&#34;</span>
+  kibana:
+    container_name: kibana                  <span style="color:#75715e">#容器名称</span>
+    image: kibana:7.4.1                     <span style="color:#75715e">#镜像(image)</span>
+    restart: always                         <span style="color:#75715e">#重启方式</span>
+    environment:
+      ELASTICSEARCH_URL: <span style="color:#e6db74">&#34;127.0.0.1:9200&#34;</span>   <span style="color:#75715e">#环境变量：elasticsearch 请求地址</span>
+      I18N_LOCALE: <span style="color:#e6db74">&#34;zh-CN&#34;</span>                  <span style="color:#75715e">#指定中文</span>
+    ports:
+      - <span style="color:#e6db74">&#34;5601:5601&#34;</span>                         <span style="color:#75715e">#端口映射</span>
+
+</code></pre></div><h3 id="三运行">三、运行</h3>
+<p><strong>命令启动</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose -f es.yml up -d
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose 
+                -f  <span style="color:#75715e">#指定构建文件</span>
+                up  <span style="color:#75715e">#创建并启动容器</span>
+                -d  <span style="color:#75715e">#后台运行容器(container)，打印容器(container)ID</span>
+</code></pre></div><p>启动完成后直接访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana</p>
+<p><img src="https://images.ichochy.com/15731085378080282.png" alt="15731085378080282"></p>
+<p>*注：*注意YML文件编写，不要出现 Tab 制表符，否则导致文件解析错误，启动容器(container)失败</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 错误信息</span>
+yaml.scanner.ScannerError: mapping values are not allowed here
+</code></pre></div>
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191106.html">
+            初识 Docker
+            <small>2019/11/06</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20191107.html">https://ichochy.com/posts/20191107.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20191106.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/20200222.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
