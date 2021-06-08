@@ -10,7 +10,7 @@
   {
     "objectID": 20210525,
     "url": "https://ichochy.com/posts/20210525.html",
-    "title": "Spring 开篇，创建第一个 Web 项目",
+    "title": "Spring 开篇，创建第一个 Web 项目 Hello World",
     "summary": "学习 Java，就离不开 Spring ，现在就用 Spring 框架快速创建一个 WEB 项目，欢迎来到我的世界 Hello World。",
     "content": "学习 Java，就离不开 Spring ，现在就用 Spring 框架快速创建一个 WEB 项目，欢迎来到我的世界 Hello World。\n开发工具  IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5  创建项目 打开 IDEA 创建新项目 New Project，使用 start.spring.io 快速构建\n添加 Spring Web 依懒，finish 创建项目 项目目录 ├── HELP.md ├── Web.iml ├── mvnw ├── mvnw.cmd ├── pom.xml └── src └── main ├── java │ └── com │ └── ichochy │ └── web │ ├── WebApplication.java │ └── hello │ └──HelloWorldController.java └── resources ├── application.properties ├── static └── templates 编写项目 创建控制器 HelloWorldController\npackage com.ichochy.web.hello; import org.springframework.web.bind.annotation.GetMapping; import org.springframework.web.bind.annotation.RequestParam; import org.springframework.web.bind.annotation.RestController; @RestController public class HelloWorldController { @GetMapping(\u0026#34;/hello\u0026#34;) public String hello(@RequestParam(value = \u0026#34;name\u0026#34;, defaultValue = \u0026#34;World\u0026#34;) String name) { return String.format(\u0026#34;Hello %s!\u0026#34;, name); } }  @RestController 注解告诉 Spring 该类为（HelloWorldController）Web 请求控制器 @GetMapping(“/hello”) 注解告诉 Spring 该方法（hello）来响应 http://localhost:8080/hello 的 get 请求。 @RequestParam 注解告诉 Spring 该参数（name）为自定义请求参数，默认值为 “World”。  运行项目 Dubug 运行项目，启动成功后可以看到默认端口号为8080 浏览器访问 http://localhost:8080/hello，Web 项目默认返回 Hello World 添加 name 参数访问 http://localhost:8080/hello?name=iChochy 引用  快速开始：https://spring.io/quickstart  ",
     "pubDate": "2021-05-25T16:25:45+08:00"
