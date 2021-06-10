@@ -32,6 +32,7 @@
     {{end}}
   </div>
   {{if eq .Section .Site.Params.PostDir}}
+  <script defer = "defer" src="/js/toc.js"></script>
   <div id = "toc" class="container sidebar-toc">
   {{ .TableOfContents }}
   </div>
