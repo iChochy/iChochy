@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring 表单提交，Form Submission &middot; 回忆中的明天</title>
+  <meta name="keywords" content="spring, spring web, spring mvc, form" />
+  <meta name="description" content="项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <script defer = "defer" src="/js/toc.js"></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#开发工具">开发工具</a></li>
+    <li><a href="#创建项目">创建项目</a>
+      <ul>
+        <li><a href="#new-project">New Project</a></li>
+        <li><a href="#添加依懒">添加依懒</a></li>
+      </ul>
+    </li>
+    <li><a href="#编写项目">编写项目</a>
+      <ul>
+        <li><a href="#表单信息对象">表单信息对象</a></li>
+        <li><a href="#创建控制器">创建控制器</a></li>
+        <li><a href="#创建表单页面">创建表单页面</a></li>
+        <li><a href="#创建结果页面">创建结果页面</a></li>
+      </ul>
+    </li>
+    <li><a href="#项目目录">项目目录</a></li>
+    <li><a href="#运行项目">运行项目</a>
+      <ul>
+        <li><a href="#dubug-运行项目">Dubug 运行项目</a></li>
+        <li><a href="#浏览器访问">浏览器访问</a></li>
+        <li><a href="#查看表单信息">查看表单信息</a></li>
+      </ul>
+    </li>
+    <li><a href="#github">GitHub</a></li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20210530.html">Spring 表单提交，Form Submission</a></h1>
+  <em>
+  <time datetime=2021/05/30 class="post-date">
+    2021/05/30 
+  </time>
+  
+      <a href="https://ichochy.com/categories/spring.html">#spring</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring.html">#spring</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-web.html">#spring web</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-mvc.html">#spring mvc</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/form.html">#form</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。</p>
+<h2 id="开发工具">开发工具</h2>
+<ul>
+<li>IDEA: 2021.1.2</li>
+<li>Java: 1.8</li>
+<li>Spring Boot: 2.5</li>
+</ul>
+<h2 id="创建项目">创建项目</h2>
+<h3 id="new-project">New Project</h3>
+<p>打开 IDEA 创建新项目 New Project，使用 <a href="https://start.spring.io">start.spring.io</a> 快速构建
+<img src="https://images.ichochy.com/16226365527086133.png" alt="16226365527086133"></p>
+<h3 id="添加依懒">添加依懒</h3>
+<p>添加 <code>web</code>、<code>thymeleaf</code> 依懒，finish 创建项目
+<img src="https://images.ichochy.com/16231453775779659.png" alt="16231453775779659"></p>
+<p><code>pom.xml</code> 中手动管理依懒模块</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color:#f92672">&lt;/artifactId&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+</code></pre></div><h2 id="编写项目">编写项目</h2>
+<h3 id="表单信息对象">表单信息对象</h3>
+<p>创建 <code>Form</code> 对象，用来接收、传递表单数据</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Date:2021/06/10 19:36:10
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.example.form<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 表单信息
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Form</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String title<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String url<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String content<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> id<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> title<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span>String title<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getContent</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> content<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setContent</span><span style="color:#f92672">(</span>String content<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> content<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getUrl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> url<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUrl</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> url<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="创建控制器">创建控制器</h3>
+<p>创建控制器 <code>FormController</code>，接收表单数据</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Date:2021/06/09 22:07:09
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.example.form<span style="color:#f92672">;</span>
+
+
+<span style="color:#f92672">import</span> org.springframework.stereotype.Controller<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.ui.Model<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.ModelAttribute<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.PostMapping<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FormController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 打开表单
+</span><span style="color:#75715e">     * @param model
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/form&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">openForm</span><span style="color:#f92672">(</span>Model model<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;form&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Form<span style="color:#f92672">());</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;form&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 提交表单
+</span><span style="color:#75715e">     * @param form
+</span><span style="color:#75715e">     * @param model
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@PostMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/form&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">submitForm</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@ModelAttribute</span> Form form<span style="color:#f92672">,</span> Model model<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;form&#34;</span><span style="color:#f92672">,</span> form<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>Model 为前端视图模型，添加视图数据，供视图展示</li>
+<li>@Controller 注解，告诉 Spring 该类（<code>FormController</code>）为请求控制器</li>
+<li>@ModelAttribute 注解，告诉 Spring 该对象为视图请求参数对象</li>
+<li>@GetMapping(“/form) 注解，告诉 Spring 该方法（<code>openForm</code>）来响应 <a href="http://localhost:8080/form">http://localhost:8080/form</a> 的 <code>get</code> 请求。</li>
+<li>@PostMapping(“/form) 注解，告诉 Spring 该方法（<code>submitForm</code>）来响应 <a href="http://localhost:8080/form">http://localhost:8080/form</a> 的 <code>get</code> 请求。</li>
+<li>方法返回 <code>String</code> 为展示对应的视图名称，如：<code>return &quot;form&quot;</code>展示 <code>form.html</code> 视图</li>
+</ul>
+<h3 id="创建表单页面">创建表单页面</h3>
+<p>新建 <code>form.html</code>，接交表单数据</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">  ~ Copyright (c) 2021 iChochy
+</span><span style="color:#75715e">  ~ URL:https://ichochy.com
+</span><span style="color:#75715e">  ~ Date:2021/06/10 19:44:10
+</span><span style="color:#75715e">  --&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Form&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Form&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">th:action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{/form}&#34;</span> <span style="color:#a6e22e">th:object</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${form}&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;Id: &lt;<span style="color:#f92672">br</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{id}&#34;</span>/&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;Title:&lt;<span style="color:#f92672">br</span>&gt; &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{title}&#34;</span>/&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;URL: &lt;<span style="color:#f92672">br</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{url}&#34;</span>/&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;Message: &lt;<span style="color:#f92672">br</span>&gt;&lt;<span style="color:#f92672">textarea</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{content}&#34;</span>&gt;&lt;/<span style="color:#f92672">textarea</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Submit&#34;</span>/&gt; &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;reset&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Reset&#34;</span>/&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><ul>
+<li>th:action=&quot;@{/form}&quot;  设置表单的请求地址</li>
+<li>method=&ldquo;post&rdquo;         设置表单的请求方式为 <code>post</code></li>
+<li>th:object=&quot;${form}&quot;   设置表单的请求数据对象</li>
+<li>th:field=&quot;*{id}&quot;      设置表单的请求参数属性</li>
+</ul>
+<h3 id="创建结果页面">创建结果页面</h3>
+<p>新建 <code>result.html</code>，展示表单数据</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">  ~ Copyright (c) 2021 iChochy
+</span><span style="color:#75715e">  ~ URL:https://ichochy.com
+</span><span style="color:#75715e">  ~ Date:2021/06/10 19:44:10
+</span><span style="color:#75715e">  --&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Result&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Form&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Result&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;Id: &#39; + ${form.id}&#34;</span>/&gt;
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;Title: &#39; + ${form.title}&#34;</span>/&gt;
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;URL: &#39; + ${form.url}&#34;</span>/&gt;
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">th:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;Message: &#39; + ${form.content}&#34;</span>/&gt;
+&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/form&#34;</span>&gt;Submit another message&lt;/<span style="color:#f92672">a</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><ul>
+<li>${form.id}      获取数据对象属性值展示</li>
+</ul>
+<h2 id="项目目录">项目目录</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── ichochy
+│   │   │           └── example
+│   │   │               ├── ExampleApplication.java
+│   │   │               ├── form
+│   │   │               │   ├── Form.java
+│   │   │               │   └── FormController.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── static
+│   │       └── templates
+│   │           ├── form.html
+│   │           ├── result.html
+</code></pre></div><h2 id="运行项目">运行项目</h2>
+<h3 id="dubug-运行项目">Dubug 运行项目</h3>
+<p>启动成功后可以看到默认端口号为<code>8080</code>
+<img src="https://images.ichochy.com/162314892348552510.png" alt="162314892348552510"></p>
+<h3 id="浏览器访问">浏览器访问</h3>
+<p>直接访问：<a href="http://localhost:8080/form">http://localhost:8080/form</a>
+<img src="https://images.ichochy.com/162333229951452314.png" alt="162333229951452314"></p>
+<h3 id="查看表单信息">查看表单信息</h3>
+<p><code>Submit</code> 提交表单后可以查看到表单提交的信息
+<img src="https://images.ichochy.com/162333234351368115.png" alt="162333234351368115"></p>
+<h2 id="github">GitHub</h2>
+<p><a href="https://github.com/iChochy/Example">https://github.com/iChochy/Example</a></p>
+<h2 id="引用">引用</h2>
+<ul>
+<li>Handling Form Submission：<a href="https://spring.io/guides/gs/handling-form-submission/">https://spring.io/guides/gs/handling-form-submission/</a></li>
+<li>Thymeleaf Documentation：<a href="https://www.thymeleaf.org/documentation.html">https://www.thymeleaf.org/documentation.html</a></li>
+</ul>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210525.html">
+            Spring 开篇，创建第一个 Web 项目 Hello World
+            <small>2021/05/25</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191018.html">
+            Spring Cloud Alibaba Nacos Discovery 实战
+            <small>2019/10/18</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191017.html">
+            Spring Cloud Alibaba Nacos Config 实战
+            <small>2019/10/17</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20191012.html">
+            认识 Spring Cloud Alibaba
+            <small>2019/10/12</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20210530.html">https://ichochy.com/posts/20210530.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20210525.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/20210602.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>

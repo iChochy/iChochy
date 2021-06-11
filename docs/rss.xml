@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Spring 表单提交，Form Submission</title>
+      <link>https://ichochy.com/posts/20210530.html</link>
+      <pubDate>Sun, 30 May 2021 22:25:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20210530.html</guid>
+      <description>项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。</description>
+    </item>
+    
+    <item>
       <title>Spring 开篇，创建第一个 Web 项目 Hello World</title>
       <link>https://ichochy.com/posts/20210525.html</link>
       <pubDate>Tue, 25 May 2021 16:25:45 +0800</pubDate>

@@ -15,7 +15,6 @@
   <link type="text/css" rel="stylesheet" href="/css/poole.css">
   <link type="text/css" rel="stylesheet" href="/css/syntax.css">
   <link type="text/css" rel="stylesheet" href="/css/hyde.css">
-  <script defer = "defer" src="/js/toc.js"></script>
 
   <script>
     var _hmt = _hmt || [];
@@ -62,14 +61,21 @@
     
   </div>
   
+  <script defer = "defer" src="/js/toc.js"></script>
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
     <li><a href="#开发工具">开发工具</a></li>
     <li><a href="#创建项目">创建项目</a></li>
     <li><a href="#项目目录">项目目录</a></li>
-    <li><a href="#编写项目">编写项目</a></li>
+    <li><a href="#编写项目">编写项目</a>
+      <ul>
+        <li><a href="#创建控制器-helloworldcontroller">创建控制器 <code>HelloWorldController</code></a></li>
+        <li><a href="#创建启动器-exampleapplication">创建启动器 <code>ExampleApplication</code></a></li>
+      </ul>
+    </li>
     <li><a href="#运行项目">运行项目</a></li>
+    <li><a href="#github">GitHub</a></li>
     <li><a href="#引用">引用</a></li>
   </ul>
 </nav>
@@ -121,23 +127,19 @@
 <li>Spring Boot: 2.5</li>
 </ul>
 <h2 id="创建项目">创建项目</h2>
-<p>打开 IDEA 创建新项目 New Project，使用 <a href="https://start.spring.io">start.spring.io</a> 快速构建</p>
-<p><img src="https://images.ichochy.com/16226365527086133.png" alt="16226365527086133"></p>
+<p>打开 IDEA 创建新项目 New Project，使用 <a href="https://start.spring.io">start.spring.io</a> 快速构建
+<img src="https://images.ichochy.com/16226365527086133.png" alt="16226365527086133"></p>
 <p>添加 Spring Web 依懒，finish 创建项目
 <img src="https://images.ichochy.com/16226367387048384.png" alt="16226367387048384"></p>
 <h2 id="项目目录">项目目录</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├── HELP.md
-├── Web.iml
-├── mvnw
-├── mvnw.cmd
-├── pom.xml
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├── pom.xml
 └── src
     └── main
         ├── java
         │   └── com
         │       └── ichochy
-        │           └── web
-        │               ├── WebApplication.java
+        │           └── example
+        │               ├── ExampleApplication.java
         │               └── hello
         │                   └──HelloWorldController.java
         └── resources
@@ -145,8 +147,8 @@
             ├── static
             └── templates
 </code></pre></div><h2 id="编写项目">编写项目</h2>
-<p>创建控制器 <code>HelloWorldController</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy.web.hello<span style="color:#f92672">;</span>
+<h3 id="创建控制器-helloworldcontroller">创建控制器 <code>HelloWorldController</code></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.ichochy.example.hello<span style="color:#f92672">;</span>
 
 <span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RequestParam<span style="color:#f92672">;</span>
@@ -161,9 +163,34 @@
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><ul>
-<li>@RestController 注解告诉 Spring 该类为（<code>HelloWorldController</code>）Web 请求控制器</li>
-<li>@GetMapping(“/hello”) 注解告诉 Spring 该方法（<code>hello</code>）来响应 <a href="http://localhost:8080/hello">http://localhost:8080/hello</a> 的 <code>get</code> 请求。</li>
-<li>@RequestParam 注解告诉 Spring 该参数（<code>name</code>）为自定义请求参数，默认值为 “<code>World</code>”。</li>
+<li>@RestController 注解，告诉 Spring 该类（<code>HelloWorldController</code>）为请求控制器</li>
+<li>@GetMapping(“/hello”) 注解，告诉 Spring 该方法（<code>hello</code>）来响应 <a href="http://localhost:8080/hello">http://localhost:8080/hello</a> 的 <code>get</code> 请求。</li>
+<li>@RequestParam 注解，告诉 Spring 该参数（<code>name</code>）为自定义请求参数，默认值为 “<code>World</code>”。</li>
+</ul>
+<h3 id="创建启动器-exampleapplication">创建启动器 <code>ExampleApplication</code></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Date:2021/06/09 22:07:09
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleApplication</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ExampleApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>@SpringBootApplication 注释，包如下注解的合集：</p>
+<ul>
+<li>@Configuration：将类标记为应用程序配置类</li>
+<li>@EnableAutoConfiguration：告诉 Spring Boot 根据类路径自动启用配置</li>
+<li>@ComponentScan：告诉 Spring 在<code>com.ichochy.example</code>当前包中查找组件、配置、服务和控制器</li>
 </ul>
 <h2 id="运行项目">运行项目</h2>
 <p>Dubug 运行项目，启动成功后可以看到默认端口号为<code>8080</code>
@@ -172,6 +199,8 @@
 <img src="https://images.ichochy.com/16226401256157126.png" alt="16226401256157126"></p>
 <p>添加 <code>name</code> 参数访问 <a href="http://localhost:8080/hello?name=iChochy">http://localhost:8080/hello?name=iChochy</a>
 <img src="https://images.ichochy.com/16226436648645837.png" alt="16226436648645837"></p>
+<h2 id="github">GitHub</h2>
+<p><a href="https://github.com/iChochy/Example">https://github.com/iChochy/Example</a></p>
 <h2 id="引用">引用</h2>
 <ul>
 <li>快速开始：<a href="https://spring.io/quickstart">https://spring.io/quickstart</a></li>
@@ -224,7 +253,7 @@
   </span>
   <span class="pagination-item newer">
     
-    <a href="https://ichochy.com/posts/20210602.html" class="pag-link">下一篇</a>
+    <a href="https://ichochy.com/posts/20210530.html" class="pag-link">下一篇</a>
     
   </span>
 </div>

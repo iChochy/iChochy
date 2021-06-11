@@ -8,14 +8,13 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spring 文件上传，Uploading Files &middot; 回忆中的明天</title>
-  <meta name="keywords" content="spring, spring boot, spring web, spring mvc" />
+  <meta name="keywords" content="spring, spring web, spring mvc, upload" />
   <meta name="description" content="项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。" />
   
   <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
   <link type="text/css" rel="stylesheet" href="/css/poole.css">
   <link type="text/css" rel="stylesheet" href="/css/syntax.css">
   <link type="text/css" rel="stylesheet" href="/css/hyde.css">
-  <script defer = "defer" src="/js/toc.js"></script>
 
   <script>
     var _hmt = _hmt || [];
@@ -62,6 +61,7 @@
     
   </div>
   
+  <script defer = "defer" src="/js/toc.js"></script>
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
@@ -91,6 +91,7 @@
         <li><a href="#文件下载">文件下载</a></li>
       </ul>
     </li>
+    <li><a href="#github">GitHub</a></li>
     <li><a href="#引用">引用</a></li>
   </ul>
 </nav>
@@ -119,15 +120,15 @@
       </li>
       
       <li>
-        <a href="https://ichochy.com/tags/spring-boot.html">#spring boot</a>
-      </li>
-      
-      <li>
         <a href="https://ichochy.com/tags/spring-web.html">#spring web</a>
       </li>
       
       <li>
         <a href="https://ichochy.com/tags/spring-mvc.html">#spring mvc</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/upload.html">#upload</a>
       </li>
       
     </ul>
@@ -333,13 +334,12 @@
 <span style="color:#f92672">import</span> java.util.stream.Collectors<span style="color:#f92672">;</span>
 
 <span style="color:#a6e22e">@Controller</span>
-<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/upload&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileUploadController</span> <span style="color:#f92672">{</span>
 
     <span style="color:#a6e22e">@Autowired</span>
     <span style="color:#66d9ef">private</span> StorageService storageService<span style="color:#f92672">;</span>
 
-    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/upload&#34;</span><span style="color:#f92672">)</span>
     <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">listFiles</span><span style="color:#f92672">(</span>Model model<span style="color:#f92672">){</span>
         model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;files&#34;</span><span style="color:#f92672">,</span> storageService<span style="color:#f92672">.</span><span style="color:#a6e22e">loadAll</span><span style="color:#f92672">().</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>
                 path <span style="color:#f92672">-&gt;</span> MvcUriComponentsBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">fromMethodName</span><span style="color:#f92672">(</span>FileUploadController<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span>
@@ -355,7 +355,7 @@
                 <span style="color:#e6db74">&#34;attachment; filename=\&#34;&#34;</span> <span style="color:#f92672">+</span> file<span style="color:#f92672">.</span><span style="color:#a6e22e">getFilename</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\&#34;&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">body</span><span style="color:#f92672">(</span>file<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
 
-    <span style="color:#a6e22e">@PostMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@PostMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/upload&#34;</span><span style="color:#f92672">)</span>
     <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">uploadFile</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;file&#34;</span><span style="color:#f92672">)</span> MultipartFile file<span style="color:#f92672">,</span>
                              RedirectAttributes redirectAttributes<span style="color:#f92672">){</span>
         storageService<span style="color:#f92672">.</span><span style="color:#a6e22e">store</span><span style="color:#f92672">(</span>file<span style="color:#f92672">);</span>
@@ -507,6 +507,8 @@ spring.servlet.multipart.max-request-size=128KB
 <h3 id="文件下载">文件下载</h3>
 <p>点击文件列表可下载文件
 <img src="https://images.ichochy.com/162314930047358713.png" alt="162314930047358713"></p>
+<h2 id="github">GitHub</h2>
+<p><a href="https://github.com/iChochy/Example">https://github.com/iChochy/Example</a></p>
 <h2 id="引用">引用</h2>
 <ul>
 <li>快速开始：<a href="https://spring.io/quickstart">https://spring.io/quickstart</a></li>
@@ -519,6 +521,13 @@ spring.servlet.multipart.max-request-size=128KB
   <div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210530.html">
+            Spring 表单提交，Form Submission
+            <small>2021/05/30</small>
+          </a></h3>
+      </li>
       
       <li>
         <h3><a href="https://ichochy.com/posts/20210525.html">
@@ -562,7 +571,7 @@ spring.servlet.multipart.max-request-size=128KB
 <div class="pagination">
   <span class="pagination-item older">
     
-    <a href="https://ichochy.com/posts/20210525.html" class="pag-link">上一篇</a>
+    <a href="https://ichochy.com/posts/20210530.html" class="pag-link">上一篇</a>
     
   </span>
   <span class="pagination-item newer">
