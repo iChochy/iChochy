@@ -25,7 +25,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: export name=$GITHUB_REPOSITORY
+    - run: export name=mleo
     - run: echo $name
     - run: export APPLICATION_ID=${{secrets.APPLICATION_ID}}
     - run: export ADMIN_API_KEY=${{secrets.ADMIN_API_KEY}}
