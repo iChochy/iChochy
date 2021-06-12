@@ -1,10 +1,10 @@
 const algoliasearch = require('algoliasearch');
 const fs = require('fs');
 
-const APPLICATION_ID = process.env.secrets.APPLICATION_ID;
-const ADMIN_API_KEY = process.env.secrets.ADMIN_API_KEY;
-const INDEX_NAME = process.env.secrets.INDEX_NAME;
-const FILE_PATH = process.env.secrets.FILE_PATH;
+const APPLICATION_ID = process.env.APPLICATION_ID;
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY;
+const INDEX_NAME = process.env.INDEX_NAME;
+const FILE_PATH = process.env.FILE_PATH;
 
 const client = algoliasearch(APPLICATION_ID, ADMIN_API_KEY)
 const index = client.initIndex(INDEX_NAME)
