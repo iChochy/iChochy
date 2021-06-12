@@ -31,7 +31,7 @@ jobs:
         INDEX_NAME: ${{secrets.INDEX_NAME}}
         FILE_PATH: ${{secrets.FILE_PATH}}
         NAME: MLEO
-    - run: echo $INDEX_NAME
+    - run: echo ${{env.INDEX_NAME}}
     - run: echo ${{secrets.ALGOLIA.INDEX_NAME}}
     - run: echo ${{secrets.Algolia.INDEX_NAME}}
     - run: echo ${{secrets.algolia.INDEX_NAME}}
