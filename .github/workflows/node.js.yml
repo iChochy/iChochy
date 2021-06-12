@@ -25,12 +25,11 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: export name=mleo
-    - run: echo $GITHUB_REPOSITORY
+      env:
+        APPLICATION_ID: ${{secrets.APPLICATION_ID}}
+        ADMIN_API_KEY: ${{secrets.ADMIN_API_KEY}}
+        INDEX_NAME: ${{secrets.Algolia.INDEX_NAME}}
+        FILE_PATH: ${{env.FILE_PATH}}
     - run: env
-    - run: export APPLICATION_ID=${{secrets.APPLICATION_ID}}
-    - run: export ADMIN_API_KEY=${{secrets.ADMIN_API_KEY}}
-    - run: export INDEX_NAME=$INDEX_NAME
-    - run: export FILE_PATH=${{env.FILE_PATH}}
     - run: npm install algoliasearch
     - run: node .github/workflows/algolia.js
