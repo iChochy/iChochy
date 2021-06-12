@@ -31,7 +31,7 @@ jobs:
         INDEX_NAME: ${{secrets.INDEX_NAME}}
         FILE_PATH: ${{secrets.FILE_PATH}}
     - run: echo $FILE_PATH
-    - run: echo ${{secrets.APPLICATION_ID}}
+    - run: echo $APPLICATION_ID
     - run: env
     - run: npm install algoliasearch
     - run: node .github/workflows/algolia.js
