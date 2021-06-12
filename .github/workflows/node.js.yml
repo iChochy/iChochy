@@ -28,7 +28,7 @@ jobs:
     - run: ls -al
     - run: export APPLICATION_ID=${{secrets.APPLICATION_ID}}
     - run: export ADMIN_API_KEY=${{secrets.ADMIN_API_KEY}}
-    - run: export INDEX_NAME=${{secrets.INDEX_NAME}}
-    - run: export FILE_PATH=${{secrets.FILE_PATH}}
+    - run: export INDEX_NAME=${{env.INDEX_NAME}}
+    - run: export FILE_PATH=${{env.FILE_PATH}}
     - run: npm install algoliasearch
-    - run: node $GITHUB_WORKSPACE/.github/workflows/algolia.js
+    - run: node .github/workflows/algolia.js
