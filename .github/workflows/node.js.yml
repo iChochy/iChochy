@@ -32,8 +32,9 @@ jobs:
         FILE_PATH: ${{secrets.FILE_PATH}}
         NAME: MLEO
     - run: echo $NAME
-    - run: echo ${{env.name}}
-    - run: echo ${{env.INDEX_NAME}}
+    - run: echo ${{secrets.ALGOLIA.INDEX_NAME}}
+    - run: echo ${{secrets.Algolia.INDEX_NAME}}
+    - run: echo ${{secrets.algolia.INDEX_NAME}}
     - run: env
     - run: npm install algoliasearch
     - run: node .github/workflows/algolia.js
