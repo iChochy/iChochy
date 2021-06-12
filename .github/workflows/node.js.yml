@@ -26,4 +26,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install algoliasearch
-    - run: node $GITHUB_REPOSITORY/.github/workflows/algolia.js
+    - run: node $GITHUB_ACTION_PATH/algolia.js
