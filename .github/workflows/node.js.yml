@@ -30,8 +30,8 @@ jobs:
         ADMIN_API_KEY: ${{secrets.ADMIN_API_KEY}}
         INDEX_NAME: ${{secrets.INDEX_NAME}}
         FILE_PATH: ${{secrets.FILE_PATH}}
-    - run: echo $FILE_PATH
-    - run: echo $APPLICATION_ID
+        NAME: MLEO
+    - run: echo $NAME
     - run: env
     - run: npm install algoliasearch
     - run: node .github/workflows/algolia.js
