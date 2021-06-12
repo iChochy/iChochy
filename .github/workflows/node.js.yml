@@ -30,6 +30,8 @@ jobs:
         ADMIN_API_KEY: ${{secrets.ADMIN_API_KEY}}
         INDEX_NAME: ${{secrets.Algolia.INDEX_NAME}}
         FILE_PATH: ${{env.FILE_PATH}}
+    - run: echo ${{secrets.Algolia.INDEX_NAME}}
+    - run: echo ${{secrets.APPLICATION_ID}}
     - run: env
     - run: npm install algoliasearch
     - run: node .github/workflows/algolia.js
