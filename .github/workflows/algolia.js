@@ -10,8 +10,6 @@ const client = algoliasearch(APPLICATION_ID, ADMIN_API_KEY)
 const index = client.initIndex(INDEX_NAME)
 
 try {
-  console.log("xxx");
-  console.log(FILE_PATH)
   const data = fs.readFileSync(FILE_PATH, 'utf8')
   const objects = JSON.parse(data);
   index
