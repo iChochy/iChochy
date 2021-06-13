@@ -9,8 +9,10 @@ on:
   pull_request:
     branches: [ master ]
 env:
-  FILE_PATH: /name/test
-
+  APPLICATION_ID: ${{secrets.APPLICATION_ID}}
+  ADMIN_API_KEY: ${{secrets.ADMIN_API_KEY}}
+  FILE_PATH: doc/algolia.json
+  INDEX_NAME: iChochy
 jobs:
   build:
 
@@ -27,15 +29,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-        FILE_PATH: /name/test
-        name: MLEO
-      env:
-        APPLICATION_ID: ${{secrets.APPLICATION_ID}}
-        ADMIN_API_KEY: ${{secrets.ADMIN_API_KEY}}
-        INDEX_NAME: ${{secrets.INDEX_NAME}}
-        FILE_PATH: /name/test
-        NAME: MLEO
-    - run: echo ${{env.name}}
+    - run: echo ${{env.FILE_PATH}}
     - run: echo $FILE_PATH
     - run: env
     - run: npm install algoliasearch
