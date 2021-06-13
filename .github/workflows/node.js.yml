@@ -11,7 +11,7 @@ on:
 env:
   APPLICATION_ID: ${{secrets.APPLICATION_ID}}
   ADMIN_API_KEY: ${{secrets.ADMIN_API_KEY}}
-  FILE_PATH: doc/algolia.json
+  FILE_PATH: docs/algolia.json
   INDEX_NAME: iChochy
 jobs:
   build:
