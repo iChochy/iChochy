@@ -20,5 +20,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install algoliasearch
-    - run: node .github/workflows/algolia.js
+    - run: echo ${{test.NAME}}
+    #- run: npm install algoliasearch
+    #- run: node .github/workflows/algolia.js
