@@ -6,8 +6,8 @@ on:
 env:
   APPLICATION_ID: ${{secrets.APPLICATION_ID}}
   ADMIN_API_KEY: ${{secrets.ADMIN_API_KEY}}
-  FILE_PATH: docs/algolia.json
-  INDEX_NAME: iChochy
+  FILE_PATH: ${{secrets.FILE_PATH}}
+  INDEX_NAME: ${{secrets.INDEX_NAME}}
 jobs:
   build:
     runs-on: ubuntu-latest
