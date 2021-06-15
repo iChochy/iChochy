@@ -24,7 +24,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: env
     - run: echo ${{secrets.ICHOCHY}}
-      env:
-        iChochy: ${{secrets.ICHOCHY}}
     #- run: npm install algoliasearch
     #- run: node .github/workflows/algolia.js
