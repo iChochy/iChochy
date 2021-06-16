@@ -8,7 +8,7 @@
     <language>zh_CN</language>
     <lastBuildDate>Sat, 12 Jun 2021 15:25:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
     <item>
-      <title>使用 GitHub Action 自动上传搜索记录到 Algolia</title>
+      <title>使用 GitHub Actions 自动上传搜索记录到 Algolia</title>
       <link>https://ichochy.com/posts/20210612.html</link>
       <pubDate>Sat, 12 Jun 2021 15:25:45 +0800</pubDate>
       
