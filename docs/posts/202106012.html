@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="baidu-site-verification" content="UKLCWEOq0J" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用 GitHub Action 自动上传搜索记录到 Algolia &middot; 回忆中的明天</title>
+  <meta name="keywords" content="blog, algolia, hugo, search" />
+  <meta name="description" content="博客使用 Algolia 实现搜索功能，手动上传搜索记录数据一直很烦琐，只好苦学 API 和 Action，通过 GitHub Actions 实现自动上传搜索记录到 Algolia，完美呈现。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <script defer = "defer" src="/js/toc.js"></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#github-actions">GitHub Actions</a></li>
+    <li><a href="#生成搜索数据">生成搜索数据</a>
+      <ul>
+        <li><a href="#数据格式">数据格式</a></li>
+      </ul>
+    </li>
+    <li><a href="#设置-secrets">设置 Secrets</a>
+      <ul>
+        <li><a href="#algolia-参数信息">Algolia 参数信息</a></li>
+        <li><a href="#api-keys">API KEYS</a></li>
+      </ul>
+    </li>
+    <li><a href="#新建-actions">新建 Actions</a>
+      <ul>
+        <li><a href="#新建自己的工作流程">新建自己的工作流程</a></li>
+        <li><a href="#写入工作流程">写入工作流程</a></li>
+        <li><a href="#具体内容">具体内容</a></li>
+      </ul>
+    </li>
+    <li><a href="#执行过程和结果">执行过程和结果</a></li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/202106012.html">使用 GitHub Action 自动上传搜索记录到 Algolia</a></h1>
+  <em>
+  <time datetime=2021/06/12 class="post-date">
+    2021/06/12 
+  </time>
+  
+      <a href="https://ichochy.com/categories/blog.html">#blog</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/blog.html">#blog</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/algolia.html">#algolia</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/hugo.html">#hugo</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/search.html">#search</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>博客使用 Algolia 实现搜索功能，手动上传搜索记录数据一直很烦琐，只好苦学 API 和 Action，通过 GitHub Actions 实现自动上传搜索记录到 Algolia，完美呈现。</p>
+<h2 id="github-actions">GitHub Actions</h2>
+<p>使用 GitHub Actions 在您的存储库中自动化、自定义和执行您的软件开发工作流程。您可以发现、创建和共享操作以执行您喜欢的任何作业，包括 CI/CD，并在完全自定义的工作流中组合操作。</p>
+<h2 id="生成搜索数据">生成搜索数据</h2>
+<h3 id="数据格式">数据格式</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  {
+    <span style="color:#f92672">&#34;objectID&#34;</span>: <span style="color:#ae81ff">1</span>,
+    <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>,
+    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;回忆中的明天&#34;</span>,
+    <span style="color:#f92672">&#34;summary&#34;</span>: <span style="color:#e6db74">&#34;码农小站，写点Java、Swift和感悟&#34;</span>,
+    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;码农小站，写点Java、Swift和感悟&#34;</span>,
+    <span style="color:#f92672">&#34;pubDate&#34;</span>: <span style="color:#e6db74">&#34;2021-06-01T11:25:45+08:00&#34;</span>
+  } 
+]
+</code></pre></div><p><strong>数据生成参考：</strong> <a href="https://ichochy.com/posts/20210522.html">使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索</a></p>
+<h2 id="设置-secrets">设置 Secrets</h2>
+<p><code>Settings =&gt; Secrets =&gt; New repository secret</code></p>
+<p><img src="https://images.ichochy.com/162380894499277918.png" alt="162380894499277918"></p>
+<h3 id="algolia-参数信息">Algolia 参数信息</h3>
+<ul>
+<li>APPLICATION_ID    （应用程序ID）</li>
+<li>ADMIN_API_KEY     （管理API KEY，注意保密，不可共享）</li>
+<li>INDEX_NAME        （索引名称）</li>
+<li>FILE_PATH         （搜索数据路径）</li>
+</ul>
+<p><strong>注：</strong> <code>FILE_PATH</code> 以项目为起点目录，如: <code>iChochy.github.io/docs/algolia.json</code> 填写 <code>docs/docs/algolia.json</code></p>
+<p><img src="https://images.ichochy.com/162381887074727919.png" alt="162381887074727919"></p>
+<h3 id="api-keys">API KEYS</h3>
+<p><img src="https://images.ichochy.com/16219162613538278.png" alt="API KEY"></p>
+<h2 id="新建-actions">新建 Actions</h2>
+<h3 id="新建自己的工作流程">新建自己的工作流程</h3>
+<p><img src="https://images.ichochy.com/162381956373099720.png" alt="162381956373099720"></p>
+<h3 id="写入工作流程">写入工作流程</h3>
+<p><img src="https://images.ichochy.com/162381977872430521.png" alt="162381977872430521"></p>
+<h3 id="具体内容">具体内容</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">name: Algolia Upload Records
+on:
+  <span style="color:#f92672">[</span>push<span style="color:#f92672">]</span> <span style="color:#75715e">#推送时执行</span>
+jobs:
+  algolia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        <span style="color:#75715e"># 获取代码 Checkout</span>
+        uses: actions/checkout@v2
+      - name: Upload Records
+        <span style="color:#75715e"># 使用 Action</span>
+        uses: iChochy/Algolia-Upload-Records@main
+        <span style="color:#75715e"># 设置环境变量</span>
+        env:
+          APPLICATION_ID: <span style="color:#e6db74">${</span>{secrets.APPLICATION_ID<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+          ADMIN_API_KEY: <span style="color:#e6db74">${</span>{secrets.ADMIN_API_KEY<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+          INDEX_NAME: <span style="color:#e6db74">${</span>{secrets.INDEX_NAME<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+          FILE_PATH: <span style="color:#e6db74">${</span>{secrets.FILE_PATH<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</code></pre></div><h2 id="执行过程和结果">执行过程和结果</h2>
+<p>执行成功后会返回结果 ID
+<img src="https://images.ichochy.com/162381997971999822.png" alt="162381997971999822"></p>
+<h2 id="引用">引用</h2>
+<ul>
+<li>GitHub 操作快速入门：<a href="https://docs.github.com/en/actions/quickstart">https://docs.github.com/en/actions/quickstart</a></li>
+<li>Algolia Upload Records Action：<a href="https://github.com/iChochy/Algolia-Upload-Records">https://github.com/iChochy/Algolia-Upload-Records</a></li>
+</ul>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210522.html">
+            使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索
+            <small>2021/05/22</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200810.html">
+            HUGO 目录详解，创建自己的网站系统
+            <small>2020/08/10</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200802.html">
+            免费创建属于自己的博客，Hugo&#43;Github Pages
+            <small>2020/08/02</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200822.html">
+            Vercel 上自动部署你的个人博客 Hugo
+            <small>2020/08/22</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190925.html">
+            jekyll-admin的搭建和使用
+            <small>2019/09/25</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/202106012.html">https://ichochy.com/posts/202106012.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20210602.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
