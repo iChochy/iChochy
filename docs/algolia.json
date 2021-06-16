@@ -1,7 +1,7 @@
 [
   {
-    "objectID": 202106012,
-    "url": "https://ichochy.com/posts/202106012.html",
+    "objectID": 20210612,
+    "url": "https://ichochy.com/posts/20210612.html",
     "title": "使用 GitHub Action 自动上传搜索记录到 Algolia",
     "summary": "博客使用 Algolia 实现搜索功能，手动上传搜索记录数据一直很烦琐，只好苦学 API 和 Action，通过 GitHub Actions 实现自动上传搜索记录到 Algolia，完美呈现。",
     "content": "博客使用 Algolia 实现搜索功能，手动上传搜索记录数据一直很烦琐，只好苦学 API 和 Action，通过 GitHub Actions 实现自动上传搜索记录到 Algolia，完美呈现。\nGitHub Actions 使用 GitHub Actions 在您的存储库中自动化、自定义和执行您的软件开发工作流程。您可以发现、创建和共享操作以执行您喜欢的任何作业，包括 CI/CD，并在完全自定义的工作流中组合操作。\n生成搜索数据 数据格式 [ { \u0026#34;objectID\u0026#34;: 1, \u0026#34;url\u0026#34;: \u0026#34;https://ichochy.com\u0026#34;, \u0026#34;title\u0026#34;: \u0026#34;回忆中的明天\u0026#34;, \u0026#34;summary\u0026#34;: \u0026#34;码农小站，写点Java、Swift和感悟\u0026#34;, \u0026#34;content\u0026#34;: \u0026#34;码农小站，写点Java、Swift和感悟\u0026#34;, \u0026#34;pubDate\u0026#34;: \u0026#34;2021-06-01T11:25:45+08:00\u0026#34; } ] 数据生成参考： 使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索\n设置 Secrets Settings =\u0026gt; Secrets =\u0026gt; New repository secret\nAlgolia 参数信息  APPLICATION_ID （应用程序ID） ADMIN_API_KEY （管理API KEY，注意保密，不可共享） INDEX_NAME （索引名称） FILE_PATH （搜索数据路径）  注： FILE_PATH 以项目为起点目录，如: iChochy.github.io/docs/algolia.json 填写 docs/docs/algolia.json\nAPI KEYS 新建 Actions 新建自己的工作流程 写入工作流程 具体内容 name: Algolia Upload Records on: [push] #推送时执行 jobs: algolia: runs-on: ubuntu-latest steps: - name: Checkout # 获取代码 Checkout uses: actions/checkout@v2 - name: Upload Records # 使用 Action uses: iChochy/Algolia-Upload-Records@main # 设置环境变量 env: APPLICATION_ID: ${{secrets.APPLICATION_ID}} ADMIN_API_KEY: ${{secrets.ADMIN_API_KEY}} INDEX_NAME: ${{secrets.INDEX_NAME}} FILE_PATH: ${{secrets.FILE_PATH}} 执行过程和结果 执行成功后会返回结果 ID 引用  GitHub 操作快速入门：https://docs.github.com/en/actions/quickstart Algolia Upload Records Action：https://github.com/iChochy/Algolia-Upload-Records  ",
