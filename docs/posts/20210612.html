@@ -162,6 +162,7 @@
 <h3 id="新建自己的工作流程">新建自己的工作流程</h3>
 <p><img src="https://images.ichochy.com/162381956373099720.png" alt="162381956373099720"></p>
 <h3 id="写入工作流程">写入工作流程</h3>
+<p>文件路径如：<code>iChochy.github.io/.github/workflows/main.yml</code></p>
 <p><img src="https://images.ichochy.com/162381977872430521.png" alt="162381977872430521"></p>
 <h3 id="具体内容">具体内容</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">name: Algolia Upload Records
@@ -184,8 +185,9 @@ jobs:
           INDEX_NAME: <span style="color:#e6db74">${</span>{secrets.INDEX_NAME<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
           FILE_PATH: <span style="color:#e6db74">${</span>{secrets.FILE_PATH<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
 </code></pre></div><h2 id="执行过程和结果">执行过程和结果</h2>
-<p>执行成功后会返回结果 ID
-<img src="https://images.ichochy.com/162381997971999822.png" alt="162381997971999822"></p>
+<p><code>Actions =&gt; Workflows</code> 中查询所有工作流程的工作日志</p>
+<p>上传记录成功后会返回数据记录 ID</p>
+<p><img src="https://images.ichochy.com/162381997971999822.png" alt="162381997971999822"></p>
 <h2 id="引用">引用</h2>
 <ul>
 <li>GitHub 操作快速入门：<a href="https://docs.github.com/en/actions/quickstart">https://docs.github.com/en/actions/quickstart</a></li>
@@ -253,7 +255,7 @@ jobs:
   </span>
   <span class="pagination-item newer">
     
-    下一篇
+    <a href="https://ichochy.com/posts/20210615.html" class="pag-link">下一篇</a>
     
   </span>
 </div>

@@ -6,7 +6,16 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Sat, 12 Jun 2021 15:25:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <lastBuildDate>Tue, 15 Jun 2021 22:25:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <item>
+      <title>Spring 构建 RESTful Web 服务 Hello World</title>
+      <link>https://ichochy.com/posts/20210615.html</link>
+      <pubDate>Tue, 15 Jun 2021 22:25:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20210615.html</guid>
+      <description>使用 Spring 创建 RESTful Web 服务，实现Hello World的 RESTful 请求</description>
+    </item>
+    
     <item>
       <title>使用 GitHub Actions 自动上传搜索记录到 Algolia</title>
       <link>https://ichochy.com/posts/20210612.html</link>
