@@ -6,9 +6,9 @@
   <meta name="generator" content="Hugo 0.75.1" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spring 构建 RESTful Web 服务 Hello World &middot; 回忆中的明天</title>
+  <title>Spring 调用 RESTful Web 服务 Hello World &middot; 回忆中的明天</title>
   <meta name="keywords" content="spring, spring web, RESTful" />
-  <meta name="description" content="使用 Spring 创建 RESTful Web 服务，实现Hello World的 RESTful 请求" />
+  <meta name="description" content="使用 Spring 的 RestTemplate 调用 HTTP 请求，实现 RESTful Web 服务调用" />
   
   <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
   <link type="text/css" rel="stylesheet" href="/css/poole.css">
@@ -64,7 +64,6 @@
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#什么是-restful">什么是 RESTful</a></li>
     <li><a href="#开发工具">开发工具</a></li>
     <li><a href="#创建项目">创建项目</a>
       <ul>
@@ -75,7 +74,7 @@
     <li><a href="#编写项目">编写项目</a>
       <ul>
         <li><a href="#创建数据对象">创建数据对象</a></li>
-        <li><a href="#创建控制器">创建控制器</a></li>
+        <li><a href="#创建请求服务">创建请求服务</a></li>
       </ul>
     </li>
     <li><a href="#项目目录">项目目录</a></li>
@@ -95,10 +94,10 @@
 </aside>
     <main class="content container">
     <div class="post">
-  <h1 class="post-title"><a href="https://ichochy.com/posts/20210615.html">Spring 构建 RESTful Web 服务 Hello World</a></h1>
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20210620.html">Spring 调用 RESTful Web 服务 Hello World</a></h1>
   <em>
-  <time datetime=2021/06/15 class="post-date">
-    2021/06/15 
+  <time datetime=2021/06/20 class="post-date">
+    2021/06/20 
   </time>
   
       <a href="https://ichochy.com/categories/spring.html">#spring</a>
@@ -126,16 +125,7 @@
   </div>
   
 
-  <p>使用 Spring 创建 RESTful Web 服务，实现<code>Hello World</code>的 RESTful 请求</p>
-<h2 id="什么是-restful">什么是 RESTful</h2>
-<p>RESTful 是应用程序接口的一种架构风格，它使用 HTTP 请求来访问和使用数据。请求方式包含 GET、PUT、POST 和 DELETE 类型，这些类型是指有关资源操作的读取、更新、创建和删除。</p>
-<p>RESTful 协议定义 HTTP 方法如下：</p>
-<ul>
-<li>GET 检索资源</li>
-<li>PUT 更新资源</li>
-<li>POST 创建资源</li>
-<li>DELETE 删除资源</li>
-</ul>
+  <p>使用 Spring 的 <code>RestTemplate</code> 调用 HTTP 请求，实现 RESTful Web 服务调用</p>
 <h2 id="开发工具">开发工具</h2>
 <ul>
 <li>IDEA: 2021.1.2</li>
@@ -171,6 +161,11 @@
     <span style="color:#66d9ef">private</span> String content<span style="color:#f92672">;</span>
 
     <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * JSON 转换时需要无参构造方法
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Greeting</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+
+    <span style="color:#75715e">/**
 </span><span style="color:#75715e">     * 用参的构造方法
 </span><span style="color:#75715e">     * @param id
 </span><span style="color:#75715e">     * @param content
@@ -196,40 +191,50 @@
         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> content<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><h3 id="创建控制器">创建控制器</h3>
+</code></pre></div><p>**注：**需要一个无参的构造方法，<code>JSON</code>转换时需要</p>
+<h3 id="创建请求服务">创建请求服务</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
 </span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
 </span><span style="color:#75715e"> * URL:https://ichochy.com
-</span><span style="color:#75715e"> * Date:2021/06/17 11:44:17
+</span><span style="color:#75715e"> * Date:2021/06/25 09:07:25
 </span><span style="color:#75715e"> */</span>
 
 <span style="color:#f92672">package</span> com.ichochy.example.restful<span style="color:#f92672">;</span>
 
-<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RequestParam<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestController<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.CommandLineRunner<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.web.client.RestTemplateBuilder<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.stereotype.Service<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.client.RestTemplate<span style="color:#f92672">;</span>
 
-<span style="color:#f92672">import</span> java.util.concurrent.atomic.AtomicLong<span style="color:#f92672">;</span>
+<span style="color:#a6e22e">@Service</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RequsetService</span> <span style="color:#f92672">{</span>
 
-<span style="color:#a6e22e">@RestController</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RESTFulController</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> RestTemplate <span style="color:#a6e22e">restTemplate</span><span style="color:#f92672">(</span>RestTemplateBuilder builder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> builder<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String template <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, %s!&#34;</span><span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> AtomicLong counter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">();</span>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> ObjectMapper <span style="color:#a6e22e">mapper</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ObjectMapper<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
 
-    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/greeting&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#66d9ef">public</span> Greeting <span style="color:#a6e22e">greeting</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span> defaultValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;World&#34;</span><span style="color:#f92672">)</span> String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Greeting<span style="color:#f92672">(</span>counter<span style="color:#f92672">.</span><span style="color:#a6e22e">incrementAndGet</span><span style="color:#f92672">(),</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>template<span style="color:#f92672">,</span> name<span style="color:#f92672">));</span>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> CommandLineRunner <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>RestTemplate restTemplate<span style="color:#f92672">,</span>ObjectMapper mapper<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> args <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+            Greeting object <span style="color:#f92672">=</span> restTemplate<span style="color:#f92672">.</span><span style="color:#a6e22e">getForObject</span><span style="color:#f92672">(</span>
+                    <span style="color:#e6db74">&#34;http://localhost:8080/greeting&#34;</span><span style="color:#f92672">,</span> Greeting<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>mapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsString</span><span style="color:#f92672">(</span>object<span style="color:#f92672">));</span>
+        <span style="color:#f92672">};</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><ul>
-<li>@RestController 注释，它将类标记为控制器，其中每个方法返回的是对象而不是视图。
-<ul>
-<li>它是同时包含@Controller和@ResponseBody</li>
-</ul>
-</li>
-<li>@GetMapping 注释，定义 <code>/greeting</code> 为 <code>HTTP GET</code> 请求</li>
-<li>@RequestParam 注释，定义参数（<code>name</code>）为请求参数，默认值为 “<code>World</code>”</li>
+<li>@Service 注释，它将类标记为服务</li>
+<li>@Bean 注释，定义类的方法实例化</li>
+<li>RestTemplate.getForObject，GET 请求地址，返回数据对象</li>
+<li>ObjectMapper.writeValueAsString，对象转化为字符串</li>
 </ul>
 <h2 id="项目目录">项目目录</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├── pom.xml
@@ -242,6 +247,7 @@
                         ├── ExampleApplication.java
                         └── restful
                             ├── Greeting.java
+                            ├── RequsetService.java
                             └── RESTFulController.java
 </code></pre></div><h2 id="运行项目">运行项目</h2>
 <h3 id="dubug-运行项目">Dubug 运行项目</h3>
@@ -267,22 +273,19 @@
 </code></pre></div><p>服务默认端口号为<code>8080</code></p>
 <p><img src="https://images.ichochy.com/162314892348552510.png" alt="162314892348552510"></p>
 <h3 id="访问测试">访问测试</h3>
-<p>访问：<a href="http://localhost:8080/greeting">http://localhost:8080/greeting</a></p>
+<p>日志中会打印如下信息，说明<code>RestTemplate.getForObject</code>成功请求并返回数据对象</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#ae81ff">1</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;Hello, World!&#34;</span>}
-</code></pre></div><p>访问：<a href="http://localhost:8080/greeting?name=iChochy">http://localhost:8080/greeting?name=iChochy</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#ae81ff">2</span>,<span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;Hello, iChochy!&#34;</span>}
 </code></pre></div><h2 id="总结">总结</h2>
 <ul>
-<li>通过 Spring 可以快速创建 RESTful 请求服务，实现服务接口统一。</li>
-<li>其它请求方式可以通过 @RequestMapping 注释中的 method 参数指定，如 <code>@RequestMapping(method=GET)</code>。</li>
-<li>默认情况使用 <code>Jackson</code> JSON库自动将类型实例编组为 JSON</li>
+<li><code>RestTemplate.getForObject</code>成功请求并返回数据对象</li>
+<li><code>ObjectMapper.writeValueAsString</code>将对象转化为字符串</li>
 </ul>
 <h2 id="github">GitHub</h2>
 <p><a href="https://github.com/iChochy/Example">https://github.com/iChochy/Example</a></p>
 <h2 id="引用">引用</h2>
 <ul>
 <li>Jackson：<a href="https://github.com/FasterXML/jackson">https://github.com/FasterXML/jackson</a></li>
-<li>Spring rest service：<a href="https://spring.io/guides/gs/rest-service/">https://spring.io/guides/gs/rest-service/</a></li>
+<li>Consuming RESTFul Service：<a href="https://spring.io/guides/gs/consuming-rest/">https://spring.io/guides/gs/consuming-rest/</a></li>
 </ul>
 
   
@@ -291,6 +294,13 @@
   <div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210615.html">
+            Spring 构建 RESTful Web 服务 Hello World
+            <small>2021/06/15</small>
+          </a></h3>
+      </li>
       
       <li>
         <h3><a href="https://ichochy.com/posts/20210602.html">
@@ -320,20 +330,13 @@
           </a></h3>
       </li>
       
-      <li>
-        <h3><a href="https://ichochy.com/posts/20191017.html">
-            Spring Cloud Alibaba Nacos Config 实战
-            <small>2019/10/17</small>
-          </a></h3>
-      </li>
-      
     </ul>
   </div>
   
 
   
 <p>
-  <strong>源文</strong>：<a href="https://ichochy.com/posts/20210615.html">https://ichochy.com/posts/20210615.html</a>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20210620.html">https://ichochy.com/posts/20210620.html</a>
 </p>
 
 </div>
@@ -341,12 +344,12 @@
 <div class="pagination">
   <span class="pagination-item older">
     
-    <a href="https://ichochy.com/posts/20210612.html" class="pag-link">上一篇</a>
+    <a href="https://ichochy.com/posts/20210615.html" class="pag-link">上一篇</a>
     
   </span>
   <span class="pagination-item newer">
     
-    <a href="https://ichochy.com/posts/20210620.html" class="pag-link">下一篇</a>
+    下一篇
     
   </span>
 </div>

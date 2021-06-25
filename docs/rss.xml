@@ -6,7 +6,16 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
-    <lastBuildDate>Tue, 15 Jun 2021 22:25:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 11:33:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <item>
+      <title>Spring 调用 RESTful Web 服务 Hello World</title>
+      <link>https://ichochy.com/posts/20210620.html</link>
+      <pubDate>Sun, 20 Jun 2021 11:33:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20210620.html</guid>
+      <description>使用 Spring 的 RestTemplate 调用 HTTP 请求，实现 RESTful Web 服务调用</description>
+    </item>
+    
     <item>
       <title>Spring 构建 RESTful Web 服务 Hello World</title>
       <link>https://ichochy.com/posts/20210615.html</link>
