@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>快捷支付停车费，免去扫码操作 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="app, life" />
+  <meta name="description" content="小区一直都是停车难，每次还要扫码缴停车费，车库网络还不好，到小区门口就排起长队扫码。快人一步，创建快捷指令，一键支付停车费。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <script defer = "defer" src="/js/toc.js"></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建指令">创建指令</a>
+      <ul>
+        <li><a href="#获取二维码地址">获取二维码地址</a></li>
+        <li><a href="#新建快捷指令">新建快捷指令</a></li>
+        <li><a href="#使用快捷指令">使用快捷指令</a></li>
+      </ul>
+    </li>
+    <li><a href="#添加分享指令">添加分享指令</a>
+      <ul>
+        <li><a href="#快捷指令地址">快捷指令地址</a></li>
+        <li><a href="#添加快捷指令">添加快捷指令</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20210712.html">快捷支付停车费，免去扫码操作</a></h1>
+  <em>
+  <time datetime=2021/07/12 class="post-date">
+    2021/07/12 
+  </time>
+  
+      <a href="https://ichochy.com/categories/life.html">#life</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/app.html">#app</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/life.html">#life</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>小区一直都是停车难，每次还要扫码缴停车费，车库网络还不好，到小区门口就排起长队扫码。快人一步，创建快捷指令，一键支付停车费。</p>
+<h2 id="创建指令">创建指令</h2>
+<p>用苹果手机的<code>快捷指令</code>来创建，以<strong>怡园</strong>的二维码为例来创建快捷指令。</p>
+<h3 id="获取二维码地址">获取二维码地址</h3>
+<p>拿出你的手机，<code>支付宝</code>扫描缴费二维码，复制二维码地址，创建快捷指令会用到，很关键的一步。</p>
+<h3 id="新建快捷指令">新建快捷指令</h3>
+<ol>
+<li>新建快捷指令</li>
+<li>添加文稿，打到文本，输入启动支付宝的 <code>scheme</code> 地址：<code>alipays://platformapi/startapp?appId=20000067&amp;url=</code></li>
+<li>添加文稿，选择<code>文本</code>，输入二维码地址</li>
+<li>添加脚本，选择<code>编码URL</code>，编码二维码地址的<code>文本</code></li>
+<li>添加文稿，选择<code>合并文本</code>，合并支付宝 <code>scheme</code> 地址的<code>文本</code>和二维码地址的<code>文本</code>，使用<code>自定</code>合并</li>
+<li>添加网页，选择<code>打开URL</code>，打开<code>合并后的文本</code></li>
+<li><code>下一步</code>设置快捷指令的名称和图标</li>
+<li>编辑，<code>添加到主屏幕</code></li>
+</ol>
+<h3 id="使用快捷指令">使用快捷指令</h3>
+<p>打开主屏幕的<code>快捷缴费</code>，自动打开支付宝，完成停车缴费</p>
+<h2 id="添加分享指令">添加分享指令</h2>
+<h3 id="快捷指令地址">快捷指令地址</h3>
+<p>指令分享地址：<a href="https://www.icloud.com/shortcuts/addcda91b2ce4ade8f35b79d0791f869">https://www.icloud.com/shortcuts/addcda91b2ce4ade8f35b79d0791f869</a></p>
+<h3 id="添加快捷指令">添加快捷指令</h3>
+<ol>
+<li><code>Safari</code> 浏览器打开快捷指令地址，<code>获取捷径</code></li>
+<li>查看<code>快捷指令</code>的内容并添加</li>
+</ol>
+<p><strong>注:</strong> 在手机<code>设置</code>中，找到<code>快捷指令</code>并打开<code>允许不受信任的快捷指令</code>开关，然后就可以直接添加分享的<code>快捷指令</code></p>
+<h2 id="总结">总结</h2>
+<p>通过<code>scheme</code>启动支付宝，打开二维码地址完成缴费操作，快人一步，去掉了找二维码和扫二维码的操作。</p>
+<p><strong>更快一步，在支付宝中输入车牌号后的支付页面地址放入<code>快捷指令</code>中，替换掉原来的二维码地址，就可以不用再次输入车牌号，直接支付</strong></p>
+<h2 id="引用">引用</h2>
+<p><a href="https://myjsapi.alipay.com/jsapi/h5app-lifecycle.html#4__E9_80_9A_E8_BF_87scheme_E5_90_AF_E5_8A_A8">通过scheme启动支付宝</a></p>
+<p><a href="https://support.apple.com/zh-cn/guide/shortcuts/welcome/ios">快捷指令使用手册</a></p>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210710.html">
+            居家全屋无线 Wi-Fi 网络改造
+            <small>2021/07/10</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200818.html">
+            重疾保险理赔的亲身经历，分享下流程和套路
+            <small>2020/08/18</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190823.html">
+            Mac 将 App 程序打包成为 dmg
+            <small>2019/08/23</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190822.html">
+            iUploader 2.0 七牛云上传工具
+            <small>2019/08/22</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190410.html">
+            持续集成和持续交付工具-jenkins
+            <small>2019/04/10</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20210712.html">https://ichochy.com/posts/20210712.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20210710.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
