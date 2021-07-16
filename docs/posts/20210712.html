@@ -6,7 +6,7 @@
   <meta name="generator" content="Hugo 0.75.1" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>快捷支付停车费，免去扫码操作 &middot; 回忆中的明天</title>
+  <title>快捷支付停车费，免去扫码操作，快捷指令快速支付 &middot; 回忆中的明天</title>
   <meta name="keywords" content="app, life" />
   <meta name="description" content="小区一直都是停车难，每次还要扫码缴停车费，车库网络还不好，到小区门口就排起长队扫码。快人一步，创建快捷指令，一键支付停车费。" />
   
@@ -86,7 +86,7 @@
 </aside>
     <main class="content container">
     <div class="post">
-  <h1 class="post-title"><a href="https://ichochy.com/posts/20210712.html">快捷支付停车费，免去扫码操作</a></h1>
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20210712.html">快捷支付停车费，免去扫码操作，快捷指令快速支付</a></h1>
   <em>
   <time datetime=2021/07/12 class="post-date">
     2021/07/12 
@@ -118,16 +118,23 @@
 <p>用苹果手机的<code>快捷指令</code>来创建，以<strong>怡园</strong>的二维码为例来创建快捷指令。</p>
 <h3 id="获取二维码地址">获取二维码地址</h3>
 <p>拿出你的手机，<code>支付宝</code>扫描缴费二维码，复制二维码地址，创建快捷指令会用到，很关键的一步。</p>
+<p><img src="https://images.ichochy.com/1531626409012_.pic.jpg" alt="1531626409012_.pic"></p>
 <h3 id="新建快捷指令">新建快捷指令</h3>
 <ol>
-<li>新建快捷指令</li>
-<li>添加文稿，打到文本，输入启动支付宝的 <code>scheme</code> 地址：<code>alipays://platformapi/startapp?appId=20000067&amp;url=</code></li>
-<li>添加文稿，选择<code>文本</code>，输入二维码地址</li>
+<li>新建快捷指令，添加操作
+<img src="https://images.ichochy.com/1601626409014_.pic.jpg" alt="1601626409014_.pic"></li>
+<li>添加文稿，选择<code>文本</code>，输入启动支付宝的 <code>scheme</code> 地址：<code>alipays://platformapi/startapp?appId=20000067&amp;url=</code>
+<img src="https://images.ichochy.com/1581626409014_.pic.jpg" alt="1581626409014_.pic"></li>
+<li>添加文稿，选择<code>文本</code>，输入二维码地址
+<img src="https://images.ichochy.com/1611626409015_.pic.jpg" alt="1611626409015_.pic">
+<img src="https://images.ichochy.com/1631626409032_.pic.jpg" alt="1631626409032_.pic"></li>
 <li>添加脚本，选择<code>编码URL</code>，编码二维码地址的<code>文本</code></li>
 <li>添加文稿，选择<code>合并文本</code>，合并支付宝 <code>scheme</code> 地址的<code>文本</code>和二维码地址的<code>文本</code>，使用<code>自定</code>合并</li>
-<li>添加网页，选择<code>打开URL</code>，打开<code>合并后的文本</code></li>
-<li><code>下一步</code>设置快捷指令的名称和图标</li>
-<li>编辑，<code>添加到主屏幕</code></li>
+<li>添加网页，选择<code>打开URL</code>，打开<code>合并后的文本</code>
+<img src="https://images.ichochy.com/1651626409032_.pic.jpg" alt="1651626409032_.pic"></li>
+<li>设置快捷指令的名称和图标</li>
+<li>编辑，<code>添加到主屏幕</code>
+<img src="https://images.ichochy.com/1621626409031_.pic.jpg" alt="1621626409031_.pic"></li>
 </ol>
 <h3 id="使用快捷指令">使用快捷指令</h3>
 <p>打开主屏幕的<code>快捷缴费</code>，自动打开支付宝，完成停车缴费</p>
@@ -136,13 +143,20 @@
 <p>指令分享地址：<a href="https://www.icloud.com/shortcuts/addcda91b2ce4ade8f35b79d0791f869">https://www.icloud.com/shortcuts/addcda91b2ce4ade8f35b79d0791f869</a></p>
 <h3 id="添加快捷指令">添加快捷指令</h3>
 <ol>
-<li><code>Safari</code> 浏览器打开快捷指令地址，<code>获取捷径</code></li>
-<li>查看<code>快捷指令</code>的内容并添加</li>
+<li>
+<p><code>Safari</code> 浏览器打开快捷指令地址，<code>获取捷径</code>
+<img src="https://images.ichochy.com/1641626409032_.pic.jpg" alt="1641626409032_.pic"></p>
+</li>
+<li>
+<p>查看<code>快捷指令</code>的内容并添加
+<img src="https://images.ichochy.com/1651626409035_.pic.jpg" alt="1651626409035_.pic"></p>
+</li>
 </ol>
 <p><strong>注:</strong> 在手机<code>设置</code>中，找到<code>快捷指令</code>并打开<code>允许不受信任的快捷指令</code>开关，然后就可以直接添加分享的<code>快捷指令</code></p>
 <h2 id="总结">总结</h2>
 <p>通过<code>scheme</code>启动支付宝，打开二维码地址完成缴费操作，快人一步，去掉了找二维码和扫二维码的操作。</p>
-<p><strong>更快一步，在支付宝中输入车牌号后的支付页面地址放入<code>快捷指令</code>中，替换掉原来的二维码地址，就可以不用再次输入车牌号，直接支付</strong></p>
+<p><strong>更快一步，在支付宝中输入车牌号后的支付页面地址放入<code>快捷指令</code>中，替换掉原来的二维码地址，就可以不用再次输入车牌号，直接支付</strong>
+<img src="https://images.ichochy.com/1561626409013_.pic.jpg" alt="1561626409013_.pic"></p>
 <h2 id="引用">引用</h2>
 <p><a href="https://myjsapi.alipay.com/jsapi/h5app-lifecycle.html#4__E9_80_9A_E8_BF_87scheme_E5_90_AF_E5_8A_A8">通过scheme启动支付宝</a></p>
 <p><a href="https://support.apple.com/zh-cn/guide/shortcuts/welcome/ios">快捷指令使用手册</a></p>
