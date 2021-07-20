@@ -128,31 +128,17 @@
 <h2 id="beats-系列">Beats 系列</h2>
 <p>全品类采集器，搞定所有数据类型，如下：</p>
 <ol>
-<li>
-<p>Filebeat：日志文件</p>
-</li>
-<li>
-<p>Metricbeat：指标</p>
-</li>
-<li>
-<p>Packetbeat：网络数据</p>
-</li>
-<li>
-<p>Winlogbeat：Windows 事件日志</p>
-</li>
-<li>
-<p>Auditbeat：审计数据</p>
-</li>
-<li>
-<p>Heartbeat：运行时间监控</p>
-</li>
-<li>
-<p>Functionbeat：无需服务器的采集器</p>
-</li>
+<li>Filebeat：日志文件</li>
+<li>Metricbeat：指标</li>
+<li>Packetbeat：网络数据</li>
+<li>Winlogbeat：Windows 事件日志</li>
+<li>Auditbeat：审计数据</li>
+<li>Heartbeat：运行时间监控</li>
+<li>Functionbeat：无需服务器的采集器</li>
 </ol>
 <h2 id="一下载镱像image">一、下载镱像(image)</h2>
-<p>Docker映像和标签的列表：<a href="https://www.docker.elastic.co">https://www.docker.elastic.co</a></p>
-<p><strong>搜索镱像(image)</strong></p>
+<p>Docker映像和标签的列表：<a href="https://www.docker.elastic.co">https://www.docker.elastic.co</a>
+<strong>搜索镱像(image)</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search elasticsearch
 docker search kibana 
 docker search logstash 
@@ -211,8 +197,8 @@ writable by the owner but the permissions are <span style="color:#e6db74">&#34;-
 permissions use: <span style="color:#e6db74">&#39;chmod go-w /etc/{beatname}/{beatname}.yml&#39;</span><span style="color:#f92672">)</span>
 </code></pre></div><h2 id="三运行容器">三、运行容器</h2>
 <p>宿主机<code>hosts</code>中添加</p>
-<pre><code>127.0.0.1      elasticsearch
-</code></pre><p><strong>命令启动</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">127.0.0.1      elasticsearch
+</code></pre></div><p><strong>命令启动</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose -f ELK.yml up -d
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose 
                 -f  <span style="color:#75715e">#指定构建文件</span>
@@ -279,9 +265,9 @@ docker logs 4d53b3ab9772 -f
 <h2 id="七模拟采集日志">七、模拟采集日志</h2>
 <p>在<code>filebeat</code>的监控的文件路径下动态添加日志文件，日志就可以自动采集发送到<code>logstash</code>，过虑处理后发送到<code>elasticsearch</code></p>
 <p>运行<code>docker exec -it 4d53b3ab9772 bash</code>进入<code>filebeat</code>，在<code>logs</code>文件夹添加<code>web.log</code>文件</p>
-<pre><code>touch web.log   #创建日志文件
-echo &quot;https://ichochy.com&quot; &gt; web.log  #添加日志信息
-</code></pre><p>查看<code>logstash</code>日志信息可以看到打印的日志，监控来自<code>filebeat</code>发来的信息</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">touch web.log   <span style="color:#75715e">#创建日志文件</span>
+echo <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span> &gt; web.log  <span style="color:#75715e">#添加日志信息</span>
+</code></pre></div><p>查看<code>logstash</code>日志信息可以看到打印的日志，监控来自<code>filebeat</code>发来的信息</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">{
            <span style="color:#e6db74">&#34;ecs&#34;</span> <span style="color:#ae81ff">=&gt; {</span>
         <span style="color:#e6db74">&#34;version&#34;</span> <span style="color:#ae81ff">=&gt; &#34;1.4.0&#34;</span>
@@ -316,21 +302,15 @@ echo &quot;https://ichochy.com&quot; &gt; web.log  #添加日志信息
 docker logs 1b8cb2effede -f
 </code></pre></div><h2 id="八管理搜索分析日志">八、管理、搜索、分析日志</h2>
 <p>访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana</p>
-<p>在设置管理（<code>management</code>）中创建索引：<br>
+<p>在设置管理（<code>management</code>）中创建索引：
 <img src="https://images.ichochy.com/WX20210418-103626.png" alt="WX20210418-103626"></p>
 <p>在<code>Discover</code>可以看到刚刚添加进来的日志数据，开始你的表演…………</p>
 <p><img src="https://images.ichochy.com/15943959651825033.png" alt="15943959651825033"></p>
 <h2 id="引用">引用</h2>
 <ul>
-<li>
-<p><code>Beats</code>配置文件权限问题：<a href="https://www.elastic.co/guide/en/beats/libbeat/current/config-file-permissions.html">https://www.elastic.co/guide/en/beats/libbeat/current/config-file-permissions.html</a></p>
-</li>
-<li>
-<p><code>Compose</code>网络访问：<a href="https://docs.docker.com/compose/networking/">https://docs.docker.com/compose/networking/</a></p>
-</li>
-<li>
-<p><code>Docker</code>映像和标签的列表：<a href="https://www.docker.elastic.co">https://www.docker.elastic.co</a></p>
-</li>
+<li><code>Beats</code>配置文件权限问题：<a href="https://www.elastic.co/guide/en/beats/libbeat/current/config-file-permissions.html">https://www.elastic.co/guide/en/beats/libbeat/current/config-file-permissions.html</a></li>
+<li><code>Compose</code>网络访问：<a href="https://docs.docker.com/compose/networking/">https://docs.docker.com/compose/networking/</a></li>
+<li><code>Docker</code>映像和标签的列表：<a href="https://www.docker.elastic.co">https://www.docker.elastic.co</a></li>
 </ul>
 
   
