@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring Security 快速创建登录权限，安全管理资源权限 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="spring, spring boot, spring security, java" />
+  <meta name="description" content="使用 Spring Security 合理配置页面权限，管理用户登录权限，实现页面安全" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <script defer = "defer" src="/js/toc.js"></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#开发工具">开发工具</a></li>
+    <li><a href="#创建项目">创建项目</a></li>
+    <li><a href="#pomxml-添加依赖">pom.xml 添加依赖</a></li>
+    <li><a href="#编写项目">编写项目</a>
+      <ul>
+        <li><a href="#创建登录页面">创建登录页面</a></li>
+        <li><a href="#创建登出按钮">创建登出按钮</a></li>
+        <li><a href="#配置-mvcconfig">配置 MvcConfig</a></li>
+        <li><a href="#登录安全权限配置">登录安全权限配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#项目目录">项目目录</a></li>
+    <li><a href="#运行项目">运行项目</a>
+      <ul>
+        <li><a href="#启动器-exampleapplication">启动器 <code>ExampleApplication</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#github">GitHub</a></li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20211120.html">Spring Security 快速创建登录权限，安全管理资源权限</a></h1>
+  <em>
+  <time datetime=2021/11/20 class="post-date">
+    2021/11/20 
+  </time>
+  
+      <a href="https://ichochy.com/categories/spring.html">#spring</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring.html">#spring</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-boot.html">#spring boot</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-security.html">#spring security</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/java.html">#java</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>使用 Spring Security 合理配置页面权限，管理用户登录权限，实现页面安全</p>
+<h2 id="开发工具">开发工具</h2>
+<ul>
+<li>IDEA: 2021.1.2</li>
+<li>Java: 1.8</li>
+<li>Spring Boot: 2.5.2</li>
+</ul>
+<h2 id="创建项目">创建项目</h2>
+<p>打开 IDEA 创建新项目 <code>New Project</code>，使用 <a href="https://start.spring.io">start.spring.io</a> 快速构建
+<img src="https://images.ichochy.com/16226365527086133.png" alt="16226365527086133"></p>
+<p>添加 Spring Web 依赖，<code>finish</code> 创建项目
+<img src="https://images.ichochy.com/16226367387048384.png" alt="16226367387048384"></p>
+<h2 id="pomxml-添加依赖">pom.xml 添加依赖</h2>
+<p>添加 Spring Security 依赖</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color:#f92672">&lt;/artifactId&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+<span style="color:#f92672">&lt;dependency&gt;</span>
+    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-security<span style="color:#f92672">&lt;/artifactId&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><h2 id="编写项目">编写项目</h2>
+<h3 id="创建登录页面">创建登录页面</h3>
+<p><code>templates/login.html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">  ~ Copyright (c) 2021 iChochy
+</span><span style="color:#75715e">  ~ URL:https://ichochy.com
+</span><span style="color:#75715e">  ~ Date:2021/06/10 19:44:10
+</span><span style="color:#75715e">  --&gt;</span>
+
+<span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Login&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+
+&lt;<span style="color:#f92672">h1</span>&gt;Login&lt;/<span style="color:#f92672">h1</span>&gt;
+
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${param.error}&#34;</span>&gt;
+    Invalid username and password.
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${param.logout}&#34;</span>&gt;
+    You have been logged out.
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">th:action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{/login}&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">label</span>&gt; User Name : &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span>/&gt; &lt;/<span style="color:#f92672">label</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">label</span>&gt; Password: &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>/&gt; &lt;/<span style="color:#f92672">label</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sign In&#34;</span>/&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>创建<code>form</code>表单，登录地址<code>/login</code>，方法为<code>post</code></p>
+<h3 id="创建登出按钮">创建登出按钮</h3>
+<p><code>templates/index.html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">th:inline</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>&gt;Hello [[${#httpServletRequest.remoteUser}]]!&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">th:action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{/logout}&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sign Out&#34;</span>/&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+</code></pre></div><p><code>httpServletRequest.remoteUser</code>获取当前登录用户</p>
+<p>登出地址<code>/logout</code>，方法为<code>post</code></p>
+<h3 id="配置-mvcconfig">配置 MvcConfig</h3>
+<p>创建<code>com/ichochy/example/MvcConfig.java</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Date:2021/11/22 19:24:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Configuration<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.servlet.config.annotation.ViewControllerRegistry<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Configuration</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MvcConfig</span> <span style="color:#66d9ef">implements</span> WebMvcConfigurer <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addViewControllers</span><span style="color:#f92672">(</span>ViewControllerRegistry registry<span style="color:#f92672">){</span>
+        registry<span style="color:#f92672">.</span><span style="color:#a6e22e">addViewController</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">setViewName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;login&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>添加登录页面控制器，指定地址<code>/login</code></p>
+<h3 id="登录安全权限配置">登录安全权限配置</h3>
+<p>创建 <code>WebSecurityConfig</code>，继承 <code>WebSecurityConfigurerAdapter</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Date:2021/11/22 20:06:22
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.example.login<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Configuration<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.core.userdetails.User<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.core.userdetails.UserDetails<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.core.userdetails.UserDetailsService<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.crypto.factory.PasswordEncoderFactories<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.crypto.password.PasswordEncoder<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.security.provisioning.InMemoryUserDetailsManager<span style="color:#f92672">;</span>
+
+
+<span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@EnableWebSecurity</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebSecurityConfig</span> <span style="color:#66d9ef">extends</span> WebSecurityConfigurerAdapter <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">configure</span><span style="color:#f92672">(</span>HttpSecurity http<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        http
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">authorizeRequests</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">antMatchers</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">permitAll</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">anyRequest</span><span style="color:#f92672">().</span><span style="color:#a6e22e">authenticated</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">formLogin</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">loginPage</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">permitAll</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">and</span><span style="color:#f92672">()</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">logout</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">permitAll</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> UserDetailsService <span style="color:#a6e22e">userDetailsService</span><span style="color:#f92672">(){</span>
+        PasswordEncoder encoder <span style="color:#f92672">=</span> PasswordEncoderFactories<span style="color:#f92672">.</span><span style="color:#a6e22e">createDelegatingPasswordEncoder</span><span style="color:#f92672">();</span>
+        UserDetails userDetails <span style="color:#f92672">=</span> User<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">passwordEncoder</span><span style="color:#f92672">(</span>encoder<span style="color:#f92672">::</span>encode<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">username</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MLeo&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">password</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;iChochy&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">roles</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;iChochy&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> InMemoryUserDetailsManager<span style="color:#f92672">(</span>userDetails<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>重写<code>configure</code>，配置登录权限，配置非认证（<code>permitAll</code>）地址和认证（<code>authenticated</code>）地址，<code>loginPage</code>自定义登录页面和权限，<code>logout</code>自定义登出页面和权限</p>
+<p><code>userDetailsService</code>方法设置用户登录信息存入内存，校验用户登录信息</p>
+<ul>
+<li><code>passwordEncoder</code>指定密码加密编码</li>
+<li><code>username</code>指定用户为：<strong>MLeo</strong></li>
+<li><code>password</code>指定密码为：<strong>iChochy</strong></li>
+<li><code>roles</code>指定角色为：<strong>iChochy</strong></li>
+</ul>
+<h2 id="项目目录">项目目录</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">├── pom.xml
+└── src
+    └── main
+        ├── java
+        │   └── com
+        │       └── ichochy
+        │           └── example
+        │               ├── ExampleApplication.java
+        │               ├── MvcConfig.java
+        │               └── login
+        │                   └── WebSecurityConfig.java.java
+        └── resources
+            ├── application.properties
+            ├── static
+            └── templates
+                ├── index.html
+                └── login.html
+</code></pre></div><h2 id="运行项目">运行项目</h2>
+<h3 id="启动器-exampleapplication">启动器 <code>ExampleApplication</code></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
+</span><span style="color:#75715e"> * URL:https://ichochy.com
+</span><span style="color:#75715e"> * Date:2021/06/09 22:07:09
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleApplication</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ExampleApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Dubug 运行项目，启动成功后可以看到默认端口号为<code>8080</code>
+<img src="https://images.ichochy.com/16226399326197735.png" alt="16226399326197735"></p>
+<p>浏览器访问 <a href="http://localhost:8080">http://localhost:8080</a>，自动<code>302</code>重定向到登录页面
+<img src="https://images.ichochy.com/16378405780119936.png" alt="16378405780119936"></p>
+<p>登录成功页面
+<img src="https://images.ichochy.com/16378406340097327.png" alt="16378406340097327"></p>
+<h2 id="总结">总结</h2>
+<p>使用 Spring Security 管理登录权限，实现项目权限安全</p>
+<h2 id="github">GitHub</h2>
+<p><a href="https://github.com/iChochy/Example">https://github.com/iChochy/Example</a></p>
+<h2 id="引用">引用</h2>
+<ul>
+<li>Securing a Web Application：<a href="https://spring.io/guides/gs/securing-web/">https://spring.io/guides/gs/securing-web/</a></li>
+</ul>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210525.html">
+            Spring 开篇，创建第一个 Web 项目 Hello World
+            <small>2021/05/25</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20211105.html">
+            Spring 表单验证 Validating Form Input
+            <small>2021/11/05</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210715.html">
+            Spring 为 RESTful Web 服务启用跨域请求
+            <small>2021/07/15</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210620.html">
+            Spring 调用 RESTful Web 服务 Hello World
+            <small>2021/06/20</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20210615.html">
+            Spring 构建 RESTful Web 服务 Hello World
+            <small>2021/06/15</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20211120.html">https://ichochy.com/posts/20211120.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20211105.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
