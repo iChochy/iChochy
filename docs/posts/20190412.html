@@ -66,7 +66,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#查看脚本">查看脚本：</a></li>
+        <li><a href="#查看脚本">查看脚本</a></li>
         <li><a href="#完整示例">完整示例：</a></li>
       </ul>
     </li>
@@ -105,7 +105,7 @@
   
 
   <p>使用<code>Shell</code>脚本的方式，通过端口号来关闭当前进程</p>
-<h3 id="查看脚本">查看脚本：</h3>
+<h3 id="查看脚本">查看脚本</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
 </code></pre></div><p>使用到三个命令<code>lsof</code>、<code>grep</code>、<code>awk</code></p>
 <blockquote>
