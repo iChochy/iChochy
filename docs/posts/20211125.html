@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_CN" lang="zh_CN">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.75.1" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIME 鼠须管输入法使用，免费开源还可以自定义词库 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="rime, system, mac" />
+  <meta name="description" content="RIME 想你所想，成为一款高度自字义的输入法，本地程序，没有网络传输，文件配置界面，自定义词库，一法多用，可以拼音、五笔、混拼……" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.setAttribute("defer","defer");
+      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2021 iChochy. </p>
+    
+    <p><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></p>
+    
+  </div>
+  
+  <script defer = "defer" src="/js/toc.js"></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rime-安装">RIME 安装</a></li>
+    <li><a href="#rime-使用">RIME 使用</a></li>
+    <li><a href="#rime-五笔">RIME 五笔</a>
+      <ul>
+        <li><a href="#下载">下载</a></li>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#使用">使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#样式">样式</a>
+      <ul>
+        <li><a href="#style">style</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title"><a href="https://ichochy.com/posts/20211125.html">RIME 鼠须管输入法使用，免费开源还可以自定义词库</a></h1>
+  <em>
+  <time datetime=2021/11/25 class="post-date">
+    2021/11/25 
+  </time>
+  
+      <a href="https://ichochy.com/categories/system.html">#system</a>
+  
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/rime.html">#rime</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/system.html">#system</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/mac.html">#mac</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>RIME 想你所想，成为一款高度自字义的输入法，本地程序，没有网络传输，文件配置界面，自定义词库，一法多用，可以拼音、五笔、混拼……</p>
+<h2 id="rime-安装">RIME 安装</h2>
+<ul>
+<li>Window(<strong>小狼毫</strong> <em>Weasel</em>):<a href="https://github.com/rime/weasel/releases/latest">https://github.com/rime/weasel/releases/latest</a></li>
+<li>MacOS(<strong>鼠须管</strong> <em>Squirrel</em>):<a href="https://github.com/rime/squirrel/releases/latest">https://github.com/rime/squirrel/releases/latest</a></li>
+<li>Linux 看官网，有多个发行版本</li>
+<li>官网下载: <a href="https://rime.im/download/">https://rime.im/download/</a></li>
+</ul>
+<h2 id="rime-使用">RIME 使用</h2>
+<p>切换到RIME输入法后，可以按组合键 Ctrl+` 或 <strong>F4</strong> 键唤出输入方案选单，切换输入方式，可以有拼音、五笔、混拼……<br>
+<img src="https://images.ichochy.com/16391198104237861.png" alt="16391198104237861"></p>
+<h2 id="rime-五笔">RIME 五笔</h2>
+<h3 id="下载">下载</h3>
+<ul>
+<li>五笔86 <a href="https://github.com/rime/rime-wubi">https://github.com/rime/rime-wubi</a></li>
+<li>袖珍简化字拼音 <a href="https://github.com/rime/rime-pinyin-simp">https://github.com/rime/rime-pinyin-simp</a></li>
+</ul>
+<p>反查和混拼需要<code>袖珍简化字拼音</code></p>
+<p><img src="https://images.ichochy.com/16391210663875312.png" alt="16391210663875312"></p>
+<h3 id="安装">安装</h3>
+<p>RIME菜单 =&gt; 用户设定 =&gt; 打开设定目录</p>
+<p><img src="https://images.ichochy.com/16391211633840913.png" alt="16391211633840913"></p>
+<p>将下载字库放入<code>用户设定</code>目录<code>~/Library/Rime</code></p>
+<p><img src="https://images.ichochy.com/16391214463780324.png" alt="16391214463780324"></p>
+<p>RIME菜单 =&gt; 重新部署 =&gt; 部署完成</p>
+<p><strong>注</strong>：也可以有通过<code>東風破 /plum/</code>安装 <code>bash rime-install wubi pinyin-simp</code></p>
+<h3 id="使用">使用</h3>
+<p><code>用户设定</code>目录<code>~/Library/Rime</code>创建自定义配置文件<code>default.custom.yaml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">patch</span>:
+        <span style="color:#f92672">schema_list</span>:
+                - <span style="color:#f92672">schema</span>: <span style="color:#ae81ff">wubi86            #五笔86</span>
+                - <span style="color:#f92672">schema</span>: <span style="color:#ae81ff">pinyin_simp       #拼音</span>
+                - <span style="color:#f92672">schema</span>: <span style="color:#ae81ff">wubi_pinyin       #混拼</span>
+</code></pre></div><p>也可以增加其它的输入方式，完成后<code>重新部置</code>就可以生效使用了</p>
+<h2 id="样式">样式</h2>
+<p><code>用户设定</code>目录<code>~/Library/Rime</code>创建 RIME 配置文件<code>squirrel.custom.yaml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">patch</span>:
+        <span style="color:#f92672">style</span>:
+                <span style="color:#f92672">font_point</span>: <span style="color:#ae81ff">18</span>          <span style="color:#75715e">#字号</span>
+                <span style="color:#f92672">horizontal</span>: <span style="color:#66d9ef">true</span>        <span style="color:#75715e">#横栏显示</span>
+                <span style="color:#f92672">font_face</span>: <span style="color:#ae81ff">melo         #字体</span>
+                <span style="color:#f92672">color_scheme</span>: <span style="color:#ae81ff">native    #样式，内置多个样式，可以在squirrel.yaml查看</span>
+</code></pre></div><p>完成后需要再次<code>重新部置</code>生效使用</p>
+<h3 id="style">style</h3>
+<pre><code>- apathy
+- aqua
+- azure
+- clean_white
+- dark_temple
+- dust
+- google
+- ink
+- lost_temple
+- luna
+- mojave_dark
+- psionics
+- purity_of_essence
+- purity_of_form
+- solarized_dark
+- solarized_light
+- solarized_rock
+- starcraft
+</code></pre>
+<h2 id="总结">总结</h2>
+<p>RIME 还有很多自定义功能需要慢慢的去发掘，这里只是个入门。</p>
+<h2 id="引用">引用</h2>
+<p>RIME <a href="https://rime.im/">https://rime.im/</a></p>
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20211122.html">
+            VIM 入门，学会必备的操作命令，模式选择、文本编辑
+            <small>2021/11/22</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200902.html">
+            MacOS 或 Linux 软件包管理器 Homebrew
+            <small>2020/09/02</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20190823.html">
+            Mac 将 App 程序打包成为 dmg
+            <small>2019/08/23</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  
+<p>
+  <strong>源文</strong>：<a href="https://ichochy.com/posts/20211125.html">https://ichochy.com/posts/20211125.html</a>
+</p>
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20211122.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
