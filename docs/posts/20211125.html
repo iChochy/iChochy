@@ -70,12 +70,18 @@
       <ul>
         <li><a href="#下载">下载</a></li>
         <li><a href="#安装">安装</a></li>
-        <li><a href="#使用">使用</a></li>
+        <li><a href="#配置">配置</a></li>
       </ul>
     </li>
     <li><a href="#样式">样式</a>
       <ul>
         <li><a href="#style">style</a></li>
+      </ul>
+    </li>
+    <li><a href="#其它设置">其它设置</a>
+      <ul>
+        <li><a href="#中英文切换">中英文切换</a></li>
+        <li><a href="#符号配置">符号配置</a></li>
       </ul>
     </li>
     <li><a href="#总结">总结</a></li>
@@ -127,7 +133,7 @@
 <li>官网下载: <a href="https://rime.im/download/">https://rime.im/download/</a></li>
 </ul>
 <h2 id="rime-使用">RIME 使用</h2>
-<p>切换到RIME输入法后，可以按组合键 Ctrl+` 或 <strong>F4</strong> 键唤出输入方案选单，切换输入方式，可以有拼音、五笔、混拼……<br>
+<p>切换到RIME输入法后，可以按下组合键 Ctrl+` 或 <strong>F4</strong> 键唤出输入方案选单，切换输入方案，可以有拼音、五笔、混拼……<br>
 <img src="https://images.ichochy.com/16391198104237861.png" alt="16391198104237861"></p>
 <h2 id="rime-五笔">RIME 五笔</h2>
 <h3 id="下载">下载</h3>
@@ -136,25 +142,29 @@
 <li>袖珍简化字拼音 <a href="https://github.com/rime/rime-pinyin-simp">https://github.com/rime/rime-pinyin-simp</a></li>
 </ul>
 <p>反查和混拼需要<code>袖珍简化字拼音</code></p>
-<p><img src="https://images.ichochy.com/16391210663875312.png" alt="16391210663875312"></p>
 <h3 id="安装">安装</h3>
+<p><img src="https://images.ichochy.com/16391210663875312.png" alt="16391210663875312"></p>
 <p>RIME菜单 =&gt; 用户设定 =&gt; 打开设定目录</p>
 <p><img src="https://images.ichochy.com/16391211633840913.png" alt="16391211633840913"></p>
 <p>将下载字库放入<code>用户设定</code>目录<code>~/Library/Rime</code></p>
 <p><img src="https://images.ichochy.com/16391214463780324.png" alt="16391214463780324"></p>
 <p>RIME菜单 =&gt; 重新部署 =&gt; 部署完成</p>
 <p><strong>注</strong>：也可以有通过<code>東風破 /plum/</code>安装 <code>bash rime-install wubi pinyin-simp</code></p>
-<h3 id="使用">使用</h3>
+<h3 id="配置">配置</h3>
 <p><code>用户设定</code>目录<code>~/Library/Rime</code>创建自定义配置文件<code>default.custom.yaml</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">patch</span>:
+<p>配置输入方案列表</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># default.custom.yaml</span>
+<span style="color:#f92672">patch</span>:
         <span style="color:#f92672">schema_list</span>:
                 - <span style="color:#f92672">schema</span>: <span style="color:#ae81ff">wubi86            #五笔86</span>
                 - <span style="color:#f92672">schema</span>: <span style="color:#ae81ff">pinyin_simp       #拼音</span>
                 - <span style="color:#f92672">schema</span>: <span style="color:#ae81ff">wubi_pinyin       #混拼</span>
-</code></pre></div><p>也可以增加其它的输入方式，完成后<code>重新部置</code>就可以生效使用了</p>
+</code></pre></div><p>也可以增加其它的输入方式，完成后<code>重新部置</code>就可以生效使用了，按下组合键 Ctrl+` 或 <strong>F4</strong> 键唤出输入方案选单，选择自己想用的输入方案</p>
 <h2 id="样式">样式</h2>
 <p><code>用户设定</code>目录<code>~/Library/Rime</code>创建 RIME 配置文件<code>squirrel.custom.yaml</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">patch</span>:
+<p>配置样式或主题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># squirrel.custom.yaml</span>
+<span style="color:#f92672">patch</span>:
         <span style="color:#f92672">style</span>:
                 <span style="color:#f92672">font_point</span>: <span style="color:#ae81ff">18</span>          <span style="color:#75715e">#字号</span>
                 <span style="color:#f92672">horizontal</span>: <span style="color:#66d9ef">true</span>        <span style="color:#75715e">#横栏显示</span>
@@ -181,6 +191,108 @@
 - solarized_rock
 - starcraft
 </code></pre>
+<h2 id="其它设置">其它设置</h2>
+<h3 id="中英文切换">中英文切换</h3>
+<p>MAC 上用<code>Caps Lock</code>键切换中英文输入习惯了，RIME 默认是大写切换，自定义修改下配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">patch</span>:
+    <span style="color:#f92672">ascii_composer</span>:
+        <span style="color:#f92672">good_old_caps_lock</span>: <span style="color:#66d9ef">false</span><span style="color:#ae81ff">/true      # `true` 大写、`false` 小写</span>
+</code></pre></div><p><code>Caps Lock</code> 切换到西文模式，默认大小修改， <code>true</code> 大写、<code>false</code> 小写</p>
+<p><strong>switch_key</strong> 可选切换策略：</p>
+<ul>
+<li>inline_ascii 在输入法的临时西文编辑区内输入字母、数字、符号、空格等，回车上屏后自动复位到中文</li>
+<li>commit_text 已输入的候选文字上屏并切换至西文输入模式</li>
+<li>commit_code 已输入的编码字符上屏并切换至西文输入模式</li>
+<li>设为noop，屏蔽该切换键</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># default.custom.yaml</span>
+<span style="color:#f92672">patch</span>:
+    <span style="color:#f92672">ascii_composer</span>:
+        <span style="color:#f92672">good_old_caps_lock</span>: <span style="color:#66d9ef">false</span>           <span style="color:#75715e">#  true 大写 、false 小写</span>
+        <span style="color:#f92672">switch_key</span>:
+                <span style="color:#f92672">Caps_Lock</span>: <span style="color:#ae81ff">commit_code      # 编码字符上屏</span>
+                <span style="color:#f92672">Shift_L</span>: <span style="color:#ae81ff">noop               # 屏蔽</span>
+                <span style="color:#f92672">Shift_R</span>: <span style="color:#ae81ff">noop</span>
+                <span style="color:#f92672">Control_L</span>: <span style="color:#ae81ff">noop</span>
+                <span style="color:#f92672">Control_R</span>: <span style="color:#ae81ff">noop</span>
+</code></pre></div><h3 id="符号配置">符号配置</h3>
+<p>自定义全/半角符号输出</p>
+<p>修改输入方案的配置文件，如：<code>wubi_pinyin.schema.yaml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># wubi_pinyin.schema.yaml </span>
+<span style="color:#75715e"># 修改自己想修改的输入方案配置文件(xxx.schema.yaml)</span>
+<span style="color:#f92672">punctuator</span>: 
+        <span style="color:#f92672">import_preset</span>: <span style="color:#ae81ff">default</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># default.custom.yaml</span>
+<span style="color:#f92672">patch</span>:
+        <span style="color:#f92672">punctuator</span>: 
+                <span style="color:#f92672">full_shape</span>:     <span style="color:#75715e">#全角符号</span>
+                        <span style="color:#f92672">&#34; &#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;　&#34;</span>}
+                        <span style="color:#f92672">&#34;!&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;！&#34;</span>}
+                        <span style="color:#f92672">&#34;\&#34;&#34;: </span>{<span style="color:#f92672">pair</span>: [<span style="color:#e6db74">&#34;“&#34;</span>, <span style="color:#e6db74">&#34;”&#34;</span>]}
+                        <span style="color:#f92672">&#34;#&#34;: </span>[<span style="color:#e6db74">&#34;＃&#34;</span>, <span style="color:#e6db74">&#34;⌘&#34;</span>]
+                        <span style="color:#f92672">&#34;$&#34;: </span>[<span style="color:#e6db74">&#34;￥&#34;</span>, <span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#e6db74">&#34;€&#34;</span>, <span style="color:#e6db74">&#34;£&#34;</span>, <span style="color:#e6db74">&#34;¥&#34;</span>, <span style="color:#e6db74">&#34;¢&#34;</span>, <span style="color:#e6db74">&#34;¤&#34;</span>, <span style="color:#e6db74">&#34;₩&#34;</span>]
+                        <span style="color:#f92672">&#34;%&#34;: </span>[<span style="color:#e6db74">&#34;％&#34;</span>, <span style="color:#e6db74">&#34;°&#34;</span>, <span style="color:#e6db74">&#34;℃&#34;</span>]
+                        <span style="color:#f92672">&#34;&amp;&#34;: </span><span style="color:#e6db74">&#34;＆&#34;</span>
+                        <span style="color:#f92672">&#34;&#39;&#34;: </span>{<span style="color:#f92672">pair</span>: [<span style="color:#e6db74">&#34;‘&#34;</span>, <span style="color:#e6db74">&#34;’&#34;</span>]}
+                        <span style="color:#f92672">&#34;(&#34;: </span><span style="color:#e6db74">&#34;（&#34;</span>
+                        <span style="color:#f92672">&#34;)&#34;: </span><span style="color:#e6db74">&#34;）&#34;</span>
+                        <span style="color:#f92672">&#34;*&#34;: </span>[<span style="color:#e6db74">&#34;＊&#34;</span>, <span style="color:#e6db74">&#34;·&#34;</span>, <span style="color:#e6db74">&#34;・&#34;</span>, <span style="color:#e6db74">&#34;×&#34;</span>, <span style="color:#e6db74">&#34;※&#34;</span>, <span style="color:#e6db74">&#34;❂&#34;</span>]
+                        <span style="color:#f92672">&#34;+&#34;: </span><span style="color:#e6db74">&#34;＋&#34;</span>
+                        <span style="color:#f92672">&#34;,&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;，&#34;</span>}
+                        <span style="color:#f92672">&#34;-&#34;: </span><span style="color:#e6db74">&#34;－&#34;</span>
+                        <span style="color:#f92672">.</span>: {<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;。&#34;</span>}
+                        <span style="color:#f92672">&#34;/&#34;: </span>[<span style="color:#e6db74">&#34;／&#34;</span>, <span style="color:#e6db74">&#34;÷&#34;</span>]
+                        <span style="color:#f92672">&#34;:&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;：&#34;</span>}
+                        <span style="color:#f92672">&#34;;&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;；&#34;</span>}
+                        <span style="color:#f92672">&#34;&lt;&#34;: </span>[<span style="color:#e6db74">&#34;《&#34;</span>, <span style="color:#e6db74">&#34;〈&#34;</span>, <span style="color:#e6db74">&#34;«&#34;</span>, <span style="color:#e6db74">&#34;‹&#34;</span>]
+                        <span style="color:#f92672">&#34;=&#34;: </span>[<span style="color:#e6db74">&#34;＝&#34;</span>, <span style="color:#e6db74">&#34;々&#34;</span>, <span style="color:#e6db74">&#34;〃&#34;</span>]
+                        <span style="color:#f92672">&#34;&gt;&#34;: </span>[<span style="color:#e6db74">&#34;》&#34;</span>, <span style="color:#e6db74">&#34;〉&#34;</span>, <span style="color:#e6db74">&#34;»&#34;</span>, <span style="color:#e6db74">&#34;›&#34;</span>]
+                        <span style="color:#f92672">&#34;?&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;？&#34;</span>}
+                        <span style="color:#f92672">&#34;@&#34;: </span>[<span style="color:#e6db74">&#34;＠&#34;</span>, <span style="color:#e6db74">&#34;☯&#34;</span>]
+                        <span style="color:#f92672">&#34;[&#34;: </span>[<span style="color:#e6db74">&#34;「&#34;</span>, <span style="color:#e6db74">&#34;【&#34;</span>, <span style="color:#e6db74">&#34;〔&#34;</span>, <span style="color:#e6db74">&#34;［&#34;</span>, <span style="color:#e6db74">&#34;〚&#34;</span>, <span style="color:#e6db74">&#34;〘&#34;</span>]
+                        <span style="color:#f92672">&#34;\\&#34;: </span>[<span style="color:#e6db74">&#34;、&#34;</span>, <span style="color:#e6db74">&#34;＼&#34;</span>]
+                        <span style="color:#f92672">&#34;]&#34;: </span>[<span style="color:#e6db74">&#34;」&#34;</span>, <span style="color:#e6db74">&#34;】&#34;</span>, <span style="color:#e6db74">&#34;〕&#34;</span>, <span style="color:#e6db74">&#34;］&#34;</span>, <span style="color:#e6db74">&#34;〛&#34;</span>, <span style="color:#e6db74">&#34;〙&#34;</span>]
+                        <span style="color:#f92672">&#34;^&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;……&#34;</span>}
+                        <span style="color:#f92672">_</span>: <span style="color:#e6db74">&#34;——&#34;</span>
+                        <span style="color:#f92672">&#34;`&#34;: </span><span style="color:#e6db74">&#34;｀&#34;</span>
+                        <span style="color:#f92672">&#34;{&#34;: </span>[<span style="color:#e6db74">&#34;『&#34;</span>, <span style="color:#e6db74">&#34;〖&#34;</span>, <span style="color:#e6db74">&#34;｛&#34;</span>]
+                        <span style="color:#f92672">&#34;|&#34;: </span>[<span style="color:#e6db74">&#34;·&#34;</span>, <span style="color:#e6db74">&#34;｜&#34;</span>, <span style="color:#e6db74">&#34;§&#34;</span>, <span style="color:#e6db74">&#34;¦&#34;</span>]
+                        <span style="color:#f92672">&#34;}&#34;: </span>[<span style="color:#e6db74">&#34;』&#34;</span>, <span style="color:#e6db74">&#34;〗&#34;</span>, <span style="color:#e6db74">&#34;｝&#34;</span>]
+                        <span style="color:#f92672">&#34;~&#34;: </span><span style="color:#e6db74">&#34;～&#34;</span>
+                <span style="color:#f92672">half_shape</span>:     <span style="color:#75715e">#半角符号</span>
+                        <span style="color:#f92672">&#34;!&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;！&#34;</span>}
+                        <span style="color:#f92672">&#34;\&#34;&#34;: </span>{<span style="color:#f92672">pair</span>: [<span style="color:#e6db74">&#34;“&#34;</span>, <span style="color:#e6db74">&#34;”&#34;</span>]}
+                        <span style="color:#75715e"># &#34;#&#34;: [&#34;#&#34;, &#34;№&#34;]</span>
+                        <span style="color:#f92672">&#34;$&#34;: </span>[<span style="color:#e6db74">&#34;￥&#34;</span>, <span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#e6db74">&#34;€&#34;</span>, <span style="color:#e6db74">&#34;£&#34;</span>, <span style="color:#e6db74">&#34;¥&#34;</span>, <span style="color:#e6db74">&#34;¢&#34;</span>, <span style="color:#e6db74">&#34;¤&#34;</span>, <span style="color:#e6db74">&#34;₩&#34;</span>]
+                        <span style="color:#f92672">&#34;%&#34;: </span>[<span style="color:#e6db74">&#34;%&#34;</span>, <span style="color:#e6db74">&#34;％&#34;</span>, <span style="color:#e6db74">&#34;°&#34;</span>, <span style="color:#e6db74">&#34;℃&#34;</span>, <span style="color:#e6db74">&#34;‰&#34;</span>, <span style="color:#e6db74">&#34;‱&#34;</span>, <span style="color:#e6db74">&#34;℉&#34;</span>, <span style="color:#e6db74">&#34;℅&#34;</span>, <span style="color:#e6db74">&#34;℆&#34;</span>, <span style="color:#e6db74">&#34;℀&#34;</span>, <span style="color:#e6db74">&#34;℁&#34;</span>, <span style="color:#e6db74">&#34;⅍&#34;</span>]
+                        <span style="color:#f92672">&#34;&amp;&#34;: </span><span style="color:#e6db74">&#34;&amp;&#34;</span>
+                        <span style="color:#f92672">&#34;&#39;&#34;: </span>{<span style="color:#f92672">pair</span>: [<span style="color:#e6db74">&#34;‘&#34;</span>, <span style="color:#e6db74">&#34;’&#34;</span>]}
+                        <span style="color:#75715e"># &#34;(&#34;: &#34;（&#34;</span>
+                        <span style="color:#75715e"># &#34;)&#34;: &#34;）&#34;</span>
+                        <span style="color:#75715e"># &#34;*&#34;: [&#34;*&#34;, &#34;＊&#34;, &#34;·&#34;, &#34;・&#34;, &#34;×&#34;, &#34;※&#34;, &#34;❂&#34;, &#34;⁂&#34;, &#34;☮&#34;, &#34;☯&#34;, &#34;☣&#34;]</span>
+                        <span style="color:#f92672">&#34;+&#34;: </span><span style="color:#e6db74">&#34;+&#34;</span>
+                        <span style="color:#f92672">&#34;,&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;，&#34;</span>}
+                        <span style="color:#f92672">&#34;-&#34;: </span><span style="color:#e6db74">&#34;-&#34;</span>
+                        <span style="color:#f92672">.</span>: {<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;。&#34;</span>}
+                        <span style="color:#f92672">&#34;/&#34;: </span>[<span style="color:#e6db74">&#34;、&#34;</span>, <span style="color:#e6db74">&#34;､&#34;</span>, <span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#e6db74">&#34;／&#34;</span>, <span style="color:#e6db74">&#34;÷&#34;</span>]
+                        <span style="color:#f92672">&#34;:&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;：&#34;</span>}
+                        <span style="color:#f92672">&#34;;&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;；&#34;</span>}
+                        <span style="color:#f92672">&#34;&lt;&#34;: </span>[<span style="color:#e6db74">&#34;《&#34;</span>, <span style="color:#e6db74">&#34;〈&#34;</span>, <span style="color:#e6db74">&#34;«&#34;</span>, <span style="color:#e6db74">&#34;‹&#34;</span>, <span style="color:#e6db74">&#34;˂&#34;</span>, <span style="color:#e6db74">&#34;˱&#34;</span>]
+                        <span style="color:#f92672">&#34;=&#34;: </span>[<span style="color:#e6db74">&#34;=&#34;</span>, <span style="color:#e6db74">&#34;々&#34;</span>, <span style="color:#e6db74">&#34;〃&#34;</span>]
+                        <span style="color:#f92672">&#34;&gt;&#34;: </span>[<span style="color:#e6db74">&#34;》&#34;</span>, <span style="color:#e6db74">&#34;〉&#34;</span>, <span style="color:#e6db74">&#34;»&#34;</span>, <span style="color:#e6db74">&#34;›&#34;</span>, <span style="color:#e6db74">&#34;˃&#34;</span>, <span style="color:#e6db74">&#34;˲&#34;</span>]
+                        <span style="color:#f92672">&#34;?&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;？&#34;</span>}
+                        <span style="color:#f92672">&#34;@&#34;: </span>[<span style="color:#e6db74">&#34;@&#34;</span>, <span style="color:#e6db74">&#34;©&#34;</span>, <span style="color:#e6db74">&#34;®&#34;</span>, <span style="color:#e6db74">&#34;℗&#34;</span>]
+                        <span style="color:#75715e"># &#34;[&#34;: [&#34;「&#34;, &#34;【&#34;, &#34;〔&#34;, &#34;［&#34;, &#34;〚&#34;, &#34;〘&#34;]</span>
+                        <span style="color:#75715e"># &#34;]&#34;: [&#34;」&#34;, &#34;】&#34;, &#34;〕&#34;, &#34;］&#34;, &#34;〛&#34;, &#34;〙&#34;]</span>
+                        <span style="color:#f92672">&#34;\\&#34;: </span>[<span style="color:#e6db74">&#34;、&#34;</span>, <span style="color:#e6db74">&#34;\\&#34;</span>, <span style="color:#e6db74">&#34;＼&#34;</span>]
+                        <span style="color:#f92672">&#34;^&#34;: </span>{<span style="color:#f92672">commit</span>: <span style="color:#e6db74">&#34;……&#34;</span>}
+                        <span style="color:#f92672">_</span>: <span style="color:#e6db74">&#34;——&#34;</span>
+                        <span style="color:#75715e"># &#34;`&#34;: [&#34;`&#34;, &#34;‵&#34;, &#34;‶&#34;, &#34;‷&#34;, &#34;′&#34;, &#34;″&#34;, &#34;‴&#34;, &#34;⁗&#34;]</span>
+                        <span style="color:#f92672">&#34;{&#34;: </span>[<span style="color:#e6db74">&#34;『&#34;</span>, <span style="color:#e6db74">&#34;〖&#34;</span>, <span style="color:#e6db74">&#34;｛&#34;</span>]
+                        <span style="color:#f92672">&#34;}&#34;: </span>[<span style="color:#e6db74">&#34;』&#34;</span>, <span style="color:#e6db74">&#34;〗&#34;</span>, <span style="color:#e6db74">&#34;｝&#34;</span>]
+                        <span style="color:#f92672">&#34;|&#34;: </span>[<span style="color:#e6db74">&#34;·&#34;</span>, <span style="color:#e6db74">&#34;・&#34;</span>, <span style="color:#e6db74">&#34;|&#34;</span>, <span style="color:#e6db74">&#34;｜&#34;</span>, <span style="color:#e6db74">&#34;§&#34;</span>, <span style="color:#e6db74">&#34;¦&#34;</span>, <span style="color:#e6db74">&#34;‖&#34;</span>, <span style="color:#e6db74">&#34;︴&#34;</span>]
+                        <span style="color:#f92672">&#34;~&#34;: </span>[<span style="color:#e6db74">&#34;~&#34;</span>, <span style="color:#e6db74">&#34;～&#34;</span>, <span style="color:#e6db74">&#34;˜&#34;</span>, <span style="color:#e6db74">&#34;˷&#34;</span>, <span style="color:#e6db74">&#34;ⸯ&#34;</span>, <span style="color:#e6db74">&#34;≈&#34;</span>, <span style="color:#e6db74">&#34;≋&#34;</span>, <span style="color:#e6db74">&#34;≃&#34;</span>, <span style="color:#e6db74">&#34;≅&#34;</span>, <span style="color:#e6db74">&#34;≇&#34;</span>, <span style="color:#e6db74">&#34;∽&#34;</span>, <span style="color:#e6db74">&#34;⋍&#34;</span>, <span style="color:#e6db74">&#34;≌&#34;</span>, <span style="color:#e6db74">&#34;﹏&#34;</span>, <span style="color:#e6db74">&#34;﹋&#34;</span>, <span style="color:#e6db74">&#34;﹌&#34;</span>, <span style="color:#e6db74">&#34;︴&#34;</span>]
+</code></pre></div><p>注释掉<code>Markdown</code>常用的符号，写<code>Markdown</code>时就不用切换输入方案，特殊符号直接上屏</p>
 <h2 id="总结">总结</h2>
 <p>RIME 还有很多自定义功能需要慢慢的去发掘，这里只是个入门。</p>
 <h2 id="引用">引用</h2>
