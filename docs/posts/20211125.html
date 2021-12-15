@@ -216,13 +216,14 @@
                 <span style="color:#f92672">Control_L</span>: <span style="color:#ae81ff">noop</span>
                 <span style="color:#f92672">Control_R</span>: <span style="color:#ae81ff">noop</span>
 </code></pre></div><h3 id="符号配置">符号配置</h3>
-<p>自定义全/半角符号输出</p>
+<p><strong>修改引入方案</strong></p>
 <p>修改输入方案的配置文件，如：<code>wubi_pinyin.schema.yaml</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># wubi_pinyin.schema.yaml </span>
 <span style="color:#75715e"># 修改自己想修改的输入方案配置文件(xxx.schema.yaml)</span>
 <span style="color:#f92672">punctuator</span>: 
-        <span style="color:#f92672">import_preset</span>: <span style="color:#ae81ff">default</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># default.custom.yaml</span>
+        <span style="color:#f92672">import_preset</span>: <span style="color:#ae81ff">default  # default/symbols</span>
+</code></pre></div><p><strong>自定义全/半角符号输出</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># default.custom.yaml</span>
 <span style="color:#f92672">patch</span>:
         <span style="color:#f92672">punctuator</span>: 
                 <span style="color:#f92672">full_shape</span>:     <span style="color:#75715e">#全角符号</span>
