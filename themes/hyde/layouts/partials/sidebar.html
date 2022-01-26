@@ -28,8 +28,13 @@
 
     <p>&copy; 2020 - {{ now.Format "2006"}} {{.Site.Params.copyright}}. </p>
     {{with .Site.Params.caseNo }}
-    <p><a href="http://beian.miit.gov.cn">{{.}}</a></p>
+    <div class = "other">
+    <li><a href="http://beian.miit.gov.cn">{{.}}</a></li>
     {{end}}
+    {{with .Site.Params.upyun }}
+    <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "{{.}}"> </a>提供CDN加速/云存储服务</li>
+    {{end}}
+    </div>
   </div>
   {{if eq .Section .Site.Params.PostDir}}
   <script defer = "defer" src="/js/toc.js"></script>

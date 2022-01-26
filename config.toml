@@ -39,6 +39,7 @@ enableRobotsTXT = false
   description = "码农小站，写点Java、Swift和感悟"
   datetimeFormat = "2006/01/02 15:04:05"
   caseNo = "沪ICP备19030221号"
+  upyun = "https://files.ichochy.com/upyun/upyun.png"
   adsense = "3691661241035911"
   baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"
 

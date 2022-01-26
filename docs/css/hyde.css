@@ -263,3 +263,22 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+
+.other li{
+  list-style: none;
+  font-size: 11px;
+  line-height: 23px;
+}
+
+.other img {
+  height: 25px;
+  display: inline;
+  margin: 0;
+  vertical-align: bottom;
+}
+
+.other a{
+  text-decoration: none;
+}
+
+
