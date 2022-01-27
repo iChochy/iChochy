@@ -14,8 +14,8 @@
 
 ### 感谢
 
-[七牛云](https://www.qiniu.com/) 提供 [云存储](https://portal.qiniu.com/signup?code=3l7cpouzlru4y)  
-[百度云加速](https://su.baidu.com/) 提供 [CDN](https://su.baidu.com/?ic=1dR4jc)  
+[又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)  
+[七牛云](https://portal.qiniu.com/signup?code=3l7cpouzlru4y) 提供 [CDN/云存储](https://portal.qiniu.com/signup?code=3l7cpouzlru4y)  
 [Algolia](https://www.algolia.com/) 提供 [Search Engine](https://www.algolia.com/)  
 [Vercel](https://vercel.com/) 提供 [Deployment](https://vercel.com/)  
 [Github Pages](https://pages.github.com/) 提供 [Server](https://pages.github.com/)  
