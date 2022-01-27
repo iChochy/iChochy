@@ -266,18 +266,20 @@ a.sidebar-nav-item:focus {
 
 .other li{
   list-style: none;
-  font-size: 11px;
-  line-height: 23px;
+  font-size: 10px;
+  line-height: 22px;
 }
 
 .other img {
-  height: 25px;
+  height: 24px;
   display: inline;
   margin: 0;
   vertical-align: bottom;
 }
 
 .other a{
+  color: inherit;
+  text-shadow: none;
   text-decoration: none;
 }
 
