@@ -72,7 +72,7 @@ body {
 a {
   color: #227bb9;
   text-decoration: none;
-  text-shadow: 0.5px 0.5px 0.5px #999;
+  text-shadow: 0px 0px 5px #999;
 }
 
 /* `:focus` is linked to `:hover` for basic accessibility */
@@ -181,6 +181,8 @@ code {
 }
 
 pre {
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #999;
   display: block;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -234,6 +236,7 @@ img {
   display: block;
   margin: 0 0 1rem;
   border-radius: 5px;
+  box-shadow: 0px 0px 5px #999;
   max-width: 100%;
 }
 
