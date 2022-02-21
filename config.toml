@@ -1,5 +1,5 @@
 baseURL = "https://ichochy.com/"
-languageCode = "zh_CN"
+languageCode = "zh"
 publishDir = "docs"
 title = "回忆中的明天"
 summaryLength = 1

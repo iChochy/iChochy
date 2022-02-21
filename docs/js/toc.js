@@ -1,15 +1,17 @@
+"use strict";
+
 //文档加载后执行 fn
 function ready(fn) {
-    if (window.addEventListener) { 
-        window.addEventListener('DOMContentLoaded', function () {
+    if (document.addEventListener) { 
+        document.addEventListener('DOMContentLoaded', function () {
             //注销时间，避免重复触发
-            document.removeEventListener('DOMContentLoaded', arguments.callee, false);
+            // document.removeEventListener('DOMContentLoaded', arguments.callee, false);
             fn(); //运行函数
         }, false);
     } else if (document.attachEvent) { //IE浏览器
         document.attachEvent('onreadystatechange', function () {
             if (document.readyState == 'complete') {
-                document.detachEvent('onreadystatechange', arguments.callee);
+                // document.detachEvent('onreadystatechange', arguments.callee);
                 fn(); //函数运行
             }
         });
