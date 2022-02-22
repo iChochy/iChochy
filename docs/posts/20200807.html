@@ -136,8 +136,8 @@
  <span style="color:#f92672">*</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//ichochy.com
 </span><span style="color:#75715e"></span> <span style="color:#f92672">*</span> <span style="color:#960050;background-color:#1e0010">/</span>
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ready</span>(<span style="color:#a6e22e">fn</span>) {
-    <span style="color:#66d9ef">if</span> (window.<span style="color:#a6e22e">addEventListener</span>) {
-        window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">addEventListener</span>) {
+        document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span> () {
             <span style="color:#75715e">//注销时间，避免重复触发
 </span><span style="color:#75715e"></span>            document.<span style="color:#a6e22e">removeEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">callee</span>, <span style="color:#66d9ef">false</span>);
             <span style="color:#a6e22e">fn</span>(); <span style="color:#75715e">//运行函数
