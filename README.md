@@ -12,9 +12,13 @@
 
 ![Sponsor](https://images.ichochy.com/sponsor.jpg)
 
+### 公众号    
+![公众号](https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg)
+
+
 ### 感谢
 
-[Galaxy](https://www.galaxy-cloud.com/#/register?code=WAFAAghY) 提供 [网络访问能力] (https://www.galaxy-cloud.com/#/register?code=WAFAAghY)  
+[Galaxy](https://www.galaxy-cloud.com/#/register?code=WAFAAghY) 提供 [网络访问能力](https://www.galaxy-cloud.com/#/register?code=WAFAAghY)  
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)  
 [七牛云](https://portal.qiniu.com/signup?code=3l7cpouzlru4y) 提供 [CDN/云存储](https://portal.qiniu.com/signup?code=3l7cpouzlru4y)  
 [Algolia](https://www.algolia.com/) 提供 [Search Engine](https://www.algolia.com/)  
