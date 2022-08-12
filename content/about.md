@@ -15,7 +15,7 @@ date: 2020-07-22T12:07:59+08:00
 ![Sponsor](https://ichochy.com/sponsor.jpg)
 
 ## 公众号    
-![公众号](https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg)
+![公众号](https://ichochy.com/wx.jpg)
 
 ## 感谢  
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)   
