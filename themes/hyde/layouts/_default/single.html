@@ -1,9 +1,12 @@
 {{ define "main" -}}
 <div class="post">
   <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-	<a href="/">Index</a></li>/
+<b>
+	<a href="/">Index</a></li> /
 	  {{range .Params.categories}}
-      <a href="{{ "categories" | absURL }}/{{ . | urlize }}.html">#{{.}}</a>{{end}}
+      <a href="{{ "categories" | absURL }}/{{ . | urlize }}.html">{{.}}</a>{{end}}
+</b>
+<br>
 <em>
   <time datetime={{ .Date.Format "2006/01/02" }} class="post-date">
     {{ .Date.Format "2006/01/02" }} 
