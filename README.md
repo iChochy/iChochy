@@ -10,10 +10,10 @@
 
 ### 赞助
 
-![Sponsor](https://images.ichochy.com/sponsor.jpg)
+![Sponsor](https://ichochy.com/sponsor.jpg)
 
 ### 公众号    
-![公众号](https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg)
+![公众号](https://ichochy.com/wx.jpg)
 
 
 ### 感谢
