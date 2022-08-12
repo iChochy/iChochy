@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>通过shell查看SVN的版本信息 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -97,19 +108,19 @@
   
 
   <p>实现原理：通过<code>svn info</code>查看svn信息，使用<code>grep</code>获取版本信息，用<code>awk</code>获取版本号，然后对比版本号是否需要更新</p>
-<pre><code>#!/bin/sh
-revision=`svn info |grep &quot;Last Changed Rev:&quot; |awk '{print $4}'`
-echo &quot;the revision is $revision&quot;
-URL=`svn info |grep ^URL: |awk '{print $2}'`
-echo &quot;the url is $URL&quot;
-svnRevision=`svn info $URL |grep &quot;Last Changed Rev:&quot; |awk '{print $4}'`
-echo &quot;the revision in svn is $svnRevision&quot;
+<pre tabindex="0"><code>#!/bin/sh
+revision=`svn info |grep &#34;Last Changed Rev:&#34; |awk &#39;{print $4}&#39;`
+echo &#34;the revision is $revision&#34;
+URL=`svn info |grep ^URL: |awk &#39;{print $2}&#39;`
+echo &#34;the url is $URL&#34;
+svnRevision=`svn info $URL |grep &#34;Last Changed Rev:&#34; |awk &#39;{print $4}&#39;`
+echo &#34;the revision in svn is $svnRevision&#34;
 if [[ $revision &lt; $svnRevision ]] ; then
-    echo &quot;need svn up&quot;
+    echo &#34;need svn up&#34;
     svn up
-    echo &quot;svn up finish&quot;
+    echo &#34;svn up finish&#34;
 else
-    echo &quot;no need svn up&quot;
+    echo &#34;no need svn up&#34;
 fi
 </code></pre>
   
@@ -120,6 +131,13 @@ fi
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20190212.html">https://ichochy.com/posts/20190212.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -140,7 +158,7 @@ fi
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

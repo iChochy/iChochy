@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>初识 Docker &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -124,28 +135,28 @@
 <h3 id="1获取容器">1、获取容器</h3>
 <p>容器(container)是通过镜像(image)构建的，在 <a href="https://hub.docker.com/">Docker Hub</a> 中获取镜像(image)<br>
 <strong>搜索</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search nginx                         //在 Docker Hub 搜索镜像<span style="color:#f92672">(</span>image<span style="color:#f92672">)</span>
-</code></pre></div><p><strong>获取</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull nginx                           //在 Docker Hub 获取镜像<span style="color:#f92672">(</span>image<span style="color:#f92672">)</span>
-</code></pre></div><h3 id="2运行容器">2、运行容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker search nginx                         //在 Docker Hub 搜索镜像<span style="color:#f92672">(</span>image<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><strong>获取</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull nginx                           //在 Docker Hub 获取镜像<span style="color:#f92672">(</span>image<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h3 id="2运行容器">2、运行容器</h3>
 <p><strong>运行</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name ichochy-nginx -d -p 80:80 nginx
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run                                  //在新容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>中运行命令
-    --name string                           //分配一个容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>名称
-    -d, --detach                            //后台运行容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>，打印容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>ID
-    -p, --publish list                      //端口映射，宿主机端口:容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>端口
-</code></pre></div><h3 id="3操作容器">3、操作容器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --name ichochy-nginx -d -p 80:80 nginx
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run                                  //在新容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>中运行命令
+</span></span><span style="display:flex;"><span>    --name string                           //分配一个容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>名称
+</span></span><span style="display:flex;"><span>    -d, --detach                            //后台运行容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>，打印容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>ID
+</span></span><span style="display:flex;"><span>    -p, --publish list                      //端口映射，宿主机端口:容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>端口
+</span></span></code></pre></div><h3 id="3操作容器">3、操作容器</h3>
 <p><strong>执行 shell</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it 74282d01a2fc bash //在运行容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>中运行命令
-</code></pre></div><p><strong>复制文件</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker cp 74282d01a2fc:/usr/share/nginx/html/index.html ~/ichochy.html
-</code></pre></div><p><strong>查看镜像(image)</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker image ls -a          //查看所有 -a
-</code></pre></div><p><strong>查看容器(container)</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker container ls -a      //查看所有 -a
-</code></pre></div><p><strong>查看容器(container)</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker start/stop/restart   74282d01a2fc      //启动/停止/重启 容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it 74282d01a2fc bash //在运行容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>中运行命令
+</span></span></code></pre></div><p><strong>复制文件</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker cp 74282d01a2fc:/usr/share/nginx/html/index.html ~/ichochy.html
+</span></span></code></pre></div><p><strong>查看镜像(image)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker image ls -a          //查看所有 -a
+</span></span></code></pre></div><p><strong>查看容器(container)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker container ls -a      //查看所有 -a
+</span></span></code></pre></div><p><strong>查看容器(container)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker start/stop/restart   74282d01a2fc      //启动/停止/重启 容器<span style="color:#f92672">(</span>container<span style="color:#f92672">)</span>
+</span></span></code></pre></div>
   
 
   
@@ -175,6 +186,13 @@
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20191106.html">https://ichochy.com/posts/20191106.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -195,7 +213,7 @@
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

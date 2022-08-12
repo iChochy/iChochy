@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>使用 GitHub Actions 自动上传搜索记录到 Algolia &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -137,17 +148,17 @@
 <p>使用 GitHub Actions 在您的存储库中自动化、自定义和执行您的软件开发工作流程。您可以发现、创建和共享操作以执行您喜欢的任何作业，包括 CI/CD，并在完全自定义的工作流中组合操作。</p>
 <h2 id="生成搜索数据">生成搜索数据</h2>
 <h3 id="数据格式">数据格式</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-  {
-    <span style="color:#f92672">&#34;objectID&#34;</span>: <span style="color:#ae81ff">1</span>,
-    <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>,
-    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;回忆中的明天&#34;</span>,
-    <span style="color:#f92672">&#34;summary&#34;</span>: <span style="color:#e6db74">&#34;码农小站，写点Java、Swift和感悟&#34;</span>,
-    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;码农小站，写点Java、Swift和感悟&#34;</span>,
-    <span style="color:#f92672">&#34;pubDate&#34;</span>: <span style="color:#e6db74">&#34;2021-06-01T11:25:45+08:00&#34;</span>
-  } 
-]
-</code></pre></div><p><strong>数据生成参考：</strong> <a href="https://ichochy.com/posts/20210522.html">使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;objectID&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;回忆中的明天&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;summary&#34;</span>: <span style="color:#e6db74">&#34;码农小站，写点Java、Swift和感悟&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;码农小站，写点Java、Swift和感悟&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;pubDate&#34;</span>: <span style="color:#e6db74">&#34;2021-06-01T11:25:45+08:00&#34;</span>
+</span></span><span style="display:flex;"><span>  } 
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p><strong>数据生成参考：</strong> <a href="https://ichochy.com/posts/20210522.html">使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索</a></p>
 <h2 id="设置-secrets">设置 Secrets</h2>
 <p><code>Settings =&gt; Secrets =&gt; New repository secret</code></p>
 <p><img src="https://images.ichochy.com/162380894499277918.png" alt="162380894499277918"></p>
@@ -169,26 +180,26 @@
 <p>文件路径如：<code>iChochy.github.io/.github/workflows/main.yml</code></p>
 <p><img src="https://images.ichochy.com/162381977872430521.png" alt="162381977872430521"></p>
 <h3 id="具体内容">具体内容</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">name: Algolia Upload Records
-on:
-  <span style="color:#f92672">[</span>push<span style="color:#f92672">]</span> <span style="color:#75715e">#推送时执行</span>
-jobs:
-  algolia:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        <span style="color:#75715e"># 获取代码 Checkout</span>
-        uses: actions/checkout@v2
-      - name: Upload Records
-        <span style="color:#75715e"># 使用 Action</span>
-        uses: iChochy/Algolia-Upload-Records@main
-        <span style="color:#75715e"># 设置环境变量</span>
-        env:
-          APPLICATION_ID: <span style="color:#e6db74">${</span>{secrets.APPLICATION_ID<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
-          ADMIN_API_KEY: <span style="color:#e6db74">${</span>{secrets.ADMIN_API_KEY<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
-          INDEX_NAME: <span style="color:#e6db74">${</span>{secrets.INDEX_NAME<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
-          FILE_PATH: <span style="color:#e6db74">${</span>{secrets.FILE_PATH<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
-</code></pre></div><h2 id="执行过程和结果">执行过程和结果</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>name: Algolia Upload Records
+</span></span><span style="display:flex;"><span>on:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">[</span>push<span style="color:#f92672">]</span> <span style="color:#75715e">#推送时执行</span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>  algolia:
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-latest
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>      - name: Checkout
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 获取代码 Checkout</span>
+</span></span><span style="display:flex;"><span>        uses: actions/checkout@v2
+</span></span><span style="display:flex;"><span>      - name: Upload Records
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 使用 Action</span>
+</span></span><span style="display:flex;"><span>        uses: iChochy/Algolia-Upload-Records@main
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 设置环境变量</span>
+</span></span><span style="display:flex;"><span>        env:
+</span></span><span style="display:flex;"><span>          APPLICATION_ID: <span style="color:#e6db74">${</span>{secrets.APPLICATION_ID<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>          ADMIN_API_KEY: <span style="color:#e6db74">${</span>{secrets.ADMIN_API_KEY<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>          INDEX_NAME: <span style="color:#e6db74">${</span>{secrets.INDEX_NAME<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>          FILE_PATH: <span style="color:#e6db74">${</span>{secrets.FILE_PATH<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="执行过程和结果">执行过程和结果</h2>
 <p><code>Actions =&gt; Workflows</code> 中查询所有工作流程的工作日志</p>
 <p>上传记录成功后会返回数据记录 ID</p>
 <p><img src="https://images.ichochy.com/162381997971999822.png" alt="162381997971999822"></p>
@@ -248,6 +259,13 @@ jobs:
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20210612.html">https://ichochy.com/posts/20210612.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -268,7 +286,7 @@ jobs:
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

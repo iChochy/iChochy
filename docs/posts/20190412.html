@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>通过端口号关闭当前进程 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -111,22 +122,22 @@
 
   <p>使用<code>Shell</code>脚本的方式，通过端口号来关闭当前进程</p>
 <h3 id="查看脚本">查看脚本</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
-</code></pre></div><p>使用到三个命令<code>lsof</code>、<code>grep</code>、<code>awk</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
+</span></span></code></pre></div><p>使用到三个命令<code>lsof</code>、<code>grep</code>、<code>awk</code></p>
 <blockquote>
 <p><code>lsof</code> 获取端口进程列表</p>
 <p><code>grep</code> 精准匹配进程</p>
 <p><code>awk</code> 获取进程号</p>
 </blockquote>
 <h3 id="完整示例">完整示例：</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-PROCESS<span style="color:#f92672">=</span>echo | lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $PROCESS <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-kill -9 $PROCESS
-echo kill $PROCESS
-<span style="color:#66d9ef">fi</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>PROCESS<span style="color:#f92672">=</span>echo | lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $PROCESS <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>kill -9 $PROCESS
+</span></span><span style="display:flex;"><span>echo kill $PROCESS
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div>
   
 
   
@@ -149,6 +160,13 @@ echo kill $PROCESS
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20190412.html">https://ichochy.com/posts/20190412.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -169,7 +187,7 @@ echo kill $PROCESS
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

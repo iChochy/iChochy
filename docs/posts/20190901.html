@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CocoaPods 构建自己的 Pod 库 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -117,35 +128,35 @@
 </ol>
 <h3 id="二配置-podspec">二、配置 <code>Podspec</code></h3>
 <p>官网说明：<a href="https://guides.cocoapods.org/syntax/podspec.html#specification">https://guides.cocoapods.org/syntax/podspec.html#specification</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
-  spec.name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;libminipng&#39;</span>
-  spec.version      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0.0.5&#39;</span>
-  spec.license      <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :type <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;MIT&#39;</span> <span style="color:#f92672">}</span>
-  spec.homepage     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.ichochy.com&#39;</span>
-  spec.authors      <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#39;iChochy&#39;</span> <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;iChochy@qq.com&#39;</span> <span style="color:#f92672">}</span>
-  spec.summary      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Swift library that compresses PNG&#39;</span>
-  spec.source       <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :git <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;https://github.com/iChochy/libminipng.git&#39;</span>, :tag <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;v3.1.0&#39;</span> <span style="color:#f92672">}</span>
-  spec.source_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;libminipng/Classes/**/*&#39;</span>
-  spec.public_header_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;libminipng/Classes/libminipng.h&#34;</span>,<span style="color:#e6db74">&#34;libminipng/Classes/minipng.h&#34;</span>
-end
-</code></pre></div><p><code>spec.source</code>：检索库的远程地址</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
+</span></span><span style="display:flex;"><span>  spec.name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;libminipng&#39;</span>
+</span></span><span style="display:flex;"><span>  spec.version      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0.0.5&#39;</span>
+</span></span><span style="display:flex;"><span>  spec.license      <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :type <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;MIT&#39;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  spec.homepage     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.ichochy.com&#39;</span>
+</span></span><span style="display:flex;"><span>  spec.authors      <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#39;iChochy&#39;</span> <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;iChochy@qq.com&#39;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  spec.summary      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Swift library that compresses PNG&#39;</span>
+</span></span><span style="display:flex;"><span>  spec.source       <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :git <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;https://github.com/iChochy/libminipng.git&#39;</span>, :tag <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;v3.1.0&#39;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  spec.source_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;libminipng/Classes/**/*&#39;</span>
+</span></span><span style="display:flex;"><span>  spec.public_header_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;libminipng/Classes/libminipng.h&#34;</span>,<span style="color:#e6db74">&#34;libminipng/Classes/minipng.h&#34;</span>
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><p><code>spec.source</code>：检索库的远程地址</p>
 <p>支持指定方式：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">:git <span style="color:#f92672">=</span>&gt; :tag, :branch, :commit, :submodules
-:svn <span style="color:#f92672">=</span>&gt; :folder, :tag, :revision
-:hg <span style="color:#f92672">=</span>&gt; :revision
-:http <span style="color:#f92672">=</span>&gt; :flatten, :type, :sha256, :sha1, :headers
-</code></pre></div><p><code>spec.source_files</code>: 库的源代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>:git <span style="color:#f92672">=</span>&gt; :tag, :branch, :commit, :submodules
+</span></span><span style="display:flex;"><span>:svn <span style="color:#f92672">=</span>&gt; :folder, :tag, :revision
+</span></span><span style="display:flex;"><span>:hg <span style="color:#f92672">=</span>&gt; :revision
+</span></span><span style="display:flex;"><span>:http <span style="color:#f92672">=</span>&gt; :flatten, :type, :sha256, :sha1, :headers
+</span></span></code></pre></div><p><code>spec.source_files</code>: 库的源代码</p>
 <p>通过正则方式匹配，如：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#e6db74">&#34;JSONKit.?&#34;</span>    <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>
-<span style="color:#e6db74">&#34;*.[a-z][a-z]&#34;</span> <span style="color:#75715e">#=&gt; [&#34;CHANGELOG.md&#34;, &#34;README.md&#34;]</span>
-<span style="color:#e6db74">&#34;*.[^m]*&#34;</span>      <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;]</span>
-<span style="color:#e6db74">&#34;*.{h,m}&#34;</span>      <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>
-<span style="color:#e6db74">&#34;*&#34;</span>            <span style="color:#75715e">#=&gt; [&#34;CHANGELOG.md&#34;, &#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;, &#34;README.md&#34;]</span>
-</code></pre></div><p><code>spec.public_header_files</code>: 公共头文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;JSONKit.?&#34;</span>    <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;*.[a-z][a-z]&#34;</span> <span style="color:#75715e">#=&gt; [&#34;CHANGELOG.md&#34;, &#34;README.md&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;*.[^m]*&#34;</span>      <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;*.{h,m}&#34;</span>      <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;*&#34;</span>            <span style="color:#75715e">#=&gt; [&#34;CHANGELOG.md&#34;, &#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;, &#34;README.md&#34;]</span>
+</span></span></code></pre></div><p><code>spec.public_header_files</code>: 公共头文件</p>
 <p><em><strong>如果OC混编，可以在公共头文件中引入OC文件，如同桥接文件</strong></em></p>
 <p><em>注：如果未指定公共头文件，那么<code>source_files</code>中的所有文件将被视为公共头文件</em></p>
 <h3 id="三验证-podspec">三、验证 <code>Podspec</code></h3>
-<pre><code>pod lib lint  	//本地验证
+<pre tabindex="0"><code>pod lib lint  	//本地验证
 pod spec lint 	//在线验证，检查外部仓库和相关标签
 </code></pre><p>如果出现警告(<code>WARN</code>) ，可以添加<code>--allow-warnings</code>忽略警告<br>
 如果出现错误(<code>ERROR</code>)，可以添加 <code>--verbose</code>，查看详情</p>
@@ -185,6 +196,13 @@ pod spec lint 	//在线验证，检查外部仓库和相关标签
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20190901.html">https://ichochy.com/posts/20190901.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -205,7 +223,7 @@ pod spec lint 	//在线验证，检查外部仓库和相关标签
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

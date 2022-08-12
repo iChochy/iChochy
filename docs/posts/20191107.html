@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Docker 中运行 ElasticSearch 和 Kibana &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -117,48 +128,47 @@
   <p>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据</p>
 <h3 id="一下载镜像image">一、下载镜像(image)</h3>
 <p><strong>搜索镜像(image)</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search elasticsearch
-docker search kibana 
-</code></pre></div><p><strong>获取镜像(image)</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elasticsearch:7.4.1     <span style="color:#75715e">#镜像名称:Tag</span>
-docker pull kibana:7.4.1            <span style="color:#75715e">#镜像名称:Tag</span>
-</code></pre></div><h3 id="二创建-docker-composeyml">二、创建 docker-compose.yml</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker search elasticsearch
+</span></span><span style="display:flex;"><span>docker search kibana 
+</span></span></code></pre></div><p><strong>获取镜像(image)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull elasticsearch:7.4.1     <span style="color:#75715e">#镜像名称:Tag</span>
+</span></span><span style="display:flex;"><span>docker pull kibana:7.4.1            <span style="color:#75715e">#镜像名称:Tag</span>
+</span></span></code></pre></div><h3 id="二创建-docker-composeyml">二、创建 docker-compose.yml</h3>
 <p><strong>构建 es.yml</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">version: <span style="color:#e6db74">&#34;3.2&#34;</span>
-  
-services:
-  elasticsearch:
-    container_name: elasticsearch           <span style="color:#75715e">#容器名称</span>
-    image: elasticsearch:7.4.1              <span style="color:#75715e">#镜像(image)</span>
-    restart: always                         <span style="color:#75715e">#重启方式</span>
-    environment:
-      discovery.type: single-node           <span style="color:#75715e">#环境变量：运行模式 单例</span>
-    ports:
-      - <span style="color:#e6db74">&#34;9200:9200&#34;</span>                         <span style="color:#75715e">#端口映射</span>
-      - <span style="color:#e6db74">&#34;9300:9300&#34;</span>
-  kibana:
-    container_name: kibana                  <span style="color:#75715e">#容器名称</span>
-    image: kibana:7.4.1                     <span style="color:#75715e">#镜像(image)</span>
-    restart: always                         <span style="color:#75715e">#重启方式</span>
-    environment:
-      ELASTICSEARCH_URL: <span style="color:#e6db74">&#34;127.0.0.1:9200&#34;</span>   <span style="color:#75715e">#环境变量：elasticsearch 请求地址</span>
-      I18N_LOCALE: <span style="color:#e6db74">&#34;zh-CN&#34;</span>                  <span style="color:#75715e">#指定中文</span>
-    ports:
-      - <span style="color:#e6db74">&#34;5601:5601&#34;</span>                         <span style="color:#75715e">#端口映射</span>
-
-</code></pre></div><h3 id="三运行">三、运行</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#34;3.2&#34;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span>  elasticsearch:
+</span></span><span style="display:flex;"><span>    container_name: elasticsearch           <span style="color:#75715e">#容器名称</span>
+</span></span><span style="display:flex;"><span>    image: elasticsearch:7.4.1              <span style="color:#75715e">#镜像(image)</span>
+</span></span><span style="display:flex;"><span>    restart: always                         <span style="color:#75715e">#重启方式</span>
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      discovery.type: single-node           <span style="color:#75715e">#环境变量：运行模式 单例</span>
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;9200:9200&#34;</span>                         <span style="color:#75715e">#端口映射</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;9300:9300&#34;</span>
+</span></span><span style="display:flex;"><span>  kibana:
+</span></span><span style="display:flex;"><span>    container_name: kibana                  <span style="color:#75715e">#容器名称</span>
+</span></span><span style="display:flex;"><span>    image: kibana:7.4.1                     <span style="color:#75715e">#镜像(image)</span>
+</span></span><span style="display:flex;"><span>    restart: always                         <span style="color:#75715e">#重启方式</span>
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      ELASTICSEARCH_URL: <span style="color:#e6db74">&#34;127.0.0.1:9200&#34;</span>   <span style="color:#75715e">#环境变量：elasticsearch 请求地址</span>
+</span></span><span style="display:flex;"><span>      I18N_LOCALE: <span style="color:#e6db74">&#34;zh-CN&#34;</span>                  <span style="color:#75715e">#指定中文</span>
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5601:5601&#34;</span>                         <span style="color:#75715e">#端口映射</span>
+</span></span></code></pre></div><h3 id="三运行">三、运行</h3>
 <p><strong>命令启动</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose -f es.yml up -d
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose 
-                -f  <span style="color:#75715e">#指定构建文件</span>
-                up  <span style="color:#75715e">#创建并启动容器</span>
-                -d  <span style="color:#75715e">#后台运行容器(container)，打印容器(container)ID</span>
-</code></pre></div><p>启动完成后直接访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose -f es.yml up -d
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose 
+</span></span><span style="display:flex;"><span>                -f  <span style="color:#75715e">#指定构建文件</span>
+</span></span><span style="display:flex;"><span>                up  <span style="color:#75715e">#创建并启动容器</span>
+</span></span><span style="display:flex;"><span>                -d  <span style="color:#75715e">#后台运行容器(container)，打印容器(container)ID</span>
+</span></span></code></pre></div><p>启动完成后直接访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana</p>
 <p><img src="https://images.ichochy.com/15731085378080282.png" alt="15731085378080282"></p>
 <p>*注：*注意YML文件编写，不要出现 Tab 制表符，否则导致文件解析错误，启动容器(container)失败</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 错误信息</span>
-yaml.scanner.ScannerError: mapping values are not allowed here
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 错误信息</span>
+</span></span><span style="display:flex;"><span>yaml.scanner.ScannerError: mapping values are not allowed here
+</span></span></code></pre></div>
   
 
   
@@ -181,6 +191,13 @@ yaml.scanner.ScannerError: mapping values are not allowed here
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20191107.html">https://ichochy.com/posts/20191107.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -201,7 +218,7 @@ yaml.scanner.ScannerError: mapping values are not allowed here
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

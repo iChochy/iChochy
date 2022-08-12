@@ -8,7 +8,7 @@ uglyurls = true
 hasCJKLanguage = false
 disqusShortname = "ichochy"
 enableRobotsTXT = false
-googleAnalytics: UA-148465786-1
+googleAnalytics = "UA-148465786-1"
 
 [outputs]
   home = ["HTML","RSS","TXT","Algolia"]

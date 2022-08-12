@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Office 批量激活的命令工具 slmgr &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -128,11 +139,11 @@
 <p>您可以在目标计算机上以本地方式运行脚本，或从另一台计算机中以远程方式运行。您必须是管理员才能使用此脚本。如果标准用户运行 slmgr.vbs，则某些许可证数据可能缺失或不正确，并且许多操作将被禁止。</p>
 <p>slmgr.vbs 脚本可以使用基于 Windows 的脚本主机 wscript.exe 或基于命令的脚本主机 cscript.exe，管理员可以指定要使用的脚本引擎。如果未指定脚本引擎，slmgr.vbs 将使用默认脚本引擎 wscript.exe 运行。我们建议使用 cscript.exe 脚本引擎。</p>
 <p>您必须重新启动软件授权服务才能使任何更改生效。若要重新启动软件授权服务，请使用 Microsoft 管理控制台 (MMC) 服务管理单元或运行以下命令：</p>
-<pre><code>net stop sppsvc &amp;&amp; net start sppsvc
+<pre tabindex="0"><code>net stop sppsvc &amp;&amp; net start sppsvc
 </code></pre><p>slmgr.vbs 脚本需要至少一个参数。如果您运行不带任何参数的脚本，则会显示帮助信息。下表列出了 slmgr.vbs 的命令行选项以及每个选项的说明。该表中的大多数参数都用于配置 KMS 主计算机。不过，参数 /sai 和 /sri 是在 KMS 客户端与 KMS 主计算机联系后才传递给 KMS 客户端。</p>
 <h4 id="slmgrvbs-的常规语法如下所示假定所使用的脚本引擎为-cscriptexe">slmgr.vbs 的常规语法如下所示（假定所使用的脚本引擎为 cscript.exe）：</h4>
-<pre><code>cscript slmgr.vbs /parameter
-</code></pre><pre><code>cscript slmgr.vbs [ComputerName] [User] [Password] [Option]
+<pre tabindex="0"><code>cscript slmgr.vbs /parameter
+</code></pre><pre tabindex="0"><code>cscript slmgr.vbs [ComputerName] [User] [Password] [Option]
 </code></pre><p><code>ComputerName </code>：远程计算机的名称。如果您不提供计算机名称，则使用本地计算机。<br>
 <code>User</code>：远程计算机上具有所需权限的帐户。<br>
 <code>Password</code> ：帐户的密码。如果您不提供用户帐户和密码，则使用当前凭据。<br>
@@ -257,6 +268,13 @@
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20200605.html">https://ichochy.com/posts/20200605.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -277,7 +295,7 @@
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Java 递归实例操作-查询层级菜单 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -152,163 +163,163 @@
 </tbody>
 </table>
 <h3 id="数据实体">数据实体</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * File:Menus.java
-</span><span style="color:#75715e"> * User:iChochy
-</span><span style="color:#75715e"> * URL:https://ichochy.com
-</span><span style="color:#75715e"> * Copyright (c) 2021
-</span><span style="color:#75715e"> * Date:2021/03/16 14:12:16
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#f92672">package</span> com.ichochy.entity<span style="color:#f92672">;</span>
-
-<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Menu</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> childs<span style="color:#f92672">;</span>
-    <span style="color:#75715e">//…………
-</span><span style="color:#75715e"></span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="数据查询">数据查询</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:Menus.java
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2021
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/03/16 14:12:16
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.entity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Menu</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> childs<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//…………
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="数据查询">数据查询</h3>
 <p>通过 fatherId 查询子菜单信息</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 查询菜单信息-模拟方法
-</span><span style="color:#75715e">     * @param fatherId
-</span><span style="color:#75715e">     * @return
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span>  List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getMenuByFatherId</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">int</span> value <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">().</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>value <span style="color:#f92672">%</span> 2 <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> menus <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(</span>value<span style="color:#f92672">);</span>
-            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> value<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-                Menu menu <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Menu<span style="color:#f92672">();</span>
-                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
-                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setFatherId</span><span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
-                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;menu-&#34;</span> <span style="color:#f92672">+</span> fatherId<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">+</span>i<span style="color:#f92672">);</span>
-                menus<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>menu<span style="color:#f92672">);</span>
-            <span style="color:#f92672">}</span>
-            <span style="color:#66d9ef">return</span> menus<span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">return</span> Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">EMPTY_LIST</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-</code></pre></div><p><strong><code>没有建表查库，写个模拟方法</code></strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * 查询菜单信息-模拟方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param fatherId
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span>  List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getMenuByFatherId</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> value <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">().</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>value <span style="color:#f92672">%</span> 2 <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> menus <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(</span>value<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> value<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                Menu menu <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Menu<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setFatherId</span><span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;menu-&#34;</span> <span style="color:#f92672">+</span> fatherId<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">+</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                menus<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>menu<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> menus<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">EMPTY_LIST</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><strong><code>没有建表查库，写个模拟方法</code></strong></p>
 <h3 id="递归方法">递归方法</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * File:Recursion.java
-</span><span style="color:#75715e"> * User:iChochy
-</span><span style="color:#75715e"> * URL:https://ichochy.com
-</span><span style="color:#75715e"> * Copyright (c) 2021
-</span><span style="color:#75715e"> * Date:2021/03/16 14:07:16
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#f92672">package</span> com.ichochy.recursion<span style="color:#f92672">;</span>
-
-<span style="color:#f92672">import</span> com.ichochy.entity.Menu<span style="color:#f92672">;</span>
-
-<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.Collections<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.Random<span style="color:#f92672">;</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Recursion</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 获取菜单
-</span><span style="color:#75715e">     * @param fatherId
-</span><span style="color:#75715e">     * @return
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">public</span>  List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllMenus</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> menus <span style="color:#f92672">=</span> getMenuByFatherId<span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Menu menu <span style="color:#f92672">:</span> menus<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            fatherId <span style="color:#f92672">=</span> menu<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">();</span>
-            <span style="color:#75715e">//自己调用自己
-</span><span style="color:#75715e"></span>            List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> childMenus <span style="color:#f92672">=</span> getAllMenus<span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
-            <span style="color:#75715e">//跳出递归
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>childMenus<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
-            <span style="color:#f92672">}</span>
-            menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setChilds</span><span style="color:#f92672">(</span>childMenus<span style="color:#f92672">);</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">return</span> menus<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-</code></pre></div><p><strong>构成递归需具备的条件：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:Recursion.java
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2021
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/03/16 14:07:16
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.recursion<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.ichochy.entity.Menu<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Collections<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Random<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Recursion</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * 获取菜单
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param fatherId
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span>  List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllMenus</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> menus <span style="color:#f92672">=</span> getMenuByFatherId<span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Menu menu <span style="color:#f92672">:</span> menus<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            fatherId <span style="color:#f92672">=</span> menu<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//自己调用自己
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> childMenus <span style="color:#f92672">=</span> getAllMenus<span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//跳出递归
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>childMenus<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setChilds</span><span style="color:#f92672">(</span>childMenus<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> menus<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><strong>构成递归需具备的条件：</strong></p>
 <ol>
 <li>子类问题与父类问题相同</li>
 <li>不能无限制地调用自身，须有跳出出口，边界返回</li>
 </ol>
 <h2 id="递归数据">递归数据</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-  {
-    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
-    <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">15</span>,
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-15-1&#34;</span>
-  },
-  {
-    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>,
-    <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">15</span>,
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-15-2&#34;</span>,
-    <span style="color:#f92672">&#34;childs&#34;</span>: [
-      {
-        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
-        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">2</span>,
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-2-1&#34;</span>
-      }
-    ]
-  },
-  {
-    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">3</span>,
-    <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">15</span>,
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-15-3&#34;</span>,
-    <span style="color:#f92672">&#34;childs&#34;</span>: [
-      {
-        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
-        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">3</span>,
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-3-1&#34;</span>
-      }
-    ]
-  },
-  {
-    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">4</span>,
-    <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">15</span>,
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-15-4&#34;</span>,
-    <span style="color:#f92672">&#34;childs&#34;</span>: [
-      {
-        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
-        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">4</span>,
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-4-1&#34;</span>
-      },
-      {
-        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>,
-        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">4</span>,
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-4-2&#34;</span>,
-        <span style="color:#f92672">&#34;childs&#34;</span>: [
-          {
-            <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
-            <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">2</span>,
-            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-2-1&#34;</span>
-          }
-        ]
-      },
-      {
-        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">3</span>,
-        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">4</span>,
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-4-3&#34;</span>,
-        <span style="color:#f92672">&#34;childs&#34;</span>: [
-          {
-            <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
-            <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">3</span>,
-            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-3-1&#34;</span>
-          }
-        ]
-      }
-    ]
-  }
-]
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">15</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-15-1&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">15</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-15-2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;childs&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-2-1&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">15</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-15-3&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;childs&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-3-1&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">15</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-15-4&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;childs&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-4-1&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-4-2&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;childs&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-2-1&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-4-3&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;childs&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;fatherId&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;menu-3-1&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div>
   
 
   
@@ -359,6 +370,13 @@
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20210315.html">https://ichochy.com/posts/20210315.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -379,7 +397,7 @@
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

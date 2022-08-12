@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>持续集成和持续交付工具-jenkins &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -132,38 +143,38 @@
 </blockquote>
 <h4 id="2brew安装">2､<code>brew</code>安装</h4>
 <p>Mac下执行<code>brew install jenkins-lts</code> 命令安装</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:~ mleo$ brew install jenkins-lts
-Updating Homebrew...
-<span style="color:#f92672">==</span>&gt; Auto-updated Homebrew!
-Updated <span style="color:#ae81ff">2</span> taps <span style="color:#f92672">(</span>homebrew/core and homebrew/cask<span style="color:#f92672">)</span>.
-<span style="color:#f92672">==</span>&gt; New Formulae
-zabbix-cli
-
-<span style="color:#f92672">==</span>&gt; Downloading http://mirrors.jenkins.io/war-stable/2.164.1/jenkins.war
-<span style="color:#f92672">==</span>&gt; Downloading from http://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.164.1/jenkins.war
-<span style="color:#75715e">######################################################################## 100.0%</span>
-<span style="color:#f92672">==</span>&gt; jar xvf jenkins.war
-<span style="color:#f92672">==</span>&gt; Caveats
-Note: When using launchctl the port will be 8080.
-
-To have launchd start jenkins-lts now and restart at login:
-  brew services start jenkins-lts
-Or, <span style="color:#66d9ef">if</span> you don<span style="color:#960050;background-color:#1e0010">&#39;</span>t want/need a background service you can just run:
-  jenkins-lts
-<span style="color:#f92672">==</span>&gt; Summary
-🍺  /usr/local/Cellar/jenkins-lts/2.164.1: <span style="color:#ae81ff">7</span> files, 77.3MB, built in <span style="color:#ae81ff">26</span> seconds
-<span style="color:#f92672">==</span>&gt; <span style="color:#e6db74">`</span>brew cleanup<span style="color:#e6db74">`</span> has not been run in <span style="color:#ae81ff">30</span> days, running now...
-Removing: /Users/mleo/Library/Caches/Homebrew/java_cache... <span style="color:#f92672">(</span>275B<span style="color:#f92672">)</span>
-Removing: /Users/mleo/Library/Logs/Homebrew/cocoapods... <span style="color:#f92672">(</span>64B<span style="color:#f92672">)</span>
-</code></pre></div><p>安装完成后可以执行<code>brew services list</code>查看安装服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:~ mleo$ brew services list
-Name        Status  User Plist
-jenkins-lts stopped
-</code></pre></div><p>启动<code>jenkins</code>，执行<code>brew services start jenkins-lts</code>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew install jenkins-lts
+</span></span><span style="display:flex;"><span>Updating Homebrew...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Auto-updated Homebrew!
+</span></span><span style="display:flex;"><span>Updated <span style="color:#ae81ff">2</span> taps <span style="color:#f92672">(</span>homebrew/core and homebrew/cask<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; New Formulae
+</span></span><span style="display:flex;"><span>zabbix-cli
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Downloading http://mirrors.jenkins.io/war-stable/2.164.1/jenkins.war
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Downloading from http://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.164.1/jenkins.war
+</span></span><span style="display:flex;"><span><span style="color:#75715e">######################################################################## 100.0%</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; jar xvf jenkins.war
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Caveats
+</span></span><span style="display:flex;"><span>Note: When using launchctl the port will be 8080.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To have launchd start jenkins-lts now and restart at login:
+</span></span><span style="display:flex;"><span>  brew services start jenkins-lts
+</span></span><span style="display:flex;"><span>Or, <span style="color:#66d9ef">if</span> you don<span style="color:#960050;background-color:#1e0010">&#39;</span>t want/need a background service you can just run:
+</span></span><span style="display:flex;"><span>  jenkins-lts
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Summary
+</span></span><span style="display:flex;"><span>🍺  /usr/local/Cellar/jenkins-lts/2.164.1: <span style="color:#ae81ff">7</span> files, 77.3MB, built in <span style="color:#ae81ff">26</span> seconds
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; <span style="color:#e6db74">`</span>brew cleanup<span style="color:#e6db74">`</span> has not been run in <span style="color:#ae81ff">30</span> days, running now...
+</span></span><span style="display:flex;"><span>Removing: /Users/mleo/Library/Caches/Homebrew/java_cache... <span style="color:#f92672">(</span>275B<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Removing: /Users/mleo/Library/Logs/Homebrew/cocoapods... <span style="color:#f92672">(</span>64B<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>安装完成后可以执行<code>brew services list</code>查看安装服务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew services list
+</span></span><span style="display:flex;"><span>Name        Status  User Plist
+</span></span><span style="display:flex;"><span>jenkins-lts stopped
+</span></span></code></pre></div><p>启动<code>jenkins</code>，执行<code>brew services start jenkins-lts</code>
 关闭<code>jenkins</code>，执行<code>brew services stop jenkins-lts</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:~ mleo$ brew services start jenkins-lts
-<span style="color:#f92672">==</span>&gt; Successfully started <span style="color:#e6db74">`</span>jenkins-lts<span style="color:#e6db74">`</span> <span style="color:#f92672">(</span>label: homebrew.mxcl.jenkins-lts<span style="color:#f92672">)</span>
-</code></pre></div><p>直接访问：<a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew services start jenkins-lts
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Successfully started <span style="color:#e6db74">`</span>jenkins-lts<span style="color:#e6db74">`</span> <span style="color:#f92672">(</span>label: homebrew.mxcl.jenkins-lts<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>直接访问：<a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></p>
 <p>第一次进行需解锁</p>
 <p><img src="https://images.ichochy.com/%E5%85%A5%E9%97%A8.png" alt="入门"></p>
 <p>通过<code>cat /Users/mleo/.jenkins/secrets/initialAdminPassword</code> 查看密码</p>
@@ -227,6 +238,13 @@ jenkins-lts stopped
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20190410.html">https://ichochy.com/posts/20190410.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -247,7 +265,7 @@ jenkins-lts stopped
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

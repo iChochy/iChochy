@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>了解 JS 的加载顺序和方式，实现 Ready 方法 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -124,42 +135,42 @@
 <li><strong>但是</strong>，我们还有<code>ready</code>方法。</li>
 </ul>
 <p><code>jQuery</code>中的<code>ready</code>方法会在页面解析后运行，语法如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//语法 1
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>)
-<span style="color:#75715e">//语法 2
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>().<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>)
-<span style="color:#75715e">//语法 3
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">function</span>)
-</code></pre></div><p>自定义方法，通过监听<code>DOMContentLoaded</code>实现ready方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#960050;background-color:#1e0010">/**</span>
- <span style="color:#f92672">*</span> <span style="color:#a6e22e">页面解析后执行</span> <span style="color:#a6e22e">fn</span>
- <span style="color:#f92672">*</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//ichochy.com
-</span><span style="color:#75715e"></span> <span style="color:#f92672">*</span> <span style="color:#960050;background-color:#1e0010">/</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ready</span>(<span style="color:#a6e22e">fn</span>) {
-    <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">addEventListener</span>) {
-        document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span> () {
-            <span style="color:#75715e">//注销时间，避免重复触发
-</span><span style="color:#75715e"></span>            document.<span style="color:#a6e22e">removeEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">callee</span>, <span style="color:#66d9ef">false</span>);
-            <span style="color:#a6e22e">fn</span>(); <span style="color:#75715e">//运行函数
-</span><span style="color:#75715e"></span>        }, <span style="color:#66d9ef">false</span>);
-    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">attachEvent</span>) { <span style="color:#75715e">//IE浏览器
-</span><span style="color:#75715e"></span>        document.<span style="color:#a6e22e">attachEvent</span>(<span style="color:#e6db74">&#39;onreadystatechange&#39;</span>, <span style="color:#66d9ef">function</span> () {
-            <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;complete&#39;</span>) {
-                document.<span style="color:#a6e22e">detachEvent</span>(<span style="color:#e6db74">&#39;onreadystatechange&#39;</span>, <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">callee</span>);
-                <span style="color:#a6e22e">fn</span>(); <span style="color:#75715e">//函数运行
-</span><span style="color:#75715e"></span>            }
-        });
-    }
-}
-</code></pre></div><p>当然还有我的<code>onload</code>方法，可以在页面完成所有加载后再执行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Javascript" data-lang="Javascript"><span style="color:#75715e">//window 的 onload
-</span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
-    <span style="color:#75715e">//load https://ichochy.com
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//some things ……
-</span><span style="color:#75715e"></span>}
-<span style="color:#75715e">//body 的 onload
-</span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span> <span style="color:#a6e22e">onload</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;load()&#34;</span><span style="color:#f92672">&gt;</span>
-</code></pre></div><h2 id="总结">总结</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//语法 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//语法 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>().<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//语法 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">function</span>)
+</span></span></code></pre></div><p>自定义方法，通过监听<code>DOMContentLoaded</code>实现ready方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">/**</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">页面解析后执行</span> <span style="color:#a6e22e">fn</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#f92672">*</span> <span style="color:#960050;background-color:#1e0010">/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ready</span>(<span style="color:#a6e22e">fn</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">addEventListener</span>) {
+</span></span><span style="display:flex;"><span>        document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//注销时间，避免重复触发
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            document.<span style="color:#a6e22e">removeEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">callee</span>, <span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">fn</span>(); <span style="color:#75715e">//运行函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }, <span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">attachEvent</span>) { <span style="color:#75715e">//IE浏览器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        document.<span style="color:#a6e22e">attachEvent</span>(<span style="color:#e6db74">&#39;onreadystatechange&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;complete&#39;</span>) {
+</span></span><span style="display:flex;"><span>                document.<span style="color:#a6e22e">detachEvent</span>(<span style="color:#e6db74">&#39;onreadystatechange&#39;</span>, <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">callee</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">fn</span>(); <span style="color:#75715e">//函数运行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            }
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>当然还有我的<code>onload</code>方法，可以在页面完成所有加载后再执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Javascript" data-lang="Javascript"><span style="display:flex;"><span><span style="color:#75715e">//window 的 onload
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//load https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//some things ……
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//body 的 onload
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span> <span style="color:#a6e22e">onload</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;load()&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><h2 id="总结">总结</h2>
 <p>可以看到，<code>JS</code>的执行顺序决定着程序是否正常工作。加载过早，可能无法获取到页面元素，而太晚，页面元素无法交互。对于执行的顺序，要以当前的程序功能而定。</p>
 
   
@@ -184,6 +195,13 @@
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20200807.html">https://ichochy.com/posts/20200807.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -204,7 +222,7 @@
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

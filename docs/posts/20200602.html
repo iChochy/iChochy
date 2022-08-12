@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Office 批量激活的命令工具 ospp &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -129,9 +140,9 @@
 <p><strong>适用于：</strong> Office 2019 和 Office 2016（包括 Project 和 Visio）的批量许可版本</p>
 <p><strong>运行 ospp.vbs 需要 cscript.exe 脚本引擎</strong></p>
 <p>若要查看帮助文件，请键入以下命令，然后按 Enter：</p>
-<pre><code>cscript ospp.vbs /?
+<pre tabindex="0"><code>cscript ospp.vbs /?
 </code></pre><p>常规语法如下所示：</p>
-<pre><code>cscript ospp.vbs [Option:Value] [ComputerName] [User] [Password]
+<pre tabindex="0"><code>cscript ospp.vbs [Option:Value] [ComputerName] [User] [Password]
 </code></pre><p><code>Option</code>：指定用于执行以下操作的选项和值：激活产品、安装或卸载产品密钥、安装和显示许可证信息、设置 KMS 主机名和端口，以及删除 KMS 主机名和端口。本节中的表中列出了这些选项和值。<br>
 <code>ComputerName</code>：远程计算机的名称。如果不提供计算机名称，则使用本地计算机。<br>
 <code>User</code>：在远程计算机上拥有所需权限的帐户。<br>
@@ -247,54 +258,54 @@
 <ol>
 <li>如果远程计算机名为 contoso1，请运行以下命令输入产品密钥。此操作假定您在远程计算机上拥有管理员凭据。如果您在远程计算机上的凭据与您的登录名和密码不同，则必须在命令行中键入您的登录名和密码，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /inpkey:xxxxx-xxxxx-xxxxx-xxxxx-xxxxx contoso1
+<pre tabindex="0"><code>cscript ospp.vbs /inpkey:xxxxx-xxxxx-xxxxx-xxxxx-xxxxx contoso1
 </code></pre><ol start="2">
 <li>若要激活远程计算机，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /act contoso1
+<pre tabindex="0"><code>cscript ospp.vbs /act contoso1
 </code></pre><h4 id="诊断-kms-激活错误">诊断 KMS 激活错误</h4>
 <ol>
 <li>如果计算机安装了 KMS 客户端密钥，请检查授权状态。为此，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /dstatusall
+<pre tabindex="0"><code>cscript ospp.vbs /dstatusall
 </code></pre><ol start="2">
 <li>若要检查 KMS 激活历史记录，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /dhistorykms
+<pre tabindex="0"><code>cscript ospp.vbs /dhistorykms
 </code></pre><ol start="3">
 <li>若要触发激活，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /act
+<pre tabindex="0"><code>cscript ospp.vbs /act
 </code></pre><ol start="4">
 <li>检查错误消息中是否有错误代码 0xC004F042。如果在通知对话框中看到向用户显示的错误代码，您也可以使用该代码来检查错误消息。为此，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /ddescr:0xC004F042
+<pre tabindex="0"><code>cscript ospp.vbs /ddescr:0xC004F042
 </code></pre><h4 id="打开或关闭-kms-客户端上的-kms-主机缓存">打开或关闭 KMS 客户端上的 KMS 主机缓存</h4>
 <ol>
 <li>在 KMS 客户端计算机上，若要打开缓存，请键入下面的命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /cachst:TRUE
+<pre tabindex="0"><code>cscript ospp.vbs /cachst:TRUE
 </code></pre><ol start="2">
 <li>在 KMS 客户端计算机上，若要关闭缓存，请键入下面的命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /cachst:FALSE
+<pre tabindex="0"><code>cscript ospp.vbs /cachst:FALSE
 </code></pre><h4 id="测试-kms-主机名然后设置为自动发现">测试 KMS 主机名，然后设置为自动发现</h4>
 <ol>
 <li>如果在测试名为 kmstest.contoso.com 的 KMS 主机，并且要在 KMS 客户端中指定该主机，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /sethst:kmstest.contoso.com
+<pre tabindex="0"><code>cscript ospp.vbs /sethst:kmstest.contoso.com
 </code></pre><ol start="2">
 <li>若要触发激活，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /act
+<pre tabindex="0"><code>cscript ospp.vbs /act
 </code></pre><ol start="3">
 <li>若要检查 KMS 激活历史记录以查看是否成功连接主机，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /dhistorykms
+<pre tabindex="0"><code>cscript ospp.vbs /dhistorykms
 </code></pre><ol start="4">
 <li>现在，您希望此 KMS 客户端使用域名系统 (DNS) 自动发现生产 KMS 主机。若要移除 KMS 主机名，请键入以下命令，然后按 Enter：</li>
 </ol>
-<pre><code>cscript ospp.vbs /remhst
+<pre tabindex="0"><code>cscript ospp.vbs /remhst
 </code></pre>
   
 
@@ -318,6 +329,13 @@
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20200602.html">https://ichochy.com/posts/20200602.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -338,7 +356,7 @@
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

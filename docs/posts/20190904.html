@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OC与Swift混编，三种场景的实现方式 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -137,7 +148,7 @@
 <h3 id="1-创建桥接文件h">1. 创建桥接文件<code>*.h</code></h3>
 <p>新建一个桥接文件，<code>New File</code> 选择 <code>Header File</code> 创建</p>
 <h3 id="2-指定桥接文件">2. 指定桥接文件</h3>
-<pre><code>指定刚刚的新建的桥接文件  
+<pre tabindex="0"><code>指定刚刚的新建的桥接文件  
 project-&gt;targets-&gt;Build Setting-&gt;All-&gt;Swift Compilter General-&gt;Objective-C-Bridging-Header
 </code></pre><p><img src="https://images.ichochy.com/15675840517343041.png" alt="15675840517343041"></p>
 <h3 id="3-导入oc头文件h到桥接文件">3. 导入OC头文件(<code>*.h</code>)到桥接文件</h3>
@@ -150,7 +161,7 @@ project-&gt;targets-&gt;Build Setting-&gt;All-&gt;Swift Compilter General-&gt;Ob
 <h3 id="1-创建famework">1. 创建<code>Famework</code></h3>
 <p>创建完成后会生成一个同名头文件<code>*.h</code></p>
 <h3 id="2-将oc头文件h设置为公开头文件">2. 将OC头文件(<code>*.h</code>)设置为公开头文件</h3>
-<pre><code>直接拖入
+<pre tabindex="0"><code>直接拖入
 project-&gt;targets-&gt;Build Phases-&gt;Headers-&gt;Public
 </code></pre><p><img src="https://images.ichochy.com/15675857436917952.png" alt="15675857436917952"></p>
 <h3 id="3-导入oc头文件h到同名头文件">3. 导入OC头文件(<code>*.h</code>)到同名头文件</h3>
@@ -167,32 +178,32 @@ project-&gt;targets-&gt;Build Phases-&gt;Headers-&gt;Public
 <h3 id="2-编辑-podspec">2. 编辑 <code>*.podspec</code></h3>
 <p><strong>在 <code>*.podspec</code> 中将OC头文件(<code>*.h</code>)设置为公开头文件</strong><br>
 如：<code>spec.public_header_files = &quot;Log.h&quot;</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#完整的文件信息</span>
-Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
-    spec.name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;OCSwiftFramework&#34;</span>
-    spec.version      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.0.1&#34;</span>
-    spec.summary      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;OCSwiftFramework&#34;</span>
-    spec.description  <span style="color:#f92672">=</span> <span style="color:#e6db74">&lt;&lt;-DESC
-</span><span style="color:#e6db74">                    OCSWiftFramework
-</span><span style="color:#e6db74">                    DESC</span>
-    spec.homepage     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://www.ichochy.com&#34;</span>
-
-    spec.license      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MIT&#34;</span>
-    <span style="color:#75715e"># spec.license      = { :type =&gt; &#34;MIT&#34;, :file =&gt; &#34;FILE_LICENSE&#34; }</span>
-    spec.author             <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;MLeo&#34;</span> <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;iChochy@qq.com&#34;</span> <span style="color:#f92672">}</span>
-
-    spec.platform <span style="color:#f92672">=</span> :osx
-    spec.osx.deployment_target <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;10.10&#34;</span>
-
-    spec.source       <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :git <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;https://github.com/iChochy/HelloWorld.git&#34;</span>, :tag <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;#{spec.version}&#34;</span> <span style="color:#f92672">}</span>
-
-    spec.source_files  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;**/*.{h,m,swift}&#34;</span>
-    spec.exclude_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Info.plist&#34;</span>
-    spec.public_header_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Flog.h&#34;</span>
-
-    spec.swift_version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;4.2&#34;</span>
-end
-</code></pre></div><h3 id="3-验证--podspec">3. 验证  <code>*.podspec</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#完整的文件信息</span>
+</span></span><span style="display:flex;"><span>Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
+</span></span><span style="display:flex;"><span>    spec.name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;OCSwiftFramework&#34;</span>
+</span></span><span style="display:flex;"><span>    spec.version      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span>    spec.summary      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;OCSwiftFramework&#34;</span>
+</span></span><span style="display:flex;"><span>    spec.description  <span style="color:#f92672">=</span> <span style="color:#e6db74">&lt;&lt;-DESC
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    OCSWiftFramework
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    DESC</span>
+</span></span><span style="display:flex;"><span>    spec.homepage     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://www.ichochy.com&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    spec.license      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MIT&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># spec.license      = { :type =&gt; &#34;MIT&#34;, :file =&gt; &#34;FILE_LICENSE&#34; }</span>
+</span></span><span style="display:flex;"><span>    spec.author             <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;MLeo&#34;</span> <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;iChochy@qq.com&#34;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    spec.platform <span style="color:#f92672">=</span> :osx
+</span></span><span style="display:flex;"><span>    spec.osx.deployment_target <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;10.10&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    spec.source       <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :git <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;https://github.com/iChochy/HelloWorld.git&#34;</span>, :tag <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#34;#{spec.version}&#34;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    spec.source_files  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;**/*.{h,m,swift}&#34;</span>
+</span></span><span style="display:flex;"><span>    spec.exclude_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Info.plist&#34;</span>
+</span></span><span style="display:flex;"><span>    spec.public_header_files <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Flog.h&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    spec.swift_version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;4.2&#34;</span>
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><h3 id="3-验证--podspec">3. 验证  <code>*.podspec</code></h3>
 <p>运行命令 <code>pod lib lint</code> 完成验证</p>
 <h3 id="4-完成调用-1">4. 完成调用</h3>
 <p>a. 运行命令 <code>pod trunk push [NAME.podspec]</code> 完成发布<br>
@@ -246,6 +257,13 @@ d. 安装完成后直接调用<br>
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20190904.html">https://ichochy.com/posts/20190904.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -266,7 +284,7 @@ d. 安装完成后直接调用<br>
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

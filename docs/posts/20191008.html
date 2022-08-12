@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>通过Cloudflare开启全站https &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -130,7 +141,7 @@
 <p>查看 Cloudflare 给自己分配的<code>DNS</code><br>
 <img src="https://images.ichochy.com/15706939624014173.png" alt="15706939624014173"></p>
 <p>打开自己的域名商网站修改<code>DNS</code>，以<code>aliyun</code>为例：</p>
-<pre><code>控制台=&gt;域名=&gt;管理=&gt;修改DNS
+<pre tabindex="0"><code>控制台=&gt;域名=&gt;管理=&gt;修改DNS
 </code></pre><p><img src="https://images.ichochy.com/15706944703828844.png" alt="15706944703828844"></p>
 <p>修改为 Cloudflare 分配的<code>DNS</code>后，等待生效……………………<br>
 <img src="https://images.ichochy.com/15706945283803295.png" alt="15706945283803295"></p>
@@ -141,7 +152,7 @@
 <img src="https://images.ichochy.com/15706948823735797.png" alt="15706948823735797"></p>
 <h3 id="四开启-https">四、开启 HTTPS</h3>
 <p>有四种模式可以选择，分别是</p>
-<pre><code>1. Off (not secure)  
+<pre tabindex="0"><code>1. Off (not secure)  
    不开启
 2. Flexible  
     开启 浏览器到&lt;-&gt;Cloudflare
@@ -176,6 +187,13 @@
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20191008.html">https://ichochy.com/posts/20191008.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -196,7 +214,7 @@
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

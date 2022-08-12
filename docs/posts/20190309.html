@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>加速你的博客永无止境-七牛云存储 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -120,16 +131,16 @@
 <p><img src="https://images.ichochy.com/%E5%88%9B%E5%BB%BA%E7%A9%BA%E9%97%B4.png" alt="创建空间"></p>
 <h3 id="二静态博客文件构建">二、静态博客文件构建</h3>
 <p>我使用的是<code>jekyll</code>管理博客， 通过命令<code>jekyll build</code>构建</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:iChochy mleo$ jekyll build
-Configuration file: /Users/mleo/Develop/GitHub/iChochy/_config.yml
-            Source: /Users/mleo/Develop/GitHub/iChochy
-       Destination: /Users/mleo/Develop/GitHub/iChochy/_site
- Incremental build: disabled. Enable with --incremental
-      Generating...
-       Jekyll Feed: Generating feed <span style="color:#66d9ef">for</span> posts
-                    <span style="color:#66d9ef">done</span> in 1.121 seconds.
- Auto-regeneration: disabled. Use --watch to enable.
-</code></pre></div><p>构建成功后，生成的静态文件都在<code>_site</code>目录中，直接上传到云空间就可以了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ jekyll build
+</span></span><span style="display:flex;"><span>Configuration file: /Users/mleo/Develop/GitHub/iChochy/_config.yml
+</span></span><span style="display:flex;"><span>            Source: /Users/mleo/Develop/GitHub/iChochy
+</span></span><span style="display:flex;"><span>       Destination: /Users/mleo/Develop/GitHub/iChochy/_site
+</span></span><span style="display:flex;"><span> Incremental build: disabled. Enable with --incremental
+</span></span><span style="display:flex;"><span>      Generating...
+</span></span><span style="display:flex;"><span>       Jekyll Feed: Generating feed <span style="color:#66d9ef">for</span> posts
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">done</span> in 1.121 seconds.
+</span></span><span style="display:flex;"><span> Auto-regeneration: disabled. Use --watch to enable.
+</span></span></code></pre></div><p>构建成功后，生成的静态文件都在<code>_site</code>目录中，直接上传到云空间就可以了</p>
 <h3 id="三同步静态博客文件到云存储">三、同步静态博客文件到云存储</h3>
 <p>这里使用到七牛云官方工具<code>qshell</code></p>
 <blockquote>
@@ -174,12 +185,12 @@ Configuration file: /Users/mleo/Develop/GitHub/iChochy/_config.yml
 <p>1､安装</p>
 <p>以<code>Mac</code>为例，安装<code>shell_darwin_x64</code></p>
 <p>运行复制命令：<code>cp qshell_darwin_x64 /usr/local/bin/qshell</code>，将<code>shell_darwin_x64</code>复制到 <code>bin</code>目录下，运行<code>qshell -v</code>检测是否安装成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:qshell-v2.3.6 mleo$ qshell -v
-qshell version v2.3.6
-</code></pre></div><p>2､添加账号</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:qshell-v2.3.6 mleo$ qshell -v
+</span></span><span style="display:flex;"><span>qshell version v2.3.6
+</span></span></code></pre></div><p>2､添加账号</p>
 <p>运行命令<code>qshell account</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">qshell account &lt;AK&gt; &lt;SK&gt; &lt;Your Name&gt;
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>qshell account &lt;AK&gt; &lt;SK&gt; &lt;Your Name&gt;
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th style="text-align:left">参数</th>
@@ -201,28 +212,27 @@ qshell version v2.3.6
 <p>使用命令<code>qshell qupload &lt;LocalUploadConfig&gt;</code>
 其中<code>LocalUploadConfig</code>参数配置文件</p>
 <p>本人的<code>LocalUploadConfig</code>文件信息：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:iChochy mleo$ cat .LocalUploadConfig
-<span style="color:#f92672">{</span>
-   <span style="color:#e6db74">&#34;src_dir&#34;</span>            :   <span style="color:#e6db74">&#34;/Users/mleo/Develop/GitHub/iChochy/_site&#34;</span>,
-   <span style="color:#e6db74">&#34;bucket&#34;</span>             :   <span style="color:#e6db74">&#34;blog&#34;</span>,
-   <span style="color:#e6db74">&#34;ignore_dir&#34;</span>         :   false,
-   <span style="color:#e6db74">&#34;overwrite&#34;</span>          :   true,
-   <span style="color:#e6db74">&#34;check_exists&#34;</span>       :   true,
-   <span style="color:#e6db74">&#34;check_hash&#34;</span>         :   true,
-   <span style="color:#e6db74">&#34;check_size&#34;</span>         :   true,
-   <span style="color:#e6db74">&#34;rescan_local&#34;</span>       :   true,
-   <span style="color:#e6db74">&#34;skip_file_prefixes&#34;</span> :   <span style="color:#e6db74">&#34;test,demo,&#34;</span>,
-   <span style="color:#e6db74">&#34;skip_path_prefixes&#34;</span> :   <span style="color:#e6db74">&#34;hello/,temp/&#34;</span>,
-   <span style="color:#e6db74">&#34;skip_fixed_strings&#34;</span> :   <span style="color:#e6db74">&#34;.svn,.git,.log&#34;</span>,
-   <span style="color:#e6db74">&#34;skip_suffixes&#34;</span>      :   <span style="color:#e6db74">&#34;.DS_Store,.exe&#34;</span>,
-   <span style="color:#e6db74">&#34;log_file&#34;</span>           :   <span style="color:#e6db74">&#34;/Users/mleo/.qshell/upload.log&#34;</span>,
-   <span style="color:#e6db74">&#34;log_level&#34;</span>          :   <span style="color:#e6db74">&#34;info&#34;</span>,
-   <span style="color:#e6db74">&#34;log_rotate&#34;</span>         :   1,
-   <span style="color:#e6db74">&#34;log_stdout&#34;</span>         :   false,
-   <span style="color:#e6db74">&#34;file_type&#34;</span>          :   <span style="color:#ae81ff">0</span>
-<span style="color:#f92672">}</span>
-
-</code></pre></div><p>主要参数说明：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ cat .LocalUploadConfig
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;src_dir&#34;</span>            :   <span style="color:#e6db74">&#34;/Users/mleo/Develop/GitHub/iChochy/_site&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;bucket&#34;</span>             :   <span style="color:#e6db74">&#34;blog&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;ignore_dir&#34;</span>         :   false,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;overwrite&#34;</span>          :   true,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;check_exists&#34;</span>       :   true,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;check_hash&#34;</span>         :   true,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;check_size&#34;</span>         :   true,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;rescan_local&#34;</span>       :   true,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;skip_file_prefixes&#34;</span> :   <span style="color:#e6db74">&#34;test,demo,&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;skip_path_prefixes&#34;</span> :   <span style="color:#e6db74">&#34;hello/,temp/&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;skip_fixed_strings&#34;</span> :   <span style="color:#e6db74">&#34;.svn,.git,.log&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;skip_suffixes&#34;</span>      :   <span style="color:#e6db74">&#34;.DS_Store,.exe&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;log_file&#34;</span>           :   <span style="color:#e6db74">&#34;/Users/mleo/.qshell/upload.log&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;log_level&#34;</span>          :   <span style="color:#e6db74">&#34;info&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;log_rotate&#34;</span>         :   1,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;log_stdout&#34;</span>         :   false,
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;file_type&#34;</span>          :   <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>主要参数说明：</p>
 <table>
 <thead>
 <tr>
@@ -246,16 +256,16 @@ qshell version v2.3.6
 </tbody>
 </table>
 <p>命令参数详细说明：<a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md">https://github.com/qiniu/qshell/blob/master/docs/qupload.md</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">MacBook-Pro:iChochy mleo$ qshell qupload .LocalUploadConfig
-Writing upload log to file /Users/mleo/.qshell/upload.log
-
-Uploading /Users/mleo/Develop/GitHub/iChochy/_site/404.html <span style="color:#f92672">=</span>&gt; 404.html <span style="color:#f92672">[</span>1/67, 1.5%<span style="color:#f92672">]</span> ...
-…………
-
-See upload log at path /Users/mleo/.qshell/upload.log
-</code></pre></div><p>通过日志查看详情</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /Users/mleo/.qshell/upload.log
-</code></pre></div><p><em>至此</em>：文件已经同步到了云空间，修改文件后再次运行<code>qshell qupload &lt;LocalUploadConfig&gt;</code>命令及可完成同步</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ qshell qupload .LocalUploadConfig
+</span></span><span style="display:flex;"><span>Writing upload log to file /Users/mleo/.qshell/upload.log
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Uploading /Users/mleo/Develop/GitHub/iChochy/_site/404.html <span style="color:#f92672">=</span>&gt; 404.html <span style="color:#f92672">[</span>1/67, 1.5%<span style="color:#f92672">]</span> ...
+</span></span><span style="display:flex;"><span>…………
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>See upload log at path /Users/mleo/.qshell/upload.log
+</span></span></code></pre></div><p>通过日志查看详情</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /Users/mleo/.qshell/upload.log
+</span></span></code></pre></div><p><em>至此</em>：文件已经同步到了云空间，修改文件后再次运行<code>qshell qupload &lt;LocalUploadConfig&gt;</code>命令及可完成同步</p>
 <h3 id="四自定义域名">四、自定义域名</h3>
 <p>1､云空间绑定域名</p>
 <p>菜单进入<code>对象存储=&gt;空间概览=&gt;融合 CDN 加速域名=&gt;立即绑定一个域名</code> 创建域名</p>
@@ -293,6 +303,13 @@ See upload log at path /Users/mleo/.qshell/upload.log
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20190309.html">https://ichochy.com/posts/20190309.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -313,7 +330,7 @@ See upload log at path /Users/mleo/.qshell/upload.log
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

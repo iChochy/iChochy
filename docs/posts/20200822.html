@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vercel 上自动部署你的个人博客 Hugo &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -118,8 +129,8 @@
 <p>通过<code>Git</code>仓库账号关联注册，如果注册中出现错误，检查下账号是不是<code>QQ</code>邮箱。
 <img src="https://images.ichochy.com/159851540134088415.png" alt="159851540134088415">
 <code>Vercel</code>不支持<code>QQ</code>邮箱，以<code>GitHub</code>为例，可以修改<code>GitHub</code>的默认邮箱。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GitHub -&gt; Settings -&gt; Emails -&gt; Primary email address
-</code></pre></div><p><img src="https://images.ichochy.com/159851526634473314.png" alt="159851526634473314"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GitHub -&gt; Settings -&gt; Emails -&gt; Primary email address
+</span></span></code></pre></div><p><img src="https://images.ichochy.com/159851526634473314.png" alt="159851526634473314"></p>
 <h2 id="导入项目">导入项目</h2>
 <p>输入你的项目地址
 <img src="https://images.ichochy.com/15984828280211707.png" alt="15984828280211707">
@@ -128,8 +139,8 @@
 在线安装<code>Vercel</code>
 <img src="https://images.ichochy.com/15984829670172789.png" alt="15984829670172789">
 授权<code>Vercel</code>，选择授权项目</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GitHub -&gt; Settings -&gt; Applications -&gt; Vercel -&gt; Configure
-</code></pre></div><p><img src="https://images.ichochy.com/159848371700166310.png" alt="159848371700166310">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GitHub -&gt; Settings -&gt; Applications -&gt; Vercel -&gt; Configure
+</span></span></code></pre></div><p><img src="https://images.ichochy.com/159848371700166310.png" alt="159848371700166310">
 导入项目，选择项目框架
 <img src="https://images.ichochy.com/159851472335999113.png" alt="159851472335999113"></p>
 <h2 id="部署项目">部署项目</h2>
@@ -138,17 +149,17 @@
 下次提交代码到<code>Git</code>仓库，<code>Vercel</code>不用任何操作，就可以直接自动构建和发布项目</p>
 <h2 id="自定义域名">自定义域名</h2>
 <p>直接添加已有的域名，<code>域名商管理系统</code>配置域名记录，等待生效。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Vercel -&gt; Project-&gt; Settings -&gt; Domains
-</code></pre></div><p><img src="https://images.ichochy.com/159851870725808016.png" alt="159851870725808016">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Vercel -&gt; Project-&gt; Settings -&gt; Domains
+</span></span></code></pre></div><p><img src="https://images.ichochy.com/159851870725808016.png" alt="159851870725808016">
 生效后会自动签发<code>SSL</code>证书，开启<code>HTTPS</code>
 <img src="https://images.ichochy.com/159851893625696117.png" alt="159851893625696117"></p>
 <h2 id="指定-hugo-版本">指定 Hugo 版本</h2>
 <p>在项目的环境变量中添加<code>Hugo</code>版本</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Vercel -&gt; Project-&gt; Settings -&gt; Environment Variables
-</code></pre></div><pre><code>HUGO_VERSION 0.74.2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Vercel -&gt; Project-&gt; Settings -&gt; Environment Variables
+</span></span></code></pre></div><pre tabindex="0"><code>HUGO_VERSION 0.74.2
 </code></pre><p><img src="https://images.ichochy.com/159851902925060418.png" alt="159851902925060418">
 完成后重新发布</p>
-<pre><code class="language-log" data-lang="log">Build Logs
+<pre tabindex="0"><code class="language-log" data-lang="log">Build Logs
 
 12:21:18.550  	Cloning github.com/iChochy/iChochy.github.io (Branch: master, Commit: a169de0)
 12:21:19.212  	Cloning completed in 662ms
@@ -184,7 +195,7 @@
 12:21:31.360  	Build completed. Populating build cache...
 12:21:31.457  	Uploading build cache [220.00 B]...
 12:21:31.614  	Build cache uploaded: 156.776ms
-12:21:31.620  	Done with &quot;config.toml&quot;
+12:21:31.620  	Done with &#34;config.toml&#34;
 </code></pre>
   
 
@@ -236,6 +247,13 @@
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20200822.html">https://ichochy.com/posts/20200822.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -256,7 +274,7 @@
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Java 开发环境的搭建，开启你的编程之旅 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -155,38 +166,38 @@
 <code>CLASSPATH</code>：类库文件位置（jdk\lib）</p>
 <h3 id="java-版本查询">Java 版本查询</h3>
 <p>运行 Java 版本命令，检查是否安装成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -version
-<span style="color:#75715e"># java 版本信息</span>
-java version <span style="color:#e6db74">&#34;1.8.0_162&#34;</span>
-Java<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> SE Runtime Environment <span style="color:#f92672">(</span>build 1.8.0_162-b12<span style="color:#f92672">)</span>
-Java HotSpot<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> 64-Bit Server VM <span style="color:#f92672">(</span>build 25.162-b12, mixed mode<span style="color:#f92672">)</span>
-</code></pre></div><h2 id="运行代码">运行代码</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -version
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># java 版本信息</span>
+</span></span><span style="display:flex;"><span>java version <span style="color:#e6db74">&#34;1.8.0_162&#34;</span>
+</span></span><span style="display:flex;"><span>Java<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> SE Runtime Environment <span style="color:#f92672">(</span>build 1.8.0_162-b12<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Java HotSpot<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> 64-Bit Server VM <span style="color:#f92672">(</span>build 25.162-b12, mixed mode<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h2 id="运行代码">运行代码</h2>
 <h3 id="创建文件">创建文件</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">touch HelloWorld<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
-</code></pre></div><h3 id="写入代码">写入代码</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e">* 通过 Class 定义类
-</span><span style="color:#75715e">* https://ichochy.com
-</span><span style="color:#75715e">*/</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span><span style="color:#f92672">{</span>
-    <span style="color:#75715e">//编写 main 方法，程序中唯一的入口方法
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[]</span> <span style="color:#f92672">){</span>
-        <span style="color:#75715e">//打印输出 Hello World
-</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="编译代码">编译代码</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>touch HelloWorld<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+</span></span></code></pre></div><h3 id="写入代码">写入代码</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">* 通过 Class 定义类
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">* https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//编写 main 方法，程序中唯一的入口方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[]</span> <span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//打印输出 Hello World
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="编译代码">编译代码</h3>
 <p>使用编译器<code>javac</code>命令，对源代码文件进行编译操作，产生<code>.class</code>文件。<br>
 该文件是 Java 的字节码文件，Java 虚拟机执行文件，与系统平台无关</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">javac HelloWorld<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span> 
-</code></pre></div><h3 id="运行代码-1">运行代码</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>javac HelloWorld<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span> 
+</span></span></code></pre></div><h3 id="运行代码-1">运行代码</h3>
 <p>使用 <code>java</code>命令对.class文件进行解释运行。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">java HelloWorld
-<span style="color:#960050;background-color:#1e0010">#</span> 运行结果
-Hello World
-https:<span style="color:#75715e">//ichochy.com
-</span></code></pre></div><p><strong>注意</strong>：使用java解释时，不需要带.class后缀</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>java HelloWorld
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> 运行结果
+</span></span><span style="display:flex;"><span>Hello World
+</span></span><span style="display:flex;"><span>https:<span style="color:#75715e">//ichochy.com
+</span></span></span></code></pre></div><p><strong>注意</strong>：使用java解释时，不需要带.class后缀</p>
 
   
 
@@ -196,6 +207,13 @@ https:<span style="color:#75715e">//ichochy.com
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20200815.html">https://ichochy.com/posts/20200815.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -216,7 +234,7 @@ https:<span style="color:#75715e">//ichochy.com
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Java 正则表达式实例操作 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -129,119 +140,119 @@
   <p><code>Regular Expression</code>正则表达式，简称<code>RegExp</code>，常规通用的表达式，在多个开发语言中都有它的实现，可以通过正则表达式来快速的检索、匹配、查找、替换字符串中的文本。</p>
 <h2 id="简单实例">简单实例</h2>
 <p>匹配网址</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * File:RegExp.java
-</span><span style="color:#75715e"> * User:iChochy
-</span><span style="color:#75715e"> * URL:https://ichochy.com
-</span><span style="color:#75715e"> * Copyright (c) 2020
-</span><span style="color:#75715e"> * Date:2020/09/07 18:11:07
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
-
-<span style="color:#f92672">import</span> java.util.regex.Matcher<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegExp</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        String input <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">;</span>
-        <span style="color:#75715e">//正则表达式，(.+)代表一个或多个字符
-</span><span style="color:#75715e"></span>        String regex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://.+.com&#34;</span><span style="color:#f92672">;</span>
-        Boolean flag <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">,</span>input<span style="color:#f92672">);</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>flag<span style="color:#f92672">);</span>  <span style="color:#75715e">//全文匹配返回：true
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="matches-方法">Matches 方法</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:RegExp.java
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2020
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2020/09/07 18:11:07
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Matcher<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegExp</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        String input <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//正则表达式，(.+)代表一个或多个字符
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String regex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://.+.com&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Boolean flag <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">,</span>input<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>flag<span style="color:#f92672">);</span>  <span style="color:#75715e">//全文匹配返回：true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="matches-方法">Matches 方法</h2>
 <p><code>Matcher.matches</code>方法，为整块全匹配，字符串完全匹配返回<code>true</code>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * File:RegExp.java
-</span><span style="color:#75715e"> * User:iChochy
-</span><span style="color:#75715e"> * URL:https://ichochy.com
-</span><span style="color:#75715e"> * Copyright (c) 2020
-</span><span style="color:#75715e"> * Date:2020/09/07 18:11:07
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
-
-<span style="color:#f92672">import</span> java.util.regex.Matcher<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegExp</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        String input <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">;</span>
-        <span style="color:#75715e">//正则表达式，(.+)代表一个或多个字符
-</span><span style="color:#75715e"></span>        String regex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://.+.com&#34;</span><span style="color:#f92672">;</span>
-        Pattern pattern <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">compile</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">);</span><span style="color:#75715e">//编译表达式
-</span><span style="color:#75715e"></span>        Matcher matcher <span style="color:#f92672">=</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">matcher</span><span style="color:#f92672">(</span>input<span style="color:#f92672">);</span><span style="color:#75715e">//匹配表达式
-</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">matches</span><span style="color:#f92672">());</span><span style="color:#75715e">//全文匹配返回：true
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="find-方法">Find 方法</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:RegExp.java
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2020
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2020/09/07 18:11:07
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Matcher<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegExp</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        String input <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//正则表达式，(.+)代表一个或多个字符
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String regex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://.+.com&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Pattern pattern <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">compile</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">);</span><span style="color:#75715e">//编译表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Matcher matcher <span style="color:#f92672">=</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">matcher</span><span style="color:#f92672">(</span>input<span style="color:#f92672">);</span><span style="color:#75715e">//匹配表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">matches</span><span style="color:#f92672">());</span><span style="color:#75715e">//全文匹配返回：true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="find-方法">Find 方法</h2>
 <p><code>Matcher.find</code>方法，为查找模式匹配，匹配到就返回<code>true</code>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * File:RegExp.java
-</span><span style="color:#75715e"> * User:iChochy
-</span><span style="color:#75715e"> * URL:https://ichochy.com
-</span><span style="color:#75715e"> * Copyright (c) 2020
-</span><span style="color:#75715e"> * Date:2020/09/07 18:11:07
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
-
-<span style="color:#f92672">import</span> java.util.regex.Matcher<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegExp</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        String input <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;我的网站是：https://ichochy.com，你知道吗？&#34;</span><span style="color:#f92672">;</span>
-        <span style="color:#75715e">//正则表达式，(.+)代表一个或多个字符
-</span><span style="color:#75715e"></span>        String regex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://.+.com&#34;</span><span style="color:#f92672">;</span>
-        Pattern pattern <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">compile</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">);</span><span style="color:#75715e">//编译表达式
-</span><span style="color:#75715e"></span>        Matcher matcher <span style="color:#f92672">=</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">matcher</span><span style="color:#f92672">(</span>input<span style="color:#f92672">);</span><span style="color:#75715e">//匹配表达式
-</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">());</span><span style="color:#75715e">//查找匹配返回：true
-</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">matches</span><span style="color:#f92672">());</span><span style="color:#75715e">//全文匹配返回：false
-</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">());</span><span style="color:#75715e">//再次查找匹配返回：false
-</span><span style="color:#75715e"></span>        matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span><span style="color:#75715e">//重置匹配器
-</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">());</span><span style="color:#75715e">//重置查找返回：true
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p><code>find</code>方法多次调用，出现结果不相同的问题：</p>
-<pre><code class="language-log" data-lang="log">This method starts at the beginning of this matcher's region, or, if a previous invocation of the method was successful and the matcher has not since been reset, at the first character not matched by the previous match.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:RegExp.java
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2020
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2020/09/07 18:11:07
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Matcher<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegExp</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        String input <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;我的网站是：https://ichochy.com，你知道吗？&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//正则表达式，(.+)代表一个或多个字符
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String regex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://.+.com&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Pattern pattern <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">compile</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">);</span><span style="color:#75715e">//编译表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Matcher matcher <span style="color:#f92672">=</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">matcher</span><span style="color:#f92672">(</span>input<span style="color:#f92672">);</span><span style="color:#75715e">//匹配表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">());</span><span style="color:#75715e">//查找匹配返回：true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">matches</span><span style="color:#f92672">());</span><span style="color:#75715e">//全文匹配返回：false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">());</span><span style="color:#75715e">//再次查找匹配返回：false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span><span style="color:#75715e">//重置匹配器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">());</span><span style="color:#75715e">//重置查找返回：true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>find</code>方法多次调用，出现结果不相同的问题：</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">This method starts at the beginning of this matcher&#39;s region, or, if a previous invocation of the method was successful and the matcher has not since been reset, at the first character not matched by the previous match.
 </code></pre><p><code>Matcher.find</code>方法第一次查找匹配成功后，如果<code>Matcher</code>没有重置(<code>Matcher.reset()</code>)，则从上一次匹配成功位置的后面开始查找，所以会出现，再次匹配不成功，返回<code>false</code>。</p>
 <h2 id="group-分组">Group 分组</h2>
 <p>正则表达式通过<strong>括号</strong>分组进行匹配，<code>matcher.group(int group)</code>：通过组序号获取匹配信息</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * File:RegExp.java
-</span><span style="color:#75715e"> * User:iChochy
-</span><span style="color:#75715e"> * URL:https://ichochy.com
-</span><span style="color:#75715e"> * Copyright (c) 2020
-</span><span style="color:#75715e"> * Date:2020/09/07 18:11:07
-</span><span style="color:#75715e"> */</span>
-
-<span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
-
-<span style="color:#f92672">import</span> java.util.regex.Matcher<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegExp</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        String input <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;我的网站是：https://ichochy.com，你知道吗？&#34;</span><span style="color:#f92672">;</span>
-        String regex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(https://)(.+)(.com)&#34;</span><span style="color:#f92672">;</span><span style="color:#75715e">//分组表达式
-</span><span style="color:#75715e"></span>        Pattern pattern <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">compile</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">);</span>
-        Matcher matcher <span style="color:#f92672">=</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">matcher</span><span style="color:#f92672">(</span>input<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">()){</span><span style="color:#75715e">//查找匹配成功
-</span><span style="color:#75715e"></span>            <span style="color:#75715e">//匹配的信息：https://ichochy.com
-</span><span style="color:#75715e"></span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">group</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
-            <span style="color:#75715e">//groupCount 组数
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">groupCount</span><span style="color:#f92672">();</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-                <span style="color:#75715e">//每组匹配的信息，注意：序号是从 1 开始
-</span><span style="color:#75715e"></span>                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">group</span><span style="color:#f92672">(</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">));</span>
-            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">}</span>
-
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h2 id="正则表达式规则">正则表达式规则</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:RegExp.java
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2020
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2020/09/07 18:11:07
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Matcher<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegExp</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        String input <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;我的网站是：https://ichochy.com，你知道吗？&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        String regex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(https://)(.+)(.com)&#34;</span><span style="color:#f92672">;</span><span style="color:#75715e">//分组表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Pattern pattern <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">compile</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        Matcher matcher <span style="color:#f92672">=</span> pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">matcher</span><span style="color:#f92672">(</span>input<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">()){</span><span style="color:#75715e">//查找匹配成功
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">//匹配的信息：https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">group</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//groupCount 组数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">groupCount</span><span style="color:#f92672">();</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">//每组匹配的信息，注意：序号是从 1 开始
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">group</span><span style="color:#f92672">(</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="正则表达式规则">正则表达式规则</h2>
 <h3 id="字符">字符</h3>
 <table>
 <thead>
@@ -281,27 +292,27 @@
 </tr>
 <tr>
 <td>\t</td>
-<td>制表符('\u0009')</td>
+<td>制表符(&rsquo;\u0009')</td>
 </tr>
 <tr>
 <td>\n</td>
-<td>新行（换行）符 ('\u000A')</td>
+<td>新行（换行）符 (&rsquo;\u000A')</td>
 </tr>
 <tr>
 <td>\r</td>
-<td>回车符 ('\u000D')</td>
+<td>回车符 (&rsquo;\u000D')</td>
 </tr>
 <tr>
 <td>\f</td>
-<td>换页符 ('\u000C')</td>
+<td>换页符 (&rsquo;\u000C')</td>
 </tr>
 <tr>
 <td>\a</td>
-<td>报警 (bell) 符 ('\u0007')</td>
+<td>报警 (bell) 符 (&rsquo;\u0007')</td>
 </tr>
 <tr>
 <td>\e</td>
-<td>转义符 ('\u001B')</td>
+<td>转义符 (&rsquo;\u001B')</td>
 </tr>
 <tr>
 <td>\cx</td>
@@ -422,7 +433,7 @@
 </tr>
 <tr>
 <td>\p{Punct}</td>
-<td>标点符号：!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[]^_`{|}~|</td>
+<td>标点符号：!&quot;#$%&amp;&rsquo;()*+,-./:;&lt;=&gt;?@[]^_`{</td>
 </tr>
 <tr>
 <td>\p{Graph}</td>
@@ -813,6 +824,13 @@
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20200828.html">https://ichochy.com/posts/20200828.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -833,7 +851,7 @@
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     

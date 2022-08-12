@@ -3,7 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mac 无密码 SSH 登录服务器 &middot; 回忆中的明天</title>
@@ -26,6 +26,17 @@
     })();
   </script>
   <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
   
@@ -113,25 +124,25 @@
   <p>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</p>
 <h2 id="第一步生成密钥对">第一步，生成密钥对</h2>
 <p>在当前用户下创建<code>.ssh</code>目录</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/.ssh
-</code></pre></div><p>使用命令<code>ssh-keygen</code>生成密钥对,会在<code>~/.ssh</code>目录下生成公/私钥</p>
-<pre><code>id_rsa      //私钥
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir ~/.ssh
+</span></span></code></pre></div><p>使用命令<code>ssh-keygen</code>生成密钥对,会在<code>~/.ssh</code>目录下生成公/私钥</p>
+<pre tabindex="0"><code>id_rsa      //私钥
 id_rsa.pub  //公钥
 </code></pre><h2 id="第二步上传公钥">第二步，上传公钥</h2>
 <p>使用命令<code>ssh-copy-id user@hostname</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-copy-id  admin@192.168.1.55
-</code></pre></div><p>输入密码，操作成功<br>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-copy-id  admin@192.168.1.55
+</span></span></code></pre></div><p>输入密码，操作成功<br>
 查看服务器<code>～/.ssh/authorized_keys</code>，可以看到本地的公钥已经写入到<code>authorized_keys</code>文件中</p>
 <p>运行命令<code>ssh user@hostname</code>就可以直接无密码 SSH 登录服务器</p>
 <h2 id="第三步config-配置">第三步，config 配置</h2>
 <p>在当前用户<code>.ssh</code>目录下创建<code>config</code>文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">touch  ~/.ssh/config
-</code></pre></div><p>通过<code>vim</code>编辑<code>config</code>，添加服务器配置信息</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Host iChochy                        //服务器别名
-    Hostname 192.168.1.55           //服务器地址
-    User admin                      //服务器用户
-    Identityfile ~/.ssh/id_rsa      //服务器公钥对应的本地私钥
-</code></pre></div><p>直接运行命令<code>ssh iChochy</code>就可以直接无密码 SSH 登录服务器</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch  ~/.ssh/config
+</span></span></code></pre></div><p>通过<code>vim</code>编辑<code>config</code>，添加服务器配置信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Host iChochy                        //服务器别名
+</span></span><span style="display:flex;"><span>    Hostname 192.168.1.55           //服务器地址
+</span></span><span style="display:flex;"><span>    User admin                      //服务器用户
+</span></span><span style="display:flex;"><span>    Identityfile ~/.ssh/id_rsa      //服务器公钥对应的本地私钥
+</span></span></code></pre></div><p>直接运行命令<code>ssh iChochy</code>就可以直接无密码 SSH 登录服务器</p>
 
   
 
@@ -155,6 +166,13 @@ id_rsa.pub  //公钥
 <p>
   <strong>源文</strong>：<a href="https://ichochy.com/posts/20191028.html">https://ichochy.com/posts/20191028.html</a>
 </p>
+<hr>
+<p>
+  <strong>公众号</strong>：<img src="https://images.ichochy.com/01A299D6-215A-45BA-BE9D-73675B8DD7B2.jpeg"  alt="公众号" />
+</p>
+
+
+
 
 </div>
 
@@ -175,7 +193,7 @@ id_rsa.pub  //公钥
   <h2>Comments</h2>
   <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
