@@ -45,10 +45,11 @@ googleAnalytics = "UA-148465786-1"
 
 [Menus]
   main = [
-#      {Name = "Categories", weight = 1, URL = "/categories.html"},
+      
 #      {Name = "Tags", weight = 2, URL = "/tags.html"},
-      {Name = "Links", weight = 3, URL = "/links.html"},
-      {Name = "About", weight = 4, URL = "/about.html"},
-      {Name = "Search", weight = 5, URL = "/search.html"},
-      {Name = "Feedback", weight = 6, URL = "/feedback.html"}
+      {Name = "Links", weight = 1, URL = "/links.html"},
+      {Name = "About", weight = 2, URL = "/about.html"},
+      {Name = "Search", weight = 3, URL = "/search.html"},
+		{Name = "Categories", weight = 4, URL = "/categories.html"},
+      {Name = "Feedback", weight = 5, URL = "/feedback.html"}
   ]
