@@ -2,17 +2,12 @@
 <!-- {{ partial "breadcrumb.html" . }} -->
 <div class="post">
   <h2>
-    {{if .Parent.IsHome }}
-      {{ humanize .Section }}
-    {{else}}
-      <a href="{{ .Section | absURL }}.html">{{ humanize .Section }}</a>
-    {{end}}
+    <a href="/">Index</a>  / <a href="{{ .Section | absURL }}.html">{{ humanize .Section }}</a> / {{if not .Parent.IsHome }}
+      		{{.Title}}
+    	{{end}}
   </h2>
   <time datetime={{ .Date.Format "2006/01/02" }} class="post-date">
     {{ .Date.Format "2006/01/02" }}
-    {{if not .Parent.IsHome }}
-      #{{.Title}}
-    {{end}}
   </time>
   <ul class="posts">
     {{ range .Pages -}}
