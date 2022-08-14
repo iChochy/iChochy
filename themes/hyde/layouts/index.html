@@ -7,11 +7,13 @@
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </h2>
     {{ .Summary | html }}
+<--!
     {{ if .Truncated }}
     <div class="read-more-link">
       <a href="{{ .RelPermalink }}">阅读更多…</a>
     </div>
     {{ end }}
+-->
   </article>
   {{ end }}
 </div>
