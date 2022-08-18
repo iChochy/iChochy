@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.101.0" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微软为 VS Code 推出 Markdown 语言服务器 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="markdown, software" />
+  <meta name="description" content="微软近日发布官方博客表示，他们经过半年时间的努力为 VS Code 带来了 Markdown 语言服务器（Markdown Language Server），团队认为 Markdown 语言服务器是可以推动 VS Code 中的 Markdown 工具进一步发展的项目，有了这个语言服务器，微软将把 VS Code 内置的大部分 Markdown 语言工具（如：文档大纲、智能折叠、路径补全等）提供给其他编辑器和工具。目标是推动 Markdown 工具的发展，并使其具有一些与其他编程语言工具类似的智能功能。" />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2022 iChochy. </p>
+    
+    <div class = "other">
+    <li><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></li>
+    
+    
+    <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "https://files.ichochy.com/upyun/upyun.png"> </a>提供CDN加速/云存储服务</li>
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents"></nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="/">Index</a></li>
+	  
+       / <a href="https://ichochy.com/categories/software.html">Software</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	微软为 VS Code 推出 Markdown 语言服务器
+
+
+
+	</h1>
+<em>
+  <time datetime=2022/08/10 class="post-date">
+    2022/08/10 
+  </time>
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/markdown.html">#markdown</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/software.html">#software</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>微软近日发布<a href="https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fcode.visualstudio.com%2Fblogs%2F2022%2F08%2F16%2Fmarkdown-language-server">官方博客</a>表示，他们经过半年时间的努力为 VS Code 带来了 Markdown 语言服务器（Markdown Language Server），团队认为 Markdown 语言服务器是可以推动 VS Code 中的 Markdown 工具进一步发展的项目，有了这个语言服务器，微软将把 VS Code 内置的大部分 Markdown 语言工具（如：文档大纲、智能折叠、路径补全等）提供给其他编辑器和工具。目标是推动 Markdown 工具的发展，并使其具有一些与其他编程语言工具类似的智能功能。</p>
+<p><img src="https://oscimg.oschina.net/oscnet/up-91c76daaea2f06afdeb7201260025baa9ed.png" alt=""></p>
+<p>Markdown 语言服务器的工作将由以下两个新的开源库负责（两个库名字十分接近）：</p>
+<ul>
+<li>Markdown 语言服务（<a href="https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvscode-markdown-languageservice">Markdown Language Service</a>）：一个 TypeScript 库，提供处理 Markdown 的工具；</li>
+<li>Markdown 语言服务器（<a href="https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fvscode%2Ftree%2Fmain%2Fextensions%2Fmarkdown-language-features%2Fserver">Markdown Language Server</a>）：一个使用语言服务构建的 Markdown 语言服务器</li>
+</ul>
+<p>上述这两个库现在还处于早期阶段，但它们已经被 VS Code 1.70+ 使用了。此次转变还可以将 Markdown 工具转移到一个单独的进程中，这样它就不会阻碍其他扩展。</p>
+<p>目前这个 Markdown 语言服务器的功能包括：</p>
+<ul>
+<li>文档大纲</li>
+<li>文档链接</li>
+<li>智能折叠</li>
+<li>智能选择</li>
+<li>自动补全</li>
+<li>重命名</li>
+<li>查找所有引用</li>
+<li>转到定义</li>
+<li>损坏链接的诊断</li>
+<li>在文件移动/重命名时，自动更新链接</li>
+</ul>
+<p>参与此次开发的开发者 Matt Bierner 表示：</p>
+<blockquote>
+<p>一个开源的 Markdown 语言服务器可以帮助其他的编辑器，反过来也会吸引更多开发者参与贡献，最终反哺 VS Code。Markdown 语言服务器可以把开发人员聚集在一起，在一个更大的项目上工作，最终将使所有人受益，而不是让每个编辑器/工具都在重复实现他们自己的 Markdown 支持。</p>
+</blockquote>
+<p>Matt Bierner 也分享了促成此次开发的心路历程：</p>
+<blockquote>
+<p>多年来，我一直使用 VS Code 相对简单的 Markdown 编辑器。我对语法高亮和内置的 Markdown 预览功能感到满意，而文档大纲和可点击的编辑器链接则是锦上添花的功能。我已经习惯了用手打出链接。我已经接受了这样的事实：如果我改变了一个标题的名称，我就需要做一个文本搜索来更新所有指向该标题的链接。因为我认为 Markdown 只不过是花哨的纯文本。</p>
+<p>但是有一天，当我第 100 次输入错误的图片路径后，我终于意识到：这一点都不好玩！我为什么要把我的生命浪费在手动输入图片上？我为什么要浪费我的生命去手动输入和验证这些链接？这就是工具应该发挥的作用。</p>
+</blockquote>
+<p>如果你也想为此做出一些贡献，那么可以点击访问这两个新项目的 GitHub 仓库，提交错误报告、功能请求，甚至是 PR。</p>
+<p>本文转自 <a href="https://www.oschina.net/news/206964/microsoft-visual-studio-code-markdown">https://www.oschina.net/news/206964/microsoft-visual-studio-code-markdown</a>，如有侵权，请联系删除。</p>
+
+  
+<h2>源文：</h2> 
+<a href="https://ichochy.com/posts/20220810.html">https://ichochy.com/posts/20220810.html</a>
+<h2>公众号：</h2>
+<img src="https://ichochy.com/wx.jpg" alt="公众号" />
+<h2 id="打赏">打赏</h2>
+<img src="https://ichochy.com/sponsor.jpg" alt="Sponsor">
+<hr>
+
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20211125.html">
+            RIME 鼠须管输入法使用，免费开源还可以自定义词库
+            <small>2021/11/25</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20211122.html">
+            VIM 入门，学会必备的操作命令，模式选择、文本编辑
+            <small>2021/11/22</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200819.html">
+            免费申请 JetBrains 开源开发许可证，包含 IDEA
+            <small>2020/08/19</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200605.html">
+            Office 批量激活的命令工具 slmgr
+            <small>2020/06/05</small>
+          </a></h3>
+      </li>
+      
+      <li>
+        <h3><a href="https://ichochy.com/posts/20200602.html">
+            Office 批量激活的命令工具 ospp
+            <small>2020/06/02</small>
+          </a></h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20220705.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
