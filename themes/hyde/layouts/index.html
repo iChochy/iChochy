@@ -4,7 +4,8 @@
   {{ range $paginator.Pages }}
   <article class="post">
      <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    {{ .Summary | html }}
+    
+<div class = "Summary">{{ .Summary | html }}<hr/></div>
 <!--
     {{ if .Truncated }}
 

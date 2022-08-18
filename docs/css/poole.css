@@ -534,6 +534,10 @@ form button {
   text-align: right;
 }
 
+.Summary{
+  margin-bottom: -3rem;
+} 
+
 /* algolia CSS*/
 
 .ais-SearchBox-submit{
