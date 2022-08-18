@@ -4,11 +4,18 @@
 	  {{range .Params.categories}}
        / <a href="{{ "categories" | absURL }}/{{ . | urlize }}.html">{{.}}</a>{{end}}
 </h2>
-{{.Title}}
-<!—
+
 <div class="post">
-  <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-—>
+	<h1 class="post-title">
+	{{.Title}}
+
+<!--
+
+<a href="{{ .Permalink }}">{{ .Title }}</a>
+
+-->
+
+	</h1>
 <em>
   <time datetime={{ .Date.Format "2006/01/02" }} class="post-date">
     {{ .Date.Format "2006/01/02" }} 
