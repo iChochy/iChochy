@@ -3,9 +3,7 @@
   {{ $paginator := .Paginate (where .Site.RegularPages "Type" .Site.Params.PostDir) }}
   {{ range $paginator.Pages }}
   <article class="post">
-    <h2 class="post-title">
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </h2>
+     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     {{ .Summary | html }}
 <!--
     {{ if .Truncated }}
@@ -15,7 +13,6 @@
     </div>
     {{ end }}
 -->
-
   </article>
   {{ end }}
 </div>
