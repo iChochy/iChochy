@@ -6,10 +6,14 @@
     <ul class="related-posts">
       {{ range . }}
       <li>
-        <h3><a href="{{ .Permalink }}">
+        <h3>
+          <a href="{{ .Permalink }}">
             {{ .Title }}
-            <small>{{ .Date.Format "2006/01/02" }}</small>
-          </a></h3>
+          </a>
+          <small>
+              {{ .Date.Format "2006-01-02" }}
+          </small>
+        </h3>
       </li>
       {{ end }}
     </ul>

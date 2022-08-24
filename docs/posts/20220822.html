@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.101.0" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2022 国内外免费公共 DNS 服务推荐 &middot; 回忆中的明天</title>
+  <meta name="keywords" content="转载, dns, internet" />
+  <meta name="description" content="我们都知道想要能上网，就必须要使用DNS。DNS一般都是你的运营商提供给你的，也可以是一些其它组织提供的，比如我们熟知的谷歌的DNS 8." />
+  
+  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-148465786-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li><li><a href="https://ichochy.com/feedback.html"> Feedback </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2022 iChochy. </p>
+    
+    <div class = "other">
+    <li><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></li>
+    
+    
+    <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "https://files.ichochy.com/upyun/upyun.png"> </a>提供CDN加速/云存储服务</li>
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#国内公共dns">国内公共DNS</a>
+      <ul>
+        <li><a href="#腾讯云-dns">腾讯云 DNS</a></li>
+        <li><a href="#阿里云公共-dns">阿里云公共 DNS</a></li>
+        <li><a href="#百度公共-dns">百度公共 DNS</a></li>
+        <li><a href="#114-dns">114 DNS</a></li>
+        <li><a href="#onedns">OneDNS</a></li>
+      </ul>
+    </li>
+    <li><a href="#国外dns-服务">国外DNS 服务</a>
+      <ul>
+        <li><a href="#谷歌公共-dns">谷歌公共 DNS</a></li>
+        <li><a href="#cloudflare-dns">Cloudflare DNS</a></li>
+        <li><a href="#opendns">OpenDNS</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="/">Index</a></li>
+	  
+       / <a href="https://ichochy.com/categories/%E8%BD%AC%E8%BD%BD.html">转载</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	2022 国内外免费公共 DNS 服务推荐
+
+
+
+	</h1>
+<em>
+  <time class="post-date">
+  2022-08-22T19:22:45&#43;0800
+  </time>
+</em>
+  
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/%E8%BD%AC%E8%BD%BD.html">#转载</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/dns.html">#dns</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/internet.html">#internet</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <p>我们都知道想要能上网，就必须要使用DNS。DNS一般都是你的运营商提供给你的，也可以是一些其它组织提供的，比如我们熟知的谷歌的DNS <code>8.8.8.8</code>， 国内114dns的<code>114.114.114.114</code> 。这些由大的厂商和机构提供的公开解析服务，叫做公共DNS。</p>
+<p>不过首先要明白，公共DNS不是：<strong>不是根服务器</strong></p>
+<p>不是权威dns托管商，不提供域名注册等服务，比如万网和DNSpod</p>
+<p>不是权威dns，不针对个别域名进行解析</p>
+<p>公共DNS服务的特点就是服务的域名数量巨大，用户数多，同时要求具有安全性和抗攻击性，低延迟（响应快），无拦截（无广告）以及对解析成功率要求非常的高。并在一定程度上提高网页的链接速度，因此选择使用一个优秀的DNS，可以显著的提高网络冲浪体验。</p>
+<p>下面就介绍一些国内外优秀的公共DNS供大家选用。</p>
+<h2 id="国内公共dns">国内公共DNS</h2>
+<h3 id="腾讯云-dns">腾讯云 DNS</h3>
+<p>Public DNS+ 是 DNSPod 推出的公共域名解析服务，DNSPod 曾是中国第一大DNS解析服务提供商，现在 DNSPod 已经被腾讯云收购，因此也叫做腾讯公共 DNS 服务。腾讯 DNS 可以为用户提供更加快速、准确、稳定的递归解析服务，且不会对任何域名进行恶意劫持。</p>
+<pre tabindex="0"><code>IPv4 DNS 地址：119.29.29.29
+</code></pre><p>服务地址：<a href="https://www.dnspod.cn/Products/Public.DNS">https://www.dnspod.cn/Products/Public.DNS</a></p>
+<h3 id="阿里云公共-dns">阿里云公共 DNS</h3>
+<p>由阿里云提供的公共DNS服务。阿里云拥有全球数百台服务器组成的集群，具有充足的带宽资源；其自研高性能DNS系统和清洗中心，保障系统稳定和安全。BGP anycast技术，让您访问最近的DNS集群；动态缓存技术，加速解析响应。阿里云公共 DNS具有稳定，快速，智能的优势。</p>
+<pre tabindex="0"><code>IPv4 DNS 地址：223.5.5.5 / 223.6.6.6
+IPv6 DNS 地址：2400:3200::1 / 2400:3200:baba::1
+</code></pre><p>服务地址：<a href="https://alidns.com/">https://alidns.com/</a></p>
+<h3 id="百度公共-dns">百度公共 DNS</h3>
+<p>由百度推出的公共DNS的服务，依托百度强大技术，具有云防护，无劫持，更精准三大优势。</p>
+<p>云防护：病毒、木马、钓鱼网站一网拦截，百度云防护实时守护您的访问安全</p>
+<p>无劫持：无恶意跳转，无强制广告，百度公共DNS让您的每一次访问都畅通无阻</p>
+<p>更精准：遍布全国的递归出口、智能解析，所有的努力只为让CDN定位更精准，让您的每一次访问都更高效</p>
+<pre tabindex="0"><code>IPv4 DNS 地址：180.76.76.76
+IPv6 DNS 地址：2400:da00::6666
+</code></pre><p>服务地址：<a href="https://dudns.baidu.com/intro/publicdns">https://dudns.baidu.com/intro/publicdns</a></p>
+<h3 id="114-dns">114 DNS</h3>
+<p>114 DNS 源自南京信风 2010 年为中国电信及中国联通两个大省约 2000 万宽带用户提供备份服务的超大型 DNS 系统，同时提供公众 DNS 解析服务及权威 DNS 解析备份服务，114DNS 将为中国的互联网及电子商务提供可靠的基础安全保障。114DNS 为国内云安全DNS服务先行者，114DNS 平台由多个基础电信运营商与南京信风共建共享，但由南京信风提供技术支持以确保服务的优质高效。</p>
+<pre tabindex="0"><code>IPv4 DNS 地址：114.114.114.114 / 114.114.115.115
+</code></pre><h3 id="onedns">OneDNS</h3>
+<p>OneDNS是北京微步在线科技有限公司旗下产品，为防止DNS解析服务被滥用，OneDNS个人版对来自每个IP地址的解析请求量做了限制，其解析服务分为拦截版，纯净版，家庭版三种。拦截版含有恶意网站拦截、广告过滤等功能；纯净版则不对访问网站进行任何过滤拦截，直接返回其真实的响应结果。</p>
+<pre tabindex="0"><code>拦截版 IPv4 DNS 地址：117.50.11.11 52.80.66.66
+
+纯净版 IPv4 DNS 地址：117.50.10.10 52.80.52.52
+
+家庭版 IPv4 DNS 地址：117.50.60.30 52.80.60.30
+</code></pre><p>服务地址：<a href="https://www.onedns.net">https://www.onedns.net</a></p>
+<h2 id="国外dns-服务">国外DNS 服务</h2>
+<h3 id="谷歌公共-dns">谷歌公共 DNS</h3>
+<p>谷是最早推出免费DNS服务的平台。谷歌DNS它们易于记忆，并且每个人都可以使用。谷歌DNS的主要优势来自他们作为一家公司的声誉。谷歌每年收入极多，有能力提供最稳定和更有弹性的DNS服务器。这个DNS服务器的唯一问题是它们存储有关您的运营的信息，如果美国政府决定需要这些信息，它们可以与第三方共享，Google通常被认为是最好的DNS服务器。</p>
+<pre tabindex="0"><code>IPv4 DNS 地址：8.8.8.8 / 8.8.4.4
+</code></pre><p>服务地址：<a href="https://developers.google.com/speed/public-dns">https://developers.google.com/speed/public-dns</a></p>
+<h3 id="cloudflare-dns">Cloudflare DNS</h3>
+<p>cloudflare 是一家国外的 CDN 加速服务商。2018 年的 4 月 1 日愚人节，Cloudflare 宣布推出 1.1.1.1 公共 DNS 服务。如今两年过去了，其已经成为了仅次于 Google 的全球第二大公共 DNS 解析器。cloudflare DNS目标互联网上速度最快且高度关注隐私保护的消费级 DNS 服务</p>
+<pre tabindex="0"><code>IPv4 DNS 地址：1.1.1.1 和 1.0.0.1
+
+IPv6 DNS 地址：2606:4700:4700::1111 和 2606:4700:4700::1001
+</code></pre><p>服务地址：<a href="https://developers.google.com/speed/public-dns">https://developers.google.com/speed/public-dns</a></p>
+<h3 id="opendns">OpenDNS</h3>
+<p>OpenDNS 是一个免费的域名解析服务提供商（DNS），并具备反钓鱼、内容控制软件等功能。2015年6月30日，思科系统公司宣布收购OpenDNS。OpenDNS为个人和商业提供DNS方案，用户可以自行选择使用OpenDNS的服务或者使用当地ISP提供的DNS服务。</p>
+<pre tabindex="0"><code>IPv4 DNS 地址：208.67.222.222 / 208.67.220.220
+
+IPv4 DNS 地址：208.67.222.220 / 208.67.220.222
+
+IPv6 DNS 地址：2620:119:35::35 / 2620:119:53::53
+</code></pre><p>服务地址：<a href="https://www.opendns.com/">https://www.opendns.com/</a></p>
+<p>总结：对于国内用户推荐大家使用腾讯云 阿里云的公共 DNS，作为云服务器大厂，公共DNS算是基础服务，势必有不错的保证。国外用户选Cloudflare的公共DNS服务，在速度和隐私方面都做的很好。</p>
+
+  
+<h2>源文：</h2> 
+<a href="https://ichochy.com/posts/20220822.html">https://ichochy.com/posts/20220822.html</a>
+<h2>公众号：</h2>
+<img src="https://ichochy.com/wx.jpg" alt="公众号" />
+<h2 id="打赏">打赏</h2>
+<img src="https://ichochy.com/sponsor.jpg" alt="Sponsor">
+<hr>
+
+
+  
+
+  
+  <div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+      
+      <li>
+        <h3>
+          <a href="https://ichochy.com/posts/20220810.html">
+            微软为 VS Code 推出 Markdown 语言服务器
+          </a>
+          <small>
+              2022-08-10
+          </small>
+        </h3>
+      </li>
+      
+      <li>
+        <h3>
+          <a href="https://ichochy.com/posts/20220505.html">
+            强！腾讯推出开源免费老照片修复工具！
+          </a>
+          <small>
+              2022-05-05
+          </small>
+        </h3>
+      </li>
+      
+      <li>
+        <h3>
+          <a href="https://ichochy.com/posts/20191008.html">
+            通过Cloudflare开启全站https
+          </a>
+          <small>
+              2019-10-08
+          </small>
+        </h3>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+</div>
+
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20220810.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ichochy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </main>
+  </body>
+</html>
