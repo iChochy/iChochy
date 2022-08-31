@@ -1,7 +1,7 @@
 <aside class="sidebar">
   <div id = "title" class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/">
+      <a href="{{.Site.BaseURL}}">
         {{if not .IsPage}}
         <h1 class="title">{{ .Site.Title }}</h1>
         {{else}}
@@ -19,7 +19,7 @@
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="/">Index</a> </li>
+        <li><a href="{{.Site.BaseURL}}">Index</a> </li>
         {{ range .Site.Menus.main -}}
         <li><a href="{{.URL | absURL }}"> {{ .Name }} </a></li>
         {{- end }}

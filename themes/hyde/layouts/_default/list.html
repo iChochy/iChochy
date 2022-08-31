@@ -2,7 +2,7 @@
 <!-- {{ partial "breadcrumb.html" . }} -->
 <div class="post">
   <h2>
-    <a href="/">Index</a>  / 
+    <a href="{{.Site.BaseURL}}">Index</a>  / 
 {{if .Parent.IsHome }}
 	{{ humanize .Section }}
 {{else}}

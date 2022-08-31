@@ -1,6 +1,6 @@
 {{ define "main" -}}
 <h2>
-	<a href="/">Index</a></li>
+	<a href="{{.Site.BaseURL}}">Index</a>
 	  {{range .Params.categories}}
        / <a href="{{ "categories" | absURL }}/{{ . | urlize }}.html">{{.}}</a>{{end}}
 </h2>

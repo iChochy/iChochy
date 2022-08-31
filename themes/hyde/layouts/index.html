@@ -1,4 +1,5 @@
 {{ define "main" -}}
+
 <div class="posts">
   {{ $paginator := .Paginate (where .Site.RegularPages "Type" .Site.Params.PostDir) }}
   {{ range $paginator.Pages }}
@@ -10,7 +11,7 @@
     {{ if .Truncated }}
 
     <div class="read-more-link">
-      <a href="{{ .RelPermalink }}">阅读更多…</a>
+      <a href="{{ .Permalink }}">阅读更多…</a>
     </div>
     {{ end }}
 -->

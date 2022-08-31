@@ -13,16 +13,25 @@
       <pubDate>Mon, 22 Aug 2022 19:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220822.html</guid>
-      <description>我们都知道想要能上网，就必须要使用DNS。DNS一般都是你的运营商提供给你的，也可以是一些其它组织提供的，比如我们熟知的谷歌的DNS 8.</description>
+      <description>我们都知道想要能上网，就必须要使用DNS。DNS一般都是你的运营商提供给你的，也可以是一些其它组织提供的，比如我们熟知的谷歌的DNS 8.8.</description>
     </item>
     
     <item>
       <title>微软为 VS Code 推出 Markdown 语言服务器</title>
       <link>https://ichochy.com/posts/20220810.html</link>
-      <pubDate>Wed, 10 Aug 2022 19:22:45 +0800</pubDate>
+      <pubDate>Wed, 10 Aug 2022 15:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220810.html</guid>
-      <description>微软近日发布官方博客表示，他们经过半年时间的努力为 VS Code 带来了 Markdown 语言服务器（Markdown Language Server），团队认为 Markdown 语言服务器是可以推动 VS Code 中的 Markdown 工具进一步发展的项目，有了这个语言服务器，微软将把 VS Code 内置的大部分 Markdown 语言工具（如：文档大纲、智能折叠、路径补全等）提供给其他编辑器和工具。目标是推动 Markdown 工具的发展，并使其具有一些与其他编程语言工具类似的智能功能。</description>
+      <description>微软近日发布官方博客表示，他们经过半年时间的努力为 VS Code 带来了 Markdown 语言服务器（Markdown Language Server），团队认为 Markdown 语言服务器是可以推动 VS</description>
+    </item>
+    
+    <item>
+      <title>极简 Java 工作流概念入门</title>
+      <link>https://ichochy.com/posts/20220805.html</link>
+      <pubDate>Fri, 05 Aug 2022 11:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20220805.html</guid>
+      <description>关于 Flowable 松哥已经更新了好几篇文章了，不过考虑到有的小伙伴可能还从来没接触过流程引擎，因此有一些基础的内容我再来和小伙伴们梳理一下。 1. 为什么需要</description>
     </item>
     
     <item>
@@ -31,7 +40,7 @@
       <pubDate>Tue, 05 Jul 2022 11:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220705.html</guid>
-      <description>在出舱住院二周后准备出院，突然出现不明原因发烧，各种检查，没有明显的异常，医生说是免疫性发烧，有点小排异，过了十来天才好点。</description>
+      <description>在出舱住院二周后准备出院，突然出现不明原因发烧，各种检查，没有明显的异常，医生说是免疫性发烧，有点小排异，过了十来天才好点。 可是命运不太好，</description>
     </item>
     
     <item>
@@ -40,7 +49,7 @@
       <pubDate>Wed, 22 Jun 2022 09:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220622.html</guid>
-      <description>一、舱内设施 舱内主要就是生活的必要设施和消毒药水，主要包括坐便椅、尿壶来安排你的三急，都需要打包称重。然后就是水壶，每天喝水就靠它了，所有的水都必须要烧开后才能饮用。电视机可以供你娱乐，观看国家大事。床边桌，是用来吃饭的主要用具。最后最重要的就是一张床，这张舒适的床，让你在这一个多月里躺的舒适，注意：上床后一定要拉上护栏，防止跌落。</description>
+      <description>一、舱内设施 舱内主要就是生活的必要设施和消毒药水，主要包括坐便椅、尿壶来安排你的三急，都需要打包称重。然后就是水壶，每天喝水就靠它了，所有的</description>
     </item>
     
     <item>
@@ -49,7 +58,7 @@
       <pubDate>Wed, 15 Jun 2022 15:45:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220615.html</guid>
-      <description>阿扎胞苷 阿扎胞苷为胞嘧啶核苷类似物，其抗肿瘤功能目前有两种的作用机制：1.</description>
+      <description>阿扎胞苷 阿扎胞苷为胞嘧啶核苷类似物，其抗肿瘤功能目前有两种的作用机制：1. 通过与DNA或RNA结合，产生细胞毒性并且特异性抑制细胞周期；2.</description>
     </item>
     
     <item>
@@ -58,7 +67,7 @@
       <pubDate>Wed, 01 Jun 2022 11:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220601.html</guid>
-      <description>一、术前检查 患者查体 在医院住院后就开始了无穷尽的检查，血是不知道抽了多少管，然后就是我害怕的骨穿了，因为之前做骨穿都晕过去了，这次还好，医生很专业，让我放松，不用紧张，几分钟就过去。具体如何操作的我也不知道，就知道趴在床上，两个医生按着就做完了，有麻药的作用，不痛，但还是有点害怕。后面就是各种 CT 、X光、心电图，肺部 CT、耳鼻喉检查，反正就是来了一套大全套的查体。</description>
+      <description>一、术前检查 患者查体 在医院住院后就开始了无穷尽的检查，血是不知道抽了多少管，然后就是我害怕的骨穿了，因为之前做骨穿都晕过去了，这次还好，医生</description>
     </item>
     
     <item>
@@ -67,7 +76,7 @@
       <pubDate>Thu, 05 May 2022 11:15:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220505.html</guid>
-      <description>对于多数人的回忆可能会通过旧照片或者老视频来获得，可是当旧照片因不可抗力因素保管或者出现损坏时怎么办？修复照片肯定是很多人的想法，可是对于不会专业图像处理的用户来说想要校正一些旧照片还是有些困难的。</description>
+      <description>对于多数人的回忆可能会通过旧照片或者老视频来获得，可是当旧照片因不可抗力因素保管或者出现损坏时怎么办？修复照片肯定是很多人的想法，可是对于不</description>
     </item>
     
     <item>
@@ -76,7 +85,7 @@
       <pubDate>Thu, 10 Mar 2022 15:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220310.html</guid>
-      <description>一、起因 2020年春天，去了一家新公司，开始赶项目模式，为加快项目的发布，不得不疯狂的加班，996开始了，当时加上新冠疫情，工作也不好找，每天不得不拖着疲惫的身体工作着，只觉得一天比一天累，可是又有什么办法，为了生活，为了美好的明天，每个人都在努力的疯狂工作。</description>
+      <description>一、起因 2020年春天，去了一家新公司，开始赶项目模式，为加快项目的发布，不得不疯狂的加班，996开始了，当时加上新冠疫情，工作也不好找，每</description>
     </item>
     
     <item>
@@ -85,7 +94,7 @@
       <pubDate>Thu, 25 Nov 2021 11:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20211125.html</guid>
-      <description>RIME 想你所想，成为一款高度自字义的输入法，本地程序，没有网络传输，文件配置界面，自定义词库，一法多用，可以拼音、五笔、混拼……</description>
+      <description>RIME 想你所想，成为一款高度自字义的输入法，本地程序，没有网络传输，文件配置界面，自定义词库，一法多用，可以拼音、五笔、混拼…… RIME 安装 Windo</description>
     </item>
     
     <item>
@@ -94,7 +103,7 @@
       <pubDate>Mon, 22 Nov 2021 19:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20211122.html</guid>
-      <description>VIM 是一个命令文本编辑工具，熟练后可以方便、快捷的完成文体操作，快、快、快、没有更快</description>
+      <description>VIM 是一个命令文本编辑工具，熟练后可以方便、快捷的完成文体操作，快、快、快、没有更快 VIM 使用 vim filename……打开文本进入VIM正常模式，可</description>
     </item>
     
     <item>
@@ -103,7 +112,7 @@
       <pubDate>Sat, 20 Nov 2021 18:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20211120.html</guid>
-      <description>使用 Spring Security 合理配置页面权限，管理用户登录权限，实现页面安全</description>
+      <description>使用 Spring Security 合理配置页面权限，管理用户登录权限，实现页面安全 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5.2 创建项目 打开 IDEA 创建新项目 New Project，使用 start.spring.io 快速构建 添加 Spring</description>
     </item>
     
     <item>
@@ -112,7 +121,7 @@
       <pubDate>Fri, 05 Nov 2021 09:12:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20211105.html</guid>
-      <description>表单接交数据并完成数据验证，约束用户数据的接交，已解决数据的正确性和完整性，达到系统的可用性。</description>
+      <description>表单接交数据并完成数据验证，约束用户数据的接交，已解决数据的正确性和完整性，达到系统的可用性。 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5.2 创建项目 参照《Sprin</description>
     </item>
     
     <item>
@@ -121,7 +130,7 @@
       <pubDate>Thu, 15 Jul 2021 21:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210715.html</guid>
-      <description>为服务指定 origins 配置，在响应中包含跨域资源共享 (CORS) 标头， 启用跨域请求</description>
+      <description>为服务指定 origins 配置，在响应中包含跨域资源共享 (CORS) 标头， 启用跨域请求 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 参照《Spring 构建 RESTful Web 服务 Hello World》 https://ichochy.com/posts/20210615.html 项</description>
     </item>
     
     <item>
@@ -130,7 +139,7 @@
       <pubDate>Mon, 12 Jul 2021 12:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210712.html</guid>
-      <description>小区一直都是停车难，每次还要扫码缴停车费，车库网络还不好，到小区门口就排起长队扫码。快人一步，创建快捷指令，一键支付停车费。</description>
+      <description>小区一直都是停车难，每次还要扫码缴停车费，车库网络还不好，到小区门口就排起长队扫码。快人一步，创建快捷指令，一键支付停车费。 创建指令 用苹果手</description>
     </item>
     
     <item>
@@ -139,7 +148,7 @@
       <pubDate>Sat, 10 Jul 2021 12:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210710.html</guid>
-      <description>家里以前是网孔面板，没有用上，前几天老婆说房间里网速不好，Wi-Fi 老掉线，于是有了改造全屋 Wi-Fi 的想法。</description>
+      <description>家里以前是网孔面板，没有用上，前几天老婆说房间里网速不好，Wi-Fi 老掉线，于是有了改造全屋 Wi-Fi 的想法。 改造方案 中继/桥接 MESH 组网 AC+AP 方案说明 中继</description>
     </item>
     
     <item>
@@ -148,7 +157,7 @@
       <pubDate>Sun, 20 Jun 2021 11:33:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210620.html</guid>
-      <description>使用 Spring 的 RestTemplate 调用 HTTP 请求，实现 RESTful Web 服务调用</description>
+      <description>使用 Spring 的 RestTemplate 调用 HTTP 请求，实现 RESTful Web 服务调用 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 New Project 打开 IDEA 创建新项目 New Project，使用 start.spring.io 快速构建 添加依赖 添加 Spring Web 依赖</description>
     </item>
     
     <item>
@@ -157,7 +166,7 @@
       <pubDate>Tue, 15 Jun 2021 22:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210615.html</guid>
-      <description>使用 Spring 创建 RESTful Web 服务，实现Hello World的 RESTful 请求</description>
+      <description>使用 Spring 创建 RESTful Web 服务，实现Hello World的 RESTful 请求 什么是 RESTful RESTful 是应用程序接口的一种架构风格，它使用 HTTP 请求来访问和使用数据。请求方式包含 GET</description>
     </item>
     
     <item>
@@ -166,7 +175,7 @@
       <pubDate>Sat, 12 Jun 2021 15:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210612.html</guid>
-      <description>博客使用 Algolia 实现搜索功能，手动上传搜索记录数据一直很烦琐，只好苦学 API 和 Action，通过 GitHub Actions 实现自动上传搜索记录到 Algolia，完美呈现。</description>
+      <description>博客使用 Algolia 实现搜索功能，手动上传搜索记录数据一直很烦琐，只好苦学 API 和 Action，通过 GitHub Actions 实现自动上传搜索记录到 Algolia，完美呈现。 GitHub</description>
     </item>
     
     <item>
@@ -175,7 +184,7 @@
       <pubDate>Wed, 02 Jun 2021 11:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210602.html</guid>
-      <description>项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。</description>
+      <description>项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 New Project 打开 IDEA 创建新项目 New Pro</description>
     </item>
     
     <item>
@@ -184,7 +193,7 @@
       <pubDate>Sun, 30 May 2021 22:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210530.html</guid>
-      <description>表单提交完成数据的交互，实现数据的传递并进行系统处理或反馈，完成用户的指令。</description>
+      <description>表单提交完成数据的交互，实现数据的传递并进行系统处理或反馈，完成用户的指令。 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 New Project 打开 IDEA 创建新项目 New Projec</description>
     </item>
     
     <item>
@@ -193,7 +202,7 @@
       <pubDate>Tue, 25 May 2021 16:25:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210525.html</guid>
-      <description>学习 Java，就离不开 Spring ，现在就用 Spring 框架快速创建一个 WEB 项目，欢迎来到我的世界 Hello World。</description>
+      <description>学习 Java，就离不开 Spring ，现在就用 Spring 框架快速创建一个 WEB 项目，欢迎来到我的世界 Hello World。 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 打开 IDEA 创建新项目 New P</description>
     </item>
     
     <item>
@@ -202,7 +211,7 @@
       <pubDate>Sat, 22 May 2021 10:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210522.html</guid>
-      <description>一直想实现博客的本地搜索，没有找到好的实现方式。尝试了好几个方案，现在使用 Algolia 实现本地搜索。实现方式简单，每月可搜索 10000 次，可以一直白票下去</description>
+      <description>一直想实现博客的本地搜索，没有找到好的实现方式。尝试了好几个方案，现在使用 Algolia 实现本地搜索。实现方式简单，每月可搜索 10000 次，可以一直白票下去 构建</description>
     </item>
     
     <item>
@@ -211,7 +220,7 @@
       <pubDate>Sun, 18 Apr 2021 10:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210418.html</guid>
-      <description>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化</description>
+      <description>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的</description>
     </item>
     
     <item>
@@ -220,7 +229,7 @@
       <pubDate>Mon, 15 Mar 2021 10:11:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20210315.html</guid>
-      <description>递归 程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。</description>
+      <description>递归 程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间</description>
     </item>
     
     <item>
@@ -238,7 +247,7 @@
       <pubDate>Sat, 10 Oct 2020 22:22:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20201010.html</guid>
-      <description>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。</description>
+      <description>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。 JSON 采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的</description>
     </item>
     
     <item>
@@ -247,7 +256,7 @@
       <pubDate>Wed, 02 Sep 2020 16:22:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200902.html</guid>
-      <description>Homebrew 可以方便、快捷的安装第三方软件包，不再需要手动编译安装，通过brew install命令就可以完成软件的安装，包括相关的依赖包。甚至使用brew cask安装macOS应用程序、字体和插件以及其他非开源软件。</description>
+      <description>Homebrew 可以方便、快捷的安装第三方软件包，不再需要手动编译安装，通过brew install命令就可以完成软件的安装，包括相关的依赖包。甚至使用br</description>
     </item>
     
     <item>
@@ -256,7 +265,7 @@
       <pubDate>Fri, 28 Aug 2020 15:25:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200828.html</guid>
-      <description>Regular Expression正则表达式，简称RegExp，常规通用的表达式，在多个开发语言中都有它的实现，可以通过正则表达式来快速的检索、匹配、查找、替换字符串中的文本。</description>
+      <description>Regular Expression正则表达式，简称RegExp，常规通用的表达式，在多个开发语言中都有它的实现，可以通过正则表达式来快速的检索、匹配、查</description>
     </item>
     
     <item>
@@ -265,7 +274,7 @@
       <pubDate>Tue, 25 Aug 2020 11:25:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200825.html</guid>
-      <description>早期互联网只是用来访问查看，不需要关心谁在访问查看。HTTP是一种无状态的协议，每个请求都是完全独立的，服务端无法确认当前访问者的身份信息，为了标示用户，就出现了Cookie，而Cookie、Token、JWT 都是用来标示用户的。</description>
+      <description>早期互联网只是用来访问查看，不需要关心谁在访问查看。HTTP是一种无状态的协议，每个请求都是完全独立的，服务端无法确认当前访问者的身份信息，</description>
     </item>
     
     <item>
@@ -274,7 +283,7 @@
       <pubDate>Mon, 24 Aug 2020 16:45:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200824.html</guid>
-      <description>方法的代理可以在调用方法时进行其它的相关操作，并减少代码的入侵和偶合。很多框架都用到了动态代理，并提供了减化代理操作，如：Spring 的 AOP。</description>
+      <description>方法的代理可以在调用方法时进行其它的相关操作，并减少代码的入侵和偶合。很多框架都用到了动态代理，并提供了减化代理操作，如：Spring 的 AO</description>
     </item>
     
     <item>
@@ -283,7 +292,7 @@
       <pubDate>Sun, 23 Aug 2020 16:45:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200823.html</guid>
-      <description>反射可以在代码运行时，动态的获取对象、调用方法、设置属性。动态操作，降低代码偶合性，提高灵活度。其JDBC库就是通过反射加载。</description>
+      <description>反射可以在代码运行时，动态的获取对象、调用方法、设置属性。动态操作，降低代码偶合性，提高灵活度。其JDBC库就是通过反射加载。 实例操作 以操作</description>
     </item>
     
     <item>
@@ -292,7 +301,7 @@
       <pubDate>Sat, 22 Aug 2020 13:22:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200822.html</guid>
-      <description>Vercel 可以依托 Git仓库 ，在线自动构建和发布Web静态项目，支持自定义域名，可以自动签发SSL证书，开启HTTPS，还有一个特点，拥有全球CDN，国内速度不错。</description>
+      <description>Vercel 可以依托 Git仓库 ，在线自动构建和发布Web静态项目，支持自定义域名，可以自动签发SSL证书，开启HTTPS，还有一个特点，拥有全球CDN</description>
     </item>
     
     <item>
@@ -301,7 +310,7 @@
       <pubDate>Thu, 20 Aug 2020 11:22:35 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200820.html</guid>
-      <description>Java 是一个面向对象编程的语言，我们就以面向对象的方式来解释下重写(Override)与重载(Overload)。子类存在父类名字相同的方法，而参数的个数与类型一样，返回值也一样的方法，就称为方法的重写（Override）。同类中定义了多个名字相同的方法，但他们的参数数量不同或数量相同而类型和次序不同，则称为方法的重载(Overload)。</description>
+      <description>Java 是一个面向对象编程的语言，我们就以面向对象的方式来解释下重写(Override)与重载(Overload)。子类存在父类名字相同的方法，而</description>
     </item>
     
     <item>
@@ -310,7 +319,7 @@
       <pubDate>Wed, 19 Aug 2020 22:22:25 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200819.html</guid>
-      <description>如果您是开源项目的负责人或核心贡献者，就可以申请 JetBrains 所有产品的License，用于您的项目开发。</description>
+      <description>如果您是开源项目的负责人或核心贡献者，就可以申请 JetBrains 所有产品的License，用于您的项目开发。 免费许可计划 开源项目： 符合 Open Source 定义。 正在积极开</description>
     </item>
     
     <item>
@@ -319,7 +328,7 @@
       <pubDate>Tue, 18 Aug 2020 12:22:25 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200818.html</guid>
-      <description>相信很多人都为自己和家人购买过保险，特别是重疾险。常说保险就是一种保障，可以让你的家庭不会因为高昂的医药费而操心，有病没钱治。</description>
+      <description>相信很多人都为自己和家人购买过保险，特别是重疾险。常说保险就是一种保障，可以让你的家庭不会因为高昂的医药费而操心，有病没钱治。 购买保险时，都</description>
     </item>
     
     <item>
@@ -328,7 +337,7 @@
       <pubDate>Sat, 15 Aug 2020 11:13:25 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200815.html</guid>
-      <description>Java 是一门跨平台的高级程序设计语言，可运行在linux、Windows、Mac OS及其他多种UNIX版本的系统。Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等</description>
+      <description>Java 是一门跨平台的高级程序设计语言，可运行在linux、Windows、Mac OS及其他多种UNIX版本的系统。Java具有简单性、面向对象、</description>
     </item>
     
     <item>
@@ -337,7 +346,7 @@
       <pubDate>Mon, 10 Aug 2020 18:13:25 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200810.html</guid>
-      <description>HUGO 是一套模版静态化的系统，了解其目录结构有助于创建我们的网站系统</description>
+      <description>HUGO 是一套模版静态化的系统，了解其目录结构有助于创建我们的网站系统 目录结构 以Hyde主题为例，完整的目录结构如下： iChochy ├── archetypes 内容模版目录 │ └─</description>
     </item>
     
     <item>
@@ -346,7 +355,7 @@
       <pubDate>Fri, 07 Aug 2020 16:13:25 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200807.html</guid>
-      <description>页面加载 JS 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。</description>
+      <description>页面加载 JS 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。 了解 JS 的加载顺序 了解页面元素的加载顺序，找到 JS</description>
     </item>
     
     <item>
@@ -355,7 +364,7 @@
       <pubDate>Sun, 02 Aug 2020 13:13:25 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200802.html</guid>
-      <description>Hugo 拥有超快的速度，强大的内容管理和强大的模版语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用LiveReload可即时渲染更改</description>
+      <description>Hugo 拥有超快的速度，强大的内容管理和强大的模版语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在</description>
     </item>
     
     <item>
@@ -364,7 +373,7 @@
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
       
       <guid>https://ichochy.com/about.html</guid>
-      <description>简介 本人是一个80后的码农，会点Java和Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！</description>
+      <description>简介 本人是一个80后的码农，会点Java和Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！ 联系方式 邮箱：ichochy@qq</description>
     </item>
     
     <item>
@@ -382,7 +391,7 @@
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
       
       <guid>https://ichochy.com/links.html</guid>
-      <description>友情链接 回忆中的明天：https://ichochy.</description>
+      <description>友情链接 回忆中的明天：https://ichochy.com iUploader：https://iuploader.ichochy.com L</description>
     </item>
     
     <item>
@@ -391,7 +400,7 @@
       <pubDate>Fri, 10 Jul 2020 15:28:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200710.html</guid>
-      <description>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化</description>
+      <description>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的</description>
     </item>
     
     <item>
@@ -400,7 +409,7 @@
       <pubDate>Mon, 22 Jun 2020 12:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200622.html</guid>
-      <description>免费申请20个SSL证书，支持HTTPS、多CDN节点，国内外加速、每天10G流量、3条特定页面规则等</description>
+      <description>免费申请20个SSL证书，支持HTTPS、多CDN节点，国内外加速、每天10G流量、3条特定页面规则等 套餐对比：https://su.bai</description>
     </item>
     
     <item>
@@ -409,7 +418,7 @@
       <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200605.html</guid>
-      <description>软件许可证管理器脚本用于配置和检索 Office KMS 主机和 Windows 主机的批量激活信息。</description>
+      <description>软件许可证管理器脚本用于配置和检索 Office KMS 主机和 Windows 主机的批量激活信息。 适用于： Office 2019 和 Office 2016（包括 Project 和 Visio）的批量许可版本 slmgr.vbs 脚本 您可以在</description>
     </item>
     
     <item>
@@ -418,7 +427,7 @@
       <pubDate>Tue, 02 Jun 2020 19:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200602.html</guid>
-      <description>Office 软件保护平台脚本使你能够配置 Office 产品（包括 Project 和 Visio）的批量许可版本。</description>
+      <description>Office 软件保护平台脚本使你能够配置 Office 产品（包括 Project 和 Visio）的批量许可版本。 ospp.vbs 脚本 opss.vbs 脚本位于 Program Files\Microsoft Office\Office16 或 Program Files (x86)\Microsoft Office\Office16 文件夹。 适用于： Office 2019 和 Office 2016（</description>
     </item>
     
     <item>
@@ -427,7 +436,7 @@
       <pubDate>Thu, 28 May 2020 12:12:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200528.html</guid>
-      <description>在配置为支持 Office 批量激活的 KMS 主计算机上，你只需安装和启用一个 KMS 主机密钥，即可激活 Office 的所有批量许可版本。</description>
+      <description>在配置为支持 Office 批量激活的 KMS 主计算机上，你只需安装和启用一个 KMS 主机密钥，即可激活 Office 的所有批量许可版本。 Office 的所有批量许可版本（包括 Project 和 Visio</description>
     </item>
     
     <item>
@@ -436,7 +445,7 @@
       <pubDate>Tue, 26 May 2020 22:12:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200526.html</guid>
-      <description>移植物抗宿主病（graft versus host disease，GVHD）是allo- HSCT最常见的并发症，分为急性和慢性2种类型。</description>
+      <description>移植物抗宿主病（graft versus host disease，GVHD）是allo- HSCT最常见的并发症，分为急性和慢性2种类型。 aGVHD是供者T细胞识</description>
     </item>
     
     <item>
@@ -445,7 +454,7 @@
       <pubDate>Wed, 06 May 2020 22:12:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200506.html</guid>
-      <description>慢性髓细胞白血病的分期是目前指导治疗的主要依据，也是预后判断的参考标准。CML可分为慢性期、加速期、急变期。</description>
+      <description>慢性髓细胞白血病的分期是目前指导治疗的主要依据，也是预后判断的参考标准。CML可分为慢性期、加速期、急变期。 慢性期 临床表现：无症状或有低热、</description>
     </item>
     
     <item>
@@ -454,7 +463,7 @@
       <pubDate>Mon, 04 May 2020 16:12:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200504.html</guid>
-      <description>白血病患者骨髓中存在着正常的多克隆造血和白血病性单克隆造血两类细胞群，急性白血病治疗目的是杀灭白血病克隆恢复持久的正常多克隆造血。</description>
+      <description>白血病患者骨髓中存在着正常的多克隆造血和白血病性单克隆造血两类细胞群，急性白血病治疗目的是杀灭白血病克隆恢复持久的正常多克隆造血。 白血病疗效</description>
     </item>
     
     <item>
@@ -463,7 +472,7 @@
       <pubDate>Sat, 02 May 2020 14:18:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200502.html</guid>
-      <description>骨髓增生异常综合征（MDS）的病程大致有以下三种主要演变模式 第一种模式，患者病情稳定，骨髓中原始细胞不增多或轻微增多，而不超过5%，随诊中迄未发生白血病转变，仅靠一般支持治疗可活存数年甚至十多年。</description>
+      <description>骨髓增生异常综合征（MDS）的病程大致有以下三种主要演变模式 第一种模式，患者病情稳定，骨髓中原始细胞不增多或轻微增多，而不超过5%，随诊中迄</description>
     </item>
     
     <item>
@@ -472,7 +481,7 @@
       <pubDate>Thu, 30 Apr 2020 16:12:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200430.html</guid>
-      <description>急性白血病的临床表现主要与白血病细胞无控性增殖引起骨髓正常造血受抑制和髓外组织器官浸润有关。某些独特的临床表现对急性白血病的诊断和分型有重要提示作用。</description>
+      <description>急性白血病的临床表现主要与白血病细胞无控性增殖引起骨髓正常造血受抑制和髓外组织器官浸润有关。某些独特的临床表现对急性白血病的诊断和分型有重要</description>
     </item>
     
     <item>
@@ -481,7 +490,7 @@
       <pubDate>Sat, 25 Apr 2020 14:16:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200425.html</guid>
-      <description>慢性粒单核细胞白血病（chronic myelomonocytic leukemia，CMML）是一种骨髓造血干细胞的克隆性疾病</description>
+      <description>慢性粒单核细胞白血病（chronic myelomonocytic leukemia，CMML）是一种骨髓造血干细胞的克隆性疾病 其特征为： 外周血中单核细胞持续性增多＞1×</description>
     </item>
     
     <item>
@@ -490,7 +499,7 @@
       <pubDate>Wed, 22 Apr 2020 16:18:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200422.html</guid>
-      <description>真正的白血病分型是始于1887年德国人Ehrlich发明细胞染色方法之后。基于对白血病细胞形态和疾病进程的观察，不断发现新的白血病类型。</description>
+      <description>真正的白血病分型是始于1887年德国人Ehrlich发明细胞染色方法之后。基于对白血病细胞形态和疾病进程的观察，不断发现新的白血病类型。 19</description>
     </item>
     
     <item>
@@ -499,7 +508,7 @@
       <pubDate>Sat, 22 Feb 2020 22:16:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20200222.html</guid>
-      <description>要导入/导出数据库信息，使用 mysql 的source命令可以方便快速的处理</description>
+      <description>要导入/导出数据库信息，使用 mysql 的source命令可以方便快速的处理 以MAC为例： 一、mysqldump命令导出SQL文件 /usr/local/mysql/bin/mysqldump -u root -p test &amp;gt; ~/test.sql 输入密</description>
     </item>
     
     <item>
@@ -508,7 +517,7 @@
       <pubDate>Thu, 07 Nov 2019 13:24:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20191107.html</guid>
-      <description>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据</description>
+      <description>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析</description>
     </item>
     
     <item>
@@ -517,7 +526,7 @@
       <pubDate>Wed, 06 Nov 2019 15:24:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20191106.html</guid>
-      <description>Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配置系统环境。</description>
+      <description>Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统</description>
     </item>
     
     <item>
@@ -526,7 +535,7 @@
       <pubDate>Mon, 28 Oct 2019 15:10:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20191028.html</guid>
-      <description>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</description>
+      <description>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器 第一步，生成密钥对 在当前用户下创建.ssh目录 mkdir ~/.ssh 使用命令ssh-</description>
     </item>
     
     <item>
@@ -535,7 +544,7 @@
       <pubDate>Fri, 18 Oct 2019 16:35:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20191018.html</guid>
-      <description>Nacos 作为服务注册中心，可以快速简单的将服务自动注册到 Nacos 服务端，并且能够动态无感知的刷新某个服务实例的服务列表，为分布式系统提供服务注册与发现功能</description>
+      <description>Nacos 作为服务注册中心，可以快速简单的将服务自动注册到 Nacos 服务端，并且能够动态无感知的刷新某个服务实例的服务列表，为分布式系统提供服务注册与发现功</description>
     </item>
     
     <item>
@@ -544,7 +553,7 @@
       <pubDate>Thu, 17 Oct 2019 14:10:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20191017.html</guid>
-      <description>Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你 Spring Cloud 应用的外部属性配置</description>
+      <description>Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你</description>
     </item>
     
     <item>
@@ -553,7 +562,7 @@
       <pubDate>Wed, 16 Oct 2019 16:10:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20191016.html</guid>
-      <description>每次发打包好项目后都需要手动重启项目，写个Shell脚本一键重启项目</description>
+      <description>每次发打包好项目后都需要手动重启项目，写个Shell脚本一键重启项目 Shell 脚本 #!/bin/bash while getopts &amp;#34;n:p:&amp;#34; arg do case $arg in n) echo &amp;#34;NAME&amp;#39;s arg:$OPTARG&amp;#34; NAME=$OPTARG ;; p) echo &amp;#34;PORT&amp;#39;s arg:$OPTARG&amp;#34; PORT=$OPTARG ;; esac done PROCESS=echo | lsof -i TCP:$PORT | grep LISTEN | awk</description>
     </item>
     
     <item>
@@ -562,7 +571,7 @@
       <pubDate>Sat, 12 Oct 2019 14:12:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20191012.html</guid>
-      <description>个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件</description>
+      <description>个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件 Spring Cloud 是什么 Spring Cloud 为开发人员提供一些分布式组件，使其快速构建分布式系统（例</description>
     </item>
     
     <item>
@@ -571,7 +580,7 @@
       <pubDate>Tue, 08 Oct 2019 14:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20191008.html</guid>
-      <description>Cloudflare 添加域名后，会自动生成通用证书，快速开启全站HTTPS，服务端不用做任何修改，还可以选择多种开启模式</description>
+      <description>Cloudflare 添加域名后，会自动生成通用证书，快速开启全站HTTPS，服务端不用做任何修改，还可以选择多种开启模式 一、注册Cloudflare账号 直接打</description>
     </item>
     
     <item>
@@ -580,7 +589,7 @@
       <pubDate>Wed, 25 Sep 2019 15:22:38 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190925.html</guid>
-      <description>通过jekyll搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现jekyll-admin是个好东西，它是博客的后台管理系统，可以方便的管理和编写自己的博客</description>
+      <description>通过jekyll搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现jekyll-admin是个好东西，它是博客的后台管理系统，可</description>
     </item>
     
     <item>
@@ -589,7 +598,7 @@
       <pubDate>Sun, 22 Sep 2019 18:12:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190922.html</guid>
-      <description>故事是这样发生的，在做一个JSON对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格&amp;lt;200b&amp;gt;导致的解析异常</description>
+      <description>故事是这样发生的，在做一个JSON对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格&amp;lt;200</description>
     </item>
     
     <item>
@@ -598,7 +607,7 @@
       <pubDate>Wed, 04 Sep 2019 10:22:33 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190904.html</guid>
-      <description>多语言并存时期，混编成为一种必须的方式 ，在多场景中实现OC和Swift语言的并存原来是如此简单</description>
+      <description>多语言并存时期，混编成为一种必须的方式 ，在多场景中实现OC和Swift语言的并存原来是如此简单 第一种场景，App中实现混编 1. 创建桥接文件*.</description>
     </item>
     
     <item>
@@ -607,7 +616,7 @@
       <pubDate>Sun, 01 Sep 2019 12:32:55 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190901.html</guid>
-      <description>构建一个自己的库供其它人使用是不是一件很酷(苦)的事情，通过CocoaPods 可以快捷的构建自己库，并向全世界分享你的成果</description>
+      <description>构建一个自己的库供其它人使用是不是一件很酷(苦)的事情，通过CocoaPods 可以快捷的构建自己库，并向全世界分享你的成果 一、创建 Podspec 有两种方</description>
     </item>
     
     <item>
@@ -616,7 +625,7 @@
       <pubDate>Fri, 23 Aug 2019 08:32:36 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190823.html</guid>
-      <description>用最简单的打包方式，将自己开发的App打包成为DMG，实现共享分发，快速安装</description>
+      <description>用最简单的打包方式，将自己开发的App打包成为DMG，实现共享分发，快速安装 1. 新建DMG 打开磁盘工具，新建DMG File-&amp;gt;New Image-&amp;gt;Blank Image 创建DMG 2. 添加文件 在</description>
     </item>
     
     <item>
@@ -625,7 +634,7 @@
       <pubDate>Thu, 22 Aug 2019 15:22:36 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190822.html</guid>
-      <description>iUploader 是一个免费开源的七牛云上传工具，可直接返回上传文件的地址；可以用作图床工具，进行图片的分享，当然不仅仅是图片</description>
+      <description>iUploader 是一个免费开源的七牛云上传工具，可直接返回上传文件的地址；可以用作图床工具，进行图片的分享，当然不仅仅是图片 软件介绍： iUploader主</description>
     </item>
     
     <item>
@@ -634,7 +643,7 @@
       <pubDate>Mon, 12 Aug 2019 12:25:36 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190812.html</guid>
-      <description>通过lodepng解析png图片，使用pngquant算法进行压缩的swift-framework，可实现PNG图片的压缩，并很好的保持图片的质量，完美实现其透明效果，支持Cocoapods安装使用</description>
+      <description>通过lodepng解析png图片，使用pngquant算法进行压缩的swift-framework，可实现PNG图片的压缩，并很好的保持图片</description>
     </item>
     
     <item>
@@ -643,7 +652,7 @@
       <pubDate>Fri, 12 Apr 2019 12:25:36 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190412.html</guid>
-      <description>使用Shell脚本的方式，通过端口号来关闭当前进程</description>
+      <description>使用Shell脚本的方式，通过端口号来关闭当前进程 查看脚本 lsof -i TCP:9100 | grep LISTEN | awk &amp;#39;{print $2}&amp;#39; 使用到三个命令lsof、grep、awk lsof 获取端口进程列表 grep 精</description>
     </item>
     
     <item>
@@ -652,7 +661,7 @@
       <pubDate>Wed, 10 Apr 2019 12:20:32 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190410.html</guid>
-      <description>打破原有的手动部署方式，实现程序自动化。通过 jenkins 来解放你的双手</description>
+      <description>打破原有的手动部署方式，实现程序自动化。通过 jenkins 来解放你的双手 jenkins说明 jenkins是一款由Java编写的开源的持续集成工具，它运行</description>
     </item>
     
     <item>
@@ -661,7 +670,7 @@
       <pubDate>Wed, 03 Apr 2019 08:20:05 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190403.html</guid>
-      <description>iUploader主要功能将图片上传至七牛云，返回 Markdown 格式的链接到剪贴板</description>
+      <description>iUploader主要功能将图片上传至七牛云，返回 Markdown 格式的链接到剪贴板 功能介绍 图片本地压缩 图片右键上传 图片复制上传 图片拖拽上传 https加密</description>
     </item>
     
     <item>
@@ -670,7 +679,7 @@
       <pubDate>Sat, 09 Mar 2019 16:10:00 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190309.html</guid>
-      <description>将自己的静态博客直接部署到七牛云存储，由七牛云托管运行，你说快不快，还没有注册七牛云的看这里，七牛云注册邀请：https://portal.qiniu.com/signup?code=3l7cpouzlru4y，哈哈！</description>
+      <description>将自己的静态博客直接部署到七牛云存储，由七牛云托管运行，你说快不快，还没有注册七牛云的看这里，七牛云注册邀请：https://portal.</description>
     </item>
     
     <item>
@@ -679,7 +688,7 @@
       <pubDate>Wed, 06 Mar 2019 15:25:00 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190306.html</guid>
-      <description>个人的博客是通过jekyll构建，通过GitHub Pages搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通CDN来加速博客。于是开始了折腾………………</description>
+      <description>个人的博客是通过jekyll构建，通过GitHub Pages搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通CDN来加速博客。于</description>
     </item>
     
     <item>
@@ -688,7 +697,7 @@
       <pubDate>Wed, 13 Feb 2019 11:45:00 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190213.html</guid>
-      <description>混了这么久，一直想拥有自己的博客，通过jekyll和GitHub Pages捣腾出了自己的博客(https://www.</description>
+      <description>混了这么久，一直想拥有自己的博客，通过jekyll和GitHub Pages捣腾出了自己的博客(https://www.ichochy.com</description>
     </item>
     
     <item>
@@ -697,7 +706,7 @@
       <pubDate>Tue, 12 Feb 2019 08:20:05 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20190212.html</guid>
-      <description>实现原理：通过svn info查看svn信息，使用grep获取版本信息，用awk获取版本号，然后对比版本号是否需要更新</description>
+      <description>实现原理：通过svn info查看svn信息，使用grep获取版本信息，用awk获取版本号，然后对比版本号是否需要更新 #!/bin/sh revision=`svn info |grep &amp;#34;Last Changed Rev:&amp;#34; |awk &amp;#39;{print $4}&amp;#39;` echo &amp;#34;the</description>
     </item>
     
     <item>
@@ -706,7 +715,7 @@
       <pubDate>Wed, 12 Dec 2018 18:30:00 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20181212.html</guid>
-      <description>学习需要，有太多的音频文件要听，可是常用的播放器只能常速播放。所以有了后面的想法，自己开发一款App，来实现倍速播放的需求，加快学习进度，提高效率，节省时间。</description>
+      <description>学习需要，有太多的音频文件要听，可是常用的播放器只能常速播放。所以有了后面的想法，自己开发一款App，来实现倍速播放的需求，加快学习进度，提</description>
     </item>
     
     <item>
@@ -715,7 +724,7 @@
       <pubDate>Sun, 02 Dec 2018 18:32:03 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20181202.html</guid>
-      <description>说说生活 生活总是有太多的磨炼，让你一步步的成长，可传奇的背后都是些艰辛的故事。</description>
+      <description>说说生活 生活总是有太多的磨炼，让你一步步的成长，可传奇的背后都是些艰辛的故事。 我坚信，每个人都有自己的生活方式，但只要认真一点点，再坚持一点</description>
     </item>
     
   </channel>
