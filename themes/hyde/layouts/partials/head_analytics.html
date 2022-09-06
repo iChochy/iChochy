@@ -16,5 +16,19 @@
 {{- with  .Site.Params.adsense }}
   <script data-ad-client="ca-pub-{{.}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 {{- end}}
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+{{- with .Site.Params.GA_MEASUREMENT_ID }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{.}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{.}}');
+</script>
+{{- end}}
+
+
 {{- template "_internal/google_analytics_async.html" . }}
 {{- end}}
