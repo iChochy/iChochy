@@ -23,9 +23,9 @@
 </em>
   {{ partial "tags.html" . }}
   {{ .Content }}
-  {{ partial "links.html" . }}
   {{ partial "related.html" . }}
+  {{ partial "pagination.html" . }}
+  {{ partial "links.html" . }}
 </div>
-{{ partial "pagination.html" . }}
-{{ partial "disqus.html" . }}
+<!-- {{ partial "disqus.html" . }} -->
 {{end}}

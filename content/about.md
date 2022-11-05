@@ -11,11 +11,11 @@ date: 2020-07-22T12:07:59+08:00
 > 网站：[https://ichochy.com](https://ichochy.com)  
 > GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
 
-## 赞助    
-![Sponsor](https://ichochy.com/sponsor.jpg)
-
 ## 公众号    
 ![公众号](https://ichochy.com/wx.jpg)
+
+## 赞助    
+![Sponsor](https://ichochy.com/sponsor.jpg)
 
 ## 感谢  
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)   
