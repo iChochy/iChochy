@@ -8,7 +8,7 @@ date: 2020-07-22T12:07:59+08:00
 
 ## 联系方式  
 > 邮箱：[ichochy@qq.com](mailto:ichochy@qq.com)  
-> 网站：[https://ichochy.com](https://ichochy.com)  
+> 公众号：`iChochy`  
 > GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
 
 ## 公众号    
