@@ -14,4 +14,6 @@ imbytecat：[https://www.imbytecat.com](https://www.imbytecat.com)
 子舒的博客：[https://zburu.com](https://zburu.com)  
 UsubeniFantasy：[https://ssshooter.com](https://ssshooter.com)  
 
-{{<links>}}
+## 申请友链
+请关注公众号：`iChochy`  
+![公众号](https://ichochy.com/wx.jpg)
