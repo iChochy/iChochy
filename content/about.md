@@ -4,11 +4,15 @@ date: 2020-07-22T12:07:59+08:00
 ---
 
 ## 简介  
-本人是一个80后的码农，会点Java和Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！
+本人是一个80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！  
+关于 Java 入门的问题，都可以关注我的公众号：`iChochy`，免费解答您的问题。  
+**只希望帮助到更多想学 Java 的人。**   
+
+白血病(CMML)患者，现已骨髓移植，恢复中……   
 
 ## 联系方式  
-> 邮箱：[ichochy@qq.com](mailto:ichochy@qq.com)  
 > 公众号：`iChochy`  
+> 邮箱：[ichochy@qq.com](mailto:ichochy@qq.com)  
 > GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
 
 ## 公众号    
