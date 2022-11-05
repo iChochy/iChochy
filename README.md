@@ -3,9 +3,9 @@
 本人是一个80后的码农，会点Java和Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！
 
 ### 联系方式
+> 公众号：`iChochy`  
 > 邮箱：[ichochy@qq.com](mailto:ichochy@qq.com)  
 > 网站：[https://ichochy.com](https://ichochy.com)  
-> 公众号：`iChochy`  
 > GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
 
 ### 公众号    
