@@ -6,7 +6,16 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 02 Sep 2022 08:22:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <lastBuildDate>Mon, 07 Nov 2022 11:22:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <item>
+      <title>第一次通过 SSH key 免密连接 GitHub 的完整过程</title>
+      <link>https://ichochy.com/posts/20221107.html</link>
+      <pubDate>Mon, 07 Nov 2022 11:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20221107.html</guid>
+      <description>通过密码连接GitHub总是要输入密码，麻烦，现在使用 SSH key 可以轻松实现免密验证. 创建 SSH key 使用 ssh-keygen 命令 打开终端输入命令 ssh-keygen 创建 key ssh-keygen -t ed25519 -C &amp;#34;ichochy@outlook.com&amp;#34; 注意：将</description>
+    </item>
+    
     <item>
       <title>5 款适用于 Linux 的笔记应用</title>
       <link>https://ichochy.com/posts/20220902.html</link>
