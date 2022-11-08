@@ -6,7 +6,16 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 07 Nov 2022 11:22:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <lastBuildDate>Tue, 08 Nov 2022 08:22:45 +0800</lastBuildDate><atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <item>
+      <title>12 个对新手最重要的 Linux 命令</title>
+      <link>https://ichochy.com/posts/20221108.html</link>
+      <pubDate>Tue, 08 Nov 2022 08:22:45 +0800</pubDate>
+      
+      <guid>https://ichochy.com/posts/20221108.html</guid>
+      <description>我向所有的 Linux 初学者推荐以下这些命令。 在使用 Linux 命令行时，很容易就会迷失方向，这可能会导致灾难性的后果：我有一次使用删除命令 rm 删除文件，然而删除</description>
+    </item>
+    
     <item>
       <title>第一次通过 SSH key 免密连接 GitHub 的完整过程</title>
       <link>https://ichochy.com/posts/20221107.html</link>
@@ -22,7 +31,7 @@
       <pubDate>Fri, 02 Sep 2022 08:22:45 +0800</pubDate>
       
       <guid>https://ichochy.com/posts/20220902.html</guid>
-      <description>译自：https://opensource.com/article/22/8/note-taking-apps-linux作者： Don Watkins 原创：L</description>
+      <description>使用这些开源工具来记笔记。 笔记是任何作者生活的一部分。我的大部分文章都是从笔记应用开始的，这对我来说通常是 Joplin。有大量适用于 Linux 的笔记</description>
     </item>
     
     <item>
