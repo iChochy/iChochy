@@ -148,7 +148,7 @@ dd {
 /* Misc */
 hr {
   position: relative;
-  margin: 1.5rem 0;
+/*  margin: 1.5rem 0;*/
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff;
@@ -397,16 +397,13 @@ tbody tr:nth-child(odd) th {
 
 .related-tags {
   padding-left: 0;
+  margin-bottom: 0;
   list-style: none;
-}
-
-.related-tags h3 {
-  margin-top: 0;
 }
 
 .related-tags li {
   display: inline;
-  padding: 2px;
+  padding: 5px;
 }
 
 /*

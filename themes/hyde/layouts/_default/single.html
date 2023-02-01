@@ -16,12 +16,7 @@
 -->
 
 	</h1>
-<em>
-  <time class="post-date">
-  {{ .Date.Format "2006-01-02 15:04:05" }}
-  </time>
-</em>
-  {{ partial "tags.html" . }}
+  {{ partial "content_head.html" . }}
   {{ .Content }}
   {{ partial "related.html" . }}
   {{ partial "pagination.html" . }}
