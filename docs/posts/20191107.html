@@ -1,55 +1,49 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
 <head>
-  <link href="https://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.105.0">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Docker 中运行 ElasticSearch 和 Kibana &middot; 回忆中的明天</title>
-  <meta name="keywords" content="docker, elasticsearch, kibana" />
-  <meta name="description" content="ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析" />
-  
-  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker 中运行 ElasticSearch 和 Kibana &middot; 回忆中的明天</title>
+    <meta name="keywords" content="docker,elasticsearch,kibana"/>
+    <meta name="description" content="ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析"/>
+    
+    <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
-  <script>
+<script>
     var _hmt = _hmt || [];
     (function () {
-      var hm = document.createElement("script");
-      hm.setAttribute("defer","defer");
-      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
     })();
-  </script>
-  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){window.dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8J2LHY81SL');
-</script>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-148465786-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+    window.dataLayer = window.dataLayer || [];
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-  
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
 </head>
 
   <body class="theme-base-08 layout-reverse">
@@ -77,11 +71,6 @@ if (!doNotTrack) {
 
     <p>&copy; 2020 - 2023 iChochy. </p>
     
-    <div class = "other">
-    <li><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></li>
-    
-    
-    <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "https://files.ichochy.com/upyun/upyun.png"> </a>提供CDN加速/云存储服务</li>
     
     </div>
   </div>
@@ -119,7 +108,7 @@ if (!doNotTrack) {
   
     <em>
         <time class="post-date">
-            <b>Time：</b>2019-11-07 13:24:45
+            <b>Time：</b>2019/11/07 13:24:45
         </time>
     </em>
     
@@ -193,25 +182,25 @@ if (!doNotTrack) {
 </span></span></code></pre></div>
   
 
-  
-  <div class="related">
+
+<div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20191106.html">
-            初识 Docker
-          </a>
-          <small>
-              2019-11-06
-          </small>
-        </h3>
-      </li>
-      
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20191106.html">
+                    初识 Docker
+                </a>
+                <small>
+                    2019/11/06
+                </small>
+            </h3>
+        </li>
+        
     </ul>
-  </div>
-  
+</div>
+
 
   
 <div class="pagination">

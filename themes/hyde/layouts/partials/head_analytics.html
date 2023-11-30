@@ -1,20 +1,21 @@
 {{- if not .Site.IsServer}}
 <!-- baidu analytics -->
 {{- with .Site.Params.baiduAnalytics}}
-  <script>
+<script>
     var _hmt = _hmt || [];
     (function () {
-      var hm = document.createElement("script");
-      hm.setAttribute("defer","defer");
-      hm.src = "https://hm.baidu.com/hm.js?{{.}}";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?{{.}}";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
     })();
-  </script>
+</script>
 {{- end}}
 
 {{- with  .Site.Params.adsense }}
-  <script data-ad-client="ca-pub-{{.}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script data-ad-client="ca-pub-{{.}}" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 {{- end}}
 
 
@@ -22,13 +23,15 @@
 {{- with .Site.Params.GA_MEASUREMENT_ID }}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{.}}"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){window.dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{.}}');
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '{{.}}');
 </script>
 {{- end}}
 
-
-{{- template "_internal/google_analytics_async.html" . }}
 {{- end}}

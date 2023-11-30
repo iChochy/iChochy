@@ -1,55 +1,49 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
 <head>
-  <link href="https://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.105.0">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Java 递归实例操作-查询层级菜单 &middot; 回忆中的明天</title>
-  <meta name="keywords" content="java, recursion, gson" />
-  <meta name="description" content="递归 程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间" />
-  
-  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 递归实例操作-查询层级菜单 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="java,recursion,gson"/>
+    <meta name="description" content="递归 程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间"/>
+    
+    <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
-  <script>
+<script>
     var _hmt = _hmt || [];
     (function () {
-      var hm = document.createElement("script");
-      hm.setAttribute("defer","defer");
-      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
     })();
-  </script>
-  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){window.dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8J2LHY81SL');
-</script>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-148465786-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+    window.dataLayer = window.dataLayer || [];
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-  
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
 </head>
 
   <body class="theme-base-08 layout-reverse">
@@ -77,11 +71,6 @@ if (!doNotTrack) {
 
     <p>&copy; 2020 - 2023 iChochy. </p>
     
-    <div class = "other">
-    <li><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></li>
-    
-    
-    <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "https://files.ichochy.com/upyun/upyun.png"> </a>提供CDN加速/云存储服务</li>
     
     </div>
   </div>
@@ -123,7 +112,7 @@ if (!doNotTrack) {
   
     <em>
         <time class="post-date">
-            <b>Time：</b>2021-03-15 10:11:35
+            <b>Time：</b>2021/03/15 10:11:35
         </time>
     </em>
     
@@ -193,18 +182,18 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/03/16 14:12:16
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.entity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.entity;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Menu</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> childs<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//…………
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Menu</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> fatherId;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> childs;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//…………</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="数据查询">数据查询</h3>
 <p>通过 fatherId 查询子菜单信息</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
@@ -213,21 +202,21 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param fatherId
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @return
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span>  List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getMenuByFatherId</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> value <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">().</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>value <span style="color:#f92672">%</span> 2 <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> menus <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(</span>value<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> value<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                Menu menu <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Menu<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setFatherId</span><span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>                menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;menu-&#34;</span> <span style="color:#f92672">+</span> fatherId<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">+</span>i<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>                menus<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>menu<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> menus<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">EMPTY_LIST</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span>  List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getMenuByFatherId</span>(<span style="color:#66d9ef">int</span> fatherId) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> value <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random().<span style="color:#a6e22e">nextInt</span>(fatherId);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (value <span style="color:#f92672">%</span> 2 <span style="color:#f92672">!=</span> 0) {
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> menus <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>(value);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1; i <span style="color:#f92672">&lt;=</span> value; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                Menu menu <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Menu();
+</span></span><span style="display:flex;"><span>                menu.<span style="color:#a6e22e">setId</span>(i);
+</span></span><span style="display:flex;"><span>                menu.<span style="color:#a6e22e">setFatherId</span>(fatherId);
+</span></span><span style="display:flex;"><span>                menu.<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#34;menu-&#34;</span> <span style="color:#f92672">+</span> fatherId<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">+</span>i);
+</span></span><span style="display:flex;"><span>                menus.<span style="color:#a6e22e">add</span>(menu);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> menus;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Collections.<span style="color:#a6e22e">EMPTY_LIST</span>;
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><p><strong><code>没有建表查库，写个模拟方法</code></strong></p>
 <h3 id="递归方法">递归方法</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
@@ -238,36 +227,36 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/03/16 14:07:16
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.recursion<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.recursion;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.ichochy.entity.Menu<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.ichochy.entity.Menu;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Collections<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Random<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Collections;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Random;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Recursion</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Recursion</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * 获取菜单
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param fatherId
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @return
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span>  List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllMenus</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> fatherId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> menus <span style="color:#f92672">=</span> getMenuByFatherId<span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Menu menu <span style="color:#f92672">:</span> menus<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            fatherId <span style="color:#f92672">=</span> menu<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//自己调用自己
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> childMenus <span style="color:#f92672">=</span> getAllMenus<span style="color:#f92672">(</span>fatherId<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//跳出递归
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>childMenus<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>            menu<span style="color:#f92672">.</span><span style="color:#a6e22e">setChilds</span><span style="color:#f92672">(</span>childMenus<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> menus<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span>  List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllMenus</span>(<span style="color:#66d9ef">int</span> fatherId) {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> menus <span style="color:#f92672">=</span> getMenuByFatherId(fatherId);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (Menu menu : menus) {
+</span></span><span style="display:flex;"><span>            fatherId <span style="color:#f92672">=</span> menu.<span style="color:#a6e22e">getId</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//自己调用自己</span>
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>Menu<span style="color:#f92672">&gt;</span> childMenus <span style="color:#f92672">=</span> getAllMenus(fatherId);
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//跳出递归</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (childMenus.<span style="color:#a6e22e">isEmpty</span>()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            menu.<span style="color:#a6e22e">setChilds</span>(childMenus);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> menus;
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><p><strong>构成递归需具备的条件：</strong></p>
 <ol>
 <li>子类问题与父类问题相同</li>
@@ -344,69 +333,69 @@ if (!doNotTrack) {
 </span></span></code></pre></div>
   
 
-  
-  <div class="related">
+
+<div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20201010.html">
-            Java JSON数据实战操作
-          </a>
-          <small>
-              2020-10-10
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20200828.html">
-            Java 正则表达式实例操作
-          </a>
-          <small>
-              2020-08-28
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20200824.html">
-            Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理
-          </a>
-          <small>
-              2020-08-24
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20200823.html">
-            Java 反射实例操作
-          </a>
-          <small>
-              2020-08-23
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20200820.html">
-            Java 中的重写(Override)与重载(Overload)
-          </a>
-          <small>
-              2020-08-20
-          </small>
-        </h3>
-      </li>
-      
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20201010.html">
+                    Java JSON数据实战操作
+                </a>
+                <small>
+                    2020/10/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20200828.html">
+                    Java 正则表达式实例操作
+                </a>
+                <small>
+                    2020/08/28
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20200824.html">
+                    Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理
+                </a>
+                <small>
+                    2020/08/24
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20200823.html">
+                    Java 反射实例操作
+                </a>
+                <small>
+                    2020/08/23
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20200820.html">
+                    Java 中的重写(Override)与重载(Overload)
+                </a>
+                <small>
+                    2020/08/20
+                </small>
+            </h3>
+        </li>
+        
     </ul>
-  </div>
-  
+</div>
+
 
   
 <div class="pagination">

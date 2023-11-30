@@ -1,22 +1,22 @@
 {{ define "main" -}}
 
 <div class="posts">
-  {{ $paginator := .Paginate (where .Site.RegularPages "Type" .Site.Params.PostDir) }}
-  {{ range $paginator.Pages }}
-  <article class="post">
-     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    
-<div class = "Summary">{{ .Summary | html }}……</div>
-<!--
-    {{ if .Truncated }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" .Site.Params.PostDir) }}
+    {{ range $paginator.Pages }}
+    <article class="post">
+        <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
 
-    <div class="read-more-link">
-      <a href="{{ .Permalink }}">阅读更多…</a>
-    </div>
+        <div class="Summary">{{ .Summary | html }}……</div>
+        <!--
+            {{ if .Truncated }}
+
+            <div class="read-more-link">
+              <a href="{{ .Permalink }}">阅读更多…</a>
+            </div>
+            {{ end }}
+        -->
+    </article>
     {{ end }}
--->
-  </article>
-  {{ end }}
 </div>
 <div class="pagination">
   <span class="pagination-item older">
@@ -27,7 +27,7 @@
     {{ end }}
   </span>
 
-  <span class="pagination-item newer">
+    <span class="pagination-item newer">
     {{ if .Paginator.HasNext }}
     <a href="{{ $paginator.Next.URL }}" class="pag-link">下一页</a>
     {{else}}

@@ -1,55 +1,49 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
 <head>
-  <link href="https://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.105.0">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spring 为 RESTful Web 服务启用跨域请求 &middot; 回忆中的明天</title>
-  <meta name="keywords" content="spring, java, RESTful" />
-  <meta name="description" content="为服务指定 origins 配置，在响应中包含跨域资源共享 (CORS) 标头， 启用跨域请求 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 参照《Spring 构建 RESTful Web 服务 Hello World》 https://ichochy.com/posts/20210615.html 项" />
-  
-  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring 为 RESTful Web 服务启用跨域请求 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="spring,java,RESTful"/>
+    <meta name="description" content="为服务指定 origins 配置，在响应中包含跨域资源共享 (CORS) 标头， 启用跨域请求 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 参照《Spring 构建 RESTful Web 服务 Hello World》 https://ichochy.com/posts/20210615.html 项"/>
+    
+    <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
-  <script>
+<script>
     var _hmt = _hmt || [];
     (function () {
-      var hm = document.createElement("script");
-      hm.setAttribute("defer","defer");
-      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
     })();
-  </script>
-  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){window.dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8J2LHY81SL');
-</script>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-148465786-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+    window.dataLayer = window.dataLayer || [];
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-  
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
 </head>
 
   <body class="theme-base-08 layout-reverse">
@@ -77,11 +71,6 @@ if (!doNotTrack) {
 
     <p>&copy; 2020 - 2023 iChochy. </p>
     
-    <div class = "other">
-    <li><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></li>
-    
-    
-    <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "https://files.ichochy.com/upyun/upyun.png"> </a>提供CDN加速/云存储服务</li>
     
     </div>
   </div>
@@ -132,7 +121,7 @@ if (!doNotTrack) {
   
     <em>
         <time class="post-date">
-            <b>Time：</b>2021-07-15 21:22:45
+            <b>Time：</b>2021/07/15 21:22:45
         </time>
     </em>
     
@@ -193,32 +182,32 @@ if (!doNotTrack) {
 <p>为了使 RESTful Web 服务在其响应中包含 CORS 访问控制标头，可以在控制器或方法添加注释 <code>@CrossOrigin</code>，启用 CORS，在<code>RESTFulController</code>中添加</p>
 <h4 id="控制器添加注解-crossorigin">控制器添加注解 @CrossOrigin</h4>
 <p>当前类中所有方法启用跨域资源共享 (CORS)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@CrossOrigin</span><span style="color:#f92672">(</span>origins <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@CrossOrigin</span>(origins <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RESTFulController</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/greeting&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Greeting <span style="color:#a6e22e">greeting</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span> defaultValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;World&#34;</span><span style="color:#f92672">)</span> String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Greeting<span style="color:#f92672">(</span>counter<span style="color:#f92672">.</span><span style="color:#a6e22e">incrementAndGet</span><span style="color:#f92672">(),</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>template<span style="color:#f92672">,</span> name<span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RESTFulController</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/greeting&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Greeting <span style="color:#a6e22e">greeting</span>(<span style="color:#a6e22e">@RequestParam</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>, defaultValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;World&#34;</span>) String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Greeting(counter.<span style="color:#a6e22e">incrementAndGet</span>(), String.<span style="color:#a6e22e">format</span>(template, name));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="方法添加注解-crossorigin">方法添加注解 @CrossOrigin</h4>
 <p>当前方法启用跨域资源共享 (CORS)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#a6e22e">@CrossOrigin</span><span style="color:#f92672">(</span>origins <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/greeting&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Greeting <span style="color:#a6e22e">greeting</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span> defaultValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;World&#34;</span><span style="color:#f92672">)</span> String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Greeting<span style="color:#f92672">(</span>counter<span style="color:#f92672">.</span><span style="color:#a6e22e">incrementAndGet</span><span style="color:#f92672">(),</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>template<span style="color:#f92672">,</span> name<span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#a6e22e">@CrossOrigin</span>(origins <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/greeting&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Greeting <span style="color:#a6e22e">greeting</span>(<span style="color:#a6e22e">@RequestParam</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>, defaultValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;World&#34;</span>) String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Greeting(counter.<span style="color:#a6e22e">incrementAndGet</span>(), String.<span style="color:#a6e22e">format</span>(template, name));
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><h3 id="全局配置-cors">全局配置 CORS</h3>
 <p>通过 <code>WebMvcConfigurer</code>，自定义配置 CORS，统一管理，在<code>RequsetService</code>中添加</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> WebMvcConfigurer <span style="color:#a6e22e">corsConfigurer</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> WebMvcConfigurer<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> WebMvcConfigurer <span style="color:#a6e22e">corsConfigurer</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> WebMvcConfigurer() {
 </span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addCorsMappings</span><span style="color:#f92672">(</span>CorsRegistry registry<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                registry<span style="color:#f92672">.</span><span style="color:#a6e22e">addMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/greeting&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">allowedOrigins</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">};</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addCorsMappings</span>(CorsRegistry registry) {
+</span></span><span style="display:flex;"><span>                registry.<span style="color:#a6e22e">addMapping</span>(<span style="color:#e6db74">&#34;/greeting&#34;</span>).<span style="color:#a6e22e">allowedOrigins</span>(<span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><h2 id="crossorigin-属性说明">@CrossOrigin 属性说明</h2>
 <ul>
 <li>origins 允许跨域请求的源列表</li>
@@ -237,18 +226,18 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/06/09 22:07:09
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.example<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.example;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleApplication</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleApplication</span> {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>ExampleApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SpringApplication.<span style="color:#a6e22e">run</span>(ExampleApplication.<span style="color:#a6e22e">class</span>, args);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>服务默认端口号为<code>8080</code></p>
 <p><img src="https://images.ichochy.com/162314892348552510.png" alt="162314892348552510"></p>
 <h3 id="访问测试">访问测试</h3>
@@ -266,12 +255,12 @@ if (!doNotTrack) {
 <p>Access to XMLHttpRequest at &lsquo;http://localhost:8080/greeting&rsquo; from origin &lsquo;<a href="https://ichochy.com">https://ichochy.com</a>&rsquo; has been blocked by CORS policy: No &lsquo;Access-Control-Allow-Origin&rsquo; header is present on the requested resource.</p>
 </blockquote>
 <p>添加注解<code>@CrossOrigin</code>，启用跨域资源共享 (CORS)。默认支持所有域名跨域访问当前接口，通过注解属性<code>origins</code>可以指定一个或多个域名地址</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//默认，所用域名都可访问
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">@CrossOrigin</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//单个域名
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">@CrossOrigin</span><span style="color:#f92672">(</span>origins <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//多个域名
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">@CrossOrigin</span><span style="color:#f92672">(</span>origins <span style="color:#f92672">=</span> <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;http://localhost:8888&#34;</span><span style="color:#f92672">})</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//默认，所用域名都可访问</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@CrossOrigin</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//单个域名</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@CrossOrigin</span>(origins <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//多个域名</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@CrossOrigin</span>(origins <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>,<span style="color:#e6db74">&#34;http://localhost:8888&#34;</span>})
 </span></span></code></pre></div><h2 id="github">GitHub</h2>
 <p><a href="https://github.com/iChochy/Example">https://github.com/iChochy/Example</a></p>
 <h2 id="引用">引用</h2>
@@ -282,69 +271,69 @@ if (!doNotTrack) {
 
   
 
-  
-  <div class="related">
+
+<div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20210620.html">
-            Spring 调用 RESTful Web 服务 Hello World
-          </a>
-          <small>
-              2021-06-20
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20210615.html">
-            Spring 构建 RESTful Web 服务 Hello World
-          </a>
-          <small>
-              2021-06-15
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20210602.html">
-            Spring 文件上传，Uploading Files
-          </a>
-          <small>
-              2021-06-02
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20210530.html">
-            Spring 表单提交，Form Submission
-          </a>
-          <small>
-              2021-05-30
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20210525.html">
-            Spring 开篇，创建第一个 Web 项目 Hello World
-          </a>
-          <small>
-              2021-05-25
-          </small>
-        </h3>
-      </li>
-      
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20210620.html">
+                    Spring 调用 RESTful Web 服务 Hello World
+                </a>
+                <small>
+                    2021/06/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20210615.html">
+                    Spring 构建 RESTful Web 服务 Hello World
+                </a>
+                <small>
+                    2021/06/15
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20210602.html">
+                    Spring 文件上传，Uploading Files
+                </a>
+                <small>
+                    2021/06/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20210530.html">
+                    Spring 表单提交，Form Submission
+                </a>
+                <small>
+                    2021/05/30
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20210525.html">
+                    Spring 开篇，创建第一个 Web 项目 Hello World
+                </a>
+                <small>
+                    2021/05/25
+                </small>
+            </h3>
+        </li>
+        
     </ul>
-  </div>
-  
+</div>
+
 
   
 <div class="pagination">

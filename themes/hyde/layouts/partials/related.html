@@ -1,22 +1,22 @@
 {{if eq .Section  .Site.Params.PostDir}}
 {{ $related := .Site.RegularPages.Related . | first 5 }}
-  {{ with $related }}
-  <div class="related">
+{{ with $related }}
+<div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
-      {{ range . }}
-      <li>
-        <h3>
-          <a href="{{ .Permalink }}">
-            {{ .Title }}
-          </a>
-          <small>
-              {{ .Date.Format "2006-01-02" }}
-          </small>
-        </h3>
-      </li>
-      {{ end }}
+        {{ range . }}
+        <li>
+            <h3>
+                <a href="{{ .Permalink }}">
+                    {{ .Title }}
+                </a>
+                <small>
+                    {{ .Date.Format .Site.Params.DateFormat }}
+                </small>
+            </h3>
+        </li>
+        {{ end }}
     </ul>
-  </div>
-  {{ end }}
+</div>
+{{ end }}
 {{end}}

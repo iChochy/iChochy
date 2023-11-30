@@ -1,55 +1,49 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
 <head>
-  <link href="https://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.105.0">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Java 开发环境的搭建，开启你的编程之旅 &middot; 回忆中的明天</title>
-  <meta name="keywords" content="java, jdk" />
-  <meta name="description" content="Java 是一门跨平台的高级程序设计语言，可运行在linux、Windows、Mac OS及其他多种UNIX版本的系统。Java具有简单性、面向对象、" />
-  
-  <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 开发环境的搭建，开启你的编程之旅 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="java,jdk"/>
+    <meta name="description" content="Java 是一门跨平台的高级程序设计语言，可运行在linux、Windows、Mac OS及其他多种UNIX版本的系统。Java具有简单性、面向对象、"/>
+    
+    <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="/css/hyde.css">
 
-  <script>
+<script>
     var _hmt = _hmt || [];
     (function () {
-      var hm = document.createElement("script");
-      hm.setAttribute("defer","defer");
-      hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
     })();
-  </script>
-  <script data-ad-client="ca-pub-3691661241035911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){window.dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8J2LHY81SL');
-</script>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-148465786-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+    window.dataLayer = window.dataLayer || [];
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
-  
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
 </head>
 
   <body class="theme-base-08 layout-reverse">
@@ -77,11 +71,6 @@ if (!doNotTrack) {
 
     <p>&copy; 2020 - 2023 iChochy. </p>
     
-    <div class = "other">
-    <li><a href="http://beian.miit.gov.cn">沪ICP备19030221号</a></li>
-    
-    
-    <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "https://files.ichochy.com/upyun/upyun.png"> </a>提供CDN加速/云存储服务</li>
     
     </div>
   </div>
@@ -140,7 +129,7 @@ if (!doNotTrack) {
   
     <em>
         <time class="post-date">
-            <b>Time：</b>2020-08-15 11:13:25
+            <b>Time：</b>2020/08/15 11:13:25
         </time>
     </em>
     
@@ -195,86 +184,86 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>Java HotSpot<span style="color:#f92672">(</span>TM<span style="color:#f92672">)</span> 64-Bit Server VM <span style="color:#f92672">(</span>build 25.162-b12, mixed mode<span style="color:#f92672">)</span>
 </span></span></code></pre></div><h2 id="运行代码">运行代码</h2>
 <h3 id="创建文件">创建文件</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>touch HelloWorld<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>touch HelloWorld.<span style="color:#a6e22e">java</span>
 </span></span></code></pre></div><h3 id="写入代码">写入代码</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">* 通过 Class 定义类
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">* https://ichochy.com
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//编写 main 方法，程序中唯一的入口方法
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[]</span> <span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//打印输出 Hello World
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://ichochy.com&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//编写 main 方法，程序中唯一的入口方法</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String args<span style="color:#f92672">[]</span> ){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//打印输出 Hello World</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello World&#34;</span>);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;https://ichochy.com&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="编译代码">编译代码</h3>
 <p>使用编译器<code>javac</code>命令，对源代码文件进行编译操作，产生<code>.class</code>文件。<br>
 该文件是 Java 的字节码文件，Java 虚拟机执行文件，与系统平台无关</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>javac HelloWorld<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>javac HelloWorld.<span style="color:#a6e22e">java</span> 
 </span></span></code></pre></div><h3 id="运行代码-1">运行代码</h3>
 <p>使用 <code>java</code>命令对.class文件进行解释运行。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>java HelloWorld
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> 运行结果
 </span></span><span style="display:flex;"><span>Hello World
-</span></span><span style="display:flex;"><span>https:<span style="color:#75715e">//ichochy.com
-</span></span></span></code></pre></div><p><strong>注意</strong>：使用java解释时，不需要带.class后缀</p>
+</span></span><span style="display:flex;"><span>https:<span style="color:#75715e">//ichochy.com</span>
+</span></span></code></pre></div><p><strong>注意</strong>：使用java解释时，不需要带.class后缀</p>
 
   
 
-  
-  <div class="related">
+
+<div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20200807.html">
-            了解 JS 的加载顺序和方式，实现 Ready 方法
-          </a>
-          <small>
-              2020-08-07
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20200222.html">
-            mysql 使用 source/mysqldump 命令导入/导出文件信息
-          </a>
-          <small>
-              2020-02-22
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20191028.html">
-            Mac 无密码 SSH 登录服务器
-          </a>
-          <small>
-              2019-10-28
-          </small>
-        </h3>
-      </li>
-      
-      <li>
-        <h3>
-          <a href="https://ichochy.com/posts/20190410.html">
-            持续集成和持续交付工具-jenkins
-          </a>
-          <small>
-              2019-04-10
-          </small>
-        </h3>
-      </li>
-      
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20200807.html">
+                    了解 JS 的加载顺序和方式，实现 Ready 方法
+                </a>
+                <small>
+                    2020/08/07
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20200222.html">
+                    mysql 使用 source/mysqldump 命令导入/导出文件信息
+                </a>
+                <small>
+                    2020/02/22
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20191028.html">
+                    Mac 无密码 SSH 登录服务器
+                </a>
+                <small>
+                    2019/10/28
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20190410.html">
+                    持续集成和持续交付工具-jenkins
+                </a>
+                <small>
+                    2019/04/10
+                </small>
+            </h3>
+        </li>
+        
     </ul>
-  </div>
-  
+</div>
+
 
   
 <div class="pagination">

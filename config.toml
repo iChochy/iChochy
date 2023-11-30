@@ -8,48 +8,49 @@ uglyurls = true
 hasCJKLanguage = true
 disqusShortname = "ichochy"
 enableRobotsTXT = false
-googleAnalytics = "UA-148465786-1"
+#googleAnalytics = "UA-148465786-1"
 
 [outputs]
-  home = ["HTML","RSS","TXT","Algolia"]
-  section = ["HTML"]
-  taxonomy = ["HTML"]
-  term = ["HTML"]
+home = ["HTML", "RSS", "URLS", "ALGOLIA"]
+section = ["HTML"]
+taxonomy = ["HTML"]
+term = ["HTML"]
 
-[outputFormats.TXT]
-  mediatype = "text/plain"
-  isPlainText = true
-  baseName = "urls"
+[outputFormats.URLS]
+mediatype = "text/plain"
+baseName = "urls"
+isPlainText = true
 
-[outputFormats.Algolia]
-  mediaType = "application/json"
-  baseName = "algolia"
-  isPlainText = true
+[outputFormats.ALGOLIA]
+mediaType = "application/json"
+baseName = "algolia"
+isPlainText = true
 
 [outputFormats.RSS]
-  mediatype = "application/xml"
-  isPlainText = true
-  baseName = "rss"
+mediatype = "application/xml"
+isPlainText = true
+baseName = "rss"
 
 [params]
-  postDir = "posts"
-  layoutReverse = true
-  themeColor = "theme-base-08"
-  copyright = "iChochy"
-  description = "码农小站，写点Java、Swift和感悟"
-  datetimeFormat = "2006/01/02 15:04:05"
-  caseNo = "沪ICP备19030221号"
-  upyun = "https://files.ichochy.com/upyun/upyun.png"
-  GA_MEASUREMENT_ID = "G-8J2LHY81SL"
-  adsense = "3691661241035911"
-  baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"
+postDir = "posts"
+layoutReverse = true
+themeColor = "theme-base-08"
+copyright = "iChochy"
+description = "码农小站，写点Java、Swift和感悟"
+dateFormat = "2006/01/02"
+dateTimeFormat = "2006/01/02 15:04:05"
+# caseNo = "沪ICP备19030221号"
+# upyun = "https://files.ichochy.com/upyun/upyun.png"
+GA_MEASUREMENT_ID = "G-8J2LHY81SL"
+adsense = "3691661241035911"
+baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"
 
 [Menus]
-  main = [
-#     {Name = "Tags", weight = 2, URL = "/tags.html"},
-      {Name = "Links", weight = 1, URL = "/links.html"},
-      {Name = "About", weight = 2, URL = "/about.html"},
-      {Name = "Search", weight = 3, URL = "/search.html"},
-	  {Name = "Categories", weight = 4, URL = "/categories.html"},
-#     {Name = "Feedback", weight = 5, URL = "/feedback.html"}
-  ]
+main = [
+    #     {Name = "Tags", weight = 2, URL = "/tags.html"},
+    { Name = "Links", weight = 1, URL = "/links.html" },
+    { Name = "About", weight = 2, URL = "/about.html" },
+    { Name = "Search", weight = 3, URL = "/search.html" },
+    { Name = "Categories", weight = 4, URL = "/categories.html" },
+    #     {Name = "Feedback", weight = 5, URL = "/feedback.html"}
+]

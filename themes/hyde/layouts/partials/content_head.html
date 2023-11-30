@@ -1,7 +1,7 @@
 {{if eq .Section  .Site.Params.PostDir}}
     <em>
         <time class="post-date">
-            <b>Time：</b>{{ .Date.Format "2006-01-02 15:04:05" }}
+            <b>Time：</b>{{ .Date.Format .Site.Params.DateTimeFormat }}
         </time>
     </em>
     {{ partial "tags.html" . }}
