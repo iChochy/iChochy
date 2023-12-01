@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20231125,
+    "url": "https://ichochy.com/posts/20231125.html",
+    "title": "Mac 终端手动设置代理，自定义设置和取消",
+    "summary": "终端配置代理 这里以macOS为例，使用的是zsh，对应的用户配置文件就是~/.zshrc。 导入环境变量 将下面信息写入到~/.zshrc文件中",
+    "content": "终端配置代理 这里以macOS为例，使用的是zsh，对应的用户配置文件就是~/.zshrc。\n导入环境变量 将下面信息写入到~/.zshrc文件中\n分别导入 http_proxy,https_proxy,sockes_proxy 三个环竟变量\nexport http_proxy=\u0026#34;http://127.0.0.1/8888\u0026#34; export https_proxy=\u0026#34;http://127.0.0.1/8888\u0026#34; export socks_proxy=\u0026#34;socks://127.0.0.1/8885\u0026#34; 注：根据自己的代理地址配置\n加载配置文件 在终端中运行 source ~/.zshrc，加载配置文件，让其配置生效\n引起注意，说三遍…… 运行 `source` 加载配置文件 运行 `source` 加载配置文件 运行 `source` 加载配置文件 …… 查看环境变量 在终端中运行 env ，查看导入的环境变量是否生效\nTERM_PROGRAM=Apple_Terminal SHELL=/bin/zsh USER=iChochy HOME=/Users/iChochy http_proxy=http://127.0.0.1/8888 https_proxy=http://127.0.0.1/8888 socks_proxy=socks://127.0.0.1/8885 …… 可以看到 http_proxy,https_proxy,sockes_proxy 已经生效了。\n测试 通过 curl 来作测，查看网络访问的情况\ncurl -vI https://ichochy.com * Uses proxy env variable HTTP_PROXY == \u0026#39;http://127.0.0.1:8888\u0026#39; * Trying 127.0.0.1:8888... * Connected to 127.0.0.1 (127.0.0.1) port 8888 (#0) \u0026gt; HEAD http://ichochy.com/ HTTP/1.1 \u0026gt; Host: ichochy.com \u0026gt; User-Agent: curl/8.1.2 \u0026gt; Accept: */* \u0026gt; Proxy-Connection: Keep-Alive …… 可以看到 Trying 127.0.0.1:8888... 通过代理访问网络\n注：curl 参数 v 显示请求详情，I 只显示请求头信息\n通过命令导入，撤销代理 在 ~/.zshrc 中设置别名命令\n# 通过 alias 定义别名命令 alias add_proxy=\u0026#39;export ALL_PROXY=http://127.0.0.1:8888\u0026#39; alias un_proxy=\u0026#39;unset ALL_PROXY\u0026#39; 运行 source ~/.zshrc 加载配置文件\n执行 add_proxy 命令添加代理\n执行 un_proxy 命令删除代理\n引起注意，说三遍…… 运行 `source` 加载配置文件 运行 `source` 加载配置文件 运行 `source` 加载配置文件 …… 注：ALL_PROXY 所有网络代理\n通过 ip 来查看当前的外网 IP 在 ~/.zshrc 中通过 alias 定义命令 ip\n# 通过 alias 定义命令 `ip` alias ip=\u0026#34;curl ipinfo.io\u0026#34; 运行 source ~/.zshrc 加载配置文件 执行 ip 命令查询外网 IP\n# ip { \u0026#34;ip\u0026#34;: \u0026#34;8.8.8.8\u0026#34;, \u0026#34;city\u0026#34;: \u0026#34;sh\u0026#34;, \u0026#34;region\u0026#34;: \u0026#34;sh\u0026#34;, \u0026#34;country\u0026#34;: \u0026#34;CN\u0026#34;, \u0026#34;loc\u0026#34;: \u0026#34;88,55\u0026#34;, \u0026#34;org\u0026#34;: \u0026#34;CHINANET\u0026#34;, \u0026#34;timezone\u0026#34;: \u0026#34;Asia/Shanghai\u0026#34;, \u0026#34;readme\u0026#34;: \u0026#34;https://ipinfo.io/missingauth\u0026#34; }% ",
+    "pubDate": "2023-11-25T11:35:45+08:00"
+  }, 
+  {
     "objectID": 20231120,
     "url": "https://ichochy.com/posts/20231120.html",
     "title": "香港CN2优化线路带宽低延迟VPS服务器推荐",
