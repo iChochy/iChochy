@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Nov 2023 11:35:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Nov 2023 16:55:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <item>
+      <title>Mac launchctl 自定义服务启动</title>
+      <link>https://ichochy.com/posts/20231128.html</link>
+      <pubDate>Tue, 28 Nov 2023 16:55:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/20231128.html</guid>
+      <description>launchd launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（LaunchAgents）的主程序 在启动过程中，内核调用 launchd 作为第一个进程</description>
+    </item>
     <item>
       <title>Mac 终端设置代理，设置一键开启和取消</title>
       <link>https://ichochy.com/posts/20231125.html</link>

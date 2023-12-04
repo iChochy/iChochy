@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mac launchctl 自定义服务启动 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="blog,shell,mac"/>
+    <meta name="description" content="launchd launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（LaunchAgents）的主程序 在启动过程中，内核调用 launchd 作为第一个进程"/>
+    
+    <link type="text/css" rel="stylesheet" href="/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#launchdx-man-pagelaunchd"><a href="x-man-page://launchd">launchd</a></a>
+      <ul>
+        <li><a href="#守护进程和服务启动图例">守护进程和服务启动图例</a></li>
+        <li><a href="#路径说明">路径说明</a></li>
+      </ul>
+    </li>
+    <li><a href="#launchdplistx-man-pagelaunchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></a>
+      <ul>
+        <li><a href="#配置文件的命名">配置文件的命名</a></li>
+        <li><a href="#参数属性">参数属性</a></li>
+        <li><a href="#plist-实例">plist 实例</a></li>
+      </ul>
+    </li>
+    <li><a href="#launchctlx-man-pagelaunchctl"><a href="x-man-page://launchctl">launchctl</a></a>
+      <ul>
+        <li><a href="#命令执行">命令执行</a></li>
+        <li><a href="#查看日志">查看日志</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考引用">参考引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/blog.html">Blog</a>
+       / <a href="https://ichochy.com/categories/mac.html">Mac</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	Mac launchctl 自定义服务启动
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2023/11/28 16:55:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/blog.html">#blog</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/shell.html">#shell</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/mac.html">#mac</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/20231128.html">https://ichochy.com/posts/20231128.html</a>
+    <hr>
+
+  <h2 id="launchdx-man-pagelaunchd"><a href="x-man-page://launchd">launchd</a></h2>
+<p><strong><code>launchd</code></strong> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的主程序<br>
+在启动过程中，内核调用 <code>launchd</code> 作为第一个进程运行，并进一步引导系统的其余部分。</p>
+<h3 id="守护进程和服务启动图例">守护进程和服务启动图例</h3>
+<p><img src="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Art/bootstrap_session_2x.png" alt="守护进程和服务由 launchd 在两个单独的会话上下文中启动" title="守护进程和服务"></p>
+<p>根据定义，守护进程是系统范围的服务，其中所有客户端都有一个实例。 代理是一种服务，以每个用户为基础运行。<br>
+守护进程不应尝试显示 <code>UI</code> 或直接与用户的登录会话交互。 所有涉及与用户交互地应通过代理服务完成，如：运行程序，显示 <code>UI</code>。</p>
+<h3 id="路径说明">路径说明</h3>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>加载</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/System/Library/LaunchDaemons</td>
+<td>系统启动</td>
+<td>提供系统范围的守护进程（Apple）</td>
+</tr>
+<tr>
+<td>/System/Library/LaunchAgents</td>
+<td>系统启动</td>
+<td>提供系统范围的用户代理（Apple）</td>
+</tr>
+<tr>
+<td>/Library/LaunchDaemons</td>
+<td>用户登录</td>
+<td>提供所有用户的守护进程</td>
+</tr>
+<tr>
+<td>/Library/LaunchAgents</td>
+<td>用户登录</td>
+<td>提供所有用户的代理进程</td>
+</tr>
+<tr>
+<td>~/Library/LaunchAgents</td>
+<td>用户登录</td>
+<td>提供当前用户的代理进程</td>
+</tr>
+</tbody>
+</table>
+<p>更多具体信息查看系统帮助文档：<a href="x-man-page://launchd">launchd</a></p>
+<h2 id="launchdplistx-man-pagelaunchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></h2>
+<p><code>launchd.plist</code> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的<strong>配置文件</strong></p>
+<p>可以使用 <code>launchctl</code> 加载到 <code>launchd</code> 的列表，并根据配置文件的具体参数属性进行配置加载运行。</p>
+<h3 id="配置文件的命名">配置文件的命名</h3>
+<p>文件命名为 <code>&lt;Label&gt;.plist</code>。 因此，如果您的工作标签（<code>Label</code>）是 <code>com.ichochy.test</code>，您的 <code>plist</code>
+文件应命名为：<code>com.ichochy.test.plist</code></p>
+<h3 id="参数属性">参数属性</h3>
+<ul>
+<li>Label <!-- raw HTML omitted -->
+<ul>
+<li>作业进程的唯一标识，是必要参数</li>
+</ul>
+</li>
+<li>Program <!-- raw HTML omitted -->
+<ul>
+<li>作业执行的命令</li>
+</ul>
+</li>
+<li>ProgramArguments <!-- raw HTML omitted -->
+<ul>
+<li>作业执行的参数</li>
+<li>第一个参数为作业执行的命令，<code>Program</code>存在时，将由<code>Program</code>替代</li>
+<li>从第二个参数开始为执行的参数</li>
+</ul>
+</li>
+<li>KeepAlive <!-- raw HTML omitted -->
+<ul>
+<li>作业进程是否保留运行</li>
+<li><code>false</code>为默认值，停止后不再保留运行</li>
+<li><code>true</code>，停止后再次启动运行</li>
+<li>SuccessfulExit <!-- raw HTML omitted --></li>
+<li>NetworkState <!-- raw HTML omitted --></li>
+<li>PathState <!-- raw HTML omitted --></li>
+<li>Crashed <!-- raw HTML omitted --></li>
+</ul>
+</li>
+<li>RunAtLoad <!-- raw HTML omitted -->
+<ul>
+<li><code>false</code>为默认值，启动加载时不启动运行</li>
+<li><code>true</code>，启动加载时启动运行</li>
+</ul>
+</li>
+<li>WorkingDirectory <!-- raw HTML omitted -->
+<ul>
+<li>工作目录</li>
+</ul>
+</li>
+<li>EnvironmentVariables <!-- raw HTML omitted -->
+<ul>
+<li>配置环境变量</li>
+</ul>
+</li>
+<li>TimeOut <!-- raw HTML omitted -->
+<ul>
+<li>启动超时时间</li>
+</ul>
+</li>
+<li>ExitTimeOut <!-- raw HTML omitted -->
+<ul>
+<li>退出超时时间</li>
+</ul>
+</li>
+<li>ThrottleInterval <!-- raw HTML omitted -->
+<ul>
+<li>间歇时间</li>
+</ul>
+</li>
+<li>StartInterval <!-- raw HTML omitted -->
+<ul>
+<li>间隔启动时间，单位为秒</li>
+</ul>
+</li>
+<li>StartCalendarInterval <!-- raw HTML omitted -->
+<ul>
+<li>间隔启动时间，单位可以指定日期</li>
+<li>Minute <!-- raw HTML omitted -->
+<ul>
+<li>分钟 0-59</li>
+</ul>
+</li>
+<li>Hour <!-- raw HTML omitted -->
+<ul>
+<li>小时 0-23</li>
+</ul>
+</li>
+<li>Day <!-- raw HTML omitted -->
+<ul>
+<li>天 1-31</li>
+</ul>
+</li>
+<li>Weekday <!-- raw HTML omitted -->
+<ul>
+<li>工作日 0-7</li>
+</ul>
+</li>
+<li>Month <!-- raw HTML omitted -->
+<ul>
+<li>月 1-12</li>
+</ul>
+</li>
+<li>StandardInPath <!-- raw HTML omitted -->
+<ul>
+<li>stdin 输入信息的日志路径</li>
+</ul>
+</li>
+<li>StandardOutPath <!-- raw HTML omitted -->
+<ul>
+<li>stdout 输出信息的日志路径</li>
+</ul>
+</li>
+<li>StandardErrorPath <!-- raw HTML omitted -->
+<ul>
+<li>stderr 错误输出信息的日志路径</li>
+</ul>
+</li>
+<li>ProcessType <!-- raw HTML omitted -->
+<ul>
+<li>进程类型，根据作业类型限制应用资源</li>
+<li>Background</li>
+<li>Standard</li>
+<li>Adaptive</li>
+<li>Interactive</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="plist-实例">plist 实例</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple Computer//DTD PLIST 1.0//EN&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Label<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>com.ichochy.exampled<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Program<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>/path/tp/exampled<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>ProgramArguments<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>exampled<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>argv1<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>argv2<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>MachServices<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;key&gt;</span>com.ichochy.exampled<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;true/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
+</span></span></code></pre></div><h4 id="hello-world-launchd-job">“Hello World!” launchd Job</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Label<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>com.ichochy.hello<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>ProgramArguments<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>hello<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>world<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>KeepAlive<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;true/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
+</span></span></code></pre></div><h4 id="debugging-launchd-jobs">Debugging launchd Jobs</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Label<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>com.ichochy.sleep<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>ProgramArguments<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>sleep<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>100<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>StandardOutPath<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>/var/log/myjob.log<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>StandardErrorPath<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>/var/log/myjob.log<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Debug<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;true/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>SoftResourceLimits<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;key&gt;</span>Core<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;integer&gt;</span>9223372036854775807<span style="color:#f92672">&lt;/integer&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>HardResourceLimits<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;key&gt;</span>Core<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;integer&gt;</span>9223372036854775807<span style="color:#f92672">&lt;/integer&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
+</span></span></code></pre></div><h4 id="running-a-job-periodically">Running a Job Periodically</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Label<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>com.ichochy.touchsomefile<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>ProgramArguments<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>touch<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>/tmp/helloworld<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>StartInterval<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;integer&gt;</span>300<span style="color:#f92672">&lt;/integer&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Label<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>com.ichochy.touchsomefile<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>ProgramArguments<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>touch<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>/tmp/helloworld<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>StartCalendarInterval<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;key&gt;</span>Minute<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;integer&gt;</span>45<span style="color:#f92672">&lt;/integer&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;key&gt;</span>Hour<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;integer&gt;</span>13<span style="color:#f92672">&lt;/integer&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;key&gt;</span>Day<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;integer&gt;</span>7<span style="color:#f92672">&lt;/integer&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
+</span></span></code></pre></div><h4 id="monitoring-a-directory">Monitoring a Directory</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Label<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>com.ichochy.watchhostconfig<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>ProgramArguments<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>syslog<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>-s<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>-l<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>notice<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>somebody touched /etc/hostconfig<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>WatchPaths<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>/etc/hostconfig<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>Label<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;string&gt;</span>com.ichochy.mailpush<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>ProgramArguments<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>my_custom_mail_push_tool<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key&gt;</span>QueueDirectories<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;array&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;string&gt;</span>/var/spool/mymailqdir<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
+</span></span></code></pre></div><p>更多具体信息查看系统帮助文档：<a href="x-man-page://launchd.plist">launchd.plist</a></p>
+<h2 id="launchctlx-man-pagelaunchctl"><a href="x-man-page://launchctl">launchctl</a></h2>
+<p><code>launchctl</code> –  <code>launchd</code> 的管理工具<br>
+通过 <code>launchctl</code> 交互来管理和检查 <code>launchd</code> 守护进程、代理进程和 <code>XPC</code> 服务。</p>
+<h3 id="命令执行">命令执行</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  launchctl subcommand <span style="color:#f92672">[</span>arguments ...<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h4 id="显示加载列表">显示加载列表</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>launchctl list
+</span></span></code></pre></div><h4 id="基本操作">基本操作</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># enable | disable </span>
+</span></span><span style="display:flex;"><span>launchctl enable  com.ichochy.example.plist      <span style="color:#75715e">#启用 plist</span>
+</span></span><span style="display:flex;"><span>launchctl disable  com.ichochy.example.plist     <span style="color:#75715e">#禁用 plist</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># load | unload </span>
+</span></span><span style="display:flex;"><span>launchctl load  com.ichochy.example.plist        <span style="color:#75715e">#加载 plist</span>
+</span></span><span style="display:flex;"><span>launchctl unload  com.ichochy.example.plist      <span style="color:#75715e">#卸载 plist</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#加载/卸载 plist，</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 参数 w 覆盖操作</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 参数 F 强制操作</span>
+</span></span><span style="display:flex;"><span>launchctl load/unload <span style="color:#f92672">[</span>-wF<span style="color:#f92672">]</span> plist  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># start ｜ stop ｜ remove</span>
+</span></span><span style="display:flex;"><span>launchctl start  com.ichochy.example       <span style="color:#75715e">#启动 plist</span>
+</span></span><span style="display:flex;"><span>launchctl stop  com.ichochy.example        <span style="color:#75715e">#停止 plist</span>
+</span></span><span style="display:flex;"><span>launchctl remove  com.ichochy.example      <span style="color:#75715e">#删除 plist</span>
+</span></span></code></pre></div><p>更多具体信息查看系统帮助文档：<a href="x-man-page://launchctl">launchctl</a></p>
+<h3 id="查看日志">查看日志</h3>
+<p><code>launchctl</code>操作时，出现错误后，可以查看<code>launchd</code>日志，了解具体的错误信息</p>
+<h4 id="命令查看launchd日志">命令查看<code>launchd</code>日志</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tail -f /private/var/log/com.apple.xpc.launchd/launchd.log
+</span></span></code></pre></div><h4 id="控制台应用查看launchd日志"><code>控制台</code>应用查看<code>launchd</code>日志</h4>
+<ul>
+<li>在<code>应用程序</code>中的<code>实用工具</code>中找到<code>控制台</code>，并打开</li>
+<li>切换到<code>日志报告</code>，找到launchd.log，并打开，就可以查看<code>launchd</code>日志</li>
+</ul>
+<h2 id="参考引用">参考引用</h2>
+<p><a href="x-man-page://launchd">launchd</a><br>
+<a href="x-man-page://launchd.plist">launchd.plist</a><br>
+<a href="x-man-page://launchctl">launchctl</a><br>
+<a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/Introduction.html">https://developer.apple.com/</a><br>
+<a href="https://www.soma-zone.com/">https://www.launchd.info/</a></p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20231125.html">
+                    Mac 终端设置代理，设置一键开启和取消
+                </a>
+                <small>
+                    2023/11/25
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20221108.html">
+                    12 个对新手最重要的 Linux 命令
+                </a>
+                <small>
+                    2022/11/08
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20221107.html">
+                    第一次通过 SSH key 免密连接 GitHub 的完整过程
+                </a>
+                <small>
+                    2022/11/07
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20211125.html">
+                    RIME 鼠须管输入法使用，免费开源还可以自定义词库
+                </a>
+                <small>
+                    2021/11/25
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/20210612.html">
+                    使用 GitHub Actions 自动上传搜索记录到 Algolia
+                </a>
+                <small>
+                    2021/06/12
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/20231125.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>
