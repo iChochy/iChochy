@@ -24,7 +24,7 @@ date: 2020-07-22T12:07:59+08:00
 ## 感谢  
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)   
 [Algolia](https://www.algolia.com/) 提供 [Search Engine](https://www.algolia.com/)  
-[Github Pages](https://pages.github.com/) 提供 [Server](https://pages.github.com/)  
+[GitHub Pages](https://pages.github.com/) 提供 [Server](https://pages.github.com/)  
 [JetBrains](https://www.jetbrains.com/) 提供 [Open Source License](https://www.jetbrains.com/shop/eform/opensource)  
 
 ---
