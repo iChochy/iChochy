@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacOS 或 Linux 软件包管理器 Homebrew &middot; 回忆中的明天</title>
+    <meta name="keywords" content="brew,package,mac,bash,software"/>
+    <meta name="description" content="Homebrew 可以方便、快捷的安装第三方软件包，不再需要手动编译安装，通过brew install命令就可以完成软件的安装，包括相关的依赖包。甚至使用br"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-homebrew">安装 Homebrew</a></li>
+    <li><a href="#使用-homebrew">使用 Homebrew</a>
+      <ul>
+        <li><a href="#常用命令-brew">常用命令 brew</a></li>
+        <li><a href="#常用命令-brew-cask">常用命令 brew cask</a></li>
+        <li><a href="#常用命令-brew-services">常用命令 brew services</a></li>
+      </ul>
+    </li>
+    <li><a href="#替换国内源">替换国内源</a>
+      <ul>
+        <li><a href="#清华大学镜像源">清华大学镜像源</a></li>
+        <li><a href="#中国科学技术大学镜像源">中国科学技术大学镜像源</a></li>
+        <li><a href="#阿里云镜像源">阿里云镜像源</a></li>
+      </ul>
+    </li>
+    <li><a href="#恢复镜像源">恢复镜像源</a>
+      <ul>
+        <li><a href="#brew-恢复">brew 恢复</a></li>
+        <li><a href="#homebrew-恢复">Homebrew 恢复</a></li>
+        <li><a href="#homebrew-bottles-恢复">Homebrew-bottles 恢复</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/software.html">Software</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	MacOS 或 Linux 软件包管理器 Homebrew
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2020/09/02 16:22:35
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/brew.html">#brew</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/package.html">#package</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/mac.html">#mac</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/bash.html">#bash</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/software.html">#software</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/software/20200902.html">https://ichochy.com/posts/software/20200902.html</a>
+    <hr>
+
+  <p><a href="https://brew.sh">Homebrew</a> 可以方便、快捷的安装第三方软件包，不再需要手动编译安装，通过<code>brew install</code>命令就可以完成软件的安装，包括相关的依赖包。甚至使用<code>brew cask</code>安装<code>macOS</code>应用程序、字体和插件以及其他非开源软件。</p>
+<h2 id="安装-homebrew">安装 Homebrew</h2>
+<p>终端运行脚体就可以一步安装，非常简单。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/bin/bash -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>同时支持<code>MacOS</code>、<code>Linux</code>或<code>Windows</code>的子系统<code>WSL</code>，并不需要管理员（<code>sudo</code>）权限。</p>
+<h2 id="使用-homebrew">使用 Homebrew</h2>
+<h3 id="常用命令-brew">常用命令 brew</h3>
+<p>搜索可用的软件包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew search <span style="color:#f92672">[</span>TEXT|/REGEX/<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>查看软件包的信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew info <span style="color:#f92672">[</span>FORMULA...<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>安装软件包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install FORMULA...
+</span></span></code></pre></div><blockquote>
+<p><code>Homebrew</code>会将软件包安装到独立目录<code>/usr/local/Cellar</code>，并将其文件软链接至<code>/usr/local</code></p>
+</blockquote>
+<p>更新<code>brew</code>索引信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew update
+</span></span></code></pre></div><p>更新软件包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew upgrade <span style="color:#f92672">[</span>FORMULA...<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>卸载软件包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew uninstall FORMULA...
+</span></span></code></pre></div><p>查询本机安装的软件包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew list <span style="color:#f92672">[</span>FORMULA...<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h3 id="常用命令-brew-cask">常用命令 brew cask</h3>
+<p>查看程序信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew cask info
+</span></span></code></pre></div><p>安装程序</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew cask install
+</span></span></code></pre></div><p>查看程序列表</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew cask list
+</span></span></code></pre></div><p>卸载程序</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew cask uninstall
+</span></span></code></pre></div><p>更新程序</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew cask upgrade
+</span></span></code></pre></div><h3 id="常用命令-brew-services">常用命令 brew services</h3>
+<p>查看当前服务列表</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> brew services <span style="color:#f92672">[</span>list<span style="color:#f92672">]</span>:
+</span></span></code></pre></div><p>运行服务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> brew services run <span style="color:#f92672">(</span>formula|--all<span style="color:#f92672">)</span>:
+</span></span></code></pre></div><p>启动服务，并注册自启动加载</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> brew services start <span style="color:#f92672">(</span>formula|--all<span style="color:#f92672">)</span>:
+</span></span></code></pre></div><p>停用服务，并取消自启动加载</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> brew services stop <span style="color:#f92672">(</span>formula|--all<span style="color:#f92672">)</span>:
+</span></span></code></pre></div><p>重启服务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> brew services restart <span style="color:#f92672">(</span>formula|--all<span style="color:#f92672">)</span>:
+</span></span></code></pre></div><p>清理无用服务</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> brew services cleanup:
+</span></span></code></pre></div><h2 id="替换国内源">替换国内源</h2>
+<p>因为国外网络访问的问题，<code>brew update</code>会出现一直等待中或中断的问题，可以考虑替换国内源，来加快访问速度。下面介绍替换国内源，如：清华大学镜像源、中国科学技术大学镜像源、阿里云镜像源</p>
+<h3 id="清华大学镜像源">清华大学镜像源</h3>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></p>
+<h4 id="brew-替换">brew 替换</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+</span></span></code></pre></div><h4 id="homebrew-替换">Homebrew 替换</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 以下针对 mac OS 系统上的 Homebrew</span>
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/core<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/cask<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/cask-fonts<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/cask-drivers<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-drivers.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 以下针对 Linux 系统上的 Linuxbrew</span>
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/core<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/linuxbrew-core.git
+</span></span></code></pre></div><h4 id="homebrew-bottles-替换">Homebrew-bottles 替换</h4>
+<p><strong>临时替换</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export HOMEBREW_BOTTLE_DOMAIN<span style="color:#f92672">=</span>https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+</span></span></code></pre></div><p><strong>长期替换</strong><br>
+如果你使用 <code>bash</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&#39;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span>source ~/.bash_profile
+</span></span></code></pre></div><p>如果你使用 <code>zsh</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style="display:flex;"><span>source ~/.zshrc
+</span></span></code></pre></div><h4 id="linuxbrew-bottles-替换">Linuxbrew-bottles 替换</h4>
+<p><strong>临时替换</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export HOMEBREW_BOTTLE_DOMAIN<span style="color:#f92672">=</span>https://mirrors.tuna.tsinghua.edu.cn/linuxbrew-bottles
+</span></span></code></pre></div><p><strong>长期替换</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/linuxbrew-bottles&#39;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span>source ~/.bash_profile
+</span></span></code></pre></div><h3 id="中国科学技术大学镜像源">中国科学技术大学镜像源</h3>
+<p><a href="https://mirrors.ustc.edu.cn/help/brew.git.html">https://mirrors.ustc.edu.cn/help/brew.git.html</a></p>
+<h4 id="bash-终端配置">Bash 终端配置</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 替换brew.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-core.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">/Library/Taps/homebrew/homebrew-core&#34;</span>
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-cask.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>/Library/Taps/homebrew/homebrew-cask
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 应用生效</span>
+</span></span><span style="display:flex;"><span>brew update
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-bottles:</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#39;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span>source ~/.bash_profile
+</span></span></code></pre></div><h4 id="zsh-终端配置">Zsh 终端配置</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># 替换brew.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-core.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">/Library/Taps/homebrew/homebrew-core&#34;</span>
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-cask.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>/Library/Taps/homebrew/homebrew-cask
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 应用生效</span>
+</span></span><span style="display:flex;"><span>brew update
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-bottles:</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style="display:flex;"><span>source ~/.zshrc
+</span></span></code></pre></div><h3 id="阿里云镜像源">阿里云镜像源</h3>
+<p><a href="https://developer.aliyun.com/mirror/homebrew">https://developer.aliyun.com/mirror/homebrew</a></p>
+<h4 id="bash-终端配置-1">Bash 终端配置</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 替换brew.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-core.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">/Library/Taps/homebrew/homebrew-core&#34;</span>
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 应用生效</span>
+</span></span><span style="display:flex;"><span>brew update
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-bottles:</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles&#39;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span>source ~/.bash_profile
+</span></span></code></pre></div><h4 id="zsh-终端配置-1">Zsh 终端配置</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># 替换brew.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-core.git:</span>
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">/Library/Taps/homebrew/homebrew-core&#34;</span>
+</span></span><span style="display:flex;"><span>git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 应用生效</span>
+</span></span><span style="display:flex;"><span>brew update
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 替换homebrew-bottles:</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style="display:flex;"><span>source ~/.zshrc
+</span></span></code></pre></div><h2 id="恢复镜像源">恢复镜像源</h2>
+<h3 id="brew-恢复">brew 恢复</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://github.com/Homebrew/brew.git
+</span></span></code></pre></div><h3 id="homebrew-恢复">Homebrew 恢复</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 以下针对 mac OS 系统上的 Homebrew</span>
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/core<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://github.com/Homebrew/homebrew-core.git
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/cask<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://github.com/Homebrew/homebrew-cask.git
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/cask-fonts<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://github.com/Homebrew/homebrew-cask-fonts.git
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/cask-drivers<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://github.com/Homebrew/homebrew-cask-drivers.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 以下针对 Linux 系统上的 Linuxbrew</span>
+</span></span><span style="display:flex;"><span>git -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo homebrew/core<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> remote set-url origin https://github.com/Homebrew/linuxbrew-core.git
+</span></span></code></pre></div><h3 id="homebrew-bottles-恢复">Homebrew-bottles 恢复</h3>
+<p>删除<code>~/.bash_profile</code>或<code>~/.zshrc</code>中的<code>HOMEBREW_BOTTLE_DOMAIN</code>环境变量，并执行<code>source</code>，重新加载环境变量。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.bash_profile
+</span></span><span style="display:flex;"><span>source ~/.zshrc
+</span></span></code></pre></div>
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200819.html">
+                    免费申请 JetBrains 开源开发许可证，包含 IDEA
+                </a>
+                <small>
+                    2020/08/19
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200605.html">
+                    Office 批量激活的命令工具 slmgr
+                </a>
+                <small>
+                    2020/06/05
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200602.html">
+                    Office 批量激活的命令工具 ospp
+                </a>
+                <small>
+                    2020/06/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200528.html">
+                    KMS 激活 Office 批量许可证密钥 KEY
+                </a>
+                <small>
+                    2020/05/28
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200222.html">
+                    mysql 使用 source/mysqldump 命令导入/导出文件信息
+                </a>
+                <small>
+                    2020/02/22
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/java/20200828.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/java/20201010.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mac 无密码 SSH 登录服务器 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="bash,linux,ssh,java"/>
+    <meta name="description" content="Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器 第一步，生成密钥对 在当前用户下创建.ssh目录 mkdir ~/.ssh 使用命令ssh-"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一步生成密钥对">第一步，生成密钥对</a></li>
+    <li><a href="#第二步上传公钥">第二步，上传公钥</a></li>
+    <li><a href="#第三步config-配置">第三步，config 配置</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/shell.html">Shell</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	Mac 无密码 SSH 登录服务器
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2019/10/28 15:10:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/bash.html">#bash</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/linux.html">#linux</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/ssh.html">#ssh</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/java.html">#java</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/shell/20191028.html">https://ichochy.com/posts/shell/20191028.html</a>
+    <hr>
+
+  <p>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</p>
+<h2 id="第一步生成密钥对">第一步，生成密钥对</h2>
+<p>在当前用户下创建<code>.ssh</code>目录</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir ~/.ssh
+</span></span></code></pre></div><p>使用命令<code>ssh-keygen</code>生成密钥对,会在<code>~/.ssh</code>目录下生成公/私钥</p>
+<pre tabindex="0"><code>id_rsa      //私钥
+id_rsa.pub  //公钥
+</code></pre><h2 id="第二步上传公钥">第二步，上传公钥</h2>
+<p>使用命令<code>ssh-copy-id user@hostname</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-copy-id  admin@192.168.1.55
+</span></span></code></pre></div><p>输入密码，操作成功<br>
+查看服务器<code>～/.ssh/authorized_keys</code>，可以看到本地的公钥已经写入到<code>authorized_keys</code>文件中</p>
+<p>运行命令<code>ssh user@hostname</code>就可以直接无密码 SSH 登录服务器</p>
+<h2 id="第三步config-配置">第三步，config 配置</h2>
+<p>在当前用户<code>.ssh</code>目录下创建<code>config</code>文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch  ~/.ssh/config
+</span></span></code></pre></div><p>通过<code>vim</code>编辑<code>config</code>，添加服务器配置信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Host iChochy                        //服务器别名
+</span></span><span style="display:flex;"><span>    Hostname 192.168.1.55           //服务器地址
+</span></span><span style="display:flex;"><span>    User admin                      //服务器用户
+</span></span><span style="display:flex;"><span>    Identityfile ~/.ssh/id_rsa      //服务器公钥对应的本地私钥
+</span></span></code></pre></div><p>直接运行命令<code>ssh iChochy</code>就可以直接无密码 SSH 登录服务器</p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20190412.html">
+                    通过端口号关闭当前进程
+                </a>
+                <small>
+                    2019/04/12
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20190410.html">
+                    持续集成和持续交付工具-jenkins
+                </a>
+                <small>
+                    2019/04/10
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/spring/20191018.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/elasticsearch/20191106.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>

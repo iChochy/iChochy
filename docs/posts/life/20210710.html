@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居家全屋无线 Wi-Fi 网络改造 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="wifi,web,life"/>
+    <meta name="description" content="家里以前是网孔面板，没有用上，前几天老婆说房间里网速不好，Wi-Fi 老掉线，于是有了改造全屋 Wi-Fi 的想法。 改造方案 中继/桥接 MESH 组网 AC&#43;AP 方案说明 中继"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#改造方案">改造方案</a></li>
+    <li><a href="#方案说明">方案说明</a>
+      <ul>
+        <li><a href="#中继桥接">中继/桥接</a></li>
+        <li><a href="#mesh-组网">MESH 组网</a></li>
+        <li><a href="#acap">AC+AP</a></li>
+      </ul>
+    </li>
+    <li><a href="#acap-组网">AC+AP 组网</a>
+      <ul>
+        <li><a href="#添加-ac-路由器">添加 AC 路由器</a></li>
+        <li><a href="#替换原有的面板">替换原有的面板</a></li>
+        <li><a href="#水晶头接法">水晶头接法</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题">问题</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/life.html">Life</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	居家全屋无线 Wi-Fi 网络改造
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2021/07/10 12:22:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/wifi.html">#wifi</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/web.html">#web</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/life.html">#life</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/life/20210710.html">https://ichochy.com/posts/life/20210710.html</a>
+    <hr>
+
+  <p>家里以前是网孔面板，没有用上，前几天老婆说房间里网速不好，Wi-Fi 老掉线，于是有了改造全屋 Wi-Fi 的想法。</p>
+<h2 id="改造方案">改造方案</h2>
+<ol>
+<li>中继/桥接</li>
+<li>MESH 组网</li>
+<li>AC+AP</li>
+</ol>
+<h2 id="方案说明">方案说明</h2>
+<h3 id="中继桥接">中继/桥接</h3>
+<p>需要手动设置，配置中继的无线 Wi-Fi，放大原有的无线信号的覆盖范围，信号衰减严重</p>
+<h3 id="mesh-组网">MESH 组网</h3>
+<p>自动设置，网络统一管理，支持有线，无线，混合等回程方式，有良好的漫游体验</p>
+<h3 id="acap">AC+AP</h3>
+<p>AC 统一管理，有线连接 AP，信号稳定，有良好的漫游体验</p>
+<h2 id="acap-组网">AC+AP 组网</h2>
+<p>已经预埋网线，选择 AC+AP 组网，信号稳定无衰减，无线环境更加理想。添加 AC 路由器，POE 网线供电，直接更换原有网孔面板。</p>
+<h3 id="添加-ac-路由器">添加 AC 路由器</h3>
+<p><img src="https://images.ichochy.com/1391626061083_.pic.jpg" alt="1391626061083_.pic"></p>
+<h3 id="替换原有的面板">替换原有的面板</h3>
+<p><img src="https://images.ichochy.com/1421626061084_.pic.jpg" alt="1421626061084_.pic"></p>
+<p><img src="https://images.ichochy.com/1401626061084_.pic.jpg" alt="1401626061084_.pic"></p>
+<h3 id="水晶头接法">水晶头接法</h3>
+<p><img src="https://images.ichochy.com/%E6%B0%B4%E6%99%B6%E5%A4%B4%E6%8E%A5%E6%B3%95.png" alt="水晶头接法">
+一般选用 T568B 直连的接法，注意线的颜色，一定要一根一根的对，不然会导致网络不通，或只能百兆以内。</p>
+<h2 id="问题">问题</h2>
+<ol>
+<li>网速只能百兆以内？
+<ul>
+<li>查看水晶头接线有没有问题，线的颜色排列是否正确。</li>
+</ul>
+</li>
+<li>MAC 电脑搜索不到 5G 频率的 Wi-Fi 热点？
+<ul>
+<li>查看电脑无线网卡支持的信道，修改热点的信道。</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://images.ichochy.com/1441626068506_.pic.jpg" alt="1441626068506_.pic"></p>
+<p>按住<code>option</code>键查以查询网络连接的具体信息
+<img src="https://images.ichochy.com/16260687047698051.png" alt="16260687047698051"></p>
+<p>在线测速 <a href="https://test.ustc.edu.cn/">https://test.ustc.edu.cn/</a>
+<img src="https://images.ichochy.com/16260689357633272.png" alt="16260689357633272"></p>
+<h2 id="总结">总结</h2>
+<ul>
+<li>刚开始网速只能达到 10Mbps，现在通过 AC+AP 的方式可以达到 200Mbps，提升非常明显。</li>
+<li>TP-LINK 的 AC 不能很好的管理终端信息，不能对单个终端进行别名添加、限速和网络禁用。</li>
+<li>TP-LINK 的 AP 面板发热量大，长时间高温运行。</li>
+</ul>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/life/20200818.html">
+                    重疾保险理赔的亲身经历，分享下流程和套路
+                </a>
+                <small>
+                    2020/08/18
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/life/20181202.html">
+                    开篇
+                </a>
+                <small>
+                    2018/12/02
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/spring/20210620.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/life/20210712.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>

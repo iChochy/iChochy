@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUGO 目录详解，创建自己的网站系统 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="blog,hugo"/>
+    <meta name="description" content="HUGO 是一套模版静态化的系统，了解其目录结构有助于创建我们的网站系统 目录结构 以Hyde主题为例，完整的目录结构如下： iChochy ├── archetypes 内容模版目录 │ └─"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录结构">目录结构</a></li>
+    <li><a href="#archetypes">archetypes</a></li>
+    <li><a href="#configtoml">config.toml</a></li>
+    <li><a href="#content">content</a></li>
+    <li><a href="#data">data</a></li>
+    <li><a href="#layouts">layouts</a></li>
+    <li><a href="#static">static</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/blog.html">Blog</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	HUGO 目录详解，创建自己的网站系统
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2020/08/10 18:13:25
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/blog.html">#blog</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/hugo.html">#hugo</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/blog/20200810.html">https://ichochy.com/posts/blog/20200810.html</a>
+    <hr>
+
+  <p>HUGO 是一套模版静态化的系统，了解其目录结构有助于创建我们的网站系统</p>
+<h2 id="目录结构">目录结构</h2>
+<p>以<code>Hyde</code>主题为例，完整的目录结构如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy
+</span></span><span style="display:flex;"><span>├── archetypes                      内容模版目录
+</span></span><span style="display:flex;"><span>│   └── default.md                  模版文件
+</span></span><span style="display:flex;"><span>├── config.toml                     配置文件
+</span></span><span style="display:flex;"><span>├── content                         内容目录
+</span></span><span style="display:flex;"><span>├── data                            数据目录
+</span></span><span style="display:flex;"><span>├── layouts                         网站模版目录
+</span></span><span style="display:flex;"><span>├── static                          静态文件目录
+</span></span><span style="display:flex;"><span>└── themes                          主题目录
+</span></span><span style="display:flex;"><span>    └── hyde                        Hyde主题目录
+</span></span><span style="display:flex;"><span>        ├── CHANGELOG.md            
+</span></span><span style="display:flex;"><span>        ├── LICENSE.md              
+</span></span><span style="display:flex;"><span>        ├── README.md
+</span></span><span style="display:flex;"><span>        ├── archetypes              内容模版
+</span></span><span style="display:flex;"><span>        │   └── default.md
+</span></span><span style="display:flex;"><span>        ├── go.mod
+</span></span><span style="display:flex;"><span>        ├── images
+</span></span><span style="display:flex;"><span>        │   ├── screenshot.png
+</span></span><span style="display:flex;"><span>        │   └── tn.png
+</span></span><span style="display:flex;"><span>        ├── layouts                 网站模版
+</span></span><span style="display:flex;"><span>        │   ├── 404.html            404面目模版
+</span></span><span style="display:flex;"><span>        │   ├── _default            默认模版目录
+</span></span><span style="display:flex;"><span>        │   │   ├── baseof.html     基础模版
+</span></span><span style="display:flex;"><span>        │   │   ├── list.html       列表页面模版
+</span></span><span style="display:flex;"><span>        │   │   └── single.html     单页面模版
+</span></span><span style="display:flex;"><span>        │   ├── index.html          首页模版
+</span></span><span style="display:flex;"><span>        │   └── partials            模块模版目录
+</span></span><span style="display:flex;"><span>        │       ├── head.html       HEAD模块模版
+</span></span><span style="display:flex;"><span>        │       ├── head_fonts.html
+</span></span><span style="display:flex;"><span>        │       ├── hook_head_end.html
+</span></span><span style="display:flex;"><span>        │       └── sidebar.html
+</span></span><span style="display:flex;"><span>        ├── static                  静态目录
+</span></span><span style="display:flex;"><span>        │   ├── apple-touch-icon-144-precomposed.png
+</span></span><span style="display:flex;"><span>        │   ├── css
+</span></span><span style="display:flex;"><span>        │   │   ├── hyde.css
+</span></span><span style="display:flex;"><span>        │   │   ├── poole.css
+</span></span><span style="display:flex;"><span>        │   │   ├── print.css
+</span></span><span style="display:flex;"><span>        │   │   └── syntax.css
+</span></span><span style="display:flex;"><span>        │   └── favicon.png
+</span></span><span style="display:flex;"><span>        └── theme.toml              主题配置文件
+</span></span></code></pre></div><h2 id="archetypes">archetypes</h2>
+<p>内容模版目录，通过内容模版，使用<code>hugo new</code>命令创建新的内容文件</p>
+<p><code>default.md</code> 内容模版</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;{{ replace .Name &#34;-&#34; &#34; &#34; | title }}&#34;
+</span></span><span style="display:flex;"><span>date: {{ .Date }}
+</span></span><span style="display:flex;"><span>categories: 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">-</span> iChochy
+</span></span><span style="display:flex;"><span>tags: 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">-</span> iChochy
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>使用命令：<code>hugo new posts/iChochy.md</code>，生成内容文件 <code>content/posts/iChochy.md</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: <span style="color:#e6db74">&#34;iChochy&#34;</span>
+</span></span><span style="display:flex;"><span>date: 2020-08-10T18:13:25+08:00 
+</span></span><span style="display:flex;"><span>categories: 
+</span></span><span style="display:flex;"><span>        - iChochy 
+</span></span><span style="display:flex;"><span>tags: 
+</span></span><span style="display:flex;"><span>        - iChochy 
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><h2 id="configtoml">config.toml</h2>
+<p>项目的配置文件，列举些常用的参数。如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># 基础参数，通过.Site.xxxx获取参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 网站标题</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;回忆中的明天&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 域名地址</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://ichochy.com/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 主题名称</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;hyde&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 网站的语言代码</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;zh_CN&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启用以将相对URL变为绝对URL</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">canonifyURLs</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hugo 生成静态站点的目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">publishDir</span> = <span style="color:#e6db74">&#34;docs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启用生成robots.txt文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enableRobotsTXT</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启用自动检测内容中的中文/日语/韩语，让.Summary和.WordCount对于CJK语言正确运行</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hasCJKLanguage</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定.Summary 的长度</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">summaryLength</span> = <span style="color:#ae81ff">70</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 默认分页数</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">paginate</span> = <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 启用.html后缀地址，默认URL为/filename/，启用为/filename.html</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">uglyurls</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 自定义参数，通过.Site.Params.xxxx获取参数</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">postDir</span> = <span style="color:#e6db74">&#34;posts&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">layoutReverse</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">copyright</span> = <span style="color:#e6db74">&#34;iChochy&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;码农小站，写点Java、Swift和感悟&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 菜单参数，通过.Site.Menus.main获取参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Name为菜单名称、Weight为菜单排序参数、URL为菜单名称</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">Menus</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">main</span> = [
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;Categories&#34;</span>, <span style="color:#a6e22e">Weight</span> = <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">URL</span> = <span style="color:#e6db74">&#34;/categories/&#34;</span>},
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;Tags&#34;</span>, <span style="color:#a6e22e">Weight</span> = <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">URL</span> = <span style="color:#e6db74">&#34;/tags/&#34;</span>},
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;Links&#34;</span>, <span style="color:#a6e22e">Weight</span> = <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">URL</span> = <span style="color:#e6db74">&#34;/links/&#34;</span>},
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;About&#34;</span>, <span style="color:#a6e22e">Weight</span> = <span style="color:#ae81ff">4</span>, <span style="color:#a6e22e">URL</span> = <span style="color:#e6db74">&#34;/about/&#34;</span>},
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">Name</span> = <span style="color:#e6db74">&#34;Feedback&#34;</span>, <span style="color:#a6e22e">Weight</span> = <span style="color:#ae81ff">5</span>, <span style="color:#a6e22e">URL</span> = <span style="color:#e6db74">&#34;/feedback/&#34;</span>}
+</span></span><span style="display:flex;"><span>  ]
+</span></span></code></pre></div><h2 id="content">content</h2>
+<p>内容目录，网站的<code>MD</code>源文件，通过对应的模版生成静态文件</p>
+<h2 id="data">data</h2>
+<p>数据目录，存储结构数据，可以用<code>YAML</code>，<code>JSON</code>或<code>TOML</code>格式编写数据文件，可用<code>.Site.Data.xxxx</code>的方式来获取数据</p>
+<h2 id="layouts">layouts</h2>
+<p>模版目录，以<code>.html</code>文件形式存储模板，这些模板指定如何将内容目录中的源文件呈现到静态网站中<br>
+模版包括：主页模版、单页模板、列表模版、分类模版、模块模版等</p>
+<h2 id="static">static</h2>
+<p>静态文件目录，存储所有静态内容，如：Image，CSS，JavaScript等<br>
+当Hugo建立您的网站时，静态目录内的所有文件均按原样复制生成，可有来存储效验文件、<code>CNAME</code>文件等</p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20200802.html">
+                    免费创建属于自己的博客，Hugo&#43;Github Pages
+                </a>
+                <small>
+                    2020/08/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20190925.html">
+                    jekyll-admin的搭建和使用
+                </a>
+                <small>
+                    2019/09/25
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20190309.html">
+                    加速你的博客永无止境-七牛云存储
+                </a>
+                <small>
+                    2019/03/09
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20190306.html">
+                    加速你的博客永无止境-七牛云CDN
+                </a>
+                <small>
+                    2019/03/06
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/java/20200807.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/java/20200815.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>

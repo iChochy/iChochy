@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring 开篇，创建第一个 Web 项目 Hello World &middot; 回忆中的明天</title>
+    <meta name="keywords" content="spring,spring boot,java,spring mvc"/>
+    <meta name="description" content="学习 Java，就离不开 Spring ，现在就用 Spring 框架快速创建一个 WEB 项目，欢迎来到我的世界 Hello World。 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 打开 IDEA 创建新项目 New P"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#开发工具">开发工具</a></li>
+    <li><a href="#创建项目">创建项目</a></li>
+    <li><a href="#项目目录">项目目录</a></li>
+    <li><a href="#编写项目">编写项目</a>
+      <ul>
+        <li><a href="#创建控制器-helloworldcontroller">创建控制器 <code>HelloWorldController</code></a></li>
+        <li><a href="#创建启动器-exampleapplication">创建启动器 <code>ExampleApplication</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#运行项目">运行项目</a></li>
+    <li><a href="#github">GitHub</a></li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/spring.html">Spring</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	Spring 开篇，创建第一个 Web 项目 Hello World
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2021/05/25 16:25:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring.html">#spring</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-boot.html">#spring boot</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/java.html">#java</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/spring-mvc.html">#spring mvc</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/spring/20210525.html">https://ichochy.com/posts/spring/20210525.html</a>
+    <hr>
+
+  <p>学习 Java，就离不开 <a href="https://spring.io">Spring</a> ，现在就用 Spring 框架快速创建一个 WEB 项目，欢迎来到我的世界 Hello World。</p>
+<h2 id="开发工具">开发工具</h2>
+<ul>
+<li>IDEA: 2021.1.2</li>
+<li>Java: 1.8</li>
+<li>Spring Boot: 2.5</li>
+</ul>
+<h2 id="创建项目">创建项目</h2>
+<p>打开 IDEA 创建新项目 New Project，使用 <a href="https://start.spring.io">start.spring.io</a> 快速构建
+<img src="https://images.ichochy.com/16226365527086133.png" alt="16226365527086133"></p>
+<p>添加 Spring Web 依赖，finish 创建项目
+<img src="https://images.ichochy.com/16226367387048384.png" alt="16226367387048384"></p>
+<h2 id="项目目录">项目目录</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── pom.xml
+</span></span><span style="display:flex;"><span>└── src
+</span></span><span style="display:flex;"><span>    └── main
+</span></span><span style="display:flex;"><span>        ├── java
+</span></span><span style="display:flex;"><span>        │   └── com
+</span></span><span style="display:flex;"><span>        │       └── ichochy
+</span></span><span style="display:flex;"><span>        │           └── example
+</span></span><span style="display:flex;"><span>        │               ├── ExampleApplication.java
+</span></span><span style="display:flex;"><span>        │               └── hello
+</span></span><span style="display:flex;"><span>        │                   └──HelloWorldController.java
+</span></span><span style="display:flex;"><span>        └── resources
+</span></span><span style="display:flex;"><span>            ├── application.properties
+</span></span><span style="display:flex;"><span>            ├── static
+</span></span><span style="display:flex;"><span>            └── templates
+</span></span></code></pre></div><h2 id="编写项目">编写项目</h2>
+<h3 id="创建控制器-helloworldcontroller">创建控制器 <code>HelloWorldController</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.example.hello;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.GetMapping;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RequestParam;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.web.bind.annotation.RestController;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorldController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/hello&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">hello</span>(<span style="color:#a6e22e">@RequestParam</span>(value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>, defaultValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;World&#34;</span>) String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> String.<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;Hello %s!&#34;</span>, name);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>@RestController 注解，告诉 Spring 该类（<code>HelloWorldController</code>）为请求控制器</li>
+<li>@GetMapping(“/hello”) 注解，告诉 Spring 该方法（<code>hello</code>）来响应 <a href="http://localhost:8080/hello">http://localhost:8080/hello</a> 的 <code>get</code> 请求。</li>
+<li>@RequestParam 注解，告诉 Spring 该参数（<code>name</code>）为请求参数，默认值为 “<code>World</code>”。</li>
+</ul>
+<h3 id="创建启动器-exampleapplication">创建启动器 <code>ExampleApplication</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/06/09 22:07:09
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.example;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExampleApplication</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SpringApplication.<span style="color:#a6e22e">run</span>(ExampleApplication.<span style="color:#a6e22e">class</span>, args);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>@SpringBootApplication 注释，包如下注解的合集：</p>
+<ul>
+<li>@Configuration：将类标记为应用程序配置类</li>
+<li>@EnableAutoConfiguration：告诉 Spring Boot 根据类路径自动启用配置</li>
+<li>@ComponentScan：告诉 Spring 在<code>com.ichochy.example</code>当前包中查找组件、配置、服务和控制器</li>
+</ul>
+<h2 id="运行项目">运行项目</h2>
+<p>Dubug 运行项目，启动成功后可以看到默认端口号为<code>8080</code>
+<img src="https://images.ichochy.com/16226399326197735.png" alt="16226399326197735"></p>
+<p>浏览器访问 <a href="http://localhost:8080/hello">http://localhost:8080/hello</a>，Web 项目默认返回 <code>Hello World</code>
+<img src="https://images.ichochy.com/16226401256157126.png" alt="16226401256157126"></p>
+<p>添加 <code>name</code> 参数访问 <a href="http://localhost:8080/hello?name=iChochy">http://localhost:8080/hello?name=iChochy</a>
+<img src="https://images.ichochy.com/16226436648645837.png" alt="16226436648645837"></p>
+<h2 id="github">GitHub</h2>
+<p><a href="https://github.com/iChochy/Example">https://github.com/iChochy/Example</a></p>
+<h2 id="引用">引用</h2>
+<ul>
+<li>快速开始：<a href="https://spring.io/quickstart">https://spring.io/quickstart</a></li>
+</ul>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/java/20210315.html">
+                    Java 递归实例操作-查询层级菜单
+                </a>
+                <small>
+                    2021/03/15
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/java/20201010.html">
+                    Java JSON数据实战操作
+                </a>
+                <small>
+                    2020/10/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/java/20200828.html">
+                    Java 正则表达式实例操作
+                </a>
+                <small>
+                    2020/08/28
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/java/20200824.html">
+                    Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理
+                </a>
+                <small>
+                    2020/08/24
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/java/20200823.html">
+                    Java 反射实例操作
+                </a>
+                <small>
+                    2020/08/23
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/blog/20210522.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/spring/20210530.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>

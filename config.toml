@@ -5,6 +5,7 @@ title = "回忆中的明天"
 # summaryLength = 70
 theme = "hyde"
 uglyurls = true
+canonifyURLs = true
 hasCJKLanguage = true
 disqusShortname = "ichochy"
 enableRobotsTXT = false

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免费创建属于自己的博客，Hugo&#43;Github Pages &middot; 回忆中的明天</title>
+    <meta name="keywords" content="hugo,blog"/>
+    <meta name="description" content="Hugo 拥有超快的速度，强大的内容管理和强大的模版语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一安装-hugo">一、安装 Hugo</a></li>
+    <li><a href="#二使用-hugo">二、使用 Hugo</a>
+      <ul>
+        <li><a href="#1创建网站">1、创建网站</a></li>
+        <li><a href="#2添加主题">2、添加主题</a></li>
+        <li><a href="#3编写内容">3、编写内容</a></li>
+      </ul>
+    </li>
+    <li><a href="#部署">部署</a>
+      <ul>
+        <li><a href="#修改部署目录">修改部署目录</a></li>
+        <li><a href="#生成静态文件">生成静态文件</a></li>
+        <li><a href="#部署-github-pages">部署 GitHub Pages</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/blog.html">Blog</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	免费创建属于自己的博客，Hugo&#43;Github Pages
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2020/08/02 13:13:25
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/hugo.html">#hugo</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/blog.html">#blog</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/blog/20200802.html">https://ichochy.com/posts/blog/20200802.html</a>
+    <hr>
+
+  <p>Hugo 拥有超快的速度，强大的内容管理和强大的模版语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用<code>LiveReload</code>可即时渲染更改</p>
+<h2 id="一安装-hugo">一、安装 Hugo</h2>
+<p>Mac 上安装 <a href="https://gohugo.io/"><code>HUGO</code></a>，很简单，通过 <a href="https://brew.sh/"><code>brew</code></a> 可以快速安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install hugo
+</span></span></code></pre></div><p>检查安装版本信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo version
+</span></span></code></pre></div><h2 id="二使用-hugo">二、使用 Hugo</h2>
+<h3 id="1创建网站">1、创建网站</h3>
+<p><code>hugo new site iChochy</code> 创建</p>
+<blockquote>
+<p>其中 <code>iChochy</code> 为你的博客目录</p>
+</blockquote>
+<p>目录结构</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy
+</span></span><span style="display:flex;"><span>├── archetypes
+</span></span><span style="display:flex;"><span>│   └── default.md
+</span></span><span style="display:flex;"><span>├── config.toml
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>├── data
+</span></span><span style="display:flex;"><span>├── layouts
+</span></span><span style="display:flex;"><span>├── static
+</span></span><span style="display:flex;"><span>└── themes
+</span></span></code></pre></div><h3 id="2添加主题">2、添加主题</h3>
+<h4 id="a下载主题">a、下载主题</h4>
+<p>以 <a href="https://github.com/spf13/hyde"><code>hyde</code></a>主题为例 <a href="https://github.com/spf13/hyde">https://github.com/spf13/hyde</a><br>
+直接下载主题，放到<code>themes</code>目录中，或通过 <code>git</code> 方式添加主题</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add https://github.com/spf13/hyde.git themes/hyde
+</span></span></code></pre></div><h4 id="b修改配置">b、修改配置</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;theme = &#34;hyde&#34;&#39;</span> &gt;&gt; config.toml
+</span></span></code></pre></div><p><code>config.toml</code> 文件内容</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://ichochy.com/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;en-us&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;My New Hugo Site&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;hyde&#34;</span>  
+</span></span></code></pre></div><p>目录结构</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy
+</span></span><span style="display:flex;"><span>├── archetypes
+</span></span><span style="display:flex;"><span>│   └── default.md
+</span></span><span style="display:flex;"><span>├── config.toml
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>├── data
+</span></span><span style="display:flex;"><span>├── layouts
+</span></span><span style="display:flex;"><span>├── static
+</span></span><span style="display:flex;"><span>└── themes
+</span></span><span style="display:flex;"><span>    └── hyde
+</span></span><span style="display:flex;"><span>        ├── CHANGELOG.md
+</span></span><span style="display:flex;"><span>        ├── LICENSE.md
+</span></span><span style="display:flex;"><span>        ├── README.md
+</span></span><span style="display:flex;"><span>        ├── archetypes
+</span></span><span style="display:flex;"><span>        │   └── default.md
+</span></span><span style="display:flex;"><span>        ├── go.mod
+</span></span><span style="display:flex;"><span>        ├── images
+</span></span><span style="display:flex;"><span>        │   ├── screenshot.png
+</span></span><span style="display:flex;"><span>        │   └── tn.png
+</span></span><span style="display:flex;"><span>        ├── layouts
+</span></span><span style="display:flex;"><span>        │   ├── 404.html
+</span></span><span style="display:flex;"><span>        │   ├── _default
+</span></span><span style="display:flex;"><span>        │   │   ├── baseof.html
+</span></span><span style="display:flex;"><span>        │   │   ├── list.html
+</span></span><span style="display:flex;"><span>        │   │   └── single.html
+</span></span><span style="display:flex;"><span>        │   ├── index.html
+</span></span><span style="display:flex;"><span>        │   └── partials
+</span></span><span style="display:flex;"><span>        │       ├── head.html
+</span></span><span style="display:flex;"><span>        │       ├── head_fonts.html
+</span></span><span style="display:flex;"><span>        │       ├── hook_head_end.html
+</span></span><span style="display:flex;"><span>        │       └── sidebar.html
+</span></span><span style="display:flex;"><span>        ├── static
+</span></span><span style="display:flex;"><span>        │   ├── apple-touch-icon-144-precomposed.png
+</span></span><span style="display:flex;"><span>        │   ├── css
+</span></span><span style="display:flex;"><span>        │   │   ├── hyde.css
+</span></span><span style="display:flex;"><span>        │   │   ├── poole.css
+</span></span><span style="display:flex;"><span>        │   │   ├── print.css
+</span></span><span style="display:flex;"><span>        │   │   └── syntax.css
+</span></span><span style="display:flex;"><span>        │   └── favicon.png
+</span></span><span style="display:flex;"><span>        └── theme.toml
+</span></span></code></pre></div><h3 id="3编写内容">3、编写内容</h3>
+<h4 id="新建文章">新建文章</h4>
+<p><code>hugo new posts/HelloWorld.md</code> 新建<br>
+<em>注：以 <code>archetypes/default.md</code>为模版创建</em></p>
+<h4 id="编写文章">编写文章</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vim content/posts/HelloWorld.md 
+</span></span></code></pre></div><p><code>HelloWorld.md</code> 文件内容</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;HelloWorld&#34;
+</span></span><span style="display:flex;"><span>date: 2020-08-02T21:47:48+08:00
+</span></span><span style="display:flex;"><span>draft: true
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### HelloWorld  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>https://ichochy.com
+</span></span></code></pre></div><h4 id="预览文章">预览文章</h4>
+<p><code>hugo server -D</code> 启动服务，访问 <a href="http://localhost:1313">http://localhost:1313</a><br>
+<img src="https://images.ichochy.com/15963791621740451.png" alt="15963791621740451"></p>
+<p>目录结构</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy
+</span></span><span style="display:flex;"><span>├── archetypes
+</span></span><span style="display:flex;"><span>│   └── default.md
+</span></span><span style="display:flex;"><span>├── config.toml
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>│   └── posts
+</span></span><span style="display:flex;"><span>│       └── HelloWorld.md
+</span></span><span style="display:flex;"><span>├── data
+</span></span><span style="display:flex;"><span>├── layouts
+</span></span><span style="display:flex;"><span>├── resources
+</span></span><span style="display:flex;"><span>│   └── _gen
+</span></span><span style="display:flex;"><span>│       ├── assets
+</span></span><span style="display:flex;"><span>│       └── images
+</span></span><span style="display:flex;"><span>├── static
+</span></span><span style="display:flex;"><span>└── themes
+</span></span><span style="display:flex;"><span>    └── hyde
+</span></span><span style="display:flex;"><span>        ├── CHANGELOG.md
+</span></span><span style="display:flex;"><span>        ├── LICENSE.md
+</span></span><span style="display:flex;"><span>        ├── README.md
+</span></span><span style="display:flex;"><span>        ├── archetypes
+</span></span><span style="display:flex;"><span>        │   └── default.md
+</span></span><span style="display:flex;"><span>        ├── go.mod
+</span></span><span style="display:flex;"><span>        ├── images
+</span></span><span style="display:flex;"><span>        │   ├── screenshot.png
+</span></span><span style="display:flex;"><span>        │   └── tn.png
+</span></span><span style="display:flex;"><span>        ├── layouts
+</span></span><span style="display:flex;"><span>        │   ├── 404.html
+</span></span><span style="display:flex;"><span>        │   ├── _default
+</span></span><span style="display:flex;"><span>        │   │   ├── baseof.html
+</span></span><span style="display:flex;"><span>        │   │   ├── list.html
+</span></span><span style="display:flex;"><span>        │   │   └── single.html
+</span></span><span style="display:flex;"><span>        │   ├── index.html
+</span></span><span style="display:flex;"><span>        │   └── partials
+</span></span><span style="display:flex;"><span>        │       ├── head.html
+</span></span><span style="display:flex;"><span>        │       ├── head_fonts.html
+</span></span><span style="display:flex;"><span>        │       ├── hook_head_end.html
+</span></span><span style="display:flex;"><span>        │       └── sidebar.html
+</span></span><span style="display:flex;"><span>        ├── static
+</span></span><span style="display:flex;"><span>        │   ├── apple-touch-icon-144-precomposed.png
+</span></span><span style="display:flex;"><span>        │   ├── css
+</span></span><span style="display:flex;"><span>        │   │   ├── hyde.css
+</span></span><span style="display:flex;"><span>        │   │   ├── poole.css
+</span></span><span style="display:flex;"><span>        │   │   ├── print.css
+</span></span><span style="display:flex;"><span>        │   │   └── syntax.css
+</span></span><span style="display:flex;"><span>        │   └── favicon.png
+</span></span><span style="display:flex;"><span>        └── theme.toml
+</span></span></code></pre></div><h2 id="部署">部署</h2>
+<h3 id="修改部署目录">修改部署目录</h3>
+<p>修改 <code>config.toml</code> 文件<br>
+1、修改 <code>bashURL</code> 的部署域名<br>
+2、添加 <code>publishDir = &quot;docs&quot;</code>，指定部署目录为 <code>docs</code></p>
+<p><code>config.toml</code> 文件内容</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://ichochy.com/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;en-us&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;My New Hugo Site&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;hyde&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">publishDir</span> = <span style="color:#e6db74">&#34;docs&#34;</span>
+</span></span></code></pre></div><h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hugo -D</code> 生成静态文件</p>
+<p>目录结构</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy
+</span></span><span style="display:flex;"><span>├── archetypes
+</span></span><span style="display:flex;"><span>│   └── default.md
+</span></span><span style="display:flex;"><span>├── config.toml
+</span></span><span style="display:flex;"><span>├── content
+</span></span><span style="display:flex;"><span>│   └── posts
+</span></span><span style="display:flex;"><span>│       └── HelloWorld.md
+</span></span><span style="display:flex;"><span>├── data
+</span></span><span style="display:flex;"><span>├── docs
+</span></span><span style="display:flex;"><span>│   ├── 404.html
+</span></span><span style="display:flex;"><span>│   ├── apple-touch-icon-144-precomposed.png
+</span></span><span style="display:flex;"><span>│   ├── categories
+</span></span><span style="display:flex;"><span>│   │   ├── index.html
+</span></span><span style="display:flex;"><span>│   │   └── index.xml
+</span></span><span style="display:flex;"><span>│   ├── css
+</span></span><span style="display:flex;"><span>│   │   ├── hyde.css
+</span></span><span style="display:flex;"><span>│   │   ├── poole.css
+</span></span><span style="display:flex;"><span>│   │   ├── print.css
+</span></span><span style="display:flex;"><span>│   │   └── syntax.css
+</span></span><span style="display:flex;"><span>│   ├── favicon.png
+</span></span><span style="display:flex;"><span>│   ├── index.html
+</span></span><span style="display:flex;"><span>│   ├── index.xml
+</span></span><span style="display:flex;"><span>│   ├── posts
+</span></span><span style="display:flex;"><span>│   │   ├── helloworld
+</span></span><span style="display:flex;"><span>│   │   │   └── index.html
+</span></span><span style="display:flex;"><span>│   │   ├── index.html
+</span></span><span style="display:flex;"><span>│   │   └── index.xml
+</span></span><span style="display:flex;"><span>│   ├── sitemap.xml
+</span></span><span style="display:flex;"><span>│   └── tags
+</span></span><span style="display:flex;"><span>│       ├── index.html
+</span></span><span style="display:flex;"><span>│       └── index.xml
+</span></span><span style="display:flex;"><span>├── layouts
+</span></span><span style="display:flex;"><span>├── resources
+</span></span><span style="display:flex;"><span>│   └── _gen
+</span></span><span style="display:flex;"><span>│       ├── assets
+</span></span><span style="display:flex;"><span>│       └── images
+</span></span><span style="display:flex;"><span>├── static
+</span></span><span style="display:flex;"><span>└── themes
+</span></span><span style="display:flex;"><span>    └── hyde
+</span></span><span style="display:flex;"><span>        ├── CHANGELOG.md
+</span></span><span style="display:flex;"><span>        ├── LICENSE.md
+</span></span><span style="display:flex;"><span>        ├── README.md
+</span></span><span style="display:flex;"><span>        ├── archetypes
+</span></span><span style="display:flex;"><span>        │   └── default.md
+</span></span><span style="display:flex;"><span>        ├── go.mod
+</span></span><span style="display:flex;"><span>        ├── images
+</span></span><span style="display:flex;"><span>        │   ├── screenshot.png
+</span></span><span style="display:flex;"><span>        │   └── tn.png
+</span></span><span style="display:flex;"><span>        ├── layouts
+</span></span><span style="display:flex;"><span>        │   ├── 404.html
+</span></span><span style="display:flex;"><span>        │   ├── _default
+</span></span><span style="display:flex;"><span>        │   │   ├── baseof.html
+</span></span><span style="display:flex;"><span>        │   │   ├── list.html
+</span></span><span style="display:flex;"><span>        │   │   └── single.html
+</span></span><span style="display:flex;"><span>        │   ├── index.html
+</span></span><span style="display:flex;"><span>        │   └── partials
+</span></span><span style="display:flex;"><span>        │       ├── head.html
+</span></span><span style="display:flex;"><span>        │       ├── head_fonts.html
+</span></span><span style="display:flex;"><span>        │       ├── hook_head_end.html
+</span></span><span style="display:flex;"><span>        │       └── sidebar.html
+</span></span><span style="display:flex;"><span>        ├── static
+</span></span><span style="display:flex;"><span>        │   ├── apple-touch-icon-144-precomposed.png
+</span></span><span style="display:flex;"><span>        │   ├── css
+</span></span><span style="display:flex;"><span>        │   │   ├── hyde.css
+</span></span><span style="display:flex;"><span>        │   │   ├── poole.css
+</span></span><span style="display:flex;"><span>        │   │   ├── print.css
+</span></span><span style="display:flex;"><span>        │   │   └── syntax.css
+</span></span><span style="display:flex;"><span>        │   └── favicon.png
+</span></span><span style="display:flex;"><span>        └── theme.toml
+</span></span></code></pre></div><h3 id="部署-github-pages">部署 GitHub Pages</h3>
+<p>将整个项目推送到 <code>GitHub</code>，然后在项目的 <code>Settings</code> 中开启的 <code>GitHub Pages</code>，并指定分支和目录 <code>docs</code>
+<img src="https://images.ichochy.com/15964375806436022.png" alt="15964375806436022"></p>
+<p>就是可以直接在线访问了，如：<a href="https://ichochy.github.io">https://ichochy.github.io</a></p>
+<h2 id="总结">总结</h2>
+<p>Hugo 简单、易用、<strong>快速</strong><br>
+模版化强大，只需要关心文章的编写<br>
+默认开启 <code>LiveReload</code>，修改后可以实时预览，免去手去刷新操作<br>
+还有很多强大的功能，如：摘要(Summary)、文章目录(TableOfContents)、相关推荐(Related)、多语言支持(i18n)、列表分页(Pagination)、简码(Shortcodes)等。</p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20190925.html">
+                    jekyll-admin的搭建和使用
+                </a>
+                <small>
+                    2019/09/25
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20190309.html">
+                    加速你的博客永无止境-七牛云存储
+                </a>
+                <small>
+                    2019/03/09
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20190306.html">
+                    加速你的博客永无止境-七牛云CDN
+                </a>
+                <small>
+                    2019/03/06
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/elasticsearch/20200710.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/java/20200807.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过Cloudflare开启全站https &middot; 回忆中的明天</title>
+    <meta name="keywords" content="cdn,https,dns,cloudfrare"/>
+    <meta name="description" content="Cloudflare 添加域名后，会自动生成通用证书，快速开启全站HTTPS，服务端不用做任何修改，还可以选择多种开启模式 一、注册Cloudflare账号 直接打"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一注册cloudflarehttpswwwcloudflarecom账号">一、注册<a href="https://www.cloudflare.com">Cloudflare</a>账号</a></li>
+        <li><a href="#二修改dns">二、修改DNS</a></li>
+        <li><a href="#三配置域名解析">三、配置域名解析</a></li>
+        <li><a href="#四开启-https">四、开启 HTTPS</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/blog.html">Blog</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	通过Cloudflare开启全站https
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2019/10/08 14:22:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/cdn.html">#cdn</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/https.html">#https</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/dns.html">#dns</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/cloudfrare.html">#cloudfrare</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/blog/20191008.html">https://ichochy.com/posts/blog/20191008.html</a>
+    <hr>
+
+  <p><a href="https://www.cloudflare.com">Cloudflare</a> 添加域名后，会自动生成通用证书，快速开启全站<code>HTTPS</code>，服务端不用做任何修改，还可以选择多种开启模式</p>
+<h3 id="一注册cloudflarehttpswwwcloudflarecom账号">一、注册<a href="https://www.cloudflare.com">Cloudflare</a>账号</h3>
+<p>直接打开网站：<a href="https://www.cloudflare.com">https://www.cloudflare.com</a>,就可以注册账号了，然后添加域名，选择<code>Free</code>套餐，没有任何费用<br>
+<img src="https://images.ichochy.com/15706929364310571.png" alt="15706929364310571"></p>
+<h3 id="二修改dns">二、修改DNS</h3>
+<p>免费套餐只能通过<code>DNS</code>方式配置 Cloudflare，收费套餐或 <a href="https://www.cloudflare.com/partners/">Partner</a>，可以通过<code>CNAME</code>配置</p>
+<p>查看 Cloudflare 给自己分配的<code>DNS</code><br>
+<img src="https://images.ichochy.com/15706939624014173.png" alt="15706939624014173"></p>
+<p>打开自己的域名商网站修改<code>DNS</code>，以<code>aliyun</code>为例：</p>
+<pre tabindex="0"><code>控制台=&gt;域名=&gt;管理=&gt;修改DNS
+</code></pre><p><img src="https://images.ichochy.com/15706944703828844.png" alt="15706944703828844"></p>
+<p>修改为 Cloudflare 分配的<code>DNS</code>后，等待生效……………………<br>
+<img src="https://images.ichochy.com/15706945283803295.png" alt="15706945283803295"></p>
+<h3 id="三配置域名解析">三、配置域名解析</h3>
+<p>检查生效状态<br>
+<img src="https://images.ichochy.com/15706947083766136.png" alt="15706947083766136"></p>
+<p>配置域名解析，一般会将解析同步过来，打开小云朵表示开启CDN加速<br>
+<img src="https://images.ichochy.com/15706948823735797.png" alt="15706948823735797"></p>
+<h3 id="四开启-https">四、开启 HTTPS</h3>
+<p>有四种模式可以选择，分别是</p>
+<pre tabindex="0"><code>1. Off (not secure)  
+   不开启
+2. Flexible  
+    开启 浏览器到&lt;-&gt;Cloudflare
+3. Full  
+    开启 浏览器&lt;-&gt;Cloudflare&lt;-&gt;服务器
+4. Full (strict)  
+    开启 浏览器&lt;-&gt;Cloudflare&lt;-&gt;服务器 信任证书，更加严格  
+</code></pre><p><img src="https://images.ichochy.com/15706951243700568.png" alt="15706951243700568"></p>
+<p><strong>至此，已经通过 Cloudflare 开启了 DNS、CDN、HTTPS</strong></p>
+<p><strong>但：</strong> 免费套餐在国内是没有快速的 CDN 节点，CDN 也就没有加速的效果了<br>
+如果需要国内快速的 CDN ，可以使用企业版，但要不差钱，或使用国内合作商<a href="https://su.baidu.com/?ic=1dR4jc">百度云加速</a></p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20190306.html">
+                    加速你的博客永无止境-七牛云CDN
+                </a>
+                <small>
+                    2019/03/06
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/blog/20190925.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/spring/20191012.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>
