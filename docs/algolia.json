@@ -16,6 +16,14 @@
     "pubDate": "2023-11-25T11:35:45+08:00"
   }, 
   {
+    "objectID": 20231125,
+    "url": "https://ichochy.com/posts/software/20231125.html",
+    "title": "Nginx 配置(Config)中遇到的错误(Error)",
+    "summary": "nginx location 正则错误写法 location 错误的写法 匹配请求目录地址 /555 server { location ~ ^/\\d{2,3}$ { …… } } 分析正则 location ~ ^/\\d{2,3}$ ~ 为开启正则匹配，这个不能少 ^ 为字符的开始匹配，字符以后面的",
+    "content": "nginx location 正则错误写法 location 错误的写法 匹配请求目录地址 /555\nserver { location ~ ^/\\d{2,3}$ { …… } } 分析正则 location ~ ^/\\d{2,3}$\n~ 为开启正则匹配，这个不能少 ^ 为字符的开始匹配，字符以后面的规则开始 / 为第一个匹配字符 / \\d 匹配数字 {2,3} 限定数字的个数 2-3 个 $ 为字符的结束匹配，字符以前面的规则结束 上面的会出现错误 pcre_compile() failed: missing 正则解析失败，正则表达式正常是没有问题的，让人很误解\n但在nginx中不能这样写，需要加上双引号（\u0026quot;\u0026quot;）\nlocation 正则的正确写法 location ~ \u0026#34;^/\\d{2,3}$\u0026#34; 注意：中/英文输入法，需要英文符号的双引号（\u0026quot;\u0026quot;）\n正则规则 ~ 表示执行一个正则匹配，区分大小写 ~* 表示执行一个正则匹配，不区分大小写 ^~ 表示普通字符匹配，不使用正则匹配，一般用来匹配目录 = 进行普通字符精确匹配 @ \u0026#34;@\u0026#34; 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files !~ 表示正则不匹配，排除正则的匹配，区分大小写 !~* 表示正则不匹配，排除正则的匹配，不区分大小写 . 匹配除换行符以外的任意字符 ? 重复0次或1次 + 重复1次或更多次 * 重复0次或更多次 \\d 匹配数字 ^ 匹配字符串的开始 $ 匹配字符串的结束 {n} 重复n次 {n,} 重复n次或更多次 {n,m} 重复n-m次 [a] 匹配单个字符a [a-z] 匹配a-z小写字母的任意一个 nginx 反向代理不能使用变量 server { location ~ \u0026#34;^/(\\d{2,3})$\u0026#34; { proxy_pass https://$1.ichochy.com …… } } 问题来了 上面的配置没有生效，总是报错\nWeb 访问出现 502 Bad Gateway 错误，nginx 报错\n当 proxy_pass 使用变量时会出现没有解析器解析域名的错误\n日志出现如下的错误: no resolver defined to resolve ichochy.com 修正错误 没有解析器就给它指定一个\nresolver 8.8.8.8; 完整的配置信息 server{ location ~ \u0026#34;^/(\\d{2,3})$\u0026#34; { resolver 8.8.8.8; proxy_pass https://$1.ichochy.com …… } } 例： 请求地址https://ichocy.com/555\nlocation匹配到 /555，而$1代表的就是555，所以https://$1.ichochy.com就是https://555.ichochy.com\n注：\n$1 代表正则第一个小括号()中匹配的信息\n$2 代表正则第二个小括号()中匹配的信息，以此内推 $3 ……\n这样，请求地址 https://ichocy.com/555 ，就被反向代理到 https://555.ichochy.com\n修改配置文件 # nginx 配置文件 vi /etc/nginx/nginx.conf # 网站配置文件 vi /etc/nginx/sites-available/default 查看日志 # 错误日志 tail -f /var/log/nginx/error.log # 请求日志 tail -f /var/log/nginx/access.log ",
+    "pubDate": "2023-11-25T08:22:45+08:00"
+  }, 
+  {
     "objectID": 20231120,
     "url": "https://ichochy.com/posts/vps/20231120.html",
     "title": "香港CN2优化线路带宽低延迟VPS服务器推荐",

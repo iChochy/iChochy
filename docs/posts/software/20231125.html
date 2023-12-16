@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nginx 配置(Config)中遇到的错误(Error) &middot; 回忆中的明天</title>
+    <meta name="keywords" content="nginx,software,linux"/>
+    <meta name="description" content="nginx location 正则错误写法 location 错误的写法 匹配请求目录地址 /555 server { location ~ ^/\d{2,3}$ { …… } } 分析正则 location ~ ^/\d{2,3}$ ~ 为开启正则匹配，这个不能少 ^ 为字符的开始匹配，字符以后面的"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2023 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#nginx-location-正则错误写法">nginx location 正则错误写法</a>
+      <ul>
+        <li><a href="#location-错误的写法">location 错误的写法</a></li>
+        <li><a href="#分析正则">分析正则</a></li>
+        <li><a href="#location-正则的正确写法">location 正则的正确写法</a></li>
+        <li><a href="#正则规则">正则规则</a></li>
+      </ul>
+    </li>
+    <li><a href="#nginx-反向代理不能使用变量">nginx 反向代理不能使用变量</a>
+      <ul>
+        <li><a href="#问题来了">问题来了</a></li>
+        <li><a href="#修正错误">修正错误</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改配置文件">修改配置文件</a></li>
+    <li><a href="#查看日志">查看日志</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/software.html">Software</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	Nginx 配置(Config)中遇到的错误(Error)
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2023/11/25 08:22:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/nginx.html">#nginx</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/software.html">#software</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/linux.html">#linux</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/software/20231125.html">https://ichochy.com/posts/software/20231125.html</a>
+    <hr>
+
+  <h2 id="nginx-location-正则错误写法">nginx location 正则错误写法</h2>
+<h3 id="location-错误的写法">location 错误的写法</h3>
+<p>匹配请求目录地址 <code>/555</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  location ~ ^/<span style="color:#ae81ff">\d</span><span style="color:#f92672">{</span>2,3<span style="color:#f92672">}</span>$ <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    ……
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="分析正则">分析正则</h3>
+<p><code>location ~ ^/\d{2,3}$</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>~     为开启正则匹配，这个不能少
+</span></span><span style="display:flex;"><span>^     为字符的开始匹配，字符以后面的规则开始
+</span></span><span style="display:flex;"><span>/     为第一个匹配字符 /
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">\d</span>    匹配数字
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>2,3<span style="color:#f92672">}</span> 限定数字的个数 2-3 个
+</span></span><span style="display:flex;"><span>$     为字符的结束匹配，字符以前面的规则结束
+</span></span></code></pre></div><p>上面的会出现错误 <code>pcre_compile() failed: missing</code>  <br>
+正则解析失败，正则表达式正常是没有问题的，让人很误解<br>
+但在<code>nginx</code>中不能这样写，需要加上双引号（<code>&quot;&quot;</code>）</p>
+<h3 id="location-正则的正确写法">location 正则的正确写法</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>location ~ <span style="color:#e6db74">&#34;^/\d{2,3}</span>$<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p><strong>注意：中/英文输入法，需要英文符号的双引号（&quot;&quot;）</strong></p>
+<h3 id="正则规则">正则规则</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>~         表示执行一个正则匹配，区分大小写
+</span></span><span style="display:flex;"><span>~*        表示执行一个正则匹配，不区分大小写
+</span></span><span style="display:flex;"><span>^~        表示普通字符匹配，不使用正则匹配，一般用来匹配目录
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>         进行普通字符精确匹配
+</span></span><span style="display:flex;"><span>@         <span style="color:#e6db74">&#34;@&#34;</span> 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files
+</span></span><span style="display:flex;"><span>!~        表示正则不匹配，排除正则的匹配，区分大小写
+</span></span><span style="display:flex;"><span>!~*       表示正则不匹配，排除正则的匹配，不区分大小写
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>.       匹配除换行符以外的任意字符
+</span></span><span style="display:flex;"><span>?       重复0次或1次
+</span></span><span style="display:flex;"><span>+       重复1次或更多次
+</span></span><span style="display:flex;"><span>*       重复0次或更多次
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">\d</span>      匹配数字
+</span></span><span style="display:flex;"><span>^       匹配字符串的开始
+</span></span><span style="display:flex;"><span>$       匹配字符串的结束
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>n<span style="color:#f92672">}</span>     重复n次
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>n,<span style="color:#f92672">}</span>    重复n次或更多次
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>n,m<span style="color:#f92672">}</span>   重复n-m次
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>a<span style="color:#f92672">]</span>     匹配单个字符a
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>a-z<span style="color:#f92672">]</span>   匹配a-z小写字母的任意一个
+</span></span></code></pre></div><h2 id="nginx-反向代理不能使用变量">nginx 反向代理不能使用变量</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  location ~ <span style="color:#e6db74">&#34;^/(\d{2,3})</span>$<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    proxy_pass https://$1.ichochy.com
+</span></span><span style="display:flex;"><span>    ……
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="问题来了">问题来了</h3>
+<p>上面的配置没有生效，总是报错<br>
+Web 访问出现 <code>502 Bad Gateway</code> 错误，<code>nginx</code> 报错<br>
+当 <code>proxy_pass</code> 使用变量时会出现没有解析器解析域名的错误</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>日志出现如下的错误:
+</span></span><span style="display:flex;"><span>no resolver defined to resolve ichochy.com
+</span></span></code></pre></div><h3 id="修正错误">修正错误</h3>
+<p>没有解析器就给它指定一个</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>resolver 8.8.8.8;
+</span></span></code></pre></div><h4 id="完整的配置信息">完整的配置信息</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  location ~ <span style="color:#e6db74">&#34;^/(\d{2,3})</span>$<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    resolver 8.8.8.8;
+</span></span><span style="display:flex;"><span>    proxy_pass https://$1.ichochy.com
+</span></span><span style="display:flex;"><span>    ……
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><strong>例：</strong> 请求地址<code>https://ichocy.com/555</code><br>
+<code>location</code>匹配到 <code>/555</code>，而<code>$1</code>代表的就是<code>555</code>，所以<code>https://$1.ichochy.com</code>就是<code>https://555.ichochy.com</code></p>
+<p><strong>注：</strong><br>
+<code>$1</code> 代表正则第一个小括号<code>()</code>中匹配的信息<br>
+<code>$2</code> 代表正则第二个小括号<code>()</code>中匹配的信息，以此内推 <code>$3</code> ……</p>
+<p>这样，请求地址 <code>https://ichocy.com/555</code> ，就被反向代理到 <code>https://555.ichochy.com</code></p>
+<h2 id="修改配置文件">修改配置文件</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># nginx 配置文件</span>
+</span></span><span style="display:flex;"><span>vi /etc/nginx/nginx.conf
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 网站配置文件</span>
+</span></span><span style="display:flex;"><span>vi /etc/nginx/sites-available/default
+</span></span></code></pre></div><h2 id="查看日志">查看日志</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 错误日志</span>
+</span></span><span style="display:flex;"><span>tail -f /var/log/nginx/error.log
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 请求日志</span>
+</span></span><span style="display:flex;"><span>tail -f /var/log/nginx/access.log
+</span></span></code></pre></div>
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20220902.html">
+                    5 款适用于 Linux 的笔记应用
+                </a>
+                <small>
+                    2022/09/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200222.html">
+                    mysql 使用 source/mysqldump 命令导入/导出文件信息
+                </a>
+                <small>
+                    2020/02/22
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20221108.html">
+                    12 个对新手最重要的 Linux 命令
+                </a>
+                <small>
+                    2022/11/08
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20220810.html">
+                    微软为 VS Code 推出 Markdown 语言服务器
+                </a>
+                <small>
+                    2022/08/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20220505.html">
+                    强！腾讯推出开源免费老照片修复工具！
+                </a>
+                <small>
+                    2022/05/05
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/vps/20231120.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/mac/20231125.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>

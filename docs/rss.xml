@@ -23,6 +23,13 @@
       <description>终端配置代理 这里以macOS为例，使用的是zsh，对应的用户配置文件就是~/.zshrc。 导入环境变量 将下面信息写入到~/.zshrc文件中</description>
     </item>
     <item>
+      <title>Nginx 配置(Config)中遇到的错误(Error)</title>
+      <link>https://ichochy.com/posts/software/20231125.html</link>
+      <pubDate>Sat, 25 Nov 2023 08:22:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/software/20231125.html</guid>
+      <description>nginx location 正则错误写法 location 错误的写法 匹配请求目录地址 /555 server { location ~ ^/\d{2,3}$ { …… } } 分析正则 location ~ ^/\d{2,3}$ ~ 为开启正则匹配，这个不能少 ^ 为字符的开始匹配，字符以后面的</description>
+    </item>
+    <item>
       <title>香港CN2优化线路带宽低延迟VPS服务器推荐</title>
       <link>https://ichochy.com/posts/vps/20231120.html</link>
       <pubDate>Mon, 20 Nov 2023 08:25:45 +0800</pubDate>
