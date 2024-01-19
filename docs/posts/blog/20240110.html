@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>certbot 通过 Let&#39;s Encrypt 申请免费证书，部署到 nginx 中，开启 https &middot; 回忆中的明天</title>
+    <meta name="keywords" content="blog,shell,https"/>
+    <meta name="description" content="使用 certbot 可以很方便、快捷的通过 Let&rsquo;s Encrypt 申请免费的证书，并部署到 nginx 中，开启 https 在 Linux 通过命令安装 安装 Nginx sudo apt install nginx 安装 certbot 先安装 snap sudo apt install snap 再通过 snap 安装 certbot sudo snap install"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2024 iChochy. </p>
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#在-linux-通过命令安装">在 Linux 通过命令安装</a>
+      <ul>
+        <li><a href="#安装-nginx">安装 Nginx</a></li>
+        <li><a href="#安装-certbot">安装 certbot</a></li>
+      </ul>
+    </li>
+    <li><a href="#运行-certbot-给-nginx-安装证书">运行 certbot 给 Nginx 安装证书</a>
+      <ul>
+        <li><a href="#设置邮箱输入自己的邮箱">设置邮箱，输入自己的邮箱</a></li>
+        <li><a href="#确认条款">确认条款</a></li>
+        <li><a href="#订阅邮件">订阅邮件</a></li>
+        <li><a href="#签发域名输入自己的域名">签发域名，输入自己的域名</a></li>
+        <li><a href="#证书部署成功">证书部署成功</a></li>
+        <li><a href="#检测-nginx-证书部署">检测 Nginx 证书部署</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/blog.html">Blog</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	certbot 通过 Let&#39;s Encrypt 申请免费证书，部署到 nginx 中，开启 https
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2024/01/10 14:11:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/blog.html">#blog</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/shell.html">#shell</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/https.html">#https</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/blog/20240110.html">https://ichochy.com/posts/blog/20240110.html</a>
+    <hr>
+
+  <p>使用 <a href="https://certbot.eff.org/">certbot</a> 可以很方便、快捷的通过 <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> 申请免费的证书，并部署到 <a href="https://nginx.org">nginx</a> 中，开启 https</p>
+<h2 id="在-linux-通过命令安装">在 Linux 通过命令安装</h2>
+<h3 id="安装-nginx">安装 Nginx</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt install nginx
+</span></span></code></pre></div><h3 id="安装-certbot">安装 certbot</h3>
+<h4 id="先安装-snap">先安装 snap</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt install snap
+</span></span></code></pre></div><h4 id="再通过-snap-安装-certbot">再通过 snap 安装 certbot</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo snap install --classic certbot
+</span></span><span style="display:flex;"><span>sudo ln -s /snap/bin/certbot /usr/bin/certbot
+</span></span></code></pre></div><h2 id="运行-certbot-给-nginx-安装证书">运行 certbot 给 Nginx 安装证书</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo certbot --nginx
+</span></span></code></pre></div><h3 id="设置邮箱输入自己的邮箱">设置邮箱，输入自己的邮箱</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Enter email address <span style="color:#f92672">(</span>used <span style="color:#66d9ef">for</span> urgent renewal and security notices<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">(</span>Enter <span style="color:#e6db74">&#39;c&#39;</span> to cancel<span style="color:#f92672">)</span>: me@ichochy.com
+</span></span></code></pre></div><h3 id="确认条款">确认条款</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</span></span><span style="display:flex;"><span>Please read the Terms of Service at
+</span></span><span style="display:flex;"><span>https://letsencrypt.org/documents/LE-SA-v1.3-September-21-2022.pdf. You must
+</span></span><span style="display:flex;"><span>agree in order to register with the ACME server. Do you agree?
+</span></span><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>Y<span style="color:#f92672">)</span>es/<span style="color:#f92672">(</span>N<span style="color:#f92672">)</span>o: y
+</span></span></code></pre></div><h3 id="订阅邮件">订阅邮件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</span></span><span style="display:flex;"><span>Would you be willing, once your first certificate is successfully issued, to
+</span></span><span style="display:flex;"><span>share your email address with the Electronic Frontier Foundation, a founding
+</span></span><span style="display:flex;"><span>partner of the Let<span style="color:#e6db74">&#39;s Encrypt project and the non-profit organization that
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">develops Certbot? We&#39;</span>d like to send you email about our work encrypting the web,
+</span></span><span style="display:flex;"><span>EFF news, campaigns, and ways to support digital freedom.
+</span></span><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>Y<span style="color:#f92672">)</span>es/<span style="color:#f92672">(</span>N<span style="color:#f92672">)</span>o: y      
+</span></span></code></pre></div><h3 id="签发域名输入自己的域名">签发域名，输入自己的域名</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Account registered.
+</span></span><span style="display:flex;"><span>Please enter the domain name<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> you would like on your certificate <span style="color:#f92672">(</span>comma and/or
+</span></span><span style="display:flex;"><span>space separated<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>Enter <span style="color:#e6db74">&#39;c&#39;</span> to cancel<span style="color:#f92672">)</span>: ichochy.com
+</span></span></code></pre></div><h3 id="证书部署成功">证书部署成功</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Successfully received certificate.
+</span></span><span style="display:flex;"><span>……
+</span></span><span style="display:flex;"><span>Deploying certificate
+</span></span><span style="display:flex;"><span>Successfully deployed certificate <span style="color:#66d9ef">for</span> ichochy.com to /etc/nginx/sites-enabled/default
+</span></span><span style="display:flex;"><span>Congratulations! You have successfully enabled HTTPS on https://ichochy.com
+</span></span></code></pre></div><h3 id="检测-nginx-证书部署">检测 Nginx 证书部署</h3>
+<p>访问 <a href="https://ichochy.com">https://ichochy.com</a>，已经自动跳转到 HTPPS，证书已经成功部署到 Nginx 中，并成功配置并重启成功<br>
+Nginx 配置文件 <code>/etc/nginx/sites-enabled/default</code></p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20231128.html">
+                    Mac launchctl 自定义服务启动
+                </a>
+                <small>
+                    2023/11/28
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20231125.html">
+                    Mac 终端设置代理，设置一键开启和取消
+                </a>
+                <small>
+                    2023/11/25
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20200822.html">
+                    Vercel 上自动部署你的个人博客 Hugo
+                </a>
+                <small>
+                    2020/08/22
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20200802.html">
+                    免费创建属于自己的博客，Hugo&#43;Github Pages
+                </a>
+                <small>
+                    2020/08/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20221108.html">
+                    12 个对新手最重要的 Linux 命令
+                </a>
+                <small>
+                    2022/11/08
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/mac/20231128.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>
