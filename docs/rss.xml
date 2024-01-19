@@ -9,7 +9,7 @@
     <lastBuildDate>Wed, 10 Jan 2024 14:11:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
     <item>
-      <title>certbot 通过 Let&#39;s Encrypt 申请免费证书，部署到 nginx 中，开启 https</title>
+      <title>使用 certbot 通过 Let&#39;s Encrypt 申请免费证书，部署到 nginx 中，开启 https</title>
       <link>https://ichochy.com/posts/blog/20240110.html</link>
       <pubDate>Wed, 10 Jan 2024 14:11:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/blog/20240110.html</guid>
