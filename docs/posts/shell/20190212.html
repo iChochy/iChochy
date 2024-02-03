@@ -6,6 +6,7 @@
     <meta name="generator" content="Hugo 0.120.4">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>通过shell查看SVN的版本信息 &middot; 回忆中的明天</title>
     <meta name="keywords" content="shell"/>
     <meta name="description" content="实现原理：通过svn info查看svn信息，使用grep获取版本信息，用awk获取版本号，然后对比版本号是否需要更新 #!/bin/sh revision=`svn info |grep &#34;Last Changed Rev:&#34; |awk &#39;{print $4}&#39;` echo &#34;the"/>
