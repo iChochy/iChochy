@@ -6,8 +6,22 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 10 Jan 2024 14:11:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 02 Apr 2024 13:25:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <item>
+      <title>美国 VPS 服务器，最低月费只要12元，优惠推荐</title>
+      <link>https://ichochy.com/posts/vps/20240403.html</link>
+      <pubDate>Tue, 02 Apr 2024 13:25:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/vps/20240403.html</guid>
+      <description>CloudCone 诞生于 Quadcone 的灵感和成功。Quadcone是在2012年推出的。它在四年多的时间里不断发展壮大，赢得了忠实的客户，并改进了最初的云产品。 机型 虚</description>
+    </item>
+    <item>
+      <title>更新 idea 后不能打开文件夹文件，一直加载卡住假死状态</title>
+      <link>https://ichochy.com/posts/software/20240402.html</link>
+      <pubDate>Tue, 02 Apr 2024 12:22:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/software/20240402.html</guid>
+      <description>在 IDEA 中操作打开文件和访问系统文件时，就会出现卡住，一直加载假死状态中，IDEA 界面无法进行任何操作，只能强制退出 问题 在 IDEA 中打开操作，对系统文</description>
+    </item>
     <item>
       <title>使用 certbot 申请 Let&#39;s Encrypt 免费证书，部署到 nginx 中，开启 https</title>
       <link>https://ichochy.com/posts/blog/20240110.html</link>

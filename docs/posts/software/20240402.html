@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>更新 idea 后不能打开文件夹文件，一直加载卡住假死状态 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="idea,software,java,mac"/>
+    <meta name="description" content="在 IDEA 中操作打开文件和访问系统文件时，就会出现卡住，一直加载假死状态中，IDEA 界面无法进行任何操作，只能强制退出 问题 在 IDEA 中打开操作，对系统文"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2024 iChochy. </p>
+    <div class = "other">
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题">问题</a></li>
+    <li><a href="#解决">解决</a></li>
+    <li><a href="#方案">方案</a>
+      <ul>
+        <li><a href="#找到菜单">找到菜单</a></li>
+        <li><a href="#添加信息">添加信息</a></li>
+        <li><a href="#完美解决">完美解决</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/software.html">Software</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	更新 idea 后不能打开文件夹文件，一直加载卡住假死状态
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2024/04/02 12:22:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/idea.html">#idea</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/software.html">#software</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/java.html">#java</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/mac.html">#mac</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/software/20240402.html">https://ichochy.com/posts/software/20240402.html</a>
+    <hr>
+
+  <p>在 IDEA 中操作打开文件和访问系统文件时，就会出现卡住，一直加载假死状态中，IDEA 界面无法进行任何操作，只能强制退出</p>
+<h2 id="问题">问题</h2>
+<p>在 IDEA 中打开操作，对系统文件进行访问读取时，卡死假死加载中，不法进行其它的什么任何。</p>
+<h2 id="解决">解决</h2>
+<p>软件更新，删除重启软件，重启系统，都没有得到解决，貌似前几天都是可以的，怎么就不能操作，软件卡死不可用的状态。
+在我无尽的查询中，终于找到了好得解决方案，不知道是软件 Bug，还是系统问题。很多人都遇到了同样的问题。</p>
+<h2 id="方案">方案</h2>
+<p>下面说说具体操作，完美解决打开系统文件卡死的办法</p>
+<h3 id="找到菜单">找到菜单</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>帮助 -&gt; 编辑自定义虚拟机选项 
+</span></span></code></pre></div><p><img src="https://images.ichochy.com/20240404125500.png" alt=""></p>
+<h3 id="添加信息">添加信息</h3>
+<p>不使用原生的文件选择界面</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>-Dide.mac.file.chooser.native<span style="color:#f92672">=</span>false
+</span></span></code></pre></div><p><img src="https://images.ichochy.com/20240404125738.png" alt=""></p>
+<p><strong>注：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//macOS
+</span></span><span style="display:flex;"><span>-Dide.mac.file.chooser.native<span style="color:#f92672">=</span>false
+</span></span><span style="display:flex;"><span>//Windows
+</span></span><span style="display:flex;"><span>-Dide.win.file.chooser.native<span style="color:#f92672">=</span>false
+</span></span></code></pre></div><h3 id="完美解决">完美解决</h3>
+<p>保存退出并重启 IDEA ，完美打开 IDEA 打开系统文件假死的问题</p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200819.html">
+                    免费申请 JetBrains 开源开发许可证，包含 IDEA
+                </a>
+                <small>
+                    2020/08/19
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20211125.html">
+                    RIME 鼠须管输入法使用，免费开源还可以自定义词库
+                </a>
+                <small>
+                    2021/11/25
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200902.html">
+                    MacOS 或 Linux 软件包管理器 Homebrew
+                </a>
+                <small>
+                    2020/09/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20200222.html">
+                    mysql 使用 source/mysqldump 命令导入/导出文件信息
+                </a>
+                <small>
+                    2020/02/22
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20190410.html">
+                    持续集成和持续交付工具-jenkins
+                </a>
+                <small>
+                    2019/04/10
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/blog/20240110.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    <a href="https://ichochy.com/posts/vps/20240403.html" class="pag-link">下一篇</a>
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>

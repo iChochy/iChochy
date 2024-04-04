@@ -27,8 +27,8 @@
     </nav>
 
     <p>&copy; 2020 - {{ now.Format "2006"}} {{.Site.Params.copyright}}. </p>
-    {{with .Site.Params.caseNo }}
     <div class = "other">
+    {{with .Site.Params.caseNo }}
     <li><a href="http://beian.miit.gov.cn">{{.}}</a></li>
     {{end}}
     {{with .Site.Params.upyun }}
