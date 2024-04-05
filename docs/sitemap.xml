@@ -3,27 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ichochy.com/tags/blog.html</loc>
-    <lastmod>2024-04-02T13:25:45+08:00</lastmod>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/categories.html</loc>
-    <lastmod>2024-04-02T13:25:45+08:00</lastmod>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/tags/net.html</loc>
-    <lastmod>2024-04-02T13:25:45+08:00</lastmod>
+    <loc>https://ichochy.com/tags/mac.html</loc>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/categories/mac.html</loc>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts.html</loc>
-    <lastmod>2024-04-02T13:25:45+08:00</lastmod>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/software.html</loc>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags.html</loc>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/</loc>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/mac/20240403.html</loc>
+    <lastmod>2024-04-03T15:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/net.html</loc>
     <lastmod>2024-04-02T13:25:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/vps.html</loc>
     <lastmod>2024-04-02T13:25:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/categories/vps.html</loc>
-    <lastmod>2024-04-02T13:25:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/</loc>
     <lastmod>2024-04-02T13:25:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/vps/20240403.html</loc>
@@ -33,12 +45,6 @@
     <lastmod>2024-04-02T12:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/java.html</loc>
-    <lastmod>2024-04-02T12:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/mac.html</loc>
-    <lastmod>2024-04-02T12:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/software.html</loc>
     <lastmod>2024-04-02T12:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/categories/software.html</loc>
@@ -61,9 +67,6 @@
   </url><url>
     <loc>https://ichochy.com/posts/vps/20240105.html</loc>
     <lastmod>2024-01-05T21:25:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/categories/mac.html</loc>
-    <lastmod>2023-11-28T16:55:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/mac/20231128.html</loc>
     <lastmod>2023-11-28T16:55:45+08:00</lastmod>
