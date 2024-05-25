@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 03 Apr 2024 15:22:45 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 May 2024 15:22:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <item>
+      <title>给 Terminal 终端添加不一样的色彩，安装插件实现自动补全、高亮显示</title>
+      <link>https://ichochy.com/posts/mac/20240520.html</link>
+      <pubDate>Mon, 20 May 2024 15:22:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/mac/20240520.html</guid>
+      <description>给我们的 Terminal 终端添加不一样的色彩，高亮显示，让其直观、简洁显示不同的文件类型、常用的命令 文件目录自动补全 很多时候会遇到因大小字母文件目录的问题</description>
+    </item>
     <item>
       <title>玩转 Mac 截图，分享原生截图工具技巧，自定义截图名称和类型</title>
       <link>https://ichochy.com/posts/mac/20240403.html</link>

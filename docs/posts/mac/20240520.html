@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.120.4">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>给 Terminal 终端添加不一样的色彩，安装插件实现自动补全、高亮显示 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="shell,mac,software"/>
+    <meta name="description" content="给我们的 Terminal 终端添加不一样的色彩，高亮显示，让其直观、简洁显示不同的文件类型、常用的命令 文件目录自动补全 很多时候会遇到因大小字母文件目录的问题"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.setAttribute("defer", "defer");
+        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2024 iChochy. </p>
+    <div class = "other">
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#文件目录自动补全">文件目录自动补全</a></li>
+    <li><a href="#高亮显示">高亮显示</a>
+      <ul>
+        <li><a href="#ls-颜色高亮显示">ls 颜色高亮显示</a></li>
+        <li><a href="#命令颜色高亮显示">命令颜色高亮显示</a></li>
+      </ul>
+    </li>
+    <li><a href="#命令补全">命令补全</a>
+      <ul>
+        <li><a href="#历史命令搜索补全">历史命令搜索补全</a></li>
+        <li><a href="#历史命令自动补全">历史命令自动补全</a></li>
+        <li><a href="#命令参数补全">命令参数补全</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/mac.html">Mac</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	给 Terminal 终端添加不一样的色彩，安装插件实现自动补全、高亮显示
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2024/05/20 15:22:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/shell.html">#shell</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/mac.html">#mac</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/software.html">#software</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/mac/20240520.html">https://ichochy.com/posts/mac/20240520.html</a>
+    <hr>
+
+  <p>给我们的 <code>Terminal</code> 终端添加不一样的色彩，高亮显示，让其直观、简洁显示不同的文件类型、常用的命令</p>
+<h2 id="文件目录自动补全">文件目录自动补全</h2>
+<p>很多时候会遇到因大小字母文件目录的问题无法自动补全，通过简单的配置，实现不区分大小写，自动补全</p>
+<p><code>vi</code>修改<code>.zshrc</code>配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>vi .zshrc
+</span></span></code></pre></div><p>添加下面的内容</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>autoload -Uz compinit <span style="color:#f92672">&amp;&amp;</span> compinit
+</span></span><span style="display:flex;"><span>zstyle <span style="color:#e6db74">&#39;:completion:*&#39;</span> matcher-list <span style="color:#e6db74">&#39;m:{a-z}={A-Z}&#39;</span>
+</span></span></code></pre></div><p>重新加载<code>.zshrc</code>配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>zsh
+</span></span></code></pre></div><p><strong>没有错误信息，则加载成功</strong></p>
+<p>则开启忽略大小限制，直接<code>TAB</code>自动补全</p>
+<h2 id="高亮显示">高亮显示</h2>
+<h3 id="ls-颜色高亮显示">ls 颜色高亮显示</h3>
+<h4 id="g">—G</h4>
+<p>通过查看帮助可知，参数<code>—G</code>以颜色显示输入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ls  -G
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#ae81ff">6</span> MLeo  staff    <span style="color:#ae81ff">192</span>  <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">24</span> 11:47 .zsh-users
+</span></span><span style="display:flex;"><span>-rw-r--r--   <span style="color:#ae81ff">1</span> MLeo  staff    <span style="color:#ae81ff">635</span>  <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">24</span> 12:27 .zshrc
+</span></span><span style="display:flex;"><span>drwx------@  <span style="color:#ae81ff">7</span> MLeo  staff    <span style="color:#ae81ff">224</span> <span style="color:#ae81ff">12</span>  <span style="color:#ae81ff">1</span> 08:22 Applications
+</span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#ae81ff">12</span> MLeo  staff    <span style="color:#ae81ff">384</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">4</span> 08:37 Code
+</span></span><span style="display:flex;"><span>drwx------@  <span style="color:#ae81ff">5</span> MLeo  staff    <span style="color:#ae81ff">160</span>  <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">24</span> 12:36 Desktop
+</span></span></code></pre></div><h4 id="添加别名">添加别名</h4>
+<p>在<code>zsh</code>中不添加别名，快捷方便使用</p>
+<p><code>vi</code>修改<code>.zshrc</code>配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>vi .zshrc
+</span></span></code></pre></div><p>添加别名 alisa</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>alias ls<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ls -G&#39;</span>
+</span></span></code></pre></div><p>退出编辑后，再次运行 <code>zsh</code>使其重载生效</p>
+<p>再次运行<code>ls</code>，可以看到不同的文件类型显示不同的颜色</p>
+<h3 id="命令颜色高亮显示">命令颜色高亮显示</h3>
+<p>手动安装<code>zsh-syntax-highlighting</code> 实现命令颜色高亮</p>
+<p>在用户目录下创建插件安装目录，并进入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//进入个人用户目录
+</span></span><span style="display:flex;"><span>cd ~
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//创建插件安装目录
+</span></span><span style="display:flex;"><span>mkdir .zsh-users
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//进入插件安装目录
+</span></span><span style="display:flex;"><span>cd .zsh_users
+</span></span></code></pre></div><p><code>git</code> 下载<code>zsh-syntax-highlighting</code>插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
+</span></span></code></pre></div><p>启用插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;source </span><span style="color:#e6db74">${</span>(q-)PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&#34;</span> &gt;&gt; <span style="color:#e6db74">${</span>ZDOTDIR<span style="color:#66d9ef">:-</span>$HOME<span style="color:#e6db74">}</span>/.zshrc
+</span></span></code></pre></div><p>将插件添加到<code>.zshrc</code>文件中</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>source ~/.zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+</span></span></code></pre></div><p>重新加载<code>.zshrc</code>配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>zsh
+</span></span></code></pre></div><p><strong>没有错误信息，则加载成功</strong></p>
+<p>现在运行常用命令就会高亮显示，通常正确的命令会有绿色显示，错误的命令则是红色显示</p>
+<h2 id="命令补全">命令补全</h2>
+<p>通过不同的插件实现不同的命令补全功能</p>
+<h3 id="历史命令搜索补全">历史命令搜索补全</h3>
+<p>手动安装<code>zsh-history-substring-search</code> 实现上翻命令获取命令历史补全</p>
+<p><strong>同上</strong></p>
+<p>在用户目录下创建插件安装目录，并进入，<strong>如果已经进入无需重复操作</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//进入个人用户目录
+</span></span><span style="display:flex;"><span>cd ~
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//创建插件安装目录
+</span></span><span style="display:flex;"><span>mkdir .zsh-users
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//进入插件安装目录
+</span></span><span style="display:flex;"><span>cd .zsh_users
+</span></span></code></pre></div><p><code>git</code> 下载<code>zsh-history-substring-search</code>插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-history-substring-search.git 
+</span></span></code></pre></div><p>启用插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;source </span><span style="color:#e6db74">${</span>(q-)PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/zsh-history-substring-search/zsh-history-substring-search.zsh&#34;</span> &gt;&gt; <span style="color:#e6db74">${</span>ZDOTDIR<span style="color:#66d9ef">:-</span>$HOME<span style="color:#e6db74">}</span>/.zshrc
+</span></span></code></pre></div><p>将插件添加到<code>.zshrc</code>文件中</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>source ~/.zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
+</span></span></code></pre></div><p>重新加载<code>.zshrc</code>配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>zsh
+</span></span></code></pre></div><p><strong>没有错误信息，则加载成功</strong></p>
+<p>实现上下历史记录搜索</p>
+<h3 id="历史命令自动补全">历史命令自动补全</h3>
+<p>手动安装<code>zsh-autosuggestions</code> 实现历史命令历史自动补全</p>
+<p><strong>同上</strong></p>
+<p>在用户目录下创建插件安装目录，并进入，<strong>如果已经进入无需重复操作</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//进入个人用户目录
+</span></span><span style="display:flex;"><span>cd ~
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//创建插件安装目录
+</span></span><span style="display:flex;"><span>mkdir .zsh-users
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//进入插件安装目录
+</span></span><span style="display:flex;"><span>cd .zsh_users
+</span></span></code></pre></div><p><code>git</code> 下载<code>zsh-autosuggestions</code>插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-autosuggestions.git 
+</span></span></code></pre></div><p>启用插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;source </span><span style="color:#e6db74">${</span>(q-)PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/zsh-autosuggestions/zsh-autosuggestions.zsh&#34;</span> &gt;&gt; <span style="color:#e6db74">${</span>ZDOTDIR<span style="color:#66d9ef">:-</span>$HOME<span style="color:#e6db74">}</span>/.zshrc
+</span></span></code></pre></div><p>将插件添加到<code>.zshrc</code>文件中</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>source ~/.zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+</span></span></code></pre></div><p>重新加载<code>.zshrc</code>配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>zsh
+</span></span></code></pre></div><p><strong>没有错误信息，则加载成功</strong></p>
+<p>通过历史记录自动补全命令</p>
+<h3 id="命令参数补全">命令参数补全</h3>
+<p>手动安装<code>zsh-completions</code> 实现命令参数自动补全</p>
+<p><strong>同上</strong></p>
+<p>在用户目录下创建插件安装目录，并进入，<strong>如果已经进入无需重复操作</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//进入个人用户目录
+</span></span><span style="display:flex;"><span>cd ~
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//创建插件安装目录
+</span></span><span style="display:flex;"><span>mkdir .zsh-users
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>//进入插件安装目录
+</span></span><span style="display:flex;"><span>cd .zsh_users
+</span></span></code></pre></div><p><code>git</code> 下载<code>zsh-completions</code>插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-completions.git 
+</span></span></code></pre></div><p>启用插件，将插件添加到<code>.zshrc</code>文件中</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>fpath<span style="color:#f92672">=(</span>path/to/zsh-completions/src $fpath<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>强制重建 <code>zcompdump</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rm -f ~/.zcompdump; compinit
+</span></span></code></pre></div><p><strong>没有错误信息，则加载成功</strong></p>
+<p>通过<code>TAB</code>快速查看具体的参数信息</p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20240403.html">
+                    玩转 Mac 截图，分享原生截图工具技巧，自定义截图名称和类型
+                </a>
+                <small>
+                    2024/04/03
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20240402.html">
+                    更新 idea 后不能打开文件夹文件，一直加载卡住假死状态
+                </a>
+                <small>
+                    2024/04/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20231128.html">
+                    Mac launchctl 自定义服务启动
+                </a>
+                <small>
+                    2023/11/28
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20231125.html">
+                    Mac 终端设置代理，设置一键开启和取消
+                </a>
+                <small>
+                    2023/11/25
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20211125.html">
+                    RIME 鼠须管输入法使用，免费开源还可以自定义词库
+                </a>
+                <small>
+                    2021/11/25
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/mac/20240403.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+  
+</div>
+
+
+    </main>
+  </body>
+</html>
