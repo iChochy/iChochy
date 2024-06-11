@@ -491,8 +491,8 @@ form input {
   -webkit-appearance:none;
   display: block;
   width: 80%;
-  padding: 8px;
-  margin-bottom: 10px;
+    padding: 8px;
+/**  margin-bottom: 10px; **/
   font-size: 1rem;
   line-height: 1.5;
   border: 1px solid #ced4da;

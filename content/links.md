@@ -2,6 +2,12 @@
 title: "Links"
 date: 2020-07-22T12:07:59+08:00
 ---
+
+## VPS
+Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
+Lightnode：[https://www.lightnode.com/](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)  
+CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)  
+
 ## 友情链接  
 回忆中的明天：[https://ichochy.com](https://ichochy.com)  
 iUploader：[https://iuploader.ichochy.com](https://iuploader.ichochy.com)  
@@ -12,7 +18,7 @@ Kaciras' Blog：[https://blog.kaciras.com](https://blog.kaciras.com)
 阿西河前端教程：[https://www.axihe.com](https://www.axihe.com)  
 imbytecat：[https://www.imbytecat.com](https://www.imbytecat.com)  
 子舒的博客：[https://zburu.com](https://zburu.com)  
-UsubeniFantasy：[https://ssshooter.com](https://ssshooter.com)  
+奥利弗的狗窝：[https://www.aolifu.org/](https://www.aolifu.org/)    
 
 ## 申请友链
 请关注公众号：`iChochy`  

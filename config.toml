@@ -49,9 +49,10 @@ baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"
 [Menus]
 main = [
     #     {Name = "Tags", weight = 2, URL = "/tags.html"},
-    { Name = "Links", weight = 1, URL = "/links.html" },
-    { Name = "About", weight = 2, URL = "/about.html" },
-    { Name = "Search", weight = 3, URL = "/search.html" },
-    { Name = "Categories", weight = 4, URL = "/categories.html" },
-    #     {Name = "Feedback", weight = 5, URL = "/feedback.html"}
+    { Name = "Sites", weight = 1, URL = "/Sites.html" },
+    { Name = "Links", weight = 2, URL = "/links.html" },
+    { Name = "About", weight = 3, URL = "/about.html" },
+    { Name = "Search", weight = 4, URL = "/search.html" },
+    { Name = "Categories", weight = 5, URL = "/categories.html" },
+#    {Name = "RSS", weight = 5, URL = "/rss.xml"}
 ]
