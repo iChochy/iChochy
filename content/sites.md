@@ -26,12 +26,13 @@ V2ex：[https://v2ex.com/](https://v2ex.com/)
 开源中国：[http://www.oschina.net/](http://www.oschina.net/)  
 
 ### 开发文档
+Java：[https://dev.java/](https://dev.java/)  
 Hugo：[https://gohugo.io/](https://gohugo.io/)  
 JS 教程：[https://zh.javascript.info/](https://zh.javascript.info/)  
 W3school：[https://www.w3school.com.cn/](https://www.w3school.com.cn/)  
 Cocoaz：[https://www.cocoaz.com/](https://www.cocoaz.com/)  
 Swift：[https://www.swift.org/](https://www.swift.org/)  
-Apple DD：[https://developer.apple.com/documentation/](https://developer.apple.com/documentation/)  
+Apple Dev Doc：[https://developer.apple.com/documentation/](https://developer.apple.com/documentation/)  
 
 
 ### 开发工具
@@ -54,9 +55,9 @@ Zed：[https://zed.dev/](https://zed.dev/)
 ### 站点管理
 Speed Test：[https://speed.cloudflare.com/](https://speed.cloudflare.com/)  
 Cloudflare：[https://dash.cloudflare.com/login](https://dash.cloudflare.com/login)  
-Bing console：[https://www.bing.com/webmasters/](https://www.bing.com/webmasters/)   
-Google console：[https://search.google.com/search-console](https://search.google.com/search-console)  
-Google analytics：[https://analytics.google.com/](https://analytics.google.com/)  
+Bing Console：[https://www.bing.com/webmasters/](https://www.bing.com/webmasters/)   
+Google Console：[https://search.google.com/search-console](https://search.google.com/search-console)  
+Google Analytics：[https://analytics.google.com/](https://analytics.google.com/)  
 Google AdSense：[https://www.google.com/adsense/](https://www.google.com/adsense/)    
 
 
