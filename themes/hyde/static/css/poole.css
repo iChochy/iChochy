@@ -558,3 +558,12 @@ form button {
   display: inline-block;
   padding: 0 10px;
 }
+
+#doc_search .DocSearch-Button{
+    margin:auto
+}
+
+.DocSearch-Modal {
+    padding-top:30px
+}
+

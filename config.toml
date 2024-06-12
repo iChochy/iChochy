@@ -9,7 +9,6 @@ canonifyURLs = true
 hasCJKLanguage = true
 disqusShortname = "ichochy"
 enableRobotsTXT = false
-#googleAnalytics = "UA-148465786-1"
 
 [outputs]
 home = ["HTML", "RSS", "URLS", "ALGOLIA"]
@@ -44,15 +43,15 @@ dateTimeFormat = "2006/01/02 15:04:05"
 # upyun = "https://files.ichochy.com/upyun/upyun.png"
 GA_MEASUREMENT_ID = "G-8J2LHY81SL"
 adsense = "3691661241035911"
-baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"
+# baiduAnalytics = "6c96b4a33763ee94253645ea9215240b"
 
 [Menus]
 main = [
     #     {Name = "Tags", weight = 2, URL = "/tags.html"},
-    { Name = "Sites", weight = 1, URL = "/Sites.html" },
-    { Name = "Links", weight = 2, URL = "/links.html" },
-    { Name = "About", weight = 3, URL = "/about.html" },
-    { Name = "Search", weight = 4, URL = "/search.html" },
-    { Name = "Categories", weight = 5, URL = "/categories.html" },
-#    {Name = "RSS", weight = 5, URL = "/rss.xml"}
+    { Name = "Search", weight = 3, URL = "/search.html" },
+    { Name = "Categories", weight = 4, URL = "/categories.html" },
+    { Name = "About", weight = 5, URL = "/about.html" },
+    { Name = "Sites", weight = 6, URL = "/Sites.html" },
+    { Name = "Links", weight = 7, URL = "/links.html" },
+#    {Name = "RSS", weight = 8, URL = "/rss.xml"}
 ]

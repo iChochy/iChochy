@@ -8,23 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>About &middot; 回忆中的明天</title>
-    <meta name="description" content="简介 本人是一个80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！ 关于 Java 入门的问题，都可以关注我的公众号："/>
+    <meta name="description" content="简介 本人是一个80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！ 关于 Java 入门的问题，请关注公众号：iCho"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
 
-<script>
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.setAttribute("defer", "defer");
-        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 <script data-ad-client="ca-pub-3691661241035911" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -61,15 +51,80 @@
         
       </p>
     </div>
+      <p>
+        <span id="doc_search"></span>
 
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+const translations  = {
+  button: {
+    buttonText: 'Search',
+    buttonAriaLabel: 'Search',
+  },
+  modal: {
+    searchBox: {
+      resetButtonTitle: '清除查询',
+      resetButtonAriaLabel: '清除查询',
+      cancelButtonText: '取消',
+      cancelButtonAriaLabel: '取消',
+      searchInputLabel: 'Search',
+    },
+    startScreen: {
+      recentSearchesTitle: '最近搜索',
+      noRecentSearchesText: '最近没有搜索',
+      saveRecentSearchButtonTitle: '保存这个搜索',
+      removeRecentSearchButtonTitle: '从历史中删除这个搜索',
+      favoriteSearchesTitle: '喜欢',
+      removeFavoriteSearchButtonTitle: '从喜欢中删除这个搜索',
+    },
+    errorScreen: {
+      titleText: '无法获取结果',
+      helpText: '你可能需要检查你的网络',
+    },
+    footer: {
+      selectText: '搜索',
+      selectKeyAriaLabel: '输入关键字',
+      navigateText: '导航',
+      navigateUpKeyAriaLabel: '向上',
+      navigateDownKeyAriaLabel: '向下',
+      closeText: '关闭',
+      closeKeyAriaLabel: '转义关键字',
+      searchByText: 'Search by',
+    },
+    noResultsScreen: {
+      noResultsText: '没有结果',
+      suggestedQueryText: '尝试搜索',
+      reportMissingResultsText: '相信这个查询应该返回结果?',
+      reportMissingResultsLinkText: '让我们知道',
+    },
+  },
+};
+
+docsearch({
+	appId: "NKR7XWIWN9",
+	apiKey: "68adad999505e7dcb442fa41f391810c",
+	indexName: "ichochy",
+	placeholder: "Search",
+	translations: translations,
+	container: '#doc_search',
+	debug: false
+});
+
+</script>
+
+
+
+      </p>
     <nav>
       <ul class="sidebar-nav">
         <li><a href="https://ichochy.com/">Index</a> </li>
-        <li><a href="https://ichochy.com/sites.html"> Sites </a></li><li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
+        <li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/sites.html"> Sites </a></li><li><a href="https://ichochy.com/links.html"> Links </a></li>
       </ul>
     </nav>
 
-    <p>&copy; 2020 - 2024 iChochy. </p>
+    <p>&copy; 2020 - 2024 iChochy.</p>
     <div class = "other">
     
     
@@ -93,9 +148,9 @@
   
   <h2 id="简介">简介</h2>
 <p>本人是一个80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！<br>
-关于 Java 入门的问题，都可以关注我的公众号：<code>iChochy</code>，免费解答您的问题。<br>
+关于 Java 入门的问题，请关注公众号：<code>iChochy</code>，免费解答初学者的问题。<br>
 <strong>只希望帮助到更多想学 Java 的人。</strong></p>
-<p>白血病(CMML)患者，现已骨髓移植，肺排恢复中……</p>
+<p>白血病(CMML)患者，现已骨髓移植，肺排(FEV1:35%)恢复中……</p>
 <h2 id="联系方式">联系方式</h2>
 <blockquote>
 <p>公众号：<code>iChochy</code><br>
@@ -104,19 +159,25 @@ GitHub： <a href="https://github.com/ichochy">https://github.com/ichochy</a></p
 </blockquote>
 <h2 id="公众号">公众号</h2>
 <p><img src="https://ichochy.com/wx.jpg" alt="公众号"></p>
-<h2 id="赞助">赞助</h2>
+<h2 id="打赏">打赏</h2>
 <p><img src="https://ichochy.com/sponsor.jpg" alt="Sponsor"></p>
 <h2 id="感谢">感谢</h2>
 <p><a href="https://console.upyun.com/register/?invite=r1z6aWlRt">又拍云</a> 提供 <a href="https://console.upyun.com/register/?invite=r1z6aWlRt">CDN/云存储</a><br>
 <a href="https://www.algolia.com/">Algolia</a> 提供 <a href="https://www.algolia.com/">Search Engine</a><br>
 <a href="https://pages.github.com/">GitHub Pages</a> 提供 <a href="https://pages.github.com/">Server</a><br>
 <a href="https://www.jetbrains.com/">JetBrains</a> 提供 <a href="https://www.jetbrains.com/shop/eform/opensource">Open Source License</a></p>
+<h2 id="vps推荐">VPS推荐</h2>
+<p>Megalayer：<a href="https://account.megalayer.net/aff.php?aff=1678">https://www.megalayer.net/</a><br>
+Lightnode：<a href="https://www.lightnode.com/?inviteCode=JJI33F&amp;promoteWay=LINK">https://www.lightnode.com/</a><br>
+CloudCone：<a href="https://app.cloudcone.com.cn/?ref=11052">https://app.cloudcone.com.cn/</a></p>
 <hr>
 <p>Powered by <a href="https://gohugo.io">Hugo</a> Theme by <a href="https://themes.gohugo.io/hyde/">Hyde</a></p>
 
   
   
+
   
+
 </div>
 
 

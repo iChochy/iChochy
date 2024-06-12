@@ -3,11 +3,6 @@ title: "Links"
 date: 2020-07-22T12:07:59+08:00
 ---
 
-## VPS
-Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
-Lightnode：[https://www.lightnode.com/](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)  
-CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)  
-
 ## 友情链接  
 回忆中的明天：[https://ichochy.com](https://ichochy.com)  
 iUploader：[https://iuploader.ichochy.com](https://iuploader.ichochy.com)  

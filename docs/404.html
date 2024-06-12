@@ -17,16 +17,6 @@
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
 
-<script>
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.setAttribute("defer", "defer");
-        hm.src = "https://hm.baidu.com/hm.js?6c96b4a33763ee94253645ea9215240b";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 <script data-ad-client="ca-pub-3691661241035911" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -63,28 +53,8 @@
         
       </p>
     </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li><a href="https://ichochy.com/">Index</a> </li>
-        <li><a href="https://ichochy.com/sites.html"> Sites </a></li><li><a href="https://ichochy.com/links.html"> Links </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li>
-      </ul>
-    </nav>
-
-    <p>&copy; 2020 - 2024 iChochy. </p>
-    <div class = "other">
-    
-    
-    </div>
-  </div>
-  
-</aside>
-    <main class="content container">
-    <h1>404: Page not found</h1>
-<p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="https://ichochy.com/">Head back home</a> to try finding it again.</p>
-
-<h2>搜索</h2>
-<div id="searchbox"></div>
+      <p>
+        <span id="doc_search"></span>
 
 <link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
@@ -140,7 +110,7 @@ docsearch({
 	indexName: "ichochy",
 	placeholder: "Search",
 	translations: translations,
-	container: '#searchbox',
+	container: '#doc_search',
 	debug: false
 });
 
@@ -148,6 +118,42 @@ docsearch({
 
 
 
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/sites.html"> Sites </a></li><li><a href="https://ichochy.com/links.html"> Links </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2024 iChochy.</p>
+    <div class = "other">
+    
+    
+    </div>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h1>404: Page not found</h1>
+<p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="https://ichochy.com/">Head back home</a> to try finding it again.</p>
+
+<h2>搜索</h2>
+<div id="searchbox"></div>
+<hr>
+<div id="hits"></div>
+<div id="pagination"></div>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+
+<script src="https://ichochy.com/js/search.js"></script>
     </main>
   </body>
 </html>
