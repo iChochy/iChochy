@@ -11,11 +11,12 @@ POE：[https://poe.com/](https://poe.com/)
 梅林：[https://www.getmerlin.in/](https://www.getmerlin.in/zh-CN/chat)  
 
 ### 常用工具
-翻译：[https://translate.google.com/](https://translate.google.com/)  
-Linux 命令：[https://git.io/linux](https://git.io/linux)  
-Plantuml：[http://www.plantuml.com/plantuml/uml/](http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000)  
+Fast：[http://fast.com/](http://fast.com/)  
 在线测速：[https://test.ustc.edu.cn/](https://test.ustc.edu.cn/)  
-Speed im：[http://speedtest.im/](http://speedtest.im/)  
+Linux 命令：[https://git.io/linux](https://git.io/linux)  
+Deepl：[https://www.deepl.com/](https://www.deepl.com/zh/translator)  
+翻译：[https://translate.google.com/](https://translate.google.com/)  
+Plantuml：[http://www.plantuml.com/plantuml/uml/](http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000)  
 MD Editor：[https://markdown.com.cn/editor/](https://markdown.com.cn/editor/)  
 MD 语法：[https://guides.github.com/features/mastering-markdown/](https://guides.github.com/features/mastering-markdown/)  
 
@@ -27,20 +28,20 @@ V2ex：[https://v2ex.com/](https://v2ex.com/)
 
 ### 开发文档
 Java：[https://dev.java/](https://dev.java/)  
+Swift：[https://www.swift.org/](https://www.swift.org/)  
 Hugo：[https://gohugo.io/](https://gohugo.io/)  
 JS 教程：[https://zh.javascript.info/](https://zh.javascript.info/)  
 W3school：[https://www.w3school.com.cn/](https://www.w3school.com.cn/)  
 Cocoaz：[https://www.cocoaz.com/](https://www.cocoaz.com/)  
-Swift：[https://www.swift.org/](https://www.swift.org/)  
 Apple Dev Doc：[https://developer.apple.com/documentation/](https://developer.apple.com/documentation/)  
 
 
 ### 开发工具
 #### 终端编辑器
 VIM：[https://www.vim.org/](https://www.vim.org/)  
-Emacs：[https://www.gnu.org/software/emacs/](https://www.gnu.org/software/emacs/)  
 Nano：[https://www.nano-editor.org/](https://www.nano-editor.org/)  
 Helix：[https://helix-editor.com/](https://helix-editor.com/)  
+Emacs：[https://www.gnu.org/software/emacs/](https://www.gnu.org/software/emacs/)  
 
 #### IDE
 Eclipse：[https://www.eclipse.org/](https://www.eclipse.org/)  
@@ -63,11 +64,13 @@ Google AdSense：[https://www.google.com/adsense/](https://www.google.com/adsens
 
 ### 云服务
 GitHub：[https://github.com/](https://github.com/iChochy)  
-UPyun：[https://console.upyun.com/](https://console.upyun.com/register/?invite=r1z6aWlRt)  
+UPYun：[https://console.upyun.com/](https://console.upyun.com/register/?invite=r1z6aWlRt)  
+Namesilo：[https://www.namesilo.com/](https://www.namesilo.com/domain/search-domains?rid=285e694it)  
 aliyun Mirror：[https://developer.aliyun.com/mirror/](https://developer.aliyun.com/mirror/)  
 tsinghua Mirror：[https://mirrors.tuna.tsinghua.edu.cn/](https://mirrors.tuna.tsinghua.edu.cn/)  
 
-### VPS
+### VPS推荐
+V.PS：[https://v.ps](https://vps.hosting/?affid=1504)  
 Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
 Lightnode：[https://www.lightnode.com/](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)  
 CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)  
