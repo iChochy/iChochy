@@ -1,6 +1,6 @@
 ---
 title: "Sites"
-date: 2020-07-22T12:07:59+08:00
+date: 2024-06-22T12:07:59+08:00
 ---
 
 ### AI 智能
@@ -55,7 +55,7 @@ Zed：[https://zed.dev/](https://zed.dev/)
 
 ### 站点管理
 Speed Test：[https://speed.cloudflare.com/](https://speed.cloudflare.com/)  
-Cloudflare：[https://dash.cloudflare.com/login](https://dash.cloudflare.com/login)  
+Cloudflare：[https://dash.cloudflare.com/](https://dash.cloudflare.com/login)  
 Bing Console：[https://www.bing.com/webmasters/](https://www.bing.com/webmasters/)   
 Google Console：[https://search.google.com/search-console](https://search.google.com/search-console)  
 Google Analytics：[https://analytics.google.com/](https://analytics.google.com/)  
