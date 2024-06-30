@@ -16,6 +16,13 @@
       <description>AI 智能 ChatGPT：https://chatgpt.com/ Gemini：https://gemini.google.com/ 通义千问：h</description>
     </item>
     <item>
+      <title>使用 OpenCore，让你的旧 Mac 用上最新的 macOS 系统</title>
+      <link>https://ichochy.com/posts/mac/20240620.html</link>
+      <pubDate>Thu, 20 Jun 2024 18:52:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/mac/20240620.html</guid>
+      <description>今天介绍一款开源软件，可以突破官方的限制，通过打补丁的形式，用上最新的 macOS 系统。 我大学时的 Macbook Pro 现在还在用，因硬件系统限制，macOS 系统无法更</description>
+    </item>
+    <item>
       <title>给 Terminal 终端添加不一样的色彩，安装插件实现自动补全、高亮显示</title>
       <link>https://ichochy.com/posts/mac/20240520.html</link>
       <pubDate>Mon, 20 May 2024 15:22:45 +0800</pubDate>

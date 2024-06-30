@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20240620,
+    "url": "https://ichochy.com/posts/mac/20240620.html",
+    "title": "使用 OpenCore，让你的旧 Mac 用上最新的 macOS 系统",
+    "summary": "今天介绍一款开源软件，可以突破官方的限制，通过打补丁的形式，用上最新的 macOS 系统。 我大学时的 Macbook Pro 现在还在用，因硬件系统限制，macOS 系统无法更",
+    "content": "今天介绍一款开源软件，可以突破官方的限制，通过打补丁的形式，用上最新的 macOS 系统。\n我大学时的 Macbook Pro 现在还在用，因硬件系统限制，macOS 系统无法更新，有很多的软件都不再支持，没法继续在用下去了。\n现在通过 OpenCore 软件，将旧 Mac 电脑升级新的 macOS 系统。\n软件介绍 OpenCore OpenCore 是一个“引导加载程序”，使其 X86 硬件模拟 Mac 环境来安装 macOS 系统。为 macOS 注入数据和驱动引导，例如 SMBIOS、ACPI 表和 kext等。设计考虑安全性和质量，使我们能够使用真实 Mac 上的许多安全功能，例如系统完整性保护和 FileVault等。\nOpenCore Legacy Patcher OpenCore Legacy Patcher 是一个用于旧版 Mac 电脑的补丁程序，让你的旧 Mac 电脑像以前一样体验新的 macOS 系统。\nOpenCore Legacy Patcher是一个复杂的引导加载程序，用于在内存中而不是磁盘上注入和修补数据。这意味着我们能够在许多不受支持的 Mac 上实现近乎原生的体验。\nOpenCore Legacy Patcher 下载 OpenCore Legacy Patcher GitHub： https://github.com/dortania/OpenCore-Legacy-Patcher/\nOpenCore Legacy Patcher 最新版本：https://github.com/dortania/OpenCore-Legacy-Patcher/releases\nOpenCore Patcher(1.5.0)：https://github.com/dortania/OpenCore-Legacy-Patcher/releases/download/1.5.0/OpenCore-Patcher.pkg\n安装 OpenCore Patcher 将OpenCore Patcher下载到本地后，直接打开进行安装，按照提示步完成安装，跟常用软件安装一样简单。\n新 macOS 系统安装 创建系统镜像 打开OpenCore Patcher\n使用OpenCore Patcher，安装 macOS 系统\n点击 Create macOS installer按钮\n选择安装macOS系统的来源，在线下载或使用本地\n系统写入到 U 盘 macOS 系统写入到 U 盘\n选择安装的系统\n选择写入U盘\n系统写入U盘中……\n引导写入到 U 盘 将 OpenCore 引导写入到 U 盘\n点击Build and Install OpenCore按钮\nOpenCore 写入到 U 盘，请选择 U 盘 OpenCore 写入中……\n安装 macOS 系统 重启电脑，选择 OpenCore 引导\n安装 macOS 系统。\n经历几次重启后，直接进入新系统的设置引导界面，完成初始化设置。\n注:跟全新安装系统一样，没有过多的额外操作。\n重装 OpenCore Patcher 安装 OpenCore Patcher 进入新系统后，重新安装 OpenCore Patcher。\n安装驱动补丁包。 使用 OpenCore Patcher 安装驱动补丁包。\n点击Post-Install Root Patch按钮\n安装补丁包，安装缺损的驱动补丁包，让系统完美运行 引导写入到本地硬盘 OpenCore 引导写入到本地硬盘（脱离 U 盘启动系统）\n点击Build and Install OpenCore按钮\nOpenCore 写入到本地硬盘，请选择本地硬盘 OpenCore 写入中……\n重启电脑，结束系统安装，现在可以享用你的新的 macOS 系统。\n总结：可以看到，使用OpenCore Patcher，突破原有的官方限制，可以轻松的在旧 Mac 电脑上用新的 macOS 系统。\n但其中也有一些问题，比如系统没有以前流畅，有个别硬件不兼容或无法适配，少数功能无法正常使用。\n需要一些取舍和付出，看自己如何抉择。\n",
+    "pubDate": "2024-06-20T18:52:45+08:00"
+  }, 
+  {
     "objectID": 20240520,
     "url": "https://ichochy.com/posts/mac/20240520.html",
     "title": "给 Terminal 终端添加不一样的色彩，安装插件实现自动补全、高亮显示",
