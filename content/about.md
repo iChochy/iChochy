@@ -4,11 +4,11 @@ date: 2020-07-22T12:07:59+08:00
 ---
 
 ## 简介  
-本人是一个80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！  
+80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！  
 关于 Java 入门的问题，请关注公众号：`iChochy`，免费解答初学者的问题。  
 **只希望帮助到更多想学 Java 的人。**   
 
-白血病(CMML)患者，现已骨髓移植，肺排(FEV1:35%)恢复中……   
+白血病(CMML)患者，现已骨髓移植，肺排(FEV1:35%)， 恢复中……   
 
 ## 联系方式  
 > 公众号：`iChochy`  
@@ -28,9 +28,11 @@ date: 2020-07-22T12:07:59+08:00
 [JetBrains](https://www.jetbrains.com/) 提供 [Open Source License](https://www.jetbrains.com/shop/eform/opensource)  
 
 ## VPS推荐
-Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
+
+V.PS：[https://v.ps](https://vps.hosting/?affid=1504)
 Lightnode：[https://www.lightnode.com/](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)  
-CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)
+CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)  
+Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
 
 ---
 
