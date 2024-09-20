@@ -58,11 +58,11 @@
       <description>使用 certbot 可以很方便、快捷的通过 Let&amp;rsquo;s Encrypt 申请免费的证书，并部署到 nginx 中，开启 https 在 Linux 通过命令安装 安装 Nginx sudo apt install nginx 安装 certbot 先安装 snap sudo apt install snap 再通过 snap 安装 certbot sudo snap install</description>
     </item>
     <item>
-      <title>菲律宾VPS服务器，月均只要16.5元/月，优惠推荐</title>
+      <title>菲律宾 VPS 服务器，月均只要16.5元/月，优惠推荐</title>
       <link>https://ichochy.com/posts/vps/20240105.html</link>
       <pubDate>Fri, 05 Jan 2024 21:25:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/vps/20240105.html</guid>
-      <description>Megalayer 致力于成为全球电信增值服务提供商，为用户在全球范围内提供优质、稳定的互联网服务，目前已经在香港、日本、美国等地区部署节点，并且将继续在东南</description>
+      <description>Megalayer 致力于成为全球电信增值服务提供商，为用户在全球范围内提供优质、稳定的互联网服务，目前已经在香港、新加坡、菲律宾、美国等地区部署节点，并且将</description>
     </item>
     <item>
       <title>Mac launchctl 自定义服务启动</title>
@@ -86,14 +86,14 @@
       <description>nginx location 正则错误写法 location 正则的错误的写法 匹配请求目录地址 /555 server { location ~ ^/\d{2,3}$ { …… } } 注： 上面的会出现错误 pcre_compile() failed: missing 正则解析失败，正则表达式正常是没有问题的，</description>
     </item>
     <item>
-      <title>香港CN2优化线路带宽低延迟VPS服务器推荐</title>
+      <title>香港 CN2 优化线路带宽低延迟 VPS 服务器推荐</title>
       <link>https://ichochy.com/posts/vps/20231120.html</link>
       <pubDate>Mon, 20 Nov 2023 08:25:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/vps/20231120.html</guid>
       <description>CN2 CN2，中国电信下一代承载网（ChinaNetNextCarryingNetwork）。CN2是一个多业务的承载网络，它能够支持数据、语音</description>
     </item>
     <item>
-      <title>菲律宾VPS服务器便宜推荐</title>
+      <title>菲律宾、马来西亚、泰国 VPS 服务器便宜推荐</title>
       <link>https://ichochy.com/posts/vps/20231022.html</link>
       <pubDate>Sun, 22 Oct 2023 11:25:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/vps/20231022.html</guid>
