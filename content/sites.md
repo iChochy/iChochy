@@ -12,6 +12,7 @@ POE：[https://poe.com/](https://poe.com/)
 
 ## 常用工具
 Fast：[http://fast.com/](http://fast.com/)  
+Speed Test：[https://speed.cloudflare.com/](https://speed.cloudflare.com/)  
 在线测速：[https://test.ustc.edu.cn/](https://test.ustc.edu.cn/)  
 Linux 命令：[https://git.io/linux](https://git.io/linux)  
 Deepl：[https://www.deepl.com/](https://www.deepl.com/zh/translator)  
@@ -53,8 +54,7 @@ VSCode：[https://code.visualstudio.com/](https://code.visualstudio.com/)
 Zed：[https://zed.dev/](https://zed.dev/)  
    
 
-## 站点管理
-Speed Test：[https://speed.cloudflare.com/](https://speed.cloudflare.com/)  
+## 站点管理  
 Cloudflare：[https://dash.cloudflare.com/](https://dash.cloudflare.com/login)  
 Bing Console：[https://www.bing.com/webmasters/](https://www.bing.com/webmasters/)   
 Google Console：[https://search.google.com/search-console](https://search.google.com/search-console)  
