@@ -45,6 +45,7 @@ Helix：[https://helix-editor.com/](https://helix-editor.com/)
 Emacs：[https://www.gnu.org/software/emacs/](https://www.gnu.org/software/emacs/)  
 
 ### IDE
+IDEA：[https://www.jetbrains.com/zh-cn/idea/download/other.html](https://www.jetbrains.com/zh-cn/idea/download/other.html)  
 Eclipse：[https://www.eclipse.org/](https://www.eclipse.org/)  
 Netbeans：[https://netbeans.apache.org/](https://netbeans.apache.org/)  
 Xcode：[https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)  
@@ -55,6 +56,7 @@ Zed：[https://zed.dev/](https://zed.dev/)
    
 
 ## 站点管理  
+Namesilo：[https://www.namesilo.com/](https://www.namesilo.com/domain/search-domains?rid=285e694it)  
 Cloudflare：[https://dash.cloudflare.com/](https://dash.cloudflare.com/login)  
 Bing Console：[https://www.bing.com/webmasters/](https://www.bing.com/webmasters/)   
 Google Console：[https://search.google.com/search-console](https://search.google.com/search-console)  
@@ -64,8 +66,7 @@ Google AdSense：[https://www.google.com/adsense/](https://www.google.com/adsens
 
 ## 云服务
 GitHub：[https://github.com/](https://github.com/iChochy)  
-UPYun：[https://console.upyun.com/](https://console.upyun.com/register/?invite=r1z6aWlRt)  
-Namesilo：[https://www.namesilo.com/](https://www.namesilo.com/domain/search-domains?rid=285e694it)  
+UPYun：[https://console.upyun.com/](https://console.upyun.com/register/?invite=r1z6aWlRt)
 aliyun Mirror：[https://developer.aliyun.com/mirror/](https://developer.aliyun.com/mirror/)  
 tsinghua Mirror：[https://mirrors.tuna.tsinghua.edu.cn/](https://mirrors.tuna.tsinghua.edu.cn/)  
 
