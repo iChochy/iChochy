@@ -22,10 +22,12 @@ MD Editor：[https://markdown.com.cn/editor/](https://markdown.com.cn/editor/)
 MD 语法：[https://guides.github.com/features/mastering-markdown/](https://guides.github.com/features/mastering-markdown/)  
 
 ## 站点论坛
-V2ex：[https://v2ex.com/](https://v2ex.com/)  
 思否：[https://segmentfault.com/](https://segmentfault.com/)  
 博客园：[http://www.cnblogs.com/](http://www.cnblogs.com/ichochy)  
 开源中国：[http://www.oschina.net/](http://www.oschina.net/)  
+V2ex：[https://v2ex.com/](https://v2ex.com/)  
+Linux.do：[https://linux.do/](https://linux.do/)    
+NodeSeek：[https://www.nodeseek.com/](https://www.nodeseek.com/)    
 
 ## 开发文档
 Java：[https://dev.java/](https://dev.java/)  

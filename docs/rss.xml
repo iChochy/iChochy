@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 20 Sep 2024 16:25:45 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2024 09:52:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/xml" />
+    <item>
+      <title>WARP Beta for macOS  支持新协议 MASQUE</title>
+      <link>https://ichochy.com/posts/mac/20240925.html</link>
+      <pubDate>Wed, 25 Sep 2024 09:52:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/mac/20240925.html</guid>
+      <description>WARP 是一款免费的应用程序，让您的互联网更安全。 软件介绍 WARP 是一款免费的应用程序，让您的互联网更安全。 WARP 建立在同一个网络上，正是这个网络使 1.1.1.1 成为地</description>
+    </item>
     <item>
       <title>2024年自用国外靠谱的 VPS 服务器推荐</title>
       <link>https://ichochy.com/posts/vps/20240920.html</link>
@@ -412,7 +419,7 @@
       <link>https://ichochy.com/about.html</link>
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
       <guid>https://ichochy.com/about.html</guid>
-      <description>简介 80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！ 关于 Java 入门的问题，请关注公众号：iChochy，免</description>
+      <description>简介 80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！ 如有 Java 入门的问题，可以免费解答初学者的问题。 只希望</description>
     </item>
     <item>
       <title>Links</title>

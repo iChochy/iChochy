@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20240925,
+    "url": "https://ichochy.com/posts/mac/20240925.html",
+    "title": "WARP Beta for macOS  支持新协议 MASQUE",
+    "summary": "WARP 是一款免费的应用程序，让您的互联网更安全。 软件介绍 WARP 是一款免费的应用程序，让您的互联网更安全。 WARP 建立在同一个网络上，正是这个网络使 1.1.1.1 成为地",
+    "content": "WARP 是一款免费的应用程序，让您的互联网更安全。\n软件介绍 WARP 是一款免费的应用程序，让您的互联网更安全。 WARP 建立在同一个网络上，正是这个网络使 1.1.1.1 成为地球上速度最快的 DNS 解析器之一。\n无论您身在何处，与 WARP 的连接都是快速可靠的。\nWARP WARP：1.1.1.1\nWARP 加密设备访问互联网的数据，防止任何人对您进行窥探。\nWARP beta for macOS 下载(Beta)： https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-macos/distribution_groups/beta\n设置协议 MASQUE 终端命令运行 # 设置为MASQUE协议: warp-cli tunnel protocol set MASQUE # 查看当前设置的协议: warp-cli settings | grep protocol ",
+    "pubDate": "2024-09-25T09:52:45+08:00"
+  }, 
+  {
     "objectID": 20240920,
     "url": "https://ichochy.com/posts/vps/20240920.html",
     "title": "2024年自用国外靠谱的 VPS 服务器推荐",

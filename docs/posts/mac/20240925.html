@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.128.0">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WARP Beta for macOS  支持新协议 MASQUE &middot; 回忆中的明天</title>
+    <meta name="keywords" content="shell,mac,software"/>
+    <meta name="description" content="WARP 是一款免费的应用程序，让您的互联网更安全。 软件介绍 WARP 是一款免费的应用程序，让您的互联网更安全。 WARP 建立在同一个网络上，正是这个网络使 1.1.1.1 成为地"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/">
+        
+        <p class="title">回忆中的明天</p>
+        
+      </a>
+      <p class="lead">
+         
+          码农小站，写点Java、Swift和感悟 
+        
+      </p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+const translations  = {
+  button: {
+    buttonText: 'Search',
+    buttonAriaLabel: 'Search',
+  },
+  modal: {
+    searchBox: {
+      resetButtonTitle: '清除查询',
+      resetButtonAriaLabel: '清除查询',
+      cancelButtonText: '取消',
+      cancelButtonAriaLabel: '取消',
+      searchInputLabel: 'Search',
+    },
+    startScreen: {
+      recentSearchesTitle: '最近搜索',
+      noRecentSearchesText: '最近没有搜索',
+      saveRecentSearchButtonTitle: '保存这个搜索',
+      removeRecentSearchButtonTitle: '从历史中删除这个搜索',
+      favoriteSearchesTitle: '喜欢',
+      removeFavoriteSearchButtonTitle: '从喜欢中删除这个搜索',
+    },
+    errorScreen: {
+      titleText: '无法获取结果',
+      helpText: '你可能需要检查你的网络',
+    },
+    footer: {
+      selectText: '搜索',
+      selectKeyAriaLabel: '输入关键字',
+      navigateText: '导航',
+      navigateUpKeyAriaLabel: '向上',
+      navigateDownKeyAriaLabel: '向下',
+      closeText: '关闭',
+      closeKeyAriaLabel: '转义关键字',
+      searchByText: 'Search by',
+    },
+    noResultsScreen: {
+      noResultsText: '没有结果',
+      suggestedQueryText: '尝试搜索',
+      reportMissingResultsText: '相信这个查询应该返回结果?',
+      reportMissingResultsLinkText: '让我们知道',
+    },
+  },
+};
+
+docsearch({
+	appId: "NKR7XWIWN9",
+	apiKey: "68adad999505e7dcb442fa41f391810c",
+	indexName: "ichochy",
+	placeholder: "Search",
+	translations: translations,
+	container: '#doc_search',
+	debug: false
+});
+
+</script>
+
+
+
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/">Index</a> </li>
+        <li><a href="https://ichochy.com/search.html"> Search </a></li><li><a href="https://ichochy.com/categories.html"> Categories </a></li><li><a href="https://ichochy.com/about.html"> About </a></li><li><a href="https://ichochy.com/sites.html"> Sites </a></li><li><a href="https://ichochy.com/links.html"> Links </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2020 - 2024 iChochy.</p>
+    <div class = "other">
+    
+    
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#软件介绍">软件介绍</a>
+      <ul>
+        <li><a href="#warp">WARP</a></li>
+      </ul>
+    </li>
+    <li><a href="#warp-beta-for-macos">WARP beta for macOS</a>
+      <ul>
+        <li><a href="#下载beta">下载(Beta)：</a></li>
+      </ul>
+    </li>
+    <li><a href="#设置协议-masque">设置协议 MASQUE</a>
+      <ul>
+        <li><a href="#终端命令运行">终端命令运行</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <h2>
+	<a href="https://ichochy.com/">Index</a>
+	  
+       / <a href="https://ichochy.com/categories/mac.html">Mac</a>
+</h2>
+
+<div class="post">
+	<h1 class="post-title">
+	WARP Beta for macOS  支持新协议 MASQUE
+
+
+
+	</h1>
+  
+    <em>
+        <time class="post-date">
+            <b>Time：</b>2024/09/25 09:52:45
+        </time>
+    </em>
+    
+  
+  <div class="related">
+    <ul class="related-tags">
+      <strong>Tags:</strong>
+      
+      <li>
+        <a href="https://ichochy.com/tags/shell.html">#shell</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/mac.html">#mac</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/software.html">#software</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+    <b>原文：</b><a href="https://ichochy.com/posts/mac/20240925.html">https://ichochy.com/posts/mac/20240925.html</a>
+    <hr>
+
+  <p>WARP 是一款免费的应用程序，让您的互联网更安全。</p>
+<h2 id="软件介绍">软件介绍</h2>
+<p>WARP 是一款免费的应用程序，让您的互联网更安全。
+WARP 建立在同一个网络上，正是这个网络使 1.1.1.1 成为地球上速度最快的 DNS 解析器之一。<br>
+无论您身在何处，与 WARP 的连接都是快速可靠的。</p>
+<h3 id="warp">WARP</h3>
+<p>WARP：<a href="https://one.one.one.one/">1.1.1.1</a><br>
+WARP 加密设备访问互联网的数据，防止任何人对您进行窥探。</p>
+<h2 id="warp-beta-for-macos">WARP beta for macOS</h2>
+<h3 id="下载beta">下载(Beta)：</h3>
+<p><a href="https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-macos/distribution_groups/beta">https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-macos/distribution_groups/beta</a></p>
+<h2 id="设置协议-masque">设置协议 MASQUE</h2>
+<h3 id="终端命令运行">终端命令运行</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 设置为MASQUE协议:</span>
+</span></span><span style="display:flex;"><span>warp-cli tunnel protocol set MASQUE
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看当前设置的协议:</span>
+</span></span><span style="display:flex;"><span>warp-cli settings | grep protocol
+</span></span></code></pre></div>
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20240620.html">
+                    使用 OpenCore，让你的旧 Mac 用上最新的 macOS 系统
+                </a>
+                <small>
+                    2024/06/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20240520.html">
+                    给 Terminal 终端添加不一样的色彩，安装插件实现自动补全、高亮显示
+                </a>
+                <small>
+                    2024/05/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20240403.html">
+                    玩转 Mac 截图，分享原生截图工具技巧，自定义截图名称和类型
+                </a>
+                <small>
+                    2024/04/03
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/software/20240402.html">
+                    更新 idea 后不能打开文件夹文件，一直加载卡住假死状态
+                </a>
+                <small>
+                    2024/04/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20231128.html">
+                    Mac launchctl 自定义服务启动
+                </a>
+                <small>
+                    2023/11/28
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+  
+
+
+<h2 id="打赏">打赏</h2>
+<img src="https://ichochy.com/sponsor.jpg" alt="Sponsor">
+<hr>
+
+
+  
+<div class="pagination">
+  <span class="pagination-item older">
+    
+    <a href="https://ichochy.com/posts/vps/20240920.html" class="pag-link">上一篇</a>
+    
+  </span>
+  <span class="pagination-item newer">
+    
+    下一篇
+    
+  </span>
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+</html>
