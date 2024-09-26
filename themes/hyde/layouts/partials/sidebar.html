@@ -2,32 +2,31 @@
   <div id = "title" class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="{{.Site.BaseURL}}">
-        {{if not .IsPage}}
+        {{- if not .IsPage -}}
         <h1 class="title">{{ .Site.Title }}</h1>
-        {{else}}
+        {{- else -}}
         <p class="title">{{ .Site.Title }}</p>
-        {{end}}
+        {{- end -}}
       </a>
       <p class="lead">
-        {{ with .Site.Params.description }} 
+        {{- with .Site.Params.description -}}
           {{.}} 
-        {{ else }}
+        {{- else -}}
           An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
-        {{end}}
+        {{- end -}}
       </p>
     </div>
       <p>
-        {{ partial "doc_search.html" . }}
+        <span id="doc_search"></span>
       </p>
     <nav>
       <ul class="sidebar-nav">
         <li><a href="{{.Site.BaseURL}}">Index</a> </li>
-        {{ range .Site.Menus.main -}}
+        {{- range .Site.Menus.main }}
         <li><a href="{{.URL | absURL }}"> {{ .Name }} </a></li>
-        {{- end }}
+        {{- end -}}
       </ul>
     </nav>
-
     <p>&copy; 2020 - {{ now.Format "2006"}} {{.Site.Params.copyright}}.</p>
     <div class = "other">
     {{with .Site.Params.caseNo }}

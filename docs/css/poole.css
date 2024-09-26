@@ -342,7 +342,7 @@ tbody tr:nth-child(odd) th {
 
 .page,
 .post {
-  margin-bottom: 4em;
+  margin-bottom: 1em;
 }
 
 /* Blog post or page title */
@@ -531,9 +531,9 @@ form button {
   text-align: right;
 }
 
-.Summary{
+/*.Summary{
   margin-bottom: -3rem;
-} 
+} */
 
 /* algolia CSS*/
 
@@ -561,6 +561,10 @@ form button {
 
 #doc_search .DocSearch-Button{
     margin:auto
+}
+
+.DocSearch-Logo svg {
+    margin-top:2px;
 }
 
 .DocSearch-Modal {

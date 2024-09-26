@@ -27,7 +27,7 @@ baseName = "algolia"
 isPlainText = true
 
 [outputFormats.RSS]
-mediatype = "application/xml"
+mediatype = "application/rss+xml"
 isPlainText = true
 baseName = "rss"
 
