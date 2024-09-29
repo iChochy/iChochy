@@ -73,7 +73,7 @@ aliyun Mirror：[https://developer.aliyun.com/mirror/](https://developer.aliyun.
 tsinghua Mirror：[https://mirrors.tuna.tsinghua.edu.cn/](https://mirrors.tuna.tsinghua.edu.cn/)  
 
 ## VPS推荐
-V.PS：[https://v.ps](https://vps.hosting/?affid=1504)  
+Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
 Lightnode：[https://www.lightnode.com/](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)  
 CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)  
-Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
+V.PS：[https://v.ps](https://vps.hosting/?affid=1504)  
