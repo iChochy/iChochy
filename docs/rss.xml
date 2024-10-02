@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 25 Sep 2024 09:52:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Oct 2024 12:25:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 CURL 命令调试和诊断网络问题，访问网站测速</title>
+      <link>https://ichochy.com/posts/shell/20241001.html</link>
+      <pubDate>Tue, 01 Oct 2024 12:25:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/shell/20241001.html</guid>
+      <description>curl 是一个命令行工具，用于在网络上发送和接收数据。它支持多种协议，包括 HTTP、HTTPS、FTP、SFTP 等，广泛应用于 Web 开发、API 测试和</description>
+    </item>
     <item>
       <title>WARP Beta for macOS  支持新协议 MASQUE</title>
       <link>https://ichochy.com/posts/mac/20240925.html</link>
