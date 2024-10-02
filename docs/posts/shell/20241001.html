@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="Hugo 0.128.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>使用 CURL 命令调试和诊断网络问题，访问网站测速 &middot; 回忆中的明天</title>
+<title>使用 CURL 命令调试和诊断网络问题，网站请求测速 &middot; 回忆中的明天</title>
     <meta name="keywords" content="mac,shell,linux"/>
     <meta name="description" content="curl 是一个命令行工具，用于在网络上发送和接收数据。它支持多种协议，包括 HTTP、HTTPS、FTP、SFTP 等，广泛应用于 Web 开发、API 测试和"/>
     
@@ -60,7 +60,7 @@
         <li><a href="#参数说明">参数说明</a></li>
       </ul>
     </li>
-    <li><a href="#访问网站测速">访问网站测速</a>
+    <li><a href="#网站请求测速">网站请求测速</a>
       <ul>
         <li><a href="#测速脚本">测速脚本</a></li>
         <li><a href="#脚本使用">脚本使用</a></li>
@@ -81,7 +81,7 @@
 
 <div class="post">
 	<h1 class="post-title">
-	使用 CURL 命令调试和诊断网络问题，访问网站测速
+	使用 CURL 命令调试和诊断网络问题，网站请求测速
 
 
 
@@ -212,9 +212,9 @@
 <li>-s：静默模式，不显示进度或错误信息。</li>
 <li>-w：格式化输出，包括 HTTP 状态码和请求的总时间。</li>
 </ul>
-<h2 id="访问网站测速">访问网站测速</h2>
+<h2 id="网站请求测速">网站请求测速</h2>
 <h3 id="测速脚本">测速脚本</h3>
-<p>完整脚本：<code>speediest.sh</code></p>
+<p>完整脚本：<code>speedtest.sh</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 网络访问测试</span>
