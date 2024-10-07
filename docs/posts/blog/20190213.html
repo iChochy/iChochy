@@ -117,9 +117,9 @@
 </li>
 <li>
 <p>运行<code>jekyll new myBlog</code>创建默认的<code>blog</code></p>
-<blockquote>
-<p>文件目录：</p>
-</blockquote>
+</li>
+</ol>
+<p><strong>文件目录：</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-rw-r--r--   <span style="color:#ae81ff">1</span> mleo  staff    <span style="color:#ae81ff">35</span>  <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">13</span> 15:02 .gitignore
 </span></span><span style="display:flex;"><span>-rw-r--r--   <span style="color:#ae81ff">1</span> mleo  staff   <span style="color:#ae81ff">398</span>  <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">13</span> 15:02 404.html
 </span></span><span style="display:flex;"><span>-rw-r--r--   <span style="color:#ae81ff">1</span> mleo  staff  <span style="color:#ae81ff">1039</span>  <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">13</span> 15:02 Gemfile
@@ -128,9 +128,9 @@
 </span></span><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#ae81ff">3</span> mleo  staff    <span style="color:#ae81ff">96</span>  <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">13</span> 15:02 _posts
 </span></span><span style="display:flex;"><span>-rw-r--r--   <span style="color:#ae81ff">1</span> mleo  staff   <span style="color:#ae81ff">539</span>  <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">13</span> 15:02 about.md
 </span></span><span style="display:flex;"><span>-rw-r--r--   <span style="color:#ae81ff">1</span> mleo  staff   <span style="color:#ae81ff">175</span>  <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">13</span> 15:02 index.md   
-</span></span></code></pre></div></li>
-<li>
-<p>运行<code>cd myBlog</code>进入<code>blog</code>目录，运行<code>bundler exec jelly serve</code>启动</p>
+</span></span></code></pre></div><ol start="4">
+<li>运行<code>cd myBlog</code>进入<code>blog</code>目录，运行<code>bundler exec jelly serve</code>启动</li>
+</ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:myBlog mleo$ bundler exec jekyll serve
 </span></span><span style="display:flex;"><span>Configuration file: /Users/mleo/Develop/Coding/myBlog/_config.yml
 </span></span><span style="display:flex;"><span>            Source: /Users/mleo/Develop/Coding/myBlog
@@ -142,15 +142,11 @@
 </span></span><span style="display:flex;"><span> Auto-regeneration: enabled <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;/Users/mleo/Develop/Coding/myBlog&#39;</span>
 </span></span><span style="display:flex;"><span>    Server address: http://127.0.0.1:4000/
 </span></span><span style="display:flex;"><span>  Server running... press ctrl-c to stop.
-</span></span></code></pre></div></li>
-<li>
-<p>通过<code>http://127.0.0.1:400</code>就可以访问<code>blog</code>了</p>
-<blockquote>
-<p>如下图：</p>
-</blockquote>
-<p><img src="https://images.ichochy.com/WX20190213-152850.png" alt="WX20190213-152850"></p>
-</li>
+</span></span></code></pre></div><ol start="5">
+<li>通过<code>http://127.0.0.1:400</code>就可以访问<code>blog</code>了</li>
 </ol>
+<p>如下图：</p>
+<p><img src="https://images.ichochy.com/WX20190213-152850.png" alt="WX20190213-152850"></p>
 <h3 id="二了解jekyll">二、了解jekyll</h3>
 <ol>
 <li>
@@ -214,9 +210,11 @@
 <p>通过<code>Gemfile</code>文件配置 jekyll 主题</p>
 <p>从<strong>Jekyll 3.2</strong>开始，<code>jekyll new</code>使用<a href="https://jekyllrb.com/docs/themes/">Gemfile文件</a>来定义网站的主题，使默认目录结构更简单。默认情况下<code>_layouts</code>，<code>_includes</code>和<code>_sass</code>存储在Ruby中。</p>
 <p><a href="https://github.com/jekyll/minima">minima</a> 是默认主题，运行 <code>bundle show minima</code> 显示主题文件位置</p>
+</li>
+</ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:myBlog mleo$ bundle show minima
 </span></span><span style="display:flex;"><span>/Library/Ruby/Gems/2.3.0/gems/minima-2.5.0
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><ol start="3">
 <li>
 <p>自定义站点信息</p>
 <p>通过自定义<code>_config.yml</code>文件，改变 blog 网站信息，</p>
@@ -268,6 +266,8 @@
 </li>
 <li>
 <p>开始写作吧，直接使用<code>md</code>语法来书写你的文章</p>
+</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---                                                                                                                                          
 </span></span><span style="display:flex;"><span>                       --指定模板
 </span></span><span style="display:flex;"><span>title:  &#34;blog&#34;                     --标题
@@ -285,31 +285,20 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">3.</span> 完成
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>   内容
-</span></span></code></pre></div><blockquote>
-<p>如下图：</p>
-</blockquote>
+</span></span></code></pre></div><p><strong>如下图：</strong></p>
 <p><img src="https://images.ichochy.com/WX20190215-171638.png" alt="WX20190215-171119"></p>
-</li>
-</ul>
 <h3 id="四创建github-pages项目">四、创建GitHub Pages项目</h3>
 <ul>
-<li>
-<p>新建一个项目，项目名必须为<code>&lt;username&gt;.github.io</code>,如：我的用户名为<code>iChochy</code>，项目名为<code>iChochy.github.io</code></p>
-<blockquote>
-<p>如下图：</p>
-</blockquote>
-<p><img src="https://images.ichochy.com/WX20190215-172254.png" alt="WX20190215-172254"></p>
-</li>
+<li>新建一个项目，项目名必须为<code>&lt;username&gt;.github.io</code>,如：我的用户名为<code>iChochy</code>，项目名为<code>iChochy.github.io</code></li>
 </ul>
+<p><strong>如下图：</strong></p>
+<p><img src="https://images.ichochy.com/WX20190215-172254.png" alt="WX20190215-172254"></p>
 <h3 id="五将blog接交到github">五、将Blog接交到GitHub</h3>
 <ul>
 <li>将本地写好的的<code>blog</code> pull到<code>github</code>上，在项目设置中打开<code>GitHub Pages</code></li>
 </ul>
-<blockquote>
-<p>如下图：</p>
-</blockquote>
-<pre><code>![WX20190218-102109](https://images.ichochy.com/WX20190218-102109.png)
-</code></pre>
+<p><strong>如下图：</strong></p>
+<p><img src="https://images.ichochy.com/WX20190218-102109.png" alt="WX20190218-102109"></p>
 <ul>
 <li>选择<code>master branch</code>并保存，就完成了部署</li>
 </ul>
@@ -321,20 +310,16 @@
 <p>自定义域名需要有自己的域名，没有可以注册购买个心意的域名：<a href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=gee3broz">阿里云</a></p>
 </li>
 <li>
-<p>进入域名配置中心，配置域名解析</p>
-<blockquote>
-<p>如下图：</p>
-</blockquote>
-<p><img src="https://images.ichochy.com/WX20190218-095303.png" alt="WX20190218-095303"></p>
-</li>
-<li>
-<p>进入<code>github</code>项目设置，设置自己的域名并保存，就完成了自定义域名设置</p>
-<blockquote>
-<p>如下图：</p>
-</blockquote>
-<p><img src="https://images.ichochy.com/WX20190218-095906.png" alt="WX20190218-095906"></p>
+<p>进入域名配置中心，配置域名解析
+<strong>如下图：</strong></p>
 </li>
 </ul>
+<p><img src="https://images.ichochy.com/WX20190218-095303.png" alt="WX20190218-095303"></p>
+<ul>
+<li>进入<code>github</code>项目设置，设置自己的域名并保存，就完成了自定义域名设置
+<strong>如下图：</strong></li>
+</ul>
+<p><img src="https://images.ichochy.com/WX20190218-095906.png" alt="WX20190218-095906"></p>
 <h3 id="八开启https">八、开启HTTPS</h3>
 <ul>
 <li>
@@ -345,9 +330,9 @@
 </li>
 <li>
 <p>完成开启后，如下图：</p>
-<p><img src="https://images.ichochy.com/WX20190218-104830.png" alt="WX20190218-104830"></p>
 </li>
 </ul>
+<p><img src="https://images.ichochy.com/WX20190218-104830.png" alt="WX20190218-104830"></p>
 
   
 
