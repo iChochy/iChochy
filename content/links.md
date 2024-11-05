@@ -11,7 +11,7 @@ Kaciras' Blog：[https://blog.kaciras.com](https://blog.kaciras.com)
 阿西河前端教程：[https://www.axihe.com](https://www.axihe.com)  
 imbytecat：[https://www.imbytecat.com](https://www.imbytecat.com)     
 Pantheon：[https://blog.pantheon.press](https://blog.pantheon.press)    
-
+VPS：[https://qkk.one](https://qkk.one)  
 
 ## 申请友链
 请关注公众号：`iChochy`  
