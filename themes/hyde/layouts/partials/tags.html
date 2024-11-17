@@ -1,14 +1,13 @@
-{{if eq .Section  .Site.Params.PostDir}}
-  {{with .Params.tags}}
+
   <div class="related">
     <ul class="related-tags">
-      <strong>Tags:</strong>
+  {{with .Params.tags}}
+      <b>标签:</b>
       {{range .}}
       <li>
         <a href="{{ "tags" | absURL }}/{{ . | urlize }}.html">#{{ . }}</a>
       </li>
       {{ end }}
+    {{end}}
     </ul>
   </div>
-  {{end}}
-{{end}}

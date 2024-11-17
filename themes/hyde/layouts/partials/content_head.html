@@ -1,10 +1,11 @@
 {{if eq .Section  .Site.Params.PostDir}}
-    <em>
-        <time class="post-date">
-            <b>Time：</b>{{ .Date.Format .Site.Params.DateTimeFormat }}
-        </time>
-    </em>
-    {{ partial "tags.html" . }}
-    <b>原文：</b><a href="{{.Permalink}}">{{.Permalink}}</a>
-    <hr>
+{{ partial "categories.html" . }}
+{{ partial "tags.html" . }}
+<em>
+    <time class="post-date">
+        <b>时间：</b>{{ .Date.Format .Site.Params.DateTimeFormat }}
+    </time>
+</em><br>
+<b>原文：</b><a href="{{.Permalink}}">{{.Permalink}}</a>
+<hr>
 {{end}}

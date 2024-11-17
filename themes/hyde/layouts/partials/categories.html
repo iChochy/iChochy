@@ -1,0 +1,13 @@
+
+  {{with .Params.Categories}}
+  <div class="related">
+    <ul class="related-tags">
+      <b>类别:</b>
+      {{range .}}
+      <li>
+        <a href="{{ "Categories" | absURL }}/{{ . | urlize }}.html">#{{ . }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{end}}

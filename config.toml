@@ -47,11 +47,12 @@ adsense = "3691661241035911"
 
 [Menus]
 main = [
-    #     {Name = "Tags", weight = 2, URL = "/tags.html"},
-    { Name = "Search", weight = 3, URL = "/search.html" },
-    { Name = "Categories", weight = 4, URL = "/categories.html" },
-    { Name = "About", weight = 5, URL = "/about.html" },
-    { Name = "Sites", weight = 6, URL = "/Sites.html" },
-    { Name = "Links", weight = 7, URL = "/links.html" },
+    { Name = "首页", weight = 1, URL = "" },
+#     {Name = "标签", weight = 2, URL = "/tags.html"},
+    { Name = "类别", weight = 3, URL = "/categories.html" },
+    { Name = "搜索", weight = 4, URL = "/search.html" },
+    { Name = "简介", weight = 5, URL = "/about.html" },
+    { Name = "站点", weight = 6, URL = "/Sites.html" },
+    { Name = "友链", weight = 7, URL = "/links.html" },
 #    {Name = "RSS", weight = 8, URL = "/rss.xml"}
 ]

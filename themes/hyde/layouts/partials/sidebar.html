@@ -21,7 +21,6 @@
       </p>
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="{{.Site.BaseURL}}">Index</a> </li>
         {{- range .Site.Menus.main }}
         <li><a href="{{.URL | absURL }}"> {{ .Name }} </a></li>
         {{- end -}}
