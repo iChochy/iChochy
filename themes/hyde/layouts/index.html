@@ -5,7 +5,7 @@
     {{ range $paginator.Pages }}
     <article class="post">
         <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <div class="Summary">{{ .Summary | html }}……</div>
+        <div class="Summary">{{ .Summary }}……</div>
         {{ if .Truncated }}
         <div class="read-more-link">
           <a href="{{ .Permalink }}">阅读全文</a>

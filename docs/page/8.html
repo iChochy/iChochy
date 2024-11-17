@@ -3,7 +3,7 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -54,7 +54,7 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/elasticsearch/20191107.html">Docker 中运行 ElasticSearch 和 Kibana</a></h2>
-        <div class="Summary">ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析……</div>
+        <div class="Summary"><p>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/elasticsearch/20191107.html">阅读全文</a>
@@ -64,7 +64,7 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/elasticsearch/20191106.html">初识 Docker</a></h2>
-        <div class="Summary">Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统……</div>
+        <div class="Summary"><p>Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配置系统环境。</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/elasticsearch/20191106.html">阅读全文</a>
@@ -74,7 +74,11 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/shell/20191028.html">Mac 无密码 SSH 登录服务器</a></h2>
-        <div class="Summary">Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器 第一步，生成密钥对 在当前用户下创建.ssh目录 mkdir ~/.ssh 使用命令ssh-……</div>
+        <div class="Summary"><p>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</p>
+<h2 id="第一步生成密钥对">第一步，生成密钥对</h2>
+<p>在当前用户下创建<code>.ssh</code>目录</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir ~/.ssh
+</span></span></code></pre></div><p>使用命令<code>ssh-keygen</code>生成密钥对,会在<code>~/.ssh</code>目录下生成公/私钥</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/shell/20191028.html">阅读全文</a>
@@ -84,7 +88,7 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/spring/20191018.html">Spring Cloud Alibaba Nacos Discovery 实战</a></h2>
-        <div class="Summary">Nacos 作为服务注册中心，可以快速简单的将服务自动注册到 Nacos 服务端，并且能够动态无感知的刷新某个服务实例的服务列表，为分布式系统提供服务注册与发现功……</div>
+        <div class="Summary"><p>Nacos 作为服务注册中心，可以快速简单的将服务自动注册到 Nacos 服务端，并且能够动态无感知的刷新某个服务实例的服务列表，为分布式系统提供服务注册与发现功能</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/spring/20191018.html">阅读全文</a>
@@ -94,7 +98,7 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/spring/20191017.html">Spring Cloud Alibaba Nacos Config 实战</a></h2>
-        <div class="Summary">Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你……</div>
+        <div class="Summary"><p>Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你 Spring Cloud 应用的外部属性配置</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/spring/20191017.html">阅读全文</a>
@@ -104,7 +108,37 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/shell/20191016.html">Shell 脚本重启项目</a></h2>
-        <div class="Summary">每次发打包好项目后都需要手动重启项目，写个Shell脚本一键重启项目 Shell 脚本 #!/bin/bash while getopts &amp;#34;n:p:&amp;#34; arg do case $arg in n) echo &amp;#34;NAME&amp;#39;s arg:$OPTARG&amp;#34; NAME=$OPTARG ;; p) echo &amp;#34;PORT&amp;#39;s arg:$OPTARG&amp;#34; PORT=$OPTARG ;; esac done PROCESS=echo | lsof -i TCP:$PORT | grep LISTEN | awk……</div>
+        <div class="Summary"><p>每次发打包好项目后都需要手动重启项目，写个<code>Shell</code>脚本一键重启项目</p>
+<h3 id="shell-脚本">Shell 脚本</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> getopts <span style="color:#e6db74">&#34;n:p:&#34;</span> arg
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> $arg in
+</span></span><span style="display:flex;"><span>        n<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;NAME&#39;s arg:</span>$OPTARG<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                NAME<span style="color:#f92672">=</span>$OPTARG
+</span></span><span style="display:flex;"><span>            ;;
+</span></span><span style="display:flex;"><span>        p<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;PORT&#39;s arg:</span>$OPTARG<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                PORT<span style="color:#f92672">=</span>$OPTARG
+</span></span><span style="display:flex;"><span>            ;;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PROCESS<span style="color:#f92672">=</span>echo | lsof  -i TCP:$PORT | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $PROCESS <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>kill -9 $PROCESS
+</span></span><span style="display:flex;"><span>echo kill $NAME:$PROCESS, restart
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>cd jenkins
+</span></span><span style="display:flex;"><span>cp jar/.tmp/$NAME-0.0.1-SNAPSHOT.jar jar/
+</span></span><span style="display:flex;"><span>nohup java -jar -Xms128m -Xmx256m jar/$NAME-0.0.1-SNAPSHOT.jar --eureka.url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;127.0.0.1:9100/eureka/&#34;</span> --profile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dev&#34;</span>  &gt;logs/$NAME.log 2&gt;&amp;<span style="color:#ae81ff">1</span> &amp;
+</span></span><span style="display:flex;"><span>echo $NAME starting
+</span></span></code></pre></div><h3 id="shell-说明">Shell 说明</h3>
+<p><code>lsof</code>：通过端口获取进程<br>
+<code>getopts</code>：实现<code>Shell</code>脚本多参数<br>
+<code>nohup</code>：后台启动项目</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/shell/20191016.html">阅读全文</a>
@@ -114,7 +148,10 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/spring/20191012.html">认识 Spring Cloud Alibaba</a></h2>
-        <div class="Summary">个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件 Spring Cloud 是什么 Spring Cloud 为开发人员提供一些分布式组件，使其快速构建分布式系统（例……</div>
+        <div class="Summary"><p>个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件</p>
+<h2 id="spring-cloud-是什么">Spring Cloud 是什么</h2>
+<p>Spring Cloud 为开发人员提供一些分布式组件，使其快速构建分布式系统（例如，配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁，领导选举，分布式会话，群集状态）。<br>
+开发人员使用 Spring Cloud 的组件，实现分布式服务系统，让服务可以在任何分布式环境中正常工作。</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/spring/20191012.html">阅读全文</a>
@@ -124,7 +161,12 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/blog/20191008.html">通过 Cloudflare 开启全站 https</a></h2>
-        <div class="Summary">Cloudflare 添加域名后，会自动生成通用证书，快速开启全站HTTPS，服务端不用做任何修改，还可以选择多种开启模式 一、注册Cloudflare账号 直接打……</div>
+        <div class="Summary"><p><a href="https://www.cloudflare.com">Cloudflare</a> 添加域名后，会自动生成通用证书，快速开启全站<code>HTTPS</code>，服务端不用做任何修改，还可以选择多种开启模式</p>
+<h3 id="一注册cloudflarehttpswwwcloudflarecom账号">一、注册<a href="https://www.cloudflare.com">Cloudflare</a>账号</h3>
+<p>直接打开网站：<a href="https://www.cloudflare.com">https://www.cloudflare.com</a>,就可以注册账号了，然后添加域名，选择<code>Free</code>套餐，没有任何费用<br>
+<img src="https://images.ichochy.com/15706929364310571.png" alt="15706929364310571"></p>
+<h3 id="二修改dns">二、修改DNS</h3>
+<p>免费套餐只能通过<code>DNS</code>方式配置 Cloudflare，收费套餐或 <a href="https://www.cloudflare.com/partners/">Partner</a>，可以通过<code>CNAME</code>配置</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/blog/20191008.html">阅读全文</a>
@@ -134,17 +176,23 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/blog/20190925.html">jekyll-admin的搭建和使用</a></h2>
-        <div class="Summary">通过jekyll搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现jekyll-admin是个好东西，它是博客的后台管理系统，可……</div>
-        
-        <div class="read-more-link">
-          <a href="https://ichochy.com/posts/blog/20190925.html">阅读全文</a>
-        </div>
+        <div class="Summary"><p>通过<a href="https://jekyllrb.com/">jekyll</a>搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现<a href="https://jekyll.github.io/jekyll-admin/">jekyll-admin</a>是个好东西，它是博客的后台管理系统，可以方便的管理和编写自己的博客</p>
+<h3 id="安装">安装</h3>
+<p>运行命令<code>gem install jekyll-admin</code>进行安装</p>
+<h3 id="配置">配置</h3>
+<p>在<code>_config.yml</code>中添加<code>  - jekyll-admin</code></p>
+<pre tabindex="0"><code>plugins:
+    - jekyll-admin
+</code></pre><h3 id="使用">使用</h3>
+<p>运行命令<code>jekyll server</code> 启动<a href="https://jekyllrb.com/"><code>jekyll</code></a><br>
+直接访问<a href="http://127.0.0.1:4000/admin">http://127.0.0.1:4000/admin</a>就可以看到<a href="https://jekyll.github.io/jekyll-admin/"><code>jekyll-admin</code></a>的使用界面<br>
+<img src="https://images.ichochy.com/15695720693585521.png" alt="15695720693585521"></p>……</div>
         
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/shell/20190922.html">神奇的不可见空格&lt;200b&gt;导致代码异常</a></h2>
-        <div class="Summary">故事是这样发生的，在做一个JSON对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格&amp;lt;200……</div>
+        <div class="Summary"><p>故事是这样发生的，在做一个<code>JSON</code>对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格<code>&lt;200b&gt;</code>导致的解析异常</p>……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/shell/20190922.html">阅读全文</a>

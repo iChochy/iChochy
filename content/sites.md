@@ -47,7 +47,7 @@ Helix：[https://helix-editor.com/](https://helix-editor.com/)
 Emacs：[https://www.gnu.org/software/emacs/](https://www.gnu.org/software/emacs/)  
 
 ### IDE
-IDEA：[https://www.jetbrains.com/zh-cn/idea/download/other.html](https://www.jetbrains.com/zh-cn/idea/download/other.html)  
+IDEA：[https://www.jetbrains.com](https://www.jetbrains.com/zh-cn/idea/download/other.html)  
 Eclipse：[https://www.eclipse.org/](https://www.eclipse.org/)  
 Netbeans：[https://netbeans.apache.org/](https://netbeans.apache.org/)  
 Xcode：[https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)  

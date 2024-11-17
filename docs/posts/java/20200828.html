@@ -3,11 +3,11 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Java 正则表达式实例操作 &middot; 回忆中的明天</title>
     <meta name="keywords" content="java,regular"/>
-    <meta name="description" content="Regular Expression正则表达式，简称RegExp，常规通用的表达式，在多个开发语言中都有它的实现，可以通过正则表达式来快速的检索、匹配、查"/>
+    <meta name="description" content="Regular Expression正则表达式，简称RegExp，常规通用的表达式，在多个开发语言中都有它的实现，可以通过正则表达式来快速的检索、匹配、查找、替换字符串中的文本。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -235,521 +235,521 @@
 </span></span></code></pre></div><h2 id="正则表达式规则">正则表达式规则</h2>
 <h3 id="字符">字符</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x</td>
-<td>字符 x</td>
-</tr>
-<tr>
-<td>\</td>
-<td>反斜线字符</td>
-</tr>
-<tr>
-<td>\0n</td>
-<td>带有八进制值 0 的字符 n (0 &lt;= n &lt;= 7)</td>
-</tr>
-<tr>
-<td>\0nn</td>
-<td>带有八进制值 0 的字符 nn (0 &lt;= n &lt;= 7)</td>
-</tr>
-<tr>
-<td>\0mnn</td>
-<td>带有八进制值 0 的字符 mnn（0 &lt;= m &lt;= 3、0 &lt;= n &lt;= 7）</td>
-</tr>
-<tr>
-<td>\xhh</td>
-<td>带有十六进制值 0x 的字符 hh</td>
-</tr>
-<tr>
-<td>\uhhhh</td>
-<td>带有十六进制值 0x 的字符 hhhh</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>制表符(&rsquo;\u0009')</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>新行（换行）符 (&rsquo;\u000A')</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>回车符 (&rsquo;\u000D')</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>换页符 (&rsquo;\u000C')</td>
-</tr>
-<tr>
-<td>\a</td>
-<td>报警 (bell) 符 (&rsquo;\u0007')</td>
-</tr>
-<tr>
-<td>\e</td>
-<td>转义符 (&rsquo;\u001B')</td>
-</tr>
-<tr>
-<td>\cx</td>
-<td>对应于 x 的控制符</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>x</td>
+          <td>字符 x</td>
+      </tr>
+      <tr>
+          <td>\</td>
+          <td>反斜线字符</td>
+      </tr>
+      <tr>
+          <td>\0n</td>
+          <td>带有八进制值 0 的字符 n (0 &lt;= n &lt;= 7)</td>
+      </tr>
+      <tr>
+          <td>\0nn</td>
+          <td>带有八进制值 0 的字符 nn (0 &lt;= n &lt;= 7)</td>
+      </tr>
+      <tr>
+          <td>\0mnn</td>
+          <td>带有八进制值 0 的字符 mnn（0 &lt;= m &lt;= 3、0 &lt;= n &lt;= 7）</td>
+      </tr>
+      <tr>
+          <td>\xhh</td>
+          <td>带有十六进制值 0x 的字符 hh</td>
+      </tr>
+      <tr>
+          <td>\uhhhh</td>
+          <td>带有十六进制值 0x 的字符 hhhh</td>
+      </tr>
+      <tr>
+          <td>\t</td>
+          <td>制表符(&rsquo;\u0009')</td>
+      </tr>
+      <tr>
+          <td>\n</td>
+          <td>新行（换行）符 (&rsquo;\u000A')</td>
+      </tr>
+      <tr>
+          <td>\r</td>
+          <td>回车符 (&rsquo;\u000D')</td>
+      </tr>
+      <tr>
+          <td>\f</td>
+          <td>换页符 (&rsquo;\u000C')</td>
+      </tr>
+      <tr>
+          <td>\a</td>
+          <td>报警 (bell) 符 (&rsquo;\u0007')</td>
+      </tr>
+      <tr>
+          <td>\e</td>
+          <td>转义符 (&rsquo;\u001B')</td>
+      </tr>
+      <tr>
+          <td>\cx</td>
+          <td>对应于 x 的控制符</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="字符类">字符类</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[abc]</td>
-<td>a、b 或 c（简单类）</td>
-</tr>
-<tr>
-<td>[^abc]</td>
-<td>任何字符，除了 a、b 或 c（否定）</td>
-</tr>
-<tr>
-<td>[a-zA-Z]</td>
-<td>a 到 z 或 A 到 Z，两头的字母包括在内（范围）</td>
-</tr>
-<tr>
-<td>[a-d[m-p]]</td>
-<td>a 到 d 或 m 到 p：[a-dm-p]（并集）</td>
-</tr>
-<tr>
-<td>[a-z&amp;&amp;[def]]</td>
-<td>d、e 或 f（交集）</td>
-</tr>
-<tr>
-<td>[a-z&amp;&amp;[^bc]]</td>
-<td>a 到 z，除了 b 和 c：[ad-z]（减去）</td>
-</tr>
-<tr>
-<td>[a-z&amp;&amp;[^m-p]]</td>
-<td>a 到 z，而非 m 到 p：[a-lq-z]（减去）</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>[abc]</td>
+          <td>a、b 或 c（简单类）</td>
+      </tr>
+      <tr>
+          <td>[^abc]</td>
+          <td>任何字符，除了 a、b 或 c（否定）</td>
+      </tr>
+      <tr>
+          <td>[a-zA-Z]</td>
+          <td>a 到 z 或 A 到 Z，两头的字母包括在内（范围）</td>
+      </tr>
+      <tr>
+          <td>[a-d[m-p]]</td>
+          <td>a 到 d 或 m 到 p：[a-dm-p]（并集）</td>
+      </tr>
+      <tr>
+          <td>[a-z&amp;&amp;[def]]</td>
+          <td>d、e 或 f（交集）</td>
+      </tr>
+      <tr>
+          <td>[a-z&amp;&amp;[^bc]]</td>
+          <td>a 到 z，除了 b 和 c：[ad-z]（减去）</td>
+      </tr>
+      <tr>
+          <td>[a-z&amp;&amp;[^m-p]]</td>
+          <td>a 到 z，而非 m 到 p：[a-lq-z]（减去）</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="预定义字符类">预定义字符类</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.</td>
-<td>任何字符（与行结束符可能匹配也可能不匹配）</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>数字：[0-9]</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>非数字： [^0-9]</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>空白字符：[ \t\n\x0B\f\r]</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>非空白字符：[^\s]</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>单词字符：[a-zA-Z_0-9]</td>
-</tr>
-<tr>
-<td>\W</td>
-<td>非单词字符：[^\w]</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>.</td>
+          <td>任何字符（与行结束符可能匹配也可能不匹配）</td>
+      </tr>
+      <tr>
+          <td>\d</td>
+          <td>数字：[0-9]</td>
+      </tr>
+      <tr>
+          <td>\D</td>
+          <td>非数字： [^0-9]</td>
+      </tr>
+      <tr>
+          <td>\s</td>
+          <td>空白字符：[ \t\n\x0B\f\r]</td>
+      </tr>
+      <tr>
+          <td>\S</td>
+          <td>非空白字符：[^\s]</td>
+      </tr>
+      <tr>
+          <td>\w</td>
+          <td>单词字符：[a-zA-Z_0-9]</td>
+      </tr>
+      <tr>
+          <td>\W</td>
+          <td>非单词字符：[^\w]</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="posix-字符类仅-us-ascii">POSIX 字符类（仅 US-ASCII）</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\p{Lower}</td>
-<td>小写字母字符：[a-z]</td>
-</tr>
-<tr>
-<td>\p{Upper}</td>
-<td>大写字母字符：[A-Z]</td>
-</tr>
-<tr>
-<td>\p{ASCII}</td>
-<td>所有 ASCII：[\x00-\x7F]</td>
-</tr>
-<tr>
-<td>\p{Alpha}</td>
-<td>字母字符：[\p{Lower}\p{Upper}]</td>
-</tr>
-<tr>
-<td>\p{Digit}</td>
-<td>十进制数字：[0-9]</td>
-</tr>
-<tr>
-<td>\p{Alnum}</td>
-<td>字母数字字符：[\p{Alpha}\p{Digit}]</td>
-</tr>
-<tr>
-<td>\p{Punct}</td>
-<td>标点符号：!&quot;#$%&amp;&rsquo;()*+,-./:;&lt;=&gt;?@[]^_`{</td>
-</tr>
-<tr>
-<td>\p{Graph}</td>
-<td>可见字符：[\p{Alnum}\p{Punct}]</td>
-</tr>
-<tr>
-<td>\p{Print}</td>
-<td>可打印字符：[\p{Graph}\x20]</td>
-</tr>
-<tr>
-<td>\p{Blank}</td>
-<td>空格或制表符：[ \t]</td>
-</tr>
-<tr>
-<td>\p{Cntrl}</td>
-<td>控制字符：[\x00-\x1F\x7F]</td>
-</tr>
-<tr>
-<td>\p{XDigit}</td>
-<td>十六进制数字：[0-9a-fA-F]</td>
-</tr>
-<tr>
-<td>\p{Space}</td>
-<td>空白字符：[ \t\n\x0B\f\r]</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>\p{Lower}</td>
+          <td>小写字母字符：[a-z]</td>
+      </tr>
+      <tr>
+          <td>\p{Upper}</td>
+          <td>大写字母字符：[A-Z]</td>
+      </tr>
+      <tr>
+          <td>\p{ASCII}</td>
+          <td>所有 ASCII：[\x00-\x7F]</td>
+      </tr>
+      <tr>
+          <td>\p{Alpha}</td>
+          <td>字母字符：[\p{Lower}\p{Upper}]</td>
+      </tr>
+      <tr>
+          <td>\p{Digit}</td>
+          <td>十进制数字：[0-9]</td>
+      </tr>
+      <tr>
+          <td>\p{Alnum}</td>
+          <td>字母数字字符：[\p{Alpha}\p{Digit}]</td>
+      </tr>
+      <tr>
+          <td>\p{Punct}</td>
+          <td>标点符号：!&quot;#$%&amp;&rsquo;()*+,-./:;&lt;=&gt;?@[]^_`{</td>
+      </tr>
+      <tr>
+          <td>\p{Graph}</td>
+          <td>可见字符：[\p{Alnum}\p{Punct}]</td>
+      </tr>
+      <tr>
+          <td>\p{Print}</td>
+          <td>可打印字符：[\p{Graph}\x20]</td>
+      </tr>
+      <tr>
+          <td>\p{Blank}</td>
+          <td>空格或制表符：[ \t]</td>
+      </tr>
+      <tr>
+          <td>\p{Cntrl}</td>
+          <td>控制字符：[\x00-\x1F\x7F]</td>
+      </tr>
+      <tr>
+          <td>\p{XDigit}</td>
+          <td>十六进制数字：[0-9a-fA-F]</td>
+      </tr>
+      <tr>
+          <td>\p{Space}</td>
+          <td>空白字符：[ \t\n\x0B\f\r]</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="javalangcharacter-类简单的-java-字符类型">java.lang.Character 类（简单的 java 字符类型）</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\p{javaLowerCase}</td>
-<td>等效于 java.lang.Character.isLowerCase()</td>
-</tr>
-<tr>
-<td>\p{javaUpperCase}</td>
-<td>等效于 java.lang.Character.isUpperCase()</td>
-</tr>
-<tr>
-<td>\p{javaWhitespace}</td>
-<td>等效于 java.lang.Character.isWhitespace()</td>
-</tr>
-<tr>
-<td>\p{javaMirrored}</td>
-<td>等效于 java.lang.Character.isMirrored()</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>\p{javaLowerCase}</td>
+          <td>等效于 java.lang.Character.isLowerCase()</td>
+      </tr>
+      <tr>
+          <td>\p{javaUpperCase}</td>
+          <td>等效于 java.lang.Character.isUpperCase()</td>
+      </tr>
+      <tr>
+          <td>\p{javaWhitespace}</td>
+          <td>等效于 java.lang.Character.isWhitespace()</td>
+      </tr>
+      <tr>
+          <td>\p{javaMirrored}</td>
+          <td>等效于 java.lang.Character.isMirrored()</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="unicode-块和类别的类">Unicode 块和类别的类</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\p{InGreek}</td>
-<td>Greek 块（简单块）中的字符</td>
-</tr>
-<tr>
-<td>\p{Lu}</td>
-<td>大写字母（简单类别）</td>
-</tr>
-<tr>
-<td>\p{Sc}</td>
-<td>货币符号</td>
-</tr>
-<tr>
-<td>\P{InGreek}</td>
-<td>所有字符，Greek 块中的除外（否定）</td>
-</tr>
-<tr>
-<td>[\p{L}&amp;&amp;[^\p{Lu}]]</td>
-<td>所有字母，大写字母除外（减去）</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>\p{InGreek}</td>
+          <td>Greek 块（简单块）中的字符</td>
+      </tr>
+      <tr>
+          <td>\p{Lu}</td>
+          <td>大写字母（简单类别）</td>
+      </tr>
+      <tr>
+          <td>\p{Sc}</td>
+          <td>货币符号</td>
+      </tr>
+      <tr>
+          <td>\P{InGreek}</td>
+          <td>所有字符，Greek 块中的除外（否定）</td>
+      </tr>
+      <tr>
+          <td>[\p{L}&amp;&amp;[^\p{Lu}]]</td>
+          <td>所有字母，大写字母除外（减去）</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="边界匹配器">边界匹配器</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>^</td>
-<td>行的开头</td>
-</tr>
-<tr>
-<td>$</td>
-<td>行的结尾</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>单词边界</td>
-</tr>
-<tr>
-<td>\B</td>
-<td>非单词边界</td>
-</tr>
-<tr>
-<td>\A</td>
-<td>输入的开头</td>
-</tr>
-<tr>
-<td>\G</td>
-<td>上一个匹配的结尾</td>
-</tr>
-<tr>
-<td>\Z</td>
-<td>输入的结尾，仅用于最后的结束符（如果有的话）</td>
-</tr>
-<tr>
-<td>\z</td>
-<td>输入的结尾</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>^</td>
+          <td>行的开头</td>
+      </tr>
+      <tr>
+          <td>$</td>
+          <td>行的结尾</td>
+      </tr>
+      <tr>
+          <td>\b</td>
+          <td>单词边界</td>
+      </tr>
+      <tr>
+          <td>\B</td>
+          <td>非单词边界</td>
+      </tr>
+      <tr>
+          <td>\A</td>
+          <td>输入的开头</td>
+      </tr>
+      <tr>
+          <td>\G</td>
+          <td>上一个匹配的结尾</td>
+      </tr>
+      <tr>
+          <td>\Z</td>
+          <td>输入的结尾，仅用于最后的结束符（如果有的话）</td>
+      </tr>
+      <tr>
+          <td>\z</td>
+          <td>输入的结尾</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="greedy-数量词">Greedy 数量词</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>X?</td>
-<td>X，一次或一次也没有</td>
-</tr>
-<tr>
-<td>X*</td>
-<td>X，零次或多次</td>
-</tr>
-<tr>
-<td>X+</td>
-<td>X，一次或多次</td>
-</tr>
-<tr>
-<td>X{n}</td>
-<td>X，恰好 n 次</td>
-</tr>
-<tr>
-<td>X{n,}</td>
-<td>X，至少 n 次</td>
-</tr>
-<tr>
-<td>X{n,m}</td>
-<td>X，至少 n 次，但是不超过 m 次</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>X?</td>
+          <td>X，一次或一次也没有</td>
+      </tr>
+      <tr>
+          <td>X*</td>
+          <td>X，零次或多次</td>
+      </tr>
+      <tr>
+          <td>X+</td>
+          <td>X，一次或多次</td>
+      </tr>
+      <tr>
+          <td>X{n}</td>
+          <td>X，恰好 n 次</td>
+      </tr>
+      <tr>
+          <td>X{n,}</td>
+          <td>X，至少 n 次</td>
+      </tr>
+      <tr>
+          <td>X{n,m}</td>
+          <td>X，至少 n 次，但是不超过 m 次</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="reluctant-数量词">Reluctant 数量词</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>X??</td>
-<td>X，一次或一次也没有</td>
-</tr>
-<tr>
-<td>X*?</td>
-<td>X，零次或多次</td>
-</tr>
-<tr>
-<td>X+?</td>
-<td>X，一次或多次</td>
-</tr>
-<tr>
-<td>X{n}?</td>
-<td>X，恰好 n 次</td>
-</tr>
-<tr>
-<td>X{n,}?</td>
-<td>X，至少 n 次</td>
-</tr>
-<tr>
-<td>X{n,m}?</td>
-<td>X，至少 n 次，但是不超过 m 次</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>X??</td>
+          <td>X，一次或一次也没有</td>
+      </tr>
+      <tr>
+          <td>X*?</td>
+          <td>X，零次或多次</td>
+      </tr>
+      <tr>
+          <td>X+?</td>
+          <td>X，一次或多次</td>
+      </tr>
+      <tr>
+          <td>X{n}?</td>
+          <td>X，恰好 n 次</td>
+      </tr>
+      <tr>
+          <td>X{n,}?</td>
+          <td>X，至少 n 次</td>
+      </tr>
+      <tr>
+          <td>X{n,m}?</td>
+          <td>X，至少 n 次，但是不超过 m 次</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="possessive-数量词">Possessive 数量词</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>X?+</td>
-<td>X，一次或一次也没有</td>
-</tr>
-<tr>
-<td>X*+</td>
-<td>X，零次或多次</td>
-</tr>
-<tr>
-<td>X++</td>
-<td>X，一次或多次</td>
-</tr>
-<tr>
-<td>X{n}+</td>
-<td>X，恰好 n 次</td>
-</tr>
-<tr>
-<td>X{n,}+</td>
-<td>X，至少 n 次</td>
-</tr>
-<tr>
-<td>X{n,m}+</td>
-<td>X，至少 n 次，但是不超过 m 次</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>X?+</td>
+          <td>X，一次或一次也没有</td>
+      </tr>
+      <tr>
+          <td>X*+</td>
+          <td>X，零次或多次</td>
+      </tr>
+      <tr>
+          <td>X++</td>
+          <td>X，一次或多次</td>
+      </tr>
+      <tr>
+          <td>X{n}+</td>
+          <td>X，恰好 n 次</td>
+      </tr>
+      <tr>
+          <td>X{n,}+</td>
+          <td>X，至少 n 次</td>
+      </tr>
+      <tr>
+          <td>X{n,m}+</td>
+          <td>X，至少 n 次，但是不超过 m 次</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="logical-运算符">Logical 运算符</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>XY</td>
-<td>X 后跟 Y</td>
-</tr>
-<tr>
-<td>X</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>(X)</td>
-<td>X，作为捕获组</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>XY</td>
+          <td>X 后跟 Y</td>
+      </tr>
+      <tr>
+          <td>X</td>
+          <td>Y</td>
+      </tr>
+      <tr>
+          <td>(X)</td>
+          <td>X，作为捕获组</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="back-引用">Back 引用</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\n</td>
-<td>任何匹配的 nth 捕获组</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>\n</td>
+          <td>任何匹配的 nth 捕获组</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="引用">引用</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\</td>
-<td>Nothing，但是引用以下字符</td>
-</tr>
-<tr>
-<td>\Q</td>
-<td>Nothing，但是引用所有字符，直到 \E</td>
-</tr>
-<tr>
-<td>\E</td>
-<td>Nothing，但是结束从 \Q 开始的引用</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>\</td>
+          <td>Nothing，但是引用以下字符</td>
+      </tr>
+      <tr>
+          <td>\Q</td>
+          <td>Nothing，但是引用所有字符，直到 \E</td>
+      </tr>
+      <tr>
+          <td>\E</td>
+          <td>Nothing，但是结束从 \Q 开始的引用</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="特殊构造非捕获">特殊构造（非捕获）</h3>
 <table>
-<thead>
-<tr>
-<th>构造</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(?:X)</td>
-<td>X，作为非捕获组</td>
-</tr>
-<tr>
-<td>(?idmsux-idmsux)</td>
-<td>Nothing，但是将匹配标志i d m s u x on - off</td>
-</tr>
-<tr>
-<td>(?idmsux-idmsux:X)</td>
-<td>X，作为带有给定标志 i d m s u x on - off</td>
-</tr>
-<tr>
-<td>(?=X)</td>
-<td>X，通过零宽度的正 lookahead</td>
-</tr>
-<tr>
-<td>(?!X)</td>
-<td>X，通过零宽度的负 lookahead</td>
-</tr>
-<tr>
-<td>(?&lt;=X)</td>
-<td>X，通过零宽度的正 lookbehind</td>
-</tr>
-<tr>
-<td>(?&lt;!X)</td>
-<td>X，通过零宽度的负 lookbehind</td>
-</tr>
-<tr>
-<td>(?&gt;X)</td>
-<td>X，作为独立的非捕获组</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>构造</th>
+          <th>匹配</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>(?:X)</td>
+          <td>X，作为非捕获组</td>
+      </tr>
+      <tr>
+          <td>(?idmsux-idmsux)</td>
+          <td>Nothing，但是将匹配标志i d m s u x on - off</td>
+      </tr>
+      <tr>
+          <td>(?idmsux-idmsux:X)</td>
+          <td>X，作为带有给定标志 i d m s u x on - off</td>
+      </tr>
+      <tr>
+          <td>(?=X)</td>
+          <td>X，通过零宽度的正 lookahead</td>
+      </tr>
+      <tr>
+          <td>(?!X)</td>
+          <td>X，通过零宽度的负 lookahead</td>
+      </tr>
+      <tr>
+          <td>(?&lt;=X)</td>
+          <td>X，通过零宽度的正 lookbehind</td>
+      </tr>
+      <tr>
+          <td>(?&lt;!X)</td>
+          <td>X，通过零宽度的负 lookbehind</td>
+      </tr>
+      <tr>
+          <td>(?&gt;X)</td>
+          <td>X，作为独立的非捕获组</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="总结">总结</h2>
 <p>可以看到，通过灵活的规则，设计出你想的表达式，来匹配复杂的字符串，从而快速便捷的操作。</p>

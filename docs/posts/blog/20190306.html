@@ -3,11 +3,12 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>加速你的博客永无止境-七牛云CDN &middot; 回忆中的明天</title>
     <meta name="keywords" content="blog,qiniu,cdn"/>
-    <meta name="description" content="个人的博客是通过jekyll构建，通过GitHub Pages搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通CDN来加速博客。于"/>
+    <meta name="description" content="个人的博客是通过jekyll构建，通过GitHub Pages搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通CDN来加速博客。于是开始了折腾………………
+先了解下什么是CDN："/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -114,55 +115,55 @@
 <p>直接开干，先注册个人用户，并实名(<code>国家的优待</code>)</p>
 <p>菜单进入：<code>融合 CDN =&gt;域名管理=&gt;添加域名</code></p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">标题</th>
-<th style="text-align:center">填写的内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">加速域名</td>
-<td style="text-align:center">自己的域名，如：<a href="https://www.ichochy.com">www.ichochy.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">通信协议</td>
-<td style="text-align:center">http/https，注：<code>https</code>没有免费的流量</td>
-</tr>
-<tr>
-<td style="text-align:center">源站配置</td>
-<td style="text-align:center">选择<code>源站域名</code>,写下github pages的地址，如：<a href="https://ichochy.github.io">ichochy.github.io</a></td>
-</tr>
-<tr>
-<td style="text-align:center">源站配置</td>
-<td style="text-align:center"><code>源站测试</code>：添加一个源站能访问的地址，如：<code>index.html</code>，完成源站测试</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">标题</th>
+          <th style="text-align: center">填写的内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">加速域名</td>
+          <td style="text-align: center">自己的域名，如：<a href="https://www.ichochy.com">www.ichochy.com</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">通信协议</td>
+          <td style="text-align: center">http/https，注：<code>https</code>没有免费的流量</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">源站配置</td>
+          <td style="text-align: center">选择<code>源站域名</code>,写下github pages的地址，如：<a href="https://ichochy.github.io">ichochy.github.io</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">源站配置</td>
+          <td style="text-align: center"><code>源站测试</code>：添加一个源站能访问的地址，如：<code>index.html</code>，完成源站测试</td>
+      </tr>
+  </tbody>
 </table>
 <p>填写完相关信息后可以直接创建了，创建好后需要等待几分钟，让七牛云完成实例化，七牛云会为每个域名分配一个<code>CNAME</code>，如：<code>www.ichochy.com.qiniudns.com</code>。</p>
 <h2 id="2修改域名解析">2.修改域名解析</h2>
 <p>现在还差最后一步，也是最关键的，登录域名商的管理系统，修改域名解析，将域名指向七牛云生成的<code>CNAME</code>，完成解析</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">标题</th>
-<th style="text-align:center">填写的内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">记录类型</td>
-<td style="text-align:center">选择<code>CNAME</code></td>
-</tr>
-<tr>
-<td style="text-align:center">主机记录</td>
-<td style="text-align:center">如：<code>www</code></td>
-</tr>
-<tr>
-<td style="text-align:center">记录值</td>
-<td style="text-align:center">如：<code>www.ichochy.com.qiniudns.com</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">标题</th>
+          <th style="text-align: center">填写的内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">记录类型</td>
+          <td style="text-align: center">选择<code>CNAME</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">主机记录</td>
+          <td style="text-align: center">如：<code>www</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">记录值</td>
+          <td style="text-align: center">如：<code>www.ichochy.com.qiniudns.com</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><img src="https://images.ichochy.com/WX20190306-165049.png" alt=""></p>
 <p>所有的操作完成后，可以看到七牛云上域名状态是<code>成功</code></p>

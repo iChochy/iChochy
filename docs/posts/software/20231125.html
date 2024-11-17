@@ -3,11 +3,22 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nginx 配置(Config)中遇到的错误(Error) &middot; 回忆中的明天</title>
     <meta name="keywords" content="nginx,software,linux"/>
-    <meta name="description" content="nginx location 正则错误写法 location 正则的错误的写法 匹配请求目录地址 /555 server { location ~ ^/\d{2,3}$ { …… } } 注： 上面的会出现错误 pcre_compile() failed: missing 正则解析失败，正则表达式正常是没有问题的，"/>
+    <meta name="description" content="nginx location 正则错误写法
+location 正则的错误的写法
+匹配请求目录地址 /555
+server {
+  location ~ ^/\d{2,3}$ {
+    ……
+  }
+}
+注：
+上面的会出现错误 pcre_compile() failed: missing  
+正则解析失败，正则表达式正常是没有问题的，让人很误解
+但在nginx中不能这样写，需要加上双引号（&quot;&quot;）"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">

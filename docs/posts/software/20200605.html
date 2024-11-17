@@ -3,11 +3,14 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Office 批量激活的命令工具 slmgr &middot; 回忆中的明天</title>
     <meta name="keywords" content="office,kms,key,slmgr,ospp,software"/>
-    <meta name="description" content="软件许可证管理器脚本用于配置和检索 Office KMS 主机和 Windows 主机的批量激活信息。 适用于： Office 2019 和 Office 2016（包括 Project 和 Visio）的批量许可版本 slmgr.vbs 脚本 您可以在"/>
+    <meta name="description" content="软件许可证管理器脚本用于配置和检索 Office KMS 主机和 Windows 主机的批量激活信息。
+适用于： Office 2019 和 Office 2016（包括 Project 和 Visio）的批量许可版本
+slmgr.vbs 脚本
+您可以在目标计算机上以本地方式运行脚本，或从另一台计算机中以远程方式运行。您必须是管理员才能使用此脚本。如果标准用户运行 slmgr.vbs，则某些许可证数据可能缺失或不正确，并且许多操作将被禁止。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -134,93 +137,93 @@
 <code>Option</code>：选项显示在下表中。</p>
 <h3 id="slmgrvbs-命令选项">Slmgr.vbs 命令选项</h3>
 <table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/ ipk [ProductKey]</td>
-<td>为 Windows（默认设置）或由产品密钥标识的其他应用程序安装产品密钥。</td>
-</tr>
-<tr>
-<td>/ ato [ActivationID]</td>
-<td>激活 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主机。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
-</tr>
-<tr>
-<td>/ dti [ActivationID]</td>
-<td>显示用于 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主计算机的电话激活的安装 ID。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。 在电话中输入安装 ID 以接收确认 ID，该 ID 用于使用 /atp 参数激活 KMS 主机。</td>
-</tr>
-<tr>
-<td>/ atp [ConfirmationID][ActivationID]</td>
-<td>收到确认 ID 后，激活 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主机。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
-</tr>
-<tr>
-<td>/ dlv [ActivationID]</td>
-<td>显示有关 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的详细许可证信息。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。例如，在提升的命令符处运行以下命令，在 C:\windows\system32 文件夹中获取 Office KMS 主机的状态：cscript slmgr.vbs /dlv 70512334-47B4-44DB-A233-BE5EA33B914C</td>
-</tr>
-<tr>
-<td>/ dli [ActivationID]</td>
-<td>显示有关 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的许可证信息。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
-</tr>
-<tr>
-<td>/ upk [ActivationID]</td>
-<td>卸载 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的产品密钥。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。  <strong>警告：</strong> 如果打算卸载 Office 产品密钥，并且忘记要输入激活 ID，则所有已安装的产品密钥将被卸载。 这包括 Windows 产品密钥。</td>
-</tr>
-<tr>
-<td>/ xpr [ActivationID]</td>
-<td>显示当前许可证状态的到期日期。</td>
-</tr>
-<tr>
-<td>/ sprt [PortNumber]</td>
-<td>在 KMS 主计算机上设置 TCP 通信端口。此操作会将 PortNumber 替换为要使用的 TCP 端口号。默认设置为 1688 。</td>
-</tr>
-<tr>
-<td>/ cdns</td>
-<td>禁止通过 KMS 主计算机自动发布 DNS。</td>
-</tr>
-<tr>
-<td>/ sdns</td>
-<td>启用通过 KMS 主计算机自动发布 DNS。</td>
-</tr>
-<tr>
-<td>/ cpri</td>
-<td>降低 KMS 主计算机进程的优先级。</td>
-</tr>
-<tr>
-<td>/ sai [ActivationInterval]</td>
-<td>更改当 KMS 客户端找不到 KMS 主计算机时尝试激活其自身的频率。此操作会将 ActivationInterval 替换为一个分钟数。默认设置为 120 分钟。</td>
-</tr>
-<tr>
-<td>/ sri [RenewalInterval]</td>
-<td>更改 KMS 客户端尝试通过联系 KMS 主计算机来续订其激活状态的频率。此操作会将 RenewalInterval 替换为一个分钟数。默认设置为 10080 分钟（7 天）。此设置将替代本地 KMS 客户端设置。</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>选项</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/ ipk [ProductKey]</td>
+          <td>为 Windows（默认设置）或由产品密钥标识的其他应用程序安装产品密钥。</td>
+      </tr>
+      <tr>
+          <td>/ ato [ActivationID]</td>
+          <td>激活 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主机。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
+      </tr>
+      <tr>
+          <td>/ dti [ActivationID]</td>
+          <td>显示用于 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主计算机的电话激活的安装 ID。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。 在电话中输入安装 ID 以接收确认 ID，该 ID 用于使用 /atp 参数激活 KMS 主机。</td>
+      </tr>
+      <tr>
+          <td>/ atp [ConfirmationID][ActivationID]</td>
+          <td>收到确认 ID 后，激活 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的 KMS 主机。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
+      </tr>
+      <tr>
+          <td>/ dlv [ActivationID]</td>
+          <td>显示有关 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的详细许可证信息。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。例如，在提升的命令符处运行以下命令，在 C:\windows\system32 文件夹中获取 Office KMS 主机的状态：cscript slmgr.vbs /dlv 70512334-47B4-44DB-A233-BE5EA33B914C</td>
+      </tr>
+      <tr>
+          <td>/ dli [ActivationID]</td>
+          <td>显示有关 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的许可证信息。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。</td>
+      </tr>
+      <tr>
+          <td>/ upk [ActivationID]</td>
+          <td>卸载 Windows（默认设置）或由激活 ID（如果提供）标识的应用程序的产品密钥。 Office 2019 激活 ID 为 70512334-47B4-44DB-A233-BE5EA33B914C，Office 2016 激活 ID 为 98EBFE73-2084-4C97-932C-C0CD1643BEA7。  <strong>警告：</strong> 如果打算卸载 Office 产品密钥，并且忘记要输入激活 ID，则所有已安装的产品密钥将被卸载。 这包括 Windows 产品密钥。</td>
+      </tr>
+      <tr>
+          <td>/ xpr [ActivationID]</td>
+          <td>显示当前许可证状态的到期日期。</td>
+      </tr>
+      <tr>
+          <td>/ sprt [PortNumber]</td>
+          <td>在 KMS 主计算机上设置 TCP 通信端口。此操作会将 PortNumber 替换为要使用的 TCP 端口号。默认设置为 1688 。</td>
+      </tr>
+      <tr>
+          <td>/ cdns</td>
+          <td>禁止通过 KMS 主计算机自动发布 DNS。</td>
+      </tr>
+      <tr>
+          <td>/ sdns</td>
+          <td>启用通过 KMS 主计算机自动发布 DNS。</td>
+      </tr>
+      <tr>
+          <td>/ cpri</td>
+          <td>降低 KMS 主计算机进程的优先级。</td>
+      </tr>
+      <tr>
+          <td>/ sai [ActivationInterval]</td>
+          <td>更改当 KMS 客户端找不到 KMS 主计算机时尝试激活其自身的频率。此操作会将 ActivationInterval 替换为一个分钟数。默认设置为 120 分钟。</td>
+      </tr>
+      <tr>
+          <td>/ sri [RenewalInterval]</td>
+          <td>更改 KMS 客户端尝试通过联系 KMS 主计算机来续订其激活状态的频率。此操作会将 RenewalInterval 替换为一个分钟数。默认设置为 10080 分钟（7 天）。此设置将替代本地 KMS 客户端设置。</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="slmgrvbs-命令选项-基于-active-directory-的激活">Slmgr.vbs 命令选项 基于 Active Directory 的激活</h3>
 <table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/ ad-activation-online [ProductKey]</td>
-<td>通过用户提供的产品密钥激活 AD DS 林。</td>
-</tr>
-<tr>
-<td>/ ad-activation-apply-get-iid [ProductKey]</td>
-<td>显示用于 AD DS 林的安装 ID。</td>
-</tr>
-<tr>
-<td>/ ad-activation-apply-cid [ProductKey][ConfirmationID]</td>
-<td>通过用户提供的产品密钥以及确认 ID 激活 AD DS 林。</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>选项</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/ ad-activation-online [ProductKey]</td>
+          <td>通过用户提供的产品密钥激活 AD DS 林。</td>
+      </tr>
+      <tr>
+          <td>/ ad-activation-apply-get-iid [ProductKey]</td>
+          <td>显示用于 AD DS 林的安装 ID。</td>
+      </tr>
+      <tr>
+          <td>/ ad-activation-apply-cid [ProductKey][ConfirmationID]</td>
+          <td>通过用户提供的产品密钥以及确认 ID 激活 AD DS 林。</td>
+      </tr>
+  </tbody>
 </table>
 
   

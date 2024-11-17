@@ -3,11 +3,21 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spring 文件上传，Uploading Files &middot; 回忆中的明天</title>
     <meta name="keywords" content="spring,java,spring mvc,upload"/>
-    <meta name="description" content="项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。 开发工具 IDEA: 2021.1.2 Java: 1.8 Spring Boot: 2.5 创建项目 New Project 打开 IDEA 创建新项目 New Pro"/>
+    <meta name="description" content="项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。
+开发工具
+
+IDEA: 2021.1.2
+Java: 1.8
+Spring Boot: 2.5
+
+创建项目
+New Project
+打开 IDEA 创建新项目 New Project，使用 start.spring.io 快速构建
+"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -430,60 +440,60 @@
 </span></span><span style="display:flex;"><span>└── temp
 </span></span></code></pre></div><h2 id="注解说明">注解说明</h2>
 <table>
-<thead>
-<tr>
-<th>注解</th>
-<th style="text-align:center">位置</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>@Controller</td>
-<td style="text-align:center">类</td>
-<td>控制器</td>
-</tr>
-<tr>
-<td>@RequestMapping</td>
-<td style="text-align:center">类</td>
-<td>控制器请求路径</td>
-</tr>
-<tr>
-<td>@Service</td>
-<td style="text-align:center">类</td>
-<td>注册服务类</td>
-</tr>
-<tr>
-<td>@GetMapping</td>
-<td style="text-align:center">方法</td>
-<td>Get 请求路径</td>
-</tr>
-<tr>
-<td>@PostMapping</td>
-<td style="text-align:center">方法</td>
-<td>Post 请求路径</td>
-</tr>
-<tr>
-<td>@Autowired</td>
-<td style="text-align:center">参数</td>
-<td>自动装配类</td>
-</tr>
-<tr>
-<td>@PathVariable</td>
-<td style="text-align:center">参数</td>
-<td>路径变量</td>
-</tr>
-<tr>
-<td>@RequestParam</td>
-<td style="text-align:center">参数</td>
-<td>请求参数</td>
-</tr>
-<tr>
-<td>@Bean</td>
-<td style="text-align:center">方法</td>
-<td>注册类</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>注解</th>
+          <th style="text-align: center">位置</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>@Controller</td>
+          <td style="text-align: center">类</td>
+          <td>控制器</td>
+      </tr>
+      <tr>
+          <td>@RequestMapping</td>
+          <td style="text-align: center">类</td>
+          <td>控制器请求路径</td>
+      </tr>
+      <tr>
+          <td>@Service</td>
+          <td style="text-align: center">类</td>
+          <td>注册服务类</td>
+      </tr>
+      <tr>
+          <td>@GetMapping</td>
+          <td style="text-align: center">方法</td>
+          <td>Get 请求路径</td>
+      </tr>
+      <tr>
+          <td>@PostMapping</td>
+          <td style="text-align: center">方法</td>
+          <td>Post 请求路径</td>
+      </tr>
+      <tr>
+          <td>@Autowired</td>
+          <td style="text-align: center">参数</td>
+          <td>自动装配类</td>
+      </tr>
+      <tr>
+          <td>@PathVariable</td>
+          <td style="text-align: center">参数</td>
+          <td>路径变量</td>
+      </tr>
+      <tr>
+          <td>@RequestParam</td>
+          <td style="text-align: center">参数</td>
+          <td>请求参数</td>
+      </tr>
+      <tr>
+          <td>@Bean</td>
+          <td style="text-align: center">方法</td>
+          <td>注册类</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="运行项目">运行项目</h2>
 <h3 id="dubug-运行项目">Dubug 运行项目</h3>

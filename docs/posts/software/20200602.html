@@ -3,11 +3,14 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Office 批量激活的命令工具 ospp &middot; 回忆中的明天</title>
     <meta name="keywords" content="office,kms,key,slmgr,ospp,software"/>
-    <meta name="description" content="Office 软件保护平台脚本使你能够配置 Office 产品（包括 Project 和 Visio）的批量许可版本。 ospp.vbs 脚本 opss.vbs 脚本位于 Program Files\Microsoft Office\Office16 或 Program Files (x86)\Microsoft Office\Office16 文件夹。 适用于： Office 2019 和 Office 2016（"/>
+    <meta name="description" content="Office 软件保护平台脚本使你能够配置 Office 产品（包括 Project 和 Visio）的批量许可版本。
+ospp.vbs 脚本
+opss.vbs 脚本位于 Program Files\Microsoft Office\Office16 或 Program Files (x86)\Microsoft Office\Office16 文件夹。
+适用于： Office 2019 和 Office 2016（包括 Project 和 Visio）的批量许可版本"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -133,109 +136,109 @@
 <code>Password</code>：帐户的密码。如果不提供用户帐户和密码，则使用当前凭据。</p>
 <h3 id="osppvbs-的全局选项">ospp.vbs 的全局选项</h3>
 <table>
-<thead>
-<tr>
-<th>全局选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/act</td>
-<td>激活已安装的 Office 产品密钥。</td>
-</tr>
-<tr>
-<td>/inpkey:value</td>
-<td>使用用户提供的产品密钥安装产品密钥（取代现有密钥）。Value 选项为必需。</td>
-</tr>
-<tr>
-<td>/unpkey:value</td>
-<td>卸载安装的产品密钥（包含要卸载的产品密钥的最后五位数，如 /dstatus 选项显示）。Value 参数必需。</td>
-</tr>
-<tr>
-<td>/inslic:value</td>
-<td>使用用户提供的 .xrm-ms 许可证路径安装许可证。Value 参数必需。</td>
-</tr>
-<tr>
-<td>/dstatus</td>
-<td>显示已安装产品密钥的许可证信息。</td>
-</tr>
-<tr>
-<td>/dstatusall</td>
-<td>显示所有已安装许可证的许可证信息。</td>
-</tr>
-<tr>
-<td>/dhistoryacterr</td>
-<td>显示 MAK/零售激活的失败历史记录。</td>
-</tr>
-<tr>
-<td>/dinstid</td>
-<td>显示用于脱机激活的安装 ID。</td>
-</tr>
-<tr>
-<td>/actcid:value</td>
-<td>使用用户提供的确认 ID 激活产品。Value 参数必需。</td>
-</tr>
-<tr>
-<td>/rearm</td>
-<td>重置所有已安装 Office 产品密钥的许可状态。</td>
-</tr>
-<tr>
-<td>/rearm:value</td>
-<td>重置具有用户提供的 SKUID 值的 Office 许可证的许可状态。 Value 参数必需。</td>
-</tr>
-<tr>
-<td>/ddescr:value</td>
-<td>显示用户提供的错误代码的说明。Value 参数必需。</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>全局选项</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/act</td>
+          <td>激活已安装的 Office 产品密钥。</td>
+      </tr>
+      <tr>
+          <td>/inpkey:value</td>
+          <td>使用用户提供的产品密钥安装产品密钥（取代现有密钥）。Value 选项为必需。</td>
+      </tr>
+      <tr>
+          <td>/unpkey:value</td>
+          <td>卸载安装的产品密钥（包含要卸载的产品密钥的最后五位数，如 /dstatus 选项显示）。Value 参数必需。</td>
+      </tr>
+      <tr>
+          <td>/inslic:value</td>
+          <td>使用用户提供的 .xrm-ms 许可证路径安装许可证。Value 参数必需。</td>
+      </tr>
+      <tr>
+          <td>/dstatus</td>
+          <td>显示已安装产品密钥的许可证信息。</td>
+      </tr>
+      <tr>
+          <td>/dstatusall</td>
+          <td>显示所有已安装许可证的许可证信息。</td>
+      </tr>
+      <tr>
+          <td>/dhistoryacterr</td>
+          <td>显示 MAK/零售激活的失败历史记录。</td>
+      </tr>
+      <tr>
+          <td>/dinstid</td>
+          <td>显示用于脱机激活的安装 ID。</td>
+      </tr>
+      <tr>
+          <td>/actcid:value</td>
+          <td>使用用户提供的确认 ID 激活产品。Value 参数必需。</td>
+      </tr>
+      <tr>
+          <td>/rearm</td>
+          <td>重置所有已安装 Office 产品密钥的许可状态。</td>
+      </tr>
+      <tr>
+          <td>/rearm:value</td>
+          <td>重置具有用户提供的 SKUID 值的 Office 许可证的许可状态。 Value 参数必需。</td>
+      </tr>
+      <tr>
+          <td>/ddescr:value</td>
+          <td>显示用户提供的错误代码的说明。Value 参数必需。</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="osppvbs-的-kms-客户端选项">ospp.vbs 的 KMS 客户端选项</h3>
 <table>
-<thead>
-<tr>
-<th>KMS 客户端选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/dhistorykms</td>
-<td>显示 KMS 客户端激活历史记录。</td>
-</tr>
-<tr>
-<td>/dcmid</td>
-<td>显示 KMS 客户端计算机 ID (CMID)。</td>
-</tr>
-<tr>
-<td>/sethst:value</td>
-<td>使用用户提供的主机名设置 KMS 主机名。Value 参数为必需。这将设置 HKLM\Software\Microsoft\OfficeSoftwareProtectionPlatform\KeyManagementServiceName (REG_SZ) 。</td>
-</tr>
-<tr>
-<td>/setprt:value</td>
-<td>使用用户提供的端口号设置 KMS 端口。默认端口号为 1688。Value 参数为必需。这将设置 HKLM\Software\Microsoft\OfficeSoftwareProtectionPlatform\KeyManagementServicePort (REG_SZ) 。</td>
-</tr>
-<tr>
-<td>/remhst</td>
-<td>删除 KMS 主机名并将端口设置为默认值。默认端口为 1688。</td>
-</tr>
-<tr>
-<td>/cachst:value</td>
-<td>允许或拒绝 KMS 主机缓存。Value 参数必需（TRUE 或 FALSE）。</td>
-</tr>
-<tr>
-<td>/actype:value</td>
-<td>设置批量激活类型。Value 参数必需。值：1（表示基于 Active Directory），2（表示 KMS），0（表示二者）。</td>
-</tr>
-<tr>
-<td>/skms-domain:value</td>
-<td>设置可在其中找到所有 KMS SRV 记录的特定 DNS 域。如果特定的一个 KMS 主机名是由 /sethst 选项设置的，则此设置不起作用。Value 参数是完全限定的域名 (FQDN) 并且必需。</td>
-</tr>
-<tr>
-<td>/ckms-domain</td>
-<td>清除可在其中找到所有 KMS SRV 记录的特定 DNS 域。如果特定 KMS 主机是由 /sethst 选项设置的，则会使用该主机。否则，将使用 KMS 主机的自动发现。</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>KMS 客户端选项</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/dhistorykms</td>
+          <td>显示 KMS 客户端激活历史记录。</td>
+      </tr>
+      <tr>
+          <td>/dcmid</td>
+          <td>显示 KMS 客户端计算机 ID (CMID)。</td>
+      </tr>
+      <tr>
+          <td>/sethst:value</td>
+          <td>使用用户提供的主机名设置 KMS 主机名。Value 参数为必需。这将设置 HKLM\Software\Microsoft\OfficeSoftwareProtectionPlatform\KeyManagementServiceName (REG_SZ) 。</td>
+      </tr>
+      <tr>
+          <td>/setprt:value</td>
+          <td>使用用户提供的端口号设置 KMS 端口。默认端口号为 1688。Value 参数为必需。这将设置 HKLM\Software\Microsoft\OfficeSoftwareProtectionPlatform\KeyManagementServicePort (REG_SZ) 。</td>
+      </tr>
+      <tr>
+          <td>/remhst</td>
+          <td>删除 KMS 主机名并将端口设置为默认值。默认端口为 1688。</td>
+      </tr>
+      <tr>
+          <td>/cachst:value</td>
+          <td>允许或拒绝 KMS 主机缓存。Value 参数必需（TRUE 或 FALSE）。</td>
+      </tr>
+      <tr>
+          <td>/actype:value</td>
+          <td>设置批量激活类型。Value 参数必需。值：1（表示基于 Active Directory），2（表示 KMS），0（表示二者）。</td>
+      </tr>
+      <tr>
+          <td>/skms-domain:value</td>
+          <td>设置可在其中找到所有 KMS SRV 记录的特定 DNS 域。如果特定的一个 KMS 主机名是由 /sethst 选项设置的，则此设置不起作用。Value 参数是完全限定的域名 (FQDN) 并且必需。</td>
+      </tr>
+      <tr>
+          <td>/ckms-domain</td>
+          <td>清除可在其中找到所有 KMS SRV 记录的特定 DNS 域。如果特定 KMS 主机是由 /sethst 选项设置的，则会使用该主机。否则，将使用 KMS 主机的自动发现。</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="使用-osppvbs-的方案">使用 ospp.vbs 的方案</h3>
 <h4 id="在远程计算机上将产品密钥更改为-mak-密钥">在远程计算机上将产品密钥更改为 MAK 密钥</h4>

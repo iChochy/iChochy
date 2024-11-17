@@ -3,11 +3,11 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Java 中的重写(Override)与重载(Overload) &middot; 回忆中的明天</title>
     <meta name="keywords" content="override,overload,java"/>
-    <meta name="description" content="Java 是一个面向对象编程的语言，我们就以面向对象的方式来解释下重写(Override)与重载(Overload)。子类存在父类名字相同的方法，而"/>
+    <meta name="description" content="Java 是一个面向对象编程的语言，我们就以面向对象的方式来解释下重写(Override)与重载(Overload)。子类存在父类名字相同的方法，而参数的个数与类型一样，返回值也一样的方法，就称为方法的重写（Override）。同类中定义了多个名字相同的方法，但他们的参数数量不同或数量相同而类型和次序不同，则称为方法的重载(Overload)。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -181,35 +181,35 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="对比">对比</h2>
 <table>
-<thead>
-<tr>
-<th>对比</th>
-<th>重写</th>
-<th>重载</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>方法名字</td>
-<td>相同</td>
-<td>相同</td>
-</tr>
-<tr>
-<td>方法参数</td>
-<td>相同</td>
-<td>不相同</td>
-</tr>
-<tr>
-<td>返回值</td>
-<td>相同</td>
-<td>可以不相同</td>
-</tr>
-<tr>
-<td>范围</td>
-<td>子类中</td>
-<td>同类或子类中</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>对比</th>
+          <th>重写</th>
+          <th>重载</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>方法名字</td>
+          <td>相同</td>
+          <td>相同</td>
+      </tr>
+      <tr>
+          <td>方法参数</td>
+          <td>相同</td>
+          <td>不相同</td>
+      </tr>
+      <tr>
+          <td>返回值</td>
+          <td>相同</td>
+          <td>可以不相同</td>
+      </tr>
+      <tr>
+          <td>范围</td>
+          <td>子类中</td>
+          <td>同类或子类中</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="总结">总结</h2>
 <p>方法的重写是有严格的定义，子类重写父类的方法，是自我型态表达，形成 Java 中多态的特性。而方法的重载没有严格的定义，就是个不同的方法，只是名字相同而已。</p>

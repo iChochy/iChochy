@@ -3,11 +3,15 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>了解 JS 的加载顺序和方式，实现 Ready 方法 &middot; 回忆中的明天</title>
     <meta name="keywords" content="js,code,java"/>
-    <meta name="description" content="页面加载 JS 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。 了解 JS 的加载顺序 了解页面元素的加载顺序，找到 JS"/>
+    <meta name="description" content="页面加载 JS 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。
+了解 JS 的加载顺序
+了解页面元素的加载顺序，找到 JS 执行失败原因。有时明明没有问的代码，可就获取不到元素值或信息，这可能是JS执行时间过早或过晚，而导致的 JS 执行失败。
+我们来看一幅图，了解defer、async属性对JS下载、执行顺序的影响 
+"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">

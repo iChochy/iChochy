@@ -3,11 +3,18 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>通过端口号关闭当前进程 &middot; 回忆中的明天</title>
     <meta name="keywords" content="shell,linux"/>
-    <meta name="description" content="使用Shell脚本的方式，通过端口号来关闭当前进程 查看脚本 lsof -i TCP:9100 | grep LISTEN | awk &#39;{print $2}&#39; 使用到三个命令lsof、grep、awk lsof 获取端口进程列表 grep 精"/>
+    <meta name="description" content="使用Shell脚本的方式，通过端口号来关闭当前进程
+查看脚本
+lsof  -i TCP:9100 | grep LISTEN | awk &#39;{print $2}&#39;
+使用到三个命令lsof、grep、awk
+
+lsof 获取端口进程列表
+grep 精准匹配进程
+awk 获取进程号"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">

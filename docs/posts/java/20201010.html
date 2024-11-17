@@ -3,11 +3,12 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Java JSON数据实战操作 &middot; 回忆中的明天</title>
     <meta name="keywords" content="java,json,gson"/>
-    <meta name="description" content="JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。 JSON 采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的"/>
+    <meta name="description" content="JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。
+JSON 采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C&#43;&#43;, C#, Java, JavaScript, Perl, Python等），这些特性使JSON成为理想的数据交换语言。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -394,38 +395,38 @@
 <h4 id="配置gsonsetfieldnamingpolicy">配置GSON（setFieldNamingPolicy）</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GsonBuilder().<span style="color:#a6e22e">setFieldNamingPolicy</span>(FieldNamingPolicy.<span style="color:#a6e22e">IDENTITY</span>).<span style="color:#a6e22e">create</span>();
 </span></span></code></pre></div><table>
-<thead>
-<tr>
-<th style="text-align:center">枚举常量</th>
-<th>枚举常量和描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">IDENTITY</td>
-<td>字段名称不变</td>
-</tr>
-<tr>
-<td style="text-align:center">LOWER_CASE_WITH_DASHES</td>
-<td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用短划线（-）分隔</td>
-</tr>
-<tr>
-<td style="text-align:center">LOWER_CASE_WITH_DOTS</td>
-<td>字段名称从其驼峰大小写形式修改为小写的字段名称，其中每个单词都用点（.）分隔</td>
-</tr>
-<tr>
-<td style="text-align:center">LOWER_CASE_WITH_UNDERSCORES</td>
-<td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用下划线（_）分隔</td>
-</tr>
-<tr>
-<td style="text-align:center">UPPER_CAMEL_CASE</td>
-<td>字段名称的第一个字母在序列化为JSON格式时大写</td>
-</tr>
-<tr>
-<td style="text-align:center">UPPER_CAMEL_CASE_WITH_SPACES</td>
-<td>字段名称的第一个字母在序列化为JSON格式时大写，并且单词之间将用空格分隔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">枚举常量</th>
+          <th>枚举常量和描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">IDENTITY</td>
+          <td>字段名称不变</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">LOWER_CASE_WITH_DASHES</td>
+          <td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用短划线（-）分隔</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">LOWER_CASE_WITH_DOTS</td>
+          <td>字段名称从其驼峰大小写形式修改为小写的字段名称，其中每个单词都用点（.）分隔</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">LOWER_CASE_WITH_UNDERSCORES</td>
+          <td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用下划线（_）分隔</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">UPPER_CAMEL_CASE</td>
+          <td>字段名称的第一个字母在序列化为JSON格式时大写</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">UPPER_CAMEL_CASE_WITH_SPACES</td>
+          <td>字段名称的第一个字母在序列化为JSON格式时大写，并且单词之间将用空格分隔</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="时间格式">时间格式</h3>
 <h4 id="配置gsonsetdateformat">配置GSON（setDateFormat）</h4>

@@ -3,11 +3,13 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mac launchctl 自定义服务启动 &middot; 回忆中的明天</title>
     <meta name="keywords" content="blog,shell,mac"/>
-    <meta name="description" content="launchd launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（LaunchAgents）的主程序 在启动过程中，内核调用 launchd 作为第一个进程"/>
+    <meta name="description" content="launchd
+launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（LaunchAgents）的主程序
+在启动过程中，内核调用 launchd 作为第一个进程运行，并进一步引导系统的其余部分。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -127,40 +129,40 @@
 守护进程不应尝试显示 <code>UI</code> 或直接与用户的登录会话交互。 所有涉及与用户交互地应通过代理服务完成，如：运行程序，显示 <code>UI</code>。</p>
 <h3 id="路径说明">路径说明</h3>
 <table>
-<thead>
-<tr>
-<th>路径</th>
-<th>加载</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/System/Library/LaunchDaemons</td>
-<td>系统启动</td>
-<td>提供系统范围的守护进程（Apple）</td>
-</tr>
-<tr>
-<td>/System/Library/LaunchAgents</td>
-<td>系统启动</td>
-<td>提供系统范围的用户代理（Apple）</td>
-</tr>
-<tr>
-<td>/Library/LaunchDaemons</td>
-<td>用户登录</td>
-<td>提供所有用户的守护进程</td>
-</tr>
-<tr>
-<td>/Library/LaunchAgents</td>
-<td>用户登录</td>
-<td>提供所有用户的代理进程</td>
-</tr>
-<tr>
-<td>~/Library/LaunchAgents</td>
-<td>用户登录</td>
-<td>提供当前用户的代理进程</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>路径</th>
+          <th>加载</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/System/Library/LaunchDaemons</td>
+          <td>系统启动</td>
+          <td>提供系统范围的守护进程（Apple）</td>
+      </tr>
+      <tr>
+          <td>/System/Library/LaunchAgents</td>
+          <td>系统启动</td>
+          <td>提供系统范围的用户代理（Apple）</td>
+      </tr>
+      <tr>
+          <td>/Library/LaunchDaemons</td>
+          <td>用户登录</td>
+          <td>提供所有用户的守护进程</td>
+      </tr>
+      <tr>
+          <td>/Library/LaunchAgents</td>
+          <td>用户登录</td>
+          <td>提供所有用户的代理进程</td>
+      </tr>
+      <tr>
+          <td>~/Library/LaunchAgents</td>
+          <td>用户登录</td>
+          <td>提供当前用户的代理进程</td>
+      </tr>
+  </tbody>
 </table>
 <p>更多具体信息查看系统帮助文档：<a href="x-man-page://launchd">launchd</a></p>
 <h2 id="launchdplistx-man-pagelaunchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></h2>

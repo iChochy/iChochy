@@ -3,11 +3,11 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>简述 Cookie、Token、JWT、Session &middot; 回忆中的明天</title>
     <meta name="keywords" content="cookie,token,jwt,session,auth"/>
-    <meta name="description" content="早期互联网只是用来访问查看，不需要关心谁在访问查看。HTTP是一种无状态的协议，每个请求都是完全独立的，服务端无法确认当前访问者的身份信息，"/>
+    <meta name="description" content="早期互联网只是用来访问查看，不需要关心谁在访问查看。HTTP是一种无状态的协议，每个请求都是完全独立的，服务端无法确认当前访问者的身份信息，为了标示用户，就出现了Cookie，而Cookie、Token、JWT 都是用来标示用户的。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -125,40 +125,40 @@
 <p><code>Session</code>就是<strong>服务端</strong>生成的用户会话信息，一般就是用户信息，存储在<strong>服务端</strong>。</p>
 <h2 id="对比cookietokenjwt">对比<code>Cookie</code>、<code>Token</code>、<code>JWT</code></h2>
 <table>
-<thead>
-<tr>
-<th>不同点</th>
-<th>Cookie</th>
-<th>Token</th>
-<th>JWT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>标准</td>
-<td>系统默认</td>
-<td>自定义</td>
-<td>自定义</td>
-</tr>
-<tr>
-<td>用户标示</td>
-<td>包含</td>
-<td>包含</td>
-<td>包含</td>
-</tr>
-<tr>
-<td>跨域</td>
-<td>不支持</td>
-<td>支持</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>具信信息</td>
-<td>不包含</td>
-<td>不包含</td>
-<td>包含</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>不同点</th>
+          <th>Cookie</th>
+          <th>Token</th>
+          <th>JWT</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>标准</td>
+          <td>系统默认</td>
+          <td>自定义</td>
+          <td>自定义</td>
+      </tr>
+      <tr>
+          <td>用户标示</td>
+          <td>包含</td>
+          <td>包含</td>
+          <td>包含</td>
+      </tr>
+      <tr>
+          <td>跨域</td>
+          <td>不支持</td>
+          <td>支持</td>
+          <td>支持</td>
+      </tr>
+      <tr>
+          <td>具信信息</td>
+          <td>不包含</td>
+          <td>不包含</td>
+          <td>包含</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="关系">关系</h2>
 <p>关系如下图：

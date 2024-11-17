@@ -3,11 +3,14 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>认识 Spring Cloud Alibaba &middot; 回忆中的明天</title>
     <meta name="keywords" content="spring,spring cloud,spring cloud alibaba"/>
-    <meta name="description" content="个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件 Spring Cloud 是什么 Spring Cloud 为开发人员提供一些分布式组件，使其快速构建分布式系统（例"/>
+    <meta name="description" content="个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件
+Spring Cloud 是什么
+Spring Cloud 为开发人员提供一些分布式组件，使其快速构建分布式系统（例如，配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁，领导选举，分布式会话，群集状态）。
+开发人员使用 Spring Cloud 的组件，实现分布式服务系统，让服务可以在任何分布式环境中正常工作。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -116,69 +119,69 @@
 <h2 id="组件说明">组件说明：</h2>
 <h3 id="开源组件">开源组件</h3>
 <table>
-<thead>
-<tr>
-<th>组件</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Nacos Config</td>
-<td>分布式配置管理</td>
-</tr>
-<tr>
-<td>Nacos Discovery</td>
-<td>服务注册和发现管理</td>
-</tr>
-<tr>
-<td>Sentinel</td>
-<td>流量控制和服务降级</td>
-</tr>
-<tr>
-<td>RocketMQ</td>
-<td>消息事件驱动</td>
-</tr>
-<tr>
-<td>Seata</td>
-<td>分布式事务解决方案</td>
-</tr>
-<tr>
-<td>Dubbo Spring Cloud</td>
-<td>服务远程调用</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>组件</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Nacos Config</td>
+          <td>分布式配置管理</td>
+      </tr>
+      <tr>
+          <td>Nacos Discovery</td>
+          <td>服务注册和发现管理</td>
+      </tr>
+      <tr>
+          <td>Sentinel</td>
+          <td>流量控制和服务降级</td>
+      </tr>
+      <tr>
+          <td>RocketMQ</td>
+          <td>消息事件驱动</td>
+      </tr>
+      <tr>
+          <td>Seata</td>
+          <td>分布式事务解决方案</td>
+      </tr>
+      <tr>
+          <td>Dubbo Spring Cloud</td>
+          <td>服务远程调用</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="商业化组件">商业化组件</h3>
 <table>
-<thead>
-<tr>
-<th>组件</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ACM</td>
-<td>Nacos Config的商业云服务</td>
-</tr>
-<tr>
-<td>ANS</td>
-<td>Nacos Discovery的商业云服务</td>
-</tr>
-<tr>
-<td>SMS</td>
-<td>阿里云短信服务</td>
-</tr>
-<tr>
-<td>OSS</td>
-<td>阿里云对象存储服务</td>
-</tr>
-<tr>
-<td>SchedulerX</td>
-<td>阿里分布式任务调度服务</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>组件</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ACM</td>
+          <td>Nacos Config的商业云服务</td>
+      </tr>
+      <tr>
+          <td>ANS</td>
+          <td>Nacos Discovery的商业云服务</td>
+      </tr>
+      <tr>
+          <td>SMS</td>
+          <td>阿里云短信服务</td>
+      </tr>
+      <tr>
+          <td>OSS</td>
+          <td>阿里云对象存储服务</td>
+      </tr>
+      <tr>
+          <td>SchedulerX</td>
+          <td>阿里分布式任务调度服务</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>有段很好的文字总结，分享给大家：</strong></p>
 <ul>

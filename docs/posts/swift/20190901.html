@@ -3,11 +3,19 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.128.0">
+    <meta name="generator" content="Hugo 0.138.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CocoaPods 构建自己的 Pod 库 &middot; 回忆中的明天</title>
     <meta name="keywords" content="pod"/>
-    <meta name="description" content="构建一个自己的库供其它人使用是不是一件很酷(苦)的事情，通过CocoaPods 可以快捷的构建自己库，并向全世界分享你的成果 一、创建 Podspec 有两种方"/>
+    <meta name="description" content="构建一个自己的库供其它人使用是不是一件很酷(苦)的事情，通过CocoaPods 可以快捷的构建自己库，并向全世界分享你的成果
+一、创建 Podspec
+有两种方式：
+
+使用命令 pod lib create mylib 创建一套完整的 Pod 库模版
+使用命令 pod spec create mylib 创建 Podspec 的配置文件
+
+二、配置 Podspec
+官网说明：https://guides.cocoapods.org/syntax/podspec.html#specification"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
