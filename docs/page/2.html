@@ -54,138 +54,126 @@
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/mac/20231128.html">Mac launchctl 自定义服务启动</a></h2>
-        <div class="Summary"><h2 id="launchdx-man-pagelaunchd"><a href="x-man-page://launchd">launchd</a></h2>
-<p><strong><code>launchd</code></strong> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的主程序<br>
-在启动过程中，内核调用 <code>launchd</code> 作为第一个进程运行，并进一步引导系统的其余部分。</p>……</div>
+        <div class="Summary">launchd launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（LaunchAgents）的主程序
+在启动过程中，内核调用 launchd 作为第一个进程运行，并进一步引导系统的其余部分。
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/mac/20231128.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/mac/20231125.html">Mac 终端设置代理，设置一键开启和取消</a></h2>
-        <div class="Summary"><h2 id="终端配置代理">终端配置代理</h2>
-<p>这里以<code>macOS</code>为例，使用的是<code>zsh</code>，对应的用户配置文件就是<code>~/.zshrc</code>。</p>
-<h3 id="导入环境变量">导入环境变量</h3>
-<p>将下面信息写入到<code>~/.zshrc</code>文件中<br>
-分别导入 <code>http_proxy、https_proxy、sockes_proxy</code> 三个环竟变量</p>……</div>
+        <div class="Summary">终端配置代理 这里以macOS为例，使用的是zsh，对应的用户配置文件就是~/.zshrc。
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/mac/20231125.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/software/20231125.html">Nginx 配置(Config)中遇到的错误(Error)</a></h2>
-        <div class="Summary"><h2 id="nginx-location-正则错误写法">nginx location 正则错误写法</h2>
-<h3 id="location-正则的错误的写法">location 正则的<code>错误</code>的写法</h3>
-<p>匹配请求目录地址 <code>/555</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  location ~ ^/<span style="color:#ae81ff">\d</span><span style="color:#f92672">{</span>2,3<span style="color:#f92672">}</span>$ <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    ……
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p><strong>注：</strong>
-上面的会出现错误 <code>pcre_compile() failed: missing</code>  <br>
-正则解析失败，正则表达式正常是没有问题的，让人很误解<br>
-但在<code>nginx</code>中不能这样写，需要加上双引号（<code>&quot;&quot;</code>）</p>……</div>
+        <div class="Summary">nginx location 正则错误写法 location 正则的错误的写法 匹配请求目录地址 /555
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/software/20231125.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/vps/20231120.html">香港 CN2 优化线路带宽低延迟 VPS 服务器推荐</a></h2>
-        <div class="Summary"><h2 id="cn2">CN2</h2>
-<p>CN2，中国电信下一代承载网（ChinaNetNextCarryingNetwork）。CN2是一个多业务的承载网络，它能够支持数据、语音、视频多种业务融合的应用，为中国电信今后开展NGN业务打下了良好的基础。中国电信构建的CN2网络，力图奠定未来10-20年里中国电信顶级运营商的基础。中国电信CN2网络一期工程由骨干网络和精品业务网络组成，尤其是承载网对新业务的支持能力，是中国电信骨干网络和其商业客户之间的重要纽带，将直接决定中国电信提供的质量和灵活性。</p>……</div>
+        <div class="Summary">CN2 CN2，中国电信下一代承载网（ChinaNetNextCarryingNetwork）。CN2是一个多业务的承载网络，它能够支持数据、语音、视频多种业务融合的应用，为中国电信今后开展NGN业务打下了良好的基础。中国电信构建的CN2网络，力图奠定未来10-20年里中国电信顶级运营商的基础。中国电信CN2网络一期工程由骨干网络和精品业务网络组成，尤其是承载网对新业务的支持能力，是中国电信骨干网络和其商业客户之间的重要纽带，将直接决定中国电信提供的质量和灵活性。
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/vps/20231120.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/vps/20231022.html">菲律宾、马来西亚、泰国等多图 VPS 服务器便宜推荐</a></h2>
-        <div class="Summary"><h2 id="供应商-lightnodehttpswwwlightnodecominvitecodejji33fpromotewaylink">供应商 <a href="https://www.lightnode.com/?inviteCode=JJI33F&amp;promoteWay=LINK">LightNode</a></h2>
-<p>LightNode成立于2002年，目前拥有员工500余人。<br>
-LightNode自主研发并提供计算、存储、网络和安全等企业必需的基础IT架构资源。依托于自主知识产权的管理平台，为客户提供混合云计算服务和云上运维管理服务。<br>
-LightNode崇尚“技术驱动产品，运维驱动服务”的理念，不断推出适合行业特性的产品和服务。<br>
-目前，LightNode已为大量游戏、电商、金融、泛娱乐、企事业等方向的IT部署服务，提供了解决方案与混合云服务。</p>……</div>
+        <div class="Summary">供应商 LightNode LightNode成立于2002年，目前拥有员工500余人。
+LightNode自主研发并提供计算、存储、网络和安全等企业必需的基础IT架构资源。依托于自主知识产权的管理平台，为客户提供混合云计算服务和云上运维管理服务。
+LightNode崇尚“技术驱动产品，运维驱动服务”的理念，不断推出适合行业特性的产品和服务。
+目前，LightNode已为大量游戏、电商、金融、泛娱乐、企事业等方向的IT部署服务，提供了解决方案与混合云服务。
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/vps/20231022.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/aml/20230131.html">抗白之路-肺部感染发烧住院两个多月</a></h2>
-        <div class="Summary"><p>说说两个月住院的情况，住院是肺部感染发烧引起的。</p>
-<p>发烧的症状是刚开始怕冷，冷的发抖，打寒颤，一两个小时后开始发热，体温高达39-40度，持续性发烧。</p>……</div>
+        <div class="Summary">说说两个月住院的情况，住院是肺部感染发烧引起的。
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/aml/20230131.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/shell/20221108.html">12 个对新手最重要的 Linux 命令</a></h2>
-        <div class="Summary"><blockquote>
-<p>我向所有的 Linux 初学者推荐以下这些命令。</p>
-</blockquote>
-<p>在使用 Linux 命令行时，很容易就会迷失方向，这可能会导致灾难性的后果：我有一次使用删除命令 <code>rm</code> 删除文件，然而删除之后我才意识到我刚刚是删除了计算机的引导目录。后来，我学会了使用 <code>pwd</code> 命令，来知道当前在文件系统的哪个目录下；并且我使用了 <a href="https://www.redhat.com/sysadmin/recover-file-deletion-linux">trashy 和 trash-cli</a> 这一命令行回收站工具（LCTT 译注：在删除文件时 <code>trash-cli</code> 会充当中间人，将文件先“删除”到桌面上的垃圾箱中，能够通过垃圾箱或通过终端的 <code>trash</code> 命令，来恢复垃圾箱中已删除的文件。）</p>……</div>
+        <div class="Summary"> 我向所有的 Linux 初学者推荐以下这些命令。
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/shell/20221108.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/blog/20221107.html">第一次通过 SSH key 免密连接 GitHub 的完整过程</a></h2>
-        <div class="Summary"><p>通过密码连接<code>GitHub</code>总是要输入密码，麻烦，现在使用 <code>SSH key</code> 可以轻松实现免密验证.</p>
-<h2 id="创建-ssh-key">创建 SSH key</h2>
-<h3 id="使用-ssh-keygen-命令">使用 ssh-keygen 命令</h3>
-<ul>
-<li>打开终端输入命令 <code>ssh-keygen</code> 创建 <code>key</code></li>
-</ul>
-<pre tabindex="0"><code class="language-other" data-lang="other">ssh-keygen -t ed25519 -C &#34;ichochy@outlook.com&#34; 
-</code></pre><p><strong>注意</strong>：将<code>ichochy@outlook.com</code>换成自己的邮箱。</p>……</div>
+        <div class="Summary">通过密码连接GitHub总是要输入密码，麻烦，现在使用 SSH key 可以轻松实现免密验证.
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/blog/20221107.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/software/20220902.html">5 款适用于 Linux 的笔记应用</a></h2>
-        <div class="Summary"><blockquote>
-<p>使用这些开源工具来记笔记。</p>
-</blockquote>
-<p>笔记是任何作者生活的一部分。我的大部分文章都是从笔记应用开始的，这对我来说通常是 <a href="https://opensource.com/article/21/1/notes-joplin">Joplin</a>。有大量适用于 Linux 的笔记应用，你可能使用的不是我最喜欢的应用。最近的一篇博客文章让我想起了其中的六个，所以我整理了一份我最喜欢的列表。</p>……</div>
+        <div class="Summary"> 使用这些开源工具来记笔记。
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/software/20220902.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
     <article class="post">
         <h2 class="post-title"><a href="https://ichochy.com/posts/blog/20220822.html">国内外免费公共 DNS 服务推荐</a></h2>
-        <div class="Summary"><p>我们都知道想要能上网，就必须要使用DNS。DNS一般都是你的运营商提供给你的，也可以是一些其它组织提供的，比如我们熟知的谷歌的DNS <code>8.8.8.8</code>， 国内114dns的<code>114.114.114.114</code> 。这些由大的厂商和机构提供的公开解析服务，叫做公共DNS。</p>……</div>
+        <div class="Summary">我们都知道想要能上网，就必须要使用DNS。DNS一般都是你的运营商提供给你的，也可以是一些其它组织提供的，比如我们熟知的谷歌的DNS 8.8.8.8， 国内114dns的114.114.114.114 。这些由大的厂商和机构提供的公开解析服务，叫做公共DNS。
+……</div>
         
         <div class="read-more-link">
           <a href="https://ichochy.com/posts/blog/20220822.html">阅读全文</a>
         </div>
         
+        <hr>
     </article>
     
 </div>

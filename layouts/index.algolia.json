@@ -4,9 +4,9 @@
   {
     "objectID": {{ .File.TranslationBaseName }},
     "url": {{ .Permalink | jsonify }},
-    "title": {{ .Title | jsonify }},
-    "summary": {{ .Summary | jsonify }},
-    "content": {{ .Plain | jsonify }},
+    "title": {{ .Title | jsonify | }},
+    "summary": {{ .Summary | plainify | jsonify}},
+    "content": {{ .Plain | plainify | jsonify }},
     "pubDate": {{ .PublishDate | jsonify }}
   }
   {{- end }}

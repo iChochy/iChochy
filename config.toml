@@ -2,7 +2,7 @@ baseURL = "https://ichochy.com/"
 languageCode = "zh-CN"
 publishDir = "docs"
 title = "回忆中的明天"
-# summaryLength = 70
+summaryLength = 7
 theme = "hyde"
 uglyurls = true
 canonifyURLs = true
@@ -28,8 +28,8 @@ isPlainText = true
 
 [outputFormats.RSS]
 mediatype = "application/rss+xml"
-isPlainText = true
 baseName = "rss"
+isPlainText = true
 
 [params]
 postDir = "posts"

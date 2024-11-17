@@ -7,37 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shell 脚本重启项目 &middot; 回忆中的明天</title>
     <meta name="keywords" content="shell,jar"/>
-    <meta name="description" content="每次发打包好项目后都需要手动重启项目，写个Shell脚本一键重启项目
-Shell 脚本
-#!/bin/bash
-  
-while getopts &#34;n:p:&#34; arg
-do
-    case $arg in
-        n)
-                echo &#34;NAME&#39;s arg:$OPTARG&#34;
-                NAME=$OPTARG
-            ;;
-        p)
-                echo &#34;PORT&#39;s arg:$OPTARG&#34;
-                PORT=$OPTARG
-            ;;
-    esac
-done
-
-PROCESS=echo | lsof  -i TCP:$PORT | grep LISTEN | awk &#39;{print $2}&#39;
-if [ $PROCESS ]; then
-kill -9 $PROCESS
-echo kill $NAME:$PROCESS, restart
-fi
-cd jenkins
-cp jar/.tmp/$NAME-0.0.1-SNAPSHOT.jar jar/
-nohup java -jar -Xms128m -Xmx256m jar/$NAME-0.0.1-SNAPSHOT.jar --eureka.url=&#34;127.0.0.1:9100/eureka/&#34; --profile=&#34;dev&#34;  &gt;logs/$NAME.log 2&gt;&amp;1 &amp;
-echo $NAME starting
-Shell 说明
-lsof：通过端口获取进程
-getopts：实现Shell脚本多参数
-nohup：后台启动项目"/>
+    <meta name="description" content="每次发打包好项目后都需要手动重启项目，写个Shell脚本一键重启项目"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
