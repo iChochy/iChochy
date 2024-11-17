@@ -1,20 +1,7 @@
 {{ define "main" -}}
-<!-- {{ partial "breadcrumb.html" . }} -->
+ {{ partial "breadcrumb.html" . }}
 <div class="post">
-    <h2>
-        <a href="{{.Site.BaseURL}}">Index</a> /
-        {{if .Parent.IsHome }}
-        {{ humanize .Section }}
-        {{else}}
-        <a href="{{ .Section | absURL }}.html">{{ humanize .Section }}</a>
-        {{end}}
-        {{if not .Parent.IsHome }}
-        / {{.Title}}
-        {{end}}
-    </h2>
-    <time datetime={{ .Date.Format .Site.Params.DateFormat }} class="post-date">
-        {{ .Date.Format .Site.Params.DateFormat }}
-    </time>
+    <h1>{{.Title}}</h1>
     <ul class="posts">
         {{ range .Pages -}}
         <li>

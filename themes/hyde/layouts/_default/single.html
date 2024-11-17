@@ -1,21 +1,7 @@
 {{ define "main" -}}
-<h2>
-	<a href="{{.Site.BaseURL}}">Index</a>
-	  {{range .Params.categories}}
-       / <a href="{{ "categories" | absURL }}/{{ . | urlize }}.html">{{.}}</a>{{end}}
-</h2>
-
+{{ partial "breadcrumb.html" . }}
+<h1>{{.Title}}</h1>
 <div class="post">
-	<h1 class="post-title">
-	{{.Title}}
-
-<!--
-
-<a href="{{ .Permalink }}">{{ .Title }}</a>
-
--->
-
-	</h1>
   {{ partial "content_head.html" . }}
   {{ .Content }}
   {{ partial "related.html" . }}
