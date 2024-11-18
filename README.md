@@ -15,7 +15,7 @@
 ![Sponsor](https://ichochy.com/sponsor.jpg)
 
 ## 感谢 
-[雷霆](https://leiting.uniss.me/invite/0HczadPR) 提供 [网络自由](https://www.nthu.cc/#/register?code=hgBhiXYd)  
+[雷霆](https://leiting.uniss.me/invite/0HczadPR) 提供 [网络自由](https://leiting.uniss.me/invite/0HczadPR)  
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)  
 [七牛云](https://portal.qiniu.com/signup?code=3l7cpouzlru4y) 提供 [CDN/云存储](https://portal.qiniu.com/signup?code=3l7cpouzlru4y)  
 [Algolia](https://www.algolia.com/) 提供 [Search Engine](https://www.algolia.com/)  
