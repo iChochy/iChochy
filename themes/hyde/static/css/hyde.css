@@ -90,6 +90,9 @@ html {
   padding-left: 0;
   list-style: none;
 }
+.sidebar-nav li {
+    display:inline;
+}
 .sidebar-nav-item {
   display: block;
 }
@@ -110,10 +113,10 @@ a.sidebar-nav-item:focus {
 @media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
+    top: 1rem;
     right:  1rem;
-    bottom: 1rem;
     left:   1rem;
-    transition: bottom 0.5s;
+    transition: top 0.5s;
   }
 }
 

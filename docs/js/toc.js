@@ -25,16 +25,16 @@ ready(function(){
     if(!toc || style == "none"){
         return;
     }
-    window.title = true;
+    window.mark = true;
     window.addEventListener('scroll',
         function (e) {
             let scroll_height = window.scrollY;
-            if (scroll_height > 200 && window.title) {
-                window.title = false;
-                title.style.bottom = '100%';
+            if (scroll_height > 200 && window.mark) {
+                window.mark = false;
+                title.style.top = '100%';
                 toc.style.top = "1rem";
-            } else if (scroll_height <= 200 && !window.title) {
-                window.title = true;
+            } else if (scroll_height <= 200 && !window.mark) {
+                window.mark = true;
                 title.removeAttribute("style");
                 toc.removeAttribute("style");
             }
