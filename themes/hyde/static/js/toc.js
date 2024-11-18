@@ -21,8 +21,8 @@ function ready(fn) {
 ready(function(){
     let toc = document.getElementById("toc");
     let title = document.getElementById("title");
-    let style = window.getComputedStyle(toc)["display"];
-    if(!toc || style == "none"){
+    let sidebar = document.getElementsByClassName("sidebar")[0];
+    if(!toc){
         return;
     }
     window.mark = true;
@@ -31,12 +31,10 @@ ready(function(){
             let scroll_height = window.scrollY;
             if (scroll_height > 200 && window.mark) {
                 window.mark = false;
-                title.style.top = '100%';
-                toc.style.top = "1rem";
+                sidebar.scrollTo({ top: sidebar.offsetHeight, behavior: 'smooth'});
             } else if (scroll_height <= 200 && !window.mark) {
                 window.mark = true;
-                title.removeAttribute("style");
-                toc.removeAttribute("style");
+                sidebar.scrollTo({ top: 0, behavior: 'smooth'});
             }
         }
     );

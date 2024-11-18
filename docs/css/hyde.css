@@ -54,6 +54,7 @@ html {
  */
 
 .sidebar {
+  overflow: auto;
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
@@ -62,11 +63,11 @@ html {
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
+    height: 100vh;
     top: 0;
     left: 0;
     bottom: 0;
     width: 18rem;
-    text-align: left;
   }
 }
 
@@ -91,7 +92,13 @@ html {
   list-style: none;
 }
 .sidebar-nav li {
-    display:inline;
+        display: inline;
+    }
+
+@media (min-width: 48em) {
+    .sidebar-nav li {
+        display: block;
+    }
 }
 .sidebar-nav-item {
   display: block;
@@ -112,10 +119,9 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 48em) {
   .sidebar-sticky {
-    position: absolute;
-    top: 1rem;
-    right:  1rem;
-    left:   1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     transition: top 0.5s;
   }
 }
@@ -127,8 +133,9 @@ a.sidebar-nav-item:focus {
 @media (min-width: 48em) {
   .sidebar-toc {
     display: block;
-    position: absolute;
-    top: 100%;
+    height: 100vh;
+    padding-top: 64px;
+    text-align: left;
     transition: top 0.5s;
   }
 }
@@ -265,6 +272,12 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
+}
+
+.other {
+    display: grid;
+    align-items: end;
+    flex-grow: 1;
 }
 
 .other li{
