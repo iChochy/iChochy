@@ -93,10 +93,12 @@ html {
 }
 .sidebar-nav li {
         display: inline;
-    }
+        margin: 4px;
+}
 
 @media (min-width: 48em) {
     .sidebar-nav li {
+        margin: 4px;
         display: block;
     }
 }
