@@ -10,6 +10,16 @@ Gemini：[https://gemini.google.com/](https://gemini.google.com/)
 POE：[https://poe.com/](https://poe.com/)    
 梅林：[https://www.getmerlin.in/](https://www.getmerlin.in/zh-CN/chat)  
 
+## 开发文档
+Java：[https://dev.java/](https://dev.java/)  
+Swift：[https://www.swift.org/](https://www.swift.org/)  
+Apple Doc：[https://developer.apple.com/](https://developer.apple.com/documentation/)  
+Cocoaz：[https://www.cocoaz.com/](https://www.cocoaz.com/)  
+Mozilla Web:[https://developer.mozilla.org/](https://developer.mozilla.org/zh-CN/docs/Web)  
+W3school：[https://www.w3school.com.cn/](https://www.w3school.com.cn/)  
+JS 教程：[https://zh.javascript.info/](https://zh.javascript.info/)  
+Hugo：[https://gohugo.io/](https://gohugo.io/)   
+
 ## 常用工具
 Fast：[http://fast.com/](http://fast.com/)  
 Speed Test：[https://speed.cloudflare.com/](https://speed.cloudflare.com/)  
@@ -28,16 +38,6 @@ MD 语法：[https://guides.github.com/features/mastering-markdown/](https://gui
 V2ex：[https://v2ex.com/](https://v2ex.com/)  
 Linux.do：[https://linux.do/](https://linux.do/)    
 NodeSeek：[https://www.nodeseek.com/](https://www.nodeseek.com/)    
-
-## 开发文档
-Java：[https://dev.java/](https://dev.java/)  
-Swift：[https://www.swift.org/](https://www.swift.org/)  
-Hugo：[https://gohugo.io/](https://gohugo.io/)  
-JS 教程：[https://zh.javascript.info/](https://zh.javascript.info/)  
-W3school：[https://www.w3school.com.cn/](https://www.w3school.com.cn/)  
-Cocoaz：[https://www.cocoaz.com/](https://www.cocoaz.com/)  
-Apple Dev Doc：[https://developer.apple.com/documentation/](https://developer.apple.com/documentation/)  
-
 
 ## 开发工具
 ### 终端编辑器
