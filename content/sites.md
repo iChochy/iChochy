@@ -4,9 +4,9 @@ date: 2024-06-22T12:07:59+08:00
 ---
 
 ## AI 智能
+通义千问：[https://tongyi.aliyun.com/](https://tongyi.aliyun.com/)  
 ChatGPT：[https://chatgpt.com/](https://chatgpt.com/)  
 Gemini：[https://gemini.google.com/](https://gemini.google.com/)   
-通义千问：[https://tongyi.aliyun.com/](https://tongyi.aliyun.com/)  
 POE：[https://poe.com/](https://poe.com/)    
 梅林：[https://www.getmerlin.in/](https://www.getmerlin.in/zh-CN/chat)  
 
@@ -19,6 +19,22 @@ Mozilla Web:[https://developer.mozilla.org/](https://developer.mozilla.org/zh-CN
 W3school：[https://www.w3school.com.cn/](https://www.w3school.com.cn/)  
 JS 教程：[https://zh.javascript.info/](https://zh.javascript.info/)  
 Hugo：[https://gohugo.io/](https://gohugo.io/)   
+
+## 开发工具
+### 终端编辑器
+VIM：[https://www.vim.org/](https://www.vim.org/)  
+Nano：[https://www.nano-editor.org/](https://www.nano-editor.org/)  
+Helix：[https://helix-editor.com/](https://helix-editor.com/)  
+Emacs：[https://www.gnu.org/software/emacs/](https://www.gnu.org/software/emacs/)  
+
+### IDE
+IDEA：[https://www.jetbrains.com](https://www.jetbrains.com/zh-cn/idea/download/other.html)  
+Eclipse：[https://www.eclipse.org/](https://www.eclipse.org/)  
+Netbeans：[https://netbeans.apache.org/](https://netbeans.apache.org/)  
+Xcode：[https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)  
+IDEA：[https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)  
+Fleet：[https://www.jetbrains.com/fleet/](https://www.jetbrains.com/fleet/)  
+VSCode：[https://code.visualstudio.com/](https://code.visualstudio.com/)  
 
 ## 常用工具
 Fast：[http://fast.com/](http://fast.com/)  
@@ -39,23 +55,6 @@ V2ex：[https://v2ex.com/](https://v2ex.com/)
 Linux.do：[https://linux.do/](https://linux.do/)    
 NodeSeek：[https://www.nodeseek.com/](https://www.nodeseek.com/)    
 
-## 开发工具
-### 终端编辑器
-VIM：[https://www.vim.org/](https://www.vim.org/)  
-Nano：[https://www.nano-editor.org/](https://www.nano-editor.org/)  
-Helix：[https://helix-editor.com/](https://helix-editor.com/)  
-Emacs：[https://www.gnu.org/software/emacs/](https://www.gnu.org/software/emacs/)  
-
-### IDE
-IDEA：[https://www.jetbrains.com](https://www.jetbrains.com/zh-cn/idea/download/other.html)  
-Eclipse：[https://www.eclipse.org/](https://www.eclipse.org/)  
-Netbeans：[https://netbeans.apache.org/](https://netbeans.apache.org/)  
-Xcode：[https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)  
-IDEA：[https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)  
-Fleet：[https://www.jetbrains.com/fleet/](https://www.jetbrains.com/fleet/)  
-VSCode：[https://code.visualstudio.com/](https://code.visualstudio.com/)   
-Zed：[https://zed.dev/](https://zed.dev/)  
-   
 
 ## 站点管理  
 Namesilo：[https://www.namesilo.com/](https://www.namesilo.com/domain/search-domains?rid=285e694it)  
@@ -72,8 +71,32 @@ UPYun：[https://console.upyun.com/](https://console.upyun.com/register/?invite=
 aliyun Mirror：[https://developer.aliyun.com/mirror/](https://developer.aliyun.com/mirror/)  
 tsinghua Mirror：[https://mirrors.tuna.tsinghua.edu.cn/](https://mirrors.tuna.tsinghua.edu.cn/)  
 
+---
+
 ## VPS推荐
-Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
-Lightnode：[https://www.lightnode.com/](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)  
-CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)  
-V.PS：[https://v.ps](https://vps.hosting/?affid=1504)  
+### US
+CloudCone：[1C1G-$20.99/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
+
+### 泰国、菲律宾、马来西亚、新加坡、香港、台湾、亚太……
+Lightnode：[1C2G-$7.71/Month](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)
+
+### 香港、台湾、新加坡、日本、美国、英国、韩国
+Akile：[1C1G-¥9.99/Month](https://akile.io/register?aff_code=d73a8ecf-8cf7-43c5-b024-aa50b76ec8b5)
+
+### 菲律宾、新加坡、香港
+Megalayer：[1C1G-¥49.5/Month](https://account.megalayer.net/aff.php?aff=1678)
+
+### 英、德、美
+V.PS：[2C1G-€6.95/Month](https://vps.hosting/?affid=1504)
+
+### US VPS
+[1C1G-$20.99/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
+
+[2C2G-$35.88/Year](https://app.cloudcone.com.cn/vps/2/create?ref=11052&token=vps-2)
+
+### 活动 US VPS(活动期内效）
+[1C512MB-$10.99/Year](https://app.cloudcone.com.cn/vps/291/create?ref=11052&token=bf-24-ssd-vps-1)  
+
+[2C1G-$12.99/Year](https://app.cloudcone.com.cn/vps/292/create?ref=11052&token=bf-24-ssd-vps-2)  
+
+[6C2G-$20.88/Year](https://app.cloudcone.com.cn/vps/293/create?ref=11052&token=bf-24-ssd-vps-3) 

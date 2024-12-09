@@ -567,7 +567,7 @@ form button {
     margin-top:2px;
 }
 
-.DocSearch-Modal {
-    padding-top:30px
+.DocSearch-SearchBar {
+    padding-top:30px !important;
 }
 

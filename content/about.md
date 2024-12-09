@@ -28,13 +28,6 @@ date: 2020-07-22T12:07:59+08:00
 [GitHub Pages](https://pages.github.com/) 提供 [Server](https://pages.github.com/)  
 [JetBrains](https://www.jetbrains.com/) 提供 [Open Source License](https://www.jetbrains.com/shop/eform/opensource)  
 
-## VPS推荐
-
-Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
-Lightnode：[https://www.lightnode.com/](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)  
-CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)  
-V.PS：[https://v.ps](https://vps.hosting/?affid=1504)
-
 ---
 
 Powered by [Hugo](https://gohugo.io) Theme by [Hyde](https://themes.gohugo.io/hyde/)
