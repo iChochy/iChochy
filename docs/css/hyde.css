@@ -54,7 +54,7 @@ html {
  */
 
 .sidebar {
-  box-shadow: 0px 0px 5px 5px #999;
+  box-shadow: 0px 0px 5px 5px #171717;
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
@@ -204,6 +204,37 @@ a.sidebar-nav-item:focus {
  */
 
 /* Base16 (http://chriskempson.github.io/base16/#default) */
+
+
+@media (prefers-color-scheme: dark) {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+      color: #D3D3D3;
+}
+
+
+body.theme-base-08 {
+      background-color: #000000;
+    }
+
+body.theme-base-08 img {
+        filter: brightness(80%);
+    }
+
+body.theme-base-08 .sidebar {
+      background-color: #1F1F1F;
+    }
+
+body.theme-base-08 .content a,
+body.theme-base-08 .related-posts li a:hover {
+      color: #D3D3D3;
+    }
+}
+
 
 /* Red */
 .theme-base-08 .sidebar {
