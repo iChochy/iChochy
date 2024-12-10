@@ -205,7 +205,7 @@ a.sidebar-nav-item:focus {
 
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
-
+/* Dark */
 @media (prefers-color-scheme: dark) {
 h1,
 h2,
@@ -216,9 +216,13 @@ h6{
       color: #D3D3D3;
 }
 
+#searchbox input {
+    background-color:#C0C0C0;
+}
+
 
 body.theme-base-08 {
-      background-color: #000000;
+      background-color: #1F1F1F;
     }
 
 body.theme-base-08 img {
@@ -226,9 +230,12 @@ body.theme-base-08 img {
     }
 
 body.theme-base-08 .sidebar {
-      background-color: #1F1F1F;
+      background-color: #000000;
     }
 
+body.theme-base-08 {
+    color: #A9A9A9;
+}
 body.theme-base-08 .content a,
 body.theme-base-08 .related-posts li a:hover {
       color: #D3D3D3;

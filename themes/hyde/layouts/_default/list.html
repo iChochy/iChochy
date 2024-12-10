@@ -5,10 +5,10 @@
     <ul class="posts">
         {{ range .Pages -}}
         <li>
-      <span>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-          <small>{{ .Date.Format .Site.Params.DateFormat }}</small>
-      </span>
+          <span>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+              <small>{{ .Date.Format .Site.Params.DateFormat }}</small>
+          </span>
         </li>
         {{- end }}
     </ul>

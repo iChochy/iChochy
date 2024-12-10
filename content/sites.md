@@ -71,8 +71,6 @@ UPYun：[https://console.upyun.com/](https://console.upyun.com/register/?invite=
 aliyun Mirror：[https://developer.aliyun.com/mirror/](https://developer.aliyun.com/mirror/)  
 tsinghua Mirror：[https://mirrors.tuna.tsinghua.edu.cn/](https://mirrors.tuna.tsinghua.edu.cn/)  
 
----
-
 ## VPS推荐
 ### US
 CloudCone：[1C1G-$20.99/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
