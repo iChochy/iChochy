@@ -124,9 +124,9 @@ p {
   margin-bottom: 1rem;
 }
 
-strong {
+/*strong {
   color: #303030;
-}
+}*/
 
 
 /* Lists */
@@ -430,8 +430,23 @@ tbody tr:nth-child(odd) th {
   border: 1px solid #eee;
 }
 
+
 .pagination-item:first-child {
   margin-bottom: -1px;
+}
+
+
+.pagination-link {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #eee;
+}
+.pagination-link:first-child {
+   margin-bottom: -1px;
+   text-align: left;
+}
+.pagination-link:last-child {
+   text-align: right;
 }
 
 /* Only provide a hover state for linked pagination items */
