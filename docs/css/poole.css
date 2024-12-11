@@ -443,10 +443,10 @@ tbody tr:nth-child(odd) th {
 }
 .pagination-link:first-child {
    margin-bottom: -1px;
-   text-align: left;
+   text-align: right;
 }
 .pagination-link:last-child {
-   text-align: right;
+   text-align: left;
 }
 
 /* Only provide a hover state for linked pagination items */
