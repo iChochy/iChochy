@@ -93,7 +93,7 @@ V.PS：[2C1G-€6.95/Month](https://vps.hosting/?affid=1504)
 [2C2G-$35.88/Year](https://app.cloudcone.com.cn/vps/2/create?ref=11052&token=vps-2)
 
 ### 活动 US VPS(活动期内效）
-[1C512MB-$10.99/Year](https://app.cloudcone.com.cn/vps/291/create?ref=11052&token=bf-24-ssd-vps-1)  
+[1C512MB-$10.99/Year](https://app.cloudcone.com.cn/vps/291/create?ref=11052&token=bf-24-ssd-vps-1)
 
 [2C1G-$12.99/Year](https://app.cloudcone.com.cn/vps/292/create?ref=11052&token=bf-24-ssd-vps-2)  
 
