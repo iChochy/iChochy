@@ -414,7 +414,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .pagination {
-  overflow: hidden;
+/*  overflow: hidden;*/
   /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
@@ -442,10 +442,12 @@ tbody tr:nth-child(odd) th {
   border: 1px solid #eee;
 }
 .pagination-link:first-child {
-   margin-bottom: -1px;
+  margin-bottom: -1px;
+  padding-right: 4em;;
    text-align: left;
 }
 .pagination-link:last-child {
+  padding-left: 4em ;
    text-align: right;
 }
 
