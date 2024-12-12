@@ -72,10 +72,10 @@ aliyun Mirror：[https://developer.aliyun.com/mirror/](https://developer.aliyun.
 tsinghua Mirror：[https://mirrors.tuna.tsinghua.edu.cn/](https://mirrors.tuna.tsinghua.edu.cn/)  
 
 ## VPS推荐
-### US
-CloudCone：[1C1G-$20.99/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
+### US VPS
+CloudCone：[1C1G-$1.8/Month](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
 
-### 泰国、菲律宾、马来西亚、新加坡、香港、台湾、亚太……
+### 泰国、菲律宾、马来西亚、印尼、新加坡、香港、台湾、亚太……
 Lightnode：[1C2G-$7.71/Month](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)
 
 ### 香港、台湾、新加坡、日本、美国、英国、韩国
@@ -88,9 +88,9 @@ Megalayer：[1C1G-¥49.5/Month](https://account.megalayer.net/aff.php?aff=1678)
 V.PS：[2C1G-€6.95/Month](https://vps.hosting/?affid=1504)
 
 ### US VPS
-[1C1G-$20.99/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
+CloudCone：[1C1G-$21.6/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
 
-[2C2G-$35.88/Year](https://app.cloudcone.com.cn/vps/2/create?ref=11052&token=vps-2)
+CloudCone：[2C2G-$35.88/Year](https://app.cloudcone.com.cn/vps/2/create?ref=11052&token=vps-2)
 
 ### 活动 US VPS(活动期内效）
 [1C512MB-$10.99/Year](https://app.cloudcone.com.cn/vps/291/create?ref=11052&token=bf-24-ssd-vps-1)

@@ -1,14 +1,15 @@
 {{if eq .Section  .Site.Params.PostDir}}
 <div class="pagination">
+  {{ with .NextInSection }}
+  <span class="pagination-link newer">
+    上一篇：<a href="{{ .Permalink }}" class="pag-link">{{ .Title }}</a>
+  </span>
+  {{end}}
     {{ with .PrevInSection }}
   <span class="pagination-link older">
-    <a href="{{ .Permalink }}" class="pag-link">{{ .Title }}</a>
+    下一篇：<a href="{{ .Permalink }}" class="pag-link">{{ .Title }}</a>
   </span>
     {{ end }}
-    {{ with .NextInSection }}
-  <span class="pagination-link newer">
-    <a href="{{ .Permalink }}" class="pag-link">{{ .Title }}</a>
-  </span>
-    {{end}}
+
 </div>
 {{end}}

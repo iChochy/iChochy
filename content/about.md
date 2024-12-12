@@ -9,11 +9,8 @@ date: 2020-07-22T12:07:59+08:00
 如有 Java 入门的问题，可以免费解答初学者的问题。  
 **只希望帮助到更多想学 Java 的人。**
 
-白血病(CMML)患者，现已骨髓移植，肺排(FEV1:35%)， 恢复中……   
-
-## 联系方式  
-> 公众号：`iChochy`  
-> 邮箱：[ichochy@qq.com](mailto:ichochy@qq.com)  
+## 联系方式
+> Email：[ichochy@qq.com](mailto:ichochy@qq.com)  
 > GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
 
 ## 公众号    

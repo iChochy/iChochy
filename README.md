@@ -4,15 +4,10 @@
 如有 Java 入门的问题，可以免费解答初学者的问题。  
 **只希望帮助到更多想学 Java 的人。**
 
-白血病(CMML)患者，已骨髓移植，肺排(FEV1:35%)，恢复中……  
-
 ## 联系方式
-> 邮箱：[ichochy@qq.com](mailto:ichochy@qq.com)  
-> 网站：[https://ichochy.com](https://ichochy.com)  
+> Email：[ichochy@qq.com](mailto:ichochy@qq.com)  
+> Blog：[https://ichochy.com](https://ichochy.com)  
 > GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
-
-## 打赏 
-![Sponsor](https://ichochy.com/sponsor.jpg)
 
 ## 感谢 
 [雷霆](https://leiting.uniss.me/invite/0HczadPR) 提供 [自由网络](https://leiting.uniss.me/invite/0HczadPR)  
@@ -24,9 +19,22 @@
 [JetBrains](https://www.jetbrains.com/) 提供 [Open Source License](https://www.jetbrains.com/shop/eform/opensource)  
 
 ## VPS推荐
+### US VPS
+CloudCone：[1C1G-$1.8/Month](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
 
-Megalayer：[https://www.megalayer.net/](https://account.megalayer.net/aff.php?aff=1678)  
-Lightnode：[https://www.lightnode.com/](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)  
-CloudCone：[https://app.cloudcone.com.cn/](https://app.cloudcone.com.cn/?ref=11052)  
-V.PS：[https://v.ps](https://vps.hosting/?affid=1504)  
+### 泰国、菲律宾、马来西亚、印尼、新加坡、香港、台湾、亚太……
+Lightnode：[1C2G-$7.71/Month](https://www.lightnode.com/?inviteCode=JJI33F&promoteWay=LINK)
 
+### 香港、台湾、新加坡、日本、美国、英国、韩国
+Akile：[1C1G-¥9.99/Month](https://akile.io/register?aff_code=d73a8ecf-8cf7-43c5-b024-aa50b76ec8b5)
+
+### 菲律宾、新加坡、香港
+Megalayer：[1C1G-¥49.5/Month](https://account.megalayer.net/aff.php?aff=1678)
+
+### 英、德、美
+V.PS：[2C1G-€6.95/Month](https://vps.hosting/?affid=1504)
+
+### US VPS
+CloudCone：[1C1G-$21.6/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
+
+CloudCone：[2C2G-$35.88/Year](https://app.cloudcone.com.cn/vps/2/create?ref=11052&token=vps-2)
