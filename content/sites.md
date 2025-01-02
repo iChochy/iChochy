@@ -43,7 +43,7 @@ Speed Test：[https://speed.cloudflare.com/](https://speed.cloudflare.com/)
 Linux 命令：[https://git.io/linux](https://git.io/linux)  
 Deepl：[https://www.deepl.com/](https://www.deepl.com/zh/translator)  
 翻译：[https://translate.google.com/](https://translate.google.com/)  
-Plantuml：[http://www.plantuml.com/plantuml/uml/](http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000)  
+Plantuml：[https://www.plantuml.com/](https://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000)  
 MD Editor：[https://markdown.com.cn/editor/](https://markdown.com.cn/editor/)  
 MD 语法：[https://guides.github.com/features/mastering-markdown/](https://guides.github.com/features/mastering-markdown/)  
 
@@ -88,13 +88,13 @@ Megalayer：[1C1G-¥49.5/Month](https://account.megalayer.net/aff.php?aff=1678)
 V.PS：[2C1G-€6.95/Month](https://vps.hosting/?affid=1504)
 
 ### US VPS
-CloudCone：[1C1G-$21.6/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
+CloudCone：[1C1G-$21.6/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)  
 
-CloudCone：[2C2G-$35.88/Year](https://app.cloudcone.com.cn/vps/2/create?ref=11052&token=vps-2)
+CloudCone：[2C2G-$35.88/Year](https://app.cloudcone.com.cn/vps/2/create?ref=11052&token=vps-2)  
 
 ### 活动 US VPS(活动期内效）
-[1C512MB-$10.99/Year](https://app.cloudcone.com.cn/vps/291/create?ref=11052&token=bf-24-ssd-vps-1)
+[1C512MB-$10.99/Year](https://app.cloudcone.com.cn/vps/291/create?ref=11052&token=bf-24-ssd-vps-1)  
 
-[2C1G-$12.99/Year](https://app.cloudcone.com.cn/vps/292/create?ref=11052&token=bf-24-ssd-vps-2)  
+[2C1G-$12.99/Year](https://app.cloudcone.com.cn/vps/292/create?ref=11052&token=bf-24-ssd-vps-2)   
 
-[6C2G-$20.88/Year](https://app.cloudcone.com.cn/vps/293/create?ref=11052&token=bf-24-ssd-vps-3) 
+[6C2G-$20.88/Year](https://app.cloudcone.com.cn/vps/293/create?ref=11052&token=bf-24-ssd-vps-3)   

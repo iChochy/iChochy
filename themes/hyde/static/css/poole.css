@@ -443,11 +443,13 @@ tbody tr:nth-child(odd) th {
 }
 .pagination-link:first-child {
   margin-bottom: -1px;
-  padding-right: 4em;;
+  padding-right: 4em;
+  padding-left: 1em ;
    text-align: left;
 }
 .pagination-link:last-child {
   padding-left: 4em ;
+  padding-right: 1em ;
    text-align: right;
 }
 
