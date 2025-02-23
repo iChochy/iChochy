@@ -35,6 +35,5 @@ Megalayer：[1C1G-¥49.5/Month](https://account.megalayer.net/aff.php?aff=1678)
 V.PS：[2C1G-€6.95/Month](https://vps.hosting/?affid=1504)
 
 ### US VPS
-CloudCone：[1C1G-$21.6/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)
-
+CloudCone：[1C1G-$21.6/Year](https://app.cloudcone.com.cn/vps/1/create?ref=11052&token=vps-1)  
 CloudCone：[2C2G-$35.88/Year](https://app.cloudcone.com.cn/vps/2/create?ref=11052&token=vps-2)
