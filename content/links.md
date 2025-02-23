@@ -14,6 +14,5 @@ imbytecat：[https://www.imbytecat.com](https://www.imbytecat.com)
 Pantheon：[https://blog.pantheon.press](https://blog.pantheon.press)    
 
 ## 申请友链
-请关注公众号：`iChochy`  
-
+请关注公众号：`iChochy`
 ![公众号](https://ichochy.com/wx.jpg)
