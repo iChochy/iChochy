@@ -2,8 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ichochy.com/categories/blog.html</loc>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
+  </url><url>
     <loc>https://ichochy.com/categories.html</loc>
-    <lastmod>2025-02-20T10:42:45+08:00</lastmod>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/dns.html</loc>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/doh.html</loc>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/dot.html</loc>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts.html</loc>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags.html</loc>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/</loc>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/blog/20250226.html</loc>
+    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/mac.html</loc>
     <lastmod>2025-02-20T10:42:45+08:00</lastmod>
@@ -14,19 +38,10 @@
     <loc>https://ichochy.com/posts/mac/20250220.html</loc>
     <lastmod>2025-02-20T10:42:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/posts.html</loc>
-    <lastmod>2025-02-20T10:42:45+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/tags/shell.html</loc>
     <lastmod>2025-02-20T10:42:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/software.html</loc>
-    <lastmod>2025-02-20T10:42:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags.html</loc>
-    <lastmod>2025-02-20T10:42:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/</loc>
     <lastmod>2025-02-20T10:42:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/linux.html</loc>
@@ -82,9 +97,6 @@
   </url><url>
     <loc>https://ichochy.com/posts/software/20240402.html</loc>
     <lastmod>2024-04-02T12:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/categories/blog.html</loc>
-    <lastmod>2024-01-10T14:11:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/https.html</loc>
     <lastmod>2024-01-10T14:11:45+08:00</lastmod>
@@ -151,9 +163,6 @@
   </url><url>
     <loc>https://ichochy.com/tags/markdown.html</loc>
     <lastmod>2022-09-02T08:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/dns.html</loc>
-    <lastmod>2022-08-22T19:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/internet.html</loc>
     <lastmod>2022-08-22T19:22:45+08:00</lastmod>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.138.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国内、外免费公共的DNS，支持的DoH，防止污染、篡改的问题 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="dns,doh,dot"/>
+    <meta name="description" content="DNS 的全称为 Domain Name System，简称域名服务器，通过域名查询返回服务器的IP。
+DNS的速度和安全至关重要，决定我们访问网站的快慢和安全。"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    </head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/categories.html"> 分类 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li></ul>
+    </nav>
+    <div class = "other">
+
+    <li>&copy; 2020 - 2025 iChochy.</li>
+    
+    
+    </div>
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dns">DNS</a>
+      <ul>
+        <li><a href="#dns-over-udp"><strong>DNS over UDP</strong></a></li>
+        <li><a href="#dns-over-tls-dot"><strong>DNS over TLS (DoT)</strong></a></li>
+        <li><a href="#dns-over-https-doh"><strong>DNS over HTTPS (DoH)</strong></a></li>
+        <li><a href="#dns-over-quic-doq"><strong>DNS over QUIC (DoQ)</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#dns的选择">DNS的选择</a></li>
+    <li><a href="#国内公共dns">国内公共DNS</a>
+      <ul>
+        <li><a href="#腾讯云-dns">腾讯云 DNS</a></li>
+        <li><a href="#阿里云公共-dns">阿里云公共 DNS</a></li>
+        <li><a href="#onedns">OneDNS</a></li>
+      </ul>
+    </li>
+    <li><a href="#国外-dns-服务">国外 DNS 服务</a>
+      <ul>
+        <li><a href="#google">Google</a></li>
+        <li><a href="#cloudflare">Cloudflare</a></li>
+        <li><a href="#quad9">Quad9</a></li>
+        <li><a href="#yandex">Yandex</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <ol class="breadcrumb">
+    
+
+
+    
+
+
+
+<li >
+  <a href="https://ichochy.com/">回忆中的明天</a>
+</li>
+
+
+
+<li  class="active" >
+  <a href="https://ichochy.com/posts/blog/20250226.html">国内、外免费公共的DNS，支持的DoH，防止污染、篡改的问题</a>
+</li>
+
+</ol>
+
+<h1>国内、外免费公共的DNS，支持的DoH，防止污染、篡改的问题</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/Categories/blog.html">#Blog</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/dns.html">#dns</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/doh.html">#doh</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/dot.html">#dot</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2025/02/26 19:22:45</em>
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/blog/20250226.html">https://ichochy.com/posts/blog/20250226.html</a>
+<hr>
+
+  <p>DNS 的全称为 Domain Name System，简称域名服务器，通过域名查询返回服务器的IP。
+DNS的速度和安全至关重要，决定我们访问网站的快慢和安全。</p>
+<h2 id="dns">DNS</h2>
+<h3 id="dns-over-udp"><strong>DNS over UDP</strong></h3>
+<p>传统的使用用户数据报协议 (UDP) 发送 DNS 查询的方式。</p>
+<ul>
+<li><strong>工作原理</strong>：DNS 查询和响应以轻量级、无连接的数据包形式发送，速度快但不保证送达（无错误纠正）。</li>
+<li><strong>端口</strong>：通常使用 53 端口。</li>
+<li><strong>优点</strong>：简单、低开销、广泛支持。</li>
+<li><strong>缺点</strong>：未加密（易被窃听），容易受到伪造或中间人攻击，数据包大小受限（较大响应可能切换到 TCP）。</li>
+</ul>
+<h3 id="dns-over-tls-dot"><strong>DNS over TLS (DoT)</strong></h3>
+<p>使用传输层安全协议 (TLS) 加密 DNS 查询，通过专用的 TCP 连接发送。</p>
+<ul>
+<li><strong>工作原理</strong>：将 DNS 流量封装在 TLS 中以确保隐私和完整性，使用 853 端口。</li>
+<li><strong>优点</strong>：加密（防止窃听），验证服务器身份，防止篡改。</li>
+<li><strong>缺点</strong>：由于 TLS 握手，延迟稍高，需要 TCP（比 UDP 开销大）。</li>
+<li><strong>使用场景</strong>：适合注重隐私的应用或网络。</li>
+</ul>
+<h3 id="dns-over-https-doh"><strong>DNS over HTTPS (DoH)</strong></h3>
+<p>将 DNS 查询封装在 HTTPS 流量中，利用现有的网页加密技术。</p>
+<ul>
+<li><strong>工作原理</strong>：通过 443 端口（标准 HTTPS 端口）将 DNS 请求发送到支持 DoH 的解析器，看起来像普通网页流量。</li>
+<li><strong>优点</strong>：加密，与 HTTPS 流量混合（难以拦截或检测），浏览器支持广泛（如 Firefox、Chrome）。</li>
+<li><strong>缺点</strong>：集中式解析器（如 Cloudflare、Google）可能引发隐私担忧，开销略高于 UDP。</li>
+<li><strong>使用场景</strong>：适合绕过审查或在受限网络中使用。</li>
+</ul>
+<h3 id="dns-over-quic-doq"><strong>DNS over QUIC (DoQ)</strong></h3>
+<p>通过 QUIC（基于 UDP 的现代协议）发送加密的 DNS 查询。</p>
+<ul>
+<li><strong>工作原理</strong>：结合 UDP 的速度和类似 TLS 的安全性，通常使用 853 端口（实验性实现可能不同）。</li>
+<li><strong>优点</strong>：加密，比基于 TCP 的方法延迟低（无握手延迟），抗丢包。</li>
+<li><strong>缺点</strong>：仍在发展中，支持度不如 DoT 或 DoH，需要兼容的客户端和服务器。</li>
+<li><strong>使用场景</strong>：为未来的 DNS 提供性能与安全性的平衡。</li>
+</ul>
+<h2 id="dns的选择">DNS的选择</h2>
+<ul>
+<li><strong>UDP</strong>是传统的默认方式，容易篡改，缺乏安全性。</li>
+<li><strong>DoT</strong>和<strong>DoH</strong>是当前隐私保护的主流选择。DoH 因融入 HTTPS 更隐蔽，DoT默认端口853，特征明显。</li>
+<li><strong>DoQ</strong>是未来趋势，兼顾速度与安全性，但尚未完全普及。</li>
+</ul>
+<h2 id="国内公共dns">国内公共DNS</h2>
+<h3 id="腾讯云-dns">腾讯云 DNS</h3>
+<p>Public DNS 凭借 DNSPod 多年的域名解析服务经验开发，并依托于腾讯云强大的资源优势，旨在为用户提供更加快速、准确、稳定的递归解析服务，且我们不会对任何域名进行恶意劫持。</p>
+<pre tabindex="0"><code>IPv4：119.29.29.29
+IPv6：2402:4e00::
+DoH：https://doh.pub/dns-query
+DoT：tls://dot.pub
+DoH(国密)：https://sm2.doh.pub/dns-query
+</code></pre><p><strong>服务地址</strong>：<a href="https://www.dnspod.cn/products/publicdns">https://www.dnspod.cn/products/publicdns</a></p>
+<h3 id="阿里云公共-dns">阿里云公共 DNS</h3>
+<p>阿里云公共DNS提供稳定、安全、精准、快速的公网递归解析服务，支持HTTP/HTTPS（DoH/DoT）等协议。使用阿里云公共DNS后，可替代使用传统LocalDNS解析服务，避免发生 域名被劫持、解析速度慢、解析变更不生效 等问题，</p>
+<pre tabindex="0"><code>IPv4：223.5.5.5, 223.6.6.6
+IPv6：2400:3200::1, 2400:3200:baba::1
+DoH：https://dns.alidns.com/dns-query
+DoT：tls://dns.alidns.com
+</code></pre><p><strong>服务地址</strong>：<a href="https://alidns.com/">https://alidns.com/</a></p>
+<h3 id="onedns">OneDNS</h3>
+<p>OneDNS 互联网安全接入服务是北京微步在线科技有限公司提供的具备安全防护能力的 DNS 递归解析服务，该服务可以保护任何一台终端、任何一个办公职场、任何一个家庭均可安全地接 入到互联网，为企业和家庭用户有效防护：恶意软件、勒索病毒、APT 攻击、钓鱼链接、非法站点。并且屏蔽各类广告骚扰和欺诈类网站，净化网络环境，保护数据安全。</p>
+<pre tabindex="0"><code># 纯净版
+IPv4：117.50.10.10 / 52.80.52.52
+DoH：https://doh-pure.onedns.net/dns-query
+DoT：tls://dot.onedns.net
+
+# 拦截版 
+IPv4：117.50.11.11 / 52.80.66.66
+DoH：https://doh.onedns.net/dns-query
+DoT：tls://dot.onedns.net
+
+# 家庭版 
+IPv4：117.50.60.30 / 52.80.60.30
+</code></pre><p><strong>服务地址</strong>：<a href="https://onedns.net/personal">https://onedns.net/personal</a></p>
+<h2 id="国外-dns-服务">国外 DNS 服务</h2>
+<h3 id="google">Google</h3>
+<p>Google 是最早推出免费DNS服务的平台。谷歌DNS它们易于记忆，并且每个人都可以使用。谷歌DNS的主要优势来自他们作为一家公司的声誉。谷歌每年收入极多，有能力提供最稳定和更有弹性的DNS服务器。这个DNS服务器的唯一问题是它们存储有关您的运营的信息，如果美国政府决定需要这些信息，它们可以与第三方共享，Google通常被认为是最好的DNS服务器。</p>
+<pre tabindex="0"><code>IPv4：8.8.8.8,8.8.4.4
+IPv6：2001:4860:4860::8888,2001:4860:4860::8844
+DoH：https://dns.google/dns-query
+DoT：tls://dns.google
+</code></pre><p><strong>服务地址</strong>：<a href="https://dns.google/">https://dns.google/</a></p>
+<h3 id="cloudflare">Cloudflare</h3>
+<p>1.1.1.1 是由 Cloudflare 运营的公共 DNS 解析器，它提供了一种快速且私密的方式来浏览互联网。与大多数 DNS 解析器不同，1.1.1.1 不会将用户数据出售给广告商。此外，在经过测量后，1.1.1.1 被认为是可用的最快 DNS 解析器。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>IPv4：1.1.1.1, 1.0.0.1
+</span></span><span style="display:flex;"><span>IPv6：2606:4700:4700::1111, 2606:4700:4700::1001
+</span></span><span style="display:flex;"><span>DoH：https://cloudflare-dns.com/dns-query
+</span></span><span style="display:flex;"><span>DoT：tls://cloudflare-dns.com
+</span></span></code></pre></div><h4 id="block-malware">Block malware</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>IPv4：1.1.1.2, 1.0.0.2
+</span></span><span style="display:flex;"><span>IPv6：2606:4700:4700::1112, 2606:4700:4700::1002
+</span></span><span style="display:flex;"><span>DoH：https://security.cloudflare-dns.com/dns-query
+</span></span><span style="display:flex;"><span>DoT：tls://security.cloudflare-dns.com
+</span></span></code></pre></div><h4 id="block-malware-and-adult-content">Block malware and adult content</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>IPv4：1.1.1.3, 1.0.0.3
+</span></span><span style="display:flex;"><span>IPv6：2606:4700:4700::1113, 2606:4700:4700::1003
+</span></span><span style="display:flex;"><span>DoH：https://family.cloudflare-dns.com/dns-query
+</span></span><span style="display:flex;"><span>DoT：tls://family.cloudflare-dns.com
+</span></span></code></pre></div><p><strong>服务地址</strong>：<a href="https://one.one.one.one/dns/">https://one.one.one.one/dns/</a></p>
+<h4 id="什么是-cloudflare-warp">什么是 Cloudflare WARP？</h4>
+<p>WARP 是基于 1.1.1.1 构建的可选应用。WARP 在个人设备（如计算机和智能手机）和您在互联网上访问的服务之间建立安全连接。1.1.1.1 仅保护 DNS 查询，而 WARP 保护来自您设备的所有流量。</p>
+<p>WARP Client：<a href="https://one.one.one.one">https://one.one.one.one</a></p>
+<h3 id="quad9">Quad9</h3>
+<p>Quad9 DNS 服务由总部位于瑞士的 Quad9 基金会运营，其使命是为每个人提供更安全、更强大的互联网。</p>
+<pre tabindex="0"><code>IPv4：9.9.9.9,149.112.112.112
+IPv6：2620:fe::fe,2620:fe::9
+DoH：https://dns.quad9.net/dns-query
+DoT：tls://dns.quad9.net
+# Unsecured
+IPv4：9.9.9.10,149.112.112.10
+IPv6：2620:fe::10,2620:fe::10
+DoH：https://dns10.quad9.net/dns-query
+DoT：tls://dns10.quad9.net
+# Secured
+IPv4：9.9.9.11,149.112.112.11
+IPv6：2620:fe::11,2620:fe::11
+DoH：https://dns11.quad9.net/dns-query
+DoT：tls://dns11.quad9.net
+</code></pre><p><strong>服务地址</strong>：<a href="https://www.quad9.net/">https://www.quad9.net/</a></p>
+<h3 id="yandex">Yandex</h3>
+<p>Yandex DNS 服务器，使您能快速打开网站。提供阻止成人网站和危险网站，服务完全免费。</p>
+<pre tabindex="0"><code>IPv4：77.88.8.8,77.88.8.1
+IPv6：2a02:6b8::feed:0ff,2a02:6b8:0:1::feed:0ff
+DoH：https://common.dot.dns.yandex.net/dns-query
+DoT：tls://common.dot.dns.yandex.net
+# Safe
+IPv4：77.88.8.88,77.88.8.2
+IPv6：2a02:6b8::feed:bad,2a02:6b8:0:1::feed:bad
+DoH：https://safe.dot.dns.yandex.net/dns-query
+DoT：tls://safe.dot.dns.yandex.net
+# Family
+IPv4：77.88.8.7,77.88.8.3
+IPv6：2a02:6b8::feed:a11,2a02:6b8:0:1::feed:a11
+DoH：https://family.dot.dns.yandex.net/dns-query
+DoT：tls://family.dot.dns.yandex.net
+</code></pre><p><strong>服务地址</strong>：<a href="https://dns.yandex.com">https://dns.yandex.com</a></p>
+<h2 id="总结">总结</h2>
+<p>国内用户，推荐大家使用腾讯云、阿里云的公共DNS，作为云服务器大厂，公共DNS安全、速度、可用性有保障。<br>
+国际用户，选 Cloudflare 的公共DNS服务，在速度和隐私方面都做的很好。<br>
+有条件还是使用 DoH 的方式，不会有污染、篡改的问题，保障安全和隐私。</p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20220822.html">
+                    国内外免费公共 DNS 服务推荐
+                </a>
+                <small>
+                    2022/08/22
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20191008.html">
+                    通过 Cloudflare 开启全站 https
+                </a>
+                <small>
+                    2019/10/08
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/mac/20250220.html" class="pag-link">macOS 系统下载和安装</a>
+  </span>
+    
+
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/doc_search.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>
