@@ -21,7 +21,7 @@ CloudCone：[1C1G-$20/Year](https://app.cloudcone.com.cn/vps/355/create?ref=1105
 CloudCone：[2C2G-$26/Year](https://app.cloudcone.com.cn/vps/356/create?ref=11052&token=ssd-vps-2)  
 CloudCone：[3C3G-$36/Year](https://app.cloudcone.com.cn/vps/357/create?ref=11052&token=ssd-vps-3)  
 
-### 活动 US VPS(活动期内效）
+### 活动 US VPS(活动期内有效）
 CloudCone：[1C512MB-$10.99/Year](https://app.cloudcone.com.cn/vps/291/create?ref=11052&token=bf-24-ssd-vps-1)  
 CloudCone：[2C1G-$12.99/Year](https://app.cloudcone.com.cn/vps/292/create?ref=11052&token=bf-24-ssd-vps-2)  
 CloudCone：[6C2G-$20.88/Year](https://app.cloudcone.com.cn/vps/293/create?ref=11052&token=bf-24-ssd-vps-3)   

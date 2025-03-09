@@ -51,9 +51,9 @@ main = [
     { Name = "搜索", weight = 2, URL = "/search.html" },
     { Name = "分类", weight = 3, URL = "/categories.html" },
     { Name = "简介", weight = 4, URL = "/about.html" },
-    { Name = "VPS", weight = 5, URL = "/vps.html" },
+    { Name = "友链", weight = 5, URL = "/links.html" },
     { Name = "站点", weight = 6, URL = "/sites.html" },
+    { Name = "VPS", weight = 7, URL = "/vps.html" },
     #     {Name = "标签", weight = 6, URL = "/tags.html"},
-    { Name = "友链", weight = 7, URL = "/links.html" },
 #    {Name = "RSS", weight = 8, URL = "/rss.xml"}
 ]
