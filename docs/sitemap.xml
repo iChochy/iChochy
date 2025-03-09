@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ichochy.com/vps.html</loc>
+    <lastmod>2025-03-08T12:07:59+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/</loc>
+    <lastmod>2025-03-08T12:07:59+08:00</lastmod>
+  </url><url>
     <loc>https://ichochy.com/categories/blog.html</loc>
     <lastmod>2025-02-26T19:22:45+08:00</lastmod>
   </url><url>
@@ -21,9 +27,6 @@
     <lastmod>2025-02-26T19:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags.html</loc>
-    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/</loc>
     <lastmod>2025-02-26T19:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/blog/20250226.html</loc>

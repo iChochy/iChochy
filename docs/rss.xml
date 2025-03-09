@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 26 Feb 2025 19:22:45 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 08 Mar 2025 12:07:59 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VPS</title>
+      <link>https://ichochy.com/vps.html</link>
+      <pubDate>Sat, 08 Mar 2025 12:07:59 +0800</pubDate>
+      <guid>https://ichochy.com/vps.html</guid>
+      <description>&lt;h2 id=&#34;服务器推荐&#34;&gt;服务器推荐&lt;/h2&gt;&#xA;&lt;h3 id=&#34;us-vps&#34;&gt;US VPS&lt;/h3&gt;&#xA;&lt;p&gt;CloudCone：&lt;a href=&#34;https://app.cloudcone.com.cn/vps/355/create?ref=11052&amp;amp;token=ssd-vps-1&#34;&gt;1C1G-$1.66/Month&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>国内、外免费公共的DNS，支持的DoH，防止污染、篡改的问题</title>
       <link>https://ichochy.com/posts/blog/20250226.html</link>
