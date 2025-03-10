@@ -5,7 +5,7 @@
       <b>分类:</b>
       {{range .}}
       <li>
-        <a href="{{ "Categories" | absURL }}/{{ . | urlize }}.html">#{{ . }}</a>
+        <a href="{{ "categories" | absURL }}/{{ . | urlize }}.html">#{{ . }}</a>
       </li>
       {{ end }}
     </ul>
