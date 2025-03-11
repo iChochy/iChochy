@@ -37,7 +37,7 @@ IDEA：[https://www.jetbrains.com/idea](https://www.jetbrains.com/idea)
 Fleet：[https://www.jetbrains.com/fleet](https://www.jetbrains.com/fleet)  
 VSCode：[https://code.visualstudio.com](https://code.visualstudio.com)  
 
-## 上线工具
+## 线上工具
 Fast：[http://fast.com](http://fast.com)  
 Speed Test：[https://speed.cloudflare.com](https://speed.cloudflare.com)  
 在线测速：[https://test.ustc.edu.cn](https://test.ustc.edu.cn)  
