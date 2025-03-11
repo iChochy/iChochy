@@ -15,8 +15,7 @@ POE：[https://poe.com](https://poe.com)
 ## 开发文档
 Java：[https://dev.java](https://dev.java)  
 Swift：[https://www.swift.org](https://www.swift.org)  
-Apple Doc：[https://developer.apple.com](https://developer.apple.com/documentation)  
-Cocoaz：[https://www.cocoaz.com](https://www.cocoaz.com)  
+Apple Doc：[https://developer.apple.com](https://developer.apple.com/documentation)
 Mozilla Web:[https://developer.mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web)  
 W3school：[https://www.w3school.com.cn](https://www.w3school.com.cn)  
 JS 教程：[https://zh.javascript.info](https://zh.javascript.info)  
@@ -31,23 +30,23 @@ Emacs：[https://www.gnu.org/software/emacs](https://www.gnu.org/software/emacs)
 
 ### IDE
 IDEA：[https://www.jetbrains.com](https://www.jetbrains.com/zh-cn/idea/download/other.html)  
+Xcode：[https://developer.apple.com/xcode](https://developer.apple.com/xcode)  
 Eclipse：[https://www.eclipse.org](https://www.eclipse.org)  
 Netbeans：[https://netbeans.apache.org](https://netbeans.apache.org)  
-Xcode：[https://developer.apple.com/xcode](https://developer.apple.com/xcode)  
 IDEA：[https://www.jetbrains.com/idea](https://www.jetbrains.com/idea)  
 Fleet：[https://www.jetbrains.com/fleet](https://www.jetbrains.com/fleet)  
 VSCode：[https://code.visualstudio.com](https://code.visualstudio.com)  
 
-## 常用工具
+## 上线工具
 Fast：[http://fast.com](http://fast.com)  
 Speed Test：[https://speed.cloudflare.com](https://speed.cloudflare.com)  
 在线测速：[https://test.ustc.edu.cn](https://test.ustc.edu.cn)  
+Deepl：[https://www.deepl.com](https://www.deepl.com/zh/translator)   
+Mermaid：[https://www.mermaidchart.com](https://www.mermaidchart.com/play)   
+Plantuml：[https://www.plantuml.com](https://www.plantuml.com/plantuml/uml)   
 Linux 命令：[https://git.io/linux](https://git.io/linux)  
-Deepl：[https://www.deepl.com](https://www.deepl.com/zh/translator)  
-翻译：[https://translate.google.com](https://translate.google.com)  
-Plantuml：[https://www.plantuml.com](https://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000)  
-MD Editor：[https://markdown.com.cn/editor](https://markdown.com.cn/editor)  
 MD 语法：[https://guides.github.com/features/mastering-markdown](https://guides.github.com/features/mastering-markdown)  
+MD Editor：[https://markdown.com.cn/editor](https://markdown.com.cn/editor)  
 
 ## 站点论坛
 思否：[https://segmentfault.com](https://segmentfault.com)  
@@ -57,9 +56,15 @@ Linux.do：[https://linux.do](https://linux.do)
 NodeSeek：[https://www.nodeseek.com](https://www.nodeseek.com)    
 V2ex：[https://v2ex.com](https://v2ex.com)  
 
-## 站点管理  
+## 域名管理
+ICANN：[https://lookup.icann.org](https://lookup.icann.org/zh)
+TLD-List：[https://tld-list.com](https://zh-hans.tld-list.com)
+DNSPerf：[https://www.dnsperf.com](https://www.dnsperf.com)
+DNSLeak:[https://dnsleaktest.com](https://dnsleaktest.com)
 Namesilo：[https://www.namesilo.com](https://www.namesilo.com/domain/search-domains?rid=285e694it)  
-Cloudflare：[https://dash.cloudflare.com](https://dash.cloudflare.com/login)  
+Cloudflare：[https://dash.cloudflare.com](https://dash.cloudflare.com/login)
+
+## 站点管理  
 Bing Console：[https://www.bing.com/webmasters](https://www.bing.com/webmasters)   
 Google Console：[https://search.google.com/search-console](https://search.google.com/search-console)  
 Google Analytics：[https://analytics.google.com](https://analytics.google.com)  
