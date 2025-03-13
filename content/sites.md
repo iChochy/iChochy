@@ -4,18 +4,18 @@ date: 2024-06-22T12:07:59+08:00
 ---
 
 ## AI 智能
-ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
-Gemini：[https://gemini.google.com](https://gemini.google.com)   
-Claude：[https://claude.ai](https://claude.ai)   
 Grok：[https://grok.com](https://grok.com)   
-通义千问：[https://tongyi.aliyun.com](https://tongyi.aliyun.com)  
-梅林：[https://www.getmerlin.in](https://www.getmerlin.in/zh-CN/chat)  
+Claude：[https://claude.ai](https://claude.ai)   
+Gemini：[https://gemini.google.com](https://gemini.google.com)   
+ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
 POE：[https://poe.com](https://poe.com)    
+梅林：[https://www.getmerlin.in](https://www.getmerlin.in/zh-CN/chat)  
+通义千问：[https://tongyi.aliyun.com](https://tongyi.aliyun.com)  
 
 ## 开发文档
 Java：[https://dev.java](https://dev.java)  
 Swift：[https://www.swift.org](https://www.swift.org)  
-Apple Doc：[https://developer.apple.com](https://developer.apple.com/documentation)
+Apple Doc：[https://developer.apple.com](https://developer.apple.com/documentation)  
 Mozilla Web:[https://developer.mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web)  
 W3school：[https://www.w3school.com.cn](https://www.w3school.com.cn)  
 JS 教程：[https://zh.javascript.info](https://zh.javascript.info)  
@@ -66,9 +66,9 @@ Cloudflare：[https://dash.cloudflare.com](https://dash.cloudflare.com/login)
 
 ## 站点管理  
 Bing Console：[https://www.bing.com/webmasters](https://www.bing.com/webmasters)   
-Google Console：[https://search.google.com/search-console](https://search.google.com/search-console)  
-Google Analytics：[https://analytics.google.com](https://analytics.google.com)  
 Google AdSense：[https://www.google.com/adsense](https://www.google.com/adsense)    
+Google Analytics：[https://analytics.google.com](https://analytics.google.com)  
+Google Console：[https://search.google.com/search-console](https://search.google.com/search-console)  
 
 ## 云服务
 GitHub：[https://github.com](https://github.com/iChochy)  
