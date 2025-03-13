@@ -57,12 +57,12 @@ NodeSeek：[https://www.nodeseek.com](https://www.nodeseek.com)
 V2ex：[https://v2ex.com](https://v2ex.com)  
 
 ## 域名管理
-ICANN：[https://lookup.icann.org](https://lookup.icann.org/zh)
-TLD-List：[https://tld-list.com](https://zh-hans.tld-list.com)
-DNSPerf：[https://www.dnsperf.com](https://www.dnsperf.com)
-DNSLeak:[https://dnsleaktest.com](https://dnsleaktest.com)
+TLD-List：[https://tld-list.com](https://zh-hans.tld-list.com)  
+ICANN：[https://lookup.icann.org](https://lookup.icann.org/zh)  
+DNSPerf：[https://www.dnsperf.com](https://www.dnsperf.com)  
+DNSLeak:[https://dnsleaktest.com](https://dnsleaktest.com)  
 Namesilo：[https://www.namesilo.com](https://www.namesilo.com/domain/search-domains?rid=285e694it)  
-Cloudflare：[https://dash.cloudflare.com](https://dash.cloudflare.com/login)
+Cloudflare：[https://dash.cloudflare.com](https://dash.cloudflare.com/login)  
 
 ## 站点管理  
 Bing Console：[https://www.bing.com/webmasters](https://www.bing.com/webmasters)   
