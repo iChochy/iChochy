@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ichochy.com/categories/app.html</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/app.html</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/categories.html</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/mac.html</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts.html</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/swift.html</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags.html</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/app/20250320.html</loc>
+    <lastmod>2025-03-25T10:22:36+08:00</lastmod>
+  </url><url>
     <loc>https://ichochy.com/vps.html</loc>
     <lastmod>2025-03-08T12:07:59+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/</loc>
-    <lastmod>2025-03-08T12:07:59+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/categories/blog.html</loc>
-    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/categories.html</loc>
     <lastmod>2025-02-26T19:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/dns.html</loc>
@@ -23,17 +44,8 @@
     <loc>https://ichochy.com/tags/dot.html</loc>
     <lastmod>2025-02-26T19:22:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/posts.html</loc>
-    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags.html</loc>
-    <lastmod>2025-02-26T19:22:45+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/posts/blog/20250226.html</loc>
     <lastmod>2025-02-26T19:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/mac.html</loc>
-    <lastmod>2025-02-20T10:42:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/categories/mac.html</loc>
     <lastmod>2025-02-20T10:42:45+08:00</lastmod>
@@ -146,10 +158,10 @@
     <loc>https://ichochy.com/posts/shell/20221108.html</loc>
     <lastmod>2022-11-08T08:22:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/tags/reprint.html</loc>
+    <loc>https://ichochy.com/categories/reprint.html</loc>
     <lastmod>2022-11-08T08:22:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/categories/reprint.html</loc>
+    <loc>https://ichochy.com/tags/reprint.html</loc>
     <lastmod>2022-11-08T08:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/github.html</loc>
@@ -212,10 +224,10 @@
     <loc>https://ichochy.com/posts/software/20211122.html</loc>
     <lastmod>2021-11-22T19:25:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/tags/spring.html</loc>
+    <loc>https://ichochy.com/categories/spring.html</loc>
     <lastmod>2021-11-20T18:25:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/categories/spring.html</loc>
+    <loc>https://ichochy.com/tags/spring.html</loc>
     <lastmod>2021-11-20T18:25:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/spring-boot.html</loc>
@@ -241,9 +253,6 @@
   </url><url>
     <loc>https://ichochy.com/posts/spring/20210715.html</loc>
     <lastmod>2021-07-15T21:22:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/app.html</loc>
-    <lastmod>2021-07-12T12:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/categories/life.html</loc>
     <lastmod>2021-07-12T12:22:45+08:00</lastmod>
@@ -554,9 +563,6 @@
     <loc>https://ichochy.com/tags/pod.html</loc>
     <lastmod>2019-09-04T10:22:33+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/tags/swift.html</loc>
-    <lastmod>2019-09-04T10:22:33+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/categories/swift.html</loc>
     <lastmod>2019-09-04T10:22:33+08:00</lastmod>
   </url><url>
@@ -568,9 +574,6 @@
   </url><url>
     <loc>https://ichochy.com/posts/swift/20190823.html</loc>
     <lastmod>2019-08-23T08:32:36+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/categories/app.html</loc>
-    <lastmod>2019-08-22T15:22:36+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/app/20190822.html</loc>
     <lastmod>2019-08-22T15:22:36+08:00</lastmod>

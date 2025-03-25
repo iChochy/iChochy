@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 08 Mar 2025 12:07:59 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Mar 2025 10:22:36 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>图床图片上传工具-图传</title>
+      <link>https://ichochy.com/posts/app/20250320.html</link>
+      <pubDate>Tue, 25 Mar 2025 10:22:36 +0800</pubDate>
+      <guid>https://ichochy.com/posts/app/20250320.html</guid>
+      <description>&lt;p&gt;时隔多年，又重新出发，从零开始，在 &lt;code&gt;AI&lt;/code&gt; 的加持下，再次开发这个图床图片上传工具。爆肝数日，基本完成这个软件现有功能。实现了图片资源的上传、分享、和管理等功能。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>VPS</title>
       <link>https://ichochy.com/vps.html</link>
@@ -111,7 +118,7 @@
       <link>https://ichochy.com/posts/mac/20231128.html</link>
       <pubDate>Tue, 28 Nov 2023 16:55:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/mac/20231128.html</guid>
-      <description>&lt;h2 id=&#34;launchdx-man-pagelaunchd&#34;&gt;&lt;a href=&#34;x-man-page://launchd&#34;&gt;launchd&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;code&gt;launchd&lt;/code&gt;&lt;/strong&gt; – 系统范围内的守护进程（&lt;code&gt;LaunchDaemons&lt;/code&gt;）/代理程序（&lt;code&gt;LaunchAgents&lt;/code&gt;）的主程序&lt;br&gt;&#xA;在启动过程中，内核调用 &lt;code&gt;launchd&lt;/code&gt; 作为第一个进程运行，并进一步引导系统的其余部分。&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;launchd&#34;&gt;&lt;a href=&#34;x-man-page://launchd&#34;&gt;launchd&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;code&gt;launchd&lt;/code&gt;&lt;/strong&gt; – 系统范围内的守护进程（&lt;code&gt;LaunchDaemons&lt;/code&gt;）/代理程序（&lt;code&gt;LaunchAgents&lt;/code&gt;）的主程序&lt;br&gt;&#xA;在启动过程中，内核调用 &lt;code&gt;launchd&lt;/code&gt; 作为第一个进程运行，并进一步引导系统的其余部分。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mac 终端设置代理，设置一键开启和取消</title>
@@ -139,7 +146,7 @@
       <link>https://ichochy.com/posts/vps/20231022.html</link>
       <pubDate>Sun, 22 Oct 2023 11:25:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/vps/20231022.html</guid>
-      <description>&lt;h2 id=&#34;供应商-lightnodehttpswwwlightnodecominvitecodejji33fpromotewaylink&#34;&gt;供应商 &lt;a href=&#34;https://www.lightnode.com/?inviteCode=JJI33F&amp;amp;promoteWay=LINK&#34;&gt;LightNode&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;LightNode成立于2002年，目前拥有员工500余人。&lt;br&gt;&#xA;LightNode自主研发并提供计算、存储、网络和安全等企业必需的基础IT架构资源。依托于自主知识产权的管理平台，为客户提供混合云计算服务和云上运维管理服务。&lt;br&gt;&#xA;LightNode崇尚“技术驱动产品，运维驱动服务”的理念，不断推出适合行业特性的产品和服务。&lt;br&gt;&#xA;目前，LightNode已为大量游戏、电商、金融、泛娱乐、企事业等方向的IT部署服务，提供了解决方案与混合云服务。&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;供应商-lightnode&#34;&gt;供应商 &lt;a href=&#34;https://www.lightnode.com/?inviteCode=JJI33F&amp;amp;promoteWay=LINK&#34;&gt;LightNode&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;LightNode成立于2002年，目前拥有员工500余人。&lt;br&gt;&#xA;LightNode自主研发并提供计算、存储、网络和安全等企业必需的基础IT架构资源。依托于自主知识产权的管理平台，为客户提供混合云计算服务和云上运维管理服务。&lt;br&gt;&#xA;LightNode崇尚“技术驱动产品，运维驱动服务”的理念，不断推出适合行业特性的产品和服务。&lt;br&gt;&#xA;目前，LightNode已为大量游戏、电商、金融、泛娱乐、企事业等方向的IT部署服务，提供了解决方案与混合云服务。&lt;/p&gt;</description>
     </item>
     <item>
       <title>抗白之路-肺部感染发烧住院两个多月</title>

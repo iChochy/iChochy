@@ -3,7 +3,7 @@
 <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.138.0">
+    <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mac launchctl 自定义服务启动 &middot; 回忆中的明天</title>
     <meta name="keywords" content="blog,shell,mac"/>
@@ -51,20 +51,20 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#launchdx-man-pagelaunchd"><a href="x-man-page://launchd">launchd</a></a>
+    <li><a href="#launchd"><a href="x-man-page://launchd">launchd</a></a>
       <ul>
         <li><a href="#守护进程和服务启动图例">守护进程和服务启动图例</a></li>
         <li><a href="#路径说明">路径说明</a></li>
       </ul>
     </li>
-    <li><a href="#launchdplistx-man-pagelaunchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></a>
+    <li><a href="#launchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></a>
       <ul>
         <li><a href="#配置文件的命名">配置文件的命名</a></li>
         <li><a href="#参数属性">参数属性</a></li>
         <li><a href="#plist-实例">plist 实例</a></li>
       </ul>
     </li>
-    <li><a href="#launchctlx-man-pagelaunchctl"><a href="x-man-page://launchctl">launchctl</a></a>
+    <li><a href="#launchctl"><a href="x-man-page://launchctl">launchctl</a></a>
       <ul>
         <li><a href="#命令执行">命令执行</a></li>
         <li><a href="#查看日志">查看日志</a></li>
@@ -144,7 +144,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 <b>原文：</b><a href="https://ichochy.com/posts/mac/20231128.html">https://ichochy.com/posts/mac/20231128.html</a>
 <hr>
 
-  <h2 id="launchdx-man-pagelaunchd"><a href="x-man-page://launchd">launchd</a></h2>
+  <h2 id="launchd"><a href="x-man-page://launchd">launchd</a></h2>
 <p><strong><code>launchd</code></strong> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的主程序<br>
 在启动过程中，内核调用 <code>launchd</code> 作为第一个进程运行，并进一步引导系统的其余部分。</p>
 <h3 id="守护进程和服务启动图例">守护进程和服务启动图例</h3>
@@ -189,7 +189,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
   </tbody>
 </table>
 <p>更多具体信息查看系统帮助文档：<a href="x-man-page://launchd">launchd</a></p>
-<h2 id="launchdplistx-man-pagelaunchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></h2>
+<h2 id="launchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></h2>
 <p><code>launchd.plist</code> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的<strong>配置文件</strong></p>
 <p>可以使用 <code>launchctl</code> 加载到 <code>launchd</code> 的列表，并根据配置文件的具体参数属性进行配置加载运行。</p>
 <h3 id="配置文件的命名">配置文件的命名</h3>
@@ -461,7 +461,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
 </span></span></code></pre></div><p>更多具体信息查看系统帮助文档：<a href="x-man-page://launchd.plist">launchd.plist</a></p>
-<h2 id="launchctlx-man-pagelaunchctl"><a href="x-man-page://launchctl">launchctl</a></h2>
+<h2 id="launchctl"><a href="x-man-page://launchctl">launchctl</a></h2>
 <p><code>launchctl</code> –  <code>launchd</code> 的管理工具<br>
 通过 <code>launchctl</code> 交互来管理和检查 <code>launchd</code> 守护进程、代理进程和 <code>XPC</code> 服务。</p>
 <h3 id="命令执行">命令执行</h3>
