@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本地无法加载托管到Cloudflare中的图片等资源，权限错误403 &middot; 回忆中的明天</title>
+    <meta name="keywords" content="blog,image,app"/>
+    <meta name="description" content="在本地写博客时，预览查看时，无法加载托管到Cloudflare域名中的图片资源，提示403，困扰了很久。
+今天通过分析，查看日志，找到了根本原因所在。
+原来是Cloudflare的安全策略禁止了不安全的访问，返回403"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    </head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/categories.html"> 分类 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
+        <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
+    </nav>
+    <div class = "other">
+
+    <li>&copy; 2020 - 2025 iChochy.</li>
+    
+    
+    </div>
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分析">分析</a>
+      <ul>
+        <li><a href="#查看日志">查看日志</a></li>
+        <li><a href="#查看详情">查看详情</a></li>
+      </ul>
+    </li>
+    <li><a href="#解决">解决</a>
+      <ul>
+        <li><a href="#关闭hotlink">关闭Hotlink</a></li>
+        <li><a href="#添加规则">添加规则</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <ol class="breadcrumb">
+    
+
+
+    
+
+
+
+<li >
+  <a href="https://ichochy.com/">回忆中的明天</a>
+</li>
+
+
+
+<li  class="active" >
+  <a href="https://ichochy.com/posts/blog/20250320.html">本地无法加载托管到Cloudflare中的图片等资源，权限错误403</a>
+</li>
+
+</ol>
+
+<h1>本地无法加载托管到Cloudflare中的图片等资源，权限错误403</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/blog.html">#Blog</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/blog.html">#blog</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/image.html">#image</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/app.html">#app</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2025/03/20 22:25:45</em>
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/blog/20250320.html">https://ichochy.com/posts/blog/20250320.html</a>
+<hr>
+
+  <p>在本地写博客时，预览查看时，无法加载托管到<strong>Cloudflare</strong>域名中的图片资源，提示403，困扰了很久。
+今天通过分析，查看日志，找到了根本原因所在。
+原来是<strong>Cloudflare</strong>的安全策略禁止了不安全的访问，返回403</p>
+<h2 id="分析">分析</h2>
+<h3 id="查看日志">查看日志</h3>
+<p>在<strong>安全性</strong> -&gt; <strong>分析</strong>中查看事件日志<br>
+查看阻止的事件日志<br>
+<img src="https://image.ichochy.com/%E6%9F%A5%E7%9C%8B%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E6%97%A5%E5%BF%97.jpg" alt="查看阻止事件日志.jpg"></p>
+<h3 id="查看详情">查看详情</h3>
+<p>查看详情可以发现是<strong>Hotlink</strong>保护，阻止了请求，而返回的权限错误<code>403</code><br>
+<img src="https://image.ichochy.com/%E6%9F%A5%E7%9C%8B%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E6%97%A5%E5%BF%97.jpg" alt="查看阻止事件日志.jpg"></p>
+<p>日志详情中，记录了当前事件的所有信息。</p>
+<h2 id="解决">解决</h2>
+<h3 id="关闭hotlink">关闭Hotlink</h3>
+<p>在<strong>Scarape Shield</strong> 菜单中内容中，可以找到<strong>Hotlink</strong>开关
+<img src="https://image.ichochy.com/Hotlimk%E5%BC%80%E5%85%B3.jpg" alt="Hotlimk开关.jpg"></p>
+<p>关闭<strong>Hotlink</strong>功能后，可以再次测试，本地可否访问<br>
+关闭<strong>Hotlink</strong>功能后，本地加载访问正常后，就可以确定就是<strong>Hotlink</strong>安全策略的问题<br>
+至此，可以考虑是否关闭<strong>Hotlink</strong>功能，下面也可以通过规则解决访问问题</p>
+<h3 id="添加规则">添加规则</h3>
+<p>在<strong>安全性</strong> -&gt; <strong>安全规则</strong>中添加跳过规则<br>
+<img src="https://image.ichochy.com/%E6%B7%BB%E5%8A%A0%E8%B7%B3%E8%BF%87%E7%AD%96%E7%95%A5.jpg" alt="添加跳过策略.jpg"></p>
+<p>根据日志详情中的信息，添加合适的规则跳过<strong>Hotlink</strong>安全策略，同样可以解决访问问题</p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/vps/20240920.html">
+                    2024年自用国外靠谱的 VPS 服务器推荐
+                </a>
+                <small>
+                    2024/09/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20240403.html">
+                    玩转 Mac 截图，分享原生截图工具技巧，自定义截图名称和类型
+                </a>
+                <small>
+                    2024/04/03
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/vps/20240403.html">
+                    美国 VPS 服务器，最低月费只要12元，优惠推荐
+                </a>
+                <small>
+                    2024/04/02
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20240110.html">
+                    使用 certbot 申请 Let&#39;s Encrypt 免费证书，部署到 nginx 中，开启 https
+                </a>
+                <small>
+                    2024/01/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/vps/20240105.html">
+                    菲律宾 VPS 服务器，月均只要16.5元/月，优惠推荐
+                </a>
+                <small>
+                    2024/01/05
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+  <span class="pagination-link newer">
+    上一篇：<a href="https://ichochy.com/posts/app/20250325.html" class="pag-link">图床图片上传工具-图传</a>
+  </span>
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/blog/20250226.html" class="pag-link">国内、外免费公共的DNS，支持的DoH，防止污染、篡改的问题</a>
+  </span>
+    
+
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/doc_search.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>
