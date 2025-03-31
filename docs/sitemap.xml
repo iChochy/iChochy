@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ichochy.com/posts.html</loc>
+    <lastmod>2025-04-01T09:25:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/</loc>
+    <lastmod>2025-04-01T09:25:45+08:00</lastmod>
+  </url><url>
     <loc>https://ichochy.com/tags/app.html</loc>
     <lastmod>2025-03-25T14:25:45+08:00</lastmod>
   </url><url>
@@ -20,16 +26,10 @@
     <loc>https://ichochy.com/tags/mac.html</loc>
     <lastmod>2025-03-25T14:25:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/posts.html</loc>
-    <lastmod>2025-03-25T14:25:45+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/tags.html</loc>
     <lastmod>2025-03-25T14:25:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/blog/20250325.html</loc>
-    <lastmod>2025-03-25T14:25:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/</loc>
     <lastmod>2025-03-25T14:25:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/categories/app.html</loc>
