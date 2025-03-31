@@ -5,9 +5,9 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>免费的图床服务器-Cloudflare-R2 &middot; 回忆中的明天</title>
+<title>免费的图床服务器-GitHubPages &middot; 回忆中的明天</title>
     <meta name="keywords" content="blog,image,app,mac"/>
-    <meta name="description" content="介绍一款免费好用的图床服务器，每月有10GB的存储额度。并配合免费好用的图床图片工具图传软件,分享管理图库。"/>
+    <meta name="description" content="介绍一款免费好用的图床服务器，使用GitHub Pages当我们的图床服务器。并配合免费好用的图床图片工具图传软件,分享管理图库。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -49,12 +49,23 @@
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#cloudflare-r2">Cloudflare-R2</a>
+    <li><a href="#github">GitHub</a>
       <ul>
-        <li><a href="#开通-r2">开通 R2</a></li>
-        <li><a href="#创建桶">创建桶</a></li>
-        <li><a href="#自定义域名">自定义域名</a></li>
-        <li><a href="#创建api令牌">创建API令牌</a></li>
+        <li><a href="#创建仓库">创建仓库</a></li>
+        <li><a href="#设置仓库信息">设置仓库信息</a></li>
+      </ul>
+    </li>
+    <li><a href="#开启-pages">开启 Pages</a>
+      <ul>
+        <li><a href="#打开设置settings">打开设置（<code>Settings</code>）</a></li>
+        <li><a href="#设置pages信息">设置<code>Pages</code>信息</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建token">创建Token</a>
+      <ul>
+        <li><a href="#打开用户设置settings">打开用户设置（<code>Settings</code>）</a></li>
+        <li><a href="#创建token-1">创建Token</a></li>
+        <li><a href="#设置token">设置Token</a></li>
       </ul>
     </li>
     <li><a href="#图库管理-图传">图库管理-图传</a>
@@ -86,12 +97,12 @@
 
 
 <li  class="active" >
-  <a href="https://ichochy.com/posts/blog/20250325.html">免费的图床服务器-Cloudflare-R2</a>
+  <a href="https://ichochy.com/posts/blog/20250331.html">免费的图床服务器-GitHubPages</a>
 </li>
 
 </ol>
 
-<h1>免费的图床服务器-Cloudflare-R2</h1>
+<h1>免费的图床服务器-GitHubPages</h1>
 <div class="post">
   
 
@@ -136,50 +147,61 @@
 
    <div>
    <time class="post-date">
-       <b>时间：</b><em>2025/03/25 14:25:45</em>
+       <b>时间：</b><em>2025/03/31 09:25:45</em>
     </time>
    </div>
-<b>原文：</b><a href="https://ichochy.com/posts/blog/20250325.html">https://ichochy.com/posts/blog/20250325.html</a>
+<b>原文：</b><a href="https://ichochy.com/posts/blog/20250331.html">https://ichochy.com/posts/blog/20250331.html</a>
 <hr>
 
-  <p>介绍一款免费好用的图床服务器，每月有10GB的存储额度。并配合免费好用的图床图片工具<code>图传</code>软件,分享管理图库。</p>
-<h2 id="cloudflare-r2">Cloudflare-R2</h2>
-<h3 id="开通-r2">开通 R2</h3>
-<p>在菜单中找到<strong>R2对象存储</strong><br>
-点击打开，第一次开通需要绑卡设置<br>
-开通<code>R2</code>，选择免费套餐，每月10GB存储<br>
-<img src="https://image.ichochy.com/R2/%E5%BC%80%E5%90%AFR2.jpg" alt="开启R2.jpg"></p>
-<h3 id="创建桶">创建桶</h3>
-<p>开通<code>R2</code>后，开始设置一个桶，点击创建存储桶<br>
-<img src="https://image.ichochy.com/R2/%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E6%A1%B6.jpg" alt="创建存储桶.jpg"></p>
-<p>创建存储桶，选择位置和类型<br>
-<img src="https://image.ichochy.com/R2/%E5%88%9B%E5%BB%BA%E6%A1%B6%E8%AE%BE%E7%BD%AE.jpg" alt="创建桶设置.jpg"></p>
-<h3 id="自定义域名">自定义域名</h3>
-<p>桶创建完成后，就可以自定义域名，通过域名访问资源<br>
-在桶的详情页面，点击<code>设置</code>，来设置桶的信息<br>
-<img src="https://image.ichochy.com/R2/%E5%AD%98%E5%82%A8%E6%A1%B6%E8%AF%A6%E6%83%85.jpg" alt="存储桶详情.jpg"></p>
-<p>在桶的设置页面，自定义域，点击<code>连接域</code>
-<img src="https://image.ichochy.com/R2/%E5%AD%98%E5%82%A8%E6%A1%B6%E8%AE%BE%E7%BD%AE.jpg" alt="存储桶设置.jpg"></p>
-<p>添加自定义域，添加自己要绑定的域名
-<img src="https://image.ichochy.com/R2/%E5%AD%98%E5%82%A8%E6%A1%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D.jpg" alt="存储桶自定义域名.jpg"></p>
-<p>添加后，点击<code>连接域</code>，将域名和桶连接配对<br>
-<img src="https://image.ichochy.com/R2/%E5%AD%98%E5%82%A8%E6%A1%B6%E8%BF%9E%E6%8E%A5%E5%9F%9F.jpg" alt="存储桶连接域.jpg"></p>
-<p>这样就完成桶的自定义域设置，等待系统完成配置，完成后就可以通过域名来访问资源  <br>
-<img src="https://image.ichochy.com/R2/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E7%8A%B6%E6%80%81.jpg" alt="自定义域名状态.jpg"></p>
-<h3 id="创建api令牌">创建API令牌</h3>
-<p>接下来，给<code>R2</code>，创建<code>S3</code> <code>API</code> 令牌，配合<code>图传</code>软件来管理资理</p>
-<p>在 R2 界面，点击<code>API</code>，创建<code>API</code>令牌，点击<code>将R2与API配合使用</code><br>
-<img src="https://image.ichochy.com/R2/%E5%88%9B%E5%BB%BAAPI%E4%BB%A4%E7%89%8C.jpg" alt="创建API令牌.jpg"></p>
-<p>在配合界面，可以看到 <code>Account ID</code>，这个配置<code>图传</code>时会用到<br>
-选择<code>API</code>，用<code>S3兼容API</code>，在下面点击<code>创建API令牌</code><br>
-<img src="https://image.ichochy.com/R2/%E5%AD%98%E5%82%A8%E6%A1%B6%E4%BB%A4%E7%89%8C.jpg" alt="存储桶令牌.jpg"></p>
-<p>进入令牌管理页面，点击<code>创建API令牌</code><br>
-<img src="https://image.ichochy.com/R2/%E4%BB%A4%E7%89%8C%E7%AE%A1%E7%90%86.jpg" alt="令牌管理.jpg"></p>
-<p>设置令牌的<code>权限</code>和<code>有效期</code><br>
-<img src="https://image.ichochy.com/R2/%E4%BB%A4%E7%89%8C%E8%AE%BE%E7%BD%AE.jpg" alt="令牌设置.jpg"></p>
-<p>这样令牌就创建好了，在<strong>令牌详情页面</strong>，可能看到<code>AccessKey</code>和<code>SecretAccessKey</code><br>
-详情页只显示一次，所以需要将这两个复制下来，接下来配置<code>图传</code>时会用到这两个<code>key</code><br>
-<img src="https://image.ichochy.com/R2/%E4%BB%A4%E7%89%8C%E8%AF%A6%E6%83%85.jpg" alt="令牌详情.jpg"></p>
+  <p>介绍一款免费好用的图床服务器，使用GitHub Pages当我们的图床服务器。并配合免费好用的图床图片工具<code>图传</code>软件,分享管理图库。</p>
+<h2 id="github">GitHub</h2>
+<h3 id="创建仓库">创建仓库</h3>
+<ul>
+<li>点击添加仓库（<code>New repository</code>）</li>
+</ul>
+<h3 id="设置仓库信息">设置仓库信息</h3>
+<ul>
+<li>选择用户（<code>Owner</code>）和仓库名称（<code>Repository name</code>），<code>图传</code>配置图库信息会用到。</li>
+<li>仓库选择公共的（Public）</li>
+</ul>
+<p><img src="https://image.ichochy.com/GitHub/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.jpg" alt="创建仓库.jpg"></p>
+<h2 id="开启-pages">开启 Pages</h2>
+<h3 id="打开设置settings">打开设置（<code>Settings</code>）</h3>
+<ul>
+<li>在创建的仓库中点击设置（<code>Settings</code>）</li>
+<li>在设置（<code>Settings</code>）中选择Pages</li>
+</ul>
+<h3 id="设置pages信息">设置<code>Pages</code>信息</h3>
+<p>在<code>GitHub Pages</code>中配置信息</p>
+<ul>
+<li>设置部署的分支（<code>Branch</code>）和目录</li>
+<li>自定义域名</li>
+<li>开启HTTPS
+<img src="https://image.ichochy.com/GitHub/%E5%BC%80%E5%90%AFPages.jpg" alt="开启Pages.jpg"></li>
+</ul>
+<h2 id="创建token">创建Token</h2>
+<h3 id="打开用户设置settings">打开用户设置（<code>Settings</code>）</h3>
+<ul>
+<li>打开用户，选择<code>Setting</code></li>
+<li>再选择打开<code>Developer settings</code></li>
+</ul>
+<p><img src="https://image.ichochy.com/GitHub/%E8%B4%A6%E6%88%B7%E8%AE%BE%E7%BD%AE.jpg" alt="账户设置.jpg"></p>
+<h3 id="创建token-1">创建Token</h3>
+<ul>
+<li>打开<code>Personal access tokens</code></li>
+<li>选择<code>Tokens (classic)</code></li>
+<li>点击<code>Generate new token</code>，选择<code>Generate new token (classic)</code></li>
+</ul>
+<p><img src="https://image.ichochy.com/GitHub/%E5%88%9B%E5%BB%BAToken.jpg" alt="创建Token.jpg"></p>
+<h3 id="设置token">设置Token</h3>
+<ul>
+<li>设置<code>Token</code>的有效期（Expiration）</li>
+<li>选择权限范围（Select scopes）</li>
+<li>开启权限<code>public_repo</code>
+<img src="https://image.ichochy.com/GitHub/%E8%AE%BE%E7%BD%AEToken.jpg" alt="设置Token.jpg"></li>
+<li>保存Token，<code>图传</code>配置图库信息会用到。<br>
+<img src="https://image.ichochy.com/GitHub/%E4%BF%9D%E5%AD%98Token.jpg" alt="保存Token.jpg"></li>
+</ul>
 <h2 id="图库管理-图传">图库管理-图传</h2>
 <h3 id="图传软件">图传软件</h3>
 <p><a href="https://file.ichochy.com/iUploader.zip">图传</a> 是一个免费开源的图床图片上传工具。</p>
@@ -187,19 +209,20 @@
 <p>现已支持 <a href="https://cloudflare.com">Cloudflare R2</a>、<a href="https://github.com">GitHub</a>、还用<a href="https://www.upyun.com/league">又拍云</a></p>
 <p><strong>图传软件</strong>： <a href="https://ichochy.com/posts/app/20250325.html">https://ichochy.com/posts/app/20250325.html</a></p>
 <h3 id="图库配置">图库配置</h3>
-<p>在<code>图传</code>的<code>设置</code>界面，添加 <code>Cloudflare R2</code>配置<br>
-这里会用到上面配置<code>R2</code>中出现在的三个<strong>key</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>AccountID
-</span></span><span style="display:flex;"><span>AccessKey
-</span></span><span style="display:flex;"><span>SecretAccessKey
-</span></span></code></pre></div><p><img src="https://image.ichochy.com/R2/R2%E6%B7%BB%E5%8A%A0.jpg" alt="R2添加.jpg"></p>
+<p>在<code>图传</code>的<code>设置</code>界面，添加 <code>GitHub</code>配置</p>
+<p><img src="https://image.ichochy.com/GitHub/%E5%9B%BE%E4%BC%A0%E8%AE%BE%E7%BD%AE.jpg" alt="图传设置.jpg"></p>
+<p>这里会用到上面配置<code>GitHub</code>中出现在的几个信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Token
+</span></span><span style="display:flex;"><span>Owner
+</span></span><span style="display:flex;"><span>Pepo
+</span></span></code></pre></div><p><img src="https://image.ichochy.com/GitHub/%E6%B7%BB%E5%8A%A0%E5%9B%BE%E5%BA%93%E4%BF%A1%E6%81%AF.jpg" alt="添加图库信息.jpg"></p>
 <p>添加完成后，设置为<code>默认</code>图库，接着就可以将图片上传到<code>默认</code>图库</p>
 <h3 id="上传图片">上传图片</h3>
-<p>在<code>上传图库</code>界面，就可以拖入图片，上传到你配置好的<code>R2</code>桶中<br>
-<img src="https://image.ichochy.com/iUploader/%E4%B8%8A%E4%BC%A0%E7%95%8C%E9%9D%A2.jpg" alt="上传界面.jpg"></p>
+<p>在<code>上传图库</code>界面，就可以拖入图片，上传到你配置好的<code>GtiHub</code>仓库中<br>
+<img src="https://image.ichochy.com/GitHub/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.jpg" alt="图片上传.jpg"></p>
 <h3 id="管理图片">管理图片</h3>
 <p>完成图片上传后，就可以查看文件详情，管理和分享图片。<br>
-<img src="https://image.ichochy.com/R2/%E5%9B%BE%E7%89%87%E8%AF%A6%E6%83%85.jpg" alt="图片详情.jpg"></p>
+<img src="https://image.ichochy.com/GitHub/%E5%9B%BE%E7%89%87%E8%AF%A6%E6%83%85.jpg" alt="图片详情.jpg"></p>
 
   
 
@@ -207,6 +230,17 @@
 <div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/blog/20250325.html">
+                    免费的图床服务器-Cloudflare-R2
+                </a>
+                <small>
+                    2025/03/25
+                </small>
+            </h3>
+        </li>
         
         <li>
             <h3>
@@ -252,17 +286,6 @@
             </h3>
         </li>
         
-        <li>
-            <h3>
-                <a href="https://ichochy.com/posts/mac/20231125.html">
-                    Mac 终端设置代理，设置一键开启和取消
-                </a>
-                <small>
-                    2023/11/25
-                </small>
-            </h3>
-        </li>
-        
     </ul>
 </div>
 
@@ -271,13 +294,9 @@
   
 <div class="pagination">
   
-  <span class="pagination-link newer">
-    上一篇：<a href="https://ichochy.com/posts/blog/20250331.html" class="pag-link">免费的图床服务器-GitHubPages</a>
-  </span>
-  
     
   <span class="pagination-link older">
-    下一篇：<a href="https://ichochy.com/posts/app/20250325.html" class="pag-link">图床图片上传工具-图传</a>
+    下一篇：<a href="https://ichochy.com/posts/blog/20250325.html" class="pag-link">免费的图床服务器-Cloudflare-R2</a>
   </span>
     
 

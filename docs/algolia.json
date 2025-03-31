@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20250331,
+    "url": "https://ichochy.com/posts/blog/20250331.html",
+    "title": "免费的图床服务器-GitHubPages",
+    "summary": "介绍一款免费好用的图床服务器，使用GitHub Pages当我们的图床服务器。并配合免费好用的图床图片工具图传软件,分享管理图库。\n",
+    "content": "介绍一款免费好用的图床服务器，使用GitHub Pages当我们的图床服务器。并配合免费好用的图床图片工具图传软件,分享管理图库。\nGitHub 创建仓库 点击添加仓库（New repository） 设置仓库信息 选择用户（Owner）和仓库名称（Repository name），图传配置图库信息会用到。 仓库选择公共的（Public） 开启 Pages 打开设置（Settings） 在创建的仓库中点击设置（Settings） 在设置（Settings）中选择Pages 设置Pages信息 在GitHub Pages中配置信息\n设置部署的分支（Branch）和目录 自定义域名 开启HTTPS 创建Token 打开用户设置（Settings） 打开用户，选择Setting 再选择打开Developer settings 创建Token 打开Personal access tokens 选择Tokens (classic) 点击Generate new token，选择Generate new token (classic) 设置Token 设置Token的有效期（Expiration） 选择权限范围（Select scopes） 开启权限public_repo 保存Token，图传配置图库信息会用到。\n图库管理-图传 图传软件 图传 是一个免费开源的图床图片上传工具。\n是一款为 macOS 打造的原生软件，使用swiftUI开发，支持系统版本为 14+，现已经支持多个图床上传，后续会慢慢完善软件，追加更多所需的图床上传。\n现已支持 Cloudflare R2、GitHub、还用又拍云\n图传软件： https://ichochy.com/posts/app/20250325.html\n图库配置 在图传的设置界面，添加 GitHub配置\n这里会用到上面配置GitHub中出现在的几个信息\nToken Owner Pepo 添加完成后，设置为默认图库，接着就可以将图片上传到默认图库\n上传图片 在上传图库界面，就可以拖入图片，上传到你配置好的GtiHub仓库中\n管理图片 完成图片上传后，就可以查看文件详情，管理和分享图片。\n",
+    "pubDate": "2025-03-31T09:25:45+08:00"
+  }, 
+  {
     "objectID": 20250325,
     "url": "https://ichochy.com/posts/blog/20250325.html",
     "title": "免费的图床服务器-Cloudflare-R2",
