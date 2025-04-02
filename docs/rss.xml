@@ -23,6 +23,13 @@
       <description>&lt;p&gt;介绍一款免费好用的图床服务器，使用GitHub Pages当我们的图床服务器。并配合免费好用的图床图片工具&lt;code&gt;图传&lt;/code&gt;软件,分享管理图库。&lt;/p&gt;</description>
     </item>
     <item>
+      <title>iUploader - A Free Native Image Uploading Tool for macOS</title>
+      <link>https://ichochy.com/posts/app/20250330.html</link>
+      <pubDate>Sun, 30 Mar 2025 10:22:36 +0800</pubDate>
+      <guid>https://ichochy.com/posts/app/20250330.html</guid>
+      <description>&lt;h2 id=&#34;-iuploader-a-native-image-uploading-tool-for-macos&#34;&gt;🚀 &lt;strong&gt;iUploader: A Native Image Uploading Tool for macOS&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;iUploader&lt;/strong&gt; is a native image uploading tool designed exclusively for macOS, built with &lt;strong&gt;SwiftUI&lt;/strong&gt; and compatible with macOS 14+. It offers an &lt;strong&gt;efficient and seamless&lt;/strong&gt; experience for uploading, sharing, and managing images, with support for multiple cloud storage platforms. More image hosting options will be added in the future to meet diverse needs.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>免费的图床服务器-Cloudflare-R2</title>
       <link>https://ichochy.com/posts/blog/20250325.html</link>
       <pubDate>Tue, 25 Mar 2025 14:25:45 +0800</pubDate>
@@ -30,11 +37,11 @@
       <description>&lt;p&gt;介绍一款免费好用的图床服务器，每月有10GB的存储额度。并配合免费好用的图床图片工具&lt;code&gt;图传&lt;/code&gt;软件,分享管理图库。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>图床图片上传工具-图传</title>
+      <title>图传 (iUploader) - macOS 免费原生图床上传利器</title>
       <link>https://ichochy.com/posts/app/20250325.html</link>
       <pubDate>Tue, 25 Mar 2025 10:22:36 +0800</pubDate>
       <guid>https://ichochy.com/posts/app/20250325.html</guid>
-      <description>&lt;p&gt;时隔多年，又重新出发，从零开始，在 &lt;code&gt;AI&lt;/code&gt; 的加持下，再次开发这个图床图片上传工具。爆肝数日，基本完成这个软件现有功能。实现了图片资源的上传、分享、和管理等功能。&lt;/p&gt;</description>
+      <description>&lt;p&gt;🚀 &lt;strong&gt;图传 (iUploader)&lt;/strong&gt;&lt;br&gt;&#xA;一款专为 macOS 打造的&lt;strong&gt;原生图床上传工具&lt;/strong&gt;，基于 &lt;strong&gt;SwiftUI&lt;/strong&gt; 开发，兼容 macOS 14+。&lt;br&gt;&#xA;它提供&lt;strong&gt;高效、便捷&lt;/strong&gt;的图片上传、分享与管理体验，支持多种主流云存储平台，未来还将持续扩展更多图床支持。&lt;/p&gt;</description>
     </item>
     <item>
       <title>本地无法加载托管到Cloudflare中的图片等资源，权限错误403</title>
