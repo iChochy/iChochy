@@ -49,19 +49,19 @@
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#1state本地状态">1. <code>@State</code>（本地状态）</a>
+    <li><a href="#1-state本地状态">1. @State（本地状态）</a>
       <ul>
         <li><a href="#特点"><strong>特点：</strong></a></li>
         <li><a href="#示例"><strong>示例：</strong></a></li>
       </ul>
     </li>
-    <li><a href="#2binding状态绑定">2. @Binding（状态绑定）</a>
+    <li><a href="#2-binding状态绑定">2. @Binding（状态绑定）</a>
       <ul>
         <li><a href="#特点-1"><strong>特点：</strong></a></li>
         <li><a href="#示例-1"><strong>示例：</strong></a></li>
       </ul>
     </li>
-    <li><a href="#3bindable可绑定的对象ios-17">3. @Bindable（可绑定的对象）【<strong>iOS 17+</strong>】</a>
+    <li><a href="#3-bindable可绑定的对象ios-17">3. @Bindable（可绑定的对象）【<strong>iOS 17+</strong>】</a>
       <ul>
         <li><a href="#特点-2"><strong>特点：</strong></a></li>
         <li><a href="#示例结合observable"><strong>示例（结合 Observable）</strong></a></li>
@@ -139,7 +139,7 @@
 
   <p>在 SwiftUI 中，<code>@State</code>、<code>@Bindable</code> 和 <code>@Binding</code> 都用于管理和传递状态，但它们适用于不同的使用场景。</p>
 <hr>
-<h2 id="1state本地状态">1. <code>@State</code>（本地状态）</h2>
+<h2 id="1-state本地状态">1. @State（本地状态）</h2>
 <p><code>@State</code> 用于管理 <strong>视图本地的可变状态</strong>，该状态只属于当前视图，并且由 SwiftUI 负责存储和更新。</p>
 <h3 id="特点"><strong>特点：</strong></h3>
 <ul>
@@ -167,7 +167,7 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><hr>
-<h2 id="2binding状态绑定">2. @Binding（状态绑定）</h2>
+<h2 id="2-binding状态绑定">2. @Binding（状态绑定）</h2>
 <p>@Binding 用于 <strong>子视图获取父视图的状态</strong>，它本身不存储数据，而是引用 <strong>外部的状态（通常是 @State）</strong>。</p>
 <h3 id="特点-1"><strong>特点：</strong></h3>
 <ul>
@@ -200,7 +200,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><strong>@Binding 前面要加 $ 取 <strong>绑定值</strong>，在子视图内部可直接读写该值。</strong></p>
 <hr>
-<h2 id="3bindable可绑定的对象ios-17">3. @Bindable（可绑定的对象）【<strong>iOS 17+</strong>】</h2>
+<h2 id="3-bindable可绑定的对象ios-17">3. @Bindable（可绑定的对象）【<strong>iOS 17+</strong>】</h2>
 <p>@Bindable 用于绑定 <strong>Observable 对象</strong>（通常是 ObservableObject），让 SwiftUI 视图可以自动响应对象属性的变化。</p>
 <h3 id="特点-2"><strong>特点：</strong></h3>
 <ul>
@@ -270,7 +270,7 @@
   </tbody>
 </table>
 <hr>
-<p><strong>✅ 使用建议：</strong></p>
+<p><strong>使用建议：</strong></p>
 <ul>
 <li>
 <p><strong>简单数据</strong>（计数、布尔值）：用 @State。</p>
