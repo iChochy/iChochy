@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 02 Apr 2025 10:22:33 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 10 Apr 2025 15:32:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xcode 最全最实用的快捷键列表</title>
+      <link>https://ichochy.com/posts/mac/20250410.html</link>
+      <pubDate>Thu, 10 Apr 2025 15:32:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/mac/20250410.html</guid>
+      <description>&lt;p&gt;在使用Xcode时，总是忘记快捷键，花时间整理这份快捷键清单，最全最实用的Xcode快捷键列表&lt;/p&gt;</description>
+    </item>
     <item>
       <title>SwiftUI 中的@State、@Bindable和@Binding</title>
       <link>https://ichochy.com/posts/swift/20250402.html</link>
@@ -27,7 +34,7 @@
       <link>https://ichochy.com/posts/app/20250330.html</link>
       <pubDate>Sun, 30 Mar 2025 10:22:36 +0800</pubDate>
       <guid>https://ichochy.com/posts/app/20250330.html</guid>
-      <description>&lt;h2 id=&#34;-iuploader-a-native-image-uploading-tool-for-macos&#34;&gt;🚀 &lt;strong&gt;iUploader: A Native Image Uploading Tool for macOS&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;iUploader&lt;/strong&gt; is a native image uploading tool designed exclusively for macOS, built with &lt;strong&gt;SwiftUI&lt;/strong&gt; and compatible with macOS 14+. It offers an &lt;strong&gt;efficient and seamless&lt;/strong&gt; experience for uploading, sharing, and managing images, with support for multiple cloud storage platforms. More image hosting options will be added in the future to meet diverse needs.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;iUploader&lt;/strong&gt; is a native image uploading tool designed exclusively for macOS, built with &lt;strong&gt;SwiftUI&lt;/strong&gt; and compatible with macOS 14+. It offers an &lt;strong&gt;efficient and seamless&lt;/strong&gt; experience for uploading, sharing, and managing images, with support for multiple cloud storage platforms. More image hosting options will be added in the future to meet diverse needs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>免费的图床服务器-Cloudflare-R2</title>
