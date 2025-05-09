@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Hugo 0.147.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sing-box rule-set &middot; 回忆中的明天</title>
+    <meta name="keywords" content="shell,mac,linux,window"/>
+    <meta name="description" content="sing-box
+https://github.com/SagerNet/sing-box
+sing-box geoip
+https://github.com/SagerNet/sing-geoip
+Usage:
+  sing-box geoip [command]
+
+Available Commands:
+  export      Export geoip country as rule-set
+  list        List geoip country codes
+  lookup      Lookup if an IP address is contained in the GeoIP database
+
+Flags:
+  -f, --file string   geoip file (default &#34;geoip.db&#34;)
+  -h, --help          help for geoip
+https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    </head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/categories.html"> 分类 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
+        <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
+    </nav>
+    <div class = "other">
+
+    <li>&copy; 2020 - 2025 iChochy.</li>
+    
+    
+    </div>
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sing-box">sing-box</a></li>
+    <li><a href="#sing-box-geoip">sing-box geoip</a></li>
+    <li><a href="#sing-box-geosite">sing-box geosite</a></li>
+    <li><a href="#rule-set">rule-set</a>
+      <ul>
+        <li><a href="#rule-set-geoip">rule-set geoip</a></li>
+        <li><a href="#rule-set-geosite">rule-set geosite</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <ol class="breadcrumb">
+    
+
+
+    
+
+
+
+<li >
+  <a href="https://ichochy.com/">回忆中的明天</a>
+</li>
+
+
+
+<li  class="active" >
+  <a href="https://ichochy.com/posts/shell/20250505.html">sing-box rule-set</a>
+</li>
+
+</ol>
+
+<h1>sing-box rule-set</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/shell.html">#Shell</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/shell.html">#shell</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/mac.html">#mac</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/linux.html">#linux</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/window.html">#window</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2025/05/05 22:22:36</em>
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/shell/20250505.html">https://ichochy.com/posts/shell/20250505.html</a>
+<hr>
+
+  <h2 id="sing-box">sing-box</h2>
+<p><a href="https://github.com/SagerNet/sing-box">https://github.com/SagerNet/sing-box</a></p>
+<h2 id="sing-box-geoip">sing-box geoip</h2>
+<p><a href="https://github.com/SagerNet/sing-geoip">https://github.com/SagerNet/sing-geoip</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Usage:
+</span></span><span style="display:flex;"><span>  sing-box geoip <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Available Commands:
+</span></span><span style="display:flex;"><span>  export      Export geoip country as rule-set
+</span></span><span style="display:flex;"><span>  list        List geoip country codes
+</span></span><span style="display:flex;"><span>  lookup      Lookup <span style="color:#66d9ef">if</span> an IP address is contained in the GeoIP database
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Flags:
+</span></span><span style="display:flex;"><span>  -f, --file string   geoip file <span style="color:#f92672">(</span>default <span style="color:#e6db74">&#34;geoip.db&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>  -h, --help          help <span style="color:#66d9ef">for</span> geoip
+</span></span></code></pre></div><p><a href="https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db">https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db</a></p>
+<h2 id="sing-box-geosite">sing-box geosite</h2>
+<p><a href="https://github.com/SagerNet/sing-geosite">https://github.com/SagerNet/sing-geosite</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Usage:
+</span></span><span style="display:flex;"><span>  sing-box geosite <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Available Commands:
+</span></span><span style="display:flex;"><span>  export      Export geosite category as rule-set
+</span></span><span style="display:flex;"><span>  list        List geosite categories
+</span></span><span style="display:flex;"><span>  lookup      Check <span style="color:#66d9ef">if</span> a domain is in the geosite
+</span></span></code></pre></div><p><a href="https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db">https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db</a></p>
+<h2 id="rule-set">rule-set</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Usage:
+</span></span><span style="display:flex;"><span>  sing-box rule-set <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Available Commands:
+</span></span><span style="display:flex;"><span>  compile     Compile rule-set json to binary
+</span></span><span style="display:flex;"><span>  convert     Convert adguard DNS filter to rule-set
+</span></span><span style="display:flex;"><span>  decompile   Decompile rule-set binary to json
+</span></span><span style="display:flex;"><span>  format      Format rule-set json
+</span></span><span style="display:flex;"><span>  match       Check <span style="color:#66d9ef">if</span> an IP address or a domain matches the rule-set
+</span></span><span style="display:flex;"><span>  merge       Merge rule-set source files
+</span></span><span style="display:flex;"><span>  upgrade     Upgrade rule-set json
+</span></span></code></pre></div><h3 id="rule-set-geoip">rule-set geoip</h3>
+<p><a href="https://github.com/SagerNet/sing-geoip">https://github.com/SagerNet/sing-geoip</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># geoip category</span>
+</span></span><span style="display:flex;"><span>sing-box geoip list
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-&lt;category&gt;.srs
+</span></span></code></pre></div><h4 id="geoip-cn">geoip-cn</h4>
+<p><a href="https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs">https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs</a></p>
+<h3 id="rule-set-geosite">rule-set geosite</h3>
+<p><a href="https://github.com/SagerNet/sing-geosite/tree/rule-set">https://github.com/SagerNet/sing-geosite/tree/rule-set</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># geosite category</span>
+</span></span><span style="display:flex;"><span>sing-box geosite list
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-&lt;category&gt;.srs
+</span></span></code></pre></div><h4 id="geosite-cn">geosite-cn</h4>
+<p><a href="https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs">https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs</a></p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20241001.html">
+                    使用 CURL 命令调试和诊断网络问题，网站请求测速
+                </a>
+                <small>
+                    2024/10/01
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20250410.html">
+                    Xcode 最全最实用的快捷键列表
+                </a>
+                <small>
+                    2025/04/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20250220.html">
+                    macOS 系统下载和安装
+                </a>
+                <small>
+                    2025/02/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20240925.html">
+                    WARP Beta for macOS  支持新协议 MASQUE
+                </a>
+                <small>
+                    2024/09/25
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/mac/20240620.html">
+                    使用 OpenCore，让你的旧 Mac 用上最新的 macOS 系统
+                </a>
+                <small>
+                    2024/06/20
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/mac/20250410.html" class="pag-link">Xcode 最全最实用的快捷键列表</a>
+  </span>
+    
+
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/toc.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/doc_search.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>

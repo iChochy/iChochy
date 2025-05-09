@@ -1,6 +1,0 @@
-{{if and (eq .Section  .Site.Params.PostDir) (not hugo.IsServer)}}
-  {{ if .Site.Config.Services.Disqus.Shortname -}}
-  <h2>Comments</h2>
-  {{ template "_internal/disqus.html" . }}
-  {{- end }}
-{{end}}

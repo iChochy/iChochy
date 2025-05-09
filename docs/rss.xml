@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Apr 2025 15:32:45 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 05 May 2025 22:22:36 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sing-box rule-set</title>
+      <link>https://ichochy.com/posts/shell/20250505.html</link>
+      <pubDate>Mon, 05 May 2025 22:22:36 +0800</pubDate>
+      <guid>https://ichochy.com/posts/shell/20250505.html</guid>
+      <description>&lt;h2 id=&#34;sing-box&#34;&gt;sing-box&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/SagerNet/sing-box&#34;&gt;https://github.com/SagerNet/sing-box&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;sing-box-geoip&#34;&gt;sing-box geoip&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/SagerNet/sing-geoip&#34;&gt;https://github.com/SagerNet/sing-geoip&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sing-box geoip &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;command&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Available Commands:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  export      Export geoip country as rule-set&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  list        List geoip country codes&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  lookup      Lookup &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; an IP address is contained in the GeoIP database&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Flags:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -f, --file string   geoip file &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;default &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geoip.db&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -h, --help          help &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; geoip&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db&#34;&gt;https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Xcode 最全最实用的快捷键列表</title>
       <link>https://ichochy.com/posts/mac/20250410.html</link>
@@ -142,7 +149,7 @@
       <description>&lt;p&gt;在 IDEA 中操作打开文件和访问系统文件时，就会出现卡住，一直加载假死状态中，IDEA 界面无法进行任何操作，只能强制退出&lt;/p&gt;</description>
     </item>
     <item>
-      <title>使用 certbot 申请 Let&#39;s Encrypt 免费证书，部署到 nginx 中，开启 https</title>
+      <title>使用 certbot 申请 Let's Encrypt 免费证书，部署到 nginx 中，开启 https</title>
       <link>https://ichochy.com/posts/blog/20240110.html</link>
       <pubDate>Wed, 10 Jan 2024 14:11:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/blog/20240110.html</guid>
@@ -485,7 +492,7 @@
       <description>&lt;p&gt;页面加载 &lt;code&gt;JS&lt;/code&gt; 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>免费创建属于自己的博客，Hugo&#43;Github Pages</title>
+      <title>免费创建属于自己的博客，Hugo+Github Pages</title>
       <link>https://ichochy.com/posts/blog/20200802.html</link>
       <pubDate>Sun, 02 Aug 2020 13:13:25 +0800</pubDate>
       <guid>https://ichochy.com/posts/blog/20200802.html</guid>
@@ -660,7 +667,7 @@
       <description>&lt;p&gt;通过&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;jekyll&lt;/a&gt;搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现&lt;a href=&#34;https://jekyll.github.io/jekyll-admin/&#34;&gt;jekyll-admin&lt;/a&gt;是个好东西，它是博客的后台管理系统，可以方便的管理和编写自己的博客&lt;/p&gt;&#xA;&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;&#xA;&lt;p&gt;运行命令&lt;code&gt;gem install jekyll-admin&lt;/code&gt;进行安装&lt;/p&gt;</description>
     </item>
     <item>
-      <title>神奇的不可见空格&lt;200b&gt;导致代码异常</title>
+      <title>神奇的不可见空格<200b>导致代码异常</title>
       <link>https://ichochy.com/posts/shell/20190922.html</link>
       <pubDate>Sun, 22 Sep 2019 18:12:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/shell/20190922.html</guid>
@@ -737,7 +744,7 @@
       <description>&lt;p&gt;个人的博客是通过&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;jekyll&lt;/a&gt;构建，通过&lt;a href=&#34;https://pages.github.com&#34;&gt;GitHub Pages&lt;/a&gt;搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通&lt;code&gt;CDN&lt;/code&gt;来加速博客。于是开始了折腾………………&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Jekyll&#43;GitHub Pages部署自己的静态Blog</title>
+      <title>Jekyll+GitHub Pages部署自己的静态Blog</title>
       <link>https://ichochy.com/posts/blog/20190213.html</link>
       <pubDate>Wed, 13 Feb 2019 11:45:00 +0800</pubDate>
       <guid>https://ichochy.com/posts/blog/20190213.html</guid>

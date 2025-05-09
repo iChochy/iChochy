@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20250505,
+    "url": "https://ichochy.com/posts/shell/20250505.html",
+    "title": "sing-box rule-set",
+    "summary": "sing-box https://github.com/SagerNet/sing-box\nsing-box geoip https://github.com/SagerNet/sing-geoip\nUsage: sing-box geoip [command] Available Commands: export Export geoip country as rule-set list List geoip country codes lookup Lookup if an IP address is contained in the GeoIP database Flags: -f, --file string geoip file (default \u0026#34;geoip.db\u0026#34;) -h, --help help for geoip https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db\n",
+    "content": "sing-box https://github.com/SagerNet/sing-box\nsing-box geoip https://github.com/SagerNet/sing-geoip\nUsage: sing-box geoip [command] Available Commands: export Export geoip country as rule-set list List geoip country codes lookup Lookup if an IP address is contained in the GeoIP database Flags: -f, --file string geoip file (default \u0026#34;geoip.db\u0026#34;) -h, --help help for geoip https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db\nsing-box geosite https://github.com/SagerNet/sing-geosite\nUsage: sing-box geosite [command] Available Commands: export Export geosite category as rule-set list List geosite categories lookup Check if a domain is in the geosite https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db\nrule-set Usage: sing-box rule-set [command] Available Commands: compile Compile rule-set json to binary convert Convert adguard DNS filter to rule-set decompile Decompile rule-set binary to json format Format rule-set json match Check if an IP address or a domain matches the rule-set merge Merge rule-set source files upgrade Upgrade rule-set json rule-set geoip https://github.com/SagerNet/sing-geoip\n# geoip category sing-box geoip list https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-\u0026lt;category\u0026gt;.srs geoip-cn https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs\nrule-set geosite https://github.com/SagerNet/sing-geosite/tree/rule-set\n# geosite category sing-box geosite list https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-\u0026lt;category\u0026gt;.srs geosite-cn https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs\n",
+    "pubDate": "2025-05-05T22:22:36+08:00"
+  }, 
+  {
     "objectID": 20250410,
     "url": "https://ichochy.com/posts/mac/20250410.html",
     "title": "Xcode 最全最实用的快捷键列表",
