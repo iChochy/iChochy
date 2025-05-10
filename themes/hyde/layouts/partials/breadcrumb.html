@@ -1,15 +1,12 @@
-<ol class="breadcrumb">
-    {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
-</ol>
-{{ define "breadcrumbnav" }}
-
-{{ if .p1.Parent }}
-    {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
-{{ else if not .p1.IsHome }}
-    {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
-{{ end }}
-
-<li {{ if eq .p1 .p2 }} class="active" {{ end }}>
-  <a href="{{ .p1.Permalink }}">{{ .p1.Title  }}</a>
-</li>
-{{ end }}
+<nav aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    {{- range .Ancestors.Reverse }}
+    {{- if ne (.Title | lower) .Site.Params.PostDir }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ if .IsHome }}{{ i18n "home" | default "首页" }}{{ else }}{{ .Title }}{{ end }}</a>
+    </li>
+    {{- end}}
+    {{- end }}
+    <li class="active">{{ .Title }}</li>
+  </ol>
+</nav>

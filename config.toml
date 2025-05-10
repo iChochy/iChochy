@@ -16,6 +16,11 @@ section = ["HTML"]
 taxonomy = ["HTML"]
 term = ["HTML"]
 
+[outputFormats.RSS]
+mediatype = "application/rss+xml"
+baseName = "rss"
+isPlainText = true
+
 [outputFormats.URLS]
 mediatype = "text/plain"
 baseName = "urls"
@@ -24,11 +29,6 @@ isPlainText = true
 [outputFormats.ALGOLIA]
 mediaType = "application/json"
 baseName = "algolia"
-isPlainText = true
-
-[outputFormats.RSS]
-mediatype = "application/rss+xml"
-baseName = "rss"
 isPlainText = true
 
 [params]
