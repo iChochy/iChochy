@@ -9,11 +9,11 @@
     <lastBuildDate>Sat, 10 May 2025 14:23:36 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Armbian Linux 旁路由开启本地网络代理转发</title>
+      <title>Armbian Linux 旁路由开启网络代理，决解卡顿问题</title>
       <link>https://ichochy.com/posts/shell/20250510.html</link>
       <pubDate>Sat, 10 May 2025 14:23:36 +0800</pubDate>
       <guid>https://ichochy.com/posts/shell/20250510.html</guid>
-      <description>&lt;p&gt;在局域内网中，通过一台 Linux 服务来代理转发内网中的所有网络请求。可以通过这台服务来监控、代理内网中的网络请求，方便统一管理。&lt;/p&gt;</description>
+      <description>&lt;p&gt;在局域网中，通过 Linux 服务器（N2S）代理转发网络请求，实现统一管理、监控，代理，优化规则解决卡顿问题。&lt;/p&gt;</description>
     </item>
     <item>
       <title>sing-box rule-set</title>
