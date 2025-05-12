@@ -9,7 +9,7 @@
     <lastBuildDate>Sat, 10 May 2025 14:23:36 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linux 旁路由 Armbian 开启网络代理转发</title>
+      <title>Armbian Linux 旁路由开启本地网络代理转发</title>
       <link>https://ichochy.com/posts/shell/20250510.html</link>
       <pubDate>Sat, 10 May 2025 14:23:36 +0800</pubDate>
       <guid>https://ichochy.com/posts/shell/20250510.html</guid>

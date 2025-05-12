@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="Hugo 0.147.1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Linux 旁路由 Armbian 开启网络代理转发 &middot; 回忆中的明天</title>
+<title>Armbian Linux 旁路由开启本地网络代理转发 &middot; 回忆中的明天</title>
     <meta name="keywords" content="shell,linux"/>
     <meta name="description" content="在局域内网中，通过一台 Linux 服务来代理转发内网中的所有网络请求。可以通过这台服务来监控、代理内网中的网络请求，方便统一管理。"/>
     
@@ -64,10 +64,10 @@
     <li>
       <a href="https://ichochy.com/">首页</a>
     </li>
-    <li class="active">Linux 旁路由 Armbian 开启网络代理转发</li>
+    <li class="active">Armbian Linux 旁路由开启本地网络代理转发</li>
   </ol>
 </nav>
-<h1>Linux 旁路由 Armbian 开启网络代理转发</h1>
+<h1>Armbian Linux 旁路由开启本地网络代理转发</h1>
 <div class="post">
   
 
@@ -134,7 +134,7 @@
 </span></span></code></pre></div><p><code>end0</code> 为设备接口名称</p>
 <p>启用 NAT 伪装规则：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iptables -t nat -A POSTROUTING -o  &lt;DEVICE&gt; -j MASQUERADE
-</span></span></code></pre></div><p>**注：重要的事情说三遍</p>
+</span></span></code></pre></div><p><strong>注：重要的事情说三遍</strong></p>
 <pre tabindex="0"><code>确认自己的设备接口名称
 确认自己的设备接口名称
 确认自己的设备接口名称
