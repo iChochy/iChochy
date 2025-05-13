@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="Hugo 0.147.1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Armbian Linux 旁路由开启网络代理，决解卡顿问题 &middot; 回忆中的明天</title>
+<title>Armbian Linux 旁路由开启网络代理，决解网络卡顿问题 &middot; 回忆中的明天</title>
     <meta name="keywords" content="shell,linux"/>
     <meta name="description" content="在局域网中，通过 Linux 服务器（N2S）代理转发网络请求，实现统一管理、监控，代理，优化规则解决卡顿问题。"/>
     
@@ -65,10 +65,10 @@
     <li>
       <a href="https://ichochy.com/">首页</a>
     </li>
-    <li class="active">Armbian Linux 旁路由开启网络代理，决解卡顿问题</li>
+    <li class="active">Armbian Linux 旁路由开启网络代理，决解网络卡顿问题</li>
   </ol>
 </nav>
-<h1>Armbian Linux 旁路由开启网络代理，决解卡顿问题</h1>
+<h1>Armbian Linux 旁路由开启网络代理，决解网络卡顿问题</h1>
 <div class="post">
   
 
@@ -140,10 +140,10 @@
 确认自己的设备接口名称
 
 如果没有设置成功，会导致部分请求流量失败，直连网络请求卡顿
-</code></pre><p>检查规则</p>
+</code></pre><p><strong>规则默认重启后会重置失效，需重新配置</strong></p>
+<p>检查规则</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iptables -t nat -L -v -n
-</span></span></code></pre></div><p><strong>注：默认重启会失效</strong></p>
-<p>清空规则</p>
+</span></span></code></pre></div><p>清空规则</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iptables -t nat -F POSTROUTING
 </span></span></code></pre></div><h2 id="3-设置网络路由">3. 设置网络路由</h2>
 <p>将 <code>DHCP</code> 改为手动静态 IP，设置路由器地址，指向内网代理转发服务的IP</p>
@@ -160,8 +160,8 @@
 </span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4113</span>  502K MASQUERADE  <span style="color:#ae81ff">0</span>    --  *      end0    0.0.0.0/0            0.0.0.0/0           
 </span></span></code></pre></div><p><strong>注: <code>pkts</code> , <code>bytes</code>统计信息的变化，如果为0，则没有通过路由规则，会导致部分请求流量失败，直连网络请求卡顿</strong></p>
 <h2 id="常见问题">常见问题</h2>
-<p>卡顿或无流量：确认接口名称、IP 地址、网关设置，<strong>再次确认 NAT 伪装规则</strong>，
-规则失效：配置 iptables 持久化或使用脚本开机运行。</p>
+<p><strong>卡顿或无流量</strong>：确认接口名称、IP 地址、网关设置，<strong>再次确认 NAT 伪装规则</strong><br>
+<strong>规则失效</strong>：配置 iptables 持久化或使用脚本开机运行。</p>
 
   
 
