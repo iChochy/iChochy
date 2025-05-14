@@ -10,13 +10,15 @@ date: 2020-07-22T12:07:59+08:00
 **只希望帮助到更多想学 Java 的人。**
 
 ## 联系方式
-> Email：[me@ichochy.com](mailto:me@ichochy.com)  
-> GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
+Email：[me@ichochy.com](mailto:me@ichochy.com)  
+GitHub： [https://github.com/ichochy]( https://github.com/ichochy)  
 
 ## 公众号    
+
 ![公众号](https://ichochy.com/wx.jpg)
 
 ## 打赏    
+
 ![Sponsor](https://ichochy.com/sponsor.jpg)
 
 ## 感谢  
