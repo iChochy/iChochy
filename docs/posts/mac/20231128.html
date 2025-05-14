@@ -133,7 +133,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 <hr>
 
   <h2 id="launchd"><a href="x-man-page://launchd">launchd</a></h2>
-<p><strong><code>launchd</code></strong> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的主程序<br>
+<p><code>launchd</code> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的主程序<br>
 在启动过程中，内核调用 <code>launchd</code> 作为第一个进程运行，并进一步引导系统的其余部分。</p>
 <h3 id="守护进程和服务启动图例">守护进程和服务启动图例</h3>
 <p><img src="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Art/bootstrap_session_2x.png" alt="守护进程和服务由 launchd 在两个单独的会话上下文中启动" title="守护进程和服务"></p>
@@ -178,133 +178,69 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </table>
 <p>更多具体信息查看系统帮助文档：<a href="x-man-page://launchd">launchd</a></p>
 <h2 id="launchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></h2>
-<p><code>launchd.plist</code> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的<strong>配置文件</strong></p>
+<p><code>launchd.plist</code> – 系统范围内的守护进程（<code>LaunchDaemons</code>）/代理程序（<code>LaunchAgents</code>）的&ndash;配置文件&ndash;</p>
 <p>可以使用 <code>launchctl</code> 加载到 <code>launchd</code> 的列表，并根据配置文件的具体参数属性进行配置加载运行。</p>
 <h3 id="配置文件的命名">配置文件的命名</h3>
 <p>文件命名为 <code>&lt;Label&gt;.plist</code>。 因此，如果您的工作标签（<code>Label</code>）是 <code>com.ichochy.test</code>，您的 <code>plist</code>
 文件应命名为：<code>com.ichochy.test.plist</code></p>
 <h3 id="参数属性">参数属性</h3>
-<ul>
-<li>Label <!-- raw HTML omitted -->
-<ul>
-<li>作业进程的唯一标识，是必要参数</li>
-</ul>
-</li>
-<li>Program <!-- raw HTML omitted -->
-<ul>
-<li>作业执行的命令</li>
-</ul>
-</li>
-<li>ProgramArguments <!-- raw HTML omitted -->
-<ul>
-<li>作业执行的参数</li>
-<li>第一个参数为作业执行的命令，<code>Program</code>存在时，将由<code>Program</code>替代</li>
-<li>从第二个参数开始为执行的参数</li>
-</ul>
-</li>
-<li>KeepAlive <!-- raw HTML omitted -->
-<ul>
-<li>作业进程是否保留运行</li>
-<li><code>false</code>为默认值，停止后不再保留运行</li>
-<li><code>true</code>，停止后再次启动运行</li>
-<li>SuccessfulExit <!-- raw HTML omitted --></li>
-<li>NetworkState <!-- raw HTML omitted --></li>
-<li>PathState <!-- raw HTML omitted --></li>
-<li>Crashed <!-- raw HTML omitted --></li>
-</ul>
-</li>
-<li>RunAtLoad <!-- raw HTML omitted -->
-<ul>
-<li><code>false</code>为默认值，启动加载时不启动运行</li>
-<li><code>true</code>，启动加载时启动运行</li>
-</ul>
-</li>
-<li>WorkingDirectory <!-- raw HTML omitted -->
-<ul>
-<li>工作目录</li>
-</ul>
-</li>
-<li>EnvironmentVariables <!-- raw HTML omitted -->
-<ul>
-<li>配置环境变量</li>
-</ul>
-</li>
-<li>TimeOut <!-- raw HTML omitted -->
-<ul>
-<li>启动超时时间</li>
-</ul>
-</li>
-<li>ExitTimeOut <!-- raw HTML omitted -->
-<ul>
-<li>退出超时时间</li>
-</ul>
-</li>
-<li>ThrottleInterval <!-- raw HTML omitted -->
-<ul>
-<li>间歇时间</li>
-</ul>
-</li>
-<li>StartInterval <!-- raw HTML omitted -->
-<ul>
-<li>间隔启动时间，单位为秒</li>
-</ul>
-</li>
-<li>StartCalendarInterval <!-- raw HTML omitted -->
-<ul>
-<li>间隔启动时间，单位可以指定日期</li>
-<li>Minute <!-- raw HTML omitted -->
-<ul>
-<li>分钟 0-59</li>
-</ul>
-</li>
-<li>Hour <!-- raw HTML omitted -->
-<ul>
-<li>小时 0-23</li>
-</ul>
-</li>
-<li>Day <!-- raw HTML omitted -->
-<ul>
-<li>天 1-31</li>
-</ul>
-</li>
-<li>Weekday <!-- raw HTML omitted -->
-<ul>
-<li>工作日 0-7</li>
-</ul>
-</li>
-<li>Month <!-- raw HTML omitted -->
-<ul>
-<li>月 1-12</li>
-</ul>
-</li>
-<li>StandardInPath <!-- raw HTML omitted -->
-<ul>
-<li>stdin 输入信息的日志路径</li>
-</ul>
-</li>
-<li>StandardOutPath <!-- raw HTML omitted -->
-<ul>
-<li>stdout 输出信息的日志路径</li>
-</ul>
-</li>
-<li>StandardErrorPath <!-- raw HTML omitted -->
-<ul>
-<li>stderr 错误输出信息的日志路径</li>
-</ul>
-</li>
-<li>ProcessType <!-- raw HTML omitted -->
-<ul>
-<li>进程类型，根据作业类型限制应用资源</li>
-<li>Background</li>
-<li>Standard</li>
-<li>Adaptive</li>
-<li>Interactive</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="plist-实例">plist 实例</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- Label &lt;string&gt;
+</span></span><span style="display:flex;"><span>    - 作业进程的唯一标识，是必要参数
+</span></span><span style="display:flex;"><span>- Program &lt;string&gt;
+</span></span><span style="display:flex;"><span>    - 作业执行的命令
+</span></span><span style="display:flex;"><span>- ProgramArguments &lt;array of strings&gt;
+</span></span><span style="display:flex;"><span>    - 作业执行的参数
+</span></span><span style="display:flex;"><span>    - 第一个参数为作业执行的命令，<span style="color:#e6db74">`</span>Program<span style="color:#e6db74">`</span>存在时，将由<span style="color:#e6db74">`</span>Program<span style="color:#e6db74">`</span>替代
+</span></span><span style="display:flex;"><span>    - 从第二个参数开始为执行的参数
+</span></span><span style="display:flex;"><span>- KeepAlive &lt;boolean or dictionary of stuff&gt;
+</span></span><span style="display:flex;"><span>    - 作业进程是否保留运行
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">`</span>false<span style="color:#e6db74">`</span>为默认值，停止后不再保留运行
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">`</span>true<span style="color:#e6db74">`</span>，停止后再次启动运行
+</span></span><span style="display:flex;"><span>    - SuccessfulExit &lt;boolean&gt;
+</span></span><span style="display:flex;"><span>    - NetworkState &lt;boolean&gt;
+</span></span><span style="display:flex;"><span>    - PathState &lt;dictionary of booleans&gt;
+</span></span><span style="display:flex;"><span>    - Crashed &lt;boolean&gt;
+</span></span><span style="display:flex;"><span>- RunAtLoad &lt;boolean&gt;
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">`</span>false<span style="color:#e6db74">`</span>为默认值，启动加载时不启动运行
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">`</span>true<span style="color:#e6db74">`</span>，启动加载时启动运行
+</span></span><span style="display:flex;"><span>- WorkingDirectory &lt;string&gt;
+</span></span><span style="display:flex;"><span>    - 工作目录
+</span></span><span style="display:flex;"><span>- EnvironmentVariables &lt;dictionary of strings&gt;
+</span></span><span style="display:flex;"><span>    - 配置环境变量
+</span></span><span style="display:flex;"><span>- TimeOut &lt;integer&gt;
+</span></span><span style="display:flex;"><span>    - 启动超时时间
+</span></span><span style="display:flex;"><span>- ExitTimeOut &lt;integer&gt;
+</span></span><span style="display:flex;"><span>    - 退出超时时间
+</span></span><span style="display:flex;"><span>- ThrottleInterval &lt;integer&gt;
+</span></span><span style="display:flex;"><span>    - 间歇时间
+</span></span><span style="display:flex;"><span>- StartInterval &lt;integer&gt;
+</span></span><span style="display:flex;"><span>    - 间隔启动时间，单位为秒
+</span></span><span style="display:flex;"><span>- StartCalendarInterval &lt;dictionary of integers or array of dictionaries of
+</span></span><span style="display:flex;"><span>  integers&gt;
+</span></span><span style="display:flex;"><span>    - 间隔启动时间，单位可以指定日期
+</span></span><span style="display:flex;"><span>    - Minute &lt;integer&gt;
+</span></span><span style="display:flex;"><span>        - 分钟 0-59
+</span></span><span style="display:flex;"><span>    - Hour &lt;integer&gt;
+</span></span><span style="display:flex;"><span>        - 小时 0-23
+</span></span><span style="display:flex;"><span>    - Day &lt;integer&gt;
+</span></span><span style="display:flex;"><span>        - 天 1-31
+</span></span><span style="display:flex;"><span>    - Weekday &lt;integer&gt;
+</span></span><span style="display:flex;"><span>        - 工作日 0-7
+</span></span><span style="display:flex;"><span>    - Month &lt;integer&gt;
+</span></span><span style="display:flex;"><span>        - 月 1-12
+</span></span><span style="display:flex;"><span>    - StandardInPath &lt;string&gt;
+</span></span><span style="display:flex;"><span>        - stdin 输入信息的日志路径
+</span></span><span style="display:flex;"><span>    - StandardOutPath &lt;string&gt;
+</span></span><span style="display:flex;"><span>        - stdout 输出信息的日志路径
+</span></span><span style="display:flex;"><span>    - StandardErrorPath &lt;string&gt;
+</span></span><span style="display:flex;"><span>        - stderr 错误输出信息的日志路径
+</span></span><span style="display:flex;"><span>    - ProcessType &lt;string&gt;
+</span></span><span style="display:flex;"><span>        - 进程类型，根据作业类型限制应用资源
+</span></span><span style="display:flex;"><span>        - Background
+</span></span><span style="display:flex;"><span>        - Standard
+</span></span><span style="display:flex;"><span>        - Adaptive
+</span></span><span style="display:flex;"><span>        - Interactive
+</span></span></code></pre></div><h3 id="plist-实例">plist 实例</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple Computer//DTD PLIST 1.0//EN&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">        &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>

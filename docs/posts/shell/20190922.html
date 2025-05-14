@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="Hugo 0.147.1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>神奇的不可见空格&lt;200b&gt;导致代码异常 &middot; 回忆中的明天</title>
+<title>神奇的不可见空格 200b 导致代码异常 &middot; 回忆中的明天</title>
     <meta name="keywords" content="code,shell"/>
     <meta name="description" content="故事是这样发生的，在做一个JSON对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格&lt;200b&gt;导致的解析异常"/>
     
@@ -67,10 +67,10 @@
     <li>
       <a href="https://ichochy.com/">首页</a>
     </li>
-    <li class="active">神奇的不可见空格&lt;200b&gt;导致代码异常</li>
+    <li class="active">神奇的不可见空格 200b 导致代码异常</li>
   </ol>
 </nav>
-<h1>神奇的不可见空格&lt;200b&gt;导致代码异常</h1>
+<h1>神奇的不可见空格 200b 导致代码异常</h1>
 <div class="post">
   
 
@@ -115,7 +115,8 @@
 
   <p>故事是这样发生的，在做一个<code>JSON</code>对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格<code>&lt;200b&gt;</code>导致的解析异常</p>
 <h3 id="出现">出现</h3>
-<p>使用<a href="https://typora.io/"><code>Typora</code></a>编写文字时，使用<code>Tab</code>会生成神奇的不可见空格</p>
+<p>使用<a href="https://typora.io/"><code>Typora</code></a>编写文字时，使用<code>Tab</code>会生成神奇的不可见空格<br>
+或某些编辑软件编辑产生</p>
 <h3 id="发现">发现</h3>
 <p>通过<a href="https://www.vim.org/"><code>VIM</code></a>查看文档，会看到<code>&lt;200b&gt;</code>神奇的存在</p>
 <h3 id="解决">解决</h3>
