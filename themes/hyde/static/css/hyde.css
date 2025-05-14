@@ -133,7 +133,7 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 48em) {
     .sidebar-toc {
-        display: block;
+        display: flex;
         height: 100vh;
         padding-top: 64px;
         text-align: left;
