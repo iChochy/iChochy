@@ -5,7 +5,7 @@ function ready(fn) {
     document.addEventListener("DOMContentLoaded", fn, { once: true });
 }
 
-ready(function(){
+ready(function (){
     loadToc()
     loadView()
 })
