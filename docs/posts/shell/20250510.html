@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="Hugo 0.147.1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Armbian Linux 旁路由开启网络代理，决解网络卡顿 &middot; 回忆中的明天</title>
+<title>Armbian Linux 旁路由开启网络代理，决解网络卡顿 iptables &middot; 回忆中的明天</title>
     <meta name="keywords" content="shell,linux,R2S"/>
     <meta name="description" content="在局域网中，通过 Linux 服务器（N2S）代理转发网络请求，实现统一管理、监控，代理，优化规则解决卡顿问题。"/>
     
@@ -61,7 +61,7 @@
 </aside>
     <main class="content container">
     
-<h1>Armbian Linux 旁路由开启网络代理，决解网络卡顿</h1>
+<h1>Armbian Linux 旁路由开启网络代理，决解网络卡顿 iptables</h1>
 <hr>
 <div class="post">
   
@@ -134,12 +134,12 @@
 <p>启用 NAT 伪装规则：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iptables -t nat -A POSTROUTING -o  &lt;DEVICE&gt; -j MASQUERADE
 </span></span></code></pre></div><p><strong>注：重要的事情说三遍</strong></p>
-<pre tabindex="0"><code>确认自己的设备接口名称
-确认自己的设备接口名称
-确认自己的设备接口名称
-
-如果没有设置成功，会导致部分请求流量失败，直连网络请求卡顿
-</code></pre><p><strong>规则默认重启后会重置失效，需重新配置</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>确认自己的设备接口名称
+</span></span><span style="display:flex;"><span>确认自己的设备接口名称
+</span></span><span style="display:flex;"><span>确认自己的设备接口名称
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>如果没有设置成功，会导致部分请求流量失败，直连网络请求卡顿
+</span></span></code></pre></div><p><strong>规则默认重启后会重置失效，需重新配置</strong></p>
 <p>检查规则</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iptables -t nat -L -v -n
 </span></span></code></pre></div><p>清空规则</p>
@@ -233,7 +233,7 @@
 <div class="pagination">
   
   <span class="pagination-link newer">
-    上一篇：<a href="https://ichochy.com/posts/shell/20250528.html" class="pag-link">NanoPi R2S 安装 Debian 固件系统，用做旁路由开启网络转发，决解内网络卡顿</a>
+    上一篇：<a href="https://ichochy.com/posts/shell/20250528.html" class="pag-link">NanoPi R2S 安装 Debian 固件系统，用做旁路由内网转发 nftables</a>
   </span>
   
     
