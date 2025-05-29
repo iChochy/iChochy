@@ -62,7 +62,8 @@
         <li><a href="#配置规则">配置规则</a></li>
       </ul>
     </li>
-    <li><a href="#设置内网设备网络">设置内网设备网络</a></li>
+    <li><a href="#设置内网设备">设置内网设备</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
@@ -126,8 +127,8 @@
   <p>NanoPi R2S 安装 Debian，将其当成为一台 Linux 服务器，可玩成更强，主要用做旁路由来代理转发内网请求，安装 Nginx，部署 Web 项目</p>
 <h2 id="安装系统">安装系统</h2>
 <h3 id="写入固件系统">写入固件系统</h3>
-<p>在 NanoPi 官网下载系统，系统有不同的系统，根据自己的情况选择
-有如下版本：</p>
+<p>在 NanoPi 官网下载系统，系统有不同的版本，根据自己的情况选择</p>
+<p>有如下版本：</p>
 <ul>
 <li>Debian</li>
 <li>Ubuntu</li>
@@ -137,11 +138,11 @@
 <p>注：这里用的是 Debian 版本（rk3328-sd-debian-bookworm-core-6.1-arm64-20250123.img）</p>
 <p>下载好后，使用写入工具写入 SD 卡</p>
 <p><img src="https://image.ichochy.com/R2S%E5%9B%BA%E4%BB%B6%E5%86%99%E5%85%A5SD.jpg" alt="R2S固件写入SD.jpg"></p>
-<p>使用 <a href="https://etcher.balena.io/#download-etcher">Etcher</a> 将下载发的 img 固件写入 SD</p>
+<p>使用 <a href="https://etcher.balena.io/#download-etcher">Etcher</a> 将下载的 img 固件写入 SD</p>
 <h3 id="加载系统">加载系统</h3>
-<p>SD 卡插入 N2S 插电重启，连接上主路由，等待几分钟后就可以 SSH 连接上了。<br>
-如果找不到N2S，就再重启下，我当时找了好久……</p>
-<p>可以有主路由中查找连接设备信息
+<p>SD 卡插入 R2S，插电重启，连接上主路由，等待几分钟后就可以 SSH 连接上了。<br>
+如果找不到 R2S，就再重启下，我当时找了好久……</p>
+<p>可以在主路由中查找连接设备信息
 <img src="https://image.ichochy.com/%E4%B8%BB%E8%B7%AF%E7%94%B1.jpg" alt="主路由.jpg"></p>
 <h3 id="连接系统">连接系统</h3>
 <h4 id="帐户与密码">帐户与密码</h4>
@@ -180,12 +181,12 @@
 </span></span><span style="display:flex;"><span>eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc mq state UP ……
 </span></span></code></pre></div><p>设备接口名称为 <code>eth0</code>，可能有所不同</p>
 <p><strong>注：重要的事情说三遍</strong></p>
-<pre tabindex="0"><code>确认自己的设备接口名称
-确认自己的设备接口名称
-确认自己的设备接口名称
-
-如果没有设置成功，会导致部分请求流量失败，直连网络请求卡顿
-</code></pre><h4 id="配置-nftables">配置 nftables</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>确认自己的设备接口名称
+</span></span><span style="display:flex;"><span>确认自己的设备接口名称
+</span></span><span style="display:flex;"><span>确认自己的设备接口名称
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>如果没有设置成功，会导致部分请求流量失败，直连网络请求卡顿
+</span></span></code></pre></div><h4 id="配置-nftables">配置 nftables</h4>
 <p>编辑 <code>/etc/nftables.conf</code> 文件</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/sbin/nft -f
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -217,13 +218,21 @@
 </span></span><span style="display:flex;"><span>sudo systemctl status nftables
 </span></span></code></pre></div><p>nftables 查看规则</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nft list ruleset
-</span></span></code></pre></div><h2 id="设置内网设备网络">设置内网设备网络</h2>
+</span></span></code></pre></div><h2 id="设置内网设备">设置内网设备</h2>
 <p>将 <code>DHCP</code> 改为手动静态 IP，设置路由器地址，指向内网代理转发服务的IP</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>例如：
 </span></span><span style="display:flex;"><span>IP 地址：如 192.168.5.55
 </span></span><span style="display:flex;"><span>子网掩码：255.255.255.0
 </span></span><span style="display:flex;"><span>网关：代理服务器 IP（如 192.168.5.5）
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="总结">总结</h2>
+<ul>
+<li>如果转发没有开启，则无法路由内网流量</li>
+<li>nftables 规则配置有问题，会导直连请求失败</li>
+<li>需要配置 nftables 规则，通过代理机转发内网请求</li>
+<li>需要确认转发 IP &lt;192.168.5.0/24&gt;  和设备名称 &ldquo;<!-- raw HTML omitted -->&rdquo;</li>
+<li>转发 IP 和设备名称以自己的为准</li>
+</ul>
+
   
 
 
