@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20250606,
+    "url": "https://ichochy.com/posts/app/20250606.html",
+    "title": "AI Chat 智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI",
+    "summary": "AI Chat 是一个智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI，使用SwiftUI、SwiftData开发，macOS原生AI客服端\n",
+    "content": "AI Chat 是一个智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI，使用SwiftUI、SwiftData开发，macOS原生AI客服端\n[中文]｜[English]\n开发环境 开发工具：Xcode 16.3\n开发技术：SwiftUI SwiftData\n系统支持：macOS 14+\n功能说明 现支持DeepSeek、Gemini、Grok、OpenAI，和自定义AI\n1、实现了 AI 服务商的添加、使用和删除\n2、实现了模型的加载、添加、使用和删除\n3、实现了 AI 的会话功能，多个模型灵活切换 4、Markdown渲染（使用MarkdownUI）\n5、支持思考模型输出，流式输出 6、MenuBar 快速入口\n截图预览 About 博客 https://ichochy.com\n网站 https://ai.ichochy.com\nGitHub https://github.com/iChochy/AIChat\n下载 AI Chat: https://file.ichochy.com/AIChat.zip\n安装说明 注意： 因未使用开发者签名，首次运行会触发 macOS 安全提示。 前往 “系统设置 \u0026gt; 隐私与安全性”，选择 “仍要打开”\n更新 20250605(0.1(2)) 添加DeepSeek的支持\n添加MenuBar快速入口\n更新输入框样式（悬浮）\n鸣谢： MarkdownUI：https://github.com/apparata/MarkdownUI\n自嗨 自娱自乐，后续持续跟进………………\n功能还在开发完善中 ……………………\n",
+    "pubDate": "2025-06-06T11:22:36+08:00"
+  }, 
+  {
     "objectID": 20250528,
     "url": "https://ichochy.com/posts/shell/20250528.html",
     "title": "NanoPi R2S 安装 Debian 固件系统，用做旁路由内网转发 nftables",
