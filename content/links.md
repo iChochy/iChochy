@@ -5,8 +5,8 @@ date: 2020-07-22T12:07:59+08:00
 
 ## 友情链接
 VPS推荐：[https://qkk.one](https://qkk.one)  
-iUploader：[https://iUploader.ichochy.com](https://iUploader.ichochy.com)  
-LINUX DO：[https://linux.do/](https://linux.do/?source=ichochy)  
+AIChat：[https://ai.ichochy.com](https://ai.ichochy.com)    
+iUploader：[https://iUploader.ichochy.com](https://iUploader.ichochy.com)    
 Ating：[https://blog.wrihope.top](https://blog.wrihope.top)  
 鑫空间：[https://www.zhangxinxu.com](https://www.zhangxinxu.com/)  
 Kaciras' Blog：[https://blog.kaciras.com](https://blog.kaciras.com)  
