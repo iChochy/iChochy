@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Jun 2025 11:22:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jun 2025 12:07:59 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analytics</title>
+      <link>https://ichochy.com/analytics.html</link>
+      <pubDate>Wed, 25 Jun 2025 12:07:59 +0800</pubDate>
+      <guid>https://ichochy.com/analytics.html</guid>
+      <description>&lt;h2 id=&#34;统计分析&#34;&gt;统计分析&lt;/h2&gt;&#xA;&lt;table id=&#34;dataTable&#34;&gt;&#xA;    &lt;thead id=&#34;tableHead&#34;&gt;&lt;/thead&gt;&#xA;    &lt;tbody id=&#34;tableBody&#34;&gt;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;script src=&#34;https://ichochy.com/js/analytics.js&#34;&gt;&lt;/script&gt;</description>
+    </item>
     <item>
       <title>AI Chat 智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI</title>
       <link>https://ichochy.com/posts/app/20250606.html</link>
@@ -90,7 +97,7 @@
       <link>https://ichochy.com/vps.html</link>
       <pubDate>Sat, 08 Mar 2025 12:07:59 +0800</pubDate>
       <guid>https://ichochy.com/vps.html</guid>
-      <description>&lt;h2 id=&#34;服务器推荐&#34;&gt;服务器推荐&lt;/h2&gt;&#xA;&lt;h3 id=&#34;us-vps&#34;&gt;US VPS&lt;/h3&gt;&#xA;&lt;p&gt;CloudCone：&lt;a href=&#34;https://app.cloudcone.com.cn/vps/355/create?ref=11052&amp;amp;token=ssd-vps-1&#34;&gt;1C1G-$1.66/Month&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;vps推荐&#34;&gt;VPS推荐&lt;/h2&gt;&#xA;&lt;h3 id=&#34;美国month&#34;&gt;美国(Month)&lt;/h3&gt;&#xA;&lt;p&gt;CloudCone：&lt;a href=&#34;https://app.cloudcone.com.cn/compute/create?ref=11052&#34;&gt;1C1G20G-$5.2/Month&lt;/a&gt;&lt;br&gt;&#xA;CloudCone：&lt;a href=&#34;https://app.cloudcone.com.cn/compute/create?ref=11052&#34;&gt;1C2G40G-$7.28/Month&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>国内、外免费公共的DNS，支持的DoH，防止污染、篡改的问题</title>
@@ -126,13 +133,6 @@
       <pubDate>Fri, 20 Sep 2024 16:25:45 +0800</pubDate>
       <guid>https://ichochy.com/posts/vps/20240920.html</guid>
       <description>&lt;h2 id=&#34;vps&#34;&gt;VPS&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;strong&gt;VPS 服务器可以自主搭建网络服务、个人博客、企业官网、外贸独立站、技术站点等。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Analytics</title>
-      <link>https://ichochy.com/analytics.html</link>
-      <pubDate>Sat, 22 Jun 2024 12:07:59 +0800</pubDate>
-      <guid>https://ichochy.com/analytics.html</guid>
-      <description>&lt;h2 id=&#34;统计分析&#34;&gt;统计分析&lt;/h2&gt;&#xA;&lt;table id=&#34;dataTable&#34;&gt;&#xA;    &lt;thead id=&#34;tableHead&#34;&gt;&lt;/thead&gt;&#xA;    &lt;tbody id=&#34;tableBody&#34;&gt;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;script src=&#34;https://ichochy.com/js/analytics.js&#34;&gt;&lt;/script&gt;</description>
     </item>
     <item>
       <title>Sites</title>
@@ -538,7 +538,7 @@
       <link>https://ichochy.com/links.html</link>
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
       <guid>https://ichochy.com/links.html</guid>
-      <description>&lt;h2 id=&#34;友情链接&#34;&gt;友情链接&lt;/h2&gt;&#xA;&lt;p&gt;VPS推荐：&lt;a href=&#34;https://qkk.one&#34;&gt;https://qkk.one&lt;/a&gt;&lt;br&gt;&#xA;AIChat：&lt;a href=&#34;https://ai.ichochy.com&#34;&gt;https://ai.ichochy.com&lt;/a&gt; &lt;br&gt;&#xA;iUploader：&lt;a href=&#34;https://iUploader.ichochy.com&#34;&gt;https://iUploader.ichochy.com&lt;/a&gt; &lt;br&gt;&#xA;Ating：&lt;a href=&#34;https://blog.wrihope.top&#34;&gt;https://blog.wrihope.top&lt;/a&gt;&lt;br&gt;&#xA;鑫空间：&lt;a href=&#34;https://www.zhangxinxu.com/&#34;&gt;https://www.zhangxinxu.com&lt;/a&gt;&lt;br&gt;&#xA;Kaciras&amp;rsquo; Blog：&lt;a href=&#34;https://blog.kaciras.com&#34;&gt;https://blog.kaciras.com&lt;/a&gt;&lt;br&gt;&#xA;imbytecat：&lt;a href=&#34;https://www.imbytecat.com&#34;&gt;https://www.imbytecat.com&lt;/a&gt;&lt;br&gt;&#xA;檀鹏程个人博客：&lt;a href=&#34;https://marksanders.cn&#34;&gt;https://marksanders.cn&lt;/a&gt;&lt;br&gt;&#xA;阿西河前端教程：&lt;a href=&#34;https://www.axihe.com&#34;&gt;https://www.axihe.com&lt;/a&gt;&lt;br&gt;&#xA;Pantheon：&lt;a href=&#34;https://blog.pantheon.press&#34;&gt;https://blog.pantheon.press&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;友情链接&#34;&gt;友情链接&lt;/h2&gt;&#xA;&lt;p&gt;VPS推荐：&lt;a href=&#34;https://mleo.site&#34;&gt;https://mleo.site&lt;/a&gt;&lt;br&gt;&#xA;iChat：&lt;a href=&#34;https://ai.ichochy.com&#34;&gt;https://ai.ichochy.com&lt;/a&gt; &lt;br&gt;&#xA;iUploader：&lt;a href=&#34;https://iUploader.ichochy.com&#34;&gt;https://iUploader.ichochy.com&lt;/a&gt; &lt;br&gt;&#xA;Ating：&lt;a href=&#34;https://blog.wrihope.top&#34;&gt;https://blog.wrihope.top&lt;/a&gt;&lt;br&gt;&#xA;鑫空间：&lt;a href=&#34;https://www.zhangxinxu.com/&#34;&gt;https://www.zhangxinxu.com&lt;/a&gt;&lt;br&gt;&#xA;Kaciras&amp;rsquo; Blog：&lt;a href=&#34;https://blog.kaciras.com&#34;&gt;https://blog.kaciras.com&lt;/a&gt;&lt;br&gt;&#xA;imbytecat：&lt;a href=&#34;https://www.imbytecat.com&#34;&gt;https://www.imbytecat.com&lt;/a&gt;&lt;br&gt;&#xA;檀鹏程个人博客：&lt;a href=&#34;https://marksanders.cn&#34;&gt;https://marksanders.cn&lt;/a&gt;&lt;br&gt;&#xA;阿西河前端教程：&lt;a href=&#34;https://www.axihe.com&#34;&gt;https://www.axihe.com&lt;/a&gt;&lt;br&gt;&#xA;Pantheon：&lt;a href=&#34;https://blog.pantheon.press&#34;&gt;https://blog.pantheon.press&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elastic Stack 实现日志的自动采集、搜索和分析</title>

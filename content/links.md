@@ -4,8 +4,8 @@ date: 2020-07-22T12:07:59+08:00
 ---
 
 ## 友情链接
-VPS推荐：[https://qkk.one](https://qkk.one)  
-AIChat：[https://ai.ichochy.com](https://ai.ichochy.com)    
+VPS推荐：[https://mleo.site](https://mleo.site)  
+iChat：[https://ai.ichochy.com](https://ai.ichochy.com)    
 iUploader：[https://iUploader.ichochy.com](https://iUploader.ichochy.com)    
 Ating：[https://blog.wrihope.top](https://blog.wrihope.top)  
 鑫空间：[https://www.zhangxinxu.com](https://www.zhangxinxu.com/)  
