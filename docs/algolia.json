@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20250908,
+    "url": "https://ichochy.com/posts/shell/20250908.html",
+    "title": "iGTTS(Gemini TTS) 开源免费的文本转语音（TTS）的命令行工具。",
+    "summary": "iGTTS iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音（TTS）的命令行工具。\n",
+    "content": "iGTTS iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音（TTS）的命令行工具。\n添加 API key # 编辑 .zshrc： vim ~/.zshrc # 添加信息（导入环境变量）： export GEMINI_API_KEY=\u0026lt;YOUR_API_KEY_HERE\u0026gt; # 保存后应用更改： source ~/.zshrc 运行 iGTTS ./igtts -h usage: igtts [-h] [-i INPUT_FILE] [-l] [-v VOICE] [-o OUTPUT_FILE] [text] Gemini TTS 文本转语音（TTS）命令行工具。 positional arguments: text 指定语音文本的内容。如果未提供，请使用 --input-file。 options: -h, --help show this help message and exit -i, --input-file INPUT_FILE 指定语音文本的文件。 -l, --list-voices 列出语音的语音名称。 -v, --voice VOICE 指定语音的语音名称（默认：Zephyr）。 -o, --output-file OUTPUT_FILE 指定音频保存的文件（默认：output.wav）。 实例 # 指定语音文本的内容 ./igtts \u0026#34;Hello, my name is iChochy.\u0026#34; # 指定语音文本的文件 -i \u0026#34;input.txt\u0026#34; ./igtts -i \u0026#34;input.txt\u0026#34; # 指定语音文本的文件 -i \u0026#34;input.txt\u0026#34; # 指定语音保存的文件 -o \u0026#34;output.wav\u0026#34; ./igtts -i \u0026#34;input.txt\u0026#34; -o \u0026#34;output.mp3\u0026#34; # 指定语音文本的文件 -i \u0026#34;input.txt\u0026#34; # 指定语音的语音名称 -v \u0026#34;Zephyr\u0026#34; # 指定音频保存的文件 -o \u0026#34;output.wav\u0026#34; ./igtts -i \u0026#34;input.txt\u0026#34; -v \u0026#34;Zephyr\u0026#34; -o \u0026#34;output.mp3\u0026#34; # 列出语音的语音名称 -l ./igtts -l 模型 gemini-2.5-flash-preview-tts\n获取 API key API key：https://aistudio.google.com/apikey\n额度参数： 每分钟请求数 (RPM)\n每分钟 token 数（输入）(TPM)\n每日请求数 (RPD)\n免费额度： RPM：3\nTPM：10000\nRPD：15\n额度详情：https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn\n接口详情：https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn\n软件信息 GitHub https://github.com/ichochy/igtts\n网站 https://tts.ichochy.com\n音频预览 audio.wav\n下载（macOS） https://file.ichochy.com/igtts.zip\n",
+    "pubDate": "2025-09-08T10:55:23+08:00"
+  }, 
+  {
     "objectID": 20250606,
     "url": "https://ichochy.com/posts/app/20250606.html",
     "title": "AI Chat 智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI",

@@ -1,8 +1,6 @@
 ## 简介
 80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！  
 
-如有 Java 入门的问题，可以免费解答初学者的问题。  
-**只希望帮助到更多想学 Java 的人。**
 
 ## 联系方式
 > Email：[me@ichochy.com](mailto:me@ichochy.com)  
@@ -10,7 +8,7 @@
 > GitHub：[https://github.com/ichochy]( https://github.com/ichochy)
 
 ## 感谢 
-[雷霆](https://leiting.uniss.me/invite/0HczadPR) 提供 [自由网络](https://leiting.uniss.me/invite/0HczadPR)  
+[雷霆](https://hi.leiting.uk/invite/y0qT3LOe) 提供 [自由网络](https://hi.leiting.uk/invite/y0qT3LOe)  
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)  
 [七牛云](https://portal.qiniu.com/signup?code=3l7cpouzlru4y) 提供 [CDN/云存储](https://portal.qiniu.com/signup?code=3l7cpouzlru4y)  
 [Algolia](https://www.algolia.com) 提供 [Search Engine](https://www.algolia.com)  
