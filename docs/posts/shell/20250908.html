@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>iGTTS(Gemini TTS) 开源免费的文本转语音（TTS）的命令行工具。 &middot; 回忆中的明天</title>
     <meta name="keywords" content="shell,mac,app,ai,python"/>
-    <meta name="description" content="iGTTS
+    <meta name="description" content="iGTTS(Gemini TTS)
+iGTTS(Gemini TTS) 开源免费的文本转语音（TTS）的命令行工具。
 iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音（TTS）的命令行工具。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
@@ -50,9 +51,10 @@ iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音�
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#igtts">iGTTS</a>
+    <li><a href="#igttsgemini-tts">iGTTS(Gemini TTS)</a>
       <ul>
         <li><a href="#添加-api-key">添加 API key</a></li>
+        <li><a href="#安装-igtts">安装 iGTTS</a></li>
         <li><a href="#运行-igtts">运行 iGTTS</a></li>
         <li><a href="#实例">实例</a></li>
         <li><a href="#模型">模型</a></li>
@@ -63,10 +65,10 @@ iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音�
     </li>
     <li><a href="#软件信息">软件信息</a>
       <ul>
-        <li><a href="#github">GitHub</a></li>
         <li><a href="#网站">网站</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#pypi">PYPI</a></li>
         <li><a href="#音频预览">音频预览</a></li>
-        <li><a href="#下载macos">下载（macOS）</a></li>
       </ul>
     </li>
   </ul>
@@ -133,8 +135,9 @@ iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音�
 <b>原文：</b><a href="https://ichochy.com/posts/shell/20250908.html">https://ichochy.com/posts/shell/20250908.html</a>
 <hr>
 
-  <h2 id="igtts">iGTTS</h2>
-<p>iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音（TTS）的命令行工具。</p>
+  <h2 id="igttsgemini-tts">iGTTS(Gemini TTS)</h2>
+<p>iGTTS(Gemini TTS) 开源免费的文本转语音（TTS）的命令行工具。<br>
+iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音（TTS）的命令行工具。</p>
 <h3 id="添加-api-key">添加 API key</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 编辑 .zshrc：</span>
 </span></span><span style="display:flex;"><span>vim ~/.zshrc
@@ -144,8 +147,10 @@ iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 保存后应用更改：</span>
 </span></span><span style="display:flex;"><span>source ~/.zshrc
+</span></span></code></pre></div><h3 id="安装-igtts">安装 iGTTS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install igtts
 </span></span></code></pre></div><h3 id="运行-igtts">运行 iGTTS</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./igtts -h
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>igtts -h
 </span></span><span style="display:flex;"><span>usage: igtts <span style="color:#f92672">[</span>-h<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-i INPUT_FILE<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-l<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-v VOICE<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-o OUTPUT_FILE<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>text<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Gemini TTS 文本转语音（TTS）命令行工具。
@@ -163,22 +168,22 @@ iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音�
 </span></span><span style="display:flex;"><span>                        指定音频保存的文件（默认：output.wav）。
 </span></span></code></pre></div><h3 id="实例">实例</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 指定语音文本的内容</span>
-</span></span><span style="display:flex;"><span>./igtts <span style="color:#e6db74">&#34;Hello, my name is iChochy.&#34;</span>
+</span></span><span style="display:flex;"><span>igtts <span style="color:#e6db74">&#34;Hello, my name is iChochy.&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定语音文本的文件 -i &#34;input.txt&#34;</span>
-</span></span><span style="display:flex;"><span>./igtts -i <span style="color:#e6db74">&#34;input.txt&#34;</span>
+</span></span><span style="display:flex;"><span>igtts -i <span style="color:#e6db74">&#34;input.txt&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定语音文本的文件 -i &#34;input.txt&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定语音保存的文件 -o &#34;output.wav&#34;</span>
-</span></span><span style="display:flex;"><span>./igtts -i <span style="color:#e6db74">&#34;input.txt&#34;</span> -o <span style="color:#e6db74">&#34;output.mp3&#34;</span>
+</span></span><span style="display:flex;"><span>igtts -i <span style="color:#e6db74">&#34;input.txt&#34;</span> -o <span style="color:#e6db74">&#34;output.mp3&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定语音文本的文件 -i &#34;input.txt&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定语音的语音名称 -v &#34;Zephyr&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定音频保存的文件 -o &#34;output.wav&#34;</span>
-</span></span><span style="display:flex;"><span>./igtts -i <span style="color:#e6db74">&#34;input.txt&#34;</span> -v <span style="color:#e6db74">&#34;Zephyr&#34;</span> -o <span style="color:#e6db74">&#34;output.mp3&#34;</span>
+</span></span><span style="display:flex;"><span>igtts -i <span style="color:#e6db74">&#34;input.txt&#34;</span> -v <span style="color:#e6db74">&#34;Zephyr&#34;</span> -o <span style="color:#e6db74">&#34;output.mp3&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 列出语音的语音名称 -l</span>
-</span></span><span style="display:flex;"><span>./igtts -l
+</span></span><span style="display:flex;"><span>igtts -l
 </span></span></code></pre></div><h3 id="模型">模型</h3>
 <p><strong>gemini-2.5-flash-preview-tts</strong></p>
 <h3 id="获取-api-key">获取 API key</h3>
@@ -194,14 +199,15 @@ RPD：15</p>
 <p>额度详情：<a href="https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn">https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn</a></p>
 <p>接口详情：<a href="https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn">https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn</a></p>
 <h2 id="软件信息">软件信息</h2>
-<h3 id="github">GitHub</h3>
-<p><a href="https://github.com/ichochy/igtts">https://github.com/ichochy/igtts</a></p>
 <h3 id="网站">网站</h3>
 <p><a href="https://tts.ichochy.com">https://tts.ichochy.com</a></p>
+<h3 id="github">GitHub</h3>
+<p><a href="https://github.com/ichochy/igtts">https://github.com/ichochy/igtts</a></p>
+<h3 id="pypi">PYPI</h3>
+<p><a href="https://pypi.org/project/igtts/">https://pypi.org/project/igtts</a></p>
 <h3 id="音频预览">音频预览</h3>
-<p><a href="https://file.ichochy.com/audio.wav">audio.wav</a></p>
-<h3 id="下载macos">下载（macOS）</h3>
-<p><a href="https://file.ichochy.com/igtts.zip">https://file.ichochy.com/igtts.zip</a></p>
+<p>Default:<a href="https://file.ichochy.com/audio.wav">audio.wav</a><br>
+GitHub:<a href="https://raw.githubusercontent.com/iChochy/iGTTS/refs/heads/main/output.wav">audio.wav</a></p>
 
   
 
@@ -272,6 +278,10 @@ RPD：15</p>
 
   
 <div class="pagination">
+  
+  <span class="pagination-link newer">
+    上一篇：<a href="https://ichochy.com/posts/shell/20250910.html" class="pag-link">Python 项目打包，并上传到 PyPI，分享项目</a>
+  </span>
   
     
   <span class="pagination-link older">
