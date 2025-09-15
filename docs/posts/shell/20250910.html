@@ -54,7 +54,9 @@
       <ul>
         <li><a href="#新建项目">新建项目</a></li>
         <li><a href="#初始化项目">初始化项目</a></li>
-        <li><a href="#配置文件">配置文件</a></li>
+        <li><a href="#配置文件pyprojecttoml介绍">配置文件(<code>pyproject.toml</code>)介绍：</a></li>
+        <li><a href="#配置文件pyprojecttoml">配置文件(<code>pyproject.toml</code>)</a></li>
+        <li><a href="#安装依赖">安装依赖</a></li>
       </ul>
     </li>
     <li><a href="#构建项目-1">构建项目</a></li>
@@ -149,7 +151,10 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry new project_name
 </span></span></code></pre></div><h3 id="初始化项目">初始化项目</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry init
-</span></span></code></pre></div><h3 id="配置文件">配置文件</h3>
+</span></span></code></pre></div><h3 id="配置文件pyprojecttoml介绍">配置文件(<code>pyproject.toml</code>)介绍：</h3>
+<p>Poetry 配置文件介绍：<a href="https://python-poetry.org/docs/pyproject">https://python-poetry.org/docs/pyproject</a></p>
+<p>Python 编写配置文件: <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml">writing-pyproject-toml</a></p>
+<h3 id="配置文件pyprojecttoml">配置文件(<code>pyproject.toml</code>)</h3>
 <p>实例（iGTTS）：pyproject.toml</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>project<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;iGTTS&#34;</span>
@@ -181,9 +186,18 @@
 <code>dependencies</code>：声明项目的所需依赖包<br>
 <code>[project.scripts]</code>：声明项目的命令脚本<br>
 <code>[build-system]</code>：声明项目的构建系统</p>
-<p>编写<code>pyproject.toml</code>说明：<a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#writing-pyproject-toml">writing-pyproject-toml</a></p>
-<h2 id="构建项目-1">构建项目</h2>
-<p>配置好 <code>pyproject.toml</code>后，通过配置文件构建项目</p>
+<h3 id="安装依赖">安装依赖</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry install
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---------------
+</span></span><span style="display:flex;"><span>Updating dependencies
+</span></span><span style="display:flex;"><span>Resolving dependencies... <span style="color:#f92672">(</span>0.4s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>.....
+</span></span><span style="display:flex;"><span>Writing lock file
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Installing the current project: iGTTS <span style="color:#f92672">(</span>0.1.2<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h2 id="构建项目-1">构建项目</h2>
+<p>通过配置文件(<code>pyproject.toml</code>)构建项目</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry build
 </span></span><span style="display:flex;"><span>---------
 </span></span><span style="display:flex;"><span>Building iGTTS <span style="color:#f92672">(</span>0.1.1<span style="color:#f92672">)</span>
