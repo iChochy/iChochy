@@ -11,7 +11,9 @@ GoogleLabs：[https://labs.google/experiments](https://labs.google/experiments)
 ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
 POE：[https://poe.com](https://poe.com)    
 梅林：[https://www.getmerlin.in](https://www.getmerlin.in/zh-CN/chat)  
-通义千问：[https://tongyi.aliyun.com](https://tongyi.aliyun.com)  
+Deepseek：[https://deepseek.com](https://deepseek.com)  
+通义：[https://tongyi.com](https://tongyi.com)  
+豆包：[https://www.doubao.com](https://www.doubao.com)  
 
 ## 开发文档
 Java：[https://dev.java](https://dev.java)  
@@ -30,12 +32,13 @@ Helix：[https://helix-editor.com](https://helix-editor.com)
 Emacs：[https://www.gnu.org/software/emacs](https://www.gnu.org/software/emacs)  
 
 ### IDE
-IDEA：[https://www.jetbrains.com](https://www.jetbrains.com/zh-cn/idea/download/other.html)  
 Xcode：[https://developer.apple.com/xcode](https://developer.apple.com/xcode)  
+IDEA：[https://www.jetbrains.com/idea](https://www.jetbrains.com/idea)  
+WebStorm：[https://www.jetbrains.com/webstorm](https://www.jetbrains.com/webstorm)  
+PyCharm：[https://www.jetbrains.com/pycharm](https://www.jetbrains.com/pycharm)  
+DataGrip：[https://www.jetbrains.com/datagrip](https://www.jetbrains.com/datagrip)  
 Eclipse：[https://www.eclipse.org](https://www.eclipse.org)  
 Netbeans：[https://netbeans.apache.org](https://netbeans.apache.org)  
-IDEA：[https://www.jetbrains.com/idea](https://www.jetbrains.com/idea)  
-Fleet：[https://www.jetbrains.com/fleet](https://www.jetbrains.com/fleet)  
 VSCode：[https://code.visualstudio.com](https://code.visualstudio.com)  
 
 ## 线上工具
@@ -46,7 +49,6 @@ Deepl：[https://www.deepl.com](https://www.deepl.com/zh/translator)
 Mermaid：[https://www.mermaidchart.com](https://www.mermaidchart.com/play)   
 Plantuml：[https://www.plantuml.com](https://www.plantuml.com/plantuml/uml)   
 Linux 命令：[https://git.io/linux](https://git.io/linux)  
-MD 语法：[https://guides.github.com/features/mastering-markdown](https://guides.github.com/features/mastering-markdown)  
 CommonMark：[https://commonmark.org](https://commonmark.org)  
 
 ## 站点论坛
@@ -73,6 +75,6 @@ Google Console：[https://search.google.com/search-console](https://search.googl
 
 ## 云服务
 GitHub：[https://github.com](https://github.com/iChochy)  
-UPYun：[https://console.upyun.com](https://console.upyun.com/register/?invite=r1z6aWlRt)  
-aliyun Mirror：[https://developer.aliyun.com/mirror](https://developer.aliyun.com/mirror)  
-tsinghua Mirror：[https://mirrors.tuna.tsinghua.edu.cn](https://mirrors.tuna.tsinghua.edu.cn)  
+又拍云：[https://console.upyun.com](https://console.upyun.com/register/?invite=r1z6aWlRt)  
+阿里镜像：[https://developer.aliyun.com/mirror](https://developer.aliyun.com/mirror)  
+清华镜像：[https://mirrors.tuna.tsinghua.edu.cn](https://mirrors.tuna.tsinghua.edu.cn)  

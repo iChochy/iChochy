@@ -12,11 +12,11 @@ GitHub： [https://github.com/ichochy]( https://github.com/ichochy)
 
 ## 公众号    
 
-![公众号](https://ichochy.com/wx.jpg)
+![公众号](/wx.jpg)
 
 ## 打赏    
 
-![Sponsor](https://ichochy.com/sponsor.jpg)
+![Sponsor](/sponsor.jpg)
 
 ## 感谢  
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)   
