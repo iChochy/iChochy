@@ -4,16 +4,17 @@ date: 2024-06-22T12:07:59+08:00
 ---
 
 ## AI 智能
-Grok：[https://grok.com](https://grok.com)   
-Claude：[https://claude.ai](https://claude.ai)   
-Gemini：[https://gemini.google.com](https://gemini.google.com)   
-GoogleLabs：[https://labs.google/experiments](https://labs.google/experiments)   
-ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
-POE：[https://poe.com](https://poe.com)    
-梅林：[https://www.getmerlin.in](https://www.getmerlin.in/zh-CN/chat)  
-Deepseek：[https://deepseek.com](https://deepseek.com)  
 通义：[https://tongyi.com](https://tongyi.com)  
 豆包：[https://www.doubao.com](https://www.doubao.com)  
+Deepseek：[https://deepseek.com](https://deepseek.com)   
+POE：[https://poe.com](https://poe.com)    
+Duck：[https://Duck.ai](https://Duck.ai)    
+Grok：[https://grok.com](https://grok.com)   
+MerLin：[https://www.getmerlin.in](https://www.getmerlin.in/chat)  
+Claude：[https://claude.ai](https://claude.ai)   
+Gemini：[https://gemini.google.com](https://gemini.google.com)   
+ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
+GoogleLabs：[https://labs.google/experiments](https://labs.google/experiments)   
 
 ## 开发文档
 Java：[https://dev.java](https://dev.java)  
