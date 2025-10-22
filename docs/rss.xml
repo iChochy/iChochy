@@ -2,829 +2,829 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>回忆中的明天</title>
-    <link>http://localhost:1313/index.html</link>
+    <link>https://ichochy.com/index.html</link>
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
     <lastBuildDate>Mon, 20 Oct 2025 18:22:45 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>英语学习，新概念英语，在线点读、全文朗读学习系统</title>
-      <link>http://localhost:1313/posts/life/20251020.html</link>
+      <link>https://ichochy.com/posts/life/20251020.html</link>
       <pubDate>Mon, 20 Oct 2025 18:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/20251020.html</guid>
+      <guid>https://ichochy.com/posts/life/20251020.html</guid>
       <description>&lt;p&gt;最近在家没有什么做的，什么也做不了，想着找点事做，就开始了学习英语。看到了新概念英语，后来就找到相关的音频信息。听着听着，觉得自己改进下，实现点读的功能。通过AI的辅助和自己的一些经验。就有了下面的网站。&lt;/p&gt;</description>
     </item>
     <item>
       <title>iGSTT(Gemini STT) 开源免费的语音转文本（STT）的命令行工具</title>
-      <link>http://localhost:1313/posts/shell/20251015.html</link>
+      <link>https://ichochy.com/posts/shell/20251015.html</link>
       <pubDate>Wed, 15 Oct 2025 22:55:23 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20251015.html</guid>
+      <guid>https://ichochy.com/posts/shell/20251015.html</guid>
       <description>&lt;h2 id=&#34;igsttgemini-stt&#34;&gt;iGSTT(Gemini STT)&lt;/h2&gt;&#xA;&lt;p&gt;iGSTT(Gemini STT) 开源免费的语音转文本（STT）的命令行工具。&lt;br&gt;&#xA;iGSTT(Gemini STT) 是通过调用 Gemini STT 的接口，实现语音转文本（STT）的命令行工具。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python 项目打包，并上传到 PyPI，分享项目</title>
-      <link>http://localhost:1313/posts/shell/20250910.html</link>
+      <link>https://ichochy.com/posts/shell/20250910.html</link>
       <pubDate>Wed, 10 Sep 2025 18:25:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20250910.html</guid>
+      <guid>https://ichochy.com/posts/shell/20250910.html</guid>
       <description>&lt;p&gt;如何打包一个简单的Python项目，构建软件包，以及将其上传到 Python 软件包索引，分享你的项目。&lt;/p&gt;</description>
     </item>
     <item>
       <title>iGTTS(Gemini TTS) 开源免费的文本转语音（TTS）的命令行工具</title>
-      <link>http://localhost:1313/posts/shell/20250908.html</link>
+      <link>https://ichochy.com/posts/shell/20250908.html</link>
       <pubDate>Mon, 08 Sep 2025 10:55:23 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20250908.html</guid>
+      <guid>https://ichochy.com/posts/shell/20250908.html</guid>
       <description>&lt;h2 id=&#34;igttsgemini-tts&#34;&gt;iGTTS(Gemini TTS)&lt;/h2&gt;&#xA;&lt;p&gt;iGTTS(Gemini TTS) 开源免费的文本转语音（TTS）的命令行工具。&lt;br&gt;&#xA;iGTTS(Gemini TTS) 是通过调用 Gemini TTS 的接口，实现文本转语音（TTS）的命令行工具。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Analytics</title>
-      <link>http://localhost:1313/analytics.html</link>
+      <link>https://ichochy.com/analytics.html</link>
       <pubDate>Wed, 25 Jun 2025 12:07:59 +0800</pubDate>
-      <guid>http://localhost:1313/analytics.html</guid>
-      <description>&lt;h2 id=&#34;统计分析&#34;&gt;统计分析&lt;/h2&gt;&#xA;&lt;table id=&#34;dataTable&#34;&gt;&#xA;    &lt;thead id=&#34;tableHead&#34;&gt;&lt;/thead&gt;&#xA;    &lt;tbody id=&#34;tableBody&#34;&gt;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;script src=&#34;http://localhost:1313/js/analytics.js&#34;&gt;&lt;/script&gt;</description>
+      <guid>https://ichochy.com/analytics.html</guid>
+      <description>&lt;h2 id=&#34;统计分析&#34;&gt;统计分析&lt;/h2&gt;&#xA;&lt;table id=&#34;dataTable&#34;&gt;&#xA;    &lt;thead id=&#34;tableHead&#34;&gt;&lt;/thead&gt;&#xA;    &lt;tbody id=&#34;tableBody&#34;&gt;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;script src=&#34;https://ichochy.com/js/analytics.js&#34;&gt;&lt;/script&gt;</description>
     </item>
     <item>
       <title>AI Chat 智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI</title>
-      <link>http://localhost:1313/posts/app/20250606.html</link>
+      <link>https://ichochy.com/posts/app/20250606.html</link>
       <pubDate>Fri, 06 Jun 2025 11:22:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/app/20250606.html</guid>
+      <guid>https://ichochy.com/posts/app/20250606.html</guid>
       <description>&lt;p&gt;AI Chat 是一个智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI，使用SwiftUI、SwiftData开发，macOS原生AI客服端&lt;/p&gt;</description>
     </item>
     <item>
       <title>NanoPi R2S 安装 Debian 固件系统，旁路由网络代理内网转发，决解直连网络卡顿 nftables</title>
-      <link>http://localhost:1313/posts/shell/20250528.html</link>
+      <link>https://ichochy.com/posts/shell/20250528.html</link>
       <pubDate>Wed, 28 May 2025 10:33:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20250528.html</guid>
+      <guid>https://ichochy.com/posts/shell/20250528.html</guid>
       <description>&lt;p&gt;NanoPi R2S 安装 Debian，将其当成为一台 Linux 服务器，可玩成更强，主要用做旁路由来代理转发内网请求或安装 Nginx、部署 Web 项目。&#xA;通过配置 nft 规则来实现代理转发内网请求，网络请求通过旁路由转发，解决内网请求卡顿或丢包的问题&lt;/p&gt;</description>
     </item>
     <item>
       <title>NanoPi R2S Armbian Linux 旁路由网络代理内网转发，决解直连网络卡顿 iptables</title>
-      <link>http://localhost:1313/posts/shell/20250510.html</link>
+      <link>https://ichochy.com/posts/shell/20250510.html</link>
       <pubDate>Sat, 10 May 2025 14:23:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20250510.html</guid>
+      <guid>https://ichochy.com/posts/shell/20250510.html</guid>
       <description>&lt;p&gt;在局域网中，通过 Linux 服务器（N2S）做旁路由来代理转发内网请求，实现统一管理、监控，代理。&#xA;通过配置 iptables 规则来实现代理转发内网请求，网络请求通过旁路由转发，解决内网请求卡顿或丢包的问题&lt;/p&gt;</description>
     </item>
     <item>
       <title>sing-box rule-set</title>
-      <link>http://localhost:1313/posts/shell/20250505.html</link>
+      <link>https://ichochy.com/posts/shell/20250505.html</link>
       <pubDate>Mon, 05 May 2025 22:22:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20250505.html</guid>
+      <guid>https://ichochy.com/posts/shell/20250505.html</guid>
       <description>&lt;h2 id=&#34;sing-box&#34;&gt;sing-box&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/SagerNet/sing-box&#34;&gt;https://github.com/SagerNet/sing-box&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;sing-box-geoip&#34;&gt;sing-box geoip&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/SagerNet/sing-geoip&#34;&gt;https://github.com/SagerNet/sing-geoip&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  sing-box geoip &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;command&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Available Commands:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  export      Export geoip country as rule-set&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  list        List geoip country codes&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  lookup      Lookup &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; an IP address is contained in the GeoIP database&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Flags:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -f, --file string   geoip file &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;default &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geoip.db&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -h, --help          help &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; geoip&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db&#34;&gt;https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Xcode 最全最实用的快捷键列表</title>
-      <link>http://localhost:1313/posts/mac/20250410.html</link>
+      <link>https://ichochy.com/posts/mac/20250410.html</link>
       <pubDate>Thu, 10 Apr 2025 15:32:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mac/20250410.html</guid>
+      <guid>https://ichochy.com/posts/mac/20250410.html</guid>
       <description>&lt;p&gt;在使用Xcode时，总是忘记快捷键，花时间整理这份快捷键清单，最全最实用的Xcode快捷键列表&lt;/p&gt;</description>
     </item>
     <item>
       <title>SwiftUI 中的@State、@Bindable和@Binding</title>
-      <link>http://localhost:1313/posts/swift/20250402.html</link>
+      <link>https://ichochy.com/posts/swift/20250402.html</link>
       <pubDate>Wed, 02 Apr 2025 10:22:33 +0800</pubDate>
-      <guid>http://localhost:1313/posts/swift/20250402.html</guid>
+      <guid>https://ichochy.com/posts/swift/20250402.html</guid>
       <description>&lt;p&gt;在 SwiftUI 中，&lt;code&gt;@State&lt;/code&gt;、&lt;code&gt;@Bindable&lt;/code&gt; 和 &lt;code&gt;@Binding&lt;/code&gt; 都用于管理和传递状态，但它们适用于不同的使用场景。&lt;/p&gt;</description>
     </item>
     <item>
       <title>免费的图床服务器-GitHub Pages</title>
-      <link>http://localhost:1313/posts/blog/20250331.html</link>
+      <link>https://ichochy.com/posts/blog/20250331.html</link>
       <pubDate>Mon, 31 Mar 2025 09:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20250331.html</guid>
+      <guid>https://ichochy.com/posts/blog/20250331.html</guid>
       <description>&lt;p&gt;介绍一款免费好用的图床服务器，使用GitHub Pages当我们的图床服务器。并配合免费好用的图床图片工具&lt;code&gt;图传&lt;/code&gt;软件,分享管理图库。&lt;/p&gt;</description>
     </item>
     <item>
       <title>iUploader - A Free Native Image Uploading Tool for macOS</title>
-      <link>http://localhost:1313/posts/app/20250330.html</link>
+      <link>https://ichochy.com/posts/app/20250330.html</link>
       <pubDate>Sun, 30 Mar 2025 10:22:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/app/20250330.html</guid>
+      <guid>https://ichochy.com/posts/app/20250330.html</guid>
       <description>&lt;p&gt;&lt;strong&gt;iUploader&lt;/strong&gt; is a native image uploading tool designed exclusively for macOS, built with &lt;strong&gt;SwiftUI&lt;/strong&gt; and compatible with macOS 14+. It offers an &lt;strong&gt;efficient and seamless&lt;/strong&gt; experience for uploading, sharing, and managing images, with support for multiple cloud storage platforms. More image hosting options will be added in the future to meet diverse needs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>免费的图床服务器-Cloudflare-R2</title>
-      <link>http://localhost:1313/posts/blog/20250325.html</link>
+      <link>https://ichochy.com/posts/blog/20250325.html</link>
       <pubDate>Tue, 25 Mar 2025 14:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20250325.html</guid>
+      <guid>https://ichochy.com/posts/blog/20250325.html</guid>
       <description>&lt;p&gt;介绍一款免费好用的图床服务器，每月有10GB的存储额度。并配合免费好用的图床图片工具&lt;code&gt;图传&lt;/code&gt;软件,分享管理图库。&lt;/p&gt;</description>
     </item>
     <item>
       <title>图传 (iUploader) - macOS 免费原生图床上传利器</title>
-      <link>http://localhost:1313/posts/app/20250325.html</link>
+      <link>https://ichochy.com/posts/app/20250325.html</link>
       <pubDate>Tue, 25 Mar 2025 10:22:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/app/20250325.html</guid>
+      <guid>https://ichochy.com/posts/app/20250325.html</guid>
       <description>&lt;p&gt;🚀 &lt;strong&gt;图传 (iUploader)&lt;/strong&gt;&lt;br&gt;&#xA;一款专为 macOS 打造的&lt;strong&gt;原生图床上传工具&lt;/strong&gt;，基于 &lt;strong&gt;SwiftUI&lt;/strong&gt; 开发，兼容 macOS 14+。&lt;br&gt;&#xA;它提供&lt;strong&gt;高效、便捷&lt;/strong&gt;的图片上传、分享与管理体验，支持多种主流云存储平台，未来还将持续扩展更多图床支持。&lt;/p&gt;</description>
     </item>
     <item>
       <title>本地无法加载托管到Cloudflare中的图片等资源，权限错误403</title>
-      <link>http://localhost:1313/posts/blog/20250320.html</link>
+      <link>https://ichochy.com/posts/blog/20250320.html</link>
       <pubDate>Thu, 20 Mar 2025 22:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20250320.html</guid>
+      <guid>https://ichochy.com/posts/blog/20250320.html</guid>
       <description>&lt;p&gt;在本地写博客时，预览查看时，无法加载托管到&lt;strong&gt;Cloudflare&lt;/strong&gt;域名中的图片资源，提示403，困扰了很久。&#xA;今天通过分析，查看日志，找到了根本原因所在。&#xA;原来是&lt;strong&gt;Cloudflare&lt;/strong&gt;的安全策略禁止了不安全的访问，返回403&lt;/p&gt;</description>
     </item>
     <item>
       <title>VPS</title>
-      <link>http://localhost:1313/vps.html</link>
+      <link>https://ichochy.com/vps.html</link>
       <pubDate>Sat, 08 Mar 2025 12:07:59 +0800</pubDate>
-      <guid>http://localhost:1313/vps.html</guid>
+      <guid>https://ichochy.com/vps.html</guid>
       <description>&lt;h2 id=&#34;vps推荐&#34;&gt;VPS推荐&lt;/h2&gt;&#xA;&lt;h3 id=&#34;美国month&#34;&gt;美国(Month)&lt;/h3&gt;&#xA;&lt;p&gt;CloudCone：&lt;a href=&#34;https://app.cloudcone.com.cn/compute/create?ref=11052&#34;&gt;1C1G20G-$5.2/Month&lt;/a&gt;&lt;br&gt;&#xA;CloudCone：&lt;a href=&#34;https://app.cloudcone.com.cn/compute/create?ref=11052&#34;&gt;1C2G40G-$7.28/Month&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>国内、外免费公共的DNS，支持的DoH，防止污染、篡改的问题</title>
-      <link>http://localhost:1313/posts/blog/20250226.html</link>
+      <link>https://ichochy.com/posts/blog/20250226.html</link>
       <pubDate>Wed, 26 Feb 2025 19:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20250226.html</guid>
+      <guid>https://ichochy.com/posts/blog/20250226.html</guid>
       <description>&lt;p&gt;DNS 的全称为 Domain Name System，简称域名服务器，通过域名查询返回服务器的IP。&#xA;DNS的速度和安全至关重要，决定我们访问网站的快慢和安全。&lt;/p&gt;</description>
     </item>
     <item>
       <title>macOS 系统下载和安装</title>
-      <link>http://localhost:1313/posts/mac/20250220.html</link>
+      <link>https://ichochy.com/posts/mac/20250220.html</link>
       <pubDate>Thu, 20 Feb 2025 10:42:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mac/20250220.html</guid>
+      <guid>https://ichochy.com/posts/mac/20250220.html</guid>
       <description>&lt;p&gt;在线下载你想要的系统版本。如果是系统新版本更新，可以直接下载安装更新系统；但是如果是系统旧版本回退或重装，则需创建可引导安装器到U盘，通过引导安装器重装系统。&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 CURL 命令调试和诊断网络问题，网站请求测速</title>
-      <link>http://localhost:1313/posts/shell/20241001.html</link>
+      <link>https://ichochy.com/posts/shell/20241001.html</link>
       <pubDate>Tue, 01 Oct 2024 12:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20241001.html</guid>
+      <guid>https://ichochy.com/posts/shell/20241001.html</guid>
       <description>&lt;p&gt;curl 是一个命令行工具，用于在网络上发送和接收数据。它支持多种协议，包括 HTTP、HTTPS、FTP、SFTP 等，广泛应用于 Web 开发、API 测试和网络调试。&lt;/p&gt;</description>
     </item>
     <item>
       <title>WARP Beta for macOS  支持新协议 MASQUE</title>
-      <link>http://localhost:1313/posts/mac/20240925.html</link>
+      <link>https://ichochy.com/posts/mac/20240925.html</link>
       <pubDate>Wed, 25 Sep 2024 09:52:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mac/20240925.html</guid>
+      <guid>https://ichochy.com/posts/mac/20240925.html</guid>
       <description>&lt;p&gt;WARP 是一款免费的应用程序，让您的互联网更安全。&lt;/p&gt;</description>
     </item>
     <item>
       <title>2024年自用国外靠谱的 VPS 服务器推荐</title>
-      <link>http://localhost:1313/posts/vps/20240920.html</link>
+      <link>https://ichochy.com/posts/vps/20240920.html</link>
       <pubDate>Fri, 20 Sep 2024 16:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/vps/20240920.html</guid>
+      <guid>https://ichochy.com/posts/vps/20240920.html</guid>
       <description>&lt;h2 id=&#34;vps&#34;&gt;VPS&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;strong&gt;VPS 服务器可以自主搭建网络服务、个人博客、企业官网、外贸独立站、技术站点等。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sites</title>
-      <link>http://localhost:1313/sites.html</link>
+      <link>https://ichochy.com/sites.html</link>
       <pubDate>Sat, 22 Jun 2024 12:07:59 +0800</pubDate>
-      <guid>http://localhost:1313/sites.html</guid>
+      <guid>https://ichochy.com/sites.html</guid>
       <description>&lt;h2 id=&#34;ai-智能&#34;&gt;AI 智能&lt;/h2&gt;&#xA;&lt;p&gt;通义：&lt;a href=&#34;https://tongyi.com&#34;&gt;https://tongyi.com&lt;/a&gt;&lt;br&gt;&#xA;豆包：&lt;a href=&#34;https://www.doubao.com&#34;&gt;https://www.doubao.com&lt;/a&gt;&lt;br&gt;&#xA;Deepseek：&lt;a href=&#34;https://deepseek.com&#34;&gt;https://deepseek.com&lt;/a&gt;&lt;br&gt;&#xA;POE：&lt;a href=&#34;https://poe.com&#34;&gt;https://poe.com&lt;/a&gt; &lt;br&gt;&#xA;Duck：&lt;a href=&#34;https://Duck.ai&#34;&gt;https://Duck.ai&lt;/a&gt; &lt;br&gt;&#xA;Grok：&lt;a href=&#34;https://grok.com&#34;&gt;https://grok.com&lt;/a&gt;&lt;br&gt;&#xA;MerLin：&lt;a href=&#34;https://www.getmerlin.in/chat&#34;&gt;https://www.getmerlin.in&lt;/a&gt;&lt;br&gt;&#xA;Claude：&lt;a href=&#34;https://claude.ai&#34;&gt;https://claude.ai&lt;/a&gt;&lt;br&gt;&#xA;Gemini：&lt;a href=&#34;https://gemini.google.com&#34;&gt;https://gemini.google.com&lt;/a&gt;&lt;br&gt;&#xA;ChatGPT：&lt;a href=&#34;https://chatgpt.com&#34;&gt;https://chatgpt.com&lt;/a&gt;&lt;br&gt;&#xA;GoogleLabs：&lt;a href=&#34;https://labs.google/experiments&#34;&gt;https://labs.google/experiments&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 OpenCore，让你的旧 Mac 用上最新的 macOS 系统</title>
-      <link>http://localhost:1313/posts/mac/20240620.html</link>
+      <link>https://ichochy.com/posts/mac/20240620.html</link>
       <pubDate>Thu, 20 Jun 2024 18:52:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mac/20240620.html</guid>
+      <guid>https://ichochy.com/posts/mac/20240620.html</guid>
       <description>&lt;p&gt;今天介绍一款开源软件，可以突破官方的限制，通过打补丁的形式，用上最新的 macOS 系统。&lt;br&gt;&#xA;我大学时的 Macbook Pro 现在还在用，因硬件系统限制，macOS 系统无法更新，有很多的软件都不再支持，没法继续在用下去了。&lt;br&gt;&#xA;现在通过 OpenCore 软件，将旧 Mac 电脑升级新的 macOS 系统。&lt;/p&gt;</description>
     </item>
     <item>
       <title>给 Terminal 终端添加不一样的色彩，安装插件实现自动补全、高亮显示</title>
-      <link>http://localhost:1313/posts/mac/20240520.html</link>
+      <link>https://ichochy.com/posts/mac/20240520.html</link>
       <pubDate>Mon, 20 May 2024 15:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mac/20240520.html</guid>
+      <guid>https://ichochy.com/posts/mac/20240520.html</guid>
       <description>&lt;p&gt;给我们的 &lt;code&gt;Terminal&lt;/code&gt; 终端添加不一样的色彩，高亮显示，让其直观、简洁显示不同的文件类型、常用的命令&lt;/p&gt;</description>
     </item>
     <item>
       <title>玩转 Mac 截图，分享原生截图工具技巧，自定义截图名称和类型</title>
-      <link>http://localhost:1313/posts/mac/20240403.html</link>
+      <link>https://ichochy.com/posts/mac/20240403.html</link>
       <pubDate>Wed, 03 Apr 2024 15:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mac/20240403.html</guid>
+      <guid>https://ichochy.com/posts/mac/20240403.html</guid>
       <description>&lt;p&gt;Mac 自带的截图工具功能强大，易于使用。不用下载第三方截图工具，特意运行截图软件来截图，自带截图工具随实待命，可以截图标记，裁剪修改。&lt;/p&gt;</description>
     </item>
     <item>
       <title>美国 VPS 服务器，最低月费只要12元，优惠推荐</title>
-      <link>http://localhost:1313/posts/vps/20240403.html</link>
+      <link>https://ichochy.com/posts/vps/20240403.html</link>
       <pubDate>Tue, 02 Apr 2024 13:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/vps/20240403.html</guid>
+      <guid>https://ichochy.com/posts/vps/20240403.html</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://app.cloudcone.com.cn/?ref=11052&#34;&gt;CloudCone&lt;/a&gt; 诞生于 Quadcone 的灵感和成功。Quadcone是在2012年推出的。它在四年多的时间里不断发展壮大，赢得了忠实的客户，并改进了最初的云产品。&lt;/p&gt;</description>
     </item>
     <item>
       <title>更新 idea 后不能打开文件夹文件，一直加载卡住假死状态</title>
-      <link>http://localhost:1313/posts/software/20240402.html</link>
+      <link>https://ichochy.com/posts/software/20240402.html</link>
       <pubDate>Tue, 02 Apr 2024 12:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20240402.html</guid>
+      <guid>https://ichochy.com/posts/software/20240402.html</guid>
       <description>&lt;p&gt;在 IDEA 中操作打开文件和访问系统文件时，就会出现卡住，一直加载假死状态中，IDEA 界面无法进行任何操作，只能强制退出&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 certbot 申请 Let's Encrypt 免费证书，部署到 nginx 中，开启 https</title>
-      <link>http://localhost:1313/posts/blog/20240110.html</link>
+      <link>https://ichochy.com/posts/blog/20240110.html</link>
       <pubDate>Wed, 10 Jan 2024 14:11:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20240110.html</guid>
+      <guid>https://ichochy.com/posts/blog/20240110.html</guid>
       <description>&lt;p&gt;使用 &lt;a href=&#34;https://certbot.eff.org/&#34;&gt;certbot&lt;/a&gt; 可以很方便、快捷的通过 &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt; 申请免费的证书，并部署到 &lt;a href=&#34;https://nginx.org&#34;&gt;nginx&lt;/a&gt; 中，开启 HTTP。&lt;/p&gt;</description>
     </item>
     <item>
       <title>菲律宾 VPS 服务器，月均只要16.5元/月，优惠推荐</title>
-      <link>http://localhost:1313/posts/vps/20240105.html</link>
+      <link>https://ichochy.com/posts/vps/20240105.html</link>
       <pubDate>Fri, 05 Jan 2024 21:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/vps/20240105.html</guid>
+      <guid>https://ichochy.com/posts/vps/20240105.html</guid>
       <description>&lt;p&gt;Megalayer 致力于成为全球电信增值服务提供商，为用户在全球范围内提供优质、稳定的互联网服务，目前已经在&lt;code&gt;香港、新加坡、菲律宾、美国&lt;/code&gt;等地区部署节点，并且将继续在东南亚地区进行战略布局，提升资源优势以及市场优势。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mac launchctl 自定义服务启动</title>
-      <link>http://localhost:1313/posts/mac/20231128.html</link>
+      <link>https://ichochy.com/posts/mac/20231128.html</link>
       <pubDate>Tue, 28 Nov 2023 16:55:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mac/20231128.html</guid>
+      <guid>https://ichochy.com/posts/mac/20231128.html</guid>
       <description>&lt;h2 id=&#34;launchd&#34;&gt;&lt;a href=&#34;x-man-page://launchd&#34;&gt;launchd&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;launchd&lt;/code&gt; – 系统范围内的守护进程（&lt;code&gt;LaunchDaemons&lt;/code&gt;）/代理程序（&lt;code&gt;LaunchAgents&lt;/code&gt;）的主程序&lt;br&gt;&#xA;在启动过程中，内核调用 &lt;code&gt;launchd&lt;/code&gt; 作为第一个进程运行，并进一步引导系统的其余部分。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mac 终端设置代理，设置一键开启和取消</title>
-      <link>http://localhost:1313/posts/mac/20231125.html</link>
+      <link>https://ichochy.com/posts/mac/20231125.html</link>
       <pubDate>Sat, 25 Nov 2023 11:35:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/mac/20231125.html</guid>
+      <guid>https://ichochy.com/posts/mac/20231125.html</guid>
       <description>&lt;h2 id=&#34;终端配置代理&#34;&gt;终端配置代理&lt;/h2&gt;&#xA;&lt;p&gt;这里以&lt;code&gt;macOS&lt;/code&gt;为例，使用的是&lt;code&gt;zsh&lt;/code&gt;，对应的用户配置文件就是&lt;code&gt;~/.zshrc&lt;/code&gt;。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Nginx 配置(Config)中遇到的错误(Error)</title>
-      <link>http://localhost:1313/posts/software/20231125.html</link>
+      <link>https://ichochy.com/posts/software/20231125.html</link>
       <pubDate>Sat, 25 Nov 2023 08:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20231125.html</guid>
+      <guid>https://ichochy.com/posts/software/20231125.html</guid>
       <description>&lt;h2 id=&#34;nginx-location-正则错误写法&#34;&gt;nginx location 正则错误写法&lt;/h2&gt;&#xA;&lt;h3 id=&#34;location-正则的错误的写法&#34;&gt;location 正则的&lt;code&gt;错误&lt;/code&gt;的写法&lt;/h3&gt;&#xA;&lt;p&gt;匹配请求目录地址 &lt;code&gt;/555&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>香港 CN2 优化线路带宽低延迟 VPS 服务器推荐</title>
-      <link>http://localhost:1313/posts/vps/20231120.html</link>
+      <link>https://ichochy.com/posts/vps/20231120.html</link>
       <pubDate>Mon, 20 Nov 2023 08:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/vps/20231120.html</guid>
+      <guid>https://ichochy.com/posts/vps/20231120.html</guid>
       <description>&lt;h2 id=&#34;cn2&#34;&gt;CN2&lt;/h2&gt;&#xA;&lt;p&gt;CN2，中国电信下一代承载网（ChinaNetNextCarryingNetwork）。CN2是一个多业务的承载网络，它能够支持数据、语音、视频多种业务融合的应用，为中国电信今后开展NGN业务打下了良好的基础。中国电信构建的CN2网络，力图奠定未来10-20年里中国电信顶级运营商的基础。中国电信CN2网络一期工程由骨干网络和精品业务网络组成，尤其是承载网对新业务的支持能力，是中国电信骨干网络和其商业客户之间的重要纽带，将直接决定中国电信提供的质量和灵活性。&lt;/p&gt;</description>
     </item>
     <item>
       <title>菲律宾、马来西亚、泰国等多图 VPS 服务器便宜推荐</title>
-      <link>http://localhost:1313/posts/vps/20231022.html</link>
+      <link>https://ichochy.com/posts/vps/20231022.html</link>
       <pubDate>Sun, 22 Oct 2023 11:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/vps/20231022.html</guid>
+      <guid>https://ichochy.com/posts/vps/20231022.html</guid>
       <description>&lt;h2 id=&#34;供应商-lightnode&#34;&gt;供应商 &lt;a href=&#34;https://www.lightnode.com/?inviteCode=JJI33F&amp;amp;promoteWay=LINK&#34;&gt;LightNode&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;LightNode成立于2002年，目前拥有员工500余人。&lt;br&gt;&#xA;LightNode自主研发并提供计算、存储、网络和安全等企业必需的基础IT架构资源。依托于自主知识产权的管理平台，为客户提供混合云计算服务和云上运维管理服务。&lt;br&gt;&#xA;LightNode崇尚“技术驱动产品，运维驱动服务”的理念，不断推出适合行业特性的产品和服务。&lt;br&gt;&#xA;目前，LightNode已为大量游戏、电商、金融、泛娱乐、企事业等方向的IT部署服务，提供了解决方案与混合云服务。&lt;/p&gt;</description>
     </item>
     <item>
       <title>抗白之路-肺部感染发烧住院两个多月</title>
-      <link>http://localhost:1313/posts/aml/20230131.html</link>
+      <link>https://ichochy.com/posts/aml/20230131.html</link>
       <pubDate>Tue, 31 Jan 2023 13:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20230131.html</guid>
+      <guid>https://ichochy.com/posts/aml/20230131.html</guid>
       <description>&lt;p&gt;说说两个月住院的情况，住院是肺部感染发烧引起的。&lt;/p&gt;</description>
     </item>
     <item>
       <title>12 个对新手最重要的 Linux 命令</title>
-      <link>http://localhost:1313/posts/shell/20221108.html</link>
+      <link>https://ichochy.com/posts/shell/20221108.html</link>
       <pubDate>Tue, 08 Nov 2022 08:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20221108.html</guid>
+      <guid>https://ichochy.com/posts/shell/20221108.html</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;我向所有的 Linux 初学者推荐以下这些命令。&lt;/p&gt;</description>
     </item>
     <item>
       <title>第一次通过 SSH key 免密连接 GitHub 的完整过程</title>
-      <link>http://localhost:1313/posts/blog/20221107.html</link>
+      <link>https://ichochy.com/posts/blog/20221107.html</link>
       <pubDate>Mon, 07 Nov 2022 11:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20221107.html</guid>
+      <guid>https://ichochy.com/posts/blog/20221107.html</guid>
       <description>&lt;p&gt;通过密码连接&lt;code&gt;GitHub&lt;/code&gt;总是要输入密码，麻烦，现在使用 &lt;code&gt;SSH key&lt;/code&gt; 可以轻松实现免密验证.&lt;/p&gt;</description>
     </item>
     <item>
       <title>5 款适用于 Linux 的笔记应用</title>
-      <link>http://localhost:1313/posts/software/20220902.html</link>
+      <link>https://ichochy.com/posts/software/20220902.html</link>
       <pubDate>Fri, 02 Sep 2022 08:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20220902.html</guid>
+      <guid>https://ichochy.com/posts/software/20220902.html</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;使用这些开源工具来记笔记。&lt;/p&gt;</description>
     </item>
     <item>
       <title>国内外免费公共 DNS 服务推荐</title>
-      <link>http://localhost:1313/posts/blog/20220822.html</link>
+      <link>https://ichochy.com/posts/blog/20220822.html</link>
       <pubDate>Mon, 22 Aug 2022 19:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20220822.html</guid>
+      <guid>https://ichochy.com/posts/blog/20220822.html</guid>
       <description>&lt;p&gt;我们都知道想要能上网，就必须要使用DNS。DNS一般都是你的运营商提供给你的，也可以是一些其它组织提供的，比如我们熟知的谷歌的DNS &lt;code&gt;8.8.8.8&lt;/code&gt;， 国内114dns的&lt;code&gt;114.114.114.114&lt;/code&gt; 。这些由大的厂商和机构提供的公开解析服务，叫做公共DNS。&lt;/p&gt;</description>
     </item>
     <item>
       <title>微软为 VS Code 推出 Markdown 语言服务器</title>
-      <link>http://localhost:1313/posts/software/20220810.html</link>
+      <link>https://ichochy.com/posts/software/20220810.html</link>
       <pubDate>Wed, 10 Aug 2022 15:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20220810.html</guid>
+      <guid>https://ichochy.com/posts/software/20220810.html</guid>
       <description>&lt;p&gt;微软近日发布&lt;a href=&#34;https://code.visualstudio.com/blogs/2022/08/16/markdown-language-server&#34;&gt;官方博客&lt;/a&gt;表示，他们经过半年时间的努力为 VS Code 带来了 Markdown 语言服务器（Markdown Language Server），团队认为 Markdown 语言服务器是可以推动 VS Code 中的 Markdown 工具进一步发展的项目，有了这个语言服务器，微软将把 VS Code 内置的大部分 Markdown 语言工具（如：文档大纲、智能折叠、路径补全等）提供给其他编辑器和工具。目标是推动 Markdown 工具的发展，并使其具有一些与其他编程语言工具类似的智能功能。&lt;/p&gt;</description>
     </item>
     <item>
       <title>抗白之路-每天在马桶上渡过，急性肠排……</title>
-      <link>http://localhost:1313/posts/aml/20220705.html</link>
+      <link>https://ichochy.com/posts/aml/20220705.html</link>
       <pubDate>Tue, 05 Jul 2022 11:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20220705.html</guid>
+      <guid>https://ichochy.com/posts/aml/20220705.html</guid>
       <description>&lt;p&gt;在出舱住院二周后准备出院，突然出现不明原因发烧，各种检查，没有明显的异常，医生说是免疫性发烧，有点小排异，过了十来天才好点。&lt;/p&gt;</description>
     </item>
     <item>
       <title>抗白之路-舱内日常</title>
-      <link>http://localhost:1313/posts/aml/20220622.html</link>
+      <link>https://ichochy.com/posts/aml/20220622.html</link>
       <pubDate>Wed, 22 Jun 2022 09:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20220622.html</guid>
+      <guid>https://ichochy.com/posts/aml/20220622.html</guid>
       <description>&lt;h2 id=&#34;一舱内设施&#34;&gt;一、舱内设施&lt;/h2&gt;&#xA;&lt;p&gt;舱内主要就是生活的必要设施和消毒药水，主要包括坐便椅、尿壶来安排你的三急，都需要打包称重。然后就是水壶，每天喝水就靠它了，所有的水都必须要烧开后才能饮用。电视机可以供你娱乐，观看国家大事。床边桌，是用来吃饭的主要用具。最后最重要的就是一张床，这张舒适的床，让你在这一个多月里躺的舒适，注意：上床后一定要拉上护栏，防止跌落。&lt;/p&gt;</description>
     </item>
     <item>
       <title>抗白之路-移植用药</title>
-      <link>http://localhost:1313/posts/aml/20220615.html</link>
+      <link>https://ichochy.com/posts/aml/20220615.html</link>
       <pubDate>Wed, 15 Jun 2022 15:45:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20220615.html</guid>
+      <guid>https://ichochy.com/posts/aml/20220615.html</guid>
       <description>&lt;h2 id=&#34;阿扎胞苷&#34;&gt;阿扎胞苷&lt;/h2&gt;&#xA;&lt;p&gt;阿扎胞苷为胞嘧啶核苷类似物，其抗肿瘤功能目前有两种的作用机制：1. 通过与DNA或RNA结合，产生细胞毒性并且特异性抑制细胞周期；2. 通过与DNA甲基化酶结合，降低DNA甲基化，从而恢复造血干细胞的正常分化和造血功能。&lt;/p&gt;</description>
     </item>
     <item>
       <title>抗白之路-入舱</title>
-      <link>http://localhost:1313/posts/aml/20220601.html</link>
+      <link>https://ichochy.com/posts/aml/20220601.html</link>
       <pubDate>Wed, 01 Jun 2022 11:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20220601.html</guid>
+      <guid>https://ichochy.com/posts/aml/20220601.html</guid>
       <description>&lt;h2 id=&#34;一术前检查&#34;&gt;一、术前检查&lt;/h2&gt;&#xA;&lt;h3 id=&#34;患者查体&#34;&gt;患者查体&lt;/h3&gt;&#xA;&lt;p&gt;在医院住院后就开始了无穷尽的检查，血是不知道抽了多少管，然后就是我害怕的骨穿了，因为之前做骨穿都晕过去了，这次还好，医生很专业，让我放松，不用紧张，几分钟就过去。具体如何操作的我也不知道，就知道趴在床上，两个医生按着就做完了，有麻药的作用，不痛，但还是有点害怕。后面就是各种 CT 、X光、心电图，肺部 CT、耳鼻喉检查，反正就是来了一套大全套的查体。&lt;/p&gt;</description>
     </item>
     <item>
       <title>强！腾讯推出开源免费老照片修复工具！</title>
-      <link>http://localhost:1313/posts/software/20220505.html</link>
+      <link>https://ichochy.com/posts/software/20220505.html</link>
       <pubDate>Thu, 05 May 2022 11:15:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20220505.html</guid>
+      <guid>https://ichochy.com/posts/software/20220505.html</guid>
       <description>&lt;p&gt;对于多数人的回忆可能会通过旧照片或者老视频来获得，可是当旧照片因不可抗力因素保管或者出现损坏时怎么办？修复照片肯定是很多人的想法，可是对于不会专业图像处理的用户来说想要校正一些旧照片还是有些困难的。&lt;/p&gt;</description>
     </item>
     <item>
       <title>抗白之路-确诊</title>
-      <link>http://localhost:1313/posts/aml/20220310.html</link>
+      <link>https://ichochy.com/posts/aml/20220310.html</link>
       <pubDate>Thu, 10 Mar 2022 15:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20220310.html</guid>
+      <guid>https://ichochy.com/posts/aml/20220310.html</guid>
       <description>&lt;h2 id=&#34;一起因&#34;&gt;一、起因&lt;/h2&gt;&#xA;&lt;p&gt;2020年春天，去了一家新公司，开始赶项目模式，为加快项目的发布，不得不疯狂的加班，996开始了，当时加上新冠疫情，工作也不好找，每天不得不拖着疲惫的身体工作着，只觉得一天比一天累，可是又有什么办法，为了生活，为了美好的明天，每个人都在努力的疯狂工作。&lt;/p&gt;</description>
     </item>
     <item>
       <title>RIME 鼠须管输入法使用，免费开源还可以自定义词库</title>
-      <link>http://localhost:1313/posts/software/20211125.html</link>
+      <link>https://ichochy.com/posts/software/20211125.html</link>
       <pubDate>Thu, 25 Nov 2021 11:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20211125.html</guid>
+      <guid>https://ichochy.com/posts/software/20211125.html</guid>
       <description>&lt;p&gt;RIME 想你所想，成为一款高度自字义的输入法，本地程序，没有网络传输，文件配置界面，自定义词库，一法多用，可以拼音、五笔、混拼……&lt;/p&gt;</description>
     </item>
     <item>
       <title>VIM 入门，学会必备的操作命令，模式选择、文本编辑</title>
-      <link>http://localhost:1313/posts/software/20211122.html</link>
+      <link>https://ichochy.com/posts/software/20211122.html</link>
       <pubDate>Mon, 22 Nov 2021 19:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20211122.html</guid>
+      <guid>https://ichochy.com/posts/software/20211122.html</guid>
       <description>&lt;p&gt;VIM 是一个命令文本编辑工具，熟练后可以方便、快捷的完成文体操作，快、快、快、没有更快&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Security 快速创建登录权限，安全管理资源权限</title>
-      <link>http://localhost:1313/posts/spring/20211120.html</link>
+      <link>https://ichochy.com/posts/spring/20211120.html</link>
       <pubDate>Sat, 20 Nov 2021 18:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20211120.html</guid>
+      <guid>https://ichochy.com/posts/spring/20211120.html</guid>
       <description>&lt;p&gt;使用 Spring Security 合理配置页面权限，管理用户登录权限，实现页面安全&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring 表单验证 Validating Form Input</title>
-      <link>http://localhost:1313/posts/spring/20211105.html</link>
+      <link>https://ichochy.com/posts/spring/20211105.html</link>
       <pubDate>Fri, 05 Nov 2021 09:12:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20211105.html</guid>
+      <guid>https://ichochy.com/posts/spring/20211105.html</guid>
       <description>&lt;p&gt;表单接交数据并完成数据验证，约束用户数据的接交，已解决数据的正确性和完整性，达到系统的可用性。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring 为 RESTful Web 服务启用跨域请求</title>
-      <link>http://localhost:1313/posts/spring/20210715.html</link>
+      <link>https://ichochy.com/posts/spring/20210715.html</link>
       <pubDate>Thu, 15 Jul 2021 21:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20210715.html</guid>
+      <guid>https://ichochy.com/posts/spring/20210715.html</guid>
       <description>&lt;p&gt;为服务指定 &lt;code&gt;origins&lt;/code&gt; 配置，在响应中包含跨域资源共享 (CORS) 标头， 启用跨域请求&lt;/p&gt;</description>
     </item>
     <item>
       <title>快捷支付停车费，免去扫码操作，快捷指令快速支付</title>
-      <link>http://localhost:1313/posts/life/20210712.html</link>
+      <link>https://ichochy.com/posts/life/20210712.html</link>
       <pubDate>Mon, 12 Jul 2021 12:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/20210712.html</guid>
+      <guid>https://ichochy.com/posts/life/20210712.html</guid>
       <description>&lt;p&gt;小区一直都是停车难，每次还要扫码缴停车费，车库网络还不好，到小区门口就排起长队扫码。快人一步，创建快捷指令，一键支付停车费。&lt;/p&gt;</description>
     </item>
     <item>
       <title>居家全屋无线 Wi-Fi 网络改造</title>
-      <link>http://localhost:1313/posts/life/20210710.html</link>
+      <link>https://ichochy.com/posts/life/20210710.html</link>
       <pubDate>Sat, 10 Jul 2021 12:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/20210710.html</guid>
+      <guid>https://ichochy.com/posts/life/20210710.html</guid>
       <description>&lt;p&gt;家里以前是网孔面板，没有用上，前几天老婆说房间里网速不好，Wi-Fi 老掉线，于是有了改造全屋 Wi-Fi 的想法。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring 调用 RESTful Web 服务 Hello World</title>
-      <link>http://localhost:1313/posts/spring/20210620.html</link>
+      <link>https://ichochy.com/posts/spring/20210620.html</link>
       <pubDate>Sun, 20 Jun 2021 11:33:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20210620.html</guid>
+      <guid>https://ichochy.com/posts/spring/20210620.html</guid>
       <description>&lt;p&gt;使用 Spring 的 &lt;code&gt;RestTemplate&lt;/code&gt; 调用 HTTP 请求，实现 RESTful Web 服务调用&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring 构建 RESTful Web 服务 Hello World</title>
-      <link>http://localhost:1313/posts/spring/20210615.html</link>
+      <link>https://ichochy.com/posts/spring/20210615.html</link>
       <pubDate>Tue, 15 Jun 2021 22:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20210615.html</guid>
+      <guid>https://ichochy.com/posts/spring/20210615.html</guid>
       <description>&lt;p&gt;使用 Spring 创建 RESTful Web 服务，实现&lt;code&gt;Hello World&lt;/code&gt;的 RESTful 请求&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 GitHub Actions 自动上传搜索记录到 Algolia</title>
-      <link>http://localhost:1313/posts/blog/20210612.html</link>
+      <link>https://ichochy.com/posts/blog/20210612.html</link>
       <pubDate>Sat, 12 Jun 2021 15:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20210612.html</guid>
+      <guid>https://ichochy.com/posts/blog/20210612.html</guid>
       <description>&lt;p&gt;博客使用 Algolia 实现搜索功能，手动上传搜索记录数据一直很烦琐，只好苦学 API 和 Action，通过 GitHub Actions 实现自动上传搜索记录到 Algolia，完美呈现。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring 文件上传，Uploading Files</title>
-      <link>http://localhost:1313/posts/spring/20210602.html</link>
+      <link>https://ichochy.com/posts/spring/20210602.html</link>
       <pubDate>Wed, 02 Jun 2021 11:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20210602.html</guid>
+      <guid>https://ichochy.com/posts/spring/20210602.html</guid>
       <description>&lt;p&gt;项目中文件上传是必不可少的，快速实现将客户端文件上传至服务器，实现文件的在线管理。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring 表单提交，Form Submission</title>
-      <link>http://localhost:1313/posts/spring/20210530.html</link>
+      <link>https://ichochy.com/posts/spring/20210530.html</link>
       <pubDate>Sun, 30 May 2021 22:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20210530.html</guid>
+      <guid>https://ichochy.com/posts/spring/20210530.html</guid>
       <description>&lt;p&gt;表单提交完成数据的交互，实现数据的传递并进行系统处理或反馈，完成用户的指令。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring 开篇，创建第一个 Web 项目 Hello World</title>
-      <link>http://localhost:1313/posts/spring/20210525.html</link>
+      <link>https://ichochy.com/posts/spring/20210525.html</link>
       <pubDate>Tue, 25 May 2021 16:25:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20210525.html</guid>
+      <guid>https://ichochy.com/posts/spring/20210525.html</guid>
       <description>&lt;p&gt;学习 Java，就离不开 &lt;a href=&#34;https://spring.io&#34;&gt;Spring&lt;/a&gt; ，现在就用 Spring 框架快速创建一个 WEB 项目，欢迎来到我的世界 Hello World。&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 Algolia 云引擎，实现个人博客 Hugo 本地智能搜索</title>
-      <link>http://localhost:1313/posts/blog/20210522.html</link>
+      <link>https://ichochy.com/posts/blog/20210522.html</link>
       <pubDate>Sat, 22 May 2021 10:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20210522.html</guid>
+      <guid>https://ichochy.com/posts/blog/20210522.html</guid>
       <description>&lt;p&gt;一直想实现博客的本地搜索，没有找到好的实现方式。尝试了好几个方案，现在使用 &lt;a href=&#34;https://www.algolia.com&#34;&gt;Algolia&lt;/a&gt; 实现本地搜索。实现方式简单，每月可搜索 10000 次，可以一直白票下去&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elasticsearch, Kibana, Logstash, Filebeat 实现日志的自动采集、搜索和分析</title>
-      <link>http://localhost:1313/posts/elasticsearch/20210418.html</link>
+      <link>https://ichochy.com/posts/elasticsearch/20210418.html</link>
       <pubDate>Sun, 18 Apr 2021 10:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/elasticsearch/20210418.html</guid>
+      <guid>https://ichochy.com/posts/elasticsearch/20210418.html</guid>
       <description>&lt;p&gt;Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 递归实例操作-查询层级菜单</title>
-      <link>http://localhost:1313/posts/java/20210315.html</link>
+      <link>https://ichochy.com/posts/java/20210315.html</link>
       <pubDate>Mon, 15 Mar 2021 10:11:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20210315.html</guid>
+      <guid>https://ichochy.com/posts/java/20210315.html</guid>
       <description>&lt;h2 id=&#34;递归&#34;&gt;递归&lt;/h2&gt;&#xA;&lt;p&gt;程序调用自身的编程技巧称为递归（ recursion）。递归做为一种算法在程序设计语言中广泛应用。 一个过程或函数在其定义或说明中有直接或间接调用自身的一种方法，它通常把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象的无限集合。一般来说，递归需要有边界条件、递归前进段和递归返回段。当边界条件不满足时，递归前进；当边界条件满足时，递归返回。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Search</title>
-      <link>http://localhost:1313/search.html</link>
+      <link>https://ichochy.com/search.html</link>
       <pubDate>Sun, 22 Nov 2020 12:07:59 +0800</pubDate>
-      <guid>http://localhost:1313/search.html</guid>
-      <description>&lt;h2&gt;搜索&lt;/h2&gt;&#xA;&lt;div id=&#34;searchbox&#34;&gt;&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&lt;div id=&#34;hits&#34;&gt;&lt;/div&gt;&#xA;&lt;div id=&#34;pagination&#34;&gt;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/instantsearch.css@8.5.1/themes/reset-min.css&#34; integrity=&#34;sha256-KvFgFCzgqSErAPu6y9gz/AhZAvzK48VJASu3DpNLCEQ=&#34; crossorigin=&#34;anonymous&#34;&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/algoliasearch@4.24.0/dist/algoliasearch-lite.umd.js&#34; integrity=&#34;sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#xA;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/instantsearch.js@4.75.5/dist/instantsearch.production.min.js&#34; integrity=&#34;sha256-Ge9l2WgQoXm9fEH5EX/9oXKOjZVrpOwrMK7vAF2oWKg=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#xA;&#xA;&lt;script src=&#34;http://localhost:1313/js/search.js&#34;&gt;&lt;/script&gt;</description>
+      <guid>https://ichochy.com/search.html</guid>
+      <description>&lt;h2&gt;搜索&lt;/h2&gt;&#xA;&lt;div id=&#34;searchbox&#34;&gt;&lt;/div&gt;&#xA;&lt;hr&gt;&#xA;&lt;div id=&#34;hits&#34;&gt;&lt;/div&gt;&#xA;&lt;div id=&#34;pagination&#34;&gt;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/instantsearch.css@8.5.1/themes/reset-min.css&#34; integrity=&#34;sha256-KvFgFCzgqSErAPu6y9gz/AhZAvzK48VJASu3DpNLCEQ=&#34; crossorigin=&#34;anonymous&#34;&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/algoliasearch@4.24.0/dist/algoliasearch-lite.umd.js&#34; integrity=&#34;sha256-b2n6oSgG4C1stMT/yc/ChGszs9EY/Mhs6oltEjQbFCQ=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#xA;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/instantsearch.js@4.75.5/dist/instantsearch.production.min.js&#34; integrity=&#34;sha256-Ge9l2WgQoXm9fEH5EX/9oXKOjZVrpOwrMK7vAF2oWKg=&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;&#xA;&#xA;&lt;script src=&#34;https://ichochy.com/js/search.js&#34;&gt;&lt;/script&gt;</description>
     </item>
     <item>
       <title>Java JSON数据实战操作</title>
-      <link>http://localhost:1313/posts/java/20201010.html</link>
+      <link>https://ichochy.com/posts/java/20201010.html</link>
       <pubDate>Sat, 10 Oct 2020 22:22:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20201010.html</guid>
+      <guid>https://ichochy.com/posts/java/20201010.html</guid>
       <description>&lt;p&gt;JSON(&lt;code&gt;JavaScript Object Notation&lt;/code&gt;) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。&lt;/p&gt;</description>
     </item>
     <item>
       <title>MacOS 或 Linux 软件包管理器 Homebrew</title>
-      <link>http://localhost:1313/posts/software/20200902.html</link>
+      <link>https://ichochy.com/posts/software/20200902.html</link>
       <pubDate>Wed, 02 Sep 2020 16:22:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20200902.html</guid>
+      <guid>https://ichochy.com/posts/software/20200902.html</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://brew.sh&#34;&gt;Homebrew&lt;/a&gt; 可以方便、快捷的安装第三方软件包，不再需要手动编译安装，通过&lt;code&gt;brew install&lt;/code&gt;命令就可以完成软件的安装，包括相关的依赖包。甚至使用&lt;code&gt;brew cask&lt;/code&gt;安装&lt;code&gt;macOS&lt;/code&gt;应用程序、字体和插件以及其他非开源软件。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 正则表达式实例操作</title>
-      <link>http://localhost:1313/posts/java/20200828.html</link>
+      <link>https://ichochy.com/posts/java/20200828.html</link>
       <pubDate>Fri, 28 Aug 2020 15:25:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20200828.html</guid>
+      <guid>https://ichochy.com/posts/java/20200828.html</guid>
       <description>&lt;p&gt;&lt;code&gt;Regular Expression&lt;/code&gt;正则表达式，简称&lt;code&gt;RegExp&lt;/code&gt;，常规通用的表达式，在多个开发语言中都有它的实现，可以通过正则表达式来快速的检索、匹配、查找、替换字符串中的文本。&lt;/p&gt;</description>
     </item>
     <item>
       <title>简述 Cookie、Token、JWT、Session</title>
-      <link>http://localhost:1313/posts/java/20200825.html</link>
+      <link>https://ichochy.com/posts/java/20200825.html</link>
       <pubDate>Tue, 25 Aug 2020 11:25:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20200825.html</guid>
+      <guid>https://ichochy.com/posts/java/20200825.html</guid>
       <description>&lt;p&gt;早期互联网只是用来访问查看，不需要关心谁在访问查看。&lt;code&gt;HTTP&lt;/code&gt;是一种无状态的协议，每个请求都是完全独立的，服务端无法确认当前访问者的&lt;strong&gt;身份信息&lt;/strong&gt;，为了标示用户，就出现了&lt;code&gt;Cookie&lt;/code&gt;，而&lt;code&gt;Cookie&lt;/code&gt;、&lt;code&gt;Token&lt;/code&gt;、&lt;code&gt;JWT&lt;/code&gt; 都是用来标示用户的。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 方法代理实例操作，静态代理、JDK动态代理、CGLIB动态代理</title>
-      <link>http://localhost:1313/posts/java/20200824.html</link>
+      <link>https://ichochy.com/posts/java/20200824.html</link>
       <pubDate>Mon, 24 Aug 2020 16:45:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20200824.html</guid>
+      <guid>https://ichochy.com/posts/java/20200824.html</guid>
       <description>&lt;p&gt;方法的代理可以在调用方法时进行其它的相关操作，并减少代码的入侵和偶合。很多框架都用到了动态代理，并提供了减化代理操作，如：Spring 的 AOP。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 反射实例操作</title>
-      <link>http://localhost:1313/posts/java/20200823.html</link>
+      <link>https://ichochy.com/posts/java/20200823.html</link>
       <pubDate>Sun, 23 Aug 2020 16:45:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20200823.html</guid>
+      <guid>https://ichochy.com/posts/java/20200823.html</guid>
       <description>&lt;p&gt;反射可以在代码运行时，动态的获取对象、调用方法、设置属性。动态操作，降低代码偶合性，提高灵活度。其&lt;code&gt;JDBC&lt;/code&gt;库就是通过反射加载。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vercel 上自动部署你的个人博客 Hugo</title>
-      <link>http://localhost:1313/posts/blog/20200822.html</link>
+      <link>https://ichochy.com/posts/blog/20200822.html</link>
       <pubDate>Sat, 22 Aug 2020 13:22:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20200822.html</guid>
+      <guid>https://ichochy.com/posts/blog/20200822.html</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://vercel.com/&#34;&gt;Vercel&lt;/a&gt; 可以依托 &lt;code&gt;Git&lt;/code&gt;仓库 ，在线自动构建和发布&lt;code&gt;Web&lt;/code&gt;静态项目，支持自定义域名，可以自动签发&lt;code&gt;SSL&lt;/code&gt;证书，开启&lt;code&gt;HTTPS&lt;/code&gt;，还有一个特点，拥有全球&lt;code&gt;CDN&lt;/code&gt;，国内速度不错。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 中的重写(Override)与重载(Overload)</title>
-      <link>http://localhost:1313/posts/java/20200820.html</link>
+      <link>https://ichochy.com/posts/java/20200820.html</link>
       <pubDate>Thu, 20 Aug 2020 11:22:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20200820.html</guid>
+      <guid>https://ichochy.com/posts/java/20200820.html</guid>
       <description>&lt;p&gt;Java 是一个面向对象编程的语言，我们就以面向对象的方式来解释下重写(&lt;code&gt;Override&lt;/code&gt;)与重载(&lt;code&gt;Overload&lt;/code&gt;)。子类存在父类名字相同的方法，而参数的个数与类型一样，返回值也一样的方法，就称为方法的重写（&lt;code&gt;Override&lt;/code&gt;）。同类中定义了多个名字相同的方法，但他们的参数数量不同或数量相同而类型和次序不同，则称为方法的重载(Overload)。&lt;/p&gt;</description>
     </item>
     <item>
       <title>免费申请 JetBrains 开源开发许可证，包含 IDEA</title>
-      <link>http://localhost:1313/posts/software/20200819.html</link>
+      <link>https://ichochy.com/posts/software/20200819.html</link>
       <pubDate>Wed, 19 Aug 2020 22:22:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20200819.html</guid>
+      <guid>https://ichochy.com/posts/software/20200819.html</guid>
       <description>&lt;p&gt;如果您是&lt;code&gt;开源项目&lt;/code&gt;的负责人或核心贡献者，就可以申请 JetBrains 所有产品的&lt;code&gt;License&lt;/code&gt;，用于您的项目开发。&lt;/p&gt;</description>
     </item>
     <item>
       <title>重疾保险理赔的亲身经历，分享下流程和套路</title>
-      <link>http://localhost:1313/posts/life/20200818.html</link>
+      <link>https://ichochy.com/posts/life/20200818.html</link>
       <pubDate>Tue, 18 Aug 2020 12:22:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/20200818.html</guid>
+      <guid>https://ichochy.com/posts/life/20200818.html</guid>
       <description>&lt;p&gt;相信很多人都为自己和家人购买过保险，特别是重疾险。常说保险就是一种保障，可以让你的家庭不会因为高昂的医药费而操心，有病没钱治。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 开发环境的搭建，开启你的编程之旅</title>
-      <link>http://localhost:1313/posts/java/20200815.html</link>
+      <link>https://ichochy.com/posts/java/20200815.html</link>
       <pubDate>Sat, 15 Aug 2020 11:13:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20200815.html</guid>
+      <guid>https://ichochy.com/posts/java/20200815.html</guid>
       <description>&lt;p&gt;Java 是一门跨平台的高级程序设计语言，可运行在linux、Windows、Mac OS及其他多种UNIX版本的系统。Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等&lt;/p&gt;</description>
     </item>
     <item>
       <title>HUGO 目录详解，创建自己的网站系统</title>
-      <link>http://localhost:1313/posts/blog/20200810.html</link>
+      <link>https://ichochy.com/posts/blog/20200810.html</link>
       <pubDate>Mon, 10 Aug 2020 18:13:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20200810.html</guid>
+      <guid>https://ichochy.com/posts/blog/20200810.html</guid>
       <description>&lt;p&gt;HUGO 是一套模版静态化的系统，了解其目录结构有助于创建我们的网站系统&lt;/p&gt;</description>
     </item>
     <item>
       <title>了解 JS 的加载顺序和方式，实现 Ready 方法</title>
-      <link>http://localhost:1313/posts/java/20200807.html</link>
+      <link>https://ichochy.com/posts/java/20200807.html</link>
       <pubDate>Fri, 07 Aug 2020 16:13:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/java/20200807.html</guid>
+      <guid>https://ichochy.com/posts/java/20200807.html</guid>
       <description>&lt;p&gt;页面加载 &lt;code&gt;JS&lt;/code&gt; 顺序或方式不同，可能会导致功能失效、错误的产生或加载解析时间过长，拖慢整个页面展示。&lt;/p&gt;</description>
     </item>
     <item>
       <title>免费创建属于自己的博客，Hugo+Github Pages</title>
-      <link>http://localhost:1313/posts/blog/20200802.html</link>
+      <link>https://ichochy.com/posts/blog/20200802.html</link>
       <pubDate>Sun, 02 Aug 2020 13:13:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20200802.html</guid>
+      <guid>https://ichochy.com/posts/blog/20200802.html</guid>
       <description>&lt;p&gt;Hugo 拥有超快的速度，强大的内容管理和强大的模版语言，使其非常适合各种静态网站。可以轻松安装在macOS，Linux，Windows等平台上，在开发过程中使用&lt;code&gt;LiveReload&lt;/code&gt;可即时渲染更改&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about.html</link>
+      <link>https://ichochy.com/about.html</link>
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
-      <guid>http://localhost:1313/about.html</guid>
+      <guid>https://ichochy.com/about.html</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;&#xA;&lt;p&gt;80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！&lt;/p&gt;</description>
     </item>
     <item>
       <title>Links</title>
-      <link>http://localhost:1313/links.html</link>
+      <link>https://ichochy.com/links.html</link>
       <pubDate>Wed, 22 Jul 2020 12:07:59 +0800</pubDate>
-      <guid>http://localhost:1313/links.html</guid>
+      <guid>https://ichochy.com/links.html</guid>
       <description>&lt;h2 id=&#34;友情链接&#34;&gt;友情链接&lt;/h2&gt;&#xA;&lt;p&gt;VPS推荐：&lt;a href=&#34;https://mleo.site&#34;&gt;https://mleo.site&lt;/a&gt;&lt;br&gt;&#xA;NCE：&lt;a href=&#34;https://nce.ichochy.com&#34;&gt;https://nce.ichochy.com&lt;/a&gt;&lt;br&gt;&#xA;iChat：&lt;a href=&#34;https://ai.ichochy.com&#34;&gt;https://ai.ichochy.com&lt;/a&gt; &lt;br&gt;&#xA;iUploader：&lt;a href=&#34;https://iUploader.ichochy.com&#34;&gt;https://iUploader.ichochy.com&lt;/a&gt; &lt;br&gt;&#xA;檀鹏程个人博客：&lt;a href=&#34;https://marksanders.cn&#34;&gt;https://marksanders.cn&lt;/a&gt;&lt;br&gt;&#xA;Kaciras&amp;rsquo; Blog：&lt;a href=&#34;https://blog.kaciras.com&#34;&gt;https://blog.kaciras.com&lt;/a&gt; &lt;br&gt;&#xA;imbytecat：&lt;a href=&#34;https://www.imbytecat.com&#34;&gt;https://www.imbytecat.com&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elastic Stack 实现日志的自动采集、搜索和分析</title>
-      <link>http://localhost:1313/posts/elasticsearch/20200710.html</link>
+      <link>https://ichochy.com/posts/elasticsearch/20200710.html</link>
       <pubDate>Fri, 10 Jul 2020 15:28:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/elasticsearch/20200710.html</guid>
+      <guid>https://ichochy.com/posts/elasticsearch/20200710.html</guid>
       <description>&lt;p&gt;Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化&lt;/p&gt;</description>
     </item>
     <item>
       <title>个人站长的加速器 - 百度云加速</title>
-      <link>http://localhost:1313/posts/blog/20200622.html</link>
+      <link>https://ichochy.com/posts/blog/20200622.html</link>
       <pubDate>Mon, 22 Jun 2020 12:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20200622.html</guid>
+      <guid>https://ichochy.com/posts/blog/20200622.html</guid>
       <description>&lt;p&gt;&lt;strong&gt;免费申请20个SSL证书，支持&lt;code&gt;HTTPS&lt;/code&gt;、多&lt;code&gt;CDN&lt;/code&gt;节点，国内外加速、每天10G流量、3条特定页面规则等&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Office 批量激活的命令工具 slmgr</title>
-      <link>http://localhost:1313/posts/software/20200605.html</link>
+      <link>https://ichochy.com/posts/software/20200605.html</link>
       <pubDate>Fri, 05 Jun 2020 19:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20200605.html</guid>
+      <guid>https://ichochy.com/posts/software/20200605.html</guid>
       <description>&lt;p&gt;软件许可证管理器脚本用于配置和检索 Office KMS 主机和 Windows 主机的批量激活信息。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Office 批量激活的命令工具 ospp</title>
-      <link>http://localhost:1313/posts/software/20200602.html</link>
+      <link>https://ichochy.com/posts/software/20200602.html</link>
       <pubDate>Tue, 02 Jun 2020 19:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20200602.html</guid>
+      <guid>https://ichochy.com/posts/software/20200602.html</guid>
       <description>&lt;p&gt;Office 软件保护平台脚本使你能够配置 Office 产品（包括 Project 和 Visio）的批量许可版本。&lt;/p&gt;</description>
     </item>
     <item>
       <title>KMS 激活 Office 批量许可证密钥 KEY</title>
-      <link>http://localhost:1313/posts/software/20200528.html</link>
+      <link>https://ichochy.com/posts/software/20200528.html</link>
       <pubDate>Thu, 28 May 2020 12:12:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20200528.html</guid>
+      <guid>https://ichochy.com/posts/software/20200528.html</guid>
       <description>&lt;p&gt;在配置为支持 Office 批量激活的 KMS 主计算机上，你只需安装和启用一个 KMS 主机密钥，即可激活 Office 的所有批量许可版本。&lt;/p&gt;</description>
     </item>
     <item>
       <title>移植物抗宿主病详解</title>
-      <link>http://localhost:1313/posts/aml/20200526.html</link>
+      <link>https://ichochy.com/posts/aml/20200526.html</link>
       <pubDate>Tue, 26 May 2020 22:12:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20200526.html</guid>
+      <guid>https://ichochy.com/posts/aml/20200526.html</guid>
       <description>&lt;p&gt;移植物抗宿主病（graft versus host disease，GVHD）是allo- HSCT最常见的并发症，分为急性和慢性2种类型。&lt;/p&gt;</description>
     </item>
     <item>
       <title>慢性髓系白血病（CML）的临床分期</title>
-      <link>http://localhost:1313/posts/aml/20200506.html</link>
+      <link>https://ichochy.com/posts/aml/20200506.html</link>
       <pubDate>Wed, 06 May 2020 22:12:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20200506.html</guid>
+      <guid>https://ichochy.com/posts/aml/20200506.html</guid>
       <description>&lt;p&gt;慢性髓细胞白血病的分期是目前指导治疗的主要依据，也是预后判断的参考标准。CML可分为慢性期、加速期、急变期。&lt;/p&gt;</description>
     </item>
     <item>
       <title>急性髓系白血病（AML）的治疗</title>
-      <link>http://localhost:1313/posts/aml/20200504.html</link>
+      <link>https://ichochy.com/posts/aml/20200504.html</link>
       <pubDate>Mon, 04 May 2020 16:12:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20200504.html</guid>
+      <guid>https://ichochy.com/posts/aml/20200504.html</guid>
       <description>&lt;p&gt;白血病患者骨髓中存在着正常的多克隆造血和白血病性单克隆造血两类细胞群，急性白血病治疗目的是杀灭白血病克隆恢复持久的正常多克隆造血。&lt;/p&gt;</description>
     </item>
     <item>
       <title>骨髓增生异常综合征（MDS）的病程与预后</title>
-      <link>http://localhost:1313/posts/aml/20200502.html</link>
+      <link>https://ichochy.com/posts/aml/20200502.html</link>
       <pubDate>Sat, 02 May 2020 14:18:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20200502.html</guid>
+      <guid>https://ichochy.com/posts/aml/20200502.html</guid>
       <description>&lt;h3 id=&#34;骨髓增生异常综合征mds的病程大致有以下三种主要演变模式&#34;&gt;骨髓增生异常综合征（MDS）的病程大致有以下三种主要演变模式&lt;/h3&gt;&#xA;&lt;p&gt;第一种模式，患者病情稳定，骨髓中原始细胞不增多或轻微增多，而不超过5%，随诊中迄未发生白血病转变，仅靠一般支持治疗可活存数年甚至十多年。&lt;/p&gt;</description>
     </item>
     <item>
       <title>急性白血病的临床表现</title>
-      <link>http://localhost:1313/posts/aml/20200430.html</link>
+      <link>https://ichochy.com/posts/aml/20200430.html</link>
       <pubDate>Thu, 30 Apr 2020 16:12:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20200430.html</guid>
+      <guid>https://ichochy.com/posts/aml/20200430.html</guid>
       <description>&lt;p&gt;急性白血病的临床表现主要与白血病细胞无控性增殖引起骨髓正常造血受抑制和髓外组织器官浸润有关。某些独特的临床表现对急性白血病的诊断和分型有重要提示作用。&lt;/p&gt;</description>
     </item>
     <item>
       <title>慢性粒单核细胞白血病（CMML）</title>
-      <link>http://localhost:1313/posts/aml/20200425.html</link>
+      <link>https://ichochy.com/posts/aml/20200425.html</link>
       <pubDate>Sat, 25 Apr 2020 14:16:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20200425.html</guid>
+      <guid>https://ichochy.com/posts/aml/20200425.html</guid>
       <description>&lt;p&gt;慢性粒单核细胞白血病（chronic myelomonocytic leukemia，CMML）是一种骨髓造血干细胞的克隆性疾病&lt;/p&gt;</description>
     </item>
     <item>
       <title>白血病的分类：髓系肿瘤和淋系肿瘤</title>
-      <link>http://localhost:1313/posts/aml/20200422.html</link>
+      <link>https://ichochy.com/posts/aml/20200422.html</link>
       <pubDate>Wed, 22 Apr 2020 16:18:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aml/20200422.html</guid>
+      <guid>https://ichochy.com/posts/aml/20200422.html</guid>
       <description>&lt;p&gt;真正的白血病分型是始于1887年德国人Ehrlich发明细胞染色方法之后。基于对白血病细胞形态和疾病进程的观察，不断发现新的白血病类型。&lt;/p&gt;</description>
     </item>
     <item>
       <title>mysql 使用 source/mysqldump 命令导入/导出文件信息</title>
-      <link>http://localhost:1313/posts/software/20200222.html</link>
+      <link>https://ichochy.com/posts/software/20200222.html</link>
       <pubDate>Sat, 22 Feb 2020 22:16:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20200222.html</guid>
+      <guid>https://ichochy.com/posts/software/20200222.html</guid>
       <description>&lt;p&gt;要导入/导出数据库信息，使用 mysql 的&lt;code&gt;source&lt;/code&gt;命令可以方便快速的处理&lt;/p&gt;</description>
     </item>
     <item>
       <title>Docker 中运行 ElasticSearch 和 Kibana</title>
-      <link>http://localhost:1313/posts/elasticsearch/20191107.html</link>
+      <link>https://ichochy.com/posts/elasticsearch/20191107.html</link>
       <pubDate>Thu, 07 Nov 2019 13:24:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/elasticsearch/20191107.html</guid>
+      <guid>https://ichochy.com/posts/elasticsearch/20191107.html</guid>
       <description>&lt;p&gt;ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据&lt;/p&gt;</description>
     </item>
     <item>
       <title>初识 Docker</title>
-      <link>http://localhost:1313/posts/elasticsearch/20191106.html</link>
+      <link>https://ichochy.com/posts/elasticsearch/20191106.html</link>
       <pubDate>Wed, 06 Nov 2019 15:24:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/elasticsearch/20191106.html</guid>
+      <guid>https://ichochy.com/posts/elasticsearch/20191106.html</guid>
       <description>&lt;p&gt;Docker 是个容器应用，可以跨平台安装，并使容器与容器间相“独立”运行；就好比每个容器都是一个虚拟机，而 Docker 成为了个云计算机。构建的容器好比机算机系统，可以在 Docker 中直接启动运行，而无需额外的配置系统环境。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mac 无密码 SSH 登录服务器</title>
-      <link>http://localhost:1313/posts/shell/20191028.html</link>
+      <link>https://ichochy.com/posts/shell/20191028.html</link>
       <pubDate>Mon, 28 Oct 2019 15:10:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20191028.html</guid>
+      <guid>https://ichochy.com/posts/shell/20191028.html</guid>
       <description>&lt;p&gt;Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Cloud Alibaba Nacos Discovery 实战</title>
-      <link>http://localhost:1313/posts/spring/20191018.html</link>
+      <link>https://ichochy.com/posts/spring/20191018.html</link>
       <pubDate>Fri, 18 Oct 2019 16:35:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20191018.html</guid>
+      <guid>https://ichochy.com/posts/spring/20191018.html</guid>
       <description>&lt;p&gt;Nacos 作为服务注册中心，可以快速简单的将服务自动注册到 Nacos 服务端，并且能够动态无感知的刷新某个服务实例的服务列表，为分布式系统提供服务注册与发现功能&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spring Cloud Alibaba Nacos Config 实战</title>
-      <link>http://localhost:1313/posts/spring/20191017.html</link>
+      <link>https://ichochy.com/posts/spring/20191017.html</link>
       <pubDate>Thu, 17 Oct 2019 14:10:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20191017.html</guid>
+      <guid>https://ichochy.com/posts/spring/20191017.html</guid>
       <description>&lt;p&gt;Nacos 提供用于存储配置和其他元数据的 key/value 存储，为分布式系统中的外部化配置提供服务器端和客户端支持。使用 Spring Cloud Alibaba Nacos Config，您可以在 Nacos Server 集中管理你 Spring Cloud 应用的外部属性配置&lt;/p&gt;</description>
     </item>
     <item>
       <title>Shell 脚本重启项目</title>
-      <link>http://localhost:1313/posts/shell/20191016.html</link>
+      <link>https://ichochy.com/posts/shell/20191016.html</link>
       <pubDate>Wed, 16 Oct 2019 16:10:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20191016.html</guid>
+      <guid>https://ichochy.com/posts/shell/20191016.html</guid>
       <description>&lt;p&gt;每次发打包好项目后都需要手动重启项目，写个&lt;code&gt;Shell&lt;/code&gt;脚本一键重启项目&lt;/p&gt;</description>
     </item>
     <item>
       <title>认识 Spring Cloud Alibaba</title>
-      <link>http://localhost:1313/posts/spring/20191012.html</link>
+      <link>https://ichochy.com/posts/spring/20191012.html</link>
       <pubDate>Sat, 12 Oct 2019 14:12:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/spring/20191012.html</guid>
+      <guid>https://ichochy.com/posts/spring/20191012.html</guid>
       <description>&lt;p&gt;个人理解 Spring Cloud Alibaba 就是 Spring Cloud 的微服务规范的一种实现，外加一些阿里云的商业组件&lt;/p&gt;</description>
     </item>
     <item>
       <title>通过 Cloudflare 开启全站 https</title>
-      <link>http://localhost:1313/posts/blog/20191008.html</link>
+      <link>https://ichochy.com/posts/blog/20191008.html</link>
       <pubDate>Tue, 08 Oct 2019 14:22:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20191008.html</guid>
+      <guid>https://ichochy.com/posts/blog/20191008.html</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.cloudflare.com&#34;&gt;Cloudflare&lt;/a&gt; 添加域名后，会自动生成通用证书，快速开启全站&lt;code&gt;HTTPS&lt;/code&gt;，服务端不用做任何修改，还可以选择多种开启模式&lt;/p&gt;</description>
     </item>
     <item>
       <title>jekyll-admin的搭建和使用</title>
-      <link>http://localhost:1313/posts/blog/20190925.html</link>
+      <link>https://ichochy.com/posts/blog/20190925.html</link>
       <pubDate>Wed, 25 Sep 2019 15:22:38 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20190925.html</guid>
+      <guid>https://ichochy.com/posts/blog/20190925.html</guid>
       <description>&lt;p&gt;通过&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;jekyll&lt;/a&gt;搭建好了自己的博客。写博客成为了日常，经过一段时间的摸索，发现&lt;a href=&#34;https://jekyll.github.io/jekyll-admin/&#34;&gt;jekyll-admin&lt;/a&gt;是个好东西，它是博客的后台管理系统，可以方便的管理和编写自己的博客&lt;/p&gt;&#xA;&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;&#xA;&lt;p&gt;运行命令&lt;code&gt;gem install jekyll-admin&lt;/code&gt;进行安装&lt;/p&gt;</description>
     </item>
     <item>
       <title>神奇的不可见空格 200b 导致代码异常</title>
-      <link>http://localhost:1313/posts/shell/20190922.html</link>
+      <link>https://ichochy.com/posts/shell/20190922.html</link>
       <pubDate>Sun, 22 Sep 2019 18:12:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20190922.html</guid>
+      <guid>https://ichochy.com/posts/shell/20190922.html</guid>
       <description>&lt;p&gt;故事是这样发生的，在做一个&lt;code&gt;JSON&lt;/code&gt;对象转化的时候，出现了转化异常；刚开始还是以为是格式错误，后来一步步排除，才发现是不可见空格&lt;code&gt;&amp;lt;200b&amp;gt;&lt;/code&gt;导致的解析异常&lt;/p&gt;</description>
     </item>
     <item>
       <title>OC与Swift混编，三种场景的实现方式</title>
-      <link>http://localhost:1313/posts/swift/20190904.html</link>
+      <link>https://ichochy.com/posts/swift/20190904.html</link>
       <pubDate>Wed, 04 Sep 2019 10:22:33 +0800</pubDate>
-      <guid>http://localhost:1313/posts/swift/20190904.html</guid>
+      <guid>https://ichochy.com/posts/swift/20190904.html</guid>
       <description>&lt;p&gt;多语言并存时期，混编成为一种必须的方式 ，在多场景中实现OC和Swift语言的并存原来是如此简单&lt;/p&gt;</description>
     </item>
     <item>
       <title>CocoaPods 构建自己的 Pod 库</title>
-      <link>http://localhost:1313/posts/swift/20190901.html</link>
+      <link>https://ichochy.com/posts/swift/20190901.html</link>
       <pubDate>Sun, 01 Sep 2019 12:32:55 +0800</pubDate>
-      <guid>http://localhost:1313/posts/swift/20190901.html</guid>
+      <guid>https://ichochy.com/posts/swift/20190901.html</guid>
       <description>&lt;p&gt;构建一个自己的库供其它人使用是不是一件很酷(苦)的事情，通过&lt;a href=&#34;https://cocoapods.org/&#34;&gt;CocoaPods&lt;/a&gt; 可以快捷的构建自己库，并向全世界分享你的成果&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mac 将 App 程序打包成为 dmg</title>
-      <link>http://localhost:1313/posts/swift/20190823.html</link>
+      <link>https://ichochy.com/posts/swift/20190823.html</link>
       <pubDate>Fri, 23 Aug 2019 08:32:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/swift/20190823.html</guid>
+      <guid>https://ichochy.com/posts/swift/20190823.html</guid>
       <description>&lt;p&gt;用最简单的打包方式，将自己开发的&lt;code&gt;App&lt;/code&gt;打包成为&lt;code&gt;DMG&lt;/code&gt;，实现共享分发，快速安装&lt;/p&gt;</description>
     </item>
     <item>
       <title>iUploader 2.0 七牛云上传工具</title>
-      <link>http://localhost:1313/posts/app/20190822.html</link>
+      <link>https://ichochy.com/posts/app/20190822.html</link>
       <pubDate>Thu, 22 Aug 2019 15:22:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/app/20190822.html</guid>
+      <guid>https://ichochy.com/posts/app/20190822.html</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://images.ichochy.com/Cloud.png&#34; alt=&#34;Cloud&#34;&gt; &lt;a href=&#34;https://www.ichochy.com/&#34;&gt;iUploader&lt;/a&gt; 是一个免费开源的七牛云上传工具，可直接返回上传文件的地址；可以用作图床工具，进行图片的分享，当然不仅仅是图片&lt;/p&gt;</description>
     </item>
     <item>
       <title>libminipng 压缩png的swift-framework</title>
-      <link>http://localhost:1313/posts/swift/20190812.html</link>
+      <link>https://ichochy.com/posts/swift/20190812.html</link>
       <pubDate>Mon, 12 Aug 2019 12:25:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/swift/20190812.html</guid>
+      <guid>https://ichochy.com/posts/swift/20190812.html</guid>
       <description>&lt;p&gt;通过lodepng解析png图片，使用pngquant算法进行压缩的swift-framework，可实现&lt;code&gt;PNG&lt;/code&gt;图片的压缩，并很好的保持图片的质量，完美实现其透明效果，支持&lt;a href=&#34;https://cocoapods.org&#34;&gt;Cocoapods&lt;/a&gt;安装使用&lt;/p&gt;</description>
     </item>
     <item>
       <title>通过端口号关闭当前进程</title>
-      <link>http://localhost:1313/posts/shell/20190412.html</link>
+      <link>https://ichochy.com/posts/shell/20190412.html</link>
       <pubDate>Fri, 12 Apr 2019 12:25:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20190412.html</guid>
+      <guid>https://ichochy.com/posts/shell/20190412.html</guid>
       <description>&lt;p&gt;使用&lt;code&gt;Shell&lt;/code&gt;脚本的方式，通过端口号来关闭当前进程&lt;/p&gt;</description>
     </item>
     <item>
       <title>持续集成和持续交付工具-jenkins</title>
-      <link>http://localhost:1313/posts/software/20190410.html</link>
+      <link>https://ichochy.com/posts/software/20190410.html</link>
       <pubDate>Wed, 10 Apr 2019 12:20:32 +0800</pubDate>
-      <guid>http://localhost:1313/posts/software/20190410.html</guid>
+      <guid>https://ichochy.com/posts/software/20190410.html</guid>
       <description>&lt;p&gt;打破原有的手动部署方式，实现程序自动化。通过 &lt;a href=&#34;https://jenkins.io/zh/&#34;&gt;jenkins&lt;/a&gt; 来解放你的双手&lt;/p&gt;</description>
     </item>
     <item>
       <title>七牛云图床上传工具-iUploader</title>
-      <link>http://localhost:1313/posts/app/20190403.html</link>
+      <link>https://ichochy.com/posts/app/20190403.html</link>
       <pubDate>Wed, 03 Apr 2019 08:20:05 +0800</pubDate>
-      <guid>http://localhost:1313/posts/app/20190403.html</guid>
+      <guid>https://ichochy.com/posts/app/20190403.html</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.ichochy.com&#34;&gt;iUploader&lt;/a&gt;主要功能将图片上传至七牛云，返回 &lt;code&gt;Markdown&lt;/code&gt; 格式的链接到剪贴板&lt;/p&gt;</description>
     </item>
     <item>
       <title>加速你的博客永无止境-七牛云存储</title>
-      <link>http://localhost:1313/posts/blog/20190309.html</link>
+      <link>https://ichochy.com/posts/blog/20190309.html</link>
       <pubDate>Sat, 09 Mar 2019 16:10:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20190309.html</guid>
+      <guid>https://ichochy.com/posts/blog/20190309.html</guid>
       <description>&lt;p&gt;将自己的静态博客直接部署到七牛云存储，由七牛云托管运行，你说快不快，还没有注册七牛云的看这里，七牛云注册邀请：&lt;a href=&#34;https://portal.qiniu.com/signup?code=3l7cpouzlru4y&#34;&gt;https://portal.qiniu.com/signup?code=3l7cpouzlru4y&lt;/a&gt;，哈哈！&lt;/p&gt;</description>
     </item>
     <item>
       <title>加速你的博客永无止境-七牛云CDN</title>
-      <link>http://localhost:1313/posts/blog/20190306.html</link>
+      <link>https://ichochy.com/posts/blog/20190306.html</link>
       <pubDate>Wed, 06 Mar 2019 15:25:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20190306.html</guid>
+      <guid>https://ichochy.com/posts/blog/20190306.html</guid>
       <description>&lt;p&gt;个人的博客是通过&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;jekyll&lt;/a&gt;构建，通过&lt;a href=&#34;https://pages.github.com&#34;&gt;GitHub Pages&lt;/a&gt;搭建，可是在国内访问速度慢，百度还无法检索，网上找到的就是通&lt;code&gt;CDN&lt;/code&gt;来加速博客。于是开始了折腾………………&lt;/p&gt;</description>
     </item>
     <item>
       <title>Jekyll+GitHub Pages部署自己的静态Blog</title>
-      <link>http://localhost:1313/posts/blog/20190213.html</link>
+      <link>https://ichochy.com/posts/blog/20190213.html</link>
       <pubDate>Wed, 13 Feb 2019 11:45:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/blog/20190213.html</guid>
+      <guid>https://ichochy.com/posts/blog/20190213.html</guid>
       <description>&lt;p&gt;混了这么久，一直想拥有自己的博客，通过&lt;a href=&#34;https://jekyllrb.com&#34;&gt;jekyll&lt;/a&gt;和&lt;a href=&#34;https://pages.github.com&#34;&gt;GitHub Pages&lt;/a&gt;捣腾出了自己的博客(&lt;a href=&#34;https://www.ichochy.com&#34;&gt;https://www.ichochy.com&lt;/a&gt;)&lt;/p&gt;</description>
     </item>
     <item>
       <title>通过shell查看SVN的版本信息</title>
-      <link>http://localhost:1313/posts/shell/20190212.html</link>
+      <link>https://ichochy.com/posts/shell/20190212.html</link>
       <pubDate>Tue, 12 Feb 2019 08:20:05 +0800</pubDate>
-      <guid>http://localhost:1313/posts/shell/20190212.html</guid>
+      <guid>https://ichochy.com/posts/shell/20190212.html</guid>
       <description>&lt;p&gt;实现原理：通过&lt;code&gt;svn info&lt;/code&gt;查看svn信息，使用&lt;code&gt;grep&lt;/code&gt;获取版本信息，用&lt;code&gt;awk&lt;/code&gt;获取版本号，然后对比版本号是否需要更新&lt;/p&gt;</description>
     </item>
     <item>
       <title>倍速音乐</title>
-      <link>http://localhost:1313/posts/app/20181212.html</link>
+      <link>https://ichochy.com/posts/app/20181212.html</link>
       <pubDate>Wed, 12 Dec 2018 18:30:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/app/20181212.html</guid>
+      <guid>https://ichochy.com/posts/app/20181212.html</guid>
       <description>&lt;p&gt;学习需要，有太多的音频文件要听，可是常用的播放器只能常速播放。所以有了后面的想法，自己开发一款App，来实现倍速播放的需求，加快学习进度，提高效率，节省时间。&lt;/p&gt;</description>
     </item>
     <item>
       <title>开篇</title>
-      <link>http://localhost:1313/posts/life/20181202.html</link>
+      <link>https://ichochy.com/posts/life/20181202.html</link>
       <pubDate>Sun, 02 Dec 2018 18:32:03 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/20181202.html</guid>
+      <guid>https://ichochy.com/posts/life/20181202.html</guid>
       <description>&lt;h2 id=&#34;说说生活&#34;&gt;说说生活&lt;/h2&gt;&#xA;&lt;p&gt;生活总是有太多的磨炼，让你一步步的成长，可传奇的背后都是些艰辛的故事。&lt;br&gt;&#xA;我坚信，每个人都有自己的生活方式，但只要认真一点点，再坚持一点点，就会有不一样的生活。&lt;br&gt;&#xA;很多时候，被现实生活所迫，总是难以突破自己，不敢尝试。&lt;br&gt;&#xA;若想改变就必须不断的尝试新事物，越是让自己害怕就越要尝试，熟悉后害怕也就消失了，自己才有新高度，看待问题的方式又改变了。&lt;/p&gt;</description>
     </item>
   </channel>
