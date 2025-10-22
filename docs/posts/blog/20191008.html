@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.147.8">
+    <meta name="generator" content="Hugo 0.151.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>通过 Cloudflare 开启全站 https &middot; 回忆中的明天</title>
     <meta name="keywords" content="cdn,https,dns,cloudfrare"/>
     <meta name="description" content="Cloudflare 添加域名后，会自动生成通用证书，快速开启全站HTTPS，服务端不用做任何修改，还可以选择多种开启模式"/>
     
-    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
-    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
-    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
-    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    <link type="text/css" rel="stylesheet" href="http://localhost:1313/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="http://localhost:1313/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="http://localhost:1313/css/hyde.css">
     
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:1313/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="http://localhost:1313/favicon.png">
     </head>
 
   <body class="theme-base-08 layout-reverse">
   <aside class="sidebar">
   <div id = "title" class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <a href="http://localhost:1313/"><p class="title">回忆中的明天</p></a>
       <p class="lead">码农小站，写点Java、Swift和感悟</p>
     </div>
       <p>
@@ -30,13 +30,13 @@
       </p>
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="https://ichochy.com/"> 首页 </a></li>
-        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
-        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
-        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
-        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
-        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
-        <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
+        <li><a href="http://localhost:1313/"> 首页 </a></li>
+        <li><a href="http://localhost:1313/search.html"> 搜索 </a></li>
+        <li><a href="http://localhost:1313/links.html"> 友链 </a></li>
+        <li><a href="http://localhost:1313/about.html"> 简介 </a></li>
+        <li><a href="http://localhost:1313/analytics.html"> 分析 </a></li>
+        <li><a href="http://localhost:1313/sites.html"> 站点 </a></li>
+        <li><a href="http://localhost:1313/vps.html"> VPS </a></li></ul>
     </nav>
     <div class = "other">
 
@@ -51,7 +51,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#一注册cloudflare账号">一、注册<a href="https://www.cloudflare.com">Cloudflare</a>账号</a></li>
+        <li><a href="#一注册cloudflare账号">一、注册Cloudflare账号</a></li>
         <li><a href="#二修改dns">二、修改DNS</a></li>
         <li><a href="#三配置域名解析">三、配置域名解析</a></li>
         <li><a href="#四开启-https">四、开启 HTTPS</a></li>
@@ -75,7 +75,7 @@
       <b>分类:</b>
       
       <li>
-        <a href="https://ichochy.com/categories/blog.html">#Blog</a>
+        <a href="http://localhost:1313/categories/blog.html">#Blog</a>
       </li>
       
     </ul>
@@ -89,19 +89,19 @@
       <b>标签:</b>
       
       <li>
-        <a href="https://ichochy.com/tags/cdn.html">#cdn</a>
+        <a href="http://localhost:1313/tags/cdn.html">#cdn</a>
       </li>
       
       <li>
-        <a href="https://ichochy.com/tags/https.html">#https</a>
+        <a href="http://localhost:1313/tags/https.html">#https</a>
       </li>
       
       <li>
-        <a href="https://ichochy.com/tags/dns.html">#dns</a>
+        <a href="http://localhost:1313/tags/dns.html">#dns</a>
       </li>
       
       <li>
-        <a href="https://ichochy.com/tags/cloudfrare.html">#cloudfrare</a>
+        <a href="http://localhost:1313/tags/cloudfrare.html">#cloudfrare</a>
       </li>
       
     
@@ -114,7 +114,7 @@
        <b>点击：</b><span id="view-count">-</span>次
     </time>
    </div>
-<b>原文：</b><a href="https://ichochy.com/posts/blog/20191008.html">https://ichochy.com/posts/blog/20191008.html</a>
+<b>原文：</b><a href="http://localhost:1313/posts/blog/20191008.html">http://localhost:1313/posts/blog/20191008.html</a>
 <hr>
 
   <p><a href="https://www.cloudflare.com">Cloudflare</a> 添加域名后，会自动生成通用证书，快速开启全站<code>HTTPS</code>，服务端不用做任何修改，还可以选择多种开启模式</p>
@@ -159,7 +159,7 @@
         
         <li>
             <h3>
-                <a href="https://ichochy.com/posts/blog/20190306.html">
+                <a href="http://localhost:1313/posts/blog/20190306.html">
                     加速你的博客永无止境-七牛云CDN
                 </a>
                 <small>
@@ -177,12 +177,12 @@
 <div class="pagination">
   
   <span class="pagination-link newer">
-    上一篇：<a href="https://ichochy.com/posts/spring/20191012.html" class="pag-link">认识 Spring Cloud Alibaba</a>
+    上一篇：<a href="http://localhost:1313/posts/spring/20191012.html" class="pag-link">认识 Spring Cloud Alibaba</a>
   </span>
   
     
   <span class="pagination-link older">
-    下一篇：<a href="https://ichochy.com/posts/blog/20190925.html" class="pag-link">jekyll-admin的搭建和使用</a>
+    下一篇：<a href="http://localhost:1313/posts/blog/20190925.html" class="pag-link">jekyll-admin的搭建和使用</a>
   </span>
     
 </div>
@@ -193,20 +193,8 @@
 
     </main>
   </body>
-<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<script type="text/javascript" src="http://localhost:1313/js/ready.js" defer></script>
 <link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script src = "/js/searchTop.js"></script>
-
-<script data-ad-client="ca-pub-3691661241035911" async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        window.dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-8J2LHY81SL');
-</script></html>
+<script src = "/js/searchTop.js"></script></html>
