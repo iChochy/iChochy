@@ -27,14 +27,15 @@
       </ul>
     </nav>
     <div class = "other">
-
-    <li>&copy; 2020 - {{ now.Format "2006"}} {{.Site.Params.copyright}}.</li>
-    {{with .Site.Params.caseNo }}
-      <li><a href="http://beian.miit.gov.cn">{{.}}</a></li>
-    {{end}}
-    {{with .Site.Params.upyun }}
-      <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "{{.}}"> </a>提供CDN加速/云存储服务</li>
-    {{end}}
+        <ol>
+            <li>&copy; 2020 - {{ now.Format "2006"}} {{.Site.Params.copyright}}.</li>
+        {{with .Site.Params.caseNo }}
+            <li><a href="http://beian.miit.gov.cn">{{.}}</a></li>
+        {{- end -}}
+        {{with .Site.Params.upyun }}
+            <li>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"> <img src = "{{.}}"> </a>提供CDN加速/云存储服务</li>
+        {{- end -}}
+        </ol>
     </div>
   </div>
   {{if eq .Section .Site.Params.PostDir}}

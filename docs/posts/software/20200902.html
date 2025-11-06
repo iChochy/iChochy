@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
 <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <title>MacOS 或 Linux 软件包管理器 Homebrew &middot; 回忆中的明天</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.151.0">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MacOS 或 Linux 软件包管理器 Homebrew &middot; 回忆中的明天</title>
     <meta name="keywords" content="brew,package,mac,bash,software"/>
     <meta name="description" content="Homebrew 可以方便、快捷的安装第三方软件包，不再需要手动编译安装，通过brew install命令就可以完成软件的安装，包括相关的依赖包。甚至使用brew cask安装macOS应用程序、字体和插件以及其他非开源软件。"/>
     
@@ -16,7 +15,8 @@
     
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
-    </head>
+    
+</head>
 
   <body class="theme-base-08 layout-reverse">
   <aside class="sidebar">
@@ -39,10 +39,9 @@
         <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
     </nav>
     <div class = "other">
-
-    <li>&copy; 2020 - 2025 iChochy.</li>
-    
-    
+        <ol>
+            <li>&copy; 2020 - 2025 iChochy.</li>
+        </ol>
     </div>
   </div>
   
@@ -149,7 +148,8 @@
 </span></span></code></pre></div><p>安装软件包</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install FORMULA...
 </span></span></code></pre></div><blockquote>
-<p><code>Homebrew</code>会将软件包安装到独立目录<code>/usr/local/Cellar</code>，并将其文件软链接至<code>/usr/local</code></p></blockquote>
+<p><code>Homebrew</code>会将软件包安装到独立目录<code>/usr/local/Cellar</code>，并将其文件软链接至<code>/usr/local</code></p>
+</blockquote>
 <p>更新<code>brew</code>索引信息</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew update
 </span></span></code></pre></div><p>更新软件包</p>

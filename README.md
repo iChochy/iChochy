@@ -5,7 +5,7 @@
 ## 联系方式
 > Email：[me@ichochy.com](mailto:me@ichochy.com)  
 > Blog：[https://ichochy.com](https://ichochy.com)  
-> GitHub：[https://github.com/ichochy]( https://github.com/ichochy)
+> GitHub：[https://github.com/ichochy](https://github.com/ichochy)  
 
 ## 感谢 
 [雷霆](https://hi.leiting.uk/invite/y0qT3LOe) 提供 [自由网络](https://hi.leiting.uk/invite/y0qT3LOe)  

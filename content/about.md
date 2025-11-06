@@ -8,7 +8,7 @@ date: 2020-07-22T12:07:59+08:00
 
 ## 联系方式
 Email：[me@ichochy.com](mailto:me@ichochy.com)  
-GitHub： [https://github.com/ichochy]( https://github.com/ichochy)  
+GitHub：[https://github.com/ichochy](https://github.com/ichochy)  
 
 ## 公众号    
 

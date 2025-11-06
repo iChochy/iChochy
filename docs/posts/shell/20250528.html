@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
 <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <title>NanoPi R2S 安装 Debian 固件系统，旁路由网络代理内网转发，决解直连网络卡顿 nftables &middot; 回忆中的明天</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.151.0">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NanoPi R2S 安装 Debian 固件系统，旁路由网络代理内网转发，决解直连网络卡顿 nftables &middot; 回忆中的明天</title>
     <meta name="keywords" content="shell,linux,NanoPi,R2S"/>
     <meta name="description" content="NanoPi R2S 安装 Debian，将其当成为一台 Linux 服务器，可玩成更强，主要用做旁路由来代理转发内网请求或安装 Nginx、部署 Web 项目。
 通过配置 nft 规则来实现代理转发内网请求，网络请求通过旁路由转发，解决内网请求卡顿或丢包的问题"/>
@@ -17,7 +16,8 @@
     
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
-    </head>
+    
+</head>
 
   <body class="theme-base-08 layout-reverse">
   <aside class="sidebar">
@@ -40,10 +40,9 @@
         <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
     </nav>
     <div class = "other">
-
-    <li>&copy; 2020 - 2025 iChochy.</li>
-    
-    
+        <ol>
+            <li>&copy; 2020 - 2025 iChochy.</li>
+        </ol>
     </div>
   </div>
   
@@ -151,11 +150,13 @@
 <p><strong>普通用户：</strong></p>
 <blockquote>
 <p>用户名: pi<br>
-密码: pi</p></blockquote>
+密码: pi</p>
+</blockquote>
 <p><strong>Root用户：</strong></p>
 <blockquote>
 <p>默认root没有设置密码<br>
-可通过sudo passwd root命令配置root密码</p></blockquote>
+可通过sudo passwd root命令配置root密码</p>
+</blockquote>
 <h4 id="通过-ssh-登录">通过 SSH 登录</h4>
 <p>使用 SSH 命令:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh pi@192.168.5.5

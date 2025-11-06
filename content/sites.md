@@ -7,17 +7,18 @@ date: 2024-06-22T12:07:59+08:00
 通义：[https://tongyi.com](https://tongyi.com)  
 豆包：[https://www.doubao.com](https://www.doubao.com)  
 Deepseek：[https://deepseek.com](https://deepseek.com)   
-POE：[https://poe.com](https://poe.com)    
 Duck：[https://Duck.ai](https://Duck.ai)    
 Grok：[https://grok.com](https://grok.com)   
-MerLin：[https://www.getmerlin.in](https://www.getmerlin.in/chat)  
 Claude：[https://claude.ai](https://claude.ai)   
 Gemini：[https://gemini.google.com](https://gemini.google.com)   
 ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
+POE：[https://poe.com](https://poe.com)    
+MerLin：[https://www.getmerlin.in](https://www.getmerlin.in/chat)  
 GoogleLabs：[https://labs.google/experiments](https://labs.google/experiments)   
 
 ## 开发文档
 Java：[https://dev.java](https://dev.java)  
+Spring：[https://spring.io](https://spring.io)    
 Swift：[https://www.swift.org](https://www.swift.org)  
 Apple Doc：[https://developer.apple.com](https://developer.apple.com/documentation)  
 Mozilla Web:[https://developer.mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web)  
@@ -33,14 +34,15 @@ Helix：[https://helix-editor.com](https://helix-editor.com)
 Emacs：[https://www.gnu.org/software/emacs](https://www.gnu.org/software/emacs)  
 
 ### IDE
-Xcode：[https://developer.apple.com/xcode](https://developer.apple.com/xcode)  
 IDEA：[https://www.jetbrains.com/idea](https://www.jetbrains.com/idea)  
+Xcode：[https://developer.apple.com/xcode](https://developer.apple.com/xcode)  
 WebStorm：[https://www.jetbrains.com/webstorm](https://www.jetbrains.com/webstorm)  
 PyCharm：[https://www.jetbrains.com/pycharm](https://www.jetbrains.com/pycharm)  
 DataGrip：[https://www.jetbrains.com/datagrip](https://www.jetbrains.com/datagrip)  
 Eclipse：[https://www.eclipse.org](https://www.eclipse.org)  
 Netbeans：[https://netbeans.apache.org](https://netbeans.apache.org)  
 VSCode：[https://code.visualstudio.com](https://code.visualstudio.com)  
+MySQL：[https://downloads.mysql.com/archives/community/](https://downloads.mysql.com/archives/community/)  
 
 ## 线上工具
 Fast：[http://fast.com](http://fast.com)  

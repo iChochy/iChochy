@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
 <head>
-    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <title>Spring 为 RESTful Web 服务启用跨域请求 &middot; 回忆中的明天</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="generator" content="Hugo 0.151.0">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spring 为 RESTful Web 服务启用跨域请求 &middot; 回忆中的明天</title>
     <meta name="keywords" content="spring,java,RESTful"/>
     <meta name="description" content="为服务指定 origins 配置，在响应中包含跨域资源共享 (CORS) 标头， 启用跨域请求"/>
     
@@ -16,7 +15,8 @@
     
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
-    </head>
+    
+</head>
 
   <body class="theme-base-08 layout-reverse">
   <aside class="sidebar">
@@ -39,10 +39,9 @@
         <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
     </nav>
     <div class = "other">
-
-    <li>&copy; 2020 - 2025 iChochy.</li>
-    
-    
+        <ol>
+            <li>&copy; 2020 - 2025 iChochy.</li>
+        </ol>
     </div>
   </div>
   
@@ -228,7 +227,8 @@
 </span></span></code></pre></div><h2 id="总结">总结</h2>
 <p>如果没有添加 <code>@CrossOrigin</code>，会出现如下错误信息：</p>
 <blockquote>
-<p>Access to XMLHttpRequest at &lsquo;http://localhost:8080/greeting&rsquo; from origin &lsquo;<a href="https://ichochy.com">https://ichochy.com</a>&rsquo; has been blocked by CORS policy: No &lsquo;Access-Control-Allow-Origin&rsquo; header is present on the requested resource.</p></blockquote>
+<p>Access to XMLHttpRequest at &lsquo;http://localhost:8080/greeting&rsquo; from origin &lsquo;<a href="https://ichochy.com">https://ichochy.com</a>&rsquo; has been blocked by CORS policy: No &lsquo;Access-Control-Allow-Origin&rsquo; header is present on the requested resource.</p>
+</blockquote>
 <p>添加注解<code>@CrossOrigin</code>，启用跨域资源共享 (CORS)。默认支持所有域名跨域访问当前接口，通过注解属性<code>origins</code>可以指定一个或多个域名地址</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//默认，所用域名都可访问</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@CrossOrigin</span>
