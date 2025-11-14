@@ -38,11 +38,14 @@ IDEA：[https://www.jetbrains.com/idea](https://www.jetbrains.com/idea)
 Xcode：[https://developer.apple.com/xcode](https://developer.apple.com/xcode)  
 WebStorm：[https://www.jetbrains.com/webstorm](https://www.jetbrains.com/webstorm)  
 PyCharm：[https://www.jetbrains.com/pycharm](https://www.jetbrains.com/pycharm)  
-DataGrip：[https://www.jetbrains.com/datagrip](https://www.jetbrains.com/datagrip)  
 Eclipse：[https://www.eclipse.org](https://www.eclipse.org)  
 Netbeans：[https://netbeans.apache.org](https://netbeans.apache.org)  
 VSCode：[https://code.visualstudio.com](https://code.visualstudio.com)  
-MySQL：[https://downloads.mysql.com/archives/community/](https://downloads.mysql.com/archives/community/)  
+
+### 软件工具
+Papid(Paw)：[https://paw.cloud](https://paw.cloud)  
+DataGrip：[https://www.jetbrains.com/datagrip](https://www.jetbrains.com/datagrip)  
+MySQL：[https://downloads.mysql.com/archives/community](https://downloads.mysql.com/archives/community)  
 
 ## 线上工具
 Fast：[http://fast.com](http://fast.com)  
@@ -58,8 +61,8 @@ CommonMark：[https://commonmark.org](https://commonmark.org)
 思否：[https://segmentfault.com](https://segmentfault.com)  
 博客园：[http://www.cnblogs.com](http://www.cnblogs.com/ichochy)  
 开源中国：[http://www.oschina.net](http://www.oschina.net)  
-Linux.do：[https://linux.do](https://linux.do)    
 NodeSeek：[https://www.nodeseek.com](https://www.nodeseek.com)    
+Linux.do：[https://linux.do](https://linux.do)    
 V2ex：[https://v2ex.com](https://v2ex.com)  
 
 ## 域名管理
@@ -67,10 +70,10 @@ TLD-List：[https://tld-list.com](https://zh-hans.tld-list.com)
 ICANN：[https://lookup.icann.org](https://lookup.icann.org/zh)  
 DNSPerf：[https://www.dnsperf.com](https://www.dnsperf.com)  
 DNSLeak:[https://dnsleaktest.com](https://dnsleaktest.com)  
-NameSilo：[https://www.namesilo.com](https://www.namesilo.com/domain/search-domains?rid=285e694it)  
-Cloudflare：[https://dash.cloudflare.com](https://dash.cloudflare.com/login)  
+NameSilo：[https://www.namesilo.com](https://www.namesilo.com/domain/search-domains?rid=285e694it)
 
 ## 站点管理  
+Cloudflare：[https://dash.cloudflare.com](https://dash.cloudflare.com/login)  
 Bing Console：[https://www.bing.com/webmasters](https://www.bing.com/webmasters)   
 Google AdSense：[https://www.google.com/adsense](https://www.google.com/adsense)    
 Google Analytics：[https://analytics.google.com](https://analytics.google.com)  
