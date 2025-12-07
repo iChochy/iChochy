@@ -8,6 +8,14 @@
     "pubDate": "2025-12-07T19:12:45+08:00"
   }, 
   {
+    "objectID": 20251207,
+    "url": "https://ichochy.com/posts/ai/20251207.html",
+    "title": "ZenMux 企业级大模型聚合平台，提供免费试用模型 Gemini 3 Pro",
+    "summary": "ZenMux 是全球首个支持保险赔付机制的企业级大模型聚合平台。 ZenMux 聚合了全球领先的闭源和开源大语言模型，在一个统一的平台上为开发者提供便捷的模型调用服务。 ZenMux 提供统一的 API 接口访问 OpenAI、Anthropic、Google、DeepSeek等。\n",
+    "content": "ZenMux 是全球首个支持保险赔付机制的企业级大模型聚合平台。 ZenMux 聚合了全球领先的闭源和开源大语言模型，在一个统一的平台上为开发者提供便捷的模型调用服务。 ZenMux 提供统一的 API 接口访问 OpenAI、Anthropic、Google、DeepSeek等。\n主要优势 统一身份管理：一个 API Key 管理所有供应商的访问权限 统一计费体系：透明的用量统计和成本控制，集中式账户管理 丰富的模型选择：涵盖 OpenAI、Anthropic、Google、DeepSeek 等多家主流供应商的最新模型 双协议支持 OpenAI 兼容协议：通过 OpenAI 标准 API 统一调用平台的所有大模型 Anthropic 兼容协议：通过 Anthropic 标准 API 统一调用平台的所有大模型，无缝集成到 Claude Code 等工具 接口地址 API Base URL：\nOpenAI Compatible\nhttps://zenmux.ai/api/v1 Anthropic Compatible\nhttps://zenmux.ai/api/anthropic Google VertexAI Compatible\nhttps://zenmux.ai/api/vertex-ai 通用协议调用 直接调用 ZenMux API\ncurl https://zenmux.ai/api/v1/chat/completions -H \u0026#34;Content-Type: application/json\u0026#34; -H \u0026#34;Authorization: Bearer $ZENMUX_API_KEY\u0026#34; -d \u0026#39;{ \u0026#34;model\u0026#34;: \u0026#34;openai/gpt-5\u0026#34;, \u0026#34;messages\u0026#34;: [ { \u0026#34;role\u0026#34;: \u0026#34;user\u0026#34;, \u0026#34;content\u0026#34;: \u0026#34;了解回忆中的明天(https://ichochy.com）？\u0026#34; } ] }\u0026#39; 邀请注册 邀请码：3KA0VI\n邀请地址：https://zenmux.ai/invite/3KA0VI 邀请注册，首次充值可获得 25% 的奖励，并免费体验 Google 最新模型（Gemini 3 Pro，Nano Banana Pro）\n免费模型试用 Google 最新模型试用：\nGoogle: Gemini 3 Pro Preview Free Google: Gemini 3 Pro Image (Nano Banana Pro) Free Google：gemini-2.5-pro-free Google：gemini-2.5-flash-image-free ",
+    "pubDate": "2025-12-05T14:22:45+08:00"
+  }, 
+  {
     "objectID": 20251020,
     "url": "https://ichochy.com/posts/life/20251020.html",
     "title": "英语学习，新概念英语在线点读、全文朗读学习系统",
