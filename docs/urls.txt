@@ -1,3 +1,4 @@
+https://ichochy.com/posts/web/20251207.html
 https://ichochy.com/posts/life/20251020.html
 https://ichochy.com/posts/shell/20251015.html
 https://ichochy.com/posts/shell/20250910.html
@@ -56,7 +57,7 @@ https://ichochy.com/posts/spring/20210602.html
 https://ichochy.com/posts/spring/20210530.html
 https://ichochy.com/posts/spring/20210525.html
 https://ichochy.com/posts/blog/20210522.html
-https://ichochy.com/posts/elasticsearch/20210418.html
+https://ichochy.com/posts/es/20210418.html
 https://ichochy.com/posts/java/20210315.html
 https://ichochy.com/posts/java/20201010.html
 https://ichochy.com/posts/software/20200902.html
@@ -72,7 +73,7 @@ https://ichochy.com/posts/java/20200815.html
 https://ichochy.com/posts/blog/20200810.html
 https://ichochy.com/posts/java/20200807.html
 https://ichochy.com/posts/blog/20200802.html
-https://ichochy.com/posts/elasticsearch/20200710.html
+https://ichochy.com/posts/es/20200710.html
 https://ichochy.com/posts/blog/20200622.html
 https://ichochy.com/posts/software/20200605.html
 https://ichochy.com/posts/software/20200602.html
@@ -85,8 +86,8 @@ https://ichochy.com/posts/aml/20200430.html
 https://ichochy.com/posts/aml/20200425.html
 https://ichochy.com/posts/aml/20200422.html
 https://ichochy.com/posts/software/20200222.html
-https://ichochy.com/posts/elasticsearch/20191107.html
-https://ichochy.com/posts/elasticsearch/20191106.html
+https://ichochy.com/posts/es/20191107.html
+https://ichochy.com/posts/es/20191106.html
 https://ichochy.com/posts/shell/20191028.html
 https://ichochy.com/posts/spring/20191018.html
 https://ichochy.com/posts/spring/20191017.html

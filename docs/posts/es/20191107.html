@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>Docker 中运行 ElasticSearch 和 Kibana &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="docker,elasticsearch,kibana"/>
+    <meta name="description" content="ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
+        <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2025 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一下载镜像image">一、下载镜像(image)</a></li>
+        <li><a href="#二创建-docker-composeyml">二、创建 docker-compose.yml</a></li>
+        <li><a href="#三运行">三、运行</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    
+<h1>Docker 中运行 ElasticSearch 和 Kibana</h1>
+<hr>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/elasticsearch.html">#ElasticSearch</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/docker.html">#docker</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/elasticsearch.html">#elasticsearch</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/kibana.html">#kibana</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2019/11/07 13:24:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/es/20191107.html">https://ichochy.com/posts/es/20191107.html</a>
+<hr>
+
+  <p>ElasticSearch 是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口；Kibana 是一个开源的分析和可视化平台，可以搜索，查看、分析存储在Elasticsearch索引中的数据</p>
+<h3 id="一下载镜像image">一、下载镜像(image)</h3>
+<p><strong>搜索镜像(image)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker search elasticsearch
+</span></span><span style="display:flex;"><span>docker search kibana 
+</span></span></code></pre></div><p><strong>获取镜像(image)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull elasticsearch:7.4.1     <span style="color:#75715e">#镜像名称:Tag</span>
+</span></span><span style="display:flex;"><span>docker pull kibana:7.4.1            <span style="color:#75715e">#镜像名称:Tag</span>
+</span></span></code></pre></div><h3 id="二创建-docker-composeyml">二、创建 docker-compose.yml</h3>
+<p><strong>构建 es.yml</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>version: <span style="color:#e6db74">&#34;3.2&#34;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span>  elasticsearch:
+</span></span><span style="display:flex;"><span>    container_name: elasticsearch           <span style="color:#75715e">#容器名称</span>
+</span></span><span style="display:flex;"><span>    image: elasticsearch:7.4.1              <span style="color:#75715e">#镜像(image)</span>
+</span></span><span style="display:flex;"><span>    restart: always                         <span style="color:#75715e">#重启方式</span>
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      discovery.type: single-node           <span style="color:#75715e">#环境变量：运行模式 单例</span>
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;9200:9200&#34;</span>                         <span style="color:#75715e">#端口映射</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;9300:9300&#34;</span>
+</span></span><span style="display:flex;"><span>  kibana:
+</span></span><span style="display:flex;"><span>    container_name: kibana                  <span style="color:#75715e">#容器名称</span>
+</span></span><span style="display:flex;"><span>    image: kibana:7.4.1                     <span style="color:#75715e">#镜像(image)</span>
+</span></span><span style="display:flex;"><span>    restart: always                         <span style="color:#75715e">#重启方式</span>
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      ELASTICSEARCH_URL: <span style="color:#e6db74">&#34;127.0.0.1:9200&#34;</span>   <span style="color:#75715e">#环境变量：elasticsearch 请求地址</span>
+</span></span><span style="display:flex;"><span>      I18N_LOCALE: <span style="color:#e6db74">&#34;zh-CN&#34;</span>                  <span style="color:#75715e">#指定中文</span>
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5601:5601&#34;</span>                         <span style="color:#75715e">#端口映射</span>
+</span></span></code></pre></div><h3 id="三运行">三、运行</h3>
+<p><strong>命令启动</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose -f es.yml up -d
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose 
+</span></span><span style="display:flex;"><span>                -f  <span style="color:#75715e">#指定构建文件</span>
+</span></span><span style="display:flex;"><span>                up  <span style="color:#75715e">#创建并启动容器</span>
+</span></span><span style="display:flex;"><span>                -d  <span style="color:#75715e">#后台运行容器(container)，打印容器(container)ID</span>
+</span></span></code></pre></div><p>启动完成后直接访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana</p>
+<p><img src="https://images.ichochy.com/15731085378080282.png" alt="15731085378080282"></p>
+<p>*注：*注意YML文件编写，不要出现 Tab 制表符，否则导致文件解析错误，启动容器(container)失败</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 错误信息</span>
+</span></span><span style="display:flex;"><span>yaml.scanner.ScannerError: mapping values are not allowed here
+</span></span></code></pre></div>
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/es/20191106.html">
+                    初识 Docker
+                </a>
+                <small>
+                    2019/11/06
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+  <span class="pagination-link newer">
+    上一篇：<a href="https://ichochy.com/posts/software/20200222.html" class="pag-link">mysql 使用 source/mysqldump 命令导入/导出文件信息</a>
+  </span>
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/es/20191106.html" class="pag-link">初识 Docker</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>

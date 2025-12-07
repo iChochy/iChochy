@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>Elastic Stack 实现日志的自动采集、搜索和分析 &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="docker,elasticsearch,kibana,logstash"/>
+    <meta name="description" content="Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
+        <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2025 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一下载镱像image">一、下载镱像(image)</a></li>
+        <li><a href="#二创建-elkyml">二、创建 ELK.yml</a></li>
+        <li><a href="#三运行容器">三、运行容器</a></li>
+        <li><a href="#四检查容器的运行状态">四、检查容器的运行状态</a></li>
+        <li><a href="#五修改logstash配置监控日志文件">五、修改logstash配置，监控日志文件</a></li>
+        <li><a href="#六采集日志">六、采集日志</a></li>
+        <li><a href="#七搜索分析日志">七、搜索、分析日志</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    
+<h1>Elastic Stack 实现日志的自动采集、搜索和分析</h1>
+<hr>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/elasticsearch.html">#ElasticSearch</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/docker.html">#docker</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/elasticsearch.html">#elasticsearch</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/kibana.html">#kibana</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/logstash.html">#logstash</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2020/07/10 15:28:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/es/20200710.html">https://ichochy.com/posts/es/20200710.html</a>
+<hr>
+
+  <p>Elastic Stack 包括 Elasticsearch、Kibana、Beats 和 Logstash（也称为 ELK Stack）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化</p>
+<p><code>Elasticsearch</code> 是一个分布式、RESTful 风格的搜索和数据分析引擎</p>
+<p><code>Kibana</code> 是一个免费且开放的用户界面，能够让您对 Elasticsearch 数据进行可视化管理和展示</p>
+<p><code>Beats</code> 是一个免费且开放的平台，集合了多种单一用途数据采集器，将数据发送给 Logstash 或 Elasticsearch</p>
+<p><code>Logstash</code> 是一个免费且开放的服务器端数据处理管道，能够从多个来源采集数据，转换数据，然后将数据发送到您最喜欢的“存储库”中</p>
+<h3 id="一下载镱像image">一、下载镱像(image)</h3>
+<p><strong>搜索镱像(image)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker search elasticsearch
+</span></span><span style="display:flex;"><span>docker search kibana 
+</span></span><span style="display:flex;"><span>docker search logstash 
+</span></span></code></pre></div><p><strong>获取镱像(image)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull elasticsearch:7.6.0     <span style="color:#75715e">#镜像名称:Tag</span>
+</span></span><span style="display:flex;"><span>docker pull kibana:7.6.0            <span style="color:#75715e">#镜像名称:Tag</span>
+</span></span><span style="display:flex;"><span>docker pull logstash:7.6.0            <span style="color:#75715e">#镜像名称:Tag</span>
+</span></span></code></pre></div><p><strong>注：版本要统一</strong></p>
+<h3 id="二创建-elkyml">二、创建 ELK.yml</h3>
+<p><strong>ELK.yml</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.5&#34;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">elasticsearch</span>:
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">elasticsearch</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">image</span>: <span style="color:#ae81ff">elasticsearch:7.6.0            </span> <span style="color:#75715e">#镱像(image)</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always                       </span> <span style="color:#75715e">#重启方式</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">discovery.type</span>: <span style="color:#ae81ff">single-node         </span> <span style="color:#75715e">#环境变量：运行模式 单例</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>       - <span style="color:#e6db74">&#34;9200:9200&#34;</span>                        <span style="color:#75715e">#端口映射</span>
+</span></span><span style="display:flex;"><span>       - <span style="color:#e6db74">&#34;9300:9300&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kibana</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">kibana</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">kibana:7.6.0                    </span> <span style="color:#75715e">#镱像(image)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always                        </span> <span style="color:#75715e">#重启方式</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">I18N_LOCALE</span>: <span style="color:#e6db74">&#34;zh-CN&#34;</span>                  <span style="color:#75715e">#指定中文</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>       - <span style="color:#e6db74">&#34;5601:5601&#34;</span>                        <span style="color:#75715e">#端口映射</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">logstash</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">logstash</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">logstash:7.6.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:                                <span style="color:#75715e">#文件夹映射，本地:容器</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;/Users/iChochy/logs:/usr/share/logstash/logs&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>: 
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5044:5044&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;9600:9600&#34;</span>
+</span></span></code></pre></div><blockquote>
+<p><code>volumes</code>自定义监控的文件夹<br>
+**注：**注意YML文件编写，不要出现 Tab 制表符，否则导致文件解析错误，启动容器(container)失败</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 错误信息</span>
+</span></span><span style="display:flex;"><span>yaml.scanner.ScannerError: mapping values are not allowed here
+</span></span></code></pre></div><h3 id="三运行容器">三、运行容器</h3>
+<p>宿主机<code>hosts</code>中添加</p>
+<pre tabindex="0"><code>127.0.0.1      elasticsearch
+</code></pre><p><strong>命令启动</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose -f ELK.yml up -d
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose 
+</span></span><span style="display:flex;"><span>                -f  <span style="color:#75715e">#指定构建文件</span>
+</span></span><span style="display:flex;"><span>                up  <span style="color:#75715e">#创建并启动容器</span>
+</span></span><span style="display:flex;"><span>                -d  <span style="color:#75715e">#后台运行容器(container)，打印容器(container)ID</span>
+</span></span></code></pre></div><h3 id="四检查容器的运行状态">四、检查容器的运行状态</h3>
+<p>elasticsearch
+访问：<a href="http://127.0.0.1:9200">http://127.0.0.1:9200</a><br>
+<img src="https://images.ichochy.com/15943942032407731.png" alt="15943942032407731"></p>
+<p>logstash
+访问：<a href="http://127.0.0.1:9600">http://127.0.0.1:9600</a><br>
+<img src="https://images.ichochy.com/15943942392245702.png" alt="15943942392245702"></p>
+<p>Kibana
+访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana<br>
+<img src="https://images.ichochy.com/15731085378080282.png" alt="15731085378080282"></p>
+<p>运行<code>docker ps</code>查询容器运行状态，可以查看到容器的ID</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mleo$ docker ps
+</span></span><span style="display:flex;"><span>CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+</span></span><span style="display:flex;"><span>1b8cb2effede        logstash:7.6.0        <span style="color:#e6db74">&#34;/usr/local/bin/dock…&#34;</span>   <span style="color:#ae81ff">2</span> hours ago         Up About an hour    0.0.0.0:5044-&gt;5044/tcp, 0.0.0.0:9600-&gt;9600/tcp   logstash
+</span></span><span style="display:flex;"><span>69b8bc678e4e        kibana:7.6.0          <span style="color:#e6db74">&#34;/usr/local/bin/dumb…&#34;</span>   <span style="color:#ae81ff">3</span> weeks ago         Up <span style="color:#ae81ff">2</span> hours          0.0.0.0:5601-&gt;5601/tcp                           kibana
+</span></span><span style="display:flex;"><span>8c655f5b7493        elasticsearch:7.6.0   <span style="color:#e6db74">&#34;/usr/local/bin/dock…&#34;</span>   <span style="color:#ae81ff">3</span> weeks ago         Up <span style="color:#ae81ff">2</span> hours          0.0.0.0:9200-&gt;9200/tcp, 0.0.0.0:9300-&gt;9300/tcp   elasticsearch
+</span></span></code></pre></div><p>运行<code>docker logs id</code>查看容器运行日志</p>
+<pre tabindex="0"><code>例：持续查看logstash日志
+docker logs 1b8cb2effede -f
+</code></pre><h3 id="五修改logstash配置监控日志文件">五、修改logstash配置，监控日志文件</h3>
+<ul>
+<li>运行<code>docker exec -it 1b8cb2effede bash</code>进入logstash</li>
+<li>运行<code>vi pipeline/logstash.conf</code>修改logstash默认配置</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">input {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">beats {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">port =&gt; 5044</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">file {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">path =&gt; &#34;/usr/share/logstash/logs/*&#34;  </span> <span style="color:#75715e">#监控的文件路径</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">output {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">stdout {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">codec =&gt; rubydebug</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">elasticsearch {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">hosts =&gt; [&#34;http://elasticsearch:9200&#34;] </span> <span style="color:#75715e">#elasticsearch请求地址</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">index =&gt; &#34;ichochy&#34;                     </span> <span style="color:#75715e">#索引名称</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>运行<code>docker restart 1b8cb2effede</code>重启 logstash</li>
+</ul>
+<h3 id="六采集日志">六、采集日志</h3>
+<p>在logstash的监控的文件路径下动态添加日志文件，日志就可以自动采集到 elasticsearch</p>
+<pre tabindex="0"><code>touch web.log   #创建日志文件
+echo &#34;www.ichochy.com&#34; &gt; web.log  #添加日志信息
+</code></pre><p>查看 logstash 日志信息可以看到打印的日志</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;@version&#34;</span> <span style="color:#ae81ff">=&gt; &#34;1&#34;,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;path&#34;</span> <span style="color:#ae81ff">=&gt; &#34;/usr/share/logstash/logs/web.log&#34;,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;host&#34;</span> <span style="color:#ae81ff">=&gt; &#34;1b8cb2effede&#34;,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;@timestamp&#34;</span> <span style="color:#ae81ff">=&gt; 2020-07-10T14:07:16.633Z,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#e6db74">&#34;message&#34;</span> <span style="color:#ae81ff">=&gt; &#34;www.ichochy.com&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="七搜索分析日志">七、搜索、分析日志</h3>
+<p>访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana</p>
+<p>在<code>Discover</code>可以看到刚刚添加进来的日志数据，开始表演…………</p>
+<p><img src="https://images.ichochy.com/15943959651825033.png" alt="15943959651825033"></p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/es/20191107.html">
+                    Docker 中运行 ElasticSearch 和 Kibana
+                </a>
+                <small>
+                    2019/11/07
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/es/20191106.html">
+                    初识 Docker
+                </a>
+                <small>
+                    2019/11/06
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+  <span class="pagination-link newer">
+    上一篇：<a href="https://ichochy.com/posts/blog/20200802.html" class="pag-link">免费创建属于自己的博客，Hugo&#43;Github Pages</a>
+  </span>
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/blog/20200622.html" class="pag-link">个人站长的加速器 - 百度云加速</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>
