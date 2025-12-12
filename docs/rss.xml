@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 07 Dec 2025 19:12:45 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Dec 2025 10:22:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenRouter 模型聚合平台，提供超多免费模型使用</title>
+      <link>https://ichochy.com/posts/ai/20251210.html</link>
+      <pubDate>Wed, 10 Dec 2025 10:22:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/ai/20251210.html</guid>
+      <description>&lt;p&gt;OpenRouter 提供统一的API，通过单个 API 访问数百个人工智能模型。&#xA;OpenRouter 会采用底层提供商的定价，同时整合它们的正常运行时间，拥有统一的 API 和备用方案。&#xA;让开发者可以通过 一个 API Key + 一个统一接口调用来自不同提供商的大型语言模型（LLM），包括 OpenAI、Anthropic、Google 等常见的模型。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>iReader 英语点读学习系统，译林小学英语在线点读</title>
       <link>https://ichochy.com/posts/web/20251207.html</link>
@@ -17,9 +24,9 @@
     </item>
     <item>
       <title>ZenMux 企业级大模型聚合平台，提供免费试用模型 Gemini 3 Pro</title>
-      <link>https://ichochy.com/posts/ai/20251207.html</link>
+      <link>https://ichochy.com/posts/ai/20251205.html</link>
       <pubDate>Fri, 05 Dec 2025 14:22:45 +0800</pubDate>
-      <guid>https://ichochy.com/posts/ai/20251207.html</guid>
+      <guid>https://ichochy.com/posts/ai/20251205.html</guid>
       <description>&lt;p&gt;ZenMux 是全球首个支持保险赔付机制的企业级大模型聚合平台。&#xA;ZenMux 聚合了全球领先的闭源和开源大语言模型，在一个统一的平台上为开发者提供便捷的模型调用服务。&#xA;ZenMux 提供统一的 API 接口访问 OpenAI、Anthropic、Google、DeepSeek等。&lt;/p&gt;</description>
     </item>
     <item>
@@ -62,7 +69,7 @@
       <link>https://ichochy.com/posts/app/20250606.html</link>
       <pubDate>Fri, 06 Jun 2025 11:22:36 +0800</pubDate>
       <guid>https://ichochy.com/posts/app/20250606.html</guid>
-      <description>&lt;p&gt;iChat(AI Chat)  是一个智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI，使用SwiftUI、SwiftData开发，macOS原生AI客服端&lt;/p&gt;</description>
+      <description>&lt;p&gt;iChat 是一款开源的智能聊天工具。&#xA;支持 DeepSeek 、Gemini、Grok、OpenAI、ZenMux、OpenRouter、Cloudflare（AI Gateway）和自定义AI。&#xA;使用 SwiftUI 开发，macOS 原生 AI 客服端。&lt;/p&gt;</description>
     </item>
     <item>
       <title>NanoPi R2S 安装 Debian 固件系统，旁路由网络代理内网转发，决解直连网络卡顿 nftables</title>
@@ -181,7 +188,7 @@
       <link>https://ichochy.com/sites.html</link>
       <pubDate>Sat, 22 Jun 2024 12:07:59 +0800</pubDate>
       <guid>https://ichochy.com/sites.html</guid>
-      <description>&lt;h2 id=&#34;ai-智能&#34;&gt;AI 智能&lt;/h2&gt;&#xA;&lt;p&gt;通义：&lt;a href=&#34;https://tongyi.com&#34;&gt;https://tongyi.com&lt;/a&gt;&lt;br&gt;&#xA;豆包：&lt;a href=&#34;https://www.doubao.com&#34;&gt;https://www.doubao.com&lt;/a&gt;&lt;br&gt;&#xA;Deepseek：&lt;a href=&#34;https://deepseek.com&#34;&gt;https://deepseek.com&lt;/a&gt;&lt;br&gt;&#xA;Duck：&lt;a href=&#34;https://Duck.ai&#34;&gt;https://Duck.ai&lt;/a&gt; &lt;br&gt;&#xA;Grok：&lt;a href=&#34;https://grok.com&#34;&gt;https://grok.com&lt;/a&gt;&lt;br&gt;&#xA;Claude：&lt;a href=&#34;https://claude.ai&#34;&gt;https://claude.ai&lt;/a&gt;&lt;br&gt;&#xA;Gemini：&lt;a href=&#34;https://gemini.google.com&#34;&gt;https://gemini.google.com&lt;/a&gt;&lt;br&gt;&#xA;ChatGPT：&lt;a href=&#34;https://chatgpt.com&#34;&gt;https://chatgpt.com&lt;/a&gt;&lt;br&gt;&#xA;ZenMux：&lt;a href=&#34;https://zenmux.ai/invite/3KA0VI&#34;&gt;https://zenmux.ai&lt;/a&gt;&lt;br&gt;&#xA;POE：&lt;a href=&#34;https://poe.com&#34;&gt;https://poe.com&lt;/a&gt; &lt;br&gt;&#xA;MerLin：&lt;a href=&#34;https://www.getmerlin.in/chat&#34;&gt;https://www.getmerlin.in&lt;/a&gt;&lt;br&gt;&#xA;GoogleLabs：&lt;a href=&#34;https://labs.google/experiments&#34;&gt;https://labs.google/experiments&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;ai-智能&#34;&gt;AI 智能&lt;/h2&gt;&#xA;&lt;p&gt;千问：&lt;a href=&#34;https://www.qianwen.com&#34;&gt;https://www.qianwen.com&lt;/a&gt;&lt;br&gt;&#xA;豆包：&lt;a href=&#34;https://www.doubao.com&#34;&gt;https://www.doubao.com&lt;/a&gt;&lt;br&gt;&#xA;Deepseek：&lt;a href=&#34;https://deepseek.com&#34;&gt;https://deepseek.com&lt;/a&gt;&lt;br&gt;&#xA;Duck：&lt;a href=&#34;https://Duck.ai&#34;&gt;https://Duck.ai&lt;/a&gt; &lt;br&gt;&#xA;Grok：&lt;a href=&#34;https://grok.com&#34;&gt;https://grok.com&lt;/a&gt;&lt;br&gt;&#xA;Claude：&lt;a href=&#34;https://claude.ai&#34;&gt;https://claude.ai&lt;/a&gt;&lt;br&gt;&#xA;ChatGPT：&lt;a href=&#34;https://chatgpt.com&#34;&gt;https://chatgpt.com&lt;/a&gt;&lt;br&gt;&#xA;Gemini：&lt;a href=&#34;https://gemini.google.com&#34;&gt;https://gemini.google.com&lt;/a&gt;&lt;br&gt;&#xA;ZenMux：&lt;a href=&#34;https://zenmux.ai/invite/3KA0VI&#34;&gt;https://zenmux.ai&lt;/a&gt;&lt;br&gt;&#xA;OpenRouter：&lt;a href=&#34;https://openrouter.ai&#34;&gt;https://openrouter.ai&lt;/a&gt;&lt;br&gt;&#xA;POE：&lt;a href=&#34;https://poe.com&#34;&gt;https://poe.com&lt;/a&gt; &lt;br&gt;&#xA;MerLin：&lt;a href=&#34;https://www.getmerlin.in/chat&#34;&gt;https://www.getmerlin.in&lt;/a&gt;&lt;br&gt;&#xA;GoogleLabs：&lt;a href=&#34;https://labs.google/experiments&#34;&gt;https://labs.google/experiments&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 OpenCore，让你的旧 Mac 用上最新的 macOS 系统</title>

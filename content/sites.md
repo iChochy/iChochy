@@ -4,15 +4,16 @@ date: 2024-06-22T12:07:59+08:00
 ---
 
 ## AI 智能
-通义：[https://tongyi.com](https://tongyi.com)  
+千问：[https://www.qianwen.com](https://www.qianwen.com)  
 豆包：[https://www.doubao.com](https://www.doubao.com)  
 Deepseek：[https://deepseek.com](https://deepseek.com)   
 Duck：[https://Duck.ai](https://Duck.ai)    
 Grok：[https://grok.com](https://grok.com)   
 Claude：[https://claude.ai](https://claude.ai)   
-Gemini：[https://gemini.google.com](https://gemini.google.com)   
 ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
+Gemini：[https://gemini.google.com](https://gemini.google.com)   
 ZenMux：[https://zenmux.ai](https://zenmux.ai/invite/3KA0VI)  
+OpenRouter：[https://openrouter.ai](https://openrouter.ai)  
 POE：[https://poe.com](https://poe.com)    
 MerLin：[https://www.getmerlin.in](https://www.getmerlin.in/chat)  
 GoogleLabs：[https://labs.google/experiments](https://labs.google/experiments)   
@@ -22,9 +23,9 @@ Java：[https://dev.java](https://dev.java)
 Spring：[https://spring.io](https://spring.io)    
 Swift：[https://www.swift.org](https://www.swift.org)  
 Apple Doc：[https://developer.apple.com](https://developer.apple.com/documentation)  
-Mozilla Web:[https://developer.mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web)  
-W3School：[https://www.w3school.com.cn](https://www.w3school.com.cn)  
+MDN Web:[https://developer.mozilla.org](https://developer.mozilla.org/zh-CN/docs/Web)  
 JS 教程：[https://zh.javascript.info](https://zh.javascript.info)  
+W3School：[https://www.w3school.com.cn](https://www.w3school.com.cn)  
 Hugo：[https://gohugo.io](https://gohugo.io)   
 
 ## 开发工具
