@@ -65,11 +65,11 @@
       <description>&lt;h2 id=&#34;统计分析&#34;&gt;统计分析&lt;/h2&gt;&#xA;&lt;table id=&#34;dataTable&#34;&gt;&#xA;    &lt;thead id=&#34;tableHead&#34;&gt;&lt;/thead&gt;&#xA;    &lt;tbody id=&#34;tableBody&#34;&gt;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;script src=&#34;https://ichochy.com/js/analytics.js&#34;&gt;&lt;/script&gt;</description>
     </item>
     <item>
-      <title>iChat(AI Chat) 智能聊天工具，支持DeepSeek、Gemini、Grok、OpenAI和自定义AI</title>
+      <title>iChat(AI Chat) 智能聊天工具，支持 MiMo、DeepSeek、Gemini、Grok、OpenAI和自定义AI</title>
       <link>https://ichochy.com/posts/app/20250606.html</link>
       <pubDate>Fri, 06 Jun 2025 11:22:36 +0800</pubDate>
       <guid>https://ichochy.com/posts/app/20250606.html</guid>
-      <description>&lt;p&gt;iChat 是一款开源的智能聊天工具。&#xA;支持 DeepSeek 、Gemini、Grok、OpenAI、ZenMux、OpenRouter、Cloudflare（AI Gateway）和自定义AI。&#xA;使用 SwiftUI 开发，macOS 原生 AI 客服端。&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;ichatai-chat&#34;&gt;iChat(AI Chat)&lt;/h1&gt;&#xA;&lt;p&gt;[&lt;a href=&#34;https://ai.ichochy.com/README_zh.html&#34;&gt;中文&lt;/a&gt;]｜[&lt;a href=&#34;https://ai.ichochy.com&#34;&gt;English&lt;/a&gt;]&lt;/p&gt;&#xA;&lt;p&gt;iChat 是一款开源的智能聊天工具，支持 MiMo、DeepSeek 、Gemini、Grok、OpenAI、ZenMux、OpenRouter、Cloudflare（AI Gateway）和自定义AI，使用 SwiftUI 开发，macOS 原生 AI 客服端&lt;/p&gt;</description>
     </item>
     <item>
       <title>NanoPi R2S 安装 Debian 固件系统，旁路由网络代理内网转发，决解直连网络卡顿 nftables</title>
