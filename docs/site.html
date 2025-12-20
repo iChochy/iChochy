@@ -85,8 +85,21 @@
 
 <!-- 自动跳转 -->
 <script>
-    let redirect_url = "https://cloud.siliconflow.cn/i/tNIsGU0B";
-    document.getElementById("redirect_url").href = redirect_url;
+    function base64Encode(str) {
+        return btoa(encodeURIComponent(str));
+    }
+
+    function base64Decode(base64) {
+        return decodeURIComponent(atob(base64));
+    }
+    let urls = {
+        "zenmux":"aHR0cHMlM0ElMkYlMkZ6ZW5tdXguYWklMkZpbnZpdGUlMkYzS0EwVkk=",
+        "bigmodel":"aHR0cHMlM0ElMkYlMkZ3d3cuYmlnbW9kZWwuY24lMkZpbnZpdGUlM0ZpY29kZSUzRFNiaHlFb1J5YXRHVnQyJTJGajNYWEl6bjN1RkoxblowakxMZ2lwUWtZanBjQSUzRA==",
+        "siliconflow":"aHR0cHMlM0ElMkYlMkZjbG91ZC5zaWxpY29uZmxvdy5jbiUyRmklMkZ0TklzR1UwQg==",
+    }
+    let hash = location.hash.substring(1)
+    let url = urls[hash] || "aHR0cHMlM0ElMkYlMkZpY2hvY2h5LmNvbQ=="
+    let redirect_url = document.getElementById("redirect_url").href = base64Decode(url);
     setTimeout(() => {
         location.replace(redirect_url);
     }, 3000);
