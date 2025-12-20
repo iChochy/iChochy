@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳转中...</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1f1f1f;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .loader {
+            width: 100px;
+            height: 100px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+        h1 {
+            font-size: 32px;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .waiting {
+            padding-left: 40px;
+            font-size: 24px;
+            margin-top: 20px;
+            opacity: 0.9;
+            white-space: nowrap; /* 防止文字换行 */
+        }
+        .dots {
+            display: inline-block;
+            width: 40px; /* 固定宽度，避免文字抖动 */
+            text-align: left;
+        }
+        .dots::after {
+            content: '';
+            animation: dots 1.5s infinite steps(4);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes dots {
+            0%   { content: ''; }
+            25%  { content: '.'; }
+            50%  { content: '..'; }
+            75%  { content: '...'; }
+            100% { content: ''; }
+        }
+        p {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+        a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="loader"></div>
+    <h1>正在跳转</h1>
+    <p class="waiting">请稍等，3s 后跳转<span class="dots"></span></p>
+    <p>如果没有自动跳转，请 <a id = "redirect_url"  href="https://ichochy.com">点击这里</a></p>
+</div>
+
+<!-- 自动跳转 -->
+<script>
+    let redirect_url = "https://www.bigmodel.cn/invite?icode=SbhyEoRyatGVt2/j3XXIzn3uFJ1nZ0jLLgipQkYjpcA=";
+    document.getElementById("redirect_url").href = redirect_url;
+    setTimeout(() => {
+        location.replace(redirect_url);
+    }, 3000);
+</script>
+</body>
+</html>

@@ -6,8 +6,22 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 10 Dec 2025 10:22:45 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Dec 2025 22:13:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SiliconFlow 硅基流动一站式大模型云服务平台，提供超多免费大模型</title>
+      <link>https://ichochy.com/posts/ai/20251218.html</link>
+      <pubDate>Thu, 18 Dec 2025 22:13:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/ai/20251218.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ichochy.com/redirect/siliconflow.html&#34;&gt;SiliconFlow&lt;/a&gt; 硅基流动致力于成为全球领先的 AI 能力提供商，加速 AGI 普惠人类。&#xA;其核心产品一站式大模型云服务平台 SiliconCloud&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>BigModel 智谱大模型开放平台，提供超多自研免费大模型</title>
+      <link>https://ichochy.com/posts/ai/20251212.html</link>
+      <pubDate>Fri, 12 Dec 2025 11:15:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/ai/20251212.html</guid>
+      <description>&lt;p&gt;智谱大模型开放平台 &lt;a href=&#34;https://ichochy.com/redirect/bigmodel.html&#34;&gt;bigmodel.cn&lt;/a&gt;，提供功能丰富、灵活易用、高性价比的大模型 API 服务，&#xA;支持智能体开发与模型精调、推理、评测等，致力于构建高效通用的“一站式模型即服务” AI 开发新范式。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>OpenRouter 模型聚合平台，提供超多免费模型使用</title>
       <link>https://ichochy.com/posts/ai/20251210.html</link>
@@ -69,7 +83,7 @@
       <link>https://ichochy.com/posts/app/20250606.html</link>
       <pubDate>Fri, 06 Jun 2025 11:22:36 +0800</pubDate>
       <guid>https://ichochy.com/posts/app/20250606.html</guid>
-      <description>&lt;h1 id=&#34;ichatai-chat&#34;&gt;iChat(AI Chat)&lt;/h1&gt;&#xA;&lt;p&gt;[&lt;a href=&#34;https://ai.ichochy.com/README_zh.html&#34;&gt;中文&lt;/a&gt;]｜[&lt;a href=&#34;https://ai.ichochy.com&#34;&gt;English&lt;/a&gt;]&lt;/p&gt;&#xA;&lt;p&gt;iChat 是一款开源的智能聊天工具，支持 MiMo、DeepSeek 、Gemini、Grok、OpenAI、ZenMux、OpenRouter、Cloudflare（AI Gateway）和自定义AI，使用 SwiftUI 开发，macOS 原生 AI 客服端&lt;/p&gt;</description>
+      <description>&lt;p&gt;[&lt;a href=&#34;https://ai.ichochy.com/README_zh.html&#34;&gt;中文&lt;/a&gt;]｜[&lt;a href=&#34;https://ai.ichochy.com&#34;&gt;English&lt;/a&gt;]&lt;/p&gt;&#xA;&lt;p&gt;iChat 是一款开源的智能聊天工具，支持 MiMo、DeepSeek 、Gemini、Grok、OpenAI、ZenMux、OpenRouter、Cloudflare（AI Gateway）和自定义AI，使用 SwiftUI 开发，macOS 原生 AI 客服端&lt;/p&gt;</description>
     </item>
     <item>
       <title>NanoPi R2S 安装 Debian 固件系统，旁路由网络代理内网转发，决解直连网络卡顿 nftables</title>
@@ -188,7 +202,7 @@
       <link>https://ichochy.com/sites.html</link>
       <pubDate>Sat, 22 Jun 2024 12:07:59 +0800</pubDate>
       <guid>https://ichochy.com/sites.html</guid>
-      <description>&lt;h2 id=&#34;ai-智能&#34;&gt;AI 智能&lt;/h2&gt;&#xA;&lt;p&gt;千问：&lt;a href=&#34;https://www.qianwen.com&#34;&gt;https://www.qianwen.com&lt;/a&gt;&lt;br&gt;&#xA;豆包：&lt;a href=&#34;https://www.doubao.com&#34;&gt;https://www.doubao.com&lt;/a&gt;&lt;br&gt;&#xA;Deepseek：&lt;a href=&#34;https://deepseek.com&#34;&gt;https://deepseek.com&lt;/a&gt;&lt;br&gt;&#xA;Duck：&lt;a href=&#34;https://Duck.ai&#34;&gt;https://Duck.ai&lt;/a&gt; &lt;br&gt;&#xA;Grok：&lt;a href=&#34;https://grok.com&#34;&gt;https://grok.com&lt;/a&gt;&lt;br&gt;&#xA;Claude：&lt;a href=&#34;https://claude.ai&#34;&gt;https://claude.ai&lt;/a&gt;&lt;br&gt;&#xA;ChatGPT：&lt;a href=&#34;https://chatgpt.com&#34;&gt;https://chatgpt.com&lt;/a&gt;&lt;br&gt;&#xA;Gemini：&lt;a href=&#34;https://gemini.google.com&#34;&gt;https://gemini.google.com&lt;/a&gt;&lt;br&gt;&#xA;ZenMux：&lt;a href=&#34;https://zenmux.ai/invite/3KA0VI&#34;&gt;https://zenmux.ai&lt;/a&gt;&lt;br&gt;&#xA;OpenRouter：&lt;a href=&#34;https://openrouter.ai&#34;&gt;https://openrouter.ai&lt;/a&gt;&lt;br&gt;&#xA;POE：&lt;a href=&#34;https://poe.com&#34;&gt;https://poe.com&lt;/a&gt; &lt;br&gt;&#xA;MerLin：&lt;a href=&#34;https://www.getmerlin.in/chat&#34;&gt;https://www.getmerlin.in&lt;/a&gt;&lt;br&gt;&#xA;GoogleLabs：&lt;a href=&#34;https://labs.google/experiments&#34;&gt;https://labs.google/experiments&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;ai-智能&#34;&gt;AI 智能&lt;/h2&gt;&#xA;&lt;p&gt;千问：&lt;a href=&#34;https://www.qianwen.com&#34;&gt;https://www.qianwen.com&lt;/a&gt;&lt;br&gt;&#xA;豆包：&lt;a href=&#34;https://www.doubao.com&#34;&gt;https://www.doubao.com&lt;/a&gt;&lt;br&gt;&#xA;Deepseek：&lt;a href=&#34;https://deepseek.com&#34;&gt;https://deepseek.com&lt;/a&gt;&lt;br&gt;&#xA;Duck：&lt;a href=&#34;https://Duck.ai&#34;&gt;https://Duck.ai&lt;/a&gt; &lt;br&gt;&#xA;Grok：&lt;a href=&#34;https://grok.com&#34;&gt;https://grok.com&lt;/a&gt;&lt;br&gt;&#xA;Claude：&lt;a href=&#34;https://claude.ai&#34;&gt;https://claude.ai&lt;/a&gt;&lt;br&gt;&#xA;ChatGPT：&lt;a href=&#34;https://chatgpt.com&#34;&gt;https://chatgpt.com&lt;/a&gt;&lt;br&gt;&#xA;Gemini：&lt;a href=&#34;https://gemini.google.com&#34;&gt;https://gemini.google.com&lt;/a&gt;&lt;br&gt;&#xA;GoogleLabs：&lt;a href=&#34;https://labs.google/experiments&#34;&gt;https://labs.google/experiments&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 OpenCore，让你的旧 Mac 用上最新的 macOS 系统</title>
