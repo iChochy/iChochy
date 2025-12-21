@@ -16,61 +16,85 @@
             color: white;
             overflow: hidden;
         }
+
         .container {
             text-align: center;
         }
+
         .loader {
             width: 100px;
             height: 100px;
             border: 8px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            border-top-color: white;
+            border-top-color: #2f6f9f;
             animation: spin 1s linear infinite;
             margin: 0 auto 30px;
         }
+
         h1 {
             font-size: 32px;
             margin: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
+
         .waiting {
             padding-left: 40px;
-            font-size: 24px;
-            margin-top: 20px;
-            opacity: 0.9;
+            font-size: 18px;
             white-space: nowrap; /* 防止文字换行 */
         }
+
         .dots {
             display: inline-block;
             width: 40px; /* 固定宽度，避免文字抖动 */
             text-align: left;
         }
+
         .dots::after {
             content: '';
             animation: dots 1.5s infinite steps(4);
         }
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
+
         @keyframes dots {
-            0%   { content: ''; }
-            25%  { content: '.'; }
-            50%  { content: '..'; }
-            75%  { content: '...'; }
-            100% { content: ''; }
+            0% {
+                content: '';
+            }
+            25% {
+                content: '.';
+            }
+            50% {
+                content: '..';
+            }
+            75% {
+                content: '...';
+            }
+            100% {
+                content: '';
+            }
         }
+
         p {
-            font-size: 18px;
-            margin-top: 30px;
-            opacity: 0.9;
+            font-size: 24px;
+            margin-top: 10px;
+            opacity: 0.5;
         }
+
         a {
             color: #fff;
             text-decoration: underline;
             font-weight: bold;
         }
+
         a:hover {
+            cursor: pointer;
             text-decoration: none;
         }
     </style>
@@ -80,7 +104,7 @@
     <div class="loader"></div>
     <h1>正在跳转</h1>
     <p class="waiting">请稍等，3s 后跳转<span class="dots"></span></p>
-    <p>如果没有自动跳转，请 <a id = "redirect_url"  href="https://ichochy.com">点击这里</a></p>
+    <p>如果没有自动跳转，请 <a onclick="redirect()">点击这里</a></p>
 </div>
 
 <!-- 自动跳转 -->
@@ -92,16 +116,21 @@
     function base64Decode(base64) {
         return decodeURIComponent(atob(base64));
     }
-    let urls = {
-        "zenmux":"aHR0cHMlM0ElMkYlMkZ6ZW5tdXguYWklMkZpbnZpdGUlMkYzS0EwVkk=",
-        "bigmodel":"aHR0cHMlM0ElMkYlMkZ3d3cuYmlnbW9kZWwuY24lMkZpbnZpdGUlM0ZpY29kZSUzRFNiaHlFb1J5YXRHVnQyJTJGajNYWEl6bjN1RkoxblowakxMZ2lwUWtZanBjQSUzRA==",
-        "siliconflow":"aHR0cHMlM0ElMkYlMkZjbG91ZC5zaWxpY29uZmxvdy5jbiUyRmklMkZ0TklzR1UwQg==",
+
+    function redirect() {
+        let hash = location.hash.substring(1)
+        let url = urls[hash] || "aHR0cHMlM0ElMkYlMkZpY2hvY2h5LmNvbQ=="
+        location.replace(base64Decode(url));
     }
-    let hash = location.hash.substring(1)
-    let url = urls[hash] || "aHR0cHMlM0ElMkYlMkZpY2hvY2h5LmNvbQ=="
-    let redirect_url = document.getElementById("redirect_url").href = base64Decode(url);
+
+    let urls = {
+        "zenmux": "aHR0cHMlM0ElMkYlMkZ6ZW5tdXguYWklMkZpbnZpdGUlMkYzS0EwVkk=",
+        "bigmodel": "aHR0cHMlM0ElMkYlMkZ3d3cuYmlnbW9kZWwuY24lMkZpbnZpdGUlM0ZpY29kZSUzRFNiaHlFb1J5YXRHVnQyJTJGajNYWEl6bjN1RkoxblowakxMZ2lwUWtZanBjQSUzRA==",
+        "siliconflow": "aHR0cHMlM0ElMkYlMkZjbG91ZC5zaWxpY29uZmxvdy5jbiUyRmklMkZ0TklzR1UwQg==",
+    }
+
     setTimeout(() => {
-        location.replace(redirect_url);
+        redirect()
     }, 3000);
 </script>
 </body>
