@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ichochy.com/categories/app.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/app.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/categories/index.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/app/20251231.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/mac.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/index.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/swift.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/index.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/translation.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/index.html</loc>
+    <lastmod>2025-12-31T18:12:36+08:00</lastmod>
+  </url><url>
     <loc>https://ichochy.com/tags/ai.html</loc>
     <lastmod>2025-12-20T13:13:45+08:00</lastmod>
   </url><url>
@@ -11,22 +41,10 @@
     <loc>https://ichochy.com/tags/api.html</loc>
     <lastmod>2025-12-20T13:13:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/categories/index.html</loc>
-    <lastmod>2025-12-20T13:13:45+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/tags/chat.html</loc>
     <lastmod>2025-12-20T13:13:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/posts/index.html</loc>
-    <lastmod>2025-12-20T13:13:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/index.html</loc>
-    <lastmod>2025-12-20T13:13:45+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/tags/web.html</loc>
-    <lastmod>2025-12-20T13:13:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/index.html</loc>
     <lastmod>2025-12-20T13:13:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/ai/20251220.html</loc>
@@ -40,9 +58,6 @@
   </url><url>
     <loc>https://ichochy.com/posts/ai/20251212.html</loc>
     <lastmod>2025-12-12T11:15:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/app.html</loc>
-    <lastmod>2025-12-10T10:22:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/ai/20251210.html</loc>
     <lastmod>2025-12-10T10:22:45+08:00</lastmod>
@@ -74,9 +89,6 @@
     <loc>https://ichochy.com/posts/shell/20251015.html</loc>
     <lastmod>2025-10-15T22:55:23+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/tags/mac.html</loc>
-    <lastmod>2025-10-15T22:55:23+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/tags/python.html</loc>
     <lastmod>2025-10-15T22:55:23+08:00</lastmod>
   </url><url>
@@ -95,13 +107,7 @@
     <loc>https://ichochy.com/analytics.html</loc>
     <lastmod>2025-06-25T12:07:59+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/categories/app.html</loc>
-    <lastmod>2025-06-06T11:22:36+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/posts/app/20250606.html</loc>
-    <lastmod>2025-06-06T11:22:36+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/swift.html</loc>
     <lastmod>2025-06-06T11:22:36+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/linux.html</loc>

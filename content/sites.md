@@ -7,7 +7,7 @@ date: 2024-06-22T12:07:59+08:00
 千问：[https://www.qianwen.com](https://www.qianwen.com)  
 豆包：[https://www.doubao.com](https://www.doubao.com)  
 Deepseek：[https://deepseek.com](https://deepseek.com)   
-Duck：[https://Duck.ai](https://Duck.ai)    
+Duck：[https://duck.ai](https://duck.ai)    
 Grok：[https://grok.com](https://grok.com)   
 Claude：[https://claude.ai](https://claude.ai)   
 ChatGPT：[https://chatgpt.com](https://chatgpt.com)  

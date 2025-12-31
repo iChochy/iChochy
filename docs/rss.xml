@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Dec 2025 13:13:45 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 31 Dec 2025 18:12:36 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iTranslation 简单快捷的翻译软件，支持数十种语言互译</title>
+      <link>https://ichochy.com/posts/app/20251231.html</link>
+      <pubDate>Wed, 31 Dec 2025 18:12:36 +0800</pubDate>
+      <guid>https://ichochy.com/posts/app/20251231.html</guid>
+      <description>&lt;h1 id=&#34;itranslation&#34;&gt;iTranslation&lt;/h1&gt;&#xA;&lt;p&gt;一个简单快捷的翻译软件，支持数十种语言互译。实时翻译，快捷高效。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>国内外免费大模型平台，支持 API 调用的超多免费大模型</title>
       <link>https://ichochy.com/posts/ai/20251220.html</link>
@@ -216,7 +223,7 @@
       <link>https://ichochy.com/sites.html</link>
       <pubDate>Sat, 22 Jun 2024 12:07:59 +0800</pubDate>
       <guid>https://ichochy.com/sites.html</guid>
-      <description>&lt;h2 id=&#34;ai-智能&#34;&gt;AI 智能&lt;/h2&gt;&#xA;&lt;p&gt;千问：&lt;a href=&#34;https://www.qianwen.com&#34;&gt;https://www.qianwen.com&lt;/a&gt;&lt;br&gt;&#xA;豆包：&lt;a href=&#34;https://www.doubao.com&#34;&gt;https://www.doubao.com&lt;/a&gt;&lt;br&gt;&#xA;Deepseek：&lt;a href=&#34;https://deepseek.com&#34;&gt;https://deepseek.com&lt;/a&gt;&lt;br&gt;&#xA;Duck：&lt;a href=&#34;https://Duck.ai&#34;&gt;https://Duck.ai&lt;/a&gt; &lt;br&gt;&#xA;Grok：&lt;a href=&#34;https://grok.com&#34;&gt;https://grok.com&lt;/a&gt;&lt;br&gt;&#xA;Claude：&lt;a href=&#34;https://claude.ai&#34;&gt;https://claude.ai&lt;/a&gt;&lt;br&gt;&#xA;ChatGPT：&lt;a href=&#34;https://chatgpt.com&#34;&gt;https://chatgpt.com&lt;/a&gt;&lt;br&gt;&#xA;Gemini：&lt;a href=&#34;https://gemini.google.com&#34;&gt;https://gemini.google.com&lt;/a&gt;&lt;br&gt;&#xA;GoogleLabs：&lt;a href=&#34;https://labs.google/experiments&#34;&gt;https://labs.google/experiments&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;ai-智能&#34;&gt;AI 智能&lt;/h2&gt;&#xA;&lt;p&gt;千问：&lt;a href=&#34;https://www.qianwen.com&#34;&gt;https://www.qianwen.com&lt;/a&gt;&lt;br&gt;&#xA;豆包：&lt;a href=&#34;https://www.doubao.com&#34;&gt;https://www.doubao.com&lt;/a&gt;&lt;br&gt;&#xA;Deepseek：&lt;a href=&#34;https://deepseek.com&#34;&gt;https://deepseek.com&lt;/a&gt;&lt;br&gt;&#xA;Duck：&lt;a href=&#34;https://duck.ai&#34;&gt;https://duck.ai&lt;/a&gt; &lt;br&gt;&#xA;Grok：&lt;a href=&#34;https://grok.com&#34;&gt;https://grok.com&lt;/a&gt;&lt;br&gt;&#xA;Claude：&lt;a href=&#34;https://claude.ai&#34;&gt;https://claude.ai&lt;/a&gt;&lt;br&gt;&#xA;ChatGPT：&lt;a href=&#34;https://chatgpt.com&#34;&gt;https://chatgpt.com&lt;/a&gt;&lt;br&gt;&#xA;Gemini：&lt;a href=&#34;https://gemini.google.com&#34;&gt;https://gemini.google.com&lt;/a&gt;&lt;br&gt;&#xA;GoogleLabs：&lt;a href=&#34;https://labs.google/experiments&#34;&gt;https://labs.google/experiments&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 OpenCore，让你的旧 Mac 用上最新的 macOS 系统</title>
