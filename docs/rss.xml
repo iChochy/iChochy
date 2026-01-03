@@ -6,8 +6,15 @@
     <description>Recent content on 回忆中的明天</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 31 Dec 2025 18:12:36 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 03 Jan 2026 22:16:45 +0800</lastBuildDate>
     <atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NVIDIA NIM AI 平台，提供超多免费大模型</title>
+      <link>https://ichochy.com/posts/ai/20260103.html</link>
+      <pubDate>Sat, 03 Jan 2026 22:16:45 +0800</pubDate>
+      <guid>https://ichochy.com/posts/ai/20260103.html</guid>
+      <description>&lt;p&gt;NVIDIA NIM（NVIDIA Inference Microservices）是英伟达推出的 AI 推理微服务，用于把 AI 模型（尤其是大模型）快速、稳定、高性能地部署成可用的在线服务。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>iTranslation 简单快捷的翻译软件，支持数十种语言互译</title>
       <link>https://ichochy.com/posts/app/20251231.html</link>

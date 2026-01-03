@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
 <head>
-    <title>国内外免费大模型平台，支持 API 调用的超多免费大模型 &middot; 回忆中的明天</title>
+    <title>NVIDIA NIM AI 平台，提供超多免费大模型 &middot; 回忆中的明天</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="ai,web,chat,api"/>
-    <meta name="description" content="国内
-Xiaomi MiMo API
-MiMo，由 小米 大模型Core团队（Xiaomi LLM Core Team）开发的大语言模型。"/>
+    <meta name="description" content="NVIDIA NIM（NVIDIA Inference Microservices）是英伟达推出的 AI 推理微服务，用于把 AI 模型（尤其是大模型）快速、稳定、高性能地部署成可用的在线服务。"/>
     
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
     <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
@@ -50,20 +48,11 @@ MiMo，由 小米 大模型Core团队（Xiaomi LLM Core Team）开发的大语�
   <div id = "toc" class="container sidebar-toc">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#国内">国内</a>
-      <ul>
-        <li><a href="#xiaomi-mimo-api">Xiaomi MiMo API</a></li>
-        <li><a href="#智谱">智谱</a></li>
-        <li><a href="#硅基流动siliconflow">硅基流动（SiliconFlow）</a></li>
-      </ul>
-    </li>
-    <li><a href="#国外">国外</a>
-      <ul>
-        <li><a href="#zenmux">ZenMux</a></li>
-        <li><a href="#openrouter">OpenRouter</a></li>
-        <li><a href="#google-al-studio">Google Al Studio</a></li>
-      </ul>
-    </li>
+    <li><a href="#产品介绍">产品介绍</a></li>
+    <li><a href="#官网">官网</a></li>
+    <li><a href="#接口地址">接口地址</a></li>
+    <li><a href="#api-调用">API 调用</a></li>
+    <li><a href="#免费模型">免费模型</a></li>
     <li><a href="#ichat">iChat</a>
       <ul>
         <li><a href="#about">About</a></li>
@@ -81,10 +70,10 @@ MiMo，由 小米 大模型Core团队（Xiaomi LLM Core Team）开发的大语�
     <li>
       <a href="https://ichochy.com/index.html">首页</a>
     </li>
-    <li class="active">国内外免费大模型平台，支持 API 调用的超多免费大模型</li>
+    <li class="active">NVIDIA NIM AI 平台，提供超多免费大模型</li>
   </ol>
 </nav>
-<h1>国内外免费大模型平台，支持 API 调用的超多免费大模型</h1>
+<h1>NVIDIA NIM AI 平台，提供超多免费大模型</h1>
 <hr>
 <div class="post">
   
@@ -130,98 +119,44 @@ MiMo，由 小米 大模型Core团队（Xiaomi LLM Core Team）开发的大语�
 
    <div>
    <time class="post-date">
-       <b>时间：</b><em>2025/12/20 13:13:45</em>
+       <b>时间：</b><em>2026/01/03 22:16:45</em>
        <b>点击：</b><span id="view-count">-</span>次
     </time>
    </div>
-<b>原文：</b><a href="https://ichochy.com/posts/ai/20251220.html">https://ichochy.com/posts/ai/20251220.html</a>
+<b>原文：</b><a href="https://ichochy.com/posts/ai/20260103.html">https://ichochy.com/posts/ai/20260103.html</a>
 <hr>
 
-  <h2 id="国内">国内</h2>
-<h3 id="xiaomi-mimo-api">Xiaomi MiMo API</h3>
-<p>MiMo，由 小米 大模型Core团队（Xiaomi LLM Core Team）开发的大语言模型。</p>
-<h4 id="xiaomi-mimo-开放平台">Xiaomi MiMo 开放平台</h4>
-<p><a href="https://platform.xiaomimimo.com">https://platform.xiaomimimo.com</a></p>
-<h4 id="免费模型限时免费中">免费模型（限时免费中……）</h4>
+  <p>NVIDIA NIM（NVIDIA Inference Microservices）是英伟达推出的 AI 推理微服务，用于把 AI 模型（尤其是大模型）快速、稳定、高性能地部署成可用的在线服务。</p>
+<h2 id="产品介绍">产品介绍</h2>
+<p>提供单一的API端点提供对顶级模型的访问，用于广泛的任务，包括：聊天、指令跟随、回答问题、总结、创意文本生成和代码生成。</p>
+<h2 id="官网">官网</h2>
+<p><a href="https://build.nvidia.com">https://build.nvidia.com</a></p>
+<h2 id="接口地址">接口地址</h2>
+<p>API Base URL：<a href="https://integrate.api.nvidia.com">https://integrate.api.nvidia.com</a></p>
+<h2 id="api-调用">API 调用</h2>
+<p>CURL 调用 API</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --request POST <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --url https://integrate.api.nvidia.com/v1/chat/completions <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --header <span style="color:#e6db74">&#39;accept: application/json&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --header <span style="color:#e6db74">&#39;authorization: Bearer $NVIDIA_API_KEY&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --header <span style="color:#e6db74">&#39;content-type: application/json&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>     --data <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;model&#34;: &#34;deepseek-ai/deepseek-r1&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;temperature&#34;: 0.6,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;top_p&#34;: 0.7,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;frequency_penalty&#34;: 0,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;presence_penalty&#34;: 0,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;max_tokens&#34;: 4096,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;stream&#34;: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}&#39;</span>
+</span></span></code></pre></div><h2 id="免费模型">免费模型</h2>
 <ul>
-<li>mimo-v2-flash</li>
-</ul>
-<h3 id="智谱">智谱</h3>
-<p>智谱大模型开放平台 <a href="https://ichochy.com/site.html#bigmodel">bigmodel.cn</a>，提供功能丰富、灵活易用、高性价比的大模型 API 服务，
-支持智能体开发与模型精调、推理、评测等，致力于构建高效通用的“一站式模型即服务” AI 开发新范式。</p>
-<h4 id="智谱官网">智谱官网</h4>
-<p><a href="https://ichochy.com/site.html#bigmodel">https://bigmodel.cn</a></p>
-<h4 id="可用免费大模型">可用免费大模型</h4>
-<ul>
-<li>GLM-4.6V-Flash</li>
-<li>GLM-4.5-Flash</li>
-<li>GLM-4.1V-Thinking-Flash</li>
-<li>GLM-4-Flash-250414</li>
-<li>GLM-4V-Flash</li>
-<li>Cogview-3-Flash</li>
-<li>CogVideoX-Flash</li>
-</ul>
-<h3 id="硅基流动siliconflow">硅基流动（SiliconFlow）</h3>
-<p><a href="https://ichochy.com/site.html#siliconflow">SiliconFlow</a> 硅基流动致力于成为全球领先的 AI 能力提供商，加速 AGI 普惠人类。
-其核心产品一站式大模型云服务平台 SiliconCloud。</p>
-<h4 id="硅基流动官网">硅基流动官网</h4>
-<p><a href="https://ichochy.com/site.html#siliconflow">https://www.siliconflow.cn</a></p>
-<h4 id="免费模型">免费模型</h4>
-<ul>
-<li>deepseek-ai/DeepSeek-OCR</li>
-<li>Qwen/Qwen3-8B</li>
-<li>tencent/Hunyuan-MT-7B</li>
-<li>THUDM/GLM-4.1V-9B-Thinking</li>
-<li>deepseek-ai/DeepSeek-R1-0528-Qwen3-8B</li>
-<li>THUDM/GLM-Z1-9B-0414</li>
-<li>deepseek-ai/DeepSeek-R1-Distill-Qwen-7B</li>
-<li>Qwen/Qwen2.5-7B-Instruct</li>
-<li>Qwen/Qwen2.5-Coder-7B-Instruct</li>
-<li>THUDM/GLM-4-9B-0414</li>
-<li>internlm/internlm2_5-7b-chat</li>
-<li>THUDM/glm-4-9b-chat</li>
-<li>Qwen/Qwen2-7B-Instruct</li>
-</ul>
-<h2 id="国外">国外</h2>
-<h3 id="zenmux">ZenMux</h3>
-<p><a href="https://ichochy.com/site.html#zenmux">ZenMux</a> 企业级大模型聚合平台，聚合了全球领先的闭源和开源大语言模型，在一个统一的平台上为开发者提供便捷的模型调用服务。</p>
-<h4 id="zenmux-官网">ZenMux 官网</h4>
-<p><a href="https://ichochy.com/site.html#zenmux">https://zenmux.ai</a></p>
-<h4 id="可用免费大模型-1">可用免费大模型</h4>
-<ul>
-<li>Google: Gemini 3 Flash Preview Free</li>
-<li>Xiaomi: MiMo-V2-Flash</li>
-<li>Z.AI: GLM 4.6V Flash</li>
-<li>KAT-Coder-Pro-V1</li>
-<li><del>Google: Gemini 3 Pro Preview Free</del></li>
-<li><del>Google: Gemini 3 Pro Image (Nano Banana Pro) Free</del></li>
-<li><del>Google：Gemini-2.5-Pro-Free</del></li>
-<li><del>Google：Gemini-2.5-Flash-Image-Free</del></li>
-</ul>
-<h3 id="openrouter">OpenRouter</h3>
-<p>OpenRouter 模型聚合平台，提供统一的API，通过单个 API 访问数百个人工智能模型。</p>
-<h4 id="openrouter-官网">OpenRouter 官网</h4>
-<p><a href="https://openrouter.ai">https://openrouter.ai</a></p>
-<h4 id="可用免费大模型-2">可用免费大模型</h4>
-<ul>
-<li>openai/gpt-oss-20b:free</li>
-<li>openai/gpt-oss-120b:free</li>
-<li>tngtech/tng-r1t-chimera:free</li>
-<li>tngtech/deepseek-r1t2-chimera:free</li>
-<li>google/gemma-3-27b-it:free</li>
-<li>meta-llama/llama-3.3-70b-instruct:free</li>
-<li>&hellip;&hellip;</li>
-</ul>
-<h3 id="google-al-studio">Google Al Studio</h3>
-<p>Google AI Studio 是一个由 Google 提供的免费网络平台，旨在让开发者和研究人员能够快速、轻松地原型化和测试 Google 的 Gemini 模型。</p>
-<h4 id="google-al-studio-官网">Google Al Studio 官网</h4>
-<p><a href="https://aistudio.google.com">https://aistudio.google.com</a></p>
-<h4 id="可用免费大模型-3">可用免费大模型</h4>
-<ul>
-<li>gemini-3-flash</li>
-<li>gemini-2.5-flash</li>
-<li>gemini-2.5-flash-lite</li>
-<li>gemini-2.5-flash-tts</li>
+<li>meta / llama-4-maverick-17b-128e-instruct</li>
+<li>meta / llama-4-scout-17b-16e-instruct</li>
+<li>deepseek-ai / deepseek-rl</li>
+<li>meta / Ilama-3.3-70b-instruct</li>
+<li>gwen / qwen2.5-coder-32b-instruct</li>
+<li>超多免费模型使用……</li>
 </ul>
 <hr>
 <h2 id="ichat">iChat</h2>
@@ -245,6 +180,17 @@ GitHub：<a href="https://github.com/iChochy/iChat">https://github.com/iChochy/i
 <div class="related">
     <h2>相关文章</h2>
     <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251220.html">
+                    国内外免费大模型平台，支持 API 调用的超多免费大模型
+                </a>
+                <small>
+                    2025/12/20
+                </small>
+            </h3>
+        </li>
         
         <li>
             <h3>
@@ -290,17 +236,6 @@ GitHub：<a href="https://github.com/iChochy/iChat">https://github.com/iChochy/i
             </h3>
         </li>
         
-        <li>
-            <h3>
-                <a href="https://ichochy.com/posts/ai/20251210.html">
-                    OpenRouter 模型聚合平台，提供超多免费模型使用
-                </a>
-                <small>
-                    2025/12/10
-                </small>
-            </h3>
-        </li>
-        
     </ul>
 </div>
 
@@ -309,13 +244,9 @@ GitHub：<a href="https://github.com/iChochy/iChat">https://github.com/iChochy/i
   
 <div class="pagination">
   
-  <span class="pagination-link newer">
-    上一篇：<a href="https://ichochy.com/posts/app/20251231.html" class="pag-link">iTranslation 简单快捷的翻译软件，支持数十种语言互译</a>
-  </span>
-  
     
   <span class="pagination-link older">
-    下一篇：<a href="https://ichochy.com/posts/ai/20251218.html" class="pag-link">SiliconFlow 硅基流动一站式大模型云服务平台，提供超多免费大模型</a>
+    下一篇：<a href="https://ichochy.com/posts/app/20251231.html" class="pag-link">iTranslation 简单快捷的翻译软件，支持数十种语言互译</a>
   </span>
     
 </div>
