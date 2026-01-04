@@ -14,15 +14,6 @@ Kaciras' Blog：[https://blog.kaciras.com](https://blog.kaciras.com)
 imbytecat：[https://www.imbytecat.com](https://www.imbytecat.com)     
 Lifeline：[https://lifelinest.github.io](https://lifelinest.github.io)    
 
-## 开源自荐
-### App
-iChat：[https://github.com/ichochy/iChat](https://github.com/ichochy/iChat)  
-iTranslation：[https://github.com/ichochy/iTranslation](https://github.com/ichochy/iTranslation)  
-### Web
-NCE：[https://github.com/ichochy/nce](https://github.com/ichochy/nce)  
-iReader：[https://github.com/ichochy/ireader](https://github.com/ichochy/ireader)  
-
-
 ## 申请友链
 请关注公众号：`iChochy`
 

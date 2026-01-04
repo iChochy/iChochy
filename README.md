@@ -1,6 +1,13 @@
 ## 简介
 80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！  
 
+## 开源自荐
+### App
+iChat：[https://github.com/ichochy/iChat](https://github.com/ichochy/iChat)  
+iTranslation：[https://github.com/ichochy/iTranslation](https://github.com/ichochy/iTranslation)  
+### Web
+NCE：[https://github.com/ichochy/nce](https://github.com/ichochy/nce)  
+iReader：[https://github.com/ichochy/ireader](https://github.com/ichochy/ireader)  
 
 ## 联系方式
 > Email：[me@ichochy.com](mailto:me@ichochy.com)  
