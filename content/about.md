@@ -6,14 +6,6 @@ date: 2020-07-22T12:07:59+08:00
 ## 简介  
 80后的码农，会点 Java 和 Swift，想在网络上留下点自己的记忆，创建当前网站和大家分享！
 
-## 开源自荐
-### App
-iChat：[https://github.com/ichochy/iChat](https://github.com/ichochy/iChat)  
-iTranslation：[https://github.com/ichochy/iTranslation](https://github.com/ichochy/iTranslation)
-### Web
-NCE：[https://github.com/ichochy/nce](https://github.com/ichochy/nce)  
-iReader：[https://github.com/ichochy/ireader](https://github.com/ichochy/ireader)
-
 ## 联系方式
 Email：[me@ichochy.com](mailto:me@ichochy.com)  
 GitHub：[https://github.com/ichochy](https://github.com/ichochy)  
@@ -22,9 +14,20 @@ GitHub：[https://github.com/ichochy](https://github.com/ichochy)
 
 ![公众号](/wx.jpg)
 
-## 打赏    
-
+## 打赏
+80后码农×白血病（CMML）患者，工作已停，药费没停。  
+如果我写的东西对您有用，请打赏点生命值。  
+再次谢谢！！！
 ![Sponsor](/sponsor.jpg)
+
+## 开源
+### App
+iChat：[https://github.com/ichochy/iChat](https://github.com/ichochy/iChat)  
+iTranslation：[https://github.com/ichochy/iTranslation](https://github.com/ichochy/iTranslation)
+### Web
+NCE：[https://github.com/ichochy/nce](https://github.com/ichochy/nce)  
+iReader：[https://github.com/ichochy/ireader](https://github.com/ichochy/ireader)
+
 
 ## 感谢  
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)   
