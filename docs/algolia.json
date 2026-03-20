@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20260320,
+    "url": "https://ichochy.com/posts/web/20260320.html",
+    "title": "自己写一个Web 端的MiMo TTS Chat，方便实现文本转语音，API限免中",
+    "summary": "一个基于原生 H5 实现的静态网页应用，调用 MiMo TTS 接口实现文本语音合成。\n",
+    "content": "一个基于原生 H5 实现的静态网页应用，调用 MiMo TTS 接口实现文本语音合成。\nMiMo TTS Chat 可以选择预置音色，输入文本或上传 .txt 文件，发送后可获取 WAV 音频\n支持在线预览播放、下载音频\nMiMo TTS MiMo TTS API 限免中\n获取 API KEY：https://platform.xiaomimimo.com\nSite http://tts.ichochy.com\n系统截图 Mobile: PC: 信息 Blog：http://ichochy.com\nEmail: me@ichochy.com\nGitHub：https://github.com/ichochy/mimo-tts-chat\n功能特性 浏览器端直接调用 MiMo TTS Chat 接口 支持输入 API Key 并保存到本地浏览器 支持预置音色切换 支持文本对话并展示消息记录 支持返回音频自动播放 支持音频下载为 .wav 支持上传 .txt 文件并自动发送内容 支持深色 / 浅色主题切换 纯静态页面，无需打包构建 ",
+    "pubDate": "2026-03-20T16:22:45+08:00"
+  }, 
+  {
     "objectID": 20260103,
     "url": "https://ichochy.com/posts/ai/20260103.html",
     "title": "NVIDIA NIM 开发平台，提供超多免费大模型",

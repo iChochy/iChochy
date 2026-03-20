@@ -17,8 +17,9 @@ GitHub：[https://github.com/ichochy](https://github.com/ichochy)
 ## 打赏
 80后码农×白血病（CMML）患者，工作已停，药费没停。  
 如果我写的东西对您有用，请打赏点生命值。  
-再次谢谢！！！
-![Sponsor](/sponsor.jpg)
+感谢您的善意!!!  
+
+![Sponsor](https://image.ichochy.com/sponsor.jpg)
 
 ## 开源
 ### App

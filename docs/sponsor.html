@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赞赏支持</title>
+    <style>
+        :root {
+            --bg:
+                radial-gradient(circle at top left, rgba(255, 255, 255, 0.9) 0%, rgba(255, 243, 228, 0.4) 28%, transparent 48%),
+                linear-gradient(180deg, #fbf5ed 0%, #f4eadf 100%);
+            --card: rgba(255, 252, 247, 0.88);
+            --card-strong: #fffdf9;
+            --text: #2c231b;
+            --muted: #7a6858;
+            --line: rgba(117, 89, 61, 0.14);
+            --brand: #bc6a2c;
+            --brand-strong: #974d18;
+            --brand-soft: rgba(188, 106, 44, 0.12);
+            --shadow: 0 24px 72px rgba(85, 52, 23, 0.14);
+        }
+
+        [data-theme="dark"] {
+            --bg:
+                radial-gradient(circle at top left, rgba(122, 70, 36, 0.34) 0%, transparent 32%),
+                linear-gradient(180deg, #1d1712 0%, #120f0c 100%);
+            --card: rgba(28, 22, 18, 0.9);
+            --card-strong: #241c17;
+            --text: #f7efe7;
+            --muted: #cdbbab;
+            --line: rgba(255, 230, 203, 0.1);
+            --brand: #ee9b5d;
+            --brand-strong: #ffc393;
+            --brand-soft: rgba(238, 155, 93, 0.12);
+            --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 12px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(100%, 760px);
+            margin: 0 auto;
+            display: grid;
+            gap: 12px;
+        }
+
+        .topbar,
+        .card,
+        .footer {
+            background: var(--card);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+        }
+
+        .topbar {
+            border-radius: 20px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .title {
+            min-width: 0;
+        }
+
+        .title strong {
+            display: block;
+            font-size: 0.95rem;
+            line-height: 1.2;
+        }
+
+        .title span {
+            display: block;
+            color: var(--muted);
+            font-size: 1.8rem;
+            line-height: 1.35;
+            margin-top: 2px;
+        }
+
+        .btn {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: transparent;
+            color: var(--text);
+            font: inherit;
+            font-weight: 700;
+            padding: 10px 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .card {
+            border-radius: 24px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 0.84rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+
+        h1 {
+            margin: 14px 0 10px;
+            font-size: 2rem;
+            line-height: 1.06;
+            letter-spacing: -0.04em;
+        }
+
+        .lead {
+            margin-bottom: 14px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 0.98rem;
+        }
+
+        .story {
+            margin-top: 14px;
+            padding: 14px 15px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, var(--card-strong), transparent);
+        }
+
+        .story p {
+            margin: 0;
+            line-height: 1.8;
+            font-size: 0.96rem;
+        }
+
+        .story strong {
+            color: var(--brand-strong);
+        }
+
+        .qr-card {
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, var(--card-strong), transparent);
+            text-align: center;
+        }
+
+        .qr-card h2 {
+            margin: 0;
+            font-size: 1.08rem;
+        }
+
+        .qr-card p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .qr-wrap {
+            width: min(100%, 340px);
+            margin: 4px auto 0;
+            aspect-ratio: 1;
+            border-radius: 24px;
+            background: #fff;
+            padding: 10px;
+            display: grid;
+            place-items: center;
+        }
+
+        .qr-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .links {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .link-chip {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-weight: 700;
+        }
+
+        .footer {
+            border-radius: 18px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-nav a {
+            color: var(--brand-strong);
+            font-weight: 700;
+        }
+
+        @media (max-width: 640px) {
+            .topbar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .title {
+                grid-column: 1 / -1;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 2px;
+                text-align: center;
+            }
+
+            .qr-wrap {
+                width: min(100%, 240px);
+            }
+
+            .card {
+                padding: 16px;
+                text-align: center;
+            }
+            .lead{
+                font-size: 10px;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="topbar">
+            <div class="title">
+                <span class="eyebrow">WeChat Sponsor</span>
+            </div>
+            <button id="themeToggle" class="btn" type="button" aria-label="切换主题">深色模式</button>
+            <a class="btn" href="./index.html">返回首页</a>
+        </header>
+
+        <section class="card">
+            <h1>求打赏点生命值。</h1>
+            <p class="lead">80后码农×白血病(CMML)患者。工作已停，药费没停。</p>
+
+            <div class="qr-card">
+                <h2>感谢您的善意</h2>
+                <div class="qr-wrap">
+                    <img src="https://image.ichochy.com/sponsor.jpg" alt="sponsor"/>
+                </div>
+                <p>长按识别或截图扫码</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2026 Thanks for your kindness.</p>
+            <nav class="footer-nav">
+                <a href="./index.html">首页</a>
+                <a href="https://ichochy.com" target="_blank" rel="noreferrer">Blog</a>
+                <a href="https://github.com/ichochy" target="_blank" rel="noreferrer">GitHub</a>
+            </nav>
+        </footer>
+    </main>
+
+    <script>
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("themeToggle");
+        const savedTheme = localStorage.getItem("sponsor-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        function setTheme(theme) {
+            if (theme === "dark") {
+                root.setAttribute("data-theme", "dark");
+                themeToggle.textContent = "浅色模式";
+            } else {
+                root.removeAttribute("data-theme");
+                themeToggle.textContent = "深色模式";
+            }
+        }
+
+        setTheme(savedTheme || (prefersDark ? "dark" : "light"));
+
+        themeToggle.addEventListener("click", () => {
+            const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            localStorage.setItem("sponsor-theme", nextTheme);
+            setTheme(nextTheme);
+        });
+    </script>
+</body>
+</html>

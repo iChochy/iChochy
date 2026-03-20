@@ -24,6 +24,12 @@ iReader：[https://github.com/ichochy/ireader](https://github.com/ichochy/ireade
 [JetBrains](https://www.jetbrains.com) 提供 [Open Source License](https://www.jetbrains.com/shop/eform/opensource)  
 [Cloudflare](https://dash.cloudflare.com]) 提供 [Domain Name System](https://dash.cloudflare.com)
 
+## 打赏
+80后码农×白血病（CMML）患者，工作已停，药费没停。  
+如果我写的东西对您有用，请打赏点生命值。  
+感谢您的善意!!!  
+![Sponsor](https://image.ichochy.com/sponsor.jpg)
+
 ## VPS推荐  
 ### 美国(Month)
 CloudCone：[1C1G20G-$5.2/Month](https://app.cloudcone.com.cn/compute/create?ref=11052)   

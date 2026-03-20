@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>自己写一个Web 端的MiMo TTS Chat，方便实现文本转语音，API限免中 &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="app,web,learn,english,tts"/>
+    <meta name="description" content="一个基于原生 H5 实现的静态网页应用，调用 MiMo TTS 接口实现文本语音合成。"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
+        <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2026 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id = "toc" class="container sidebar-toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mimo-tts-chat">MiMo TTS Chat</a></li>
+    <li><a href="#mimo-tts">MiMo TTS</a></li>
+    <li><a href="#site">Site</a></li>
+    <li><a href="#系统截图">系统截图</a>
+      <ul>
+        <li><a href="#mobile">Mobile:</a></li>
+        <li><a href="#pc">PC:</a></li>
+      </ul>
+    </li>
+    <li><a href="#信息">信息</a></li>
+    <li><a href="#功能特性">功能特性</a></li>
+  </ul>
+</nav>
+  </div>
+  
+</aside>
+    <main class="content container">
+    <nav aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    <li>
+      <a href="https://ichochy.com/index.html">首页</a>
+    </li>
+    <li class="active">自己写一个Web 端的MiMo TTS Chat，方便实现文本转语音，API限免中</li>
+  </ol>
+</nav>
+<h1>自己写一个Web 端的MiMo TTS Chat，方便实现文本转语音，API限免中</h1>
+<hr>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/web.html">#Web</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/app.html">#app</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/web.html">#web</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/learn.html">#learn</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/english.html">#english</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/tts.html">#tts</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2026/03/20 16:22:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/web/20260320.html">https://ichochy.com/posts/web/20260320.html</a>
+<hr>
+
+  <p>一个基于原生 <code>H5</code> 实现的静态网页应用，调用 MiMo TTS 接口实现文本语音合成。</p>
+<hr>
+<h2 id="mimo-tts-chat">MiMo TTS Chat</h2>
+<p>可以选择预置音色，输入文本或上传 <code>.txt</code> 文件，发送后可获取 <code>WAV</code> 音频</p>
+<p>支持在线预览播放、下载音频</p>
+<h2 id="mimo-tts">MiMo TTS</h2>
+<p><code>MiMo TTS API 限免中</code><br>
+获取 API KEY：<a href="https://platform.xiaomimimo.com/#/console/api-keys">https://platform.xiaomimimo.com</a></p>
+<h2 id="site">Site</h2>
+<p><a href="http://tts.ichochy.com">http://tts.ichochy.com</a></p>
+<h2 id="系统截图">系统截图</h2>
+<h3 id="mobile">Mobile:</h3>
+<p><img src="https://tts.ichochy.com/screenshot/mobile.png" alt="mobile"></p>
+<h3 id="pc">PC:</h3>
+<p><img src="https://tts.ichochy.com/screenshot/pc.png" alt="pc"></p>
+<h2 id="信息">信息</h2>
+<p>Blog：<a href="http://ichochy.com">http://ichochy.com</a><br>
+Email: <a href="mailto:me@ichochy.com">me@ichochy.com</a><br>
+GitHub：<a href="https://github.com/ichochy/mimo-tts-chat">https://github.com/ichochy/mimo-tts-chat</a></p>
+<h2 id="功能特性">功能特性</h2>
+<ul>
+<li>浏览器端直接调用 MiMo TTS Chat 接口</li>
+<li>支持输入 API Key 并保存到本地浏览器</li>
+<li>支持预置音色切换</li>
+<li>支持文本对话并展示消息记录</li>
+<li>支持返回音频自动播放</li>
+<li>支持音频下载为 <code>.wav</code></li>
+<li>支持上传 <code>.txt</code> 文件并自动发送内容</li>
+<li>支持深色 / 浅色主题切换</li>
+<li>纯静态页面，无需打包构建</li>
+</ul>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/web/20251207.html">
+                    iReader 英语点读学习系统，译林小学英语在线点读
+                </a>
+                <small>
+                    2025/12/07
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/life/20251020.html">
+                    英语学习，新概念英语在线点读、全文朗读学习系统
+                </a>
+                <small>
+                    2025/10/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260103.html">
+                    NVIDIA NIM 开发平台，提供超多免费大模型
+                </a>
+                <small>
+                    2026/01/03
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/app/20251231.html">
+                    iTranslation 简单快捷的翻译软件，支持数十种语言互译
+                </a>
+                <small>
+                    2025/12/31
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251220.html">
+                    国内外免费大模型平台，支持 API 调用的超多免费大模型
+                </a>
+                <small>
+                    2025/12/20
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/ai/20260103.html" class="pag-link">NVIDIA NIM 开发平台，提供超多免费大模型</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>
