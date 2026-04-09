@@ -45,8 +45,10 @@
     </div>
   </div>
   
-  <div id = "toc" class="container sidebar-toc">
-  <nav id="TableOfContents">
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#注册账号">注册账号</a></li>
     <li><a href="#导入项目">导入项目</a></li>
@@ -55,9 +57,11 @@
     <li><a href="#指定-hugo-版本">指定 Hugo 版本</a></li>
   </ul>
 </nav>
+    </div>
   </div>
   
 </aside>
+
     <main class="content container">
     <nav aria-label="breadcrumbs">
   <ol class="breadcrumb">
@@ -68,7 +72,6 @@
   </ol>
 </nav>
 <h1>Vercel 上自动部署你的个人博客 Hugo</h1>
-<hr>
 <div class="post">
   
 

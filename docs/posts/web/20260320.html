@@ -45,8 +45,10 @@
     </div>
   </div>
   
-  <div id = "toc" class="container sidebar-toc">
-  <nav id="TableOfContents">
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#mimo-tts-chat">MiMo TTS Chat</a></li>
     <li><a href="#mimo-tts">MiMo TTS</a></li>
@@ -61,9 +63,11 @@
     <li><a href="#功能特性">功能特性</a></li>
   </ul>
 </nav>
+    </div>
   </div>
   
 </aside>
+
     <main class="content container">
     <nav aria-label="breadcrumbs">
   <ol class="breadcrumb">
@@ -74,7 +78,6 @@
   </ol>
 </nav>
 <h1>自己写一个Web 端的MiMo TTS Chat，方便实现文本转语音，API限免中</h1>
-<hr>
 <div class="post">
   
 

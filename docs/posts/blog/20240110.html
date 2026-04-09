@@ -45,8 +45,10 @@
     </div>
   </div>
   
-  <div id = "toc" class="container sidebar-toc">
-  <nav id="TableOfContents">
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#在-linux-通过命令安装">在 Linux 通过命令安装</a>
       <ul>
@@ -66,9 +68,11 @@
     </li>
   </ul>
 </nav>
+    </div>
   </div>
   
 </aside>
+
     <main class="content container">
     <nav aria-label="breadcrumbs">
   <ol class="breadcrumb">
@@ -79,7 +83,6 @@
   </ol>
 </nav>
 <h1>使用 certbot 申请 Let&#39;s Encrypt 免费证书，部署到 nginx 中，开启 https</h1>
-<hr>
 <div class="post">
   
 

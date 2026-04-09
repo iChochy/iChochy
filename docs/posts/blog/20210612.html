@@ -45,8 +45,10 @@
     </div>
   </div>
   
-  <div id = "toc" class="container sidebar-toc">
-  <nav id="TableOfContents">
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#github-actions">GitHub Actions</a></li>
     <li><a href="#生成搜索数据">生成搜索数据</a>
@@ -71,9 +73,11 @@
     <li><a href="#引用">引用</a></li>
   </ul>
 </nav>
+    </div>
   </div>
   
 </aside>
+
     <main class="content container">
     <nav aria-label="breadcrumbs">
   <ol class="breadcrumb">
@@ -84,7 +88,6 @@
   </ol>
 </nav>
 <h1>使用 GitHub Actions 自动上传搜索记录到 Algolia</h1>
-<hr>
 <div class="post">
   
 

@@ -45,8 +45,10 @@
     </div>
   </div>
   
-  <div id = "toc" class="container sidebar-toc">
-  <nav id="TableOfContents">
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#开发工具">开发工具</a></li>
     <li><a href="#创建项目">创建项目</a></li>
@@ -70,9 +72,11 @@
     <li><a href="#引用">引用</a></li>
   </ul>
 </nav>
+    </div>
   </div>
   
 </aside>
+
     <main class="content container">
     <nav aria-label="breadcrumbs">
   <ol class="breadcrumb">
@@ -83,7 +87,6 @@
   </ol>
 </nav>
 <h1>Spring 为 RESTful Web 服务启用跨域请求</h1>
-<hr>
 <div class="post">
   
 

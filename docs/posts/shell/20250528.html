@@ -46,8 +46,10 @@
     </div>
   </div>
   
-  <div id = "toc" class="container sidebar-toc">
-  <nav id="TableOfContents">
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
   <ul>
     <li><a href="#安装系统">安装系统</a>
       <ul>
@@ -66,9 +68,11 @@
     <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
+    </div>
   </div>
   
 </aside>
+
     <main class="content container">
     <nav aria-label="breadcrumbs">
   <ol class="breadcrumb">
@@ -79,7 +83,6 @@
   </ol>
 </nav>
 <h1>NanoPi R2S 安装 Debian 固件系统，旁路由网络代理内网转发，决解直连网络卡顿 nftables</h1>
-<hr>
 <div class="post">
   
 
