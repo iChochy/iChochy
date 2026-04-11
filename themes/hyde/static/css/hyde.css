@@ -97,12 +97,8 @@ html {
 
 @media (min-width: 48em) {
     .sidebar-nav li {
-        margin: 4px;
         display: block;
     }
-}
-.sidebar-nav-item {
-    display: block;
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
@@ -118,27 +114,8 @@ a.sidebar-nav-item:focus {
  * contents to the bottom of the sidebar in tablets and up.
  */
 
-@media (min-width: 48em) {
-    .sidebar-sticky {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        transition: top 0.5s;
-    }
-}
-
 .sidebar-toc {
     display: none;
-}
-
-@media (min-width: 48em) {
-    .sidebar-toc {
-        display: flex;
-        height: 100vh;
-        padding-top: 64px;
-        text-align: left;
-        transition: top 0.5s;
-    }
 }
 
 /* Container
@@ -353,7 +330,6 @@ a.sidebar-nav-item:focus {
 
     body.theme-base-08 code {
         color: #fdba74;
-        border-color: #7c2d12;
         background-color: #1f2937;
     }
 

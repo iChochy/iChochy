@@ -131,7 +131,7 @@ p {
 ul,
 ol,
 dl {
-    padding: 0;
+    /*padding: 0;*/
     margin-top: 0;
     margin-bottom: 1rem;
 }
@@ -629,7 +629,7 @@ code {
     font-weight: 500;
     color: #7c2d12;
     border-radius: 6px;
-    border: 1px solid #fed7aa;
+    /*border: 1px solid #fed7aa;*/
     background-color: #fff7ed;
 }
 
@@ -760,7 +760,6 @@ img {
     align-items: center;
     justify-content: center;
     padding: 0;
-    border: 1px solid var(--line);
 }
 
 .pagination-item:first-child,
@@ -896,7 +895,6 @@ form button {
 
     code {
         color: #fdba74;
-        border-color: #7c2d12;
         background-color: #1f2937;
     }
 
