@@ -305,10 +305,10 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 64em) {
     .layout-reverse .content {
-        margin-left: max(4.3rem, calc((100vw - 22.8rem - 56rem) / 2));
+        margin-left: max(2.4rem, calc((100vw - 22.8rem - 56rem) / 2));
         margin-right: 22.8rem;
-        width: calc(100vw - 30rem);
-        max-width: 56rem;
+        width: calc(100vw - 24rem);
+        max-width: 60rem;
     }
 }
 
