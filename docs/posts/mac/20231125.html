@@ -134,7 +134,7 @@
 <h3 id="导入环境变量">导入环境变量</h3>
 <p>将下面信息写入到<code>~/.zshrc</code>文件中<br>
 分别导入 <code>http_proxy、https_proxy、sockes_proxy</code> 三个环竟变量</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export http_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://127.0.0.1/8888&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export http_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://127.0.0.1/8888&#34;</span>
 </span></span><span style="display:flex;"><span>export https_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://127.0.0.1/8888&#34;</span>
 </span></span><span style="display:flex;"><span>export socks_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;socks://127.0.0.1/8885&#34;</span>
 </span></span></code></pre></div><p><strong>注：根据自己的代理地址配置</strong></p>
@@ -147,7 +147,7 @@
 ……
 </code></pre><h3 id="查看环境变量">查看环境变量</h3>
 <p>在终端中运行 <code>env</code> ，查看导入的环境变量是否生效</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>TERM_PROGRAM<span style="color:#f92672">=</span>Apple_Terminal
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>TERM_PROGRAM<span style="color:#f92672">=</span>Apple_Terminal
 </span></span><span style="display:flex;"><span>SHELL<span style="color:#f92672">=</span>/bin/zsh
 </span></span><span style="display:flex;"><span>USER<span style="color:#f92672">=</span>iChochy
 </span></span><span style="display:flex;"><span>HOME<span style="color:#f92672">=</span>/Users/iChochy
@@ -158,8 +158,8 @@
 </span></span></code></pre></div><p>可以看到 <code>http_proxy、https_proxy、sockes_proxy</code> 已经生效了。</p>
 <h3 id="测试">测试</h3>
 <p>通过 <code>curl</code> 来作测，查看网络访问的情况</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -vI https://ichochy.com
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>* Uses proxy env variable HTTP_PROXY <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;http://127.0.0.1:8888&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -vI https://ichochy.com
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>* Uses proxy env variable HTTP_PROXY <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;http://127.0.0.1:8888&#39;</span>
 </span></span><span style="display:flex;"><span>*   Trying 127.0.0.1:8888...
 </span></span><span style="display:flex;"><span>* Connected to 127.0.0.1 <span style="color:#f92672">(</span>127.0.0.1<span style="color:#f92672">)</span> port <span style="color:#ae81ff">8888</span> <span style="color:#f92672">(</span><span style="color:#75715e">#0)</span>
 </span></span><span style="display:flex;"><span>&gt; HEAD http://ichochy.com/ HTTP/1.1
@@ -172,7 +172,7 @@
 <p><strong>注：curl 参数 <code>v</code> 显示请求详情，<code>I</code> 只显示请求头信息</strong></p>
 <h2 id="通过命令添加删除代理">通过命令添加、删除代理</h2>
 <p>在 <code>~/.zshrc</code> 中设置别名命令</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 通过 alias 定义别名命令</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 通过 alias 定义别名命令</span>
 </span></span><span style="display:flex;"><span>alias add_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;export ALL_PROXY=http://127.0.0.1:8888&#39;</span>
 </span></span><span style="display:flex;"><span>alias un_proxy<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;unset ALL_PROXY&#39;</span>
 </span></span></code></pre></div><p>运行 <code>source ~/.zshrc</code> 加载配置文件<br>
@@ -186,11 +186,11 @@
 </code></pre><p><strong>注：<code>ALL_PROXY</code> 所有网络代理</strong></p>
 <h2 id="通过-ip-来查看当前的外网-ip">通过 <code>ip</code> 来查看当前的外网 <code>IP</code></h2>
 <p>在 <code>~/.zshrc</code> 中通过 <code>alias</code> 定义命令 <code>ip</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 通过 alias 定义命令 `ip`</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 通过 alias 定义命令 `ip`</span>
 </span></span><span style="display:flex;"><span>alias ip<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;curl ipinfo.io&#34;</span>
 </span></span></code></pre></div><p>运行 <code>source ~/.zshrc</code> 加载配置文件<br>
 执行 <code>ip</code> 命令查询外网 <code>IP</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># ip</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># ip</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;ip&#34;</span>: <span style="color:#e6db74">&#34;8.8.8.8&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;city&#34;</span>: <span style="color:#e6db74">&#34;sh&#34;</span>,

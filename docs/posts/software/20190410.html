@@ -143,7 +143,7 @@
 </blockquote>
 <h4 id="2brew安装">2､<code>brew</code>安装</h4>
 <p>Mac下执行<code>brew install jenkins-lts</code> 命令安装</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew install jenkins-lts
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew install jenkins-lts
 </span></span><span style="display:flex;"><span>Updating Homebrew...
 </span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Auto-updated Homebrew!
 </span></span><span style="display:flex;"><span>Updated <span style="color:#ae81ff">2</span> taps <span style="color:#f92672">(</span>homebrew/core and homebrew/cask<span style="color:#f92672">)</span>.
@@ -167,12 +167,12 @@
 </span></span><span style="display:flex;"><span>Removing: /Users/mleo/Library/Caches/Homebrew/java_cache... <span style="color:#f92672">(</span>275B<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>Removing: /Users/mleo/Library/Logs/Homebrew/cocoapods... <span style="color:#f92672">(</span>64B<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>安装完成后可以执行<code>brew services list</code>查看安装服务</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew services list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew services list
 </span></span><span style="display:flex;"><span>Name        Status  User Plist
 </span></span><span style="display:flex;"><span>jenkins-lts stopped
 </span></span></code></pre></div><p>启动<code>jenkins</code>，执行<code>brew services start jenkins-lts</code>
 关闭<code>jenkins</code>，执行<code>brew services stop jenkins-lts</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew services start jenkins-lts
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:~ mleo$ brew services start jenkins-lts
 </span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Successfully started <span style="color:#e6db74">`</span>jenkins-lts<span style="color:#e6db74">`</span> <span style="color:#f92672">(</span>label: homebrew.mxcl.jenkins-lts<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>直接访问：<a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></p>
 <p>第一次进行需解锁</p>

@@ -152,7 +152,7 @@
 <img src="https://images.ichochy.com/16226367387048384.png" alt="16226367387048384"></p>
 <h2 id="pomxml-添加依赖">pom.xml 添加依赖</h2>
 <p>添加 Spring Security 依赖</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color:#f92672">&lt;/artifactId&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
@@ -163,7 +163,7 @@
 </span></span></code></pre></div><h2 id="编写项目">编写项目</h2>
 <h3 id="创建登录页面">创建登录页面</h3>
 <p><code>templates/login.html</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  ~ Copyright (c) 2021 iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  ~ URL:https://ichochy.com
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  ~ Date:2021/06/10 19:44:10
@@ -196,7 +196,7 @@
 </span></span></code></pre></div><p>创建<code>form</code>表单，登录地址<code>/login</code>，方法为<code>post</code></p>
 <h3 id="创建登出按钮">创建登出按钮</h3>
 <p><code>templates/index.html</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">th:inline</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>&gt;Hello [[${#httpServletRequest.remoteUser}]]!&lt;/<span style="color:#f92672">h1</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">th:inline</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>&gt;Hello [[${#httpServletRequest.remoteUser}]]!&lt;/<span style="color:#f92672">h1</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">th:action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@{/logout}&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sign Out&#34;</span>/&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
@@ -204,7 +204,7 @@
 <p>登出地址<code>/logout</code>，方法为<code>post</code></p>
 <h3 id="配置-mvcconfig">配置 MvcConfig</h3>
 <p>创建<code>com/ichochy/example/MvcConfig.java</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/11/22 19:24:22
@@ -225,7 +225,7 @@
 </span></span></code></pre></div><p>添加登录页面控制器，指定地址<code>/login</code></p>
 <h3 id="登录安全权限配置">登录安全权限配置</h3>
 <p>创建 <code>WebSecurityConfig</code>，继承 <code>WebSecurityConfigurerAdapter</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/11/22 20:06:22
@@ -285,7 +285,7 @@
 <li><code>roles</code>指定角色为：<strong>iChochy</strong></li>
 </ul>
 <h2 id="项目目录">项目目录</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── pom.xml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── pom.xml
 </span></span><span style="display:flex;"><span>└── src
 </span></span><span style="display:flex;"><span>    └── main
 </span></span><span style="display:flex;"><span>        ├── java
@@ -304,7 +304,7 @@
 </span></span><span style="display:flex;"><span>                └── login.html
 </span></span></code></pre></div><h2 id="运行项目">运行项目</h2>
 <h3 id="启动器-exampleapplication">启动器 <code>ExampleApplication</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/06/09 22:07:09

@@ -151,7 +151,7 @@
 <p>参照《<a href="https://ichochy.com/posts/20210530.html"><strong>Spring 表单提交，Form Submission</strong></a>》
 <a href="https://ichochy.com/posts/20210530.html">https://ichochy.com/posts/20210530.html</a></p>
 <h2 id="项目目录">项目目录</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── pom.xml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── pom.xml
 </span></span><span style="display:flex;"><span>└──src
 </span></span><span style="display:flex;"><span>    └── main
 </span></span><span style="display:flex;"><span>        ├── java
@@ -171,14 +171,14 @@
 </span></span></code></pre></div><h2 id="表单验证">表单验证</h2>
 <h3 id="修改-pomxml">修改 pom.xml</h3>
 <p>添加验证库</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-validation<span style="color:#f92672">&lt;/artifactId&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h3 id="修改类-form">修改类 Form</h3>
 <p>添加验证注解</p>
 <p><strong>Form.java</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/06/10 19:36:10
@@ -213,7 +213,7 @@
 </ul>
 <h3 id="修改控制器">修改控制器</h3>
 <p>添加 @Valid</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">submitForm</span>(<span style="color:#a6e22e">@Valid</span> Form form, BindingResult bindingResult, Model model) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">submitForm</span>(<span style="color:#a6e22e">@Valid</span> Form form, BindingResult bindingResult, Model model) {
 </span></span><span style="display:flex;"><span>        model.<span style="color:#a6e22e">addAttribute</span>(<span style="color:#e6db74">&#34;form&#34;</span>, form);
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(bindingResult.<span style="color:#a6e22e">hasErrors</span>()){
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;form&#34;</span>;
@@ -226,7 +226,7 @@
 </ul>
 <h3 id="修改页面-form">修改页面 form</h3>
 <p>添加错误提示信息</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;Title:&lt;/<span style="color:#f92672">p</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;Title:&lt;/<span style="color:#f92672">p</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">th:field</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{title}&#34;</span>/&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${#fields.hasErrors(&#39;title&#39;)}&#34;</span> <span style="color:#a6e22e">th:errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;*{title}&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
@@ -238,7 +238,7 @@
 <h2 id="运行项目">运行项目</h2>
 <h3 id="dubug-运行项目">Dubug 运行项目</h3>
 <p><code>main</code> 方法启动项目</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (c) 2021 iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Date:2021/06/09 22:07:09

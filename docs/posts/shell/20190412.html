@@ -118,7 +118,7 @@
 
   <p>使用<code>Shell</code>脚本的方式，通过端口号来关闭当前进程</p>
 <h3 id="查看脚本">查看脚本</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
 </span></span></code></pre></div><p>使用到三个命令<code>lsof</code>、<code>grep</code>、<code>awk</code></p>
 <blockquote>
 <p><code>lsof</code> 获取端口进程列表</p>
@@ -126,8 +126,8 @@
 <p><code>awk</code> 获取进程号</p>
 </blockquote>
 <h3 id="完整示例">完整示例：</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>PROCESS<span style="color:#f92672">=</span>echo | lsof  -i TCP:9100 | grep LISTEN | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $PROCESS <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
 </span></span><span style="display:flex;"><span>kill -9 $PROCESS

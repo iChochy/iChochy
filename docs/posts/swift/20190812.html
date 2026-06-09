@@ -124,14 +124,14 @@
 
   <p>通过lodepng解析png图片，使用pngquant算法进行压缩的swift-framework，可实现<code>PNG</code>图片的压缩，并很好的保持图片的质量，完美实现其透明效果，支持<a href="https://cocoapods.org">Cocoapods</a>安装使用</p>
 <h3 id="方法说明">方法说明</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">/// 通过PNG图片Data压缩</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">/// 通过PNG图片Data压缩</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">///</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/// - Parameters:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">///   - data: PNG图片Data</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">///   - maximum: 压缩率，0-100,100为最好</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/// - Returns: 压缩后的PNG图片Data</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">data2Data</span>(<span style="color:#66d9ef">_</span> data:Data,<span style="color:#66d9ef">_</span> maximum:Int) -&gt; Data?
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">/// 通过PNG图片路径压缩</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">/// 通过PNG图片路径压缩</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">///</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/// - Parameters:</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">///   - path: PNG图片路径</span>
@@ -144,12 +144,12 @@
 <h3 id="使用">使用</h3>
 <p><strong>引入 <code>import libminipng</code></strong></p>
 <p><strong>编写代码：</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> path:String = <span style="color:#e6db74">&#34;https://images.ichochy.com/Cloud.png&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> path:String = <span style="color:#e6db74">&#34;https://images.ichochy.com/Cloud.png&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> data:Data = <span style="color:#66d9ef">try</span>! Data.<span style="color:#66d9ef">init</span>(contentsOf: URL.<span style="color:#66d9ef">init</span>(string: path)<span style="color:#f92672">!</span>)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> maximum:Int = <span style="color:#ae81ff">100</span> <span style="color:#75715e">// 压缩率，0-100,100为最好</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> result:Data? = minipng.data2Data(data,maximum)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>! result?.write(to: URL.<span style="color:#66d9ef">init</span>(fileURLWithPath: <span style="color:#e6db74">&#34;/Users/mleo/minipng.png&#34;</span>))
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> path:String = <span style="color:#e6db74">&#34;/Users/mleo/Cloud.png&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> path:String = <span style="color:#e6db74">&#34;/Users/mleo/Cloud.png&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> maximum:Int = <span style="color:#ae81ff">100</span> <span style="color:#75715e">// 压缩率，0-100,100为最好</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> result:Data? = minipng.path2Data(path, maximum)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>! result?.write(to: URL.<span style="color:#66d9ef">init</span>(fileURLWithPath: <span style="color:#e6db74">&#34;/Users/mleo/minipng.png&#34;</span>))

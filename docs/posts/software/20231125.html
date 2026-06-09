@@ -138,7 +138,7 @@ location 正则的错误的写法
   <h2 id="nginx-location-正则错误写法">nginx location 正则错误写法</h2>
 <h3 id="location-正则的错误的写法">location 正则的<code>错误</code>的写法</h3>
 <p>匹配请求目录地址 <code>/555</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  location ~ ^/<span style="color:#ae81ff">\d</span><span style="color:#f92672">{</span>2,3<span style="color:#f92672">}</span>$ <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    ……
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
@@ -148,10 +148,10 @@ location 正则的错误的写法
 正则解析失败，正则表达式正常是没有问题的，让人很误解<br>
 但在<code>nginx</code>中不能这样写，需要加上双引号（<code>&quot;&quot;</code>）</p>
 <h3 id="location-正则的正确写法加上双引号">location 正则的正确写法，加上双引号</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>location ~ <span style="color:#e6db74">&#34;^/\d{2,3}</span>$<span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>location ~ <span style="color:#e6db74">&#34;^/\d{2,3}</span>$<span style="color:#e6db74">&#34;</span>
 </span></span></code></pre></div><h3 id="分析正则">分析正则</h3>
 <p><code>location ~ &quot;^/\d{2,3}$&quot;</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>~     为开启正则匹配，这个不能少
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>~     为开启正则匹配，这个不能少
 </span></span><span style="display:flex;"><span>^     为字符的开始匹配，字符以后面的规则开始
 </span></span><span style="display:flex;"><span>/     为第一个匹配字符 /
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">\d</span>    匹配数字
@@ -159,7 +159,7 @@ location 正则的错误的写法
 </span></span><span style="display:flex;"><span>$     为字符的结束匹配，字符以前面的规则结束
 </span></span></code></pre></div><p><strong>注意：中/英文输入法，需要英文符号的双引号（&quot;&quot;）</strong></p>
 <h2 id="nginx-反向代理不能使用变量">nginx 反向代理不能使用变量</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  location ~ <span style="color:#e6db74">&#34;^/(\d{2,3})</span>$<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    proxy_pass https://$1.ichochy.com
 </span></span><span style="display:flex;"><span>    ……
@@ -169,13 +169,13 @@ location 正则的错误的写法
 <p>上面的配置没有生效，总是报错<br>
 Web 访问出现 <code>502 Bad Gateway</code> 错误，<code>nginx</code> 报错<br>
 当 <code>proxy_pass</code> 使用变量时会出现没有解析器解析域名的错误</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>日志出现如下的错误:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>日志出现如下的错误:
 </span></span><span style="display:flex;"><span>no resolver defined to resolve ichochy.com
 </span></span></code></pre></div><h3 id="修正错误">修正错误</h3>
 <p>没有解析器就给它指定一个</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>resolver 8.8.8.8;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>resolver 8.8.8.8;
 </span></span></code></pre></div><h4 id="完整的配置信息">完整的配置信息</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server<span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>server<span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  location ~ <span style="color:#e6db74">&#34;^/(\d{2,3})</span>$<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    resolver 8.8.8.8;
 </span></span><span style="display:flex;"><span>    proxy_pass https://$1.ichochy.com
@@ -190,24 +190,24 @@ Web 访问出现 <code>502 Bad Gateway</code> 错误，<code>nginx</code> 报错
 <code>$2</code> 代表正则第二个小括号<code>()</code>中匹配的信息<br>
 以此类推 <code>$3</code> ……</p>
 <h2 id="修改配置文件">修改配置文件</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># nginx 配置文件</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># nginx 配置文件</span>
 </span></span><span style="display:flex;"><span>vi /etc/nginx/nginx.conf
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 网站配置文件</span>
 </span></span><span style="display:flex;"><span>vi /etc/nginx/sites-available/default
 </span></span></code></pre></div><h2 id="查看日志">查看日志</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 错误日志</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 错误日志</span>
 </span></span><span style="display:flex;"><span>tail -f /var/log/nginx/error.log
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 请求日志</span>
 </span></span><span style="display:flex;"><span>tail -f /var/log/nginx/access.log
 </span></span></code></pre></div><h3 id="正则规则">正则规则</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>~         表示执行一个正则匹配，区分大小写
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>~         表示执行一个正则匹配，区分大小写
 </span></span><span style="display:flex;"><span>~*        表示执行一个正则匹配，不区分大小写
 </span></span><span style="display:flex;"><span>^~        表示普通字符匹配，不使用正则匹配，一般用来匹配目录
 </span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>         进行普通字符精确匹配
 </span></span><span style="display:flex;"><span>@         <span style="color:#e6db74">&#34;@&#34;</span> 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files
 </span></span><span style="display:flex;"><span>!~        表示正则不匹配，排除正则的匹配，区分大小写
 </span></span><span style="display:flex;"><span>!~*       表示正则不匹配，排除正则的匹配，不区分大小写
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>.       匹配除换行符以外的任意字符
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>.       匹配除换行符以外的任意字符
 </span></span><span style="display:flex;"><span>?       重复0次或1次
 </span></span><span style="display:flex;"><span>+       重复1次或更多次
 </span></span><span style="display:flex;"><span>*       重复0次或更多次

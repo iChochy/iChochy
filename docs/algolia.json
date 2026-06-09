@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20260509,
+    "url": "https://ichochy.com/posts/ai/20260509.html",
+    "title": "通过 ZenMux 使用 Claude Code CLI 解锁更多 AI 模型，包括 Claude 所有模型",
+    "summary": "ZenMux 是一个 AI 模型聚合平台，可以轻松将 Claude Code 连接到更广泛的模型生态，包括Claude、 GPT、Gemini、Grok、Qwen 等众多强大模型，实现更灵活、更具性价比的开发体验。\n",
+    "content": "ZenMux 是一个 AI 模型聚合平台，可以轻松将 Claude Code 连接到更广泛的模型生态，包括Claude、 GPT、Gemini、Grok、Qwen 等众多强大模型，实现更灵活、更具性价比的开发体验。\nClaude Code 是 Anthropic 推出的官方编码代理工具，它让开发者能够通过 CLI 高效地与 AI 协作完成代码编写任务。然而，默认情况下，它仅限于 Anthropic 的 Claude 系列模型\nZenMux 官网 可以在线直连，高质量的 AI 模型聚合平台，推出了订阅计划模式和按量付费模式，支持多种付费模式包括 支付宝\nhttps://zenmux.ai\nZenMux + Claude Code 的优势 模型多样性：除了 Claude 系列，还支持 GPT-5.2、Claude-4.5、Gemini-3、Grok 4.1、Doubao、Kimi、GLM-4.6、DeepSeek、Qwen3-Coder-Plus 等。 无缝集成：无需修改 Claude Code 本身，仅通过环境变量切换服务端点。 灵活计费：订阅计划适合个人开发，按量付费适合生产环境。 性能优化：通过禁用实验性 Beta 功能，提升响应速度和稳定性。 安装 Claude Code 重要：npm/pnpm 安装方式已弃用，推荐使用原生安装。\n卸载旧版本（如果适用） npm uninstall -g @anthropic-ai/claude-code # 或 pnpm uninstall -g @anthropic-ai/claude-code 推荐安装方式 # macOS/Linux 一键安装 curl -fsSL https://claude.ai/install.sh | bash # Windows PowerShell irm https://claude.ai/install.ps1 | iex 安装后运行 claude doctor 验证。\n配置步骤 Step 0: 获取 ZenMux API Key 订阅计划（推荐个人使用）：sk-ss-v1-xxx，固定月费，性价比高。 按量付费（生产环境）：sk-ai-v1-xxx，无限额，更稳定。 Step 1: 配置 Shell 环境变量（推荐） 在 ~/.bashrc 或 ~/.zshrc 中添加：\nexport ANTHROPIC_BASE_URL=\u0026#34;https://zenmux.ai/api/anthropic\u0026#34; export ANTHROPIC_AUTH_TOKEN=\u0026#34;sk-ss-v1-xxx\u0026#34; # 替换为你的 Key export ANTHROPIC_API_KEY=\u0026#34;\u0026#34; # 清除冲突 # 性能优化 export CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=\u0026#34;1\u0026#34; export CLAUDE_CODE_ATTRIBUTION_HEADER=\u0026#34;0\u0026#34; export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=\u0026#34;1\u0026#34; Windows PowerShell 用户类似配置 $PROFILE。\n为什么禁用 Beta 功能？\nZenMux 通过多个后端提供商路由请求，仅 Anthropic 原生支持所有 Beta 特性。禁用后可快速路由，提升速度。\nStep 2: 启动并使用 cd /path/to/project claude 首次启动会自动通过 ZenMux 认证。\n自定义默认模型 可通过环境变量映射 Haiku/Sonnet/Opus 层级到不同模型，例如：\nexport ANTHROPIC_DEFAULT_FAST_MODEL=\u0026#34;anthropic/claude-haiku-4.5\u0026#34; export ANTHROPIC_DEFAULT_BALANCED_MODEL=\u0026#34;anthropic/claude-sonnet-4.5\u0026#34; export ANTHROPIC_DEFAULT_POWERFUL_MODEL=\u0026#34;anthropic/claude-opus-4.5\u0026#34; 最佳实践建议 始终在新终端启动，确保环境变量生效。 项目级配置：在项目目录使用 CLAUDE.md 定义规则和上下文。 性能监控：使用 claude doctor 检查状态。 模型选择：日常开发推荐 Sonnet 系列，复杂任务用 Opus。 安全注意：生产环境使用按量付费 Key，避免订阅 Key 滥用。 总结 通过 ZenMux，你可以将 Claude Code 打造成一个支持海量模型的超级编码助手，大幅提升开发效率和灵活性。赶紧试试吧！\n邀请奖励 首次充值可获得 5% 奖励\n邀请码: 3KA0VI 邀请链接: https://zenmux.ai/invite/3KA0VI ",
+    "pubDate": "2026-05-09T10:33:45+08:00"
+  }, 
+  {
     "objectID": 20260320,
     "url": "https://ichochy.com/posts/web/20260320.html",
     "title": "自己写一个Web 端的MiMo TTS Chat，方便实现文本转语音，API限免中",

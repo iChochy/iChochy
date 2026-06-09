@@ -133,27 +133,27 @@
   <p>使用 <a href="https://certbot.eff.org/">certbot</a> 可以很方便、快捷的通过 <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> 申请免费的证书，并部署到 <a href="https://nginx.org">nginx</a> 中，开启 HTTP。</p>
 <h2 id="在-linux-通过命令安装">在 Linux 通过命令安装</h2>
 <h3 id="安装-nginx">安装 Nginx</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt install nginx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt install nginx
 </span></span></code></pre></div><h3 id="安装-certbot">安装 certbot</h3>
 <h4 id="先安装-snap">先安装 snap</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt install snap
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt install snap
 </span></span></code></pre></div><h4 id="再通过-snap-安装-certbot">再通过 snap 安装 certbot</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo snap install --classic certbot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo snap install --classic certbot
 </span></span><span style="display:flex;"><span>sudo ln -s /snap/bin/certbot /usr/bin/certbot
 </span></span></code></pre></div><h2 id="运行-certbot-给-nginx-安装证书">运行 certbot 给 Nginx 安装证书</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo certbot --nginx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo certbot --nginx
 </span></span></code></pre></div><h3 id="设置邮箱输入自己的邮箱">设置邮箱，输入自己的邮箱</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Enter email address <span style="color:#f92672">(</span>used <span style="color:#66d9ef">for</span> urgent renewal and security notices<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Enter email address <span style="color:#f92672">(</span>used <span style="color:#66d9ef">for</span> urgent renewal and security notices<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span> <span style="color:#f92672">(</span>Enter <span style="color:#e6db74">&#39;c&#39;</span> to cancel<span style="color:#f92672">)</span>: me@ichochy.com
 </span></span></code></pre></div><h3 id="确认条款">确认条款</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </span></span><span style="display:flex;"><span>Please read the Terms of Service at
 </span></span><span style="display:flex;"><span>https://letsencrypt.org/documents/LE-SA-v1.3-September-21-2022.pdf. You must
 </span></span><span style="display:flex;"><span>agree in order to register with the ACME server. Do you agree?
 </span></span><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>Y<span style="color:#f92672">)</span>es/<span style="color:#f92672">(</span>N<span style="color:#f92672">)</span>o: y
 </span></span></code></pre></div><h3 id="订阅邮件">订阅邮件</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </span></span><span style="display:flex;"><span>Would you be willing, once your first certificate is successfully issued, to
 </span></span><span style="display:flex;"><span>share your email address with the Electronic Frontier Foundation, a founding
 </span></span><span style="display:flex;"><span>partner of the Let<span style="color:#e6db74">&#39;s Encrypt project and the non-profit organization that
@@ -162,11 +162,11 @@
 </span></span><span style="display:flex;"><span>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>Y<span style="color:#f92672">)</span>es/<span style="color:#f92672">(</span>N<span style="color:#f92672">)</span>o: y      
 </span></span></code></pre></div><h3 id="签发域名输入自己的域名">签发域名，输入自己的域名</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Account registered.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Account registered.
 </span></span><span style="display:flex;"><span>Please enter the domain name<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> you would like on your certificate <span style="color:#f92672">(</span>comma and/or
 </span></span><span style="display:flex;"><span>space separated<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>Enter <span style="color:#e6db74">&#39;c&#39;</span> to cancel<span style="color:#f92672">)</span>: ichochy.com
 </span></span></code></pre></div><h3 id="证书部署成功">证书部署成功</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Successfully received certificate.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Successfully received certificate.
 </span></span><span style="display:flex;"><span>……
 </span></span><span style="display:flex;"><span>Deploying certificate
 </span></span><span style="display:flex;"><span>Successfully deployed certificate <span style="color:#66d9ef">for</span> ichochy.com to /etc/nginx/sites-enabled/default

@@ -124,21 +124,21 @@
   <p>Mac 无密码 SSH 登录服务器，只需要简单三步，不再需要记住账号密码，快速进入服务器</p>
 <h2 id="第一步生成密钥对">第一步，生成密钥对</h2>
 <p>在当前用户下创建<code>.ssh</code>目录</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir ~/.ssh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir ~/.ssh
 </span></span></code></pre></div><p>使用命令<code>ssh-keygen</code>生成密钥对,会在<code>~/.ssh</code>目录下生成公/私钥</p>
 <pre tabindex="0"><code>id_rsa      //私钥
 id_rsa.pub  //公钥
 </code></pre><h2 id="第二步上传公钥">第二步，上传公钥</h2>
 <p>使用命令<code>ssh-copy-id user@hostname</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-copy-id  admin@192.168.1.55
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-copy-id  admin@192.168.1.55
 </span></span></code></pre></div><p>输入密码，操作成功<br>
 查看服务器<code>～/.ssh/authorized_keys</code>，可以看到本地的公钥已经写入到<code>authorized_keys</code>文件中</p>
 <p>运行命令<code>ssh user@hostname</code>就可以直接无密码 SSH 登录服务器</p>
 <h2 id="第三步config-配置">第三步，config 配置</h2>
 <p>在当前用户<code>.ssh</code>目录下创建<code>config</code>文件</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch  ~/.ssh/config
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch  ~/.ssh/config
 </span></span></code></pre></div><p>通过<code>vim</code>编辑<code>config</code>，添加服务器配置信息</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Host iChochy                        //服务器别名
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Host iChochy                        //服务器别名
 </span></span><span style="display:flex;"><span>    Hostname 192.168.1.55           //服务器地址
 </span></span><span style="display:flex;"><span>    User admin                      //服务器用户
 </span></span><span style="display:flex;"><span>    Identityfile ~/.ssh/id_rsa      //服务器公钥对应的本地私钥

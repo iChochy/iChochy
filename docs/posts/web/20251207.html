@@ -174,19 +174,19 @@ GitHub：<a href="https://github.com/iChochy/iReader">https://github.com/iChochy
 <p>下载地址：<a href="https://github.com/iChochy/iReader/archive/refs/heads/main.zip">https://github.com/iChochy/iReader/archive/refs/heads/main.zip</a><br>
 下载并解压，放入用户目录，如：<code>/Users/iChochy/iReader</code></p>
 <h3 id="安装nginx">安装Nginx</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install nginx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install nginx
 </span></span></code></pre></div><h3 id="修改配置文件">修改配置文件</h3>
 <ol>
 <li>运行 <code>nginx -h</code></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy<span style="color:#f92672">[</span>home<span style="color:#f92672">]</span>:nginx -h
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy<span style="color:#f92672">[</span>home<span style="color:#f92672">]</span>:nginx -h
 </span></span><span style="display:flex;"><span>nginx version: nginx/1.29.3
 </span></span><span style="display:flex;"><span>-c filename   : set configuration file <span style="color:#f92672">(</span>default: /opt/homebrew/etc/nginx/nginx.conf<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p><code>Nginx</code> 默认配置文件：<code>/opt/homebrew/etc/nginx/nginx.conf</code></p>
 <ol start="2">
 <li>修改配置文件：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        listen       80;
 </span></span><span style="display:flex;"><span>        server_name  localhost;
 </span></span><span style="display:flex;"><span>
@@ -198,7 +198,7 @@ GitHub：<a href="https://github.com/iChochy/iReader">https://github.com/iChochy
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>将<code>root</code>参数指向项目的目录<code>/Users/iChochy/iReader</code></p>
 <h3 id="运行nginx">运行Nginx</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew services start nginx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew services start nginx
 </span></span></code></pre></div><h3 id="访问系统">访问系统</h3>
 <p>本地地址：<a href="http://localhost">http://localhost</a><br>
 浏览器访问地址，查看点读系统</p>

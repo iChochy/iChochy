@@ -188,7 +188,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 <p>文件命名为 <code>&lt;Label&gt;.plist</code>。 因此，如果您的工作标签（<code>Label</code>）是 <code>com.ichochy.test</code>，您的 <code>plist</code>
 文件应命名为：<code>com.ichochy.test.plist</code></p>
 <h3 id="参数属性">参数属性</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- Label &lt;string&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- Label &lt;string&gt;
 </span></span><span style="display:flex;"><span>    - 作业进程的唯一标识，是必要参数
 </span></span><span style="display:flex;"><span>- Program &lt;string&gt;
 </span></span><span style="display:flex;"><span>    - 作业执行的命令
@@ -245,7 +245,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </span></span><span style="display:flex;"><span>        - Adaptive
 </span></span><span style="display:flex;"><span>        - Interactive
 </span></span></code></pre></div><h3 id="plist-实例">plist 实例</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple Computer//DTD PLIST 1.0//EN&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">        &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
@@ -268,7 +268,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
 </span></span></code></pre></div><h4 id="hello-world-launchd-job">“Hello World!” launchd Job</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
@@ -284,7 +284,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
 </span></span></code></pre></div><h4 id="debugging-launchd-jobs">Debugging launchd Jobs</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
@@ -314,7 +314,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
 </span></span></code></pre></div><h4 id="running-a-job-periodically">Running a Job Periodically</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
@@ -329,7 +329,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;integer&gt;</span>300<span style="color:#f92672">&lt;/integer&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
@@ -352,7 +352,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
 </span></span></code></pre></div><h4 id="monitoring-a-directory">Monitoring a Directory</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
@@ -372,7 +372,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/array&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dict&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dict&gt;</span>
@@ -393,11 +393,11 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 <p><code>launchctl</code> –  <code>launchd</code> 的管理工具<br>
 通过 <code>launchctl</code> 交互来管理和检查 <code>launchd</code> 守护进程、代理进程和 <code>XPC</code> 服务。</p>
 <h3 id="命令执行">命令执行</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  launchctl subcommand <span style="color:#f92672">[</span>arguments ...<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  launchctl subcommand <span style="color:#f92672">[</span>arguments ...<span style="color:#f92672">]</span>
 </span></span></code></pre></div><h4 id="显示加载列表">显示加载列表</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>launchctl list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>launchctl list
 </span></span></code></pre></div><h4 id="基本操作">基本操作</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># enable | disable </span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># enable | disable </span>
 </span></span><span style="display:flex;"><span>launchctl enable  com.ichochy.example.plist      <span style="color:#75715e">#启用 plist</span>
 </span></span><span style="display:flex;"><span>launchctl disable  com.ichochy.example.plist     <span style="color:#75715e">#禁用 plist</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># load | unload </span>
@@ -415,7 +415,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 <h3 id="查看日志">查看日志</h3>
 <p><code>launchctl</code>操作时，出现错误后，可以查看<code>launchd</code>日志，了解具体的错误信息</p>
 <h4 id="命令查看launchd日志">命令查看<code>launchd</code>日志</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tail -f /private/var/log/com.apple.xpc.launchd/launchd.log
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tail -f /private/var/log/com.apple.xpc.launchd/launchd.log
 </span></span></code></pre></div><h4 id="控制台应用查看launchd日志"><code>控制台</code>应用查看<code>launchd</code>日志</h4>
 <ul>
 <li>在<code>应用程序</code>中的<code>实用工具</code>中找到<code>控制台</code>，并打开</li>

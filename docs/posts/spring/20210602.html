@@ -161,7 +161,7 @@
 <p>添加 <code>web</code>、<code>thymeleaf</code> 依赖，finish 创建项目
 <img src="https://images.ichochy.com/16231453775779659.png" alt="16231453775779659"></p>
 <p><code>pom.xml</code> 中手动管理依赖模块</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependencies&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>    <span style="color:#f92672">&lt;dependencies&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;dependency&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
@@ -173,7 +173,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/dependencies&gt;</span>
 </span></span></code></pre></div><h2 id="编写项目">编写项目</h2>
 <h3 id="文件操作接口">文件操作接口</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.web.upload.storage;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.web.upload.storage;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.core.io.Resource;
@@ -221,7 +221,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteAll</span>();
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="文件操作接口实现">文件操作接口实现</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.web.upload.storage;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.web.upload.storage;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.core.io.Resource;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.core.io.UrlResource;
@@ -323,7 +323,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="创建控制器">创建控制器</h3>
 <p>创建控制器 <code>FileUploadController</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.web.upload;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy.web.upload;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.ichochy.web.upload.storage.StorageService;
@@ -389,7 +389,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="创建上传页面">创建上传页面</h3>
 <p>新建 <code>uploadForm.html</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">xmlns:th</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.thymeleaf.org&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">xmlns:th</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.thymeleaf.org&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">th:if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${message}&#34;</span>&gt;
@@ -417,14 +417,14 @@
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
 </span></span></code></pre></div><h3 id="添加项目配置">添加项目配置</h3>
 <p>修改 <code>application.properties</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># thymeleaf 缓存关闭</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># thymeleaf 缓存关闭</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">spring.thymeleaf.cache=false</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 最大文件数据</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">spring.servlet.multipart.max-file-size=128KB</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 最大请求数据</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">spring.servlet.multipart.max-request-size=128KB</span>
 </span></span></code></pre></div><h2 id="项目目录">项目目录</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── pom.xml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── pom.xml
 </span></span><span style="display:flex;"><span>├── src
 </span></span><span style="display:flex;"><span>│   └── main
 </span></span><span style="display:flex;"><span>│       ├── java

@@ -124,7 +124,7 @@
 </ol>
 <h3 id="二配置-podspec">二、配置 <code>Podspec</code></h3>
 <p>官网说明：<a href="https://guides.cocoapods.org/syntax/podspec.html#specification">https://guides.cocoapods.org/syntax/podspec.html#specification</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Pod::Spec.new <span style="color:#66d9ef">do</span> |spec|
 </span></span><span style="display:flex;"><span>  spec.name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;libminipng&#39;</span>
 </span></span><span style="display:flex;"><span>  spec.version      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0.0.5&#39;</span>
 </span></span><span style="display:flex;"><span>  spec.license      <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> :type <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;MIT&#39;</span> <span style="color:#f92672">}</span>
@@ -137,13 +137,13 @@
 </span></span><span style="display:flex;"><span>end
 </span></span></code></pre></div><p><code>spec.source</code>：检索库的远程地址</p>
 <p>支持指定方式：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>:git <span style="color:#f92672">=</span>&gt; :tag, :branch, :commit, :submodules
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>:git <span style="color:#f92672">=</span>&gt; :tag, :branch, :commit, :submodules
 </span></span><span style="display:flex;"><span>:svn <span style="color:#f92672">=</span>&gt; :folder, :tag, :revision
 </span></span><span style="display:flex;"><span>:hg <span style="color:#f92672">=</span>&gt; :revision
 </span></span><span style="display:flex;"><span>:http <span style="color:#f92672">=</span>&gt; :flatten, :type, :sha256, :sha1, :headers
 </span></span></code></pre></div><p><code>spec.source_files</code>: 库的源代码</p>
 <p>通过正则方式匹配，如：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;JSONKit.?&#34;</span>    <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;JSONKit.?&#34;</span>    <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;*.[a-z][a-z]&#34;</span> <span style="color:#75715e">#=&gt; [&#34;CHANGELOG.md&#34;, &#34;README.md&#34;]</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;*.[^m]*&#34;</span>      <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;]</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;*.{h,m}&#34;</span>      <span style="color:#75715e">#=&gt; [&#34;JSONKit.h&#34;, &#34;JSONKit.m&#34;]</span>

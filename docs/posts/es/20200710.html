@@ -136,17 +136,17 @@
 <p><code>Logstash</code> 是一个免费且开放的服务器端数据处理管道，能够从多个来源采集数据，转换数据，然后将数据发送到您最喜欢的“存储库”中</p>
 <h3 id="一下载镱像image">一、下载镱像(image)</h3>
 <p><strong>搜索镱像(image)</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker search elasticsearch
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker search elasticsearch
 </span></span><span style="display:flex;"><span>docker search kibana 
 </span></span><span style="display:flex;"><span>docker search logstash 
 </span></span></code></pre></div><p><strong>获取镱像(image)</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull elasticsearch:7.6.0     <span style="color:#75715e">#镜像名称:Tag</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull elasticsearch:7.6.0     <span style="color:#75715e">#镜像名称:Tag</span>
 </span></span><span style="display:flex;"><span>docker pull kibana:7.6.0            <span style="color:#75715e">#镜像名称:Tag</span>
 </span></span><span style="display:flex;"><span>docker pull logstash:7.6.0            <span style="color:#75715e">#镜像名称:Tag</span>
 </span></span></code></pre></div><p><strong>注：版本要统一</strong></p>
 <h3 id="二创建-elkyml">二、创建 ELK.yml</h3>
 <p><strong>ELK.yml</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.5&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.5&#34;</span>
 </span></span><span style="display:flex;"><span>  
 </span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">elasticsearch</span>:
@@ -179,14 +179,14 @@
 <p><code>volumes</code>自定义监控的文件夹<br>
 **注：**注意YML文件编写，不要出现 Tab 制表符，否则导致文件解析错误，启动容器(container)失败</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 错误信息</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 错误信息</span>
 </span></span><span style="display:flex;"><span>yaml.scanner.ScannerError: mapping values are not allowed here
 </span></span></code></pre></div><h3 id="三运行容器">三、运行容器</h3>
 <p>宿主机<code>hosts</code>中添加</p>
 <pre tabindex="0"><code>127.0.0.1      elasticsearch
 </code></pre><p><strong>命令启动</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose -f ELK.yml up -d
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose -f ELK.yml up -d
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose 
 </span></span><span style="display:flex;"><span>                -f  <span style="color:#75715e">#指定构建文件</span>
 </span></span><span style="display:flex;"><span>                up  <span style="color:#75715e">#创建并启动容器</span>
 </span></span><span style="display:flex;"><span>                -d  <span style="color:#75715e">#后台运行容器(container)，打印容器(container)ID</span>
@@ -201,7 +201,7 @@
 访问：<a href="http://127.0.0.1:5601">http://127.0.0.1:5601</a>，进入 Kibana<br>
 <img src="https://images.ichochy.com/15731085378080282.png" alt="15731085378080282"></p>
 <p>运行<code>docker ps</code>查询容器运行状态，可以查看到容器的ID</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mleo$ docker ps
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mleo$ docker ps
 </span></span><span style="display:flex;"><span>CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                                            NAMES
 </span></span><span style="display:flex;"><span>1b8cb2effede        logstash:7.6.0        <span style="color:#e6db74">&#34;/usr/local/bin/dock…&#34;</span>   <span style="color:#ae81ff">2</span> hours ago         Up About an hour    0.0.0.0:5044-&gt;5044/tcp, 0.0.0.0:9600-&gt;9600/tcp   logstash
 </span></span><span style="display:flex;"><span>69b8bc678e4e        kibana:7.6.0          <span style="color:#e6db74">&#34;/usr/local/bin/dumb…&#34;</span>   <span style="color:#ae81ff">3</span> weeks ago         Up <span style="color:#ae81ff">2</span> hours          0.0.0.0:5601-&gt;5601/tcp                           kibana
@@ -214,7 +214,7 @@ docker logs 1b8cb2effede -f
 <li>运行<code>docker exec -it 1b8cb2effede bash</code>进入logstash</li>
 <li>运行<code>vi pipeline/logstash.conf</code>修改logstash默认配置</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">input {</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">input {</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">beats {</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">port =&gt; 5044</span>
 </span></span><span style="display:flex;"><span>  }
@@ -240,7 +240,7 @@ docker logs 1b8cb2effede -f
 <pre tabindex="0"><code>touch web.log   #创建日志文件
 echo &#34;www.ichochy.com&#34; &gt; web.log  #添加日志信息
 </code></pre><p>查看 logstash 日志信息可以看到打印的日志</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;@version&#34;</span> <span style="color:#ae81ff">=&gt; &#34;1&#34;,</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;path&#34;</span> <span style="color:#ae81ff">=&gt; &#34;/usr/share/logstash/logs/web.log&#34;,</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;host&#34;</span> <span style="color:#ae81ff">=&gt; &#34;1b8cb2effede&#34;,</span>

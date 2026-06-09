@@ -120,7 +120,7 @@
   <p>HUGO 是一套模版静态化的系统，了解其目录结构有助于创建我们的网站系统</p>
 <h2 id="目录结构">目录结构</h2>
 <p>以<code>Hyde</code>主题为例，完整的目录结构如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iChochy
 </span></span><span style="display:flex;"><span>├── archetypes                      内容模版目录
 </span></span><span style="display:flex;"><span>│   └── default.md                  模版文件
 </span></span><span style="display:flex;"><span>├── config.toml                     配置文件
@@ -163,7 +163,7 @@
 </span></span></code></pre></div><h2 id="archetypes">archetypes</h2>
 <p>内容模版目录，通过内容模版，使用<code>hugo new</code>命令创建新的内容文件</p>
 <p><code>default.md</code> 内容模版</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-md" data-lang="md"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span>title: &#34;{{ replace .Name &#34;-&#34; &#34; &#34; | title }}&#34;
 </span></span><span style="display:flex;"><span>date: {{ .Date }}
 </span></span><span style="display:flex;"><span>categories: 
@@ -172,7 +172,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">-</span> iChochy
 </span></span><span style="display:flex;"><span>---
 </span></span></code></pre></div><p>使用命令：<code>hugo new posts/iChochy.md</code>，生成内容文件 <code>content/posts/iChochy.md</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span>title: <span style="color:#e6db74">&#34;iChochy&#34;</span>
 </span></span><span style="display:flex;"><span>date: 2020-08-10T18:13:25+08:00 
 </span></span><span style="display:flex;"><span>categories: 
@@ -182,7 +182,7 @@
 </span></span><span style="display:flex;"><span>---
 </span></span></code></pre></div><h2 id="configtoml">config.toml</h2>
 <p>项目的配置文件，列举些常用的参数。如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># 基础参数，通过.Site.xxxx获取参数</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># 基础参数，通过.Site.xxxx获取参数</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 网站标题</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;回忆中的明天&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 域名地址</span>

@@ -125,7 +125,7 @@
 <p><img src="https://images.ichochy.com/%E5%88%9B%E5%BB%BA%E7%A9%BA%E9%97%B4.png" alt="创建空间"></p>
 <h3 id="二静态博客文件构建">二、静态博客文件构建</h3>
 <p>我使用的是<code>jekyll</code>管理博客， 通过命令<code>jekyll build</code>构建</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ jekyll build
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ jekyll build
 </span></span><span style="display:flex;"><span>Configuration file: /Users/mleo/Develop/GitHub/iChochy/_config.yml
 </span></span><span style="display:flex;"><span>            Source: /Users/mleo/Develop/GitHub/iChochy
 </span></span><span style="display:flex;"><span>       Destination: /Users/mleo/Develop/GitHub/iChochy/_site
@@ -179,11 +179,11 @@
 <p>1､安装</p>
 <p>以<code>Mac</code>为例，安装<code>shell_darwin_x64</code></p>
 <p>运行复制命令：<code>cp qshell_darwin_x64 /usr/local/bin/qshell</code>，将<code>shell_darwin_x64</code>复制到 <code>bin</code>目录下，运行<code>qshell -v</code>检测是否安装成功</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:qshell-v2.3.6 mleo$ qshell -v
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:qshell-v2.3.6 mleo$ qshell -v
 </span></span><span style="display:flex;"><span>qshell version v2.3.6
 </span></span></code></pre></div><p>2､添加账号</p>
 <p>运行命令<code>qshell account</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>qshell account &lt;AK&gt; &lt;SK&gt; &lt;Your Name&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>qshell account &lt;AK&gt; &lt;SK&gt; &lt;Your Name&gt;
 </span></span></code></pre></div><table>
   <thead>
       <tr>
@@ -206,7 +206,7 @@
 <p>使用命令<code>qshell qupload &lt;LocalUploadConfig&gt;</code>
 其中<code>LocalUploadConfig</code>参数配置文件</p>
 <p>本人的<code>LocalUploadConfig</code>文件信息：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ cat .LocalUploadConfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ cat .LocalUploadConfig
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;src_dir&#34;</span>            :   <span style="color:#e6db74">&#34;/Users/mleo/Develop/GitHub/iChochy/_site&#34;</span>,
 </span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;bucket&#34;</span>             :   <span style="color:#e6db74">&#34;blog&#34;</span>,
@@ -250,7 +250,7 @@
   </tbody>
 </table>
 <p>命令参数详细说明：<a href="https://github.com/qiniu/qshell/blob/master/docs/qupload.md">https://github.com/qiniu/qshell/blob/master/docs/qupload.md</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ qshell qupload .LocalUploadConfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>MacBook-Pro:iChochy mleo$ qshell qupload .LocalUploadConfig
 </span></span><span style="display:flex;"><span>Writing upload log to file /Users/mleo/.qshell/upload.log
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Uploading /Users/mleo/Develop/GitHub/iChochy/_site/404.html <span style="color:#f92672">=</span>&gt; 404.html <span style="color:#f92672">[</span>1/67, 1.5%<span style="color:#f92672">]</span> ...
@@ -258,7 +258,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>See upload log at path /Users/mleo/.qshell/upload.log
 </span></span></code></pre></div><p>通过日志查看详情</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /Users/mleo/.qshell/upload.log
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /Users/mleo/.qshell/upload.log
 </span></span></code></pre></div><p><em>至此</em>：文件已经同步到了云空间，修改文件后再次运行<code>qshell qupload &lt;LocalUploadConfig&gt;</code>命令及可完成同步</p>
 <h3 id="四自定义域名">四、自定义域名</h3>
 <p>1､云空间绑定域名</p>

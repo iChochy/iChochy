@@ -147,7 +147,7 @@
 <h2 id="静态代理">静态代理</h2>
 <p>以电脑为模型，我们都知道，电脑是由 CPU、GPU、DISK 多个设备组装的，它们都是通过接口相连接。现在模拟一台电脑（<code>Computer</code>）通过接口设备(<code>Device</code>)，代理（<code>Proxy</code>）组装不同的设备（<code>CPU、GPU</code>），并运行（<code>run</code>）。</p>
 <h3 id="接口设备device">接口设备<code>Device</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:Device.java
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
@@ -162,7 +162,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>();
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="设备-cpu">设备 CPU</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:CPU.java
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
@@ -182,7 +182,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="设备-gpu">设备 GPU</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:GPU.java
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
@@ -202,7 +202,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="电脑computer">电脑<code>Computer</code></h3>
 <p><code>Computer</code>的<code>start</code>方法代理执行接口类方法</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:SimpleProxy.java
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
@@ -232,7 +232,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="运行电脑">运行电脑</h3>
 <p>通过类<code>Computer</code>的<code>start</code>方法代理执行接口类方法</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.ichochy;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.ichochy.proxy.CPU;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.ichochy.proxy.Computer;
@@ -258,7 +258,7 @@ Display
 <p>实现接口<code>InvocationHandler</code>的<code>invoke</code>方法，通过<code>Proxy</code>的<code>newProxyInstance</code>方法，构建代理接口实例。相比静态代理更加灵活，动态代理不同的接口和接口中的方法。</p>
 <h3 id="改进电脑computer">改进电脑<code>Computer</code></h3>
 <p>实现接口<code>InvocationHandler</code>的<code>invoke</code>方法，运用反射，动态执行代理方法</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:SimpleProxy.java
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
@@ -296,7 +296,7 @@ Display
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="动态运行电脑">动态运行电脑</h3>
 <p>通过类<code>Proxy</code>的<code>newProxyInstance</code>方法构建代理接口类，实现方法的代理执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:App.java
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
@@ -333,7 +333,7 @@ End
 <p>CGLIB库是用于生成和转换Java字节码的高级API，它允许运行时对字节码进行修改和动态生成，通过继承方式实现动态代理。</p>
 <h3 id="引入cglib库">引入<code>CGLIB</code>库</h3>
 <p>通过<code>Maven</code>库管理引入第三方<code>CGLIB</code>库</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- https://mvnrepository.com/artifact/cglib/cglib --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- https://mvnrepository.com/artifact/cglib/cglib --&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>cglib<span style="color:#f92672">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>cglib<span style="color:#f92672">&lt;/artifactId&gt;</span>
@@ -341,7 +341,7 @@ End
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><h3 id="改进电脑computer-1">改进电脑<code>Computer</code></h3>
 <p>实现接口<code>MethodInterceptor</code>的<code>intercept</code>方法，运用反射，动态执行代理方法（原父类方法）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:SimpleProxy.java
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
@@ -369,7 +369,7 @@ End
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="动态运行电脑-1">动态运行电脑</h3>
 <p>通过类<code>Enhancer</code>的<code>create</code>方法构建代理类，实现方法的代理执行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * File:App.java
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * User:iChochy
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * URL:https://ichochy.com
