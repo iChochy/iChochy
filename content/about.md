@@ -32,7 +32,7 @@ iChat：[https://github.com/ichochy/iChat](https://github.com/ichochy/iChat)
 iTranslation：[https://github.com/ichochy/iTranslation](https://github.com/ichochy/iTranslation)
 ### Web
 NCE：[https://github.com/ichochy/NCE](https://github.com/ichochy/NCE)  
-iReader：[https://github.com/ichochy/iLRC](https://github.com/ichochy/iLRC)  
+iLRC：[https://github.com/ichochy/iLRC](https://github.com/ichochy/iLRC)  
 iReader：[https://github.com/ichochy/iReader](https://github.com/ichochy/iReader)
 
 

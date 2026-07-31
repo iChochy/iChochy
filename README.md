@@ -16,6 +16,7 @@ iReader：[https://github.com/ichochy/ireader](https://github.com/ichochy/ireade
 
 ## 感谢 
 [雷霆](https://hi.leiting.uk/invite/y0qT3LOe) 提供 [自由网络](https://hi.leiting.uk/invite/y0qT3LOe)  
+[ZenMux](https://mleo.site/api) 提供 [AI API](https://mleo.site/api)   
 [又拍云](https://console.upyun.com/register/?invite=r1z6aWlRt) 提供 [CDN/云存储](https://console.upyun.com/register/?invite=r1z6aWlRt)  
 [七牛云](https://portal.qiniu.com/signup?code=3l7cpouzlru4y) 提供 [CDN/云存储](https://portal.qiniu.com/signup?code=3l7cpouzlru4y)  
 [Algolia](https://www.algolia.com) 提供 [Search Engine](https://www.algolia.com)  
