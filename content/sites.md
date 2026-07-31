@@ -4,23 +4,20 @@ date: 2024-06-22T12:07:59+08:00
 ---
 
 ## AI 智能
-千问：[https://www.qianwen.com](https://www.qianwen.com)  
-豆包：[https://www.doubao.com](https://www.doubao.com)  
-Deepseek：[https://deepseek.com](https://deepseek.com)   
+ 
 Duck：[https://duck.ai](https://duck.ai)    
 Grok：[https://grok.com](https://grok.com)   
 Claude：[https://claude.ai](https://claude.ai)   
-ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
 Gemini：[https://gemini.google.com](https://gemini.google.com)  
-GoogleLabs：[https://labs.google/experiments](https://labs.google/experiments)   
+ChatGPT：[https://chatgpt.com](https://chatgpt.com)  
+Deepseek：[https://deepseek.com](https://deepseek.com)   
+  
 
 ## AI 聚合平台
 ZenMux：[https://zenmux.ai](https://zenmux.ai/invite/3KA0VI)  
 OpenRouter：[https://openrouter.ai](https://openrouter.ai)  
 BigModel：[https://www.bigmodel.cn](https://www.bigmodel.cn/invite?icode=SbhyEoRyatGVt2/j3XXIzn3uFJ1nZ0jLLgipQkYjpcA=)  
-SiliconFlow：[https://cloud.siliconflow.cn](https://cloud.siliconflow.cn/i/tNIsGU0B)  
-MerLin：[https://www.getmerlin.in](https://www.getmerlin.in/chat)  
-POE：[https://poe.com](https://poe.com)  
+
 
 ## 开发文档
 Java：[https://dev.java](https://dev.java)  
@@ -43,6 +40,7 @@ Emacs：[https://www.gnu.org/software/emacs](https://www.gnu.org/software/emacs)
 IDEA：[https://www.jetbrains.com/idea](https://www.jetbrains.com/idea)  
 Xcode：[https://developer.apple.com/xcode](https://developer.apple.com/xcode)  
 WebStorm：[https://www.jetbrains.com/webstorm](https://www.jetbrains.com/webstorm)  
+DataGrip：[https://www.jetbrains.com/datagrip](https://www.jetbrains.com/datagrip)   
 PyCharm：[https://www.jetbrains.com/pycharm](https://www.jetbrains.com/pycharm)  
 Eclipse：[https://www.eclipse.org](https://www.eclipse.org)  
 Netbeans：[https://netbeans.apache.org](https://netbeans.apache.org)  

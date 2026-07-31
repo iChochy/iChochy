@@ -35,8 +35,7 @@
         <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
         <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
         <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
-        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
-        <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li></ul>
     </nav>
     <div class = "other">
         <ol>
@@ -410,38 +409,38 @@
 <h4 id="配置gsonsetfieldnamingpolicy">配置GSON（setFieldNamingPolicy）</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Gson gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> GsonBuilder().<span style="color:#a6e22e">setFieldNamingPolicy</span>(FieldNamingPolicy.<span style="color:#a6e22e">IDENTITY</span>).<span style="color:#a6e22e">create</span>();
 </span></span></code></pre></div><table>
-  <thead>
-      <tr>
-          <th style="text-align: center">枚举常量</th>
-          <th>枚举常量和描述</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: center">IDENTITY</td>
-          <td>字段名称不变</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">LOWER_CASE_WITH_DASHES</td>
-          <td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用短划线（-）分隔</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">LOWER_CASE_WITH_DOTS</td>
-          <td>字段名称从其驼峰大小写形式修改为小写的字段名称，其中每个单词都用点（.）分隔</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">LOWER_CASE_WITH_UNDERSCORES</td>
-          <td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用下划线（_）分隔</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">UPPER_CAMEL_CASE</td>
-          <td>字段名称的第一个字母在序列化为JSON格式时大写</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">UPPER_CAMEL_CASE_WITH_SPACES</td>
-          <td>字段名称的第一个字母在序列化为JSON格式时大写，并且单词之间将用空格分隔</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th style="text-align: center">枚举常量</th>
+					<th>枚举常量和描述</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: center">IDENTITY</td>
+					<td>字段名称不变</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">LOWER_CASE_WITH_DASHES</td>
+					<td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用短划线（-）分隔</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">LOWER_CASE_WITH_DOTS</td>
+					<td>字段名称从其驼峰大小写形式修改为小写的字段名称，其中每个单词都用点（.）分隔</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">LOWER_CASE_WITH_UNDERSCORES</td>
+					<td>字段名称从其驼峰式的形式修改为小写的字段名称，其中每个单词都用下划线（_）分隔</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">UPPER_CAMEL_CASE</td>
+					<td>字段名称的第一个字母在序列化为JSON格式时大写</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">UPPER_CAMEL_CASE_WITH_SPACES</td>
+					<td>字段名称的第一个字母在序列化为JSON格式时大写，并且单词之间将用空格分隔</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="时间格式">时间格式</h3>
 <h4 id="配置gsonsetdateformat">配置GSON（setDateFormat）</h4>

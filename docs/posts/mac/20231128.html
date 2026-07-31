@@ -37,8 +37,7 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
         <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
         <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
         <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
-        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li>
-        <li><a href="https://ichochy.com/vps.html"> VPS </a></li></ul>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li></ul>
     </nav>
     <div class = "other">
         <ol>
@@ -145,40 +144,40 @@ launchd – 系统范围内的守护进程（LaunchDaemons）/代理程序（Lau
 守护进程不应尝试显示 <code>UI</code> 或直接与用户的登录会话交互。 所有涉及与用户交互地应通过代理服务完成，如：运行程序，显示 <code>UI</code>。</p>
 <h3 id="路径说明">路径说明</h3>
 <table>
-  <thead>
-      <tr>
-          <th>路径</th>
-          <th>加载</th>
-          <th>说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>/System/Library/LaunchDaemons</td>
-          <td>系统启动</td>
-          <td>提供系统范围的守护进程（Apple）</td>
-      </tr>
-      <tr>
-          <td>/System/Library/LaunchAgents</td>
-          <td>系统启动</td>
-          <td>提供系统范围的用户代理（Apple）</td>
-      </tr>
-      <tr>
-          <td>/Library/LaunchDaemons</td>
-          <td>用户登录</td>
-          <td>提供所有用户的守护进程</td>
-      </tr>
-      <tr>
-          <td>/Library/LaunchAgents</td>
-          <td>用户登录</td>
-          <td>提供所有用户的代理进程</td>
-      </tr>
-      <tr>
-          <td>~/Library/LaunchAgents</td>
-          <td>用户登录</td>
-          <td>提供当前用户的代理进程</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>路径</th>
+					<th>加载</th>
+					<th>说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>/System/Library/LaunchDaemons</td>
+					<td>系统启动</td>
+					<td>提供系统范围的守护进程（Apple）</td>
+			</tr>
+			<tr>
+					<td>/System/Library/LaunchAgents</td>
+					<td>系统启动</td>
+					<td>提供系统范围的用户代理（Apple）</td>
+			</tr>
+			<tr>
+					<td>/Library/LaunchDaemons</td>
+					<td>用户登录</td>
+					<td>提供所有用户的守护进程</td>
+			</tr>
+			<tr>
+					<td>/Library/LaunchAgents</td>
+					<td>用户登录</td>
+					<td>提供所有用户的代理进程</td>
+			</tr>
+			<tr>
+					<td>~/Library/LaunchAgents</td>
+					<td>用户登录</td>
+					<td>提供当前用户的代理进程</td>
+			</tr>
+	</tbody>
 </table>
 <p>更多具体信息查看系统帮助文档：<a href="x-man-page://launchd">launchd</a></p>
 <h2 id="launchdplist"><a href="x-man-page://launchd.plist">launchd.plist</a></h2>
