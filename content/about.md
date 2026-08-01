@@ -14,26 +14,30 @@ GitHub：[https://github.com/iChochy](https://github.com/iChochy)
 
 ![公众号](/wx.jpg)
 
-## ☕ 打赏
+## ☕ 支持与打赏
 
-请帮忙点赞、收藏和转发
+我是一个 80 后程序员，目前正在与白血病（CMML）抗争。
+
+如果项目或内容曾帮助过您，欢迎给予一点支持：
+
+- ⭐ **点一个 Star，鼓励项目持续维护**
+- ☕ **请我喝杯咖啡，或打赏一点生命值（可选）**
 
 ![Sponsor](https://image.ichochy.com/sponsor.jpg)
 
-如果内容帮到过您，求打赏一点生命值(可选)  
-80后码农×白血病(CMML)  
-工作已停，药费没停  
-感谢您的善意，谢谢！！！
+感谢每一位使用、反馈和支持的朋友。  
+每一次 **Star** 和鼓励，都是我继续前进的动力 ❤️
 
 
 ## 开源
 ### App
 iChat：[https://github.com/ichochy/iChat](https://github.com/ichochy/iChat)  
-iTranslation：[https://github.com/ichochy/iTranslation](https://github.com/ichochy/iTranslation)
+iTranslation：[https://github.com/ichochy/iTranslation](https://github.com/ichochy/iTranslation)  
+
 ### Web
 NCE：[https://github.com/ichochy/NCE](https://github.com/ichochy/NCE)  
 iLRC：[https://github.com/ichochy/iLRC](https://github.com/ichochy/iLRC)  
-iReader：[https://github.com/ichochy/iReader](https://github.com/ichochy/iReader)
+iReader：[https://github.com/ichochy/iReader](https://github.com/ichochy/iReader)  
 
 
 ## 感谢  
