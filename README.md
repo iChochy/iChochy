@@ -27,11 +27,8 @@ iReader：[https://github.com/ichochy/iReader](https://github.com/ichochy/iReade
 [Cloudflare](https://dash.cloudflare.com]) 提供 [Domain Name System](https://dash.cloudflare.com)  
 
 ## ☕ 支持与打赏
-
-我是一个 80 后程序员，目前正在与白血病（CMML）抗争。
-
-如果项目或内容曾帮助过您，欢迎给予一点支持：
-
+我是一个 80 后程序员，目前正在与白血病（CMML）抗争。  
+如果项目或内容曾帮助过您，欢迎给予一点支持：  
 - ⭐ **点一个 Star，鼓励项目持续维护**
 - ☕ **请我喝杯咖啡，或打赏一点生命值（可选）**
 
