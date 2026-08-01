@@ -3,24 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>赞赏支持</title>
+    <title>支持与打赏 · Sponsor</title>
     <style>
         :root {
-            --bg:
-                radial-gradient(circle at top left, rgba(255, 255, 255, 0.9) 0%, rgba(255, 243, 228, 0.4) 28%, transparent 48%),
-                linear-gradient(180deg, #fbf5ed 0%, #f4eadf 100%);
-            --card: rgba(255, 252, 247, 0.88);
-            --card-strong: #fffdf9;
-            --text: #2c231b;
-            --muted: #7a6858;
-            --line: rgba(117, 89, 61, 0.14);
-            --brand: #bc6a2c;
-            --brand-strong: #974d18;
-            --brand-soft: rgba(188, 106, 44, 0.12);
-            --shadow: 0 24px 72px rgba(85, 52, 23, 0.14);
-        }
-
-        [data-theme="dark"] {
+            color-scheme: dark;
             --bg:
                 radial-gradient(circle at top left, rgba(122, 70, 36, 0.34) 0%, transparent 32%),
                 linear-gradient(180deg, #1d1712 0%, #120f0c 100%);
@@ -39,17 +25,15 @@
             box-sizing: border-box;
         }
 
-        html,
         body {
             margin: 0;
-            min-height: 100%;
-        }
-
-        body {
+            min-height: 100vh;
+            min-height: 100dvh;
             font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
             background: var(--bg);
             color: var(--text);
             padding: 12px;
+            transition: background-color .35s ease, color .35s ease;
         }
 
         a {
@@ -61,16 +45,19 @@
             width: min(100%, 760px);
             margin: 0 auto;
             display: grid;
-            gap: 12px;
+            gap: 14px;
         }
 
         .topbar,
         .card,
+        .qr-card,
         .footer {
             background: var(--card);
             border: 1px solid var(--line);
             box-shadow: var(--shadow);
             backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transition: background-color .35s ease, border-color .35s ease;
         }
 
         .topbar {
@@ -86,18 +73,15 @@
             min-width: 0;
         }
 
-        .title strong {
-            display: block;
-            font-size: 0.95rem;
-            line-height: 1.2;
-        }
-
-        .title span {
-            display: block;
-            color: var(--muted);
-            font-size: 1.8rem;
-            line-height: 1.35;
-            margin-top: 2px;
+        .eyebrow {
+            display: inline-flex;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 0.84rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
         }
 
         .btn {
@@ -110,62 +94,137 @@
             padding: 10px 14px;
             cursor: pointer;
             white-space: nowrap;
+            transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .15s ease;
+        }
+
+        .btn:hover {
+            background: var(--brand-soft);
+            border-color: var(--brand);
+            color: var(--brand-strong);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
         }
 
         .card {
             border-radius: 24px;
-            padding: 18px;
+            padding: 26px 24px;
             text-align: center;
         }
 
-        .eyebrow {
-            display: inline-flex;
-            padding: 7px 12px;
-            border-radius: 999px;
-            background: var(--brand-soft);
-            color: var(--brand-strong);
-            font-size: 0.84rem;
-            font-weight: 800;
-            letter-spacing: 0.04em;
-        }
-
         h1 {
-            margin: 14px 0 10px;
+            margin: 10px 0 10px;
             font-size: 2rem;
             line-height: 1.06;
             letter-spacing: -0.04em;
         }
 
         .lead {
-            margin-bottom: 14px;
+            margin: 0 0 18px;
             color: var(--muted);
             line-height: 1.8;
             font-size: 0.98rem;
         }
 
-        .story {
-            margin-top: 14px;
-            padding: 14px 15px;
+        .support-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .support-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 16px;
             border-radius: 18px;
             border: 1px solid var(--line);
             background: linear-gradient(180deg, var(--card-strong), transparent);
         }
 
-        .story p {
-            margin: 0;
-            line-height: 1.8;
-            font-size: 0.96rem;
+        .support-icon {
+            font-size: 1.6rem;
+            line-height: 1;
         }
 
-        .story strong {
+        .support-item strong {
+            display: block;
+            font-size: 0.98rem;
+            line-height: 1.3;
+        }
+
+        .support-item p {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.55;
+        }
+
+        .card h2 {
+            margin: 0 0 6px;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .project-list {
+            list-style: none;
+            margin: 18px 0 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .project-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 16px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, var(--card-strong), transparent);
+        }
+
+        .project-item strong {
+            display: block;
+            font-size: 0.98rem;
+            line-height: 1.3;
+        }
+
+        .project-item p {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.55;
+        }
+
+        .project-item--placeholder {
+            border-style: dashed;
+            opacity: 0.75;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 8px;
             color: var(--brand-strong);
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: opacity .2s ease;
+        }
+
+        .project-link:hover {
+            opacity: 0.75;
         }
 
         .qr-card {
-            padding: 8px;
-            border-radius: 20px;
-            border: 1px solid var(--line);
-            background: linear-gradient(180deg, var(--card-strong), transparent);
+            border-radius: 24px;
+            padding: 24px 20px;
             text-align: center;
         }
 
@@ -174,16 +233,9 @@
             font-size: 1.08rem;
         }
 
-        .qr-card p {
-            margin: 6px 0 0;
-            color: var(--muted);
-            font-size: 0.9rem;
-            line-height: 1.65;
-        }
-
         .qr-wrap {
             width: min(100%, 340px);
-            margin: 4px auto 0;
+            margin: 16px auto 0;
             aspect-ratio: 1;
             border-radius: 24px;
             background: #fff;
@@ -200,19 +252,27 @@
             border-radius: 16px;
         }
 
-        .links {
-            margin-top: 14px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .story {
+            margin-top: 16px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, var(--card-strong), transparent);
+            text-align: left;
         }
 
-        .link-chip {
-            padding: 10px 14px;
-            border-radius: 999px;
-            background: var(--brand-soft);
+        .story p {
+            margin: 0 0 10px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .story p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story strong {
             color: var(--brand-strong);
-            font-weight: 700;
         }
 
         .footer {
@@ -240,6 +300,43 @@
         .footer-nav a {
             color: var(--brand-strong);
             font-weight: 700;
+            transition: opacity .2s ease;
+        }
+
+        .footer-nav a:hover {
+            opacity: 0.75;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .topbar,
+            .card,
+            .qr-card,
+            .footer {
+                animation: rise .5s ease both;
+            }
+
+            .card {
+                animation-delay: .05s;
+            }
+
+            .qr-card {
+                animation-delay: .1s;
+            }
+
+            .footer {
+                animation-delay: .15s;
+            }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
         }
 
         @media (max-width: 640px) {
@@ -253,24 +350,32 @@
 
             .btn {
                 width: 100%;
-                padding: 2px;
+                padding: 10px 8px;
                 text-align: center;
+            }
+
+            .card {
+                padding: 20px 16px;
+            }
+
+            .support-list {
+                grid-template-columns: 1fr;
+            }
+
+            .project-list {
+                grid-template-columns: 1fr;
             }
 
             .qr-wrap {
                 width: min(100%, 240px);
             }
 
-            .card {
-                padding: 16px;
-                text-align: center;
-            }
-            .lead{
-                font-size: 10px;
+            .lead {
+                font-size: 0.92rem;
             }
 
             h1 {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -281,56 +386,168 @@
             <div class="title">
                 <span class="eyebrow">WeChat Sponsor</span>
             </div>
-            <button id="themeToggle" class="btn" type="button" aria-label="切换主题">深色模式</button>
-            <a class="btn" href="./index.html">返回首页</a>
+            <a id="backHome" class="btn" href="https://www.ichochy.com" target="_blank" rel="noreferrer">返回首页</a>
         </header>
 
         <section class="card">
-            <h1>求打赏点生命值。</h1>
-            <p class="lead">80后码农×白血病(CMML)患者。工作已停，药费没停。</p>
+            <h1>支持与打赏</h1>
+            <p class="lead">如果这个项目或内容曾对您有所帮助，欢迎给予一点支持：</p>
 
-            <div class="qr-card">
-                <h2>感谢您的善意</h2>
-                <div class="qr-wrap">
-                    <img src="https://image.ichochy.com/sponsor.jpg" alt="sponsor"/>
-                </div>
-                <p>长按识别或截图扫码</p>
+            <ul class="support-list">
+                <li class="support-item">
+                    <span class="support-icon" aria-hidden="true">⭐</span>
+                    <div>
+                        <strong>点一个 Star</strong>
+                        <p>鼓励项目持续维护</p>
+                    </div>
+                </li>
+                <li class="support-item">
+                    <span class="support-icon" aria-hidden="true">☕</span>
+                    <div>
+                        <strong>请我喝杯咖啡</strong>
+                        <p>打赏一点生命值（可选）</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>开源项目</h2>
+            <p class="lead">您的每一份支持，都将用于以下项目的持续维护与内容更新：</p>
+
+            <ul class="project-list" id="project-list">
+                <!-- 项目列表由页面底部的 PROJECTS 数组动态渲染 -->
+            </ul>
+        </section>
+
+        <section class="qr-card">
+            <h2>感谢您的善意</h2>
+            <div class="qr-wrap">
+                <img src="https://image.ichochy.com/sponsor.jpg" alt="赞赏二维码" />
+            </div>
+            <div class="story">
+                <p>感谢每一位使用、关注、反馈和支持我的朋友，每一个 <strong>Star</strong> 和鼓励，都是我继续坚持下去的动力 ❤️</p>
+                <p>我是一个 80 后程序员，目前正在与白血病（CMML）抗争。继续维护项目、分享技术，希望这些内容能够持续帮助更多朋友。</p>
+                <p>感谢您的认可与善意，祝您一切顺利！</p>
             </div>
         </section>
 
         <footer class="footer">
             <p>&copy; 2026 Thanks for your kindness.</p>
             <nav class="footer-nav">
-                <a href="./index.html">首页</a>
+                <a href="https://www.ichochy.com" target="_blank" rel="noreferrer">主页</a>
                 <a href="https://ichochy.com" target="_blank" rel="noreferrer">Blog</a>
-                <a href="https://github.com/ichochy" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://github.com/iChochy" target="_blank" rel="noreferrer">GitHub</a>
             </nav>
         </footer>
     </main>
 
     <script>
-        const root = document.documentElement;
-        const themeToggle = document.getElementById("themeToggle");
-        const savedTheme = localStorage.getItem("sponsor-theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        // 返回首页：根据跳转来源动态决定目标地址
+        (function () {
+            const backHome = document.getElementById("backHome");
+            if (!backHome) return;
 
-        function setTheme(theme) {
-            if (theme === "dark") {
-                root.setAttribute("data-theme", "dark");
-                themeToggle.textContent = "浅色模式";
-            } else {
-                root.removeAttribute("data-theme");
-                themeToggle.textContent = "深色模式";
+            // 1. 优先使用调用方显式指定的来源（?from=...）
+            const from = new URLSearchParams(location.search).get("from");
+            if (from) {
+                backHome.href = from;
+                return;
             }
-        }
 
-        setTheme(savedTheme || (prefersDark ? "dark" : "light"));
+            // 2. 如果没有显式指定来源，则使用 document.referrer
+            const referrer = document.referrer;
+            if (referrer) {
+                backHome.href = referrer;
+                return;
+            }
 
-        themeToggle.addEventListener("click", () => {
-            const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-            localStorage.setItem("sponsor-theme", nextTheme);
-            setTheme(nextTheme);
-        });
+        })();
+
+        // 支持的项目：数据直接维护在下方数组中
+        (function () {
+            const list = document.getElementById("project-list");
+            if (!list) return;
+
+            // 👇 在此处增删项目：icon / name / description / link（可选，无链接则不显示「查看项目」）
+            const PROJECTS = [
+                {
+                    icon: "🧭",
+                    name: "NH — 智能导航主页",
+                    description: "快捷搜索与书签管理的智能导航主页，随时随地探索灵感与效率。",
+                    link: "https://www.ichochy.com",
+                    linkText: "打开主页"
+                },
+              {
+                    icon: "🎵",
+                    name: "iLRC — LRC 歌词编辑器",
+                    description: "在线 LRC 歌词编辑器，导入音频与 LRC，逐行编辑、一键导出。",
+                    link: "https://lrc.ichochy.com",
+                    linkText: "在线编辑"
+                },
+                {
+                    icon: "📚",
+                    name: "NCE 新概念英语听力播放器",
+                    description: "新概念英语 NCE 听力播放器，选择课本与单元，随时随地点读听力。",
+                    link: "https://nce.ichochy.com",
+                    linkText: "在线使用"
+                },
+                {
+                    icon: "📖",
+                    name: "iReader 英语点读系统",
+                    description: "英语在线点读学习系统，单句点读、全文朗读、外挂资源，辅助英语学习。",
+                    link: "https://tap.ichochy.com",
+                    linkText: "在线使用"
+                },
+                {
+                    icon: "🔊",
+                    name: "MiMo TTS — 文本转语音工具",
+                    description: "开源免费的在线文本转语音（TTS）工具，支持多种音色与自定义参数。",
+                    link: "https://tts.ichochy.com",
+                    linkText: "在线使用"
+                },
+                {
+                    icon: "💬",
+                    name: "iChat (AI Chat)",
+                    description: "开源智能聊天工具，支持 MiMo、DeepSeek、Gemini、Grok、OpenAI 与自定义 AI。",
+                    link: "https://github.com/ichochy/iChat",
+                    linkText: "查看项目"
+                },
+                {
+                    icon: "🌐",
+                    name: "iTranslation",
+                    description: "macOS 简单快捷的翻译软件，支持数十种语言互译，实时翻译、快捷高效。",
+                    link: "https://github.com/ichochy/iTranslation",
+                    linkText: "查看项目"
+                },
+                {
+                    icon: "🖼️",
+                    name: "图传 (iUploader)",
+                    description: "macOS 原生图床上传工具，支持 Cloudflare R2、GitHub、又拍云、SM.MS 等。",
+                    link: "https://iUploader.ichochy.com/",
+                    linkText: "查看项目"
+                }
+            ];
+
+            const render = (projects) => {
+                if (!Array.isArray(projects) || projects.length === 0) {
+                    list.innerHTML = '<li class="project-item project-item--placeholder"><div><strong>暂无项目</strong><p>项目信息尚未配置。</p></div></li>';
+                    return;
+                }
+                list.innerHTML = projects.map((p) => `
+                    <li class="project-item">
+                        <span class="support-icon" aria-hidden="true">${p.icon || "🛠️"}</span>
+                        <div>
+                            <strong>${p.name}</strong>
+                            <p>${p.description}</p>
+                            ${p.link ? `<a class="project-link" href="${p.link}" target="_blank" rel="noreferrer">${p.linkText || "查看项目"} →</a>` : ""}
+                        </div>
+                    </li>
+                `).join("");
+            };
+
+            render(PROJECTS);
+        })();
     </script>
 </body>
 </html>

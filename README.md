@@ -27,19 +27,23 @@ iReader：[https://github.com/ichochy/iReader](https://github.com/ichochy/iReade
 [Cloudflare](https://dash.cloudflare.com]) 提供 [Domain Name System](https://dash.cloudflare.com)  
 
 ## ☕ 支持与打赏
-我是一个 80 后程序员，目前正在与白血病（CMML）抗争。  
-如果项目或内容曾帮助过您，欢迎给予一点支持：  
+如果这个项目或内容曾对您有所帮助，欢迎给予一点支持：
 - ⭐ **点一个 Star，鼓励项目持续维护**
 - ☕ **请我喝杯咖啡，或打赏一点生命值（可选）**
 
 ![Sponsor](https://image.ichochy.com/sponsor.jpg)
 
-感谢每一位使用、反馈和支持的朋友。  
-每一次 **Star** 和鼓励，都是我继续前进的动力 ❤️
+感谢每一位使用、关注、反馈和支持我的朋友。  
+每一个 **Star** 和鼓励，都是我继续坚持下去的动力 ❤️  
 
+我是一个 80 后程序员，目前正在与白血病（CMML）抗争。  
+继续维护项目、分享技术，希望这些内容能够持续帮助更多朋友。  
+
+感谢您的认可与善意，祝您一切顺利！  
+
+---
 
 ## 推荐  
-
 ### AI 聚合平台
 #### 支持 Claude、OpenAI、XAI、Gemini、DeepSeek 等……
 ZenMux：[API 聚合平台](https://mleo.site/api)   
