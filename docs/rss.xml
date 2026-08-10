@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Wed, 05 Aug 2026 16:32:45 +0800</lastBuildDate>
+			<lastBuildDate>Mon, 10 Aug 2026 10:33:45 +0800</lastBuildDate>
 		
 			<atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>用 Grok Build 对接 ZenMux，解锁更多模型的编码体验</title>
+				<link>https://ichochy.com/posts/ai/20260810.html</link>
+				<pubDate>Mon, 10 Aug 2026 10:33:45 +0800</pubDate>
+				<guid>https://ichochy.com/posts/ai/20260810.html</guid>
+				<description>&lt;p&gt;最近一直在用 xAI 的 &lt;strong&gt;Grok Build&lt;/strong&gt; 做编码代理。它是一个跑在终端里的强大 coding agent，支持交互式 TUI、无头模式和 ACP 协议，能直接读代码库、改文件、跑命令、管理子代理，体验很流畅。&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>我写了一个英语在线点读系统，译林英语在线点读</title>
 				<link>https://ichochy.com/posts/web/20260805.html</link>

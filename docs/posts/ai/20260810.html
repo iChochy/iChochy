@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>用 Grok Build 对接 ZenMux，解锁更多模型的编码体验 &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="ai,web,chat,api"/>
+    <meta name="description" content="最近一直在用 xAI 的 Grok Build 做编码代理。它是一个跑在终端里的强大 coding agent，支持交互式 TUI、无头模式和 ACP 协议，能直接读代码库、改文件、跑命令、管理子代理，体验很流畅。"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2026 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-准备-zenmux-api-key">1. 准备 ZenMux API Key</a></li>
+    <li><a href="#2-安装-grok-build">2. 安装 Grok Build</a></li>
+    <li><a href="#3-配置自定义模型核心步骤">3. 配置自定义模型（核心步骤）</a></li>
+    <li><a href="#4-设置环境变量">4. 设置环境变量</a></li>
+    <li><a href="#5-启动并使用">5. 启动并使用</a></li>
+    <li><a href="#使用体验与建议">使用体验与建议</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#邀请奖励">邀请奖励</a>
+      <ul>
+        <li><a href="#邀请码-3ka0vi">邀请码: <code>3KA0VI</code></a></li>
+        <li><a href="#邀请链接">邀请链接: https://zenmux.ai/invite/3KA0VI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</aside>
+
+    <main class="content container">
+    <nav aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    <li>
+      <a href="https://ichochy.com/index.html">首页</a>
+    </li>
+    <li class="active">用 Grok Build 对接 ZenMux，解锁更多模型的编码体验</li>
+  </ol>
+</nav>
+<h1>用 Grok Build 对接 ZenMux，解锁更多模型的编码体验</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/ai.html">#AI</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/ai.html">#ai</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/web.html">#web</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/chat.html">#chat</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/api.html">#api</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2026/08/10 10:33:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/ai/20260810.html">https://ichochy.com/posts/ai/20260810.html</a>
+<hr>
+
+  <p>最近一直在用 xAI 的 <strong>Grok Build</strong> 做编码代理。它是一个跑在终端里的强大 coding agent，支持交互式 TUI、无头模式和 ACP 协议，能直接读代码库、改文件、跑命令、管理子代理，体验很流畅。</p>
+<p>但默认情况下它主要走 xAI 自家模型。我想更灵活一点：既能用 Grok，也能随时切到 Claude、Gemini、DeepSeek、Qwen 等其他模型。于是就把 <strong><a href="https://mleo.site/api">ZenMux 官网</a></strong> 接了进来。</p>
+<p><a href="https://mleo.site/api">ZenMux 官网</a> 是一个企业级大模型聚合平台，一个 API Key 就能调用全球主流模型，支持 OpenAI 和 Anthropic 双协议，智能路由，还有质量保障机制。官方文档和模型列表都很清晰。</p>
+<p>下面分享一下我是怎么把 Grok Build 对接 ZenMux 的。</p>
+<h2 id="1-准备-zenmux-api-key">1. 准备 ZenMux API Key</h2>
+<p>去 <a href="https://mleo.site/api">ZenMux 官网</a> 注册登录（支持邮箱、GitHub、Google）。</p>
+<p>推荐两种方式：</p>
+<ul>
+<li><strong>Builder Plan（订阅制）</strong>：固定月费，适合个人开发和学习，性价比高。</li>
+<li><strong>Pay As You Go（按量付费）</strong>：按实际用量计费，适合生产环境，无 rate limit。</li>
+</ul>
+<p>创建对应的 API Key 后保存好（格式一般是 <code>sk-...</code>）。</p>
+<h2 id="2-安装-grok-build">2. 安装 Grok Build</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># macOS / Linux</span>
+</span></span><span style="display:flex;"><span>curl -fsSL https://x.ai/cli/install.sh | bash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Windows PowerShell</span>
+</span></span><span style="display:flex;"><span>irm https://x.ai/cli/install.ps1 | iex
+</span></span></code></pre></div><p>安装完验证一下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grok --version
+</span></span></code></pre></div><h2 id="3-配置自定义模型核心步骤">3. 配置自定义模型（核心步骤）</h2>
+<p>Grok Build 支持通过用户配置文件添加任意自定义模型。编辑：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>~/.grok/config.toml
+</span></span></code></pre></div><p>（Windows 下是 <code>%USERPROFILE%\.grok\config.toml</code>）</p>
+<p>添加类似下面的内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">models</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">default</span> = <span style="color:#e6db74">&#34;zenmux-grok&#34;</span>          <span style="color:#75715e"># 默认使用这个模型</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">zenmux-grok</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;x-ai/grok-4.5&#34;</span>          <span style="color:#75715e"># ZenMux 上的模型 slug，可换成其他</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">base_url</span> = <span style="color:#e6db74">&#34;https://zenmux.ai/api/v1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Grok 4.5 via ZenMux&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;通过 ZenMux 调用 Grok&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">env_key</span> = <span style="color:#e6db74">&#34;ZENMUX_API_KEY&#34;</span>       <span style="color:#75715e"># 环境变量名</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">api_backend</span> = <span style="color:#e6db74">&#34;chat_completions&#34;</span> <span style="color:#75715e"># 或 &#34;responses&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">context_window</span> = <span style="color:#ae81ff">256000</span>
+</span></span></code></pre></div><p>你还可以多加几个模型方便切换，比如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">zenmux-claude</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;anthropic/claude-sonnet-4.5&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">base_url</span> = <span style="color:#e6db74">&#34;https://zenmux.ai/api/v1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Claude Sonnet via ZenMux&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">env_key</span> = <span style="color:#e6db74">&#34;ZENMUX_API_KEY&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">api_backend</span> = <span style="color:#e6db74">&#34;chat_completions&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">DeepSeek</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;deepseek/deepseek-v4-flash&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">base_url</span> = <span style="color:#e6db74">&#34;https://zenmux.ai/api/v1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;DeepSeek V4 Flash&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;via ZenMux&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">env_key</span> = <span style="color:#e6db74">&#34;ZENMUX_API_KEY&#34;</span>
+</span></span></code></pre></div><p>模型 slug 可以在 ZenMux 的 Models 页面直接查看。</p>
+<h2 id="4-设置环境变量">4. 设置环境变量</h2>
+<p>在 <code>~/.zshrc</code> 或 <code>~/.bashrc</code> 里加上：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export ZENMUX_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sk-你的密钥&#34;</span>
+</span></span></code></pre></div><p>然后 <code>source ~/.zshrc</code> 让它生效。</p>
+<h2 id="5-启动并使用">5. 启动并使用</h2>
+<p>进入项目目录：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /home/iChochy/Code/      <span style="color:#75715e"># 进入项目目录</span>
+</span></span><span style="display:flex;"><span>grok                        <span style="color:#75715e"># 启动 grok</span>
+</span></span></code></pre></div><p>在 TUI 里按 <code>Ctrl+M</code> 打开模型选择器，或者用 <code>/model zenmux-grok</code> 切换。</p>
+<p>无头模式也可以直接指定：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grok -p <span style="color:#e6db74">&#34;解释这个代码库的结构&#34;</span> -m zenmux-grok
+</span></span></code></pre></div><p>用 <code>grok inspect</code> 可以确认当前配置是否被正确加载。</p>
+<h2 id="使用体验与建议">使用体验与建议</h2>
+<p>对接后最大的好处是<strong>模型自由</strong>：同一个 Grok Build 界面，随时切换不同提供商的模型，不用换工具。<br>
+日常编码我常用 Grok 或 Claude Sonnet，复杂推理就切到更强的模型，成本也能通过 ZenMux 的订阅或按量计费灵活控制。</p>
+<p>注意几点：</p>
+<ul>
+<li>确保 <code>base_url</code> 带 <code>/v1</code>（OpenAI 兼容协议）。</li>
+<li>如果某个模型需要 Anthropic 协议，可以把 <code>base_url</code> 改成 <code>https://zenmux.ai/api/anthropic</code>，并设置 <code>api_backend = &quot;messages&quot;</code>。</li>
+<li>生产环境建议用 Pay As You Go Key，订阅 Key 更适合个人学习。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>Grok Build 本身已经很强，再加上 ZenMux 的模型聚合能力，编码代理的选择空间一下子就打开了。配置其实很简单，改一下 <code>config.toml</code> 和环境变量就能用。</p>
+<p>如果你也在用 Grok Build，不妨试试对接 ZenMux。有问题或者更好的玩法，欢迎交流。</p>
+<h2 id="邀请奖励">邀请奖励</h2>
+<p><strong>首次充值可获得 5% 奖励</strong></p>
+<h3 id="邀请码-3ka0vi">邀请码: <code>3KA0VI</code></h3>
+<h3 id="邀请链接">邀请链接: <a href="https://zenmux.ai/invite/3KA0VI">https://zenmux.ai/invite/3KA0VI</a></h3>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260509.html">
+                    通过 ZenMux 使用 Claude Code CLI 解锁更多 AI 模型，包括 Claude 所有模型
+                </a>
+                <small>
+                    2026/05/09
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260103.html">
+                    NVIDIA NIM 开发平台，提供超多免费大模型
+                </a>
+                <small>
+                    2026/01/03
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251220.html">
+                    国内外免费大模型平台，支持 API 调用的超多免费大模型
+                </a>
+                <small>
+                    2025/12/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251218.html">
+                    SiliconFlow 硅基流动一站式大模型云服务平台，提供超多免费大模型
+                </a>
+                <small>
+                    2025/12/18
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251217.html">
+                    Xiaomi MiMo 小米大模型团队开发的大语言模型，开源限免中……
+                </a>
+                <small>
+                    2025/12/17
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/web/20260805.html" class="pag-link">我写了一个英语在线点读系统，译林英语在线点读</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>

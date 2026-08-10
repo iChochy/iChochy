@@ -3,10 +3,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ichochy.com/tags/app.html</loc>
-    <lastmod>2026-08-05T16:32:45+08:00</lastmod>
+    <loc>https://ichochy.com/tags/ai.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/categories/ai.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/api.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/categories/index.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/chat.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/index.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/index.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/web.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/index.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/ai/20260810.html</loc>
+    <lastmod>2026-08-10T10:33:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/app.html</loc>
     <lastmod>2026-08-05T16:32:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/english.html</loc>
@@ -15,22 +42,10 @@
     <loc>https://ichochy.com/tags/lrc.html</loc>
     <lastmod>2026-08-05T16:32:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/posts/index.html</loc>
-    <lastmod>2026-08-05T16:32:45+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/tags/stt.html</loc>
     <lastmod>2026-08-05T16:32:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/tags/index.html</loc>
-    <lastmod>2026-08-05T16:32:45+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/categories/web.html</loc>
-    <lastmod>2026-08-05T16:32:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/web.html</loc>
-    <lastmod>2026-08-05T16:32:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/index.html</loc>
     <lastmod>2026-08-05T16:32:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/web/20260805.html</loc>
@@ -38,18 +53,6 @@
   </url><url>
     <loc>https://ichochy.com/posts/web/20260801.html</loc>
     <lastmod>2026-08-01T22:12:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/ai.html</loc>
-    <lastmod>2026-05-09T10:33:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/categories/ai.html</loc>
-    <lastmod>2026-05-09T10:33:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/api.html</loc>
-    <lastmod>2026-05-09T10:33:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/chat.html</loc>
-    <lastmod>2026-05-09T10:33:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/ai/20260509.html</loc>
     <lastmod>2026-05-09T10:33:45+08:00</lastmod>
