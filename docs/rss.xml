@@ -10,9 +10,23 @@
 		
 		
 		
-			<lastBuildDate>Sat, 09 May 2026 10:33:45 +0800</lastBuildDate>
+			<lastBuildDate>Wed, 05 Aug 2026 16:32:45 +0800</lastBuildDate>
 		
 			<atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>我写了一个英语在线点读系统，译林英语在线点读</title>
+				<link>https://ichochy.com/posts/web/20260805.html</link>
+				<pubDate>Wed, 05 Aug 2026 16:32:45 +0800</pubDate>
+				<guid>https://ichochy.com/posts/web/20260805.html</guid>
+				<description>&lt;p&gt;辅导小孩子学英语的时候，最头疼的就是“朗读”。市面上很多点读笔或者 App 要么收费，要么资源封闭，用起来不痛快。于是我就自己写了一个&lt;strong&gt;纯前端的英语在线点读系统&lt;/strong&gt;。&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>我写了一个完全在浏览器里运行的 LRC 歌词编辑器</title>
+				<link>https://ichochy.com/posts/web/20260801.html</link>
+				<pubDate>Sat, 01 Aug 2026 22:12:45 +0800</pubDate>
+				<guid>https://ichochy.com/posts/web/20260801.html</guid>
+				<description>&lt;p&gt;做它的原因很简单：我想有一个&lt;strong&gt;干净、本地、不用安装、也不用上传任何东西&lt;/strong&gt;的歌词工具。市面上很多歌词编辑器要么需要下载安装，要么要把音频传到服务器，我都不太喜欢。于是干脆自己写一个。&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>通过 ZenMux 使用 Claude Code CLI 解锁更多 AI 模型，包括 Claude 所有模型</title>
 				<link>https://ichochy.com/posts/ai/20260509.html</link>

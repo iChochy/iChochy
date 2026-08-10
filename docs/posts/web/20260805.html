@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>我写了一个英语在线点读系统，译林英语在线点读 &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="app,web,lrc,english,stt"/>
+    <meta name="description" content="辅导小孩子学英语的时候，最头疼的就是“朗读”。市面上很多点读笔或者 App 要么收费，要么资源封闭，用起来不痛快。于是我就自己写了一个纯前端的英语在线点读系统。"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2026 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#它能做什么">它能做什么？</a></li>
+        <li><a href="#怎么用">怎么用？</a></li>
+        <li><a href="#技术实现">技术实现</a></li>
+        <li><a href="#为什么做这个">为什么做这个？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</aside>
+
+    <main class="content container">
+    <nav aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    <li>
+      <a href="https://ichochy.com/index.html">首页</a>
+    </li>
+    <li class="active">我写了一个英语在线点读系统，译林英语在线点读</li>
+  </ol>
+</nav>
+<h1>我写了一个英语在线点读系统，译林英语在线点读</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/web.html">#Web</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/app.html">#app</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/web.html">#web</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/lrc.html">#lrc</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/english.html">#english</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/stt.html">#stt</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2026/08/05 16:32:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/web/20260805.html">https://ichochy.com/posts/web/20260805.html</a>
+<hr>
+
+  <p>辅导小孩子学英语的时候，最头疼的就是“朗读”。市面上很多点读笔或者 App 要么收费，要么资源封闭，用起来不痛快。于是我就自己写了一个<strong>纯前端的英语在线点读系统</strong>。</p>
+<p>在线地址是：<strong><a href="https://tap.ichochy.com">https://tap.ichochy.com</a></strong></p>
+<p>它默认内置了《译林英语》4A、4B、5A、5B、6A 这几个学期的课本，打开就能用。</p>
+<h3 id="它能做什么">它能做什么？</h3>
+<ul>
+<li><strong>单句点读</strong>：点击任意一句，立刻从那句开始朗读。</li>
+<li><strong>点句点读</strong>：播完当前句就自动停，方便一句一句跟读。</li>
+<li><strong>单句循环</strong>：反复朗读当前句，适合模仿发音。</li>
+<li><strong>全文朗读</strong>：一键播放整课，支持列表循环。</li>
+<li><strong>速度调节</strong>：0.5x 到 2.0x 六档倍速，想慢就慢、想快就快。</li>
+<li><strong>双语展示</strong>：支持双语对照、只显示英文、只显示中文，还有模糊翻译模式。</li>
+<li><strong>进度记忆</strong>：自动记住你上次学到哪一课、哪一句，下次打开继续。</li>
+<li><strong>明暗主题</strong>：跟随系统，也可以手动切换。</li>
+</ul>
+<p>最核心的设计是：<strong>播放器和学习资源完全分离</strong>。</p>
+<p>播放器只负责“读、播、记”，真正的课本内容（音频 + LRC 歌词）是以外挂静态文件的形式接入的。任何人都可以自己做一套资源，放到任意支持 CORS 的静态服务器上，就能挂到这个系统里用。</p>
+<h3 id="怎么用">怎么用？</h3>
+<p>直接打开 <a href="https://tap.ichochy.com">https://tap.ichochy.com</a> 就行。<br>
+也可以通过链接直达指定课本，比如：</p>
+<ul>
+<li><a href="https://tap.ichochy.com/#YL4A">https://tap.ichochy.com/#YL4A</a></li>
+<li><a href="https://tap.ichochy.com/#YL5A">https://tap.ichochy.com/#YL5A</a></li>
+<li><a href="https://tap.ichochy.com/#YL6A">https://tap.ichochy.com/#YL6A</a></li>
+</ul>
+<p>自己做资源的话，只要准备好 <code>book.json</code>、每课的 MP3 和对应的 LRC 文件（中英文用 <code>|</code> 分隔），托管上去，再在 <code>data.json</code> 里注册一下就能用了。</p>
+<h3 id="技术实现">技术实现</h3>
+<p>整个项目是纯静态的，零框架、零依赖、零构建。<br>
+用原生 HTML + CSS + JavaScript（ES Modules），音频用 HTML5 Audio API，进度存在浏览器的 localStorage 里。部署到任何静态服务器都能跑。</p>
+<p>代码已开源：<br>
+<a href="https://github.com/iChochy/iReader">https://github.com/iChochy/iReader</a></p>
+<h3 id="为什么做这个">为什么做这个？</h3>
+<p>就是为了让孩子学英语的时候，能方便地点一句读一句，不用翻来翻去找音频，也不用被各种广告和会员墙打扰。做完之后自己用着挺顺手，就开源出来分享了。</p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/web/20260801.html">
+                    我写了一个完全在浏览器里运行的 LRC 歌词编辑器
+                </a>
+                <small>
+                    2026/08/01
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/web/20260320.html">
+                    自己写一个Web 端的MiMo TTS Chat，方便实现文本转语音，API限免中
+                </a>
+                <small>
+                    2026/03/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/web/20251207.html">
+                    iReader 英语点读学习系统，译林小学英语在线点读
+                </a>
+                <small>
+                    2025/12/07
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/life/20251020.html">
+                    英语学习，新概念英语在线点读、全文朗读学习系统
+                </a>
+                <small>
+                    2025/10/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260509.html">
+                    通过 ZenMux 使用 Claude Code CLI 解锁更多 AI 模型，包括 Claude 所有模型
+                </a>
+                <small>
+                    2026/05/09
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/web/20260801.html" class="pag-link">我写了一个完全在浏览器里运行的 LRC 歌词编辑器</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>
