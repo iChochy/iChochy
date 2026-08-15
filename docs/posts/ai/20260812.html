@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>通过 ZenMux 配置 Codex CLI 完整指南（含 Profiles &#43; 换模型） &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="ai,web,chat,api"/>
+    <meta name="description" content="OpenAI 的 Codex CLI 是一款运行在本地终端的开源 AI 编程智能体，能读写代码、执行命令。默认只能使用官方 OpenAI 模型，通过 ZenMux（大模型聚合平台）可以接入更多模型，并支持多配置档案（Profiles）灵活切换。"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2026 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一为什么选择-zenmux--codex-cli">一、为什么选择 ZenMux + Codex CLI？</a></li>
+        <li><a href="#二安装-codex-cli">二、安装 Codex CLI</a></li>
+        <li><a href="#三获取并配置-zenmux-api-key">三、获取并配置 ZenMux API Key</a></li>
+        <li><a href="#四主配置文件">四、主配置文件</a></li>
+        <li><a href="#五profiles-完整模板推荐">五、Profiles 完整模板（推荐）</a></li>
+        <li><a href="#六一键创建所有配置复制执行">六、一键创建所有配置（复制执行）</a></li>
+        <li><a href="#七使用方式">七、使用方式</a></li>
+        <li><a href="#八配置优先级从高到低">八、配置优先级（从高到低）</a></li>
+        <li><a href="#九常见问题">九、常见问题</a></li>
+        <li><a href="#十总结">十、总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#邀请奖励">邀请奖励</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</aside>
+
+    <main class="content container">
+    <nav aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    <li>
+      <a href="https://ichochy.com/index.html">首页</a>
+    </li>
+    <li class="active">通过 ZenMux 配置 Codex CLI 完整指南（含 Profiles &#43; 换模型）</li>
+  </ol>
+</nav>
+<h1>通过 ZenMux 配置 Codex CLI 完整指南（含 Profiles &#43; 换模型）</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/ai.html">#AI</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/ai.html">#ai</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/web.html">#web</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/chat.html">#chat</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/api.html">#api</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2026/08/12 11:53:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/ai/20260812.html">https://ichochy.com/posts/ai/20260812.html</a>
+<hr>
+
+  <p>OpenAI 的 <strong>Codex CLI</strong> 是一款运行在本地终端的开源 AI 编程智能体，能读写代码、执行命令。默认只能使用官方 OpenAI 模型，通过 <strong><a href="https://mleo.site/api">ZenMux</a></strong>（大模型聚合平台）可以接入更多模型，并支持多配置档案（Profiles）灵活切换。</p>
+<hr>
+<h3 id="一为什么选择-zenmux--codex-cli">一、为什么选择 ZenMux + Codex CLI？</h3>
+<ul>
+<li>完全兼容 OpenAI 协议</li>
+<li>支持 GPT、Claude、DeepSeek 等多种模型</li>
+<li>配置一次，CLI 与 Codex App 共用</li>
+<li>支持启动时用 <code>-m</code> / <code>--model</code> 临时换模型</li>
+<li>通过 Profiles <code>codex -p coding</code>，快速切换「日常编码 / 深度推理 / 只读分析」等场景</li>
+</ul>
+<hr>
+<h3 id="二安装-codex-cli">二、安装 Codex CLI</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 推荐</span>
+</span></span><span style="display:flex;"><span>curl -fsSL https://chatgpt.com/codex/install.sh | sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 或 npm</span>
+</span></span><span style="display:flex;"><span>npm install -g @openai/codex
+</span></span></code></pre></div><p>验证安装：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## 查看版本</span>
+</span></span><span style="display:flex;"><span>codex --version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 检查</span>
+</span></span><span style="display:flex;"><span>codex doctor   
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 更新</span>
+</span></span><span style="display:flex;"><span>codex update    
+</span></span></code></pre></div><hr>
+<h3 id="三获取并配置-zenmux-api-key">三、获取并配置 ZenMux API Key</h3>
+<ol>
+<li>登录 <a href="https://mleo.site/api">ZenMux 控制台</a> 创建 API Key（格式通常为 <code>sk-ai-v1-xxx</code>）</li>
+<li>写入 shell 配置文件（<code>~/.zshrc</code> 或 <code>~/.bashrc</code>）：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export ZENMUX_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sk-ai-v1-xxx&#34;</span>   <span style="color:#75715e"># 替换为你的真实 Key</span>
+</span></span></code></pre></div><p>生效：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.zshrc   <span style="color:#75715e"># 或 source ~/.bashrc</span>
+</span></span></code></pre></div><hr>
+<h3 id="四主配置文件">四、主配置文件</h3>
+<p>创建或编辑 <code>~/.codex/config.toml</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># ==============================</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Codex CLI + ZenMux 主配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ==============================</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_provider</span> = <span style="color:#e6db74">&#34;zenmux&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;gpt-5.3-codex&#34;</span>                   <span style="color:#75715e"># 默认模型</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">approval_policy</span> = <span style="color:#e6db74">&#34;on-request&#34;</span>            <span style="color:#75715e"># 需要确认再执行</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sandbox_mode</span> = <span style="color:#e6db74">&#34;workspace-write&#34;</span>          <span style="color:#75715e"># 允许写当前工作区</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">model_providers</span>.<span style="color:#a6e22e">zenmux</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;ZenMux&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">base_url</span> = <span style="color:#e6db74">&#34;https://zenmux.ai/api/v1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">env_key</span> = <span style="color:#e6db74">&#34;ZENMUX_API_KEY&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">wire_api</span> = <span style="color:#e6db74">&#34;responses&#34;</span>                    <span style="color:#75715e"># 推荐</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">features</span>.<span style="color:#a6e22e">multi_agent_v2</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tool_namespace</span> = <span style="color:#e6db74">&#34;agents&#34;</span>
+</span></span></code></pre></div><hr>
+<h3 id="五profiles-完整模板推荐">五、Profiles 完整模板（推荐）</h3>
+<p>新版本 Codex 使用<strong>独立文件</strong>作为 Profile（<code>~/.codex/名称.config.toml</code>），通过 <code>-p</code> 切换。</p>
+<h4 id="1-日常编码推荐默认">1. 日常编码（推荐默认）</h4>
+<p><strong>文件</strong>：<code>~/.codex/coding.config.toml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;gpt-5.3-codex&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">approval_policy</span> = <span style="color:#e6db74">&#34;on-request&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sandbox_mode</span> = <span style="color:#e6db74">&#34;workspace-write&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_reasoning_effort</span> = <span style="color:#e6db74">&#34;medium&#34;</span>
+</span></span></code></pre></div><h4 id="2-深度推理">2. 深度推理</h4>
+<p><strong>文件</strong>：<code>~/.codex/deep.config.toml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;gpt-5.3-codex&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">approval_policy</span> = <span style="color:#e6db74">&#34;on-request&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sandbox_mode</span> = <span style="color:#e6db74">&#34;workspace-write&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_reasoning_effort</span> = <span style="color:#e6db74">&#34;high&#34;</span>
+</span></span></code></pre></div><h4 id="3-轻量快速">3. 轻量快速</h4>
+<p><strong>文件</strong>：<code>~/.codex/lite.config.toml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;gpt-5.3-codex&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">approval_policy</span> = <span style="color:#e6db74">&#34;on-request&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sandbox_mode</span> = <span style="color:#e6db74">&#34;workspace-write&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_reasoning_effort</span> = <span style="color:#e6db74">&#34;low&#34;</span>
+</span></span></code></pre></div><h4 id="4-只读分析安全">4. 只读分析（安全）</h4>
+<p><strong>文件</strong>：<code>~/.codex/readonly.config.toml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;gpt-5.3-codex&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">approval_policy</span> = <span style="color:#e6db74">&#34;on-request&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sandbox_mode</span> = <span style="color:#e6db74">&#34;read-only&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_reasoning_effort</span> = <span style="color:#e6db74">&#34;medium&#34;</span>
+</span></span></code></pre></div><h4 id="5-全自动模式慎用">5. 全自动模式（慎用）</h4>
+<p><strong>文件</strong>：<code>~/.codex/yolo.config.toml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;gpt-5.3-codex&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">approval_policy</span> = <span style="color:#e6db74">&#34;never&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sandbox_mode</span> = <span style="color:#e6db74">&#34;workspace-write&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_reasoning_effort</span> = <span style="color:#e6db74">&#34;medium&#34;</span>
+</span></span></code></pre></div><h4 id="6-claude-模型">6. Claude 模型</h4>
+<p><strong>文件</strong>：<code>~/.codex/claude.config.toml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;anthropic/claude-sonnet-5&#34;</span>      <span style="color:#75715e"># 按 ZenMux 实际可用模型调整</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">approval_policy</span> = <span style="color:#e6db74">&#34;on-request&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sandbox_mode</span> = <span style="color:#e6db74">&#34;workspace-write&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_reasoning_effort</span> = <span style="color:#e6db74">&#34;medium&#34;</span>
+</span></span></code></pre></div><h4 id="7-高安全审查">7. 高安全审查</h4>
+<p><strong>文件</strong>：<code>~/.codex/review.config.toml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">model</span> = <span style="color:#e6db74">&#34;gpt-5.3-codex&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">approval_policy</span> = <span style="color:#e6db74">&#34;untrusted&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sandbox_mode</span> = <span style="color:#e6db74">&#34;read-only&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_reasoning_effort</span> = <span style="color:#e6db74">&#34;high&#34;</span>
+</span></span></code></pre></div><hr>
+<h3 id="六一键创建所有配置复制执行">六、一键创建所有配置（复制执行）</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/.codex
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 主配置</span>
+</span></span><span style="display:flex;"><span>cat &gt; ~/.codex/config.toml <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model_provider = &#34;zenmux&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model = &#34;gpt-5.3-codex&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">approval_policy = &#34;on-request&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sandbox_mode = &#34;workspace-write&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[model_providers.zenmux]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">name = &#34;ZenMux&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">base_url = &#34;https://zenmux.ai/api/v1&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">env_key = &#34;ZENMUX_API_KEY&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">wire_api = &#34;responses&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[features.multi_agent_v2]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">tool_namespace = &#34;agents&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># coding</span>
+</span></span><span style="display:flex;"><span>cat &gt; ~/.codex/coding.config.toml <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model = &#34;gpt-5.3-codex&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">approval_policy = &#34;on-request&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sandbox_mode = &#34;workspace-write&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model_reasoning_effort = &#34;medium&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deep</span>
+</span></span><span style="display:flex;"><span>cat &gt; ~/.codex/deep.config.toml <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model = &#34;gpt-5.3-codex&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">approval_policy = &#34;on-request&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sandbox_mode = &#34;workspace-write&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model_reasoning_effort = &#34;high&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># lite</span>
+</span></span><span style="display:flex;"><span>cat &gt; ~/.codex/lite.config.toml <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model = &#34;gpt-5.3-codex&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">approval_policy = &#34;on-request&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sandbox_mode = &#34;workspace-write&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model_reasoning_effort = &#34;low&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># readonly</span>
+</span></span><span style="display:flex;"><span>cat &gt; ~/.codex/readonly.config.toml <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model = &#34;gpt-5.3-codex&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">approval_policy = &#34;on-request&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sandbox_mode = &#34;read-only&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model_reasoning_effort = &#34;medium&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># yolo</span>
+</span></span><span style="display:flex;"><span>cat &gt; ~/.codex/yolo.config.toml <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model = &#34;gpt-5.3-codex&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">approval_policy = &#34;never&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sandbox_mode = &#34;workspace-write&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model_reasoning_effort = &#34;medium&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># claude</span>
+</span></span><span style="display:flex;"><span>cat &gt; ~/.codex/claude.config.toml <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model = &#34;anthropic/claude-sonnet-5&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">approval_policy = &#34;on-request&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sandbox_mode = &#34;workspace-write&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model_reasoning_effort = &#34;medium&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># review</span>
+</span></span><span style="display:flex;"><span>cat &gt; ~/.codex/review.config.toml <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model = &#34;gpt-5.3-codex&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">approval_policy = &#34;untrusted&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">sandbox_mode = &#34;read-only&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">model_reasoning_effort = &#34;high&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;✅ 所有配置已创建完成&#34;</span>
+</span></span></code></pre></div><hr>
+<h3 id="七使用方式">七、使用方式</h3>
+<h4 id="1-按-profile-启动">1. 按 Profile 启动</h4>
+<table>
+	<thead>
+			<tr>
+					<th>场景</th>
+					<th>启动命令</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>日常编码（推荐）</td>
+					<td><code>codex -p coding</code></td>
+			</tr>
+			<tr>
+					<td>深度推理</td>
+					<td><code>codex -p deep</code></td>
+			</tr>
+			<tr>
+					<td>轻量快速</td>
+					<td><code>codex -p lite</code></td>
+			</tr>
+			<tr>
+					<td>只读分析</td>
+					<td><code>codex -p readonly</code></td>
+			</tr>
+			<tr>
+					<td>全自动（慎用）</td>
+					<td><code>codex -p yolo</code></td>
+			</tr>
+			<tr>
+					<td>Claude 模型</td>
+					<td><code>codex -p claude</code></td>
+			</tr>
+			<tr>
+					<td>高安全审查</td>
+					<td><code>codex -p review</code></td>
+			</tr>
+			<tr>
+					<td>使用主配置默认</td>
+					<td><code>codex</code></td>
+			</tr>
+	</tbody>
+</table>
+<h4 id="2-用--m----model-临时换模型">2. 用 <code>-m</code> / <code>--model</code> 临时换模型</h4>
+<p>启动时直接指定模型，优先级高于 Profile 和主配置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 基础用法</span>
+</span></span><span style="display:flex;"><span>codex -m gpt-5.5
+</span></span><span style="display:flex;"><span>codex --model gpt-5.5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 结合 Profile 使用（推荐）</span>
+</span></span><span style="display:flex;"><span>codex -p coding -m gpt-5.5
+</span></span><span style="display:flex;"><span>codex -p deep -m anthropic/claude-sonnet-5
+</span></span><span style="display:flex;"><span>codex -p lite -m gpt-5.3-codex
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 完整示例</span>
+</span></span><span style="display:flex;"><span>codex -p coding -m openai/gpt-5.3-codex
+</span></span><span style="display:flex;"><span>codex -p review -m anthropic/claude-sonnet-5
+</span></span></code></pre></div><p><strong>常用模型示例（以 ZenMux 实际支持为准）：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># GPT 系列（推荐原厂名称）</span>
+</span></span><span style="display:flex;"><span>codex -p coding -m gpt-5.3-codex
+</span></span><span style="display:flex;"><span>codex -p coding -m gpt-5.5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Claude 系列</span>
+</span></span><span style="display:flex;"><span>codex -p coding -m anthropic/claude-sonnet-5
+</span></span><span style="display:flex;"><span>codex -p coding -m anthropic/claude-opus-5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 其他模型</span>
+</span></span><span style="display:flex;"><span>codex -p coding -m deepseek/deepseek-v4-flash
+</span></span></code></pre></div><blockquote>
+<p>提示：<code>-m</code> 只影响当前这次启动，不会修改配置文件。想长期更换默认模型，请修改对应 Profile 或主 <code>config.toml</code> 中的 <code>model</code> 字段。</p>
+</blockquote>
+<hr>
+<h3 id="八配置优先级从高到低">八、配置优先级（从高到低）</h3>
+<ol>
+<li>命令行参数（<code>-m</code> / <code>--model</code>、<code>-c</code> 等）← <strong>最高</strong></li>
+<li>项目级 <code>.codex/config.toml</code></li>
+<li>Profile 文件（<code>~/.codex/名称.config.toml</code>）</li>
+<li>用户主配置 <code>~/.codex/config.toml</code></li>
+<li>内置默认值</li>
+</ol>
+<p>因此：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>codex -p coding -m gpt-5.5
+</span></span></code></pre></div><p>最终使用的是 <code>gpt-5.5</code>，而不是 Profile 里写的模型。</p>
+<hr>
+<h3 id="九常见问题">九、常见问题</h3>
+<p><strong>1. API Key 无效？</strong><br>
+确认已正确设置 <code>ZENMUX_API_KEY</code> 并执行了 <code>source</code>，同时检查控制台密钥是否有效、是否有余额。</p>
+<p><strong>2. 模型调用失败？</strong><br>
+以 ZenMux 控制台实际支持的模型名为准。GPT 系列推荐直接使用原厂名称（如 <code>gpt-5.3-codex</code>）。</p>
+<p><strong>3. <code>-m</code> 换模型不生效？</strong><br>
+确认模型名称拼写正确，且该模型在 ZenMux 上可用。可先不加 Profile 测试：<code>codex -m 模型名</code>。</p>
+<p><strong>4. Profile 不生效？</strong><br>
+确认文件名为 <code>名称.config.toml</code>，并使用 <code>codex -p 名称</code> 启动。重启终端后再试。</p>
+<p><strong>5. 想同时支持 Codex App？</strong><br>
+CLI 与 App 共用 <code>~/.codex/config.toml</code>，配置一次即可两端使用。App 已运行时请重启一次。</p>
+<hr>
+<h3 id="十总结">十、总结</h3>
+<ol>
+<li>安装 Codex CLI</li>
+<li>设置 <code>ZENMUX_API_KEY</code></li>
+<li>写好主配置 <code>config.toml</code></li>
+<li>创建多个 Profile 文件</li>
+<li>日常用 <code>codex -p xxx</code> 启动</li>
+<li>需要临时换模型时加 <code>-m 模型名</code></li>
+</ol>
+<p>完成以上步骤后，你就能在终端中稳定使用 ZenMux 提供的多模型能力，并根据任务类型和模型需求灵活切换。</p>
+<p>官方参考文档：</p>
+<ul>
+<li><a href="https://learn.chatgpt.com/docs/config-file/config-basic">Codex 配置基础</a></li>
+<li><a href="https://zenmux.ai/docs/zh/best-practices/codex.html">通过 ZenMux 使用 Codex CLI</a></li>
+</ul>
+<h2 id="邀请奖励">邀请奖励</h2>
+<p><strong>首次充值可获得 5% 奖励</strong><br>
+邀请码: <code>3KA0VI</code><br>
+邀请链接: <a href="https://zenmux.ai/invite/3KA0VI">https://zenmux.ai/invite/3KA0VI</a></p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260810.html">
+                    用 Grok Build 对接 ZenMux，解锁更多模型的编码体验
+                </a>
+                <small>
+                    2026/08/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260509.html">
+                    通过 ZenMux 使用 Claude Code CLI 解锁更多 AI 模型，包括 Claude 所有模型
+                </a>
+                <small>
+                    2026/05/09
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260103.html">
+                    NVIDIA NIM 开发平台，提供超多免费大模型
+                </a>
+                <small>
+                    2026/01/03
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251220.html">
+                    国内外免费大模型平台，支持 API 调用的超多免费大模型
+                </a>
+                <small>
+                    2025/12/20
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251218.html">
+                    SiliconFlow 硅基流动一站式大模型云服务平台，提供超多免费大模型
+                </a>
+                <small>
+                    2025/12/18
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/ai/20260810.html" class="pag-link">用 Grok Build 对接 ZenMux，解锁更多模型的编码体验</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>
