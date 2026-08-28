@@ -48,7 +48,7 @@ function renderTable({ meta, data }) {
       const query = new URLSearchParams(item).toString();
       const actions = hasDatetime
         ? `<a href="${pageUrl}" target="_blank">页面</a>`
-        : `<a href="?${query}">详情</a> | <a href="${pageUrl}" target="_blank">页面</a>`;
+        : `<a href="?${query}">记录</a> | <a href="${pageUrl}" target="_blank">页面</a>`;
       return `<tr>${cells}<td>${actions}</td></tr>`;
     })
     .join("");
