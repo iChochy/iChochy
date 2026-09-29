@@ -1,5 +1,13 @@
 [
   {
+    "objectID": 20260920,
+    "url": "https://ichochy.com/posts/linux/20260920.html",
+    "title": "Fedora 检测安装 WIFI 驱动，安装 BCM4331 驱动的完整全过程",
+    "summary": "Fedora 44 MacBook 检测 BCM4331 并安装驱动的完整全过程\n",
+    "content": "Fedora 44 MacBook 检测 BCM4331 并安装驱动的完整全过程\n一、检测网卡型号 # 最常用的检测方法 lspci -nn | grep -i network # 更详细的信息（推荐） lspci -nnk | grep -A4 -i network 如果输出类似下面内容，就确认是 BCM4331：\n03:00.0 Network controller [0280]: Broadcom Inc. and subsidiaries BCM4331 802.11a/b/g/n [14e4:4331] (rev 02) 补充检查命令：\nlspci -nn -d 14e4: uname -r cat /etc/os-release 二、安装 b43 开源驱动（简单方案，推荐先试） 1. 启用 RPM Fusion 仓库 # 安装 free + nonfree 基础仓库 sudo dnf install \\ https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \\ https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm # 安装 tainted 仓库（固件所在） sudo dnf install rpmfusion-nonfree-release-tainted 2. 安装固件 sudo dnf install b43-firmware 验证固件：\nls /lib/firmware/b43/ucode29_mimo.fw 3. 加载驱动 sudo modprobe -r b43 sudo modprobe b43 4. 检查是否成功 sudo dmesg | grep -i b43 lsmod | grep b43 lspci -nnk | grep -A3 -i network nmcli device 成功标志：\n出现 Loading firmware version 784.2 接口名出现（如 wlp3s0b1） Kernel driver in use: b43 三、安装 wl 专有驱动（速度更好，支持 5GHz） 注意：使用 wl 通常需要关闭 Secure Boot。\n1. 安装驱动 sudo dnf install akmod-wl sudo akmods --force # 强制编译模块 2. 黑名单冲突模块（很重要） echo -e \u0026#34;blacklist b43\\nblacklist b43legacy\\nblacklist ssb\\nblacklist bcma\\nblacklist brcmsmac\u0026#34; | sudo tee /etc/modprobe.d/blacklist-b43.conf 3. 重启 sudo reboot 4. 重启后检查 lspci -nnk | grep -A3 -i network lsmod | grep wl nmcli device 成功标志：Kernel driver in use: wl\n四、连接 Wi-Fi # 扫描网络 nmcli device wifi list # 连接 nmcli device wifi connect \u0026#34;你的WiFi名称\u0026#34; password \u0026#34;你的密码\u0026#34; 或直接打开「设置 → 网络」。\n五、常用排查命令 # 查看当前使用的驱动 lspci -nnk | grep -A3 -i network # 查看加载的模块 lsmod | grep -E \u0026#39;b43|wl\u0026#39; # 查看固件加载情况 sudo dmesg | grep -iE \u0026#39;b43|wl|firmware\u0026#39; # 查看射频开关 rfkill list sudo rfkill unblock all 六、两种驱动对比（快速参考） 项目 b43（开源） wl（专有） 安装难度 简单 稍复杂（需编译） 5GHz 支持 不支持 支持 速度 一般（20-60Mbps） 更好（常 100Mbps+） Secure Boot 兼容 通常需关闭 稳定性 中等 通常更好 ",
+    "pubDate": "2026-09-20T22:25:45+08:00"
+  }, 
+  {
     "objectID": 20260812,
     "url": "https://ichochy.com/posts/ai/20260812.html",
     "title": "通过 ZenMux 配置 Codex CLI 完整指南（含 Profiles + 换模型）",

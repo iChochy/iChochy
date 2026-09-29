@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>Fedora 检测安装 WIFI 驱动，安装 BCM4331 驱动的完整全过程 &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="linx,shell,net"/>
+    <meta name="description" content="Fedora 44 MacBook 检测 BCM4331 并安装驱动的完整全过程"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2026 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一检测网卡型号">一、检测网卡型号</a></li>
+        <li><a href="#二安装-b43-开源驱动简单方案推荐先试">二、安装 b43 开源驱动（简单方案，推荐先试）</a></li>
+        <li><a href="#三安装-wl-专有驱动速度更好支持-5ghz">三、安装 wl 专有驱动（速度更好，支持 5GHz）</a></li>
+        <li><a href="#四连接-wi-fi">四、连接 Wi-Fi</a></li>
+        <li><a href="#五常用排查命令">五、常用排查命令</a></li>
+        <li><a href="#六两种驱动对比快速参考">六、两种驱动对比（快速参考）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</aside>
+
+    <main class="content container">
+    <nav aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    <li>
+      <a href="https://ichochy.com/index.html">首页</a>
+    </li>
+    <li class="active">Fedora 检测安装 WIFI 驱动，安装 BCM4331 驱动的完整全过程</li>
+  </ol>
+</nav>
+<h1>Fedora 检测安装 WIFI 驱动，安装 BCM4331 驱动的完整全过程</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/linux.html">#Linux</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/linx.html">#linx</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/shell.html">#shell</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/net.html">#net</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2026/09/20 22:25:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/linux/20260920.html">https://ichochy.com/posts/linux/20260920.html</a>
+<hr>
+
+  <p>Fedora 44 MacBook 检测 BCM4331 并安装驱动的完整全过程</p>
+<h3 id="一检测网卡型号">一、检测网卡型号</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 最常用的检测方法</span>
+</span></span><span style="display:flex;"><span>lspci -nn | grep -i network
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 更详细的信息（推荐）</span>
+</span></span><span style="display:flex;"><span>lspci -nnk | grep -A4 -i network
+</span></span></code></pre></div><p>如果输出类似下面内容，就确认是 BCM4331：</p>
+<pre tabindex="0"><code>03:00.0 Network controller [0280]: Broadcom Inc. and subsidiaries BCM4331 802.11a/b/g/n [14e4:4331] (rev 02)
+</code></pre><p>补充检查命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lspci -nn -d 14e4:
+</span></span><span style="display:flex;"><span>uname -r
+</span></span><span style="display:flex;"><span>cat /etc/os-release
+</span></span></code></pre></div><hr>
+<h3 id="二安装-b43-开源驱动简单方案推荐先试">二、安装 b43 开源驱动（简单方案，推荐先试）</h3>
+<h4 id="1-启用-rpm-fusion-仓库">1. 启用 RPM Fusion 仓库</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 安装 free + nonfree 基础仓库</span>
+</span></span><span style="display:flex;"><span>sudo dnf install <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-<span style="color:#66d9ef">$(</span>rpm -E %fedora<span style="color:#66d9ef">)</span>.noarch.rpm <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-<span style="color:#66d9ef">$(</span>rpm -E %fedora<span style="color:#66d9ef">)</span>.noarch.rpm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 安装 tainted 仓库（固件所在）</span>
+</span></span><span style="display:flex;"><span>sudo dnf install rpmfusion-nonfree-release-tainted
+</span></span></code></pre></div><h4 id="2-安装固件">2. 安装固件</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install b43-firmware
+</span></span></code></pre></div><p>验证固件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls /lib/firmware/b43/ucode29_mimo.fw
+</span></span></code></pre></div><h4 id="3-加载驱动">3. 加载驱动</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo modprobe -r b43
+</span></span><span style="display:flex;"><span>sudo modprobe b43
+</span></span></code></pre></div><h4 id="4-检查是否成功">4. 检查是否成功</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dmesg | grep -i b43
+</span></span><span style="display:flex;"><span>lsmod | grep b43
+</span></span><span style="display:flex;"><span>lspci -nnk | grep -A3 -i network
+</span></span><span style="display:flex;"><span>nmcli device
+</span></span></code></pre></div><p>成功标志：</p>
+<ul>
+<li>出现 <code>Loading firmware version 784.2</code></li>
+<li>接口名出现（如 <code>wlp3s0b1</code>）</li>
+<li><code>Kernel driver in use: b43</code></li>
+</ul>
+<hr>
+<h3 id="三安装-wl-专有驱动速度更好支持-5ghz">三、安装 wl 专有驱动（速度更好，支持 5GHz）</h3>
+<blockquote>
+<p>注意：使用 <code>wl</code> 通常需要关闭 Secure Boot。</p>
+</blockquote>
+<h4 id="1-安装驱动">1. 安装驱动</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install akmod-wl
+</span></span><span style="display:flex;"><span>sudo akmods --force          <span style="color:#75715e"># 强制编译模块</span>
+</span></span></code></pre></div><h4 id="2-黑名单冲突模块很重要">2. 黑名单冲突模块（很重要）</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;blacklist b43\nblacklist b43legacy\nblacklist ssb\nblacklist bcma\nblacklist brcmsmac&#34;</span> | sudo tee /etc/modprobe.d/blacklist-b43.conf
+</span></span></code></pre></div><h4 id="3-重启">3. 重启</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo reboot
+</span></span></code></pre></div><h4 id="4-重启后检查">4. 重启后检查</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lspci -nnk | grep -A3 -i network
+</span></span><span style="display:flex;"><span>lsmod | grep wl
+</span></span><span style="display:flex;"><span>nmcli device
+</span></span></code></pre></div><p>成功标志：<code>Kernel driver in use: wl</code></p>
+<hr>
+<h3 id="四连接-wi-fi">四、连接 Wi-Fi</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 扫描网络</span>
+</span></span><span style="display:flex;"><span>nmcli device wifi list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 连接</span>
+</span></span><span style="display:flex;"><span>nmcli device wifi connect <span style="color:#e6db74">&#34;你的WiFi名称&#34;</span> password <span style="color:#e6db74">&#34;你的密码&#34;</span>
+</span></span></code></pre></div><p>或直接打开「设置 → 网络」。</p>
+<hr>
+<h3 id="五常用排查命令">五、常用排查命令</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 查看当前使用的驱动</span>
+</span></span><span style="display:flex;"><span>lspci -nnk | grep -A3 -i network
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看加载的模块</span>
+</span></span><span style="display:flex;"><span>lsmod | grep -E <span style="color:#e6db74">&#39;b43|wl&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看固件加载情况</span>
+</span></span><span style="display:flex;"><span>sudo dmesg | grep -iE <span style="color:#e6db74">&#39;b43|wl|firmware&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看射频开关</span>
+</span></span><span style="display:flex;"><span>rfkill list
+</span></span><span style="display:flex;"><span>sudo rfkill unblock all
+</span></span></code></pre></div><hr>
+<h3 id="六两种驱动对比快速参考">六、两种驱动对比（快速参考）</h3>
+<table>
+	<thead>
+			<tr>
+					<th>项目</th>
+					<th>b43（开源）</th>
+					<th>wl（专有）</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>安装难度</td>
+					<td>简单</td>
+					<td>稍复杂（需编译）</td>
+			</tr>
+			<tr>
+					<td>5GHz 支持</td>
+					<td>不支持</td>
+					<td>支持</td>
+			</tr>
+			<tr>
+					<td>速度</td>
+					<td>一般（20-60Mbps）</td>
+					<td>更好（常 100Mbps+）</td>
+			</tr>
+			<tr>
+					<td>Secure Boot</td>
+					<td>兼容</td>
+					<td>通常需关闭</td>
+			</tr>
+			<tr>
+					<td>稳定性</td>
+					<td>中等</td>
+					<td>通常更好</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20251015.html">
+                    iGSTT(Gemini STT) 开源免费的语音转文本（STT）的命令行工具
+                </a>
+                <small>
+                    2025/10/15
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20250910.html">
+                    Python 项目打包，并上传到 PyPI，分享项目
+                </a>
+                <small>
+                    2025/09/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20250908.html">
+                    iGTTS(Gemini TTS) 开源免费的文本转语音（TTS）的命令行工具
+                </a>
+                <small>
+                    2025/09/08
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20250528.html">
+                    NanoPi R2S 安装 Debian 固件系统，旁路由网络代理内网转发，决解直连网络卡顿 nftables
+                </a>
+                <small>
+                    2025/05/28
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/shell/20250510.html">
+                    NanoPi R2S Armbian Linux 旁路由网络代理内网转发，决解直连网络卡顿 iptables
+                </a>
+                <small>
+                    2025/05/10
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/ai/20260812.html" class="pag-link">通过 ZenMux 配置 Codex CLI 完整指南（含 Profiles &#43; 换模型）</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>

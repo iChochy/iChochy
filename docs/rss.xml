@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Wed, 12 Aug 2026 11:53:45 +0800</lastBuildDate>
+			<lastBuildDate>Sun, 20 Sep 2026 22:25:45 +0800</lastBuildDate>
 		
 			<atom:link href="https://ichochy.com/rss.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Fedora 检测安装 WIFI 驱动，安装 BCM4331 驱动的完整全过程</title>
+				<link>https://ichochy.com/posts/linux/20260920.html</link>
+				<pubDate>Sun, 20 Sep 2026 22:25:45 +0800</pubDate>
+				<guid>https://ichochy.com/posts/linux/20260920.html</guid>
+				<description>&lt;p&gt;Fedora 44 MacBook 检测 BCM4331 并安装驱动的完整全过程&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>通过 ZenMux 配置 Codex CLI 完整指南（含 Profiles + 换模型）</title>
 				<link>https://ichochy.com/posts/ai/20260812.html</link>
