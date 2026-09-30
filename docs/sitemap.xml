@@ -3,8 +3,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ichochy.com/tags/ai.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/categories/ai.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/api.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
     <loc>https://ichochy.com/categories/index.html</loc>
-    <lastmod>2026-09-20T22:25:45+08:00</lastmod>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/chat.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/cli.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/ai/20260922.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/posts/index.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/tags/index.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
+  </url><url>
+    <loc>https://ichochy.com/index.html</loc>
+    <lastmod>2026-09-22T21:32:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/posts/linux/20260920.html</loc>
     <lastmod>2026-09-20T22:25:45+08:00</lastmod>
@@ -18,29 +45,8 @@
     <loc>https://ichochy.com/tags/net.html</loc>
     <lastmod>2026-09-20T22:25:45+08:00</lastmod>
   </url><url>
-    <loc>https://ichochy.com/posts/index.html</loc>
-    <lastmod>2026-09-20T22:25:45+08:00</lastmod>
-  </url><url>
     <loc>https://ichochy.com/tags/shell.html</loc>
     <lastmod>2026-09-20T22:25:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/index.html</loc>
-    <lastmod>2026-09-20T22:25:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/index.html</loc>
-    <lastmod>2026-09-20T22:25:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/ai.html</loc>
-    <lastmod>2026-08-12T11:53:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/categories/ai.html</loc>
-    <lastmod>2026-08-12T11:53:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/api.html</loc>
-    <lastmod>2026-08-12T11:53:45+08:00</lastmod>
-  </url><url>
-    <loc>https://ichochy.com/tags/chat.html</loc>
-    <lastmod>2026-08-12T11:53:45+08:00</lastmod>
   </url><url>
     <loc>https://ichochy.com/tags/web.html</loc>
     <lastmod>2026-08-12T11:53:45+08:00</lastmod>

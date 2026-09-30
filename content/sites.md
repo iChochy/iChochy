@@ -16,8 +16,6 @@ Deepseek：[https://deepseek.com](https://deepseek.com)
 ## AI 聚合平台
 ZenMux：[https://zenmux.ai](https://zenmux.ai/invite/3KA0VI)  
 OpenRouter：[https://openrouter.ai](https://openrouter.ai)  
-BigModel：[https://www.bigmodel.cn](https://www.bigmodel.cn/invite?icode=SbhyEoRyatGVt2/j3XXIzn3uFJ1nZ0jLLgipQkYjpcA=)  
-
 
 ## 开发文档
 Java：[https://dev.java](https://dev.java)  
@@ -40,7 +38,6 @@ Emacs：[https://www.gnu.org/software/emacs](https://www.gnu.org/software/emacs)
 IDEA：[https://www.jetbrains.com/idea](https://www.jetbrains.com/idea)  
 Xcode：[https://developer.apple.com/xcode](https://developer.apple.com/xcode)  
 WebStorm：[https://www.jetbrains.com/webstorm](https://www.jetbrains.com/webstorm)  
-DataGrip：[https://www.jetbrains.com/datagrip](https://www.jetbrains.com/datagrip)   
 PyCharm：[https://www.jetbrains.com/pycharm](https://www.jetbrains.com/pycharm)  
 Eclipse：[https://www.eclipse.org](https://www.eclipse.org)  
 Netbeans：[https://netbeans.apache.org](https://netbeans.apache.org)  

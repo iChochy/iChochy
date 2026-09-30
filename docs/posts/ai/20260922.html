@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>Cloudflare AI Gateway 接入 ZenMux：从零搭建统一 AI API 网关 &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="ai,cli,chat,api"/>
+    <meta name="description" content="本文记录如何使用 Cloudflare AI Gateway &#43; Custom Provider &#43; ZenMux 搭建一个统一的 AI API 网关。"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2026 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一最终实现流程">一、最终实现流程</a></li>
+    <li><a href="#二需要配置的内容">二、需要配置的内容</a></li>
+    <li><a href="#三准备工作">三、准备工作</a></li>
+    <li><a href="#四创建-cloudflare-ai-gateway">四、创建 Cloudflare AI Gateway</a></li>
+    <li><a href="#五配置自定义域名">五、配置自定义域名</a></li>
+    <li><a href="#六创建-gateway-token">六、创建 Gateway Token</a></li>
+    <li><a href="#七创建-zenmux-custom-provider">七、创建 ZenMux Custom Provider</a>
+      <ul>
+        <li><a href="#为什么-base-url-是-api-而不是-apiv1">为什么 Base URL 是 <code>/api</code> 而不是 <code>/api/v1</code>？</a></li>
+      </ul>
+    </li>
+    <li><a href="#八添加-zenmux-provider-key">八、添加 ZenMux Provider Key</a></li>
+    <li><a href="#九两套-key-的关系">九、两套 Key 的关系</a></li>
+    <li><a href="#十先直接测试-zenmux">十、先直接测试 ZenMux</a></li>
+    <li><a href="#十一通过-cloudflare-调用-zenmux">十一、通过 Cloudflare 调用 ZenMux</a>
+      <ul>
+        <li><a href="#请求完整过程">请求完整过程</a></li>
+      </ul>
+    </li>
+    <li><a href="#十二测试-responses-api-与流式输出">十二、测试 Responses API 与流式输出</a>
+      <ul>
+        <li><a href="#responses-api">Responses API</a></li>
+        <li><a href="#streaming流式输出">Streaming（流式输出）</a></li>
+        <li><a href="#使用-unified-apicompat方式可选">使用 Unified API（compat）方式（可选）</a></li>
+      </ul>
+    </li>
+    <li><a href="#十三常见问题排查">十三、常见问题排查</a>
+      <ul>
+        <li><a href="#1-返回-code-2009-message-unauthorized">1. 返回 <code>{&#34;code&#34;: 2009, &#34;message&#34;: &#34;Unauthorized&#34;}</code></a></li>
+        <li><a href="#2-上游返回-401-unauthorized">2. 上游返回 401 Unauthorized</a></li>
+        <li><a href="#3-返回-404">3. 返回 404</a></li>
+      </ul>
+    </li>
+    <li><a href="#十四客户端配置示例">十四、客户端配置示例</a></li>
+    <li><a href="#十五完整架构图">十五、完整架构图</a></li>
+    <li><a href="#十六最终检查清单">十六、最终检查清单</a></li>
+    <li><a href="#十七推荐环境变量">十七、推荐环境变量</a></li>
+    <li><a href="#十八结语">十八、结语</a></li>
+    <li><a href="#邀请奖励">邀请奖励</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</aside>
+
+    <main class="content container">
+    <nav aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    <li>
+      <a href="https://ichochy.com/index.html">首页</a>
+    </li>
+    <li class="active">Cloudflare AI Gateway 接入 ZenMux：从零搭建统一 AI API 网关</li>
+  </ol>
+</nav>
+<h1>Cloudflare AI Gateway 接入 ZenMux：从零搭建统一 AI API 网关</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/ai.html">#AI</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/ai.html">#ai</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/cli.html">#cli</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/chat.html">#chat</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/api.html">#api</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2026/09/22 21:32:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/ai/20260922.html">https://ichochy.com/posts/ai/20260922.html</a>
+<hr>
+
+  <p>本文记录如何使用 <strong>Cloudflare AI Gateway + Custom Provider + ZenMux</strong> 搭建一个统一的 AI API 网关。</p>
+<hr>
+<h2 id="一最终实现流程">一、最终实现流程</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Codex / Junie / Grok CLI / OpenAI SDK
+</span></span><span style="display:flex;"><span>          │
+</span></span><span style="display:flex;"><span>          ▼
+</span></span><span style="display:flex;"><span>https://ai.ichochy.com
+</span></span><span style="display:flex;"><span>          │
+</span></span><span style="display:flex;"><span>          ▼
+</span></span><span style="display:flex;"><span>Cloudflare AI Gateway
+</span></span><span style="display:flex;"><span>          │
+</span></span><span style="display:flex;"><span>    Custom Provider
+</span></span><span style="display:flex;"><span>          │
+</span></span><span style="display:flex;"><span>          ▼
+</span></span><span style="display:flex;"><span>       ZenMux
+</span></span><span style="display:flex;"><span>    ┌─────┼─────┐
+</span></span><span style="display:flex;"><span>    ▼     ▼     ▼
+</span></span><span style="display:flex;"><span>  GPT  Claude  GLM
+</span></span><span style="display:flex;"><span>    │           │
+</span></span><span style="display:flex;"><span>DeepSeek      Grok
+</span></span></code></pre></div><p>客户端只需访问自己的域名：<code>https://ai.ichochy.com</code>。</p>
+<hr>
+<h2 id="二需要配置的内容">二、需要配置的内容</h2>
+<p>整个配置主要分为 5 步：</p>
+<ol>
+<li>创建 AI Gateway</li>
+<li>配置自定义域名</li>
+<li>创建 Gateway 身份验证令牌</li>
+<li>创建 ZenMux Custom Provider</li>
+<li>添加 ZenMux Provider API Key</li>
+</ol>
+<p>最终配置一览：</p>
+<table>
+	<thead>
+			<tr>
+					<th>配置项</th>
+					<th>示例值</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Gateway</td>
+					<td><code>zenmux</code></td>
+			</tr>
+			<tr>
+					<td>Domain</td>
+					<td><code>ai.ichochy.com</code></td>
+			</tr>
+			<tr>
+					<td>Custom Provider</td>
+					<td><code>ZenMux</code></td>
+			</tr>
+			<tr>
+					<td>Provider Slug</td>
+					<td><code>zenmux</code></td>
+			</tr>
+			<tr>
+					<td>Base URL</td>
+					<td><code>https://zenmux.ai/api</code></td>
+			</tr>
+			<tr>
+					<td>Gateway Token</td>
+					<td>Cloudflare Gateway Token</td>
+			</tr>
+			<tr>
+					<td>Provider Key</td>
+					<td>ZenMux API Key</td>
+			</tr>
+	</tbody>
+</table>
+<hr>
+<h2 id="三准备工作">三、准备工作</h2>
+<p>需要准备：</p>
+<ul>
+<li>一个 Cloudflare 账号</li>
+<li>一个已托管到 Cloudflare 的域名</li>
+<li>一个 ZenMux 账号</li>
+<li>一个 ZenMux API Key</li>
+</ul>
+<p>本文使用示例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Cloudflare Gateway：zenmux
+</span></span><span style="display:flex;"><span>自定义域名：ai.ichochy.com
+</span></span><span style="display:flex;"><span>ZenMux Base URL：https://zenmux.ai/api
+</span></span><span style="display:flex;"><span>模型示例：z-ai/glm-5.3-flash
+</span></span></code></pre></div><hr>
+<h2 id="四创建-cloudflare-ai-gateway">四、创建 Cloudflare AI Gateway</h2>
+<p>登录 Cloudflare Dashboard：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>AI → AI Gateway → Create Gateway
+</span></span></code></pre></div><p>Gateway 名称填写：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>zenmux
+</span></span></code></pre></div><p>创建完成后，该 Gateway 将成为整个 AI API 的入口。</p>
+<hr>
+<h2 id="五配置自定义域名">五、配置自定义域名</h2>
+<p>进入 Gateway 页面：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>AI Gateway → zenmux → Custom Domains
+</span></span></code></pre></div><p>添加域名：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ai.ichochy.com
+</span></span></code></pre></div><p>完成 DNS 和域名验证后，即可通过：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://ai.ichochy.com
+</span></span></code></pre></div><p>访问 AI Gateway。</p>
+<p>使用自定义域名后，客户端无需暴露 Cloudflare Account ID 或 API Token，URL 更加简洁。</p>
+<hr>
+<h2 id="六创建-gateway-token">六、创建 Gateway Token</h2>
+<p>在 AI Gateway 中创建 <strong>Authentication Token</strong>（即 <code>CLOUDFLARE_API_TOKEN</code>）。</p>
+<p>该 Token 用于客户端访问 AI Gateway：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export CLOUDFLARE_API_TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;你的 AI Gateway Authentication Token&#34;</span>
+</span></span></code></pre></div><hr>
+<h2 id="七创建-zenmux-custom-provider">七、创建 ZenMux Custom Provider</h2>
+<p>进入：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>AI Gateway → Custom Providers → Add Custom Provider
+</span></span></code></pre></div><p>填写信息：</p>
+<table>
+	<thead>
+			<tr>
+					<th>字段</th>
+					<th>值</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Provider Name</td>
+					<td>ZenMux</td>
+			</tr>
+			<tr>
+					<td>Provider Object</td>
+					<td>zenmux</td>
+			</tr>
+			<tr>
+					<td>Base URL</td>
+					<td><code>https://zenmux.ai/api</code></td>
+			</tr>
+			<tr>
+					<td>Status</td>
+					<td>Enable</td>
+			</tr>
+	</tbody>
+</table>
+<p>保存后即可。</p>
+<h3 id="为什么-base-url-是-api-而不是-apiv1">为什么 Base URL 是 <code>/api</code> 而不是 <code>/api/v1</code>？</h3>
+<p>ZenMux 的 OpenAI 兼容接口实际地址为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://zenmux.ai/api/v1
+</span></span></code></pre></div><p>但 Custom Provider 的 Base URL <strong>不要</strong>写成 <code>/api/v1</code>。</p>
+<p>原因：Cloudflare 会把客户端请求的路径直接追加到 Base URL 后面。</p>
+<p>客户端请求示例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/custom-zenmux/v1/chat/completions
+</span></span></code></pre></div><p>Cloudflare 实际转发为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://zenmux.ai/api + /v1/chat/completions
+</span></span><span style="display:flex;"><span>→ https://zenmux.ai/api/v1/chat/completions
+</span></span></code></pre></div><p>如果 Base URL 已经包含 <code>/v1</code>，就会变成 <code>/api/v1/v1/...</code>，导致 404。</p>
+<p><strong>正确配置：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Base URL = https://zenmux.ai/api
+</span></span></code></pre></div><p>Slug <code>zenmux</code> 也很重要，因为客户端后续使用的路径前缀是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/custom-zenmux/
+</span></span></code></pre></div><p>（<code>custom-</code> 是 Cloudflare Custom Provider 的固定前缀）</p>
+<hr>
+<h2 id="八添加-zenmux-provider-key">八、添加 ZenMux Provider Key</h2>
+<p>Custom Provider 创建完成后，需要告诉 Cloudflare 调用 ZenMux 时使用哪个 API Key。</p>
+<p>进入：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>AI Gateway → Provider Keys → Add API Key
+</span></span></code></pre></div><p>选择 Provider 为 <code>ZenMux</code>，填入你的 ZenMux API Key（<code>sk-xxxxxxxx</code>），保存。</p>
+<hr>
+<h2 id="九两套-key-的关系">九、两套 Key 的关系</h2>
+<p>系统中存在两套完全不同的 Key：</p>
+<table>
+	<thead>
+			<tr>
+					<th>Key</th>
+					<th>用途</th>
+					<th>流向</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>CLOUDFLARE_API_TOKEN</code></td>
+					<td>客户端 → Cloudflare Gateway</td>
+					<td>客户端必须携带</td>
+			</tr>
+			<tr>
+					<td><code>ZENMUX_API_KEY</code></td>
+					<td>Cloudflare → ZenMux</td>
+					<td>保存在 Cloudflare 侧</td>
+			</tr>
+	</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Client ──(CLOUDFLARE_API_TOKEN)──► Cloudflare AI Gateway
+</span></span><span style="display:flex;"><span>                              │
+</span></span><span style="display:flex;"><span>                              │ (BYOK: Provider Key)
+</span></span><span style="display:flex;"><span>                              ▼
+</span></span><span style="display:flex;"><span>                           ZenMux
+</span></span></code></pre></div><p>客户端<strong>不需要</strong>保存 ZenMux API Key。</p>
+<hr>
+<h2 id="十先直接测试-zenmux">十、先直接测试 ZenMux</h2>
+<p>在接入 Cloudflare 之前，建议先确认 ZenMux 本身可用：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export ZENMUX_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;你的 ZenMux API Key&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curl https://zenmux.ai/api/v1/chat/completions <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$ZENMUX_API_KEY<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --json <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;model&#34;: &#34;z-ai/glm-5.3-flash&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;messages&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;Hello&#34;}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span></code></pre></div><p>返回正常模型响应即表示 ZenMux 配置正确。</p>
+<hr>
+<h2 id="十一通过-cloudflare-调用-zenmux">十一、通过 Cloudflare 调用 ZenMux</h2>
+<p>完整链路测试：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://ai.ichochy.com/custom-zenmux/v1/chat/completions <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$CLOUDFLARE_API_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --json <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;model&#34;: &#34;z-ai/glm-5.3-flash&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;messages&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;你好，请用一句话介绍自己。&#34;}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span></code></pre></div><p><strong>关键 Header：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Authorization: Bearer $CLOUDFLARE_API_TOKEN
+</span></span></span></code></pre></div><p>注意：<strong>不要</strong>使用 <code>Authorization: Bearer $ZENMUX_API_KEY</code>，因为 ZenMux Key 已经保存在 Cloudflare Provider Keys 中。</p>
+<h3 id="请求完整过程">请求完整过程</h3>
+<ol>
+<li>客户端请求 <code>https://ai.ichochy.com/custom-zenmux/v1/chat/completions</code></li>
+<li>Cloudflare 校验 <code>Authorization</code></li>
+<li>识别路径中的 <code>custom-zenmux</code>，匹配到 Custom Provider（Slug: <code>zenmux</code>）</li>
+<li>读取对应的 Provider Key</li>
+<li>转发到 <code>https://zenmux.ai/api/v1/chat/completions</code></li>
+</ol>
+<hr>
+<h2 id="十二测试-responses-api-与流式输出">十二、测试 Responses API 与流式输出</h2>
+<h3 id="responses-api">Responses API</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://ai.ichochy.com/custom-zenmux/v1/responses <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$CLOUDFLARE_API_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --json <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;model&#34;: &#34;z-ai/glm-5.3-flash&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;input&#34;: &#34;你好，请简单介绍一下自己。&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span></code></pre></div><h3 id="streaming流式输出">Streaming（流式输出）</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://ai.ichochy.com/custom-zenmux/v1/chat/completions <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$CLOUDFLARE_API_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --json <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;model&#34;: &#34;z-ai/glm-5.3-flash&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;messages&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;请介绍一下 Fedora Linux。&#34;}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ],
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;stream&#34;: true
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span></code></pre></div><p>正常情况下会返回 SSE 格式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>data: {...}
+</span></span><span style="display:flex;"><span>data: {...}
+</span></span><span style="display:flex;"><span>data: [DONE]
+</span></span></code></pre></div><h3 id="使用-unified-apicompat方式可选">使用 Unified API（compat）方式（可选）</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -X POST <span style="color:#e6db74">&#34;https://ai.ichochy.com/compat/chat/completions&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$CLOUDFLARE_API_TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -d <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;model&#34;: &#34;custom-zenmux/x-ai/grok-4.1-fast&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;messages&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      {&#34;role&#34;: &#34;user&#34;, &#34;content&#34;: &#34;你好&#34;}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span></code></pre></div><hr>
+<h2 id="十三常见问题排查">十三、常见问题排查</h2>
+<h3 id="1-返回-code-2009-message-unauthorized">1. 返回 <code>{&quot;code&quot;: 2009, &quot;message&quot;: &quot;Unauthorized&quot;}</code></h3>
+<ul>
+<li>检查 <code>CLOUDFLARE_API_TOKEN</code> 是否为空：<code>echo ${#CLOUDFLARE_API_TOKEN}</code></li>
+<li>确认 Header 使用的是 <code>Authorization</code>，而不是把 ZenMux Key 放进去</li>
+</ul>
+<h3 id="2-上游返回-401-unauthorized">2. 上游返回 401 Unauthorized</h3>
+<p>检查 Cloudflare 的 Provider Keys 中，ZenMux 的 API Key 是否正确。可先直连 ZenMux 测试。</p>
+<h3 id="3-返回-404">3. 返回 404</h3>
+<p>检查 Custom Provider 的 Base URL 是否为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://zenmux.ai/api
+</span></span></code></pre></div><p><strong>不要</strong>写成 <code>https://zenmux.ai/api/v1</code> 否则会出现路径重复。</p>
+<hr>
+<h2 id="十四客户端配置示例">十四、客户端配置示例</h2>
+<p>由于最终接口是 OpenAI 兼容的，大多数客户端只需配置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Base URL：https://ai.ichochy.com/custom-zenmux/v1
+</span></span><span style="display:flex;"><span>API Key ：CLOUDFLARE_API_TOKEN
+</span></span><span style="display:flex;"><span>Model   ：z-ai/glm-5.3-flash
+</span></span></code></pre></div><p>客户端完全不需要知道 ZenMux API Key。</p>
+<hr>
+<h2 id="十五完整架构图">十五、完整架构图</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>┌──────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│           AI Clients             │
+</span></span><span style="display:flex;"><span>│  Codex / Junie / Grok CLI / SDK  │
+</span></span><span style="display:flex;"><span>└────────────────┬─────────────────┘
+</span></span><span style="display:flex;"><span>                 │ CLOUDFLARE_API_TOKEN
+</span></span><span style="display:flex;"><span>                 ▼
+</span></span><span style="display:flex;"><span>┌──────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│         ai.ichochy.com           │
+</span></span><span style="display:flex;"><span>│     Cloudflare AI Gateway        │
+</span></span><span style="display:flex;"><span>│        Gateway: zenmux           │
+</span></span><span style="display:flex;"><span>└────────────────┬─────────────────┘
+</span></span><span style="display:flex;"><span>                 │ custom-zenmux
+</span></span><span style="display:flex;"><span>                 ▼
+</span></span><span style="display:flex;"><span>┌──────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│        Custom Provider           │
+</span></span><span style="display:flex;"><span>│  Name: ZenMux  |  Slug: zenmux   │
+</span></span><span style="display:flex;"><span>│  Base URL: https://zenmux.ai/api │
+</span></span><span style="display:flex;"><span>└────────────────┬─────────────────┘
+</span></span><span style="display:flex;"><span>                 │ Provider Key
+</span></span><span style="display:flex;"><span>                 ▼
+</span></span><span style="display:flex;"><span>┌──────────────────────────────────┐
+</span></span><span style="display:flex;"><span>│             ZenMux               │
+</span></span><span style="display:flex;"><span>│  GPT / Claude / GLM / DeepSeek / │
+</span></span><span style="display:flex;"><span>│            Grok / ...            │
+</span></span><span style="display:flex;"><span>└──────────────────────────────────┘
+</span></span></code></pre></div><hr>
+<h2 id="十六最终检查清单">十六、最终检查清单</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Cloudflare AI Gateway 已创建（名称：<code>zenmux</code>）</li>
+<li><input checked="" disabled="" type="checkbox"> 自定义域名 <code>ai.ichochy.com</code> 已配置并验证</li>
+<li><input checked="" disabled="" type="checkbox"> Gateway Authentication Token 已创建</li>
+<li><input checked="" disabled="" type="checkbox"> Custom Provider 已添加（Name: ZenMux，Slug: zenmux）</li>
+<li><input checked="" disabled="" type="checkbox"> Base URL 为 <code>https://zenmux.ai/api</code></li>
+<li><input checked="" disabled="" type="checkbox"> ZenMux Provider Key 已保存</li>
+<li><input checked="" disabled="" type="checkbox"> Chat Completions 接口可正常返回</li>
+<li><input checked="" disabled="" type="checkbox"> Responses 接口可正常返回</li>
+<li><input checked="" disabled="" type="checkbox"> 流式输出正常</li>
+</ul>
+<hr>
+<h2 id="十七推荐环境变量">十七、推荐环境变量</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export CLOUDFLARE_API_TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;你的 Cloudflare AI Gateway Token&#34;</span>
+</span></span><span style="display:flex;"><span>export ZENMUX_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;你的 ZenMux API Key&#34;</span>   <span style="color:#75715e"># 仅用于直连测试</span>
+</span></span></code></pre></div><p>日常通过 Gateway 使用时，客户端只需携带 <code>CLOUDFLARE_API_TOKEN</code>。</p>
+<hr>
+<h2 id="十八结语">十八、结语</h2>
+<p>通过 Cloudflare AI Gateway + ZenMux，可以将多个 AI 模型统一到自己的域名下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://ai.ichochy.com
+</span></span></code></pre></div><p>核心配置只有三层：</p>
+<ol>
+<li><strong>Gateway</strong>：<code>zenmux</code></li>
+<li><strong>Custom Provider</strong>：ZenMux（<code>https://zenmux.ai/api</code>）</li>
+<li><strong>Provider Key</strong>：ZenMux API Key</li>
+</ol>
+<p>客户端只需配置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Base URL：https://ai.ichochy.com/custom-zenmux/v1
+</span></span><span style="display:flex;"><span>API Key ：Gateway Token
+</span></span></code></pre></div><p>既保留了 ZenMux 的多模型能力，又利用 Cloudflare AI Gateway 作为统一入口，并将 Provider API Key 从客户端配置中完全隔离。</p>
+<hr>
+<h2 id="邀请奖励">邀请奖励</h2>
+<p><strong>首次充值可获得 5% 奖励</strong><br>
+邀请码: <code>3KA0VI</code><br>
+邀请链接: <a href="https://zenmux.ai/invite/3KA0VI">https://zenmux.ai/invite/3KA0VI</a></p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260812.html">
+                    通过 ZenMux 配置 Codex CLI 完整指南（含 Profiles &#43; 换模型）
+                </a>
+                <small>
+                    2026/08/12
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260810.html">
+                    用 Grok Build 对接 ZenMux，解锁更多模型的编码体验
+                </a>
+                <small>
+                    2026/08/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260509.html">
+                    通过 ZenMux 使用 Claude Code CLI 解锁更多 AI 模型，包括 Claude 所有模型
+                </a>
+                <small>
+                    2026/05/09
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260103.html">
+                    NVIDIA NIM 开发平台，提供超多免费大模型
+                </a>
+                <small>
+                    2026/01/03
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251220.html">
+                    国内外免费大模型平台，支持 API 调用的超多免费大模型
+                </a>
+                <small>
+                    2025/12/20
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/linux/20260920.html" class="pag-link">Fedora 检测安装 WIFI 驱动，安装 BCM4331 驱动的完整全过程</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>
