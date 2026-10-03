@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+<head>
+    <title>用 Junie CLI 对接 ZenMux：终端 AI 编程代理的统一模型入口实践 &middot; 回忆中的明天</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="ai,web,chat,api"/>
+    <meta name="description" content="在 AI 编程工具越来越碎片化的今天，开发者常常需要在多个模型和多个平台之间切换。JetBrains 的 Junie CLI 作为一款真正的 agentic coding 工具，已经能在终端里独立完成代码审查、重构、测试修复等复杂任务；而 ZenMux 作为带保险赔付机制的企业级大模型聚合平台，提供了统一的 OpenAI / Anthropic 兼容接口和智能路由。把两者对接起来，就能用一个终端命令，调用全球上百个顶尖模型，同时享受计费透明与质量兜底。"/>
+    
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/poole.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/syntax.css">
+    <link type="text/css" rel="stylesheet" href="https://ichochy.com/css/hyde.css">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ichochy.com/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="https://ichochy.com/favicon.png">
+    
+</head>
+
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div id = "title" class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://ichochy.com/"><p class="title">回忆中的明天</p></a>
+      <p class="lead">码农小站，写点Java、Swift和感悟</p>
+    </div>
+      <p>
+        <span id="doc_search"></span>
+      </p>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://ichochy.com/"> 首页 </a></li>
+        <li><a href="https://ichochy.com/search.html"> 搜索 </a></li>
+        <li><a href="https://ichochy.com/links.html"> 友链 </a></li>
+        <li><a href="https://ichochy.com/about.html"> 简介 </a></li>
+        <li><a href="https://ichochy.com/analytics.html"> 分析 </a></li>
+        <li><a href="https://ichochy.com/sites.html"> 站点 </a></li></ul>
+    </nav>
+    <div class = "other">
+        <ol>
+            <li>&copy; 2020 - 2026 iChochy.</li>
+        </ol>
+    </div>
+  </div>
+  
+  <div id="toc" class="container sidebar-toc" aria-label="文章目录">
+    <div class="toc-card">
+      <p class="toc-title">目录</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#为什么选择-junie-cli--zenmux">为什么选择 Junie CLI + ZenMux</a></li>
+        <li><a href="#一安装-junie-cli">一、安装 Junie CLI</a></li>
+        <li><a href="#二获取-zenmux-api-key">二、获取 ZenMux API Key</a></li>
+        <li><a href="#三创建自定义模型配置核心步骤">三、创建自定义模型配置（核心步骤）</a></li>
+        <li><a href="#四启动与日常使用">四、启动与日常使用</a></li>
+        <li><a href="#五实践建议与注意事项">五、实践建议与注意事项</a></li>
+        <li><a href="#结语">结语</a></li>
+        <li><a href="#邀请奖励">邀请奖励</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</aside>
+
+    <main class="content container">
+    <nav aria-label="breadcrumbs">
+  <ol class="breadcrumb">
+    <li>
+      <a href="https://ichochy.com/index.html">首页</a>
+    </li>
+    <li class="active">用 Junie CLI 对接 ZenMux：终端 AI 编程代理的统一模型入口实践</li>
+  </ol>
+</nav>
+<h1>用 Junie CLI 对接 ZenMux：终端 AI 编程代理的统一模型入口实践</h1>
+<div class="post">
+  
+
+  
+  <div class="related">
+    <ul class="related-tags">
+      <b>分类:</b>
+      
+      <li>
+        <a href="https://ichochy.com/categories/ai.html">#AI</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+
+  <div class="related">
+    <ul class="related-tags">
+  
+      <b>标签:</b>
+      
+      <li>
+        <a href="https://ichochy.com/tags/ai.html">#ai</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/web.html">#web</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/chat.html">#chat</a>
+      </li>
+      
+      <li>
+        <a href="https://ichochy.com/tags/api.html">#api</a>
+      </li>
+      
+    
+    </ul>
+  </div>
+
+   <div>
+   <time class="post-date">
+       <b>时间：</b><em>2026/09/30 12:43:45</em>
+       <b>点击：</b><span id="view-count">-</span>次
+    </time>
+   </div>
+<b>原文：</b><a href="https://ichochy.com/posts/ai/20260930.html">https://ichochy.com/posts/ai/20260930.html</a>
+<hr>
+
+  <p>在 AI 编程工具越来越碎片化的今天，开发者常常需要在多个模型和多个平台之间切换。JetBrains 的 <strong>Junie CLI</strong> 作为一款真正的 agentic coding 工具，已经能在终端里独立完成代码审查、重构、测试修复等复杂任务；而 <strong>ZenMux</strong> 作为带保险赔付机制的企业级大模型聚合平台，提供了统一的 OpenAI / Anthropic 兼容接口和智能路由。把两者对接起来，就能用一个终端命令，调用全球上百个顶尖模型，同时享受计费透明与质量兜底。</p>
+<p>下面分享完整的对接方法与实践建议。</p>
+<h3 id="为什么选择-junie-cli--zenmux">为什么选择 Junie CLI + ZenMux</h3>
+<p>Junie CLI 的核心优势在于：</p>
+<ul>
+<li>真正的 agent 循环：它会自己规划、执行、验证，而不是单纯聊天。</li>
+<li>LLM-agnostic：不锁定单一厂商。</li>
+<li>支持 BYOK 与自定义模型，可直接对接任何 OpenAI 兼容端点。</li>
+<li>可在终端、JetBrains IDE、CI/CD 中统一使用。</li>
+</ul>
+<p>ZenMux 的核心价值则是：</p>
+<ul>
+<li>一个 API Key 调用 OpenAI、Anthropic、Google、DeepSeek、Qwen、Kimi 等 100+ 模型。</li>
+<li>智能路由与故障转移。</li>
+<li>独特的 AI 保险机制：效果不佳、延迟过高时自动赔付。</li>
+<li>完整兼容 OpenAI Chat Completions 协议。</li>
+</ul>
+<p>两者结合后，Junie 负责“会干活”，ZenMux 负责“用最好的模型干活，并兜底质量”。</p>
+<h3 id="一安装-junie-cli">一、安装 Junie CLI</h3>
+<p>macOS / Linux：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://junie.jetbrains.com/install.sh | bash
+</span></span></code></pre></div><p>Windows（PowerShell）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>powershell -NoProfile -ExecutionPolicy Bypass -Command <span style="color:#e6db74">&#34;iex (irm &#39;https://junie.jetbrains.com/install.ps1&#39;)&#34;</span>
+</span></span></code></pre></div><p>也可以用 Homebrew 或 npm：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew tap jetbrains-junie/junie <span style="color:#f92672">&amp;&amp;</span> brew install junie
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 或</span>
+</span></span><span style="display:flex;"><span>npm install -g @jetbrains/junie
+</span></span></code></pre></div><p>安装后验证：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>junie --version
+</span></span></code></pre></div><h3 id="二获取-zenmux-api-key">二、获取 ZenMux API Key</h3>
+<ol>
+<li>打开 <a href="https://zenmux.ai/invite/3KA0VI">zenmux.ai</a> 注册/登录。</li>
+<li>根据场景选择套餐：
+<ul>
+<li><strong>Pay As You Go</strong>：按量付费，适合正式项目，无速率限制。</li>
+<li><strong>Builder Plan</strong>：固定月费（从 $20 起），适合个人开发与学习。</li>
+</ul>
+</li>
+<li>在控制台创建 API Key。</li>
+<li>到 <a href="https://zenmux.ai/models">Models 页面</a> 查看模型 slug（例如 <code>anthropic/claude-sonnet-5.5</code>、<code>openai/gpt-5.5</code>、<code>google/gemini-3.8-flash</code>）。</li>
+</ol>
+<p>ZenMux 的 OpenAI 兼容地址是：</p>
+<pre tabindex="0"><code>https://zenmux.ai/api/v1
+</code></pre><h3 id="三创建自定义模型配置核心步骤">三、创建自定义模型配置（核心步骤）</h3>
+<p>Junie CLI 通过 JSON Profile 支持自定义端点。推荐放在用户目录：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/.junie/models
+</span></span></code></pre></div><p>创建文件 <code>~/.junie/models/zenmux.json</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;anthropic/claude-sonnet-5.5&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;baseUrl&#34;</span>: <span style="color:#e6db74">&#34;https://zenmux.ai/api/v1/chat/completions&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;apiType&#34;</span>: <span style="color:#e6db74">&#34;OpenAICompletion&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;apiKey&#34;</span>: <span style="color:#e6db74">&#34;${ZENMUX_API_KEY}&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;displayName&#34;</span>: <span style="color:#e6db74">&#34;ZenMux Claude Sonnet&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;providerName&#34;</span>: <span style="color:#e6db74">&#34;ZenMux&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;primaryModel&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;anthropic/claude-sonnet-5.5&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;fasterModel&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;google/gemini-3.8-flash&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>关键字段说明：</p>
+<ul>
+<li><code>id</code>：ZenMux 上的模型 slug。</li>
+<li><code>baseUrl</code>：必须写完整路径 <code>/chat/completions</code>。</li>
+<li><code>apiType</code>：固定使用 <code>OpenAICompletion</code>。</li>
+<li><code>apiKey</code>：建议用环境变量，避免把密钥写进文件。</li>
+<li><code>primaryModel</code> / <code>fasterModel</code>：主模型和辅助模型可以分开配置，提升效率。</li>
+</ul>
+<p>设置环境变量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export ZENMUX_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;你的_ZenMux_API_Key&#34;</span>
+</span></span></code></pre></div><p>项目级配置可放在仓库的 <code>.junie/models/</code> 目录，方便团队共享（记得用环境变量保护密钥）。</p>
+<h3 id="四启动与日常使用">四、启动与日常使用</h3>
+<p>进入项目根目录：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /home/iChochy/code/project
+</span></span><span style="display:flex;"><span>junie
+</span></span></code></pre></div><p>在交互界面输入 <code>/model</code>，选择 <code>custom:zenmux</code> 即可。也可以直接指定：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>junie --model custom:zenmux
+</span></span></code></pre></div><p>常用命令速览：</p>
+<table>
+	<thead>
+			<tr>
+					<th>功能</th>
+					<th>命令 / 操作</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>启动交互会话</td>
+					<td><code>junie</code></td>
+			</tr>
+			<tr>
+					<td>切换模型</td>
+					<td><code>/model</code></td>
+			</tr>
+			<tr>
+					<td>计划模式（只读分析）</td>
+					<td><code>/plan</code> 或 Shift+Tab</td>
+			</tr>
+			<tr>
+					<td>新开会话</td>
+					<td><code>/new</code></td>
+			</tr>
+			<tr>
+					<td>查看账户</td>
+					<td><code>/account</code></td>
+			</tr>
+			<tr>
+					<td>退出</td>
+					<td><code>/quit</code></td>
+			</tr>
+			<tr>
+					<td>无头模式（CI）</td>
+					<td><code>junie --model custom:zenmux &quot;任务描述&quot;</code></td>
+			</tr>
+	</tbody>
+</table>
+<h3 id="五实践建议与注意事项">五、实践建议与注意事项</h3>
+<ol>
+<li>
+<p><strong>模型选择很重要</strong><br>
+Junie 是真正的 agent，对模型的工具调用能力和长上下文保持要求较高。推荐优先使用 Claude Sonnet / Opus、GPT 系列、Gemini Pro 等强模型。过小或过度量化的模型容易出现指令漂移、工具调用失败或中途放弃任务。</p>
+</li>
+<li>
+<p><strong>计费完全透明</strong><br>
+使用自定义 Profile 后，所有请求都走 ZenMux，JetBrains 不再额外收费。你可以在 ZenMux 控制台实时查看 token 用量和费用。</p>
+</li>
+<li>
+<p><strong>安全与可维护性</strong><br>
+永远用 <code>${ZENMUX_API_KEY}</code> 这种环境变量写法，避免密钥进入 Git。团队共享时，把 <code>baseUrl</code> 和模型配置放进仓库，密钥通过 CI 环境变量注入。</p>
+</li>
+<li>
+<p><strong>故障排查</strong></p>
+<ul>
+<li>如果提示找不到模型，检查 slug 是否与 ZenMux Models 页面完全一致。</li>
+<li>baseUrl 写错路径是最常见问题，务必带 <code>/chat/completions</code>。</li>
+<li>环境变量未生效时，Junie 会明确报错缺少变量名。</li>
+</ul>
+</li>
+</ol>
+<h3 id="结语">结语</h3>
+<p>把 Junie CLI 和 ZenMux 对接后，你获得的是一个「终端里的全能 AI 编程搭档 + 统一模型网关」。无论是个人日常开发，还是团队 CI 流水线里的自动化审查，都可以用同一套配置、同一个 API Key 完成。</p>
+<p>官方文档：</p>
+<ul>
+<li>Junie CLI 快速开始与自定义 LLM：https://junie.jetbrains.com/docs/custom-llm-models.html</li>
+<li>ZenMux 快速开始：https://zenmux.ai/docs/guide/quickstart.html</li>
+</ul>
+<h3 id="邀请奖励">邀请奖励</h3>
+<p><strong>首次充值可获得 5% 奖励</strong><br>
+邀请码: <code>3KA0VI</code><br>
+邀请链接: <a href="https://zenmux.ai/invite/3KA0VI">https://zenmux.ai/invite/3KA0VI</a></p>
+
+  
+
+
+<div class="related">
+    <h2>相关文章</h2>
+    <ul class="related-posts">
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260812.html">
+                    通过 ZenMux 配置 Codex CLI 完整指南（含 Profiles &#43; 换模型）
+                </a>
+                <small>
+                    2026/08/12
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260810.html">
+                    用 Grok Build 对接 ZenMux，解锁更多模型的编码体验
+                </a>
+                <small>
+                    2026/08/10
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260509.html">
+                    通过 ZenMux 使用 Claude Code CLI 解锁更多 AI 模型，包括 Claude 所有模型
+                </a>
+                <small>
+                    2026/05/09
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20260103.html">
+                    NVIDIA NIM 开发平台，提供超多免费大模型
+                </a>
+                <small>
+                    2026/01/03
+                </small>
+            </h3>
+        </li>
+        
+        <li>
+            <h3>
+                <a href="https://ichochy.com/posts/ai/20251220.html">
+                    国内外免费大模型平台，支持 API 调用的超多免费大模型
+                </a>
+                <small>
+                    2025/12/20
+                </small>
+            </h3>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+  
+<div class="pagination">
+  
+    
+  <span class="pagination-link older">
+    下一篇：<a href="https://ichochy.com/posts/ai/20260922.html" class="pag-link">Cloudflare AI Gateway 接入 ZenMux：从零搭建统一 AI API 网关</a>
+  </span>
+    
+</div>
+
+
+</div>
+
+
+    </main>
+  </body>
+<script type="text/javascript" src="https://ichochy.com/js/ready.js" defer></script>
+<link rel="preconnect" href="https://NKR7XWIWN9-dsn.algolia.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script src = "/js/searchTop.js"></script>
+
+<script data-ad-client="ca-pub-3691661241035911" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8J2LHY81SL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-8J2LHY81SL');
+</script></html>
